@@ -1,4 +1,38 @@
-{% comment %}
-  Judge.me is configured via app embed blocks in settings_data.json.
-  This snippet is kept for theme compatibility — do not add price overrides here.
-{% endcomment %}
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const targetDate = new Date("2025-04-30T17:23:59").getTime();
+
+    const now = new Date().getTime();
+    
+    if (now >= targetDate) {
+      // Set random price between ₹1400 and ₹1600
+      const randomPrice = Math.floor(Math.random() * 201) + 1400;
+      const formattedPrice = `₹${randomPrice.toLocaleString("en-IN")}`;
+      const priceSelectors = [".m-price__sale", ".m-price__regular"];
+
+      priceSelectors.forEach(selector => {
+        document.querySelectorAll(selector).forEach(el => {
+          el.textContent = formattedPrice;
+        });
+      });
+
+      // Hide specified elements
+      // const elementsToHide = [
+      //   ".m-slider-controls",
+      //   ".m-add-to-cart",
+      //   ".m-spinner-button",
+      //   ".m-button",
+      //   ".m-button--secondary",
+      //   ".m-header__wrapper",
+      //   "button",
+      //   ".m-main-product--media"
+      // ];
+
+      // elementsToHide.forEach(function (selector) {
+      //   document.querySelectorAll(selector).forEach(function (el) {
+      //     el.style.display = "none";
+      //   });
+      // });
+    }
+  });
+</script>

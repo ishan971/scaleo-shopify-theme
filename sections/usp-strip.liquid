@@ -1,0 +1,675 @@
+{%- comment -%}
+  Scale-O USP / Benefits Strip — editable OS 2.0 section
+{%- endcomment -%}
+
+{%- liquid
+  assign show_description = section.settings.show_description
+  assign show_dividers = section.settings.show_dividers
+  assign mobile_layout = section.settings.mobile_layout
+  assign enable_auto_scroll = section.settings.enable_mobile_auto_scroll
+  assign use_gradient = section.settings.use_gradient
+  assign icon_style = section.settings.icon_style
+  assign max_width = section.settings.max_width
+-%}
+
+<style>
+  #shopify-section-{{ section.id }} .scale-o-usp-strip {
+    --usp-bg: {{ section.settings.background_color }};
+    --usp-bg-end: {{ section.settings.gradient_end_color }};
+    --usp-title-color: {{ section.settings.title_color }};
+    --usp-desc-color: {{ section.settings.description_color }};
+    --usp-icon-color: {{ section.settings.icon_color }};
+    --usp-icon-bg: {{ section.settings.icon_background }};
+    --usp-divider: {{ section.settings.divider_color }};
+    --usp-title-size: {{ section.settings.title_size_desktop }}px;
+    --usp-title-size-mobile: {{ section.settings.title_size_mobile }}px;
+    --usp-title-weight: {{ section.settings.title_font_weight }};
+    --usp-desc-size: {{ section.settings.description_size }}px;
+    --usp-icon-size: {{ section.settings.icon_size }}px;
+    --usp-gap: {{ section.settings.item_gap }}px;
+    --usp-pad-y: {{ section.settings.padding_y }}px;
+    --usp-pad-x: {{ section.settings.padding_x }}px;
+    --usp-radius: {{ section.settings.border_radius }}px;
+    --usp-max-width: {% if max_width == 0 %}100%{% else %}{{ max_width }}px{% endif %};
+    --usp-mt: {{ section.settings.margin_top }}px;
+    --usp-mb: {{ section.settings.margin_bottom }}px;
+  }
+
+  #shopify-section-{{ section.id }} .scale-o-usp-strip {
+    margin-top: var(--usp-mt);
+    margin-bottom: var(--usp-mb);
+  }
+
+  {% if section.settings.hide_desktop %}
+  @media (min-width: 768px) {
+    #shopify-section-{{ section.id }} {
+      display: none !important;
+    }
+  }
+  {% endif %}
+
+  {% if section.settings.hide_mobile %}
+  @media (max-width: 767px) {
+    #shopify-section-{{ section.id }} {
+      display: none !important;
+    }
+  }
+  {% endif %}
+
+  .scale-o-usp-strip {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .scale-o-usp-strip__inner {
+    width: 100%;
+    max-width: var(--usp-max-width);
+    margin: 0 auto;
+    background: var(--usp-bg);
+    {% if use_gradient %}
+    background: linear-gradient(90deg, var(--usp-bg) 0%, var(--usp-bg-end) 100%);
+    {% endif %}
+    border-radius: var(--usp-radius);
+    padding: var(--usp-pad-y) var(--usp-pad-x);
+  }
+
+  .scale-o-usp-strip__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    gap: 0;
+    width: 100%;
+  }
+
+  .scale-o-usp-strip__item {
+    position: relative;
+    flex: 1 1 0;
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 calc(var(--usp-gap) / 2);
+  }
+
+  {% if show_dividers %}
+  .scale-o-usp-strip__item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 20%;
+    bottom: 20%;
+    width: 1px;
+    background: var(--usp-divider);
+    opacity: 0.55;
+    pointer-events: none;
+  }
+  {% endif %}
+
+  .scale-o-usp-strip__content {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: inherit;
+    max-width: 100%;
+  }
+
+  .scale-o-usp-strip__content:focus-visible {
+    outline: 2px solid var(--usp-title-color);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  .scale-o-usp-strip__icon {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--usp-icon-size);
+    height: var(--usp-icon-size);
+    color: var(--usp-icon-color);
+  }
+
+  .scale-o-usp-strip__icon--circle {
+    border-radius: 50%;
+    background: var(--usp-icon-bg);
+    padding: 4px;
+  }
+
+  .scale-o-usp-strip__icon--square {
+    border-radius: 6px;
+    background: var(--usp-icon-bg);
+    padding: 4px;
+  }
+
+  .scale-o-usp-strip__svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  .scale-o-usp-strip__text {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .scale-o-usp-strip__title {
+    margin: 0;
+    color: var(--usp-title-color);
+    font-size: var(--usp-title-size);
+    font-weight: var(--usp-title-weight);
+    line-height: 1.25;
+    letter-spacing: 0.01em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .scale-o-usp-strip__desc {
+    margin: 0;
+    color: var(--usp-desc-color);
+    font-size: var(--usp-desc-size);
+    font-weight: 400;
+    line-height: 1.3;
+    opacity: 0.9;
+  }
+
+  /* Mobile layouts */
+  @media (max-width: 767px) {
+    .scale-o-usp-strip__title {
+      font-size: var(--usp-title-size-mobile);
+      white-space: normal;
+    }
+
+    .scale-o-usp-strip__inner {
+      padding-left: 12px;
+      padding-right: 12px;
+    }
+
+    .scale-o-usp-strip[data-mobile-layout="scroll"] .scale-o-usp-strip__list {
+      display: flex;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      gap: 0;
+      justify-content: flex-start;
+    }
+
+    .scale-o-usp-strip[data-mobile-layout="scroll"] .scale-o-usp-strip__list::-webkit-scrollbar {
+      display: none;
+    }
+
+    .scale-o-usp-strip[data-mobile-layout="scroll"] .scale-o-usp-strip__item {
+      flex: 0 0 auto;
+      min-width: min(72vw, 260px);
+      max-width: 80vw;
+      scroll-snap-align: start;
+      padding: 0 16px;
+      justify-content: flex-start;
+    }
+
+    .scale-o-usp-strip[data-mobile-layout="scroll"] .scale-o-usp-strip__item:not(:last-child)::after {
+      top: 25%;
+      bottom: 25%;
+    }
+
+    .scale-o-usp-strip[data-mobile-layout="grid"] .scale-o-usp-strip__list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px 0;
+    }
+
+    .scale-o-usp-strip[data-mobile-layout="grid"] .scale-o-usp-strip__item {
+      flex: none;
+      padding: 4px 12px;
+      justify-content: flex-start;
+    }
+
+    .scale-o-usp-strip[data-mobile-layout="grid"] .scale-o-usp-strip__item:nth-child(2n)::after {
+      display: none;
+    }
+
+    .scale-o-usp-strip[data-mobile-layout="grid"] .scale-o-usp-strip__item:nth-last-child(-n+2)::after {
+      display: none;
+    }
+
+    .scale-o-usp-strip[data-mobile-layout="stack"] .scale-o-usp-strip__list {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 10px;
+    }
+
+    .scale-o-usp-strip[data-mobile-layout="stack"] .scale-o-usp-strip__item {
+      flex: none;
+      justify-content: flex-start;
+      padding: 4px 8px;
+    }
+
+    .scale-o-usp-strip[data-mobile-layout="stack"] .scale-o-usp-strip__item:not(:last-child)::after {
+      display: none;
+      border: 0;
+    }
+
+    .scale-o-usp-strip[data-mobile-layout="stack"] .scale-o-usp-strip__item:not(:last-child) {
+      border-bottom: 1px solid color-mix(in srgb, var(--usp-divider) 35%, transparent);
+      padding-bottom: 10px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .scale-o-usp-strip__list {
+      scroll-behavior: auto !important;
+    }
+  }
+</style>
+
+{%- if section.blocks.size > 0 -%}
+  <div
+    id="ScaleOUspStrip-{{ section.id }}"
+    class="scale-o-usp-strip"
+    data-section-id="{{ section.id }}"
+    data-mobile-layout="{{ mobile_layout }}"
+    data-auto-scroll="{{ enable_auto_scroll }}"
+    role="region"
+    aria-label="{{ section.settings.accessibility_label | default: 'Product benefits' | escape }}"
+  >
+    <div class="scale-o-usp-strip__inner">
+      <ul class="scale-o-usp-strip__list" role="list">
+        {%- for block in section.blocks -%}
+          <li class="scale-o-usp-strip__item" {{ block.shopify_attributes }}>
+            {%- if block.settings.link != blank -%}
+              <a class="scale-o-usp-strip__content" href="{{ block.settings.link }}">
+            {%- else -%}
+              <div class="scale-o-usp-strip__content">
+            {%- endif -%}
+
+              {%- unless block.settings.icon == 'none' -%}
+                <span
+                  class="scale-o-usp-strip__icon{% if icon_style == 'circle' %} scale-o-usp-strip__icon--circle{% elsif icon_style == 'square' %} scale-o-usp-strip__icon--square{% endif %}"
+                  aria-hidden="true"
+                >
+                  {%- render 'usp-strip-icon', icon: block.settings.icon -%}
+                </span>
+              {%- endunless -%}
+
+              <span class="scale-o-usp-strip__text">
+                {%- if block.settings.title != blank -%}
+                  <p class="scale-o-usp-strip__title">{{ block.settings.title | escape }}</p>
+                {%- endif -%}
+                {%- if show_description and block.settings.description != blank -%}
+                  <p class="scale-o-usp-strip__desc">{{ block.settings.description | escape }}</p>
+                {%- endif -%}
+              </span>
+
+            {%- if block.settings.link != blank -%}
+              </a>
+            {%- else -%}
+              </div>
+            {%- endif -%}
+          </li>
+        {%- endfor -%}
+      </ul>
+    </div>
+  </div>
+
+  {%- if enable_auto_scroll and mobile_layout == 'scroll' -%}
+    <script src="{{ 'usp-strip.js' | asset_url }}" defer></script>
+  {%- endif -%}
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "USP Strip",
+  "tag": "section",
+  "class": "scale-o-usp-strip-section",
+  "max_blocks": 6,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Background"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#0C7FDF"
+    },
+    {
+      "type": "checkbox",
+      "id": "use_gradient",
+      "label": "Enable gradient background",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "gradient_end_color",
+      "label": "Gradient end color",
+      "default": "#2A6AB2"
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "range",
+      "id": "title_size_desktop",
+      "label": "Title size (desktop)",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 15
+    },
+    {
+      "type": "range",
+      "id": "title_size_mobile",
+      "label": "Title size (mobile)",
+      "min": 11,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 13
+    },
+    {
+      "type": "select",
+      "id": "title_font_weight",
+      "label": "Title font weight",
+      "default": "600",
+      "options": [
+        { "value": "400", "label": "Regular" },
+        { "value": "500", "label": "Medium" },
+        { "value": "600", "label": "Semi bold" },
+        { "value": "700", "label": "Bold" }
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "show_description",
+      "label": "Show descriptions",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "description_color",
+      "label": "Description color",
+      "default": "#E8F4FF"
+    },
+    {
+      "type": "range",
+      "id": "description_size",
+      "label": "Description size",
+      "min": 10,
+      "max": 16,
+      "step": 1,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "header",
+      "content": "Icons"
+    },
+    {
+      "type": "color",
+      "id": "icon_color",
+      "label": "Icon color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "icon_background",
+      "label": "Icon background",
+      "default": "#0C7FDF",
+      "info": "Used when icon style is Circle or Rounded square"
+    },
+    {
+      "type": "range",
+      "id": "icon_size",
+      "label": "Icon size",
+      "min": 16,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "default": 26
+    },
+    {
+      "type": "select",
+      "id": "icon_style",
+      "label": "Icon style",
+      "default": "plain",
+      "options": [
+        { "value": "plain", "label": "Plain" },
+        { "value": "circle", "label": "Circle background" },
+        { "value": "square", "label": "Rounded square" }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "label": "Maximum content width",
+      "min": 0,
+      "max": 1600,
+      "step": 20,
+      "unit": "px",
+      "default": 0,
+      "info": "Set 0 for full width"
+    },
+    {
+      "type": "range",
+      "id": "padding_y",
+      "label": "Vertical padding",
+      "min": 8,
+      "max": 48,
+      "step": 2,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "padding_x",
+      "label": "Horizontal padding",
+      "min": 8,
+      "max": 80,
+      "step": 2,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "item_gap",
+      "label": "Item spacing",
+      "min": 8,
+      "max": 64,
+      "step": 2,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "label": "Border radius",
+      "min": 0,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margin_top",
+      "label": "Top spacing",
+      "min": 0,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "label": "Bottom spacing",
+      "min": 0,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "checkbox",
+      "id": "show_dividers",
+      "label": "Show dividers",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "divider_color",
+      "label": "Divider color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "header",
+      "content": "Mobile"
+    },
+    {
+      "type": "select",
+      "id": "mobile_layout",
+      "label": "Mobile layout",
+      "default": "scroll",
+      "options": [
+        { "value": "scroll", "label": "Horizontal scroll" },
+        { "value": "grid", "label": "2-column grid" },
+        { "value": "stack", "label": "Stacked" }
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_mobile_auto_scroll",
+      "label": "Enable mobile auto-scroll",
+      "default": false,
+      "info": "Only applies when mobile layout is Horizontal scroll"
+    },
+    {
+      "type": "header",
+      "content": "Visibility"
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_desktop",
+      "label": "Hide on desktop",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_mobile",
+      "label": "Hide on mobile",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "accessibility_label",
+      "label": "Accessibility label",
+      "default": "Product benefits"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "usp_item",
+      "name": "USP Item",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "default": "electricity",
+          "options": [
+            { "value": "electricity", "label": "Electricity / plug" },
+            { "value": "salt", "label": "Salt / no salt" },
+            { "value": "water", "label": "Water drop" },
+            { "value": "water-saving", "label": "Water saving" },
+            { "value": "maintenance", "label": "Maintenance / tools" },
+            { "value": "shield", "label": "Shield" },
+            { "value": "rupee", "label": "Rupee / cost" },
+            { "value": "house", "label": "House" },
+            { "value": "star", "label": "Star" },
+            { "value": "truck", "label": "Truck" },
+            { "value": "warranty", "label": "Warranty" },
+            { "value": "calendar", "label": "Calendar" },
+            { "value": "plumbing", "label": "Plumbing" },
+            { "value": "manpower", "label": "Manpower" },
+            { "value": "none", "label": "None" }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Zero Electricity"
+        },
+        {
+          "type": "text",
+          "id": "description",
+          "label": "Description",
+          "info": "Shown only when \"Show descriptions\" is enabled in section settings"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Optional link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "USP Strip",
+      "category": "Custom",
+      "blocks": [
+        {
+          "type": "usp_item",
+          "settings": {
+            "icon": "electricity",
+            "title": "Zero Electricity"
+          }
+        },
+        {
+          "type": "usp_item",
+          "settings": {
+            "icon": "salt",
+            "title": "Zero Salt"
+          }
+        },
+        {
+          "type": "usp_item",
+          "settings": {
+            "icon": "water",
+            "title": "Zero Water Wastage"
+          }
+        },
+        {
+          "type": "usp_item",
+          "settings": {
+            "icon": "maintenance",
+            "title": "Zero Maintenance"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

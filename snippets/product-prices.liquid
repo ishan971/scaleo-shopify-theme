@@ -17,16 +17,10 @@
   endif
 
   assign available = target.available | default: false
+  assign money_price = price | money 
 
-  if card_price_format
-    assign money_price = price | divided_by: 100 | number_with_delimiter | append: ' ₹/-'
-    assign money_compare_price = compare_at_price | divided_by: 100 | number_with_delimiter | append: ' ₹/-'
-  else
-    assign money_price = price | money
-
-    if settings.currency_code_enabled
-      assign money_price = price | money_with_currency
-    endif
+  if settings.currency_code_enabled
+    assign money_price = price | money_with_currency
   endif
 
   if target == product and product.price_varies and settings.pcard_show_lowest_prices
@@ -46,7 +40,6 @@
     {%- if target.price_varies == false and target.compare_at_price_varies %} m-price--no-compare{% endif -%}
   "
   data-sale-badge-type="{{ sale_badge_type }}"
-  {% if card_price_format %}data-card-price-format="true"{% endif %}
 >
   <div class="m-price__regular">
     <span class="m:visually-hidden m:visually-hidden--inline">{{ 'products.product.price.regular_price' | t }}</span>
@@ -66,9 +59,7 @@
       <div style="display:flex;">
         <p style="font-size: 20px;">MRP - </p>
         <s class="m-price-item m-price-item--regular">
-        {% if card_price_format %}
-          {{ money_compare_price }}
-        {% elsif settings.currency_code_enabled %}
+        {% if settings.currency_code_enabled %}
          {{ compare_at_price | money_with_currency }}
         {% else %}
          {{ compare_at_price | money }}

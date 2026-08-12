@@ -248,12 +248,9 @@
               data-selected-value="{{ option.selected_value }}"
             >
               <div class="m-product-option--label">
-                <label class="option-label" style="display: flex; justify-content: space-between; align-items: center; width: 100%; margin-bottom: 8px;">
-                  <span class="picker-step-title">2: Choose {{ option_label }}</span>
-                  <span class="lock-in-badge">
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px; display: inline-block; vertical-align: middle;"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
-                    <span>3 Months Lock-In</span>
-                  </span>
+                <label class="option-label">
+                  <span class="option-label--title">{{ option_label }}:</span>
+                  <span class="option-label--selected">{{ option.selected_value }}</span>
                 </label>
                 {% if is_size %}
                   <button data-open-sizeguide class="foxkit-sizechart-button m:inline-flex m:items-center m:hidden">
@@ -285,135 +282,74 @@
 </p>
 
                         {% endcomment %}
-{%- liquid
-  assign option_name_downcase = option.name | downcase
-  assign is_plan_option = false
-  if option_name_downcase contains 'plan' or option_name_downcase contains 'tenure'
-    assign is_plan_option = true
-  endif
--%}
-
-<div class="m-product-option--content {% if is_plan_option %}variant-cards-container{% else %}m:inline-flex m:flex-wrap{% endif %}">
+<div class="m-product-option--content m:inline-flex m:flex-wrap">
   {%- for value in option.values -%}
-    {%- liquid
-      assign variant = null
-      for v in product.variants
-        assign match = true
-        for option_tmp in product.options_with_values
-          assign idx = forloop.index0
-          if option_tmp.name == option.name
-            if v.options[idx] != value
-              assign match = false
-            endif
-          else
-            if v.options[idx] != option_tmp.selected_value
-              assign match = false
-            endif
-          endif
-        endfor
-        if match
-          assign variant = v
-          break
-        endif
-      endfor
-      
-      if variant == null
-        for v in product.variants
-          assign idx = option.position | minus: 1
-          if v.options[idx] == value
-            assign variant = v
-            break
-          endif
-        endfor
-      endif
-    -%}
+    {%- assign variant = product.variants | where: 'title', value | first -%}
     <div class="m-product-option--node" 
          data-option-position="{{ option.position }}" 
          data-option-type="{{ picker_type }}" 
          data-value="{{ value | escape }}"
          data-inventory-quantity="{{ variant.inventory_quantity | default: 'N/A' }}"
          data-inventory-management="{{ variant.inventory_management | default: 'N/A' }}">
+      
+      <div class="abc1">
+        {% comment %}
+        {% if value == "6 Month" or value == "6 Months" %}
+          <div class="basic mu0">Basic Plan</div>
+        {% endif %}
+        {% if value == "3 Years" or value == "3 Year" %}
+          <div class="basic mu0">Popular Plan</div>
+        {% endif %}
+        {% endcomment %}
+        
+        <div class="month6 mi6 ddddd {% if value == '11 Year'%}mi06{% endif %}">
+          <input type="radio" id="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}" 
+                 name="{{ option.name }}" 
+                 value="{{ value | escape }}" 
+                 form="{{ product_form_id }}" 
+                 {% if option.selected_value == value %} checked {% endif %}>
+          <label for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}" 
+                 class="m-product-option--node__label">{{ value }}
 
-      {%- if is_plan_option -%}
-        {%- liquid
-          assign bn_badge = variant.metafields.custom.variant_badge.value
-          assign badge_label = bn_badge.label
-          assign badge_color = bn_badge.colour
+            {%- for variant in product.variants -%}
+                          {% if value == variant.title %}
+                            {% if variant.metafields.custom.variant_badge != blank %}
+                              {% assign bn_badge =  variant.metafields.custom.variant_badge.value %}
+                             <div class="variant-single-badge" {% if bn_badge.colour != blank %}style="background-color: {{ bn_badge.colour }};"{% endif %}>{{ bn_badge.label }}</div>
 
-          if badge_label == blank
-            if value contains 'Trial'
-              assign badge_label = 'Trial'
-            elsif value contains '1 Year' or value contains '1-Year' or value contains '1year'
-              assign badge_label = 'Best Seller'
-            elsif value contains '2 Year' or value contains '2-Year' or value contains '2year'
-              assign badge_label = 'Popular'
-            elsif value contains '3 Year' or value contains '3-Year' or value contains '3year'
-              assign badge_label = 'Affordable'
-            endif
-          endif
-        -%}
-        <input type="radio"
-               id="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}"
-               name="{{ option.name }}"
-               value="{{ value | escape }}"
-               form="{{ product_form_id }}"
-               {% if option.selected_value == value %} checked {% endif %}>
-        <label for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}"
-               class="m-product-option--node__label-card">
-          {% if badge_label != blank %}
-            <span class="variant-card-badge" {% if badge_color != blank %}style="background-color: {{ badge_color }};"{% endif %}>
-              {{ badge_label }}
-            </span>
-          {% endif %}
-
-          <span class="variant-card-title">{{ value }}</span>
-
-          <span class="variant-card-price-wrapper">
-            <span class="variant-card-price">{{ variant.price | divided_by: 100 | number_with_delimiter }} ₹/-</span>
-            {% if variant.compare_at_price > variant.price %}
-              <span class="variant-card-compare">{{ variant.compare_at_price | divided_by: 100 | number_with_delimiter }} ₹/-</span>
-            {% endif %}
-          </span>
-
-          {% if variant.compare_at_price > variant.price %}
-            {%- assign save_amount = variant.compare_at_price | minus: variant.price -%}
-            {%- assign save_percent = save_amount | times: 100.0 | divided_by: variant.compare_at_price | round -%}
-            <span class="variant-card-save">Save {{ save_percent }}%</span>
-          {% endif %}
-        </label>
-
-      {%- else -%}
-        <div class="abc1">
-          <div class="month6 mi6 ddddd {% if value == '11 Year' %}mi06{% endif %}">
-            <input type="radio" id="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}" 
-                   name="{{ option.name }}" 
-                   value="{{ value | escape }}" 
-                   form="{{ product_form_id }}" 
-                   {% if option.selected_value == value %} checked {% endif %}>
-            <label for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}" 
-                   class="m-product-option--node__label">{{ value }}
-              {%- for v in product.variants -%}
-                {% if value == v.title %}
-                  {% if v.metafields.custom.variant_badge != blank %}
-                    {% assign bn_badge = v.metafields.custom.variant_badge.value %}
-                    <div class="variant-single-badge" {% if bn_badge.colour != blank %}style="background-color: {{ bn_badge.colour }};"{% endif %}>{{ bn_badge.label }}</div>
-                  {% endif %}
-                  <div class="variant-single-price">
-                    <span class="variant-signle-regular-price">{{ v.price | money_without_trailing_zeros }}</span>
-                    {% if v.compare_at_price > v.price %}
-                      <span class="variant-single-compare-price">{{ v.compare_at_price | money_without_trailing_zeros }}</span>
-                    {% endif %}
-                  </div>
-                  {% if v.compare_at_price > v.price %}
-                    <span class="discount-sale-badge"><span>Save {{ v.compare_at_price | minus: v.price | times: 100.0 | divided_by: v.compare_at_price | round }}%</span></span>
-                  {% endif %}
-                {% endif %}
-              {%- endfor -%}
-            </label>
-          </div>
+                            {% endif %} 
+                            <div class="variant-single-price">
+                              <span class="variant-signle-regular-price">{{ variant.price | money_without_trailing_zeros }}</span>
+                              {% if variant.compare_at_price > variant.price %}
+                              <span class="variant-single-compare-price">{{ variant.compare_at_price | money_without_trailing_zeros }}</span>
+                              {% endif %}
+                            </div>      
+                            
+                            {% if variant.compare_at_price > variant.price %}
+                                <span class="discount-sale-badge"><span>Save {{ variant.compare_at_price | minus: variant.price | times: 100.0 | divided_by: variant.compare_at_price | money_without_currency | times: 100 | remove: '.0'}}%</span></span>
+                            {% endif %}
+                            
+                            {% endif %}
+                        {% endfor %}
+            
+          </label>
         </div>
-      {%- endif -%}
 
+        {% comment %}
+        {% if value == "6 Month" or value == "6 Months" %}
+          <div class="f1"><label for="6Months">&nbsp;</label></div>
+        {% endif %}
+        {% if value == "1 Year" or value == "1 Years" %}
+          <div class="f1"><label class="oneyear" for="1year">Save ₹1,000/-</label></div>
+        {% endif %}
+        {% if value == "3 Years" or value == "3 Year" %}
+          <div class="f1"><label class="oneyear" for="3years">Save ₹5,000/-</label></div>
+        {% endif %}
+        {% if value == "5 Years" or value == "5 Year" %}
+          <div class="f1"><label class="oneyear3" for="5years">Save ₹10,000/-</label></div>
+        {% endif %}
+        {% endcomment %}
+      </div>
     </div>
   {%- endfor -%}
 </div>
@@ -421,20 +357,6 @@
 
               <div class="m-product-option-error"></div>
             </variant-button>
-            {%- if is_plan_option and buy_buttons_block != nil -%}
-              <div class="product-plan-buy-buttons main-product__block-buy_buttons">
-                {% render 'product-buy-buttons',
-                  section: section,
-                  product: product,
-                  block: buy_buttons_block,
-                  product_form_id: product_form_id,
-                  product_form_class: product_form_class,
-                  variant_id: variant_id,
-                  selected_variant_id: selected_variant_id,
-                  image_field: image_field
-                %}
-              </div>
-            {%- endif -%}
           {% else %}
             <variant-color
               data-picker-field="radio"

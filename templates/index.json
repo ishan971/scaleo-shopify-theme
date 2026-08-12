@@ -150,71 +150,377 @@
         "animations": "fade-in-left"
       }
     },
-    "custom_content_PHMhVN": {
-      "type": "custom-content",
+    "usp_strip_home": {
+      "type": "usp-strip",
       "blocks": {
-        "liquid_hGTWjK": {
-          "type": "liquid",
+        "usp_item_electricity": {
+          "type": "usp_item",
           "settings": {
-            "custom_liquid": "<style>\n  .ctabox {\n    padding: 20px;\n    border: 1.5px solid #858585;\n    border-radius: 10px;\n    text-align: -webkit-center;\n    position: relative; /* Ensure the image is positioned relative to its parent */\n  }\n\n  .ctabox:hover {\n    background-image: url(\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/CTA_4fb3526a-6955-49dd-aed6-f6607544c1b3.png?v=1721886594\");\n    background-position: center;\n    background-repeat: no-repeat;\n    background-size: cover;\n    padding-top: 20px;\n    padding-bottom: 20px;\n    border-radius: 10px;\n    text-align: -webkit-center;\n  }\n\n  .ctabox img {\n    transition: opacity 0.3s ease; /* Smooth transition for image change */\n  }\n\n  .ctabox:hover img {\n    content: url(\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/consult-now-white.svg?v=1723111490\");\n  }\n\n  .ctabox p{\n    font-size: 24px;\n    margin-top: 26px;\n  }\n\n  .ctabox:hover p{\n    color: white;\n  }\n\n  @media only screen and (max-width: 431px) {\n    .ctabox h3 {\n      font-size: 16px;\n    }\n  }\n</style>\n\n<a href=\"https://ae1ef9-c0.myshopify.com/pages/consult-now\" target=\"_blank\">\n  <div class=\"ctabox\">\n    <img\n      src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_41.svg?v=1722323519\"\n      alt=\"\"\n    />\n    <p>Consult Now</p>\n  </div>\n</a>",
-            "width": "25%",
-            "block_custom_class": "",
-            "animations": "inherit"
+            "icon": "electricity",
+            "title": "Zero Electricity",
+            "description": "",
+            "link": ""
           }
         },
-        "liquid_nnWxRW": {
-          "type": "liquid",
+        "usp_item_salt": {
+          "type": "usp_item",
           "settings": {
-            "custom_liquid": "<style>\n  .ctabox2 {\n    padding: 20px;\n    border: 1.5px solid #858585;\n    border-radius: 10px;\n    text-align: -webkit-center;\n    position: relative; /* Ensure the image is positioned relative to its parent */\n  }\n\n  .ctabox2:hover {\n    background-image: url(\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/CTA_4fb3526a-6955-49dd-aed6-f6607544c1b3.png?v=1721886594\");\n    background-position: center;\n    background-repeat: no-repeat;\n    background-size: cover;\n    padding-top: 20px;\n    padding-bottom: 20px;\n    border-radius: 10px;\n    text-align: -webkit-center;\n  }\n\n  .ctabox2 img {\n    transition: opacity 0.3s ease; /* Smooth transition for image change */\n  }\n\n  .ctabox2:hover img {\n    content: url(\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/book-trial-white.svg?v=1723111490\");\n  }\n\n  .ctabox2 p{\n    font-size: 24px;\n    margin-top: 26px;\n  }\n\n  .ctabox2:hover p{\n    color: white;\n  }\n\n  @media only screen and (max-width: 431px) {\n    .ctabox2 p {\n      font-size: 16px;\n    }\n  }\n</style>\n\n<a href=\"https://scale-o.com/products/scale-o-nano-water-softeners\" target=\"_blank\">\n  <div class=\"ctabox2\">\n    <img\n      src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_1370.svg?v=1722323519\"\n      alt=\"\"\n    />\n    <p>Book Trial</p>\n  </div>\n</a>",
-            "width": "25%",
-            "block_custom_class": "",
-            "animations": "inherit"
+            "icon": "salt",
+            "title": "Zero Salt",
+            "description": "",
+            "link": ""
           }
         },
-        "liquid_3jeg7M": {
-          "type": "liquid",
+        "usp_item_water": {
+          "type": "usp_item",
           "settings": {
-            "custom_liquid": "<style>\n  .ctabox3 {\n    padding: 20px;\n    border: 1.5px solid #858585;\n    border-radius: 10px;\n    text-align: -webkit-center;\n    position: relative; /* Ensure the image is positioned relative to its parent */\n  }\n\n  .ctabox3:hover {\n    background-image: url(\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/CTA_4fb3526a-6955-49dd-aed6-f6607544c1b3.png?v=1721886594\");\n    background-position: center;\n    background-repeat: no-repeat;\n    background-size: cover;\n    padding-top: 20px;\n    padding-bottom: 20px;\n    border-radius: 10px;\n    text-align: -webkit-center;\n  }\n\n  .ctabox3 img {\n    transition: opacity 0.3s ease; /* Smooth transition for image change */\n  }\n\n  .ctabox3:hover img {\n    content: url(\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/active-guarantee-white.svg?v=1723111489\");\n  }\n\n  .ctabox3 p{\n    font-size: 24px;\n    margin-top: 26px;\n  }\n\n  .ctabox3:hover p{\n    color: white;\n  }\n\n  @media only screen and (max-width: 431px) {\n    .ctabox3 h3 {\n      font-size: 15px;\n    }\n  }\n</style>\n\n<a href=\"https://ae1ef9-c0.myshopify.com/pages/activate-guarantee\" target=\"_blank\">\n  <div class=\"ctabox3\">\n    <img\n      src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/active-guarantee-blue.svg?v=1723111490\"\n      alt=\"\"\n    />\n    <p>Activate Guarantee</p>\n  </div>\n</a>",
-            "width": "25%",
-            "block_custom_class": "",
-            "animations": "inherit"
+            "icon": "water",
+            "title": "Zero Water Wastage",
+            "description": "",
+            "link": ""
           }
         },
-        "liquid_rf3bCb": {
-          "type": "liquid",
+        "usp_item_maintenance": {
+          "type": "usp_item",
           "settings": {
-            "custom_liquid": "<style>\n  .ctabox4 {\n    padding: 20px;\n    border: 1.5px solid #858585;\n    border-radius: 10px;\n    text-align: -webkit-center;\n    position: relative; /* Ensure the image is positioned relative to its parent */\n  }\n\n  .ctabox4:hover {\n    background-image: url(\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/CTA_4fb3526a-6955-49dd-aed6-f6607544c1b3.png?v=1721886594\");\n    background-position: center;\n    background-repeat: no-repeat;\n    background-size: cover;\n    padding-top: 20px;\n    padding-bottom: 20px;\n    border-radius: 10px;\n    text-align: -webkit-center;\n  }\n\n  .ctabox4 img {\n    transition: opacity 0.3s ease; /* Smooth transition for image change */\n  }\n\n  .ctabox4:hover img {\n    content: url(\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/track-order-white.svg?v=1723111490\");\n  }\n\n  .ctabox4 p{\n    font-size: 24px;\n    margin-top: 26px;\n  }\n\n  .ctabox4:hover p{\n    color: white;\n  }\n\n  @media only screen and (max-width: 431px) {\n    .ctabox4 h3 {\n      font-size: 16px;\n    }\n  }\n</style>\n\n<a href=\"https://scale-o.ithinklogistics.co.in/\"_blank\">\n  <div class=\"ctabox4\">\n    <img\n      src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/ssfsfsf.svg?v=1722323518\"\n      alt=\"\"\n    />\n    <p>Track Order</p>\n  </div>\n</a>",
-            "width": "25%",
-            "block_custom_class": "",
-            "animations": "inherit"
+            "icon": "maintenance",
+            "title": "Zero Maintenance",
+            "description": "",
+            "link": ""
           }
         }
       },
       "block_order": [
-        "liquid_hGTWjK",
-        "liquid_nnWxRW",
-        "liquid_3jeg7M",
-        "liquid_rf3bCb"
+        "usp_item_electricity",
+        "usp_item_salt",
+        "usp_item_water",
+        "usp_item_maintenance"
       ],
-      "disabled": true,
-      "custom_css": [],
       "settings": {
-        "heading": "",
-        "heading_size": "h3",
-        "subheading": "",
-        "description": "",
+        "background_color": "#0c7fdf",
+        "use_gradient": false,
+        "gradient_end_color": "#2a6ab2",
+        "title_color": "#ffffff",
+        "title_size_desktop": 15,
+        "title_size_mobile": 13,
+        "title_font_weight": "600",
+        "show_description": false,
+        "description_color": "#e8f4ff",
+        "description_size": 12,
+        "icon_color": "#ffffff",
+        "icon_background": "#0c7fdf",
+        "icon_size": 26,
+        "icon_style": "plain",
+        "max_width": 0,
+        "padding_y": 16,
+        "padding_x": 24,
+        "item_gap": 24,
+        "border_radius": 0,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "show_dividers": true,
+        "divider_color": "#ffffff",
+        "mobile_layout": "scroll",
+        "enable_mobile_auto_scroll": false,
+        "hide_desktop": false,
+        "hide_mobile": false,
+        "accessibility_label": "Product benefits"
+      }
+    },
+    "stats_trust_home": {
+      "type": "stats-trust",
+      "blocks": {
+        "stat_rating": {
+          "type": "stat",
+          "settings": {
+            "icon": "star",
+            "value": "4.8/5",
+            "label": "Overall Customer Rating",
+            "description": "Rated by our customers",
+            "link": ""
+          }
+        },
+        "stat_customers": {
+          "type": "stat",
+          "settings": {
+            "icon": "users",
+            "value": "1000+",
+            "label": "Happy Customers",
+            "description": "Homes choosing Scale-O",
+            "link": ""
+          }
+        },
+        "stat_trial": {
+          "type": "stat",
+          "settings": {
+            "icon": "shield",
+            "value": "7-Day",
+            "label": "Risk-Free Trial",
+            "description": "Try Scale-O with confidence",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "stat_rating",
+        "stat_customers",
+        "stat_trial"
+      ],
+      "settings": {
+        "background_color": "#f5f7ff",
+        "use_gradient": true,
+        "gradient_end_color": "#eef6ff",
+        "accent_color": "#0c7fdf",
+        "value_color": "#1a2b4a",
+        "value_size_desktop": 28,
+        "value_size_mobile": 22,
+        "value_font_weight": "700",
+        "label_color": "#2a6ab2",
+        "label_size": 14,
+        "show_description": true,
+        "description_color": "#5a6b85",
+        "description_size": 12,
+        "icon_color": "#0c7fdf",
+        "icon_background": "#ffffff",
+        "icon_size": 22,
+        "icon_style": "circle",
+        "max_width": 1200,
+        "padding_top": 24,
+        "padding_bottom": 24,
+        "padding_x": 24,
+        "stat_gap": 24,
+        "border_radius": 16,
+        "margin_top": 12,
+        "margin_bottom": 16,
+        "show_dividers": true,
+        "divider_color": "#0c7fdf",
+        "mobile_layout": "grid",
+        "enable_entrance_animation": false,
+        "accessibility_label": "Customer statistics"
+      }
+    },
+    "how_it_works_home": {
+      "type": "how-it-works",
+      "blocks": {
+        "journey_1": {
+          "type": "journey_step",
+          "settings": {
+            "step_number": "1",
+            "icon": "choose",
+            "title": "Choose Your Scale-O",
+            "description": "Select the right model based on your overhead tank size and daily water usage.",
+            "link": "",
+            "button_text": ""
+          }
+        },
+        "journey_2": {
+          "type": "journey_step",
+          "settings": {
+            "step_number": "2",
+            "icon": "install",
+            "title": "Install in Your Overhead Tank",
+            "description": "Place Scale-O inside your overhead water tank. No plumbing changes or electricity required.",
+            "link": "",
+            "button_text": ""
+          }
+        },
+        "journey_3": {
+          "type": "journey_step",
+          "settings": {
+            "step_number": "3",
+            "icon": "use",
+            "title": "Enjoy Better Water Flow",
+            "description": "Scale-O works continuously as water flows to your bathroom, kitchen, laundry and appliances.",
+            "link": "",
+            "button_text": ""
+          }
+        },
+        "journey_4": {
+          "type": "journey_step",
+          "settings": {
+            "step_number": "4",
+            "icon": "exchange",
+            "title": "Easy Exchange",
+            "description": "When it's time, simply replace the unit with a straightforward exchange process.",
+            "link": "",
+            "button_text": ""
+          }
+        },
+        "journey_5": {
+          "type": "journey_step",
+          "settings": {
+            "step_number": "5",
+            "icon": "check",
+            "title": "Zero Hassle Upkeep",
+            "description": "No salt refills, no electricity and no regular servicing — Scale-O keeps protecting your home quietly.",
+            "link": "",
+            "button_text": ""
+          }
+        },
+        "install_1": {
+          "type": "install_step",
+          "settings": {
+            "step_number": "1",
+            "icon": "check",
+            "title": "Choose the Right Model",
+            "description": "Pick a Scale-O size that matches your tank capacity and household usage."
+          }
+        },
+        "install_2": {
+          "type": "install_step",
+          "settings": {
+            "step_number": "2",
+            "icon": "tank",
+            "title": "Open the Overhead Tank",
+            "description": "Access your overhead water tank safely before placing the unit."
+          }
+        },
+        "install_3": {
+          "type": "install_step",
+          "settings": {
+            "step_number": "3",
+            "icon": "install",
+            "title": "Place Scale-O Inside the Tank",
+            "description": "Drop the compact Scale-O unit into the tank. No plumber or wiring needed."
+          }
+        },
+        "install_4": {
+          "type": "install_step",
+          "settings": {
+            "step_number": "4",
+            "icon": "check",
+            "title": "Close and Secure the Tank",
+            "description": "Seal the tank properly so water flows normally through your home."
+          }
+        },
+        "install_5": {
+          "type": "install_step",
+          "settings": {
+            "step_number": "5",
+            "icon": "home",
+            "title": "Start Using Scale-O",
+            "description": "Use water as usual while Scale-O helps reduce hard-water scale buildup."
+          }
+        },
+        "exchange_1": {
+          "type": "exchange_step",
+          "settings": {
+            "step_number": "1",
+            "icon": "exchange",
+            "title": "Identify Your Scale-O Unit",
+            "description": "Check when your current unit needs replacement based on usage and product life."
+          }
+        },
+        "exchange_2": {
+          "type": "exchange_step",
+          "settings": {
+            "step_number": "2",
+            "icon": "power",
+            "title": "Turn Off the Water Supply",
+            "description": "Stop water flow to the overhead tank before removing the used unit."
+          }
+        },
+        "exchange_3": {
+          "type": "exchange_step",
+          "settings": {
+            "step_number": "3",
+            "icon": "install",
+            "title": "Remove the Existing Unit",
+            "description": "Take out the used Scale-O unit from the tank."
+          }
+        },
+        "exchange_4": {
+          "type": "exchange_step",
+          "settings": {
+            "step_number": "4",
+            "icon": "exchange",
+            "title": "Install the Replacement",
+            "description": "Place the new Scale-O unit inside the tank in the same simple way."
+          }
+        },
+        "exchange_5": {
+          "type": "exchange_step",
+          "settings": {
+            "step_number": "5",
+            "icon": "check",
+            "title": "Restart the Water Supply",
+            "description": "Restore water flow and continue enjoying scale-protected water at home."
+          }
+        }
+      },
+      "block_order": [
+        "journey_1",
+        "journey_2",
+        "journey_3",
+        "journey_4",
+        "journey_5",
+        "install_1",
+        "install_2",
+        "install_3",
+        "install_4",
+        "install_5",
+        "exchange_1",
+        "exchange_2",
+        "exchange_3",
+        "exchange_4",
+        "exchange_5"
+      ],
+      "settings": {
+        "eyebrow": "HOW IT WORKS",
+        "heading": "Simple Setup. Simple Protection.",
+        "description": "See how Scale-O works, how to install it, and how easy it is to maintain and exchange.",
         "header_alignment": "center",
-        "container": "container",
-        "color_scheme": "default",
-        "content_color_scheme": "default",
-        "enable_parallax": false,
-        "parallax_direction": "vertical",
-        "gap": 20,
-        "gap_mobile": 16,
-        "use_scroll_mobile": false,
-        "padding_top": 90,
-        "padding_bottom": 100,
-        "custom_class": "br"
+        "installation_diagram": "shopify://shop_images/ChatGPT_Image_Aug_12_2026_12_23_48_PM.png",
+        "installation_diagram_mobile": "shopify://shop_images/ChatGPT_Image_Aug_12_2026_12_35_16_PM.png",
+        "diagram_alt": "Scale-O installation flow from overhead tank to home",
+        "installation_video_url": "",
+        "video_button_text": "Watch Installation Video",
+        "treatment_before_label": "Hard Water",
+        "treatment_before_text": "Minerals that cause scale buildup",
+        "treatment_core_label": "Scale-O",
+        "treatment_core_text": "Chelation inside your tank",
+        "treatment_after_label": "Scale Protection",
+        "treatment_after_text": "Reduced scale impact across home",
+        "treatment_aria_label": "How Scale-O treats hard water",
+        "install_tab_label": "How to Install",
+        "exchange_tab_label": "How to Exchange",
+        "tabs_alignment": "center",
+        "detail_card_gap": 12,
+        "detail_mobile_layout": "vertical",
+        "detail_card_min_width": 160,
+        "detail_card_min_height": 168,
+        "card_shadow_strength": 70,
+        "show_help_cta": true,
+        "help_heading": "Need Help With Installation?",
+        "help_button_text": "Talk to an Expert",
+        "help_button_link": "shopify://pages/consult-now",
+        "help_cta_max_width": 560,
+        "help_cta_alignment": "center",
+        "help_cta_background": "#eef6ff",
+        "help_cta_border_color": "#c5dffa",
+        "help_cta_heading_color": "#1a2b4a",
+        "background_color": "#ffffff",
+        "use_gradient": false,
+        "gradient_end_color": "#f5f7ff",
+        "card_background": "#ffffff",
+        "heading_color": "#1a2b4a",
+        "text_color": "#5a6b85",
+        "accent_color": "#0c7fdf",
+        "step_number_color": "#0c7fdf",
+        "divider_color": "#d6e2fa",
+        "eyebrow_size": 12,
+        "heading_size_desktop": 36,
+        "heading_size_mobile": 28,
+        "description_size": 16,
+        "step_title_size": 17,
+        "step_description_size": 14,
+        "max_width": 1200,
+        "padding_top": 48,
+        "padding_bottom": 48,
+        "margin_top": 8,
+        "margin_bottom": 24,
+        "content_gap": 32,
+        "accessibility_label": "How Scale-O works"
       }
     },
     "featured_collection_hJqRXq": {
@@ -1535,7 +1841,9 @@
   },
   "order": [
     "1621243260e1af0c20",
-    "custom_content_PHMhVN",
+    "usp_strip_home",
+    "stats_trust_home",
+    "how_it_works_home",
     "featured_collection_hJqRXq",
     "icon_box_aXcwE8",
     "icon_box_Twp6KE",

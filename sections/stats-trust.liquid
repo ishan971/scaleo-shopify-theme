@@ -1,0 +1,692 @@
+{%- comment -%}
+  Scale-O Stats / Trust Section — editable OS 2.0 section
+{%- endcomment -%}
+
+{%- liquid
+  assign use_gradient = section.settings.use_gradient
+  assign show_dividers = section.settings.show_dividers
+  assign show_description = section.settings.show_description
+  assign mobile_layout = section.settings.mobile_layout
+  assign icon_style = section.settings.icon_style
+  assign enable_animation = section.settings.enable_entrance_animation
+  assign max_width = section.settings.max_width
+  assign stat_count = section.blocks.size
+-%}
+
+<style>
+  #shopify-section-{{ section.id }} .scale-o-stats {
+    --stats-bg: {{ section.settings.background_color }};
+    --stats-bg-end: {{ section.settings.gradient_end_color }};
+    --stats-accent: {{ section.settings.accent_color }};
+    --stats-value-color: {{ section.settings.value_color }};
+    --stats-label-color: {{ section.settings.label_color }};
+    --stats-desc-color: {{ section.settings.description_color }};
+    --stats-icon-color: {{ section.settings.icon_color }};
+    --stats-icon-bg: {{ section.settings.icon_background }};
+    --stats-divider: {{ section.settings.divider_color }};
+    --stats-value-size: {{ section.settings.value_size_desktop }}px;
+    --stats-value-size-mobile: {{ section.settings.value_size_mobile }}px;
+    --stats-value-weight: {{ section.settings.value_font_weight }};
+    --stats-label-size: {{ section.settings.label_size }}px;
+    --stats-desc-size: {{ section.settings.description_size }}px;
+    --stats-icon-size: {{ section.settings.icon_size }}px;
+    --stats-gap: {{ section.settings.stat_gap }}px;
+    --stats-pad-top: {{ section.settings.padding_top }}px;
+    --stats-pad-bottom: {{ section.settings.padding_bottom }}px;
+    --stats-pad-x: {{ section.settings.padding_x }}px;
+    --stats-radius: {{ section.settings.border_radius }}px;
+    --stats-max-width: {% if max_width == 0 %}100%{% else %}{{ max_width }}px{% endif %};
+    --stats-mt: {{ section.settings.margin_top }}px;
+    --stats-mb: {{ section.settings.margin_bottom }}px;
+    --stats-count: {{ stat_count | at_least: 1 }};
+  }
+
+  #shopify-section-{{ section.id }} .scale-o-stats {
+    margin-top: var(--stats-mt);
+    margin-bottom: var(--stats-mb);
+    width: 100%;
+    overflow: hidden;
+  }
+
+  #shopify-section-{{ section.id }} .scale-o-stats__wrap {
+    width: 100%;
+    max-width: var(--stats-max-width);
+    margin: 0 auto;
+    padding: 0 var(--stats-pad-x);
+  }
+
+  #shopify-section-{{ section.id }} .scale-o-stats__inner {
+    background: var(--stats-bg);
+    {% if use_gradient %}
+    background: linear-gradient(90deg, var(--stats-bg) 0%, var(--stats-bg-end) 100%);
+    {% endif %}
+    border-radius: var(--stats-radius);
+    padding: var(--stats-pad-top) calc(var(--stats-pad-x) + 8px) var(--stats-pad-bottom);
+  }
+
+  #shopify-section-{{ section.id }} .scale-o-stats__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(var(--stats-count), minmax(0, 1fr));
+    gap: var(--stats-gap);
+    align-items: stretch;
+  }
+
+  #shopify-section-{{ section.id }} .scale-o-stats__item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+    padding: 4px 12px;
+  }
+
+  {% if show_dividers %}
+  #shopify-section-{{ section.id }} .scale-o-stats__item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: calc(var(--stats-gap) / -2);
+    top: 18%;
+    bottom: 18%;
+    width: 1px;
+    background: var(--stats-divider);
+    opacity: 0.35;
+    pointer-events: none;
+  }
+  {% endif %}
+
+  #shopify-section-{{ section.id }} .scale-o-stats__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    text-decoration: none;
+    color: inherit;
+    max-width: 100%;
+  }
+
+  #shopify-section-{{ section.id }} .scale-o-stats__link:focus-visible {
+    outline: 2px solid var(--stats-accent);
+    outline-offset: 4px;
+    border-radius: 8px;
+  }
+
+  #shopify-section-{{ section.id }} .scale-o-stats__content {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    max-width: 100%;
+  }
+
+  #shopify-section-{{ section.id }} .scale-o-stats__icon {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: calc(var(--stats-icon-size) + 18px);
+    height: calc(var(--stats-icon-size) + 18px);
+    color: var(--stats-icon-color);
+  }
+
+  #shopify-section-{{ section.id }} .scale-o-stats__icon--circle {
+    border-radius: 50%;
+    border: 1.5px solid color-mix(in srgb, var(--stats-accent) 25%, transparent);
+    background: var(--stats-icon-bg);
+  }
+
+  #shopify-section-{{ section.id }} .scale-o-stats__icon--square {
+    border-radius: 10px;
+    border: 1.5px solid color-mix(in srgb, var(--stats-accent) 25%, transparent);
+    background: var(--stats-icon-bg);
+  }
+
+  #shopify-section-{{ section.id }} .scale-o-stats__svg {
+    width: var(--stats-icon-size);
+    height: var(--stats-icon-size);
+    display: block;
+  }
+
+  #shopify-section-{{ section.id }} .scale-o-stats__text {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    text-align: left;
+  }
+
+  #shopify-section-{{ section.id }} .scale-o-stats__value {
+    margin: 0;
+    color: var(--stats-value-color);
+    font-size: var(--stats-value-size);
+    font-weight: var(--stats-value-weight);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+  }
+
+  #shopify-section-{{ section.id }} .scale-o-stats__label {
+    margin: 0;
+    color: var(--stats-label-color);
+    font-size: var(--stats-label-size);
+    font-weight: 600;
+    line-height: 1.3;
+  }
+
+  #shopify-section-{{ section.id }} .scale-o-stats__desc {
+    margin: 0;
+    color: var(--stats-desc-color);
+    font-size: var(--stats-desc-size);
+    font-weight: 400;
+    line-height: 1.35;
+    opacity: 0.85;
+  }
+
+  {% if enable_animation %}
+  @media (prefers-reduced-motion: no-preference) {
+    #shopify-section-{{ section.id }} .scale-o-stats--animate .scale-o-stats__item {
+      opacity: 0;
+      transform: translateY(10px);
+      animation: scale-o-stats-fade-in 0.55s ease forwards;
+    }
+
+    #shopify-section-{{ section.id }} .scale-o-stats--animate .scale-o-stats__item:nth-child(2) {
+      animation-delay: 0.08s;
+    }
+
+    #shopify-section-{{ section.id }} .scale-o-stats--animate .scale-o-stats__item:nth-child(3) {
+      animation-delay: 0.16s;
+    }
+
+    #shopify-section-{{ section.id }} .scale-o-stats--animate .scale-o-stats__item:nth-child(4) {
+      animation-delay: 0.24s;
+    }
+  }
+
+  @keyframes scale-o-stats-fade-in {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  {% endif %}
+
+  @media (max-width: 767px) {
+    #shopify-section-{{ section.id }} .scale-o-stats__value {
+      font-size: var(--stats-value-size-mobile);
+    }
+
+    #shopify-section-{{ section.id }} .scale-o-stats__wrap {
+      padding: 0 16px;
+    }
+
+    #shopify-section-{{ section.id }} .scale-o-stats__inner {
+      padding: calc(var(--stats-pad-top) - 4px) 16px calc(var(--stats-pad-bottom) - 4px);
+    }
+
+    #shopify-section-{{ section.id }} .scale-o-stats[data-mobile-layout="grid"] .scale-o-stats__list {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px 12px;
+    }
+
+    #shopify-section-{{ section.id }} .scale-o-stats[data-mobile-layout="grid"] .scale-o-stats__item {
+      justify-content: flex-start;
+      padding: 8px 6px;
+    }
+
+    #shopify-section-{{ section.id }} .scale-o-stats[data-mobile-layout="grid"] .scale-o-stats__item:nth-child(2n)::after {
+      display: none;
+    }
+
+    #shopify-section-{{ section.id }} .scale-o-stats[data-mobile-layout="stack"] .scale-o-stats__list {
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+
+    #shopify-section-{{ section.id }} .scale-o-stats[data-mobile-layout="stack"] .scale-o-stats__item {
+      justify-content: flex-start;
+      padding: 8px 4px;
+    }
+
+    #shopify-section-{{ section.id }} .scale-o-stats[data-mobile-layout="stack"] .scale-o-stats__item:not(:last-child)::after {
+      display: none;
+    }
+
+    #shopify-section-{{ section.id }} .scale-o-stats[data-mobile-layout="stack"] .scale-o-stats__item:not(:last-child) {
+      border-bottom: 1px solid color-mix(in srgb, var(--stats-divider) 30%, transparent);
+      padding-bottom: 14px;
+    }
+
+    #shopify-section-{{ section.id }} .scale-o-stats__content,
+    #shopify-section-{{ section.id }} .scale-o-stats__link {
+      gap: 10px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    #shopify-section-{{ section.id }} .scale-o-stats__label,
+    #shopify-section-{{ section.id }} .scale-o-stats__desc {
+      word-wrap: break-word;
+      overflow-wrap: anywhere;
+    }
+  }
+</style>
+
+{%- if section.blocks.size > 0 -%}
+  <div
+    id="ScaleOStats-{{ section.id }}"
+    class="scale-o-stats{% if enable_animation %} scale-o-stats--animate{% endif %}"
+    data-section-id="{{ section.id }}"
+    data-mobile-layout="{{ mobile_layout }}"
+    role="region"
+    aria-label="{{ section.settings.accessibility_label | default: 'Customer statistics' | escape }}"
+  >
+    <div class="scale-o-stats__wrap">
+      <div class="scale-o-stats__inner">
+        <ul class="scale-o-stats__list" role="list">
+          {%- for block in section.blocks -%}
+            <li class="scale-o-stats__item" {{ block.shopify_attributes }}>
+              {%- if block.settings.link != blank -%}
+                <a class="scale-o-stats__link" href="{{ block.settings.link }}">
+              {%- else -%}
+                <div class="scale-o-stats__content">
+              {%- endif -%}
+
+                {%- unless block.settings.icon == 'none' -%}
+                  <span
+                    class="scale-o-stats__icon{% if icon_style == 'circle' %} scale-o-stats__icon--circle{% elsif icon_style == 'square' %} scale-o-stats__icon--square{% endif %}"
+                    aria-hidden="true"
+                  >
+                    {%- render 'stats-trust-icon', icon: block.settings.icon -%}
+                  </span>
+                {%- endunless -%}
+
+                <span class="scale-o-stats__text">
+                  {%- if block.settings.value != blank -%}
+                    <p class="scale-o-stats__value">{{ block.settings.value | escape }}</p>
+                  {%- endif -%}
+                  {%- if block.settings.label != blank -%}
+                    <p class="scale-o-stats__label">{{ block.settings.label | escape }}</p>
+                  {%- endif -%}
+                  {%- if show_description and block.settings.description != blank -%}
+                    <p class="scale-o-stats__desc">{{ block.settings.description | escape }}</p>
+                  {%- endif -%}
+                </span>
+
+              {%- if block.settings.link != blank -%}
+                </a>
+              {%- else -%}
+                </div>
+              {%- endif -%}
+            </li>
+          {%- endfor -%}
+        </ul>
+      </div>
+    </div>
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Stats / Trust",
+  "tag": "section",
+  "class": "scale-o-stats-section",
+  "max_blocks": 4,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Background"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#F5F7FF"
+    },
+    {
+      "type": "checkbox",
+      "id": "use_gradient",
+      "label": "Enable gradient background",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "gradient_end_color",
+      "label": "Gradient end color",
+      "default": "#EEF6FF"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent color",
+      "default": "#0C7FDF"
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "color",
+      "id": "value_color",
+      "label": "Value color",
+      "default": "#1A2B4A"
+    },
+    {
+      "type": "range",
+      "id": "value_size_desktop",
+      "label": "Value size (desktop)",
+      "min": 18,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "default": 28
+    },
+    {
+      "type": "range",
+      "id": "value_size_mobile",
+      "label": "Value size (mobile)",
+      "min": 16,
+      "max": 32,
+      "step": 1,
+      "unit": "px",
+      "default": 22
+    },
+    {
+      "type": "select",
+      "id": "value_font_weight",
+      "label": "Value font weight",
+      "default": "700",
+      "options": [
+        { "value": "500", "label": "Medium" },
+        { "value": "600", "label": "Semi bold" },
+        { "value": "700", "label": "Bold" },
+        { "value": "800", "label": "Extra bold" }
+      ]
+    },
+    {
+      "type": "color",
+      "id": "label_color",
+      "label": "Label color",
+      "default": "#2A6AB2"
+    },
+    {
+      "type": "range",
+      "id": "label_size",
+      "label": "Label size",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "checkbox",
+      "id": "show_description",
+      "label": "Show descriptions",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "description_color",
+      "label": "Description color",
+      "default": "#5A6B85"
+    },
+    {
+      "type": "range",
+      "id": "description_size",
+      "label": "Description size",
+      "min": 10,
+      "max": 16,
+      "step": 1,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "header",
+      "content": "Icons"
+    },
+    {
+      "type": "color",
+      "id": "icon_color",
+      "label": "Icon color",
+      "default": "#0C7FDF"
+    },
+    {
+      "type": "color",
+      "id": "icon_background",
+      "label": "Icon background",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "range",
+      "id": "icon_size",
+      "label": "Icon size",
+      "min": 16,
+      "max": 36,
+      "step": 1,
+      "unit": "px",
+      "default": 22
+    },
+    {
+      "type": "select",
+      "id": "icon_style",
+      "label": "Icon style",
+      "default": "circle",
+      "options": [
+        { "value": "plain", "label": "Plain" },
+        { "value": "circle", "label": "Circle" },
+        { "value": "square", "label": "Rounded square" }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "label": "Maximum content width",
+      "min": 0,
+      "max": 1600,
+      "step": 20,
+      "unit": "px",
+      "default": 1200,
+      "info": "Set 0 for full width"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top padding",
+      "min": 12,
+      "max": 64,
+      "step": 2,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom padding",
+      "min": 12,
+      "max": 64,
+      "step": 2,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "padding_x",
+      "label": "Horizontal padding",
+      "min": 8,
+      "max": 80,
+      "step": 2,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "stat_gap",
+      "label": "Gap between stats",
+      "min": 8,
+      "max": 64,
+      "step": 2,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "label": "Border radius",
+      "min": 0,
+      "max": 32,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "margin_top",
+      "label": "Top spacing (gap after USP strip)",
+      "min": 0,
+      "max": 48,
+      "step": 2,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "label": "Bottom spacing",
+      "min": 0,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "checkbox",
+      "id": "show_dividers",
+      "label": "Show dividers",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "divider_color",
+      "label": "Divider color",
+      "default": "#0C7FDF"
+    },
+    {
+      "type": "header",
+      "content": "Mobile"
+    },
+    {
+      "type": "select",
+      "id": "mobile_layout",
+      "label": "Mobile layout",
+      "default": "grid",
+      "options": [
+        { "value": "grid", "label": "2 columns" },
+        { "value": "stack", "label": "Stacked" }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Animation"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_entrance_animation",
+      "label": "Enable entrance animation",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "accessibility_label",
+      "label": "Accessibility label",
+      "default": "Customer statistics"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "stat",
+      "name": "Stat",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "default": "star",
+          "options": [
+            { "value": "star", "label": "Star" },
+            { "value": "users", "label": "Users" },
+            { "value": "customer", "label": "Customer" },
+            { "value": "shield", "label": "Shield" },
+            { "value": "home", "label": "Home" },
+            { "value": "check", "label": "Check" },
+            { "value": "award", "label": "Award" },
+            { "value": "water", "label": "Water" },
+            { "value": "none", "label": "None" }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "value",
+          "label": "Statistic value",
+          "default": "4.8/5"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Overall Customer Rating"
+        },
+        {
+          "type": "text",
+          "id": "description",
+          "label": "Description",
+          "info": "Shown only when \"Show descriptions\" is enabled in section settings"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Optional link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Stats / Trust",
+      "category": "Custom",
+      "blocks": [
+        {
+          "type": "stat",
+          "settings": {
+            "icon": "star",
+            "value": "4.8/5",
+            "label": "Overall Customer Rating",
+            "description": "Rated by our customers"
+          }
+        },
+        {
+          "type": "stat",
+          "settings": {
+            "icon": "users",
+            "value": "1000+",
+            "label": "Happy Customers",
+            "description": "Homes choosing Scale-O"
+          }
+        },
+        {
+          "type": "stat",
+          "settings": {
+            "icon": "shield",
+            "value": "7-Day",
+            "label": "Risk-Free Trial",
+            "description": "Try Scale-O with confidence"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

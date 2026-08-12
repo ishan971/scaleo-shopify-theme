@@ -25,7 +25,6 @@
         },
         "judge_me_reviews_preview_badge_iGLW9b": {
           "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "disabled": true,
           "settings": {}
         },
         "custom_liquid_jdnTbF": {
@@ -146,8 +145,8 @@
         "custom_liquid_TVAThA",
         "variant_picker",
         "razorpay_affordability_widget_affordability_block_egxmgM",
-        "buy_buttons",
         "specification_BKj43M",
+        "buy_buttons",
         "cod_checker_TNGgYz",
         "expected_delivery_time_bPGXmW",
         "custom_liquid_ARV8Ey",

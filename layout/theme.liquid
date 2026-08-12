@@ -273,37 +273,7 @@ document.addEventListener("DOMContentLoaded", function() {
     observer.observe(document.body, { childList: true, subtree: true });
 });
 </script>
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const firstRadio = document.querySelector('input[type="radio"]');
-    if (!firstRadio) return;
-
-    const radioName = firstRadio.getAttribute("name");
-    const radioButtons = document.querySelectorAll(`input[type="radio"][name="${radioName}"]`);
-
-    function updatePrice() {
-      const checkedRadio = document.querySelector(`input[type="radio"][name="${radioName}"]:checked`);
-      if (!checkedRadio) return;
-
-      const label = document.querySelector(`label[for="${checkedRadio.id}"]`);
-      if (!label) return;
-
-      const priceSpan = label.querySelector(".variant-signle-regular-price");
-      const salePriceEl = document.querySelector(".m-price__sale");
-
-      if (priceSpan && salePriceEl) {
-        const priceText = priceSpan.textContent.trim();
-        salePriceEl.textContent = priceText;
-      }
-    }
-
-    updatePrice();
-
-    radioButtons.forEach(function (radio) {
-      radio.addEventListener("change", updatePrice);
-    });
-  });
-</script>
+{% comment %} Removed broken price sync script — price is handled by variant-picker.js {% endcomment %}
 
 
 <!-- <script>

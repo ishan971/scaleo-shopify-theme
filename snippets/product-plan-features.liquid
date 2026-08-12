@@ -1,0 +1,47 @@
+{%- liquid
+  assign isvariantdatapresent = false
+  for variant in product.variants
+    if variant.metafields.custom.variant_information != blank
+      assign isvariantdatapresent = true
+    endif
+  endfor
+-%}
+{%- if isvariantdatapresent -%}
+  <div class="variant-metafields plan-features">
+    <h5 class="plan-features__heading">Plan Features</h5>
+    {% for variant in product.variants %}
+      {%- liquid
+        assign asa = false
+        if variant.metafields.custom.variant_information != blank
+          assign asa = true
+        endif
+        assign is_current = false
+        if variant.id == product.selected_or_first_available_variant.id
+          assign is_current = true
+        endif
+      -%}
+        {% if variant.metafields.custom.variant_information %}
+          {% assign test = variant.metafields.custom.variant_information.value %}
+          {%- assign feature_count = 0 -%}
+          {%- for i in test -%}
+            {%- assign feature_count = feature_count | plus: 1 -%}
+          {%- endfor -%}
+          <div
+            class="selected-variant-metafield plan-features__grid plan-features__grid--{{ feature_count }}{% if is_current %} is-active{% endif %}"
+            data-variant-name="{{ variant.title }}"
+            data-available="{% if asa %}yes{% else %}no{% endif %}"
+          >
+            {% for i in test %}
+              {% render 'plan-feature-item', item: i %}
+            {% endfor %}
+          </div>
+        {% else %}
+          <div
+            class="selected-variant-metafield plan-features__grid{% if is_current %} is-active{% endif %}"
+            data-variant-name="{{ variant.title }}"
+            data-available="{% if asa %}yes{% else %}no{% endif %}"
+          ></div>
+        {% endif %}
+    {% endfor %}
+  </div>
+{%- endif -%}

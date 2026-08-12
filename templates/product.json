@@ -147,9 +147,9 @@
         "variant_picker",
         "razorpay_affordability_widget_affordability_block_egxmgM",
         "buy_buttons",
-        "specification_BKj43M",
         "cod_checker_TNGgYz",
         "expected_delivery_time_bPGXmW",
+        "specification_BKj43M",
         "custom_liquid_ARV8Ey",
         "icon_text_qVP3QN",
         "icon_text_TUf4GT",
@@ -161,7 +161,7 @@
         ".sls-price {margin-top: 15px;}",
         ".sls-option-container.seal-table {display: none;}",
         ".sls-option-container.seal-table.sls-active {display: block;}",
-        "@media only screen and (min-width: 768px) {.m-product-form--input {width: 100px; } .m-product-form .m-add-to-cart {width: 36%; position: relative; flex-grow: 1; } .main-product__block-buy_buttons .m-product-dynamic-checkout.show-add-to-cart {width: 36%; margin-top: 20px; margin-left: 20px; }}"
+        "@media only screen and (min-width: 768px) {.m-product-form--input {width: 100px; } .m-product-form .m-add-to-cart {width: 36%; position: relative; flex-grow: 1; } .main-product__block-buy_buttons:not(.product-plan-buy-buttons) .m-product-dynamic-checkout.show-add-to-cart {width: 36%; margin-top: 20px; margin-left: 20px; }}"
       ],
       "settings": {
         "container": "container-fluid",

@@ -1,47 +1,52 @@
-<div class="location-delivery-checker">
+<div class="location-delivery-checker pincode-widget">
   {% assign delivery_available_message = 'Delivery is available!' %}
   {% assign cod_available_message = 'COD is available!' %}
   {% assign cod_unavailable_message = 'Oops! COD is not currently available in your area.' %}
   {% assign delivery_unavailable_message = 'Oops! We are not currently servicing your area.' %}
-  {% assign placeholder_message = 'Check Pincode Availability ex. 400057' %}
+  {% assign placeholder_message = 'Enter pincode' %}
   {% assign check_button_text = 'Check' %}
   {% assign success_color = '#468847' %}
   {% assign failure_color = '#FF0000' %}
   {% assign spacing_in_pixels = 10 %}
-  <style>
-    .location-delivery-checker #PostalCode{
-      width:75%;
-      padding: 0 15px;
-    }
-    .location-delivery-checker .btn{ 
-      width: 25%;
-      display: flex;
-      justify-content: center;
-    }
-    @media only screen and (max-width: 768px) {
-      #PostalCode{
-        width:70%;
-        padding: 0 10px;
-      }
-    }
-  </style>
 
-  <h3 style="margin: {{ spacing_in_pixels | append: 'px' }} 0">{{ title | escape }}</h3>
-  <div style="display: flex; margin-bottom: {{ spacing_in_pixels | append: 'px' }};">
-    <input
-      type="text"
-      id="PostalCode"
-      name="PostalCode"
-      placeholder="{{ placeholder_message | escape }}"
-      style="margin: 0 {{ spacing_in_pixels | divided_by: 2 | append: 'px' }} 0 0;"
-      onkeypress="return event.keyCode != 13;"
-    >
-
-    <button type="button" class="btn btn--primary" onclick="checkCodAndDeliveryAvailability()">
-      {{ check_button_text | escape }}
-    </button>
+  <div class="pincode-widget__card">
+    <div class="pincode-widget__top">
+      <div class="pincode-widget__left">
+        <input
+          type="text"
+          id="PostalCode"
+          name="PostalCode"
+          maxlength="6"
+          inputmode="numeric"
+          autocomplete="postal-code"
+          placeholder="{{ placeholder_message | escape }}"
+          onkeypress="return event.keyCode != 13;"
+        >
+        <button
+          type="button"
+          id="pincodeActionBtn"
+          class="pincode-widget__btn"
+          onclick="handlePincodeAction()"
+        >
+          {{ check_button_text | escape }}
+        </button>
+      </div>
+      <span class="pincode-widget__truck" aria-hidden="true">
+        <svg width="28" height="20" viewBox="0 0 28 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M1.5 3.5h14.5v10H1.5V3.5Z" stroke="#222" stroke-width="1.4" stroke-linejoin="round"/>
+          <path d="M16 7.5h6.2l3.3 3.6V13.5H16V7.5Z" stroke="#222" stroke-width="1.4" stroke-linejoin="round"/>
+          <circle cx="7" cy="16.2" r="1.8" stroke="#222" stroke-width="1.4"/>
+          <circle cx="21.5" cy="16.2" r="1.8" stroke="#222" stroke-width="1.4"/>
+        </svg>
+      </span>
+    </div>
+    <div class="pincode-widget__result" id="pincodeWidgetResult" hidden>
+      <span class="pincode-widget__free">Free delivery</span>
+      <span class="pincode-widget__sep">|</span>
+      <span class="pincode-widget__by" id="pincodeDeliveryBy"></span>
+    </div>
+    <p id="PostalCodeCheckerAvailability" class="pincode-widget__msg" style="display: none;"></p>
   </div>
-  <p id="PostalCodeCheckerAvailability" style="display: none;"></p>
 </div>
 
 {% assign file_name = 'shipping-delivery-pincode.json' %}
@@ -77,9 +82,32 @@
     }
 
     fetchAvailabilityData();
+
+    function handlePincodeAction() {
+      var widget = document.querySelector('.pincode-widget');
+      var input = document.getElementById('PostalCode');
+      var btn = document.getElementById('pincodeActionBtn');
+      if (widget && widget.classList.contains('is-checked')) {
+        widget.classList.remove('is-checked');
+        if (input) {
+          input.removeAttribute('readonly');
+          input.focus();
+          input.select();
+        }
+        if (btn) btn.textContent = 'Check';
+        return;
+      }
+      checkCodAndDeliveryAvailability();
+    }
+
     var checkCodAndDeliveryAvailability = function() {
       var box = document.getElementById('PostalCodeCheckerAvailability');
       var postalCode = document.getElementById('PostalCode').value;
+      var widget = document.querySelector('.pincode-widget');
+      var resultRow = document.getElementById('pincodeWidgetResult');
+      var byEl = document.getElementById('pincodeDeliveryBy');
+      var btn = document.getElementById('pincodeActionBtn');
+      var input = document.getElementById('PostalCode');
         console.log(postalCode)
       box.style.display = 'block';
       box.style.visibility = 'hidden';
@@ -103,49 +131,42 @@
         //   availabilityText += '  ' + {{ cod_unavailable_message | json }};
         // }
 
-          let today = new Date();
-          let options = { weekday: 'short', day: '2-digit', month: 'short' };
-         let formattedDate = today.toLocaleDateString('en-GB', options);
-          formattedDate = formattedDate.replace(',', '');
-        console.log('formattedDate --> ',formattedDate)
-          $('.order-placed-content .date').html(formattedDate)
-          // $('.order-dispatched-content .date').html(formattedDate)
-
-          let new_today = new Date();
-          let addon_day = new_today.setDate(new_today.getDate() + 1);
-          let new_formattedDate = new_today.toLocaleDateString('en-GB', options);
-          new_formattedDate = new_formattedDate.replace(',', '');
-        console.log('new formattedDate --> ',new_formattedDate)
-        
-          $('.order-dispatched-content .date').html(new_formattedDate)
-
-
-    function getFormattedDate(offset) {
-        var date = new Date();
-      // let delivery_day = new_today.setDate(new_today.getDate() + 2);
-        date.setDate(date.getDate() + offset + 2);
-        var options = { weekday: 'short', day: '2-digit', month: 'short' };
-        let formattedDate_1 = date.toLocaleDateString('en-GB', options);
-        formattedDate_1 = formattedDate_1.replace(',', '');
-      console.log('formattedDate_1 ***',formattedDate_1)
-      return formattedDate_1
-      
-    }
-    const newDate = getFormattedDate(availability.day_to_deliver);
-        console.log('new date= ',newDate)
-    $('.order-delivered-content .date').html(newDate);
-
+        var longDate = new Date();
+        longDate.setDate(longDate.getDate() + (availability.day_to_deliver || 0) + 2);
+        var longLabel = longDate.toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'short' });
+        if (byEl) byEl.textContent = 'By ' + longLabel;
+        if (resultRow) {
+          resultRow.hidden = !availability.cod_available;
+        }
+        if (widget) {
+          widget.classList.toggle('is-checked', !!availability.cod_available);
+          widget.classList.toggle('is-error', !availability.cod_available);
+        }
+        if (availability.cod_available) {
+          if (input) input.setAttribute('readonly', 'readonly');
+          if (btn) btn.textContent = 'Change';
+          box.style.display = 'none';
+        } else {
+          if (input) input.removeAttribute('readonly');
+          if (btn) btn.textContent = 'Check';
+        }
 
         
              
-        $('.delivery-time-show').show();
         box.textContent = availabilityText;       
         box.style.color = (availability.cod_available) ? {{ success_color | json }} : {{ failure_color | json }};
         // box.style.color = (availability.delivery_available && availability.cod_available) ? {{ success_color | json }} : {{ failure_color | json }};
       } else {
         box.textContent = "We currently do not service to this pincode.";
         box.style.color = {{ failure_color | json }};
-        $('.delivery-time-show').hide();
+        box.style.display = 'block';
+        if (resultRow) resultRow.hidden = true;
+        if (widget) {
+          widget.classList.remove('is-checked');
+          widget.classList.add('is-error');
+        }
+        if (input) input.removeAttribute('readonly');
+        if (btn) btn.textContent = 'Check';
       }
 
       box.style.visibility = 'visible';

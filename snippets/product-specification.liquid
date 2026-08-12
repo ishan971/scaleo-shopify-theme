@@ -1,302 +1,178 @@
 {% if product.metafields.custom.specification != blank %}
   {% assign ps = product.metafields.custom.specification.value %}
   {% if ps %}
-    <div class="product-specification-content">
-      <div class="specification-popup-overlay"></div>
-      <div class="product-wrapper">
-        <div class="close-pop">{% render 'close-icon' %}</div>
-                <div class="ps-product-title"><h4><b>{{ product.title }}</b>
-<div data-shop-id="{{shop.id}}" product-id="{{product.id }}" data-page="{{request.page_type}}" class="ddreview-star"></div></h4></div>
-        {% if ps.product_dimension_image %}
-        <div class="ps-product-image active" data-type="product"><img src="{{ ps.product_dimension_image | img_url:'1024x' }}"></div>
+    {%- liquid
+      assign spec_filters = ps.additional_information.value | default: ps.additional_information
+      assign has_filters = false
+      if spec_filters != blank
+        assign has_filters = true
+      endif
+    -%}
+    <div class="specs-acc" id="product-specifications">
+      <h5 class="specs-acc__heading">Specifications</h5>
+
+      <div class="specs-acc__list-wrap">
+        <details class="specs-acc__item">
+          <summary class="specs-acc__summary">
+            <span class="specs-acc__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                <line x1="12" y1="22.08" x2="12" y2="12"></line>
+              </svg>
+            </span>
+            <span class="specs-acc__title">Product Dimensions</span>
+            <span class="specs-acc__chevron" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </span>
+          </summary>
+          <div class="specs-acc__body">
+            <div class="specs-acc__product-title">
+              <h4><b>{{ product.title }}</b></h4>
+              <div data-shop-id="{{ shop.id }}" product-id="{{ product.id }}" data-page="{{ request.page_type }}" class="ddreview-star"></div>
+            </div>
+            {% if ps.product_dimension_image %}
+              <div class="specs-acc__image">
+                <img src="{{ ps.product_dimension_image | img_url: '800x' }}" alt="{{ product.title }} product dimensions" loading="lazy">
+              </div>
+            {% endif %}
+            <div class="specs-acc__table" role="table">
+              <div class="specs-acc__row specs-acc__row--head" role="row">
+                <div role="columnheader"></div>
+                <div role="columnheader">Inch</div>
+                <div role="columnheader">C.M</div>
+              </div>
+              <div class="specs-acc__row" role="row">
+                <div role="cell">Length</div>
+                <div role="cell">{{ ps.product_dimension_length_inch }}</div>
+                <div role="cell">{{ ps.product_dimension_length_cm }}</div>
+              </div>
+              <div class="specs-acc__row" role="row">
+                <div role="cell">Width</div>
+                <div role="cell">{{ ps.product_dimension_width_inch }}</div>
+                <div role="cell">{{ ps.product_dimension_width_cm }}</div>
+              </div>
+              <div class="specs-acc__row" role="row">
+                <div role="cell">Height</div>
+                <div role="cell">{{ ps.product_dimension_height_inch }}</div>
+                <div role="cell">{{ ps.product_dimension_height_cm }}</div>
+              </div>
+            </div>
+            {% if ps.product_weight %}
+              <p class="specs-acc__weight"><b>Weight</b> : {{ ps.product_weight }}</p>
+            {% endif %}
+          </div>
+        </details>
+
+        <details class="specs-acc__item">
+          <summary class="specs-acc__summary">
+            <span class="specs-acc__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8z"></path>
+                <path d="M3.3 7L12 12l8.7-5"></path>
+                <path d="M12 22V12"></path>
+              </svg>
+            </span>
+            <span class="specs-acc__title">Package Dimensions</span>
+            <span class="specs-acc__chevron" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </span>
+          </summary>
+          <div class="specs-acc__body">
+            {% if ps._package_dimensions_image %}
+              <div class="specs-acc__image">
+                <img src="{{ ps._package_dimensions_image | img_url: '800x' }}" alt="{{ product.title }} package dimensions" loading="lazy">
+              </div>
+            {% endif %}
+            <div class="specs-acc__table" role="table">
+              <div class="specs-acc__row specs-acc__row--head" role="row">
+                <div role="columnheader"></div>
+                <div role="columnheader">Inch</div>
+                <div role="columnheader">C.M</div>
+              </div>
+              <div class="specs-acc__row" role="row">
+                <div role="cell">Length</div>
+                <div role="cell">{{ ps.package_dimensions_length_inch }}</div>
+                <div role="cell">{{ ps.package_dimensions_length_cm }}</div>
+              </div>
+              <div class="specs-acc__row" role="row">
+                <div role="cell">Width</div>
+                <div role="cell">{{ ps.package_dimensions_width_inch }}</div>
+                <div role="cell">{{ ps.package_dimensions_width_cm }}</div>
+              </div>
+              <div class="specs-acc__row" role="row">
+                <div role="cell">Height</div>
+                <div role="cell">{{ ps.package_dimensions_height_inch }}</div>
+                <div role="cell">{{ ps.package_dimensions_height_cm }}</div>
+              </div>
+            </div>
+            {% if ps.package_weight %}
+              <p class="specs-acc__weight"><b>Weight</b> : {{ ps.package_weight }}</p>
+            {% endif %}
+          </div>
+        </details>
+
+        {% if has_filters %}
+          <details class="specs-acc__item">
+            <summary class="specs-acc__summary">
+              <span class="specs-acc__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="8" y1="6" x2="21" y2="6"></line>
+                  <line x1="8" y1="12" x2="21" y2="12"></line>
+                  <line x1="8" y1="18" x2="21" y2="18"></line>
+                  <line x1="3" y1="6" x2="3.01" y2="6"></line>
+                  <line x1="3" y1="12" x2="3.01" y2="12"></line>
+                  <line x1="3" y1="18" x2="3.01" y2="18"></line>
+                </svg>
+              </span>
+              <span class="specs-acc__title">Additional Information</span>
+              <span class="specs-acc__chevron" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </span>
+            </summary>
+            <div class="specs-acc__body">
+              <ul class="specs-acc__bullets">
+                {% for i in spec_filters %}
+                  {% assign dfl = forloop.index0 | modulo: 2 %}
+                  {% if dfl == 0 %}
+                    <li>
+                      <span class="specs-acc__pair-label">{{ i }}</span>
+                  {% else %}
+                      <span class="specs-acc__pair-value">{{ i }}</span>
+                    </li>
+                  {% endif %}
+                  {% if dfl == 0 and forloop.last %}
+                    </li>
+                  {% endif %}
+                {% endfor %}
+              </ul>
+            </div>
+          </details>
         {% endif %}
-        <div class="ps-product-image" data-type="package"><img src="{{ ps._package_dimensions_image | img_url:'1024x' }}"></div>
-      <div class="ps-tabs">
-        <div class="ps-product-tab active" data-type="product">Product</div>
-        <div class="ps-product-tab" data-type="package">Package</div>
-      </div>
-      <div class="product-specification-product-dimention active" data-type="product">
-        <div class="fc1">
-           <div class="trp">
-            <div class="tp-label_1"></div>
-            <div class="tp-label_2">Inch</div>
-            <div class="tp-label_3">C.M</div>
-          </div>
-            <div class="trp">
-            <div class="tp-label_1">Length</div>
-            <div class="tp-label_2">{{ ps.product_dimension_length_inch }}</div>
-            <div class="tp-label_3">{{ ps.product_dimension_length_cm }}</div>
-          </div>
 
-          <div class="trp">
-            <div class="tp-label_1">Width</div>
-            <div class="tp-label_2">{{ ps.product_dimension_width_inch }}</div>
-            <div class="tp-label_3">{{ ps.product_dimension_width_cm }}</div>
-          </div>
-          <div class="trp">
-            <div class="tp-label_1">Height</div>
-            <div class="tp-label_2">{{ ps.product_dimension_height_inch }}</div>
-            <div class="tp-label_3">{{ ps.product_dimension_height_cm }}</div>
-          </div>
-        
-          </div>
-        {% if ps.product_weight %}
-        <h5 class="product-weight"><b>Weight</b> : {{ ps.product_weight }}</h5>
+        {% if ps.specification_bottom_content %}
+          <details class="specs-acc__item">
+            <summary class="specs-acc__summary">
+              <span class="specs-acc__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <line x1="16" y1="13" x2="8" y2="13"></line>
+                  <line x1="16" y1="17" x2="8" y2="17"></line>
+                  <polyline points="10 9 9 9 8 9"></polyline>
+                </svg>
+              </span>
+              <span class="specs-acc__title">More Details</span>
+              <span class="specs-acc__chevron" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </span>
+            </summary>
+            <div class="specs-acc__body specs-acc__body--rte">
+              {{ ps.specification_bottom_content | metafield_tag }}
+            </div>
+          </details>
         {% endif %}
-      </div>
-      <div class="product-specification-product-dimention" data-type="package">
-        <div class="fc1">
-           <div class="trp">
-            <div class="tp-label_1"></div>
-            <div class="tp-label_2">Inch</div>
-            <div class="tp-label_3">C.M</div>
-          </div>
-          <div class="trp">
-             <div class="tp-label_1">Length</div>
-            <div class="tp-label_2">{{ ps.package_dimensions_length_inch }}</div>
-            <div class="tp-label_3">{{ ps.package_dimensions_length_cm }}</div>           
-          </div>
-          <div class="trp">
-            <div class="tp-label_1">Width</div>
-            <div class="tp-label_2">{{ ps.package_dimensions_width_inch }}</div>
-            <div class="tp-label_3">{{ ps.package_dimensions_width_cm }}</div>
-          </div>
-          <div class="trp">
-            <div class="tp-label_1">Height</div>
-            <div class="tp-label_2">{{ ps.package_dimensions_height_inch }}</div>
-            <div class="tp-label_3">{{ ps.package_dimensions_height_cm }}</div>
-          </div>
-        </div>
-        {% if ps.package_weight %}
-        <h5 class="product-weight"><b>Weight</b> : {{ ps.package_weight }}</h5>
-        {% endif %}          
-      </div>
-
-     <div class="addon-info">
-  {% assign filters = ps.additional_information.value %}
-
-  <div class="filter-wrapper">
-    {% for i in filters %}
-      {%  assign dfl = forloop.index0 | modulo: 2 %}
-      {% if dfl == 0 %}
-        <div class="filter-pair">
-      {% endif %}
-      <div class="filter-item">{{ i }}</div>
-      {% if dfl == 1 or forloop.last %}
-        </div>
-      {% endif %}
-    {% endfor %}
-  </div>
-</div>
-
-  {% if ps.specification_bottom_content %}
-  <div class="bottom-content">
-    {{ ps.specification_bottom_content | metafield_tag }}
-  </div>
-  {% endif %}
-        
       </div>
     </div>
-    {% endif %}
+  {% endif %}
 {% endif %}
-
-
-<style>
-.product-wrapper{
-position: fixed;
-    right: 0;
-    top: 0;
-    background: #fff;
-    width: 40%;
-    height: 100%;
-    z-index: 999;
-    padding: 40px 40px 20px 40px;
-  overflow: auto;
-   transform: translateX(100%);
-  transition: 0.3s;
-}  
-.product-wrapper.active{
-  transform: translateX(0%);
-}
-  .ps-product-image{
-    display:none;
-  }
-   .ps-product-image.active{
-    display:block;
-  }
-  .ps-tabs{
-    display:flex;
-    justify-content: center;
-    column-gap: 10px;
-    margin: 15px 0;
-  }
-  .ps-product-tab.active {
-    color:#000;
-  }
-.product-specification-product-dimention .fc1 {
-    width: 100%;
-    padding: 15px;
-    border-radius: 10px;
-    background: #fcfcfc;
-  margin-bottom: 20px;
-}
-.product-specification-product-dimention .fc1 .tp-label_1{
-   text-align: left;
-}
-  .product-specification-product-dimention .fc1 .tp-label_2{
-   text-align: center;
-}
-  .product-specification-product-dimention .fc1 .tp-label_3{
-   text-align: right;
-}
-.trp {
-    display: flex;
-    margin-bottom: 7px;
-}
-  .trp div{
-    width: 33.33%;    
-  }
-.ps-product-tab {
-    width: 50%;
-    border: 1px solid;
-    display: block;
-    color: grey;
-    border-radius: 20px;
-    text-align: center;
-    padding: 5px;
-}
-  .specification-popup-overlay{
-    visibility: hidden;
-   opacity: 0;
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 100%;
-    width: 100%;
-    text-align: center;
-    background-color: #202020b3;
-    z-index: 999;
-    margin: 0 auto;
-}
-    .specification-popup-overlay.active{
-      visibility: visible;
-     opacity: 1;
-  }
-  .product-specification-product-dimention.active{
-     display:block !important;
-  }
-  .product-specification-product-dimention{
-    display:none;  
-  }
-  .specification-block{
-    display: flex;
-    justify-content: space-between;
-    border-top: 1px solid grey;
-    border-bottom: 1px solid grey;
-    padding: 12px 0px;
-    cursor: pointer;
-  }
-
-  .specification-block span{
-        font-weight: 600;
-    font-size: 17px;
-  }
-  
-  .specification-block svg{
-    width:8px;
-  } 
-  .close-pop{
-    cursor: pointer;
-  }
-  body.active{
-   overflow: hidden;
-    height: 100%;
-  }
-  .filter-pair{
-  margin-bottom: 12px;
-    width:50%;
-  }
-  .filter-pair .filter-item:first-child{
-  font-weight: bold;      
-  }
-  .filter-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-top: 30px;
-}
-  .filter-pair {
-    margin-bottom: 5px;
-    width: calc(50% - 12px);
-}
-  .bottom-content{
-    margin-top: 30px;
-  }
-  .bottom-content p{
-    text-align: center;
-    font-size: 13px;
-  }
-.product-specification-content{
-  position:relative;
-}  
-.close-pop{
-      display: inline-grid;
-    position: absolute;
-    right: 20px;
-    top: 20px;
-} 
-.ps-product-title{
-  margin-bottom: 10px;
-      text-align: center;
-}
-.ps-product-image img{
-  width:100%;
-}
-
-@media (max-width: 1365px) and (min-width: 768px) {
-  .product-wrapper{
-     width: 50%;
-  }
-}
-@media (max-width: 767px) {
-  .product-wrapper{
-     width: 100%;
-  }
-  .product-wrapper {
-   padding: 40px 20px 20px 20px;
-  }
-}  
-  
-</style>
-
-<script>
-  $('.ps-product-tab').click(function(){
-    $('.ps-product-tab').removeClass('active');
-    $('.product-specification-product-dimention').removeClass('active');
-    $('.ps-product-image').removeClass('active');
-    let d_type = $(this).attr('data-type');
-    console.log('d_type ',d_type)
-    $('.product-specification-product-dimention[data-type="' + d_type + '"]').addClass('active');
-    $('.ps-product-image[data-type="' + d_type + '"]').addClass('active');
-    $(this).addClass('active');
-  })
-$(document).mouseup(function (e) {
-    if ($(e.target).closest(".product-wrapper").length === 0) {
-        $('.specification-popup-overlay').removeClass('active');
-      $('.product-wrapper').removeClass('active');
-      $("body").removeClass('active')
-    }
-});
-$('.close-pop').click(function(){
-      $('.specification-popup-overlay').removeClass('active');
-  $('.product-wrapper').removeClass('active');
-  $("body").removeClass('active')
-})  
-$('.specification-block').click(function(){
-  $('.product-wrapper').addClass('active');
-    $('.specification-popup-overlay').addClass('active');
-  $("body").addClass('active')
-})
-</script>

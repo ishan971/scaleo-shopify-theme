@@ -25,12 +25,10 @@ $('.m-product-option--content input[type="radio"]').change(function() {
         var data_avl = $(this).attr('data-available');
         
         if(selectedVariantId == abc && data_avl == "yes"){
-            $(this).css('display', 'block');
-            console.log('yeees');
-            showVariantMetafield = true;  // Set flag to true if a matching variant is found
+            $(this).addClass('is-active').css('display', '');
+            showVariantMetafield = true;
         } else {
-            $(this).css('display', 'none');
-            console.log('nooot');
+            $(this).removeClass('is-active').css('display', '');
         }
     });
 

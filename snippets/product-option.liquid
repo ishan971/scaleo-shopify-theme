@@ -421,20 +421,6 @@
 
               <div class="m-product-option-error"></div>
             </variant-button>
-            {%- if is_plan_option and buy_buttons_block != nil -%}
-              <div class="product-plan-buy-buttons main-product__block-buy_buttons">
-                {% render 'product-buy-buttons',
-                  section: section,
-                  product: product,
-                  block: buy_buttons_block,
-                  product_form_id: product_form_id,
-                  product_form_class: product_form_class,
-                  variant_id: variant_id,
-                  selected_variant_id: selected_variant_id,
-                  image_field: image_field
-                %}
-              </div>
-            {%- endif -%}
           {% else %}
             <variant-color
               data-picker-field="radio"
@@ -498,6 +484,32 @@
         {%- endcase -%}
       </div>
     {%- endfor -%}
+    {%- liquid
+      assign show_plan_buy_row = false
+      for option in product.options_with_values
+        assign option_name_downcase = option.name | downcase
+        if option_name_downcase contains 'plan' or option_name_downcase contains 'tenure'
+          assign show_plan_buy_row = true
+          break
+        endif
+      endfor
+    -%}
+    {%- if show_plan_buy_row and buy_buttons_block != nil -%}
+      <div class="product-plan-buy-buttons main-product__block-buy_buttons">
+        {% render 'product-buy-buttons',
+          section: section,
+          product: product,
+          block: buy_buttons_block,
+          product_form_id: product_form_id,
+          product_form_class: product_form_class,
+          variant_id: variant_id,
+          selected_variant_id: selected_variant_id,
+          image_field: image_field
+        %}
+      </div>
+      {% render 'product-trust-points', section: section %}
+      {% render 'product-post-buy-info' %}
+    {%- endif -%}
   {%- endunless -%}
   <script id="productVariants" type="application/json">
     {{ product.variants | json }}
@@ -509,57 +521,3 @@
   {%- endif -%}
 </variant-picker>
 
-                        {% assign isvariantdatapresent = false %}
- {% for variant in product.variants %}
-   {% if variant.metafields.custom.variant_information != blank %}
-   {% assign isvariantdatapresent = true %}
-     {% endif %}
- {% endfor %}
-
-  {% if isvariantdatapresent %}
-  <div class="variant-metafields">
-    <h5><b>Plan Features</b></h5>
-  {% for variant in product.variants %}
-
-    {% if variant.id == product.selected_or_first_available_variant.id %}
-       {% assign asa = false %}
-      {% if variant.metafields.custom.variant_information != blank %}
-        {% assign asa = true %}
-      {% endif %}
-      <div class="selected-variant-metafield" style="display:block" data-variant-name="{{ variant.title }}" data-available="{% if asa %}yes{% else %}no{% endif %}">
-       {% if variant.metafields.custom.variant_information %}
-        {% assign test = variant.metafields.custom.variant_information.value %}
-         
-         {% for i in test %}
-           <div class="inner-content">
-             {% if i.icon %}
-           <img src="{{ i.icon | img_url:'100x' }}">
-             {% endif %}
-           <span>{{ i.liner }}</span>
-           </div> 
-           {% endfor %}
-          
-      {% endif %}  
-      </div>
-      {% else %}
-      {% assign asa = false %}
-      {% if variant.metafields.custom.variant_information != blank %}
-        {% assign asa = true %}
-      {% endif %}
-      <div class="selected-variant-metafield" style="display:none" data-variant-name="{{ variant.title }}" data-available="{% if asa %}yes{% else %}no{% endif %}">
-     {% if variant.metafields.custom.variant_information %}
-        {% assign test = variant.metafields.custom.variant_information.value %}
-         
-         {% for i in test %}
-           <div class="inner-content">
-           <img src="{{ i.icon | img_url:'100x' }}">
-           <span>{{ i.liner }}</span>
-           </div> 
-           {% endfor %}
-          
-      {% endif %}  
-      </div>
-    {% endif %}
-  {% endfor %}
-</div>
-{% endif %}

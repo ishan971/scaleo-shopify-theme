@@ -144,6 +144,8 @@
         {{ product | json }}
       </script>
     </div>
+    {% render 'product-plan-features', product: product %}
+    {% render 'product-specification', product: product %}
   </div>
 
   {% if section.settings.use_sticky_atc or section.settings.use_sticky_atc_on_mobile %}

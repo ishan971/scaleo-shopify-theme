@@ -49,7 +49,7 @@ $('.m-product-option--content input[type="radio"]').change(function() {
 function formatCardPrice(cents) {
   if (cents == null) return '';
   const amount = Math.round(cents / 100);
-  return amount.toLocaleString('en-IN') + ' ₹/-';
+  return '₹' + amount.toLocaleString('en-IN') + ' /-';
 }
 
 function applyCardPriceFormat(variant) {

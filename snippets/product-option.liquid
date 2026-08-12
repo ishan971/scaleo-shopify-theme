@@ -369,9 +369,9 @@
           <span class="variant-card-title">{{ value }}</span>
 
           <span class="variant-card-price-wrapper">
-            <span class="variant-card-price">{{ variant.price | divided_by: 100 | number_with_delimiter }} ₹/-</span>
+            <span class="variant-card-price">₹{{ variant.price | divided_by: 100 | number_with_delimiter }} /-</span>
             {% if variant.compare_at_price > variant.price %}
-              <span class="variant-card-compare">{{ variant.compare_at_price | divided_by: 100 | number_with_delimiter }} ₹/-</span>
+              <span class="variant-card-compare">₹{{ variant.compare_at_price | divided_by: 100 | number_with_delimiter }} /-</span>
             {% endif %}
           </span>
 

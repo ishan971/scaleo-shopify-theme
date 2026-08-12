@@ -1,0 +1,1049 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "text_9wtQ8y": {
+          "type": "text",
+          "settings": {
+            "text": "",
+            "text_style": "subtitle"
+          }
+        },
+        "judge_me_reviews_preview_badge_iGLW9b": {
+          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "disabled": true,
+          "settings": {}
+        },
+        "custom_liquid_jdnTbF": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "{% if product.metafields.custom.product_detail_usp != blank %}      \n<div class=\"product-detail-section\" style=\"display: flex; flex-wrap: wrap; column-gap: 5px; row-gap: 5px;\">\n{% for pro_details in product.metafields.custom.product_detail_usp.value %}\n  <span \n    style=\"border-radius: 5px;\n    color: {{ pro_details.text_color}};\n    background-color: {{ pro_details.background_color }}; \n    border:1px solid {{ pro_details.text_color}};\n    padding: 5px 8px;\n        font-size: 18px;\">\n    {{ pro_details.detail_name.value }}\n  </span>\n{% endfor %}\n</div>\n{% endif %}"
+          }
+        },
+        "description_gN9BL9": {
+          "type": "description",
+          "disabled": true,
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+            "show_saving": true,
+            "sale_badge_type": "percentage"
+          }
+        },
+        "custom_liquid_TVAThA": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<script>\n  document.addEventListener('DOMContentLoaded', function() {\n    var variantNodes = document.querySelectorAll('.m-product-option--node');\n    var stockStatus = document.getElementById('stock-status');\n\n    variantNodes.forEach(function(node) {\n      var radioInput = node.querySelector('input[type=\"radio\"]');\n      \n      if (radioInput) {\n        radioInput.addEventListener('change', function() {\n          if (this.checked) {\n            var inventoryQuantity = node.getAttribute('data-inventory-quantity');\n            var inventoryManagement = node.getAttribute('data-inventory-management');\n\n            if (inventoryManagement === \"shopify\") {\n              if (inventoryQuantity > 0) {\n                stockStatus.innerHTML = 'Stock: ' + inventoryQuantity;\n              } else {\n                stockStatus.innerHTML = 'Out of stock';\n              }\n            } else {\n              stockStatus.innerHTML = 'Inventory not tracked';\n            }\n          }\n        });\n      }\n    });\n  });\n</script>"
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "size_title": "Plan"
+          }
+        },
+        "razorpay_affordability_widget_affordability_block_egxmgM": {
+          "type": "shopify://apps/razorpay-affordability-widget/blocks/affordability-block/5bf9b115-5933-4c1b-ade0-ef564b250852",
+          "disabled": true,
+          "settings": {}
+        },
+        "specification_BKj43M": {
+          "type": "specification",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_quantity_selector": true,
+            "show_atc_button": true,
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        },
+        "cod_checker_TNGgYz": {
+          "type": "cod_checker",
+          "settings": {}
+        },
+        "expected_delivery_time_bPGXmW": {
+          "type": "expected_delivery_time",
+          "settings": {}
+        },
+        "custom_liquid_ARV8Ey": {
+          "type": "custom_liquid",
+          "disabled": true,
+          "settings": {
+            "custom_liquid": "<style>\n  .mainbox {\n    background-color: white;\n    border-radius: 20px;\n    justify-content: space-between;\n  }\n\n  .features {\n    display: flex;\n    justify-content: space-around;\n\n    padding: 20px 0;\n  }\n\n  .feature {\n    text-align: center;\n    color: #333333;\n    font-size: 12px;\n    font-weight: 600;\n  }\n\n  .feature img {\n    display: block;\n    margin: 0 auto 10px;\n  }\n\n  .ratings {\n    padding: 20px;\n    display: flex;\n  }\n\n  .ratings h2 {\n    font-size: 19px;\n    margin-bottom: 10px;\n  }\n\n  .overall-rating {\n    display: flex;\n    align-items: center;\n    font-size: 18px;\n    margin-bottom: 20px;\n  }\n\n  .stars {\n    color: #ffba00;\n    margin-right: 10px;\n  }\n\n  .rating {\n    color: #666;\n    display: flex;\n    font-size: 12px;\n  }\n\n  .feature-ratings {\n    display: flex;\n    flex-direction: column;\n    width: 50%;\n  }\n\n  .rating-item {\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    background-color: #f5f7ff;\n    padding-right: 10px;\n    padding-left: 10px;\n    margin-bottom: 10px;\n    border-radius: 20px;\n  }\n\n  .feature-name {\n    font-weight: bold;\n    font-size: 11px;\n  }\n</style>\n\n<div class=\"features\">\n  <div class=\"feature\">\n    <img\n      src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_48.svg?v=1722428686\"\n      alt=\"Quick Delivery\"\n    />\n    <p>QUICK DELIVERY</p>\n  </div>\n  <div class=\"feature\">\n    <img\n      src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_48-1.svg?v=1722428687\"\n      alt=\"Simple Installation\"\n    />\n    <p>SIMPLE INSTALLATION</p>\n  </div>\n  <div class=\"feature\">\n    <img\n      src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_48-2.svg?v=1722428686\"\n      alt=\"Full Guarantee\"\n    />\n    <p>FULL GUARANTEE</p>\n  </div>\n  <div class=\"feature\">\n    <img\n      src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_48-3.svg?v=1722428685\"\n      alt=\"Easy Exchange\"\n    />\n    <p>EASY EXCHANGE</p>\n  </div>\n</div>\n<div class=\"ratings mainbox\">\n  <div>\n    <h2>Ratings by Criteria</h2>\n    {% assign rounded_rating = product.metafields.custom.total_rating.value |\n    round %}\n\n    <div class=\"overall-rating\">\n      <span class=\"stars\">\n        {% case rounded_rating %} {% when 5 %} ★★★★★ {% when 4 %} ★★★★☆ {% when\n        3 %} ★★★☆☆ {% when 2 %} ★★☆☆☆ {% when 1 %} ★☆☆☆☆ {% else %} ☆☆☆☆☆ {%\n        endcase %}\n      </span>\n      <span class=\"rating\">\n        {{ product.metafields.custom.total_rating.value }}/5.0 ({{\n        product.metafields.custom.reviews.value }} Reviews)\n      </span>\n    </div>\n  </div>\n\n  <div class=\"feature-ratings\">\n    <div class=\"rating-item\">\n      <span class=\"feature-name\">CONCEPT</span>\n      <div style=\"display: flex; align-items: baseline\">\n        <span class=\"stars\">★</span>\n        <span class=\"rating\"\n          >{{product.metafields.custom.concept.value }} | 5.0</span\n        >\n      </div>\n    </div>\n    <div class=\"rating-item\">\n      <span class=\"feature-name\">CONVENIENCE</span>\n      <div style=\"display: flex; align-items: baseline\">\n        <span class=\"stars\">★</span>\n        <span class=\"rating\"\n          >{{product.metafields.custom.convenience.value }} | 5.0</span\n        >\n      </div>\n    </div>\n    <div class=\"rating-item\">\n      <span class=\"feature-name\">QUALITY</span>\n      <div style=\"display: flex; align-items: baseline\">\n        <span class=\"stars\">★</span>\n        <span class=\"rating\"\n          >{{product.metafields.custom.quality.value }} | 5.0</span\n        >\n      </div>\n    </div>\n    <div class=\"rating-item\">\n      <span class=\"feature-name\">PRICING</span>\n      <div style=\"display: flex; align-items: baseline\">\n        <span class=\"stars\">★</span>\n        <span class=\"rating\"\n          >{{product.metafields.custom.pricing.value }} | 5.0</span\n        >\n      </div>\n    </div>\n  </div>\n</div>"
+          }
+        },
+        "icon_text_qVP3QN": {
+          "type": "icon_text",
+          "disabled": true,
+          "settings": {
+            "heading_1": "",
+            "heading_2": "",
+            "heading_3": "",
+            "heading_4": ""
+          }
+        },
+        "icon_text_TUf4GT": {
+          "type": "icon_text",
+          "disabled": true,
+          "settings": {
+            "heading_1": "",
+            "heading_2": "",
+            "heading_3": "",
+            "heading_4": ""
+          }
+        },
+        "free_shipping_return_NBb4gk": {
+          "type": "free_shipping_return",
+          "settings": {
+            "shipping_icon": "shopify://shop_images/money-back.png",
+            "shippng_title": "15 Day Refund Guarantee ",
+            "shipping_tooltip": "<p>Customers may place a refund request within 7 days of the original purchase date, if item is undelivered or missing. In case the product delivered and is partially or completely damaged and the buyer is not willing to get a replacement for the same, they will be requested to ship the product back, post which they will be provided with a full refund.</p>",
+            "return_replacement_icon": "shopify://shop_images/replacement.png",
+            "return_title": "180 Day Replacement Guarantee",
+            "return_tooltip": "<p>Customers may request a replacement within 24 hours of delivery, if item is partially or completely damaged. We provide an extra replacement product in case the life of Scale-O Water Softener is exhausted earlier than 6 months subject to clear evidence displayed as photos and videos indicating that the product is consumed and floating on the surface of water inside the tank.</p>"
+          }
+        },
+        "icon_text_tdQqcd": {
+          "type": "icon_text",
+          "settings": {
+            "logo_1": "shopify://shop_images/free-delivery.png",
+            "heading_1": "Free Delivery",
+            "logo_2": "shopify://shop_images/cod_00bde2a2-fc70-41c4-a5a8-430e83e7b02b.png",
+            "heading_2": "COD Available",
+            "logo_3": "shopify://shop_images/tools.png",
+            "heading_3": "Simple Installation",
+            "logo_4": "shopify://shop_images/return-box.png",
+            "heading_4": "Easy Exchanges"
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "text_9wtQ8y",
+        "judge_me_reviews_preview_badge_iGLW9b",
+        "custom_liquid_jdnTbF",
+        "description_gN9BL9",
+        "price",
+        "custom_liquid_TVAThA",
+        "variant_picker",
+        "razorpay_affordability_widget_affordability_block_egxmgM",
+        "buy_buttons",
+        "specification_BKj43M",
+        "cod_checker_TNGgYz",
+        "expected_delivery_time_bPGXmW",
+        "custom_liquid_ARV8Ey",
+        "icon_text_qVP3QN",
+        "icon_text_TUf4GT",
+        "free_shipping_return_NBb4gk",
+        "icon_text_tdQqcd"
+      ],
+      "custom_css": [
+        ".sls-widget-branding,.ddreview-star {display: none;}",
+        ".sls-price {margin-top: 15px;}",
+        ".sls-option-container.seal-table {display: none;}",
+        ".sls-option-container.seal-table.sls-active {display: block;}",
+        "@media only screen and (min-width: 768px) {.m-product-form--input {width: 100px; } .m-product-form .m-add-to-cart {width: 36%; position: relative; flex-grow: 1; } .main-product__block-buy_buttons .m-product-dynamic-checkout.show-add-to-cart {width: 36%; margin-top: 20px; margin-left: 20px; }}"
+      ],
+      "settings": {
+        "container": "container-fluid",
+        "layout": "layout-4",
+        "show_atwl": false,
+        "enable_history_state": true,
+        "enable_variant_group_images": false,
+        "disable_selected_variant_default": false,
+        "show_featured_media": true,
+        "show_zoom_button": true,
+        "enable_video_autoplay": false,
+        "show_nav_media_mobile": true,
+        "show_pagination_mobile": true,
+        "use_sticky_atc": false,
+        "use_sticky_atc_on_mobile": false,
+        "enable_dynamic_checkout": true,
+        "sticky_atc_wishtlist": false,
+        "sticky_atc_compare": false
+      }
+    },
+    "601852004584022571": {
+      "type": "apps",
+      "disabled": true,
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "header_alignment": "center",
+        "container": "container",
+        "background_color": "",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "custom_class": ""
+      }
+    },
+    "product-details-tabs": {
+      "type": "product-details-tabs",
+      "blocks": {
+        "description": {
+          "type": "description",
+          "settings": {
+            "header": "Product description"
+          }
+        },
+        "tab": {
+          "type": "tab",
+          "settings": {
+            "header": "Shipping & Return",
+            "content": "<p>Shipping cost is based on weight. Just add products to your cart and use the Shipping Calculator to see the shipping price.</p><p>We want you to be 100% satisfied with your purchase. Items can be returned or exchanged within 30 days of delivery.</p>",
+            "content_page": "connect"
+          }
+        }
+      },
+      "block_order": [
+        "description",
+        "tab"
+      ],
+      "disabled": true,
+      "custom_css": [
+        ".m-tabs__header {justify-content: flex-start;}"
+      ],
+      "settings": {
+        "container": "container",
+        "color_scheme": "",
+        "default_open": true,
+        "padding_top": 0,
+        "padding_bottom": 50,
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "brands_list_a7HM9d": {
+      "type": "brands-list",
+      "blocks": {
+        "image_xgycDP": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/pngtree-food-grade-product-golden-badge-or-label-png-image_4502176.png",
+            "image_by_url": "",
+            "image_link": "",
+            "max_width": "90px"
+          }
+        },
+        "image_6wwYxi": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/RoHS_6b83b41d-0542-4dc4-a6ea-7f13deaeb1da.png",
+            "image_by_url": "",
+            "image_link": "",
+            "max_width": "120px"
+          }
+        },
+        "image_mtHEUm": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/60229cdc036ee_thumb_af16ddba-2cfc-460c-bd84-884c5fce930f.png",
+            "image_by_url": "",
+            "image_link": "",
+            "max_width": "108px"
+          }
+        },
+        "image_8mbjia": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/download-_5_da5f3a13-af16-4908-ac2d-f4985da8412c.png",
+            "image_by_url": "",
+            "image_link": "",
+            "max_width": "108px"
+          }
+        },
+        "image_ELULCg": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Swachh_Bharat_Mission_Logo_svg_9a70e443-2fa9-45d3-9821-b9bd7c2fd321.png",
+            "image_by_url": "",
+            "image_link": "",
+            "max_width": ""
+          }
+        },
+        "image_TeJd7n": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Make-In-IndiaLogo650_6eaa2f60-4639-4269-b621-567f01692ddf.png",
+            "image_by_url": "",
+            "image_link": "",
+            "max_width": ""
+          }
+        },
+        "image_kMprmb": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/ipi_b3574d10-1c43-4843-a087-34be13693457.png",
+            "image_by_url": "",
+            "image_link": "",
+            "max_width": "70px"
+          }
+        }
+      },
+      "block_order": [
+        "image_xgycDP",
+        "image_6wwYxi",
+        "image_mtHEUm",
+        "image_8mbjia",
+        "image_ELULCg",
+        "image_TeJd7n",
+        "image_kMprmb"
+      ],
+      "disabled": true,
+      "custom_css": [],
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "header_alignment": "center",
+        "container": "container",
+        "color_scheme": "scheme-cee058e4-58e3-46aa-9af9-219dadc79066",
+        "item_per_row": 6,
+        "column_gap": 30,
+        "row_gap": 30,
+        "column_gap_mobile": 35,
+        "row_gap_mobile": 27,
+        "enable_slider": false,
+        "show_nav": false,
+        "show_pagination": false,
+        "autorotate": false,
+        "autorotate_speed": 3,
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "custom_class": "rc",
+        "animations": "inherit"
+      }
+    },
+    "1743481580c800ca3c": {
+      "type": "apps",
+      "blocks": {
+        "swipeup_reels_feed_Ez9Dwg": {
+          "type": "shopify://apps/swipeup/blocks/reels-feed/7b6d7967-af4c-461a-9edb-73155220c3a4",
+          "settings": {
+            "swipeup_section_id": "",
+            "show_discount_badge": true,
+            "show_product_info": true,
+            "autoplay_all": false,
+            "show_playbutton": true,
+            "hide_decimals": false,
+            "preview_max_time": 3,
+            "background_color": "rgba(0,0,0,0)",
+            "background_gradient": "",
+            "viewer_default_muted": true,
+            "product_details_enabled": true,
+            "viewer_autoplay_next": false,
+            "shop_button_text": "Shop",
+            "viewer_open_cart_after_shop": false,
+            "mute_text": "Mute",
+            "unmute_text": "Unmute",
+            "custom_css": ""
+          }
+        }
+      },
+      "block_order": [
+        "swipeup_reels_feed_Ez9Dwg"
+      ],
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "header_alignment": "center",
+        "container": "container",
+        "background_color": "",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "custom_class": ""
+      }
+    },
+    "custom_liquid_yE4QRa": {
+      "type": "custom-liquid",
+      "custom_css": [
+        ".cus {margin-bottom: 0px;}",
+        ".container {background-color: white; padding-right: 70px; padding-left: 70px; border-radius: 20px;}",
+        "@media (max-width: 767px) {.container {padding-right: 20px; padding-left: 20px; }}",
+        " {margin-bottom: -50px;}",
+        "p {font-size: 14px;}"
+      ],
+      "settings": {
+        "custom_liquid": "<div\n  id=\"shopify-section-template--15914741989478__image_with_text_Y3JMfg-2\"\n  class=\"shopify-section\"\n>\n  <link\n    href=\"//scale-o.com/cdn/shop/t/2/assets/image-with-text.css?v=147296142482609620351720499195\"\n    rel=\"stylesheet\"\n    type=\"text/css\"\n    media=\"all\"\n  />\n\n  <script\n    src=\"//scale-o.com/cdn/shop/t/2/assets/image-layer.js?v=65467045674204492761720499196\"\n    defer=\"defer\"\n  ></script>\n\n  <style data-shopify=\"\">\n    .m-section-template--15914741989478__image_with_text_Y3JMfg {\n      --section-padding-top: 60px;\n      --section-padding-bottom: 60px;\n      --column-gap: 100px;\n      --row-gap: 50px;\n      --column-gap-mobile: 30px;\n      --row-gap-mobile: 30px;\n\n      background-color: ;\n    }\n  </style>\n  <section\n    id=\"m-section-template--15914741989478__image_with_text_Y3JMfg\"\n    class=\"m-section m-image-with-text cus m-section-template--15914741989478__image_with_text_Y3JMfg m-gradient m-color-scheme-cee058e4-58e3-46aa-9af9-219dadc79066\"\n  >\n    <div class=\"container m-section-my m-section-py\">\n      <div\n        class=\"m-image-with-text__inner m:flex m:flex-wrap m:flex-row-reverse\"\n      >\n        <div\n          class=\"m-image-with-text__image m:column m:w-full md:m:w-1/2 lg:m:w-6/12\"\n          data-cascade=\"\"\n          style=\"--animation-order: 1\"\n        >\n          <m-image-layer\n            class=\"m-image-with-text__image-wrapper m-image-with-text--right\"\n            style=\"--offset-top: 10%\"\n          >\n            <div class=\"m-image-with-text__image-first\">\n              <responsive-image\n                class=\"m-image m-image-loaded\"\n                style=\"--aspect-ratio: 1.1773122125702606\"\n                intersecting=\"true\"\n              >\n                <img\n                  srcset=\"\n                  {{ product.metafields.custom.ofactor.value }}&amp;width=165   165w,\n                  {{ product.metafields.custom.ofactor.value }}&amp;width=360   360w,\n                  {{ product.metafields.custom.ofactor.value }}&amp;width=533   533w,\n                  {{ product.metafields.custom.ofactor.value }}&amp;width=720   720w,\n                  {{ product.metafields.custom.ofactor.value }}&amp;width=940   940w,\n                  {{ product.metafields.custom.ofactor.value }}&amp;width=1066 1066w,\n                  {{ product.metafields.custom.ofactor.value }}&amp;width=1500 1500w,\n                  {{ product.metafields.custom.ofactor.value }}&amp;width=1780 1780w,\n                  {{ product.metafields.custom.ofactor.value }}&amp;width=2000 2000w,\n                  {{ product.metafields.custom.ofactor.value }}                2304w\n                \"\n                  src=\"{{ product.metafields.custom.ofactor.value }}&amp;width=360\"\n                  sizes=\"590px\"\n                  alt=\"\"\n                  loading=\"lazy\"\n                  class=\"m:w-full m:h-full\"\n                  width=\"590\"\n                  height=\"501\"\n                />\n\n                <noscript>\n                  <img\n                    class=\"m:w-full m:h-full\"\n                    loading=\"lazy\"\n                    width=\"\"\n                    height=\"\"\n                    src=\"{{ product.metafields.custom.ofactor.value }}?crop=center&height=2048&width=2048\"\n                    alt=\"\"\n                  />\n                </noscript>\n              </responsive-image>\n            </div>\n          </m-image-layer>\n        </div>\n        <div\n          class=\"m-image-with-text__content m:column m:w-full md:m:w-1/2 lg:m:w-6/12 m-scroll-trigger animate--fade-in-up\"\n          data-cascade=\"\"\n          style=\"--animation-order: 0\"\n        >\n          <div\n            class=\"m-content-box m-richtext m-richtext--large m:w-full m:text-left\"\n          >\n            <p class=\"m-richtext__subtitle m-content-box__subheading h5\">\n              SCALE-O USP\n            </p>\n\n            <h3 class=\"m-richtext__title m-content-box__heading h1\">\n              Scale-O : 0 Factor\n            </h3>\n\n            <div\n              class=\"m-richtext__description rte m-content-box__description h5\"\n            >\n              <p>\n                Scale-O chemically alters the structure and forms a coating on\n                Ca<sup style=\"color: #000\">+2</sup> &amp; Mg<sup\n                  style=\"color: #000\"\n                  >+2</sup\n                >\n                ions present in hard water such that they do not react with\n                negative ions like Cl<sup style=\"color: #000\">-1</sup> or SO<sub\n                  >4</sub\n                ><sup style=\"color: #000\">-2</sup> and prevents the formation\n                insoluble salts or scale in common language.<br />\n              </p>\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n  </section>\n\n  <style>\n    #shopify-section-template--15914741989478__image_with_text_Y3JMfg .cus {\n      margin-bottom: 50px;\n    }\n    #shopify-section-template--15914741989478__image_with_text_Y3JMfg\n      .container {\n      background-color: white;\n      padding-right: 70px;\n      padding-left: 70px;\n      border-radius: 20px;\n    }\n  </style>\n</div>",
+        "custom_class": ""
+      }
+    },
+    "image_with_text_tBf6fR": {
+      "type": "image-with-text",
+      "custom_css": [
+        "li {font-size: 14px;}",
+        "p {font-size: 12px;}"
+      ],
+      "settings": {
+        "heading": "{{ product.metafields.custom.zig_zag_product_install.value.how_to_install_heading_.value }}",
+        "heading_size": "h2",
+        "subheading": "",
+        "container": "w-full",
+        "color_scheme": "",
+        "item_gap": 100,
+        "item_gap_mobile": 30,
+        "layout": "left",
+        "image_column_size": "6",
+        "image_overlap": false,
+        "show_image_reverse": false,
+        "hover_effect": false,
+        "image_animation": "none",
+        "image": "{{ product.metafields.custom.zig_zag_product_install.value.how_to_install_image_.value }}",
+        "link": "",
+        "link_2": "",
+        "second_image_offset_top": 10,
+        "title": "",
+        "sub_title": "",
+        "text": "{{ product.metafields.custom.zig_zag_product_install.value.how_to_install_paragraph_ | metafield_tag }}",
+        "text_size": "medium",
+        "content_alignment": "left",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "m-button--link",
+        "button_size": "",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "image_with_text_YtH9He": {
+      "type": "image-with-text",
+      "custom_css": [
+        "li {font-size: 14px;}",
+        "p {font-size: 14px;}"
+      ],
+      "settings": {
+        "heading": "{{ product.metafields.custom.zig_zag_product_install.value.how_it_works_heading_.value }}",
+        "heading_size": "h2",
+        "subheading": "",
+        "container": "w-full",
+        "color_scheme": "default",
+        "item_gap": 100,
+        "item_gap_mobile": 30,
+        "layout": "right",
+        "image_column_size": "6",
+        "image_overlap": false,
+        "show_image_reverse": false,
+        "hover_effect": false,
+        "image_animation": "none",
+        "image": "{{ product.metafields.custom.zig_zag_product_install.value.how_it_works_image_.value }}",
+        "link": "",
+        "link_2": "",
+        "second_image_offset_top": 10,
+        "title": "",
+        "sub_title": "",
+        "text": "{{ product.metafields.custom.zig_zag_product_install.value.how_it_works_paragraph_ | metafield_tag }}",
+        "text_size": "medium",
+        "content_alignment": "left",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "m-button--link",
+        "button_size": "",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "image_with_text_xHa9fb": {
+      "type": "image-with-text",
+      "custom_css": [
+        "li {font-size: 14px;}"
+      ],
+      "settings": {
+        "heading": "{{ product.metafields.custom.zig_zag_product_install.value.how_to_test_heading_.value }}",
+        "heading_size": "h3",
+        "subheading": "",
+        "container": "w-full",
+        "color_scheme": "",
+        "item_gap": 100,
+        "item_gap_mobile": 30,
+        "layout": "left",
+        "image_column_size": "6",
+        "image_overlap": false,
+        "show_image_reverse": false,
+        "hover_effect": false,
+        "image_animation": "none",
+        "image": "{{ product.metafields.custom.zig_zag_product_install.value.how_to_test_image_.value }}",
+        "link": "",
+        "link_2": "",
+        "second_image_offset_top": 10,
+        "title": "",
+        "sub_title": "",
+        "text": "{{ product.metafields.custom.zig_zag_product_install.value.how_to_test_paragraph_ | metafield_tag }}",
+        "text_size": "small",
+        "content_alignment": "left",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "m-button--link",
+        "button_size": "",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "image_with_text_bKbtEj": {
+      "type": "image-with-text",
+      "custom_css": [
+        "li {font-size: 14px;}"
+      ],
+      "settings": {
+        "heading": "{{ product.metafields.custom.zig_zag_product_install.value.how_to_clean_heading_.value }}",
+        "heading_size": "h2",
+        "subheading": "",
+        "container": "w-full",
+        "color_scheme": "",
+        "item_gap": 100,
+        "item_gap_mobile": 30,
+        "layout": "right",
+        "image_column_size": "6",
+        "image_overlap": false,
+        "show_image_reverse": false,
+        "hover_effect": false,
+        "image_animation": "none",
+        "image": "{{ product.metafields.custom.zig_zag_product_install.value.how_to_clean_image_.value }}",
+        "link": "",
+        "link_2": "",
+        "second_image_offset_top": 10,
+        "title": "",
+        "sub_title": "",
+        "text": "{{ product.metafields.custom.zig_zag_product_install.value.how_to_clean_paragraph_ | metafield_tag }}",
+        "text_size": "medium",
+        "content_alignment": "left",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "m-button--link",
+        "button_size": "",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "image_with_text_XBQQ4z": {
+      "type": "image-with-text",
+      "custom_css": [
+        "li {font-size: 14px;}"
+      ],
+      "settings": {
+        "heading": "{{ product.metafields.custom.zig_zag_product_install.value.when_to_replace_heading_.value }}",
+        "heading_size": "h2",
+        "subheading": "",
+        "container": "w-full",
+        "color_scheme": "default",
+        "item_gap": 100,
+        "item_gap_mobile": 30,
+        "layout": "left",
+        "image_column_size": "6",
+        "image_overlap": false,
+        "show_image_reverse": false,
+        "hover_effect": false,
+        "image_animation": "none",
+        "image": "{{ product.metafields.custom.zig_zag_product_install.value.when_to_replace_image_.value }}",
+        "link": "",
+        "link_2": "",
+        "second_image_offset_top": 10,
+        "title": "",
+        "sub_title": "",
+        "text": "{{ product.metafields.custom.zig_zag_product_install.value.when_to_replace_paragraph_ | metafield_tag }}",
+        "text_size": "medium",
+        "content_alignment": "left",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "m-button--link",
+        "button_size": "",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "image_with_text_8rFKJD": {
+      "type": "image-with-text",
+      "custom_css": [
+        "li {font-size: 14px;}"
+      ],
+      "settings": {
+        "heading": "{{ product.metafields.custom.zig_zag_product_install.value.how_to_replace_heading_.value }}",
+        "heading_size": "h2",
+        "subheading": "",
+        "container": "w-full",
+        "color_scheme": "default",
+        "item_gap": 100,
+        "item_gap_mobile": 30,
+        "layout": "right",
+        "image_column_size": "6",
+        "image_overlap": false,
+        "show_image_reverse": false,
+        "hover_effect": false,
+        "image_animation": "none",
+        "image": "{{ product.metafields.custom.zig_zag_product_install.value.how_to_replace_image_.value }}",
+        "link": "",
+        "link_2": "",
+        "second_image_offset_top": 10,
+        "title": "",
+        "sub_title": "",
+        "text": "{{ product.metafields.custom.zig_zag_product_install.value.how_to_replace_paragraph_ | metafield_tag }}",
+        "text_size": "medium",
+        "content_alignment": "left",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "m-button--link",
+        "button_size": "",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "custom_liquid_MTFkLe": {
+      "type": "custom-liquid",
+      "custom_css": [
+        "@media (min-width: 769px) {.m-custom-content__wrapper {justify-content: center; } #m-custom__block--image_epEW38 {width: 21%; }}",
+        "@media screen and (max-width: 767px) {.m-mixed-layout--mobile-scroll .m-mixed-layout__inner > * {flex: none; width: 50% !important; } #m-custom__block--image_epEW38 {width: 63% !important; }}",
+        ".sec {padding-top: 10px; padding-bottom: 20px;}"
+      ],
+      "settings": {
+        "custom_liquid": "<div id=\"shopify-section-template--15914742120550__custom_content_hgEnhK\" class=\"shopify-section shopify-section-custom-content\"><link href=\"//scale-o.com/cdn/shop/t/2/assets/custom-content.css?v=143733402900438853091720499194\" rel=\"stylesheet\" type=\"text/css\" media=\"all\">\n\n<style>\n  #m-custom-template--15914742120550__custom_content_hgEnhK {\n    --column-gap: 0px;\n    --column-gap-mobile: 0px;\n    --section-padding-top: 40px;\n    --section-padding-bottom: 38px;\n  }\n</style>\n\n<div id=\"m-custom-template--15914742120550__custom_content_hgEnhK\" class=\"m-section m-custom-content m-gradient m-color-default\" data-section-type=\"custom-content\" data-section-id=\"template--15914742120550__custom_content_hgEnhK\">\n  \n  <div class=\"container-fluid m-section-my m-section-py\">\n    <div class=\"m-gradient m-color-default\">\n\n\n\n\n  <div class=\"m-section__header m:text-center \">\n    \n    \n      <p class=\"m-section__subheading m-scroll-trigger animate--fade-in-up\">\n        COMPETITOR ANALYSIS\n      </p>\n    \n    \n      <h2 class=\"m-section__heading h3 m-scroll-trigger animate--fade-in-up\">\n        </h2><h2>Technology Comparison Matrix</h2>\n      \n    \n    \n    \n    \n  </div>\n\n\n      \n        <div class=\"m-mixed-layout m-mixed-layout--mobile-scroll\">\n        <div class=\"m-custom-content__wrapper m:flex m-mixed-layout__inner md:m:flex-wrap\">\n          \n            \n            <div id=\"m-custom__block--image_epEW38\" class=\"m:column m:display-flex m-custom-content__block m-custom-content__block-image lg:m:w-1/4 md:m:w-1/2 m:w-full m:items-center\">\n              <div class=\"m-custom-content__block-inner m:w-full\">\n                \n                    <div class=\"m:w-full m:block m-scroll-trigger animate--fade-in-up\" data-cascade=\"\" style=\"--animation-order: 69;\">\n                      \n<div>\n                          <responsive-image class=\"m-image m-image-loaded\" style=\"--aspect-ratio: 0.4720496894409938;\" intersecting=\"true\">\n  \n  <img srcset=\"//scale-o.com/cdn/shop/files/vg1.svg?v=1724152199&amp;width=165 165w,//scale-o.com/cdn/shop/files/vg1.svg?v=1724152199&amp;width=360 360w,//scale-o.com/cdn/shop/files/vg1.svg?v=1724152199 380w\" src=\"https://scale-o.com/cdn/shop/files/vg1.svg?v=1724152199&amp;width=360\" sizes=\"298px\" alt=\"\" loading=\"lazy\" class=\"\" width=\"298\" height=\"632\">\n  \n  <noscript>\n    <img class=\"\" loading=\"lazy\" width=\"\" height=\"\" src=\"//scale-o.com/cdn/shop/files/vg1.svg?crop=center&height=2048&v=1724152199&width=2048\" alt=\"\">\n  </noscript>\n</responsive-image>\n\n                        </div>\n                      \n                    </div>\n                  \n              </div>\n            </div>\n          \n            \n            <div id=\"m-custom__block--image_Vp8Qxc\" class=\"m:column m:display-flex m-custom-content__block m-custom-content__block-image lg:m:w-2/12 md:w-1/2 m:w-full m:items-center\">\n              <div class=\"m-custom-content__block-inner m:w-full\">\n                \n                    <div class=\"m:w-full m:block m-scroll-trigger animate--fade-in-up\" data-cascade=\"\" style=\"--animation-order: 70;\">\n                      \n<div>\n                          <responsive-image class=\"m-image m-image-loaded\" style=\"--aspect-ratio: 0.37267080745341613;\" intersecting=\"true\">\n  \n  <img srcset=\"//scale-o.com/cdn/shop/files/vgvgvg.svg?v=1724152224&amp;width=165 165w,//scale-o.com/cdn/shop/files/vgvgvg.svg?v=1724152224 300w\" src=\"https://scale-o.com/cdn/shop/files/vgvgvg.svg?v=1724152224&amp;width=360\" sizes=\"237px\" alt=\"\" loading=\"lazy\" class=\"\" width=\"237\" height=\"635\">\n  \n  <noscript>\n    <img class=\"\" loading=\"lazy\" width=\"\" height=\"\" src=\"//scale-o.com/cdn/shop/files/vgvgvg.svg?crop=center&height=2048&v=1724152224&width=2048\" alt=\"\">\n  </noscript>\n</responsive-image>\n\n                        </div>\n                      \n                    </div>\n                  \n              </div>\n            </div>\n          \n            \n            <div id=\"m-custom__block--image_enFTpH\" class=\"m:column m:display-flex m-custom-content__block m-custom-content__block-image lg:m:w-2/12 md:w-1/2 m:w-full m:items-center\">\n              <div class=\"m-custom-content__block-inner m:w-full\">\n                \n                    <div class=\"m:w-full m:block m-scroll-trigger animate--fade-in-up\" data-cascade=\"\" style=\"--animation-order: 71;\">\n                      \n<div>\n                          <responsive-image class=\"m-image m-image-loaded\" style=\"--aspect-ratio: 0.37267080745341613;\" intersecting=\"true\">\n  \n  <img srcset=\"//scale-o.com/cdn/shop/files/vg2.svg?v=1724152224&amp;width=165 165w,//scale-o.com/cdn/shop/files/vg2.svg?v=1724152224 300w\" src=\"https://scale-o.com/cdn/shop/files/vg2.svg?v=1724152224&amp;width=360\" sizes=\"237px\" alt=\"\" loading=\"lazy\" class=\"\" width=\"237\" height=\"635\">\n  \n  <noscript>\n    <img class=\"\" loading=\"lazy\" width=\"\" height=\"\" src=\"//scale-o.com/cdn/shop/files/vg2.svg?crop=center&height=2048&v=1724152224&width=2048\" alt=\"\">\n  </noscript>\n</responsive-image>\n\n                        </div>\n                      \n                    </div>\n                  \n              </div>\n            </div>\n          \n            \n            <div id=\"m-custom__block--image_QJymax\" class=\"m:column m:display-flex m-custom-content__block m-custom-content__block-image lg:m:w-2/12 md:w-1/2 m:w-full m:items-center\">\n              <div class=\"m-custom-content__block-inner m:w-full\">\n                \n                    <div class=\"m:w-full m:block m-scroll-trigger animate--fade-in-up\" data-cascade=\"\" style=\"--animation-order: 72;\">\n                      \n<div>\n                          <responsive-image class=\"m-image m-image-loaded\" style=\"--aspect-ratio: 0.37267080745341613;\" intersecting=\"true\">\n  \n  <img srcset=\"//scale-o.com/cdn/shop/files/vg3.svg?v=1724152224&amp;width=165 165w,//scale-o.com/cdn/shop/files/vg3.svg?v=1724152224 300w\" src=\"https://scale-o.com/cdn/shop/files/vg3.svg?v=1724152224&amp;width=360\" sizes=\"237px\" alt=\"\" loading=\"lazy\" class=\"\" width=\"237\" height=\"635\">\n  \n  <noscript>\n    <img class=\"\" loading=\"lazy\" width=\"\" height=\"\" src=\"//scale-o.com/cdn/shop/files/vg3.svg?crop=center&height=2048&v=1724152224&width=2048\" alt=\"\">\n  </noscript>\n</responsive-image>\n\n                        </div>\n                      \n                    </div>\n                  \n              </div>\n            </div>\n          \n            \n            <div id=\"m-custom__block--image_C3KFRL\" class=\"m:column m:display-flex m-custom-content__block m-custom-content__block-image lg:m:w-2/12 md:w-1/2 m:w-full m:items-center\">\n              <div class=\"m-custom-content__block-inner m:w-full\">\n                \n                    <div class=\"m:w-full m:block m-scroll-trigger animate--fade-in-up\" data-cascade=\"\" style=\"--animation-order: 73;\">\n                      \n<div>\n                          <responsive-image class=\"m-image m-image-loaded\" style=\"--aspect-ratio: 0.37267080745341613;\" intersecting=\"true\">\n  \n  <img srcset=\"//scale-o.com/cdn/shop/files/vg4.svg?v=1724152113&amp;width=165 165w,//scale-o.com/cdn/shop/files/vg4.svg?v=1724152113 300w\" src=\"https://scale-o.com/cdn/shop/files/vg4.svg?v=1724152113&amp;width=360\" sizes=\"237px\" alt=\"\" loading=\"lazy\" class=\"\" width=\"237\" height=\"635\">\n  \n  <noscript>\n    <img class=\"\" loading=\"lazy\" width=\"\" height=\"\" src=\"//scale-o.com/cdn/shop/files/vg4.svg?crop=center&height=2048&v=1724152113&width=2048\" alt=\"\">\n  </noscript>\n</responsive-image>\n\n                        </div>\n                      \n                    </div>\n                  \n              </div>\n            </div>\n          \n        </div>\n        </div>\n      \n    </div>\n  </div>\n</div>\n\n\n<style> @media (min-width: 800px) {#shopify-section-template--15914742120550__custom_content_hgEnhK .m-custom-content__wrapper {justify-content: center; } #shopify-section-template--15914742120550__custom_content_hgEnhK #m-custom__block--image_epEW38 {width: 21%; }} @media screen and (max-width: 795px) {#shopify-section-template--15914742120550__custom_content_hgEnhK .m-mixed-layout--mobile-scroll .m-mixed-layout__inner > * {flex: none; width: 50% !important; } #shopify-section-template--15914742120550__custom_content_hgEnhK #m-custom__block--image_epEW38 {width: 63% !important; }} </style></div>",
+        "custom_class": "sec"
+      }
+    },
+    "custom_liquid_T4RdYX": {
+      "type": "custom-liquid",
+      "custom_css": [
+        ".sec3 {padding-top: 0px; padding-bottom: 0px; background-color: white;}"
+      ],
+      "settings": {
+        "custom_liquid": "<div id=\"m-custom-template--15914742120550__custom_content_HgFVDW\" class=\"m-section m-custom-content m-gradient m-color-default\" data-section-type=\"custom-content\" data-section-id=\"template--15914742120550__custom_content_HgFVDW\">\n  \n  <div class=\"container-fluid m-section-my m-section-py\">\n    <div class=\"m-gradient m-color-default\">\n\n\n\n\n  <div class=\"m-section__header m:text-center \">\n    \n    \n      <p class=\"m-section__subheading m-scroll-trigger animate--fade-in-up\">\n        COMPETITOR ANALYSIS\n      </p>\n    \n    \n      <h2 class=\"m-section__heading h3 m-scroll-trigger animate--fade-in-up\">\n        </h2><h2>Technology Comparison Matrix</h2>\n      \n    \n    \n    \n    \n  </div>\n\n\n      \n        <div class=\"m-mixed-layout m-mixed-layout--mobile-scroll\">\n        <div class=\"m-custom-content__wrapper m:flex m-mixed-layout__inner md:m:flex-wrap\">\n          \n            \n            <div id=\"m-custom__block--liquid_mHALk3\" class=\"m:column m:display-flex m-custom-content__block m-custom-content__block-liquid lg:m:w-full m:w-full\">\n              <div class=\"m-custom-content__block-inner m:w-full\">\n                \n                    \n                      <div>\n  <a data-fancybox=\"gallery3\" href=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_1289.svg?v=1724392935\" previewlistener=\"true\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_1289.svg?v=1724392935\" alt=\"Thumbnail\">\n  </a>\n</div>\n                    \n                  \n              </div>\n            </div>\n          \n        </div>\n        </div>\n      \n    </div>\n  </div>\n</div>",
+        "custom_class": "sec3"
+      }
+    },
+    "rich_text_phYTdk": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_Tw9RDc": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "FEATURES"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_Tw9RDc"
+      ],
+      "custom_css": [
+        ".rich_text_features {margin-bottom: 0px; padding-bottom: 20px; padding-top: 30px; background-color: #94ddf6;}"
+      ],
+      "settings": {
+        "container": "container",
+        "color_scheme": "scheme-cee058e4-58e3-46aa-9af9-219dadc79066",
+        "content_alignment": "center",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "custom_class": "container rich_text_features",
+        "animations": "inherit"
+      }
+    },
+    "custom_liquid_qR7BgT": {
+      "type": "custom-liquid",
+      "custom_css": [
+        ".sec {background-color: #94ddf6;}"
+      ],
+      "settings": {
+        "custom_liquid": "<style>\n  .image-container {\n    display: none;\n    margin-top: 30px;\n  }\n  #section1 {\n    display: block; /* Display the first image by default */\n  }\n  .button {\n    padding: 10px 10px;\n    cursor: pointer;\n    margin-right: 10px;\n    border-radius: 5px;\n    border: 2px solid #333333;\n  }\n  .button1 {\n    background-color: #333333;\n    color: white;\n  }\n  .button1:hover {\n    background-color: transparent;\n    color: #333333;\n  }\n  .button2 {\n    background-color: transparent;\n    color: #333333;\n  }\n  .button2:hover {\n    background-color: #333333;\n    color: white;\n  }\n  .button.active {\n    background-color: #333333;\n    color: white;\n  }\n  .button-container {\n    margin-bottom: 0px;\n    text-align: center;\n  }\n</style>\n\n<div class=\"button-container\">\n  <button class=\"button button1 active\" onclick=\"showImage('section1', this)\">\n    For People\n  </button>\n  <button class=\"button button2\" onclick=\"showImage('section2', this)\">\n    For Property\n  </button>\n</div>\n\n<div id=\"section1\" class=\"image-container\">\n  <a\n    data-fancybox=\"gallery\"\n    href=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/for-people.png?v=1726896899\"\n  >\n    <img\n      src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/for-people.png?v=1726896899\"\n      alt=\"Thumbnail\"\n    />\n  </a>\n</div>\n\n<div id=\"section2\" class=\"image-container\">\n  <a\n    data-fancybox=\"gallery\"\n    href=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/for_property.png?v=1724149776\"\n  >\n    <img\n      src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/for_property.png?v=1724149776\"\n      alt=\"Thumbnail\"\n    />\n  </a>\n</div>\n\n<script>\n  function showImage(sectionId, button) {\n    var sections = document.querySelectorAll(\".image-container\");\n    sections.forEach((section) => {\n      section.style.display = \"none\";\n    });\n    document.getElementById(sectionId).style.display = \"block\";\n\n    var buttons = document.querySelectorAll(\".button\");\n    buttons.forEach((btn) => {\n      btn.classList.remove(\"active\");\n      if (btn !== button) {\n        btn.classList.add(\"button2\"); // Make inactive button white\n        btn.classList.remove(\"button1\");\n      } else {\n        btn.classList.add(\"button1\"); // Make active button colored\n        btn.classList.remove(\"button2\");\n      }\n    });\n    button.classList.add(\"active\");\n  }\n</script>",
+        "custom_class": "container m-section-my m-section-py sec"
+      }
+    },
+    "custom_content_yeTHiX": {
+      "type": "custom-content",
+      "blocks": {
+        "text_jeTC9c": {
+          "type": "text",
+          "settings": {
+            "title": "<h3>IP & Quality</h3>",
+            "subheading": "CERTIFICATES",
+            "text": "",
+            "width": "100%",
+            "alignment": "center",
+            "align_text": "center",
+            "text_size": "medium",
+            "text_color": "inherit",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "m-button--primary",
+            "button_size": "",
+            "block_custom_class": "hed",
+            "animations": "inherit"
+          }
+        },
+        "liquid_97rXj9": {
+          "type": "liquid",
+          "settings": {
+            "custom_liquid": "<a\n  data-fancybox=\"gallery2\"\n  href=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/1_1fab6577-7a28-415e-9544-f0e2b240e5cc.jpg?v=1722329025\"\n>\n  <img\n    src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/1_1fab6577-7a28-415e-9544-f0e2b240e5cc.jpg?v=1722329025\"\n    alt=\"Thumbnail\"\n    \n  />\n</a>",
+            "width": "25%",
+            "block_custom_class": "i1",
+            "animations": "inherit"
+          }
+        },
+        "liquid_tCfcJF": {
+          "type": "liquid",
+          "settings": {
+            "custom_liquid": "<a\n  data-fancybox=\"gallery2\"\n  href=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/2.jpg?v=1722329026\"\n>\n  <img\n    src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/2.jpg?v=1722329026\"\n    alt=\"Thumbnail\"\n    \n  />\n</a>",
+            "width": "25%",
+            "block_custom_class": "i1",
+            "animations": "inherit"
+          }
+        },
+        "liquid_RiNzqw": {
+          "type": "liquid",
+          "settings": {
+            "custom_liquid": "<a\n  data-fancybox=\"gallery2\"\n  href=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/certifacate_430x.jpg?v=1724232526\"\n>\n  <img\n    src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/certifacate_430x.jpg?v=1724232526\"\n    alt=\"Thumbnail\"\n    \n  />\n</a>",
+            "width": "25%",
+            "block_custom_class": "i1",
+            "animations": "inherit"
+          }
+        },
+        "liquid_CkQeA9": {
+          "type": "liquid",
+          "settings": {
+            "custom_liquid": "<a\n  data-fancybox=\"gallery2\"\n  href=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/certificate-2_1.jpg?v=1723541047\"\n>\n  <img\n    src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/certificate-2_1.jpg?v=1723541047\"\n    alt=\"Thumbnail\"\n    \n  />\n</a>",
+            "width": "25%",
+            "block_custom_class": "i1",
+            "animations": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "text_jeTC9c",
+        "liquid_97rXj9",
+        "liquid_tCfcJF",
+        "liquid_RiNzqw",
+        "liquid_CkQeA9"
+      ],
+      "custom_css": [
+        ".cer {padding-right: 8%; padding-left: 8%;}",
+        ".i1 {width: 18%; margin-bottom: 50px;}",
+        ".hed {margin-top: 50px;}",
+        "@media screen and (max-width: 767px) {.i1 {width: 50%; margin-bottom: 10px; padding: 0 10px; }}"
+      ],
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "header_alignment": "center",
+        "container": "container-fluid",
+        "color_scheme": "scheme-cee058e4-58e3-46aa-9af9-219dadc79066",
+        "content_color_scheme": "",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "gap": 20,
+        "gap_mobile": 16,
+        "use_scroll_mobile": false,
+        "padding_top": 100,
+        "padding_bottom": 70,
+        "custom_class": "cer"
+      }
+    },
+    "brands_list_fkAJzd": {
+      "type": "brands-list",
+      "blocks": {
+        "image_XcTgtY": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Frame_427319350_a3f5ce84-cccd-4c10-afb4-5012dd7363e2.png",
+            "image_by_url": "",
+            "image_link": "",
+            "max_width": ""
+          }
+        },
+        "image_YQUdfR": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Frame_427319359_c5d43ec2-7057-4665-aa3d-c482022779dc.png",
+            "image_by_url": "",
+            "image_link": "",
+            "max_width": ""
+          }
+        },
+        "image_LGgpbz": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Frame_427319361_2d71d9b1-e86a-40dc-a0de-668ae6861253.png",
+            "image_by_url": "",
+            "image_link": "",
+            "max_width": ""
+          }
+        },
+        "image_R7CM7g": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/skin.png",
+            "image_by_url": "",
+            "image_link": "",
+            "max_width": ""
+          }
+        },
+        "image_6tGxQ7": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Frame_427319358_51f3533f-0692-46cd-919b-6080fde751c9.png",
+            "image_by_url": "",
+            "image_link": "",
+            "max_width": ""
+          }
+        },
+        "image_PQybz8": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Frame_427319360_654c21ff-b19f-4ad0-a1be-0d916ebe14ac.png",
+            "image_by_url": "",
+            "image_link": "",
+            "max_width": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_XcTgtY",
+        "image_YQUdfR",
+        "image_LGgpbz",
+        "image_R7CM7g",
+        "image_6tGxQ7",
+        "image_PQybz8"
+      ],
+      "settings": {
+        "heading": "Before & After Results",
+        "heading_size": "h3",
+        "subheading": "ADVANTAGES",
+        "header_alignment": "center",
+        "container": "container",
+        "color_scheme": "scheme-cee058e4-58e3-46aa-9af9-219dadc79066",
+        "item_per_row": 3,
+        "column_gap": 30,
+        "row_gap": 30,
+        "column_gap_mobile": 10,
+        "row_gap_mobile": 10,
+        "enable_slider": true,
+        "show_nav": true,
+        "show_pagination": false,
+        "autorotate": false,
+        "autorotate_speed": 3,
+        "padding_top": 30,
+        "padding_bottom": 30,
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "968209871838256835": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_3M3mge": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "review_data": "sample_data",
+            "max_width": 1200,
+            "show_shop_reviews": false,
+            "empty_state": "empty_widget"
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_3M3mge"
+      ],
+      "custom_css": [
+        ".sec2 {border-radius: 0px 0px 20px 20px;}",
+        ".CommonWidget_likecon__7P2RN {display: none;}",
+        ".Layout_isPcReviewsLayout1__3D2we {display: none !important;}",
+        ".Layout_collapseCol__1a0eu {display: none !important;}"
+      ],
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "header_alignment": "center",
+        "container": "container",
+        "background_color": "#ffffff",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "custom_class": "sec2"
+      }
+    },
+    "custom_content_3kjdhd": {
+      "type": "custom-content",
+      "blocks": {
+        "text_zNQQic": {
+          "type": "text",
+          "settings": {
+            "title": "Frequently Asked Questions",
+            "subheading": "FAQ",
+            "text": "",
+            "width": "100%",
+            "alignment": "center",
+            "align_text": "center",
+            "text_size": "medium",
+            "text_color": "inherit",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "m-button--primary",
+            "button_size": "",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        },
+        "liquid_xyW9Kg": {
+          "type": "liquid",
+          "settings": {
+            "custom_liquid": "<style>\n    @media (min-width:768px) {\n        .faq-container {\n            padding: 20px;\n            display: flex;\n            justify-content: space-between;\n        }\n\n        .faqdiv {\n            width: 49%;\n        }\n    }\n    \n    .faq-item {\n        margin-bottom: 20px;\n    }\n    \n    .faq-question {\n        width: 100%;\n        background-color: #94DDF6;\n        border: none;\n        padding: 15px;\n        font-size: 16px;\n        text-align: left;\n        cursor: pointer;\n        border-radius: 4px;\n        transition: background-color 0.3s;\n        display: flex;\n        justify-content: space-between;\n        align-items: center;\n        margin-right: 15px;\n        color: black; /* Default text color */\n    }\n    \n    .faq-question:hover {\n        background-color: #e1e1e1;\n    }\n\n    .faq-question.active {\n        background-color: #2a6ab2;\n        color: white;\n    }\n    \n    .faq-answer {\n        max-height: 0;\n        opacity: 0;\n        overflow: hidden;\n        padding: 0 15px;\n        background-color: #2a6ab2;\n        border-radius: 0px 0px 4px 4px;\n        margin-top: 0px;\n        font-size: 14px;\n        line-height: 1.6;\n        transition: max-height 0.5s ease, opacity 0.5s ease, padding 0.5s ease;\n    }\n\n    .faq-answer.active {\n        background-color: #2a6ab2;\n        color: white;\n        border-top: 1.5px solid #DBE2FF;\n    }\n    \n    .faq-answer.open {\n        max-height: 500px; /* Adjust this value based on your content */\n        opacity: 1;\n        padding: 15px;\n    }\n    \n    .faq-icon {\n        width: 20px;\n        height: 20px;\n        margin-left: 5px;\n    }\n</style>\n\n<div>\n    <div class=\"faq-container\">\n        <!-- col 1 -->\n        <div class=\"faqdiv\">\n            <div class=\"faq-item\">\n                <button class=\"faq-question\">\n                    What is the life of Scale-O water softeners?\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_49.png?v=1720679877\" class=\"faq-icon open-icon\" alt=\"Open Icon\">\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/4444.png?v=1720679877\" class=\"faq-icon close-icon\" style=\"display:none;\" alt=\"Close Icon\">\n                </button>\n                <div class=\"faq-answer\">Life of Scale-O water softener is 6 months once the product is inside the water but can extend to 8 months depending on daily usage. However shelf life of an unused product is 2 years.</div>\n            </div>\n            <div class=\"faq-item\">\n                <button class=\"faq-question\">\n                    What is the guarantee on Scale-O softeners?\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_49.png?v=1720679877\" class=\"faq-icon open-icon\" alt=\"Open Icon\">\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/4444.png?v=1720679877\" class=\"faq-icon close-icon\" style=\"display:none;\" alt=\"Close Icon\">\n                </button>\n                <div class=\"faq-answer\">Scale-O water softeners come with a 6 month Guarantee from the date of purchase against any manufacturing defects.</div>\n            </div>\n            <div class=\"faq-item\">\n                <button class=\"faq-question\">\n                    When should I exchange the Scale-O water softener?\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_49.png?v=1720679877\" class=\"faq-icon open-icon\" alt=\"Open Icon\">\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/4444.png?v=1720679877\" class=\"faq-icon close-icon\" style=\"display:none;\" alt=\"Close Icon\">\n                </button>\n                <div class=\"faq-answer\">You should exchange the Scale-O water softener every 6 months, depending on your daily usage and water quality.</div>\n            </div>\n            <div class=\"faq-item\">\n                <button class=\"faq-question\">\n                    Can Scale-O be used with existing water softeners?\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_49.png?v=1720679877\" class=\"faq-icon open-icon\" alt=\"Open Icon\">\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/4444.png?v=1720679877\" class=\"faq-icon close-icon\" style=\"display:none;\" alt=\"Close Icon\">\n                </button>\n                <div class=\"faq-answer\">Yes, Scale-O can be used in conjunction with existing water softeners to enhance their effectiveness.</div>\n            </div>\n            <div class=\"faq-item\">\n                <button class=\"faq-question\">\n                    Does Scale-O require installation services by a professional?\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_49.png?v=1720679877\" class=\"faq-icon open-icon\" alt=\"Open Icon\">\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/4444.png?v=1720679877\" class=\"faq-icon close-icon\" style=\"display:none;\" alt=\"Close Icon\">\n                </button>\n                <div class=\"faq-answer\">No, Scale-O is designed for easy DIY installation and does not require professional installation.</div>\n            </div>\n        </div>\n\n        <!-- col 2 -->\n        <div class=\"faqdiv\">\n            <div class=\"faq-item\">\n                <button class=\"faq-question\">\n                    Why is Scale-O better than other water softeners?\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_49.png?v=1720679877\" class=\"faq-icon open-icon\" alt=\"Open Icon\">\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/4444.png?v=1720679877\" class=\"faq-icon close-icon\" style=\"display:none;\" alt=\"Close Icon\">\n                </button>\n                <div class=\"faq-answer\">Scale-O offers superior performance, longer life, and easier maintenance compared to other water softeners on the market.</div>\n            </div>\n            <div class=\"faq-item\">\n                <button class=\"faq-question\">\n                    What’s the maximum level of hardness at which Scale-O can work?\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_49.png?v=1720679877\" class=\"faq-icon open-icon\" alt=\"Open Icon\">\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/4444.png?v=1720679877\" class=\"faq-icon close-icon\" style=\"display:none;\" alt=\"Close Icon\">\n                </button>\n                <div class=\"faq-answer\">Scale-O can effectively work in water hardness levels up to 2000 ppm (parts per million).</div>\n            </div>\n            <div class=\"faq-item\">\n                <button class=\"faq-question\">\n                    What is the health risk associated with using Scale-O water softeners?\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_49.png?v=1720679877\" class=\"faq-icon open-icon\" alt=\"Open Icon\">\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/4444.png?v=1720679877\" class=\"faq-icon close-icon\" style=\"display:none;\" alt=\"Close Icon\">\n                </button>\n                <div class=\"faq-answer\">There are no health risks associated with using Scale-O water softeners as they do not add any chemicals to the water.</div>\n            </div>\n            <div class=\"faq-item\">\n                <button class=\"faq-question\">\n                    How to choose the right Scale-O configuration for my application?\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_49.png?v=1720679877\" class=\"faq-icon open-icon\" alt=\"Open Icon\">\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/4444.png?v=1720679877\" class=\"faq-icon close-icon\" style=\"display:none;\" alt=\"Close Icon\">\n                </button>\n                <div class=\"faq-answer\">Choosing the right Scale-O configuration depends on the size of the water tank and members in your household or daily water usage. Our sales team can help you make the right choice.</div>\n            </div>\n            <div class=\"faq-item\">\n                <button class=\"faq-question\">\n                    Can Scale-O be used for commercial purposes?\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_49.png?v=1720679877\" class=\"faq-icon open-icon\" alt=\"Open Icon\">\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/4444.png?v=1720679877\" class=\"faq-icon close-icon\" style=\"display:none;\" alt=\"Close Icon\">\n                </button>\n                <div class=\"faq-answer\">Yes, Scale-O is suitable for both residential and commercial purposes, depending on the configuration.</div>\n            </div>\n        </div>\n    </div>\n</div>\n\n<script>\n    document.addEventListener('DOMContentLoaded', function() {\n        const questions = document.querySelectorAll('.faq-question');\n\n        questions.forEach(question => {\n            question.addEventListener('click', function() {\n                const answer = this.nextElementSibling;\n                const isVisible = answer.classList.contains('open');\n\n                document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open', 'active'));\n                document.querySelectorAll('.faq-question').forEach(q => q.classList.remove('active'));\n                document.querySelectorAll('.close-icon').forEach(icon => icon.style.display = 'none');\n                document.querySelectorAll('.open-icon').forEach(icon => icon.style.display = 'block');\n\n                if (!isVisible) {\n                    answer.classList.add('open', 'active');\n                    this.classList.add('active');\n                    this.querySelector('.open-icon').style.display = 'none';\n                    this.querySelector('.close-icon').style.display = 'block';\n                } else {\n                    answer.classList.remove('open', 'active');\n                    this.classList.remove('active');\n                    this.querySelector('.open-icon').style.display = 'block';\n                    this.querySelector('.close-icon').style.display = 'none';\n                }\n            });\n        });\n    });\n</script>",
+            "width": "100%",
+            "block_custom_class": "container",
+            "animations": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "text_zNQQic",
+        "liquid_xyW9Kg"
+      ],
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "header_alignment": "center",
+        "container": "container-fluid",
+        "color_scheme": "",
+        "content_color_scheme": "",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "gap": 30,
+        "gap_mobile": 16,
+        "use_scroll_mobile": false,
+        "padding_top": 10,
+        "padding_bottom": 10,
+        "custom_class": ""
+      }
+    },
+    "product_recommendations_EFRzxU": {
+      "type": "product-recommendations",
+      "disabled": true,
+      "settings": {
+        "container": "container",
+        "color_scheme": "",
+        "remove_params": false,
+        "heading": "Our Suggestions",
+        "heading_size": "h3",
+        "text_align": "left",
+        "limit": 8,
+        "columns": 4,
+        "column_gap": 30,
+        "enable_slider": true,
+        "use_scroll_mobile": true,
+        "padding_top": 38,
+        "padding_bottom": 36,
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "custom_content_BUnkYP": {
+      "type": "custom-content",
+      "blocks": {
+        "image_MFUqW6": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Group_44_6dd7f55a-7c3f-4a7b-b8f2-0025c0a01ae1.png",
+            "link": "",
+            "width": "100%",
+            "alignment": "center",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "image_MFUqW6"
+      ],
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "header_alignment": "center",
+        "container": "w-full",
+        "color_scheme": "",
+        "content_color_scheme": "",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "gap": 30,
+        "gap_mobile": 16,
+        "use_scroll_mobile": false,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "custom_class": ""
+      }
+    },
+    "870828012984175711": {
+      "type": "apps",
+      "disabled": true,
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "header_alignment": "center",
+        "container": "container",
+        "background_color": "",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "custom_class": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "601852004584022571",
+    "product-details-tabs",
+    "brands_list_a7HM9d",
+    "1743481580c800ca3c",
+    "custom_liquid_yE4QRa",
+    "image_with_text_tBf6fR",
+    "image_with_text_YtH9He",
+    "image_with_text_xHa9fb",
+    "image_with_text_bKbtEj",
+    "image_with_text_XBQQ4z",
+    "image_with_text_8rFKJD",
+    "custom_liquid_MTFkLe",
+    "custom_liquid_T4RdYX",
+    "rich_text_phYTdk",
+    "custom_liquid_qR7BgT",
+    "brands_list_fkAJzd",
+    "custom_content_yeTHiX",
+    "968209871838256835",
+    "product_recommendations_EFRzxU",
+    "custom_content_3kjdhd",
+    "custom_content_BUnkYP",
+    "870828012984175711"
+  ]
+}

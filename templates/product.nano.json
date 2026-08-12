@@ -1,0 +1,614 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "breadcrumb": {
+      "type": "breadcrumb",
+      "settings": {
+        "container": "container",
+        "text_alignment": "center",
+        "hide_current": false,
+        "hide_on_mb": false,
+        "animations": "inherit"
+      }
+    },
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "badge_ChqgGj": {
+          "type": "badge",
+          "settings": {}
+        },
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "description_gN9BL9": {
+          "type": "description",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+            "show_saving": true,
+            "sale_badge_type": "percentage"
+          }
+        },
+        "custom_liquid_bEnQPr": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<style>\n  .strip {\n    display: flex;\n    background-color: #0000000d;\n    border-radius: 100px;\n    max-width: max-content;\n    padding-top: 10px;\n    padding-bottom: 10px;\n    padding-right: 12px;\n    padding-left: 12px;\n    font-size: 14px;\n\n    width: fit-content;\n    align-items: center;\n  }\n\n  .stdiv {\n    display: flex;\n    margin-bottom: 10px;\n  }\n\n  @media (max-width: 431px) {\n    .strip {\n      font-size: 12px;\n    }\n  }\n</style>\n\n<div class=\"stdiv\">\n  <div class=\"strip\" style=\"margin-right: 10px\">\n    <div style=\"margin-right: 10px\">\n      <img\n        src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/clock.svg?v=1724127862\"\n        alt=\"\"\n      />\n    </div>\n\n    <div>\n      <p>Life: 1 Day after Use</p>\n    </div>\n  </div>\n</div>"
+          }
+        },
+        "image_cJA3dL": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/Frame_427319313_6d16ce47-c8ec-47aa-b743-51c5e2d1fbd6.png",
+            "image_link": "",
+            "image_width": 100,
+            "image_alignment": "start"
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "size_title": "Size"
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_quantity_selector": true,
+            "show_atc_button": true,
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        },
+        "custom_liquid_ARV8Ey": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<style>\n  .mainbox {\n    background-color: white;\n    border-radius: 20px;\n    justify-content: space-between;\n  }\n\n  .features {\n    display: flex;\n    justify-content: space-around;\n\n    padding: 20px 0;\n  }\n\n  .feature {\n    text-align: center;\n    color: #333333;\n    font-size: 12px;\n    font-weight: 600;\n  }\n\n  .feature img {\n    display: block;\n    margin: 0 auto 10px;\n  }\n\n  .ratings {\n    padding: 20px;\n    display: flex;\n  }\n\n  .ratings h2 {\n    font-size: 19px;\n    margin-bottom: 10px;\n  }\n\n  .overall-rating {\n    display: flex;\n    align-items: center;\n    font-size: 18px;\n    margin-bottom: 20px;\n  }\n\n  .stars {\n    color: #ffba00;\n    margin-right: 10px;\n  }\n\n  .rating {\n    color: #666;\n    display: flex;\n    font-size: 12px;\n  }\n\n  .feature-ratings {\n    display: flex;\n    flex-direction: column;\n    width: 50%;\n  }\n\n  .rating-item {\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    background-color: #f5f7ff;\n    padding-right: 10px;\n    padding-left: 10px;\n    margin-bottom: 10px;\n    border-radius: 20px;\n  }\n\n  .feature-name {\n    font-weight: bold;\n    font-size: 11px;\n  }\n</style>\n\n<div class=\"features\">\n  <div class=\"feature\">\n    <img\n      src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_48.svg?v=1722428686\"\n      alt=\"Quick Delivery\"\n    />\n    <p>QUICK DELIVERY</p>\n  </div>\n  <div class=\"feature\">\n    <img\n      src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_48-1.svg?v=1722428687\"\n      alt=\"Simple Installation\"\n    />\n    <p>SIMPLE INSTALLATION</p>\n  </div>\n  <div class=\"feature\">\n    <img\n      src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_48-2.svg?v=1722428686\"\n      alt=\"Full Guarantee\"\n    />\n    <p>FULL GUARANTEE</p>\n  </div>\n  <div class=\"feature\">\n    <img\n      src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_48-3.svg?v=1722428685\"\n      alt=\"Easy Exchange\"\n    />\n    <p>EASY EXCHANGE</p>\n  </div>\n</div>\n<div class=\"ratings mainbox\">\n  <div>\n    <h2>Ratings by Criteria</h2>\n    {% assign rounded_rating = product.metafields.custom.total_rating.value |\n    round %}\n\n    <div class=\"overall-rating\">\n      <span class=\"stars\">\n        {% case rounded_rating %} {% when 5 %} ★★★★★ {% when 4 %} ★★★★☆ {% when\n        3 %} ★★★☆☆ {% when 2 %} ★★☆☆☆ {% when 1 %} ★☆☆☆☆ {% else %} ☆☆☆☆☆ {%\n        endcase %}\n      </span>\n      <span class=\"rating\">\n        {{ product.metafields.custom.total_rating.value }}/5.0 ({{\n        product.metafields.custom.reviews.value }} Reviews)\n      </span>\n    </div>\n  </div>\n\n  <div class=\"feature-ratings\">\n    <div class=\"rating-item\">\n      <span class=\"feature-name\">CONCEPT</span>\n      <div style=\"display: flex; align-items: baseline\">\n        <span class=\"stars\">★</span>\n        <span class=\"rating\"\n          >{{product.metafields.custom.concept.value }} | 5.0</span\n        >\n      </div>\n    </div>\n    <div class=\"rating-item\">\n      <span class=\"feature-name\">CONVENIENCE</span>\n      <div style=\"display: flex; align-items: baseline\">\n        <span class=\"stars\">★</span>\n        <span class=\"rating\"\n          >{{product.metafields.custom.convenience.value }} | 5.0</span\n        >\n      </div>\n    </div>\n    <div class=\"rating-item\">\n      <span class=\"feature-name\">QUALITY</span>\n      <div style=\"display: flex; align-items: baseline\">\n        <span class=\"stars\">★</span>\n        <span class=\"rating\"\n          >{{product.metafields.custom.quality.value }} | 5.0</span\n        >\n      </div>\n    </div>\n    <div class=\"rating-item\">\n      <span class=\"feature-name\">PRICING</span>\n      <div style=\"display: flex; align-items: baseline\">\n        <span class=\"stars\">★</span>\n        <span class=\"rating\"\n          >{{product.metafields.custom.pricing.value }} | 5.0</span\n        >\n      </div>\n    </div>\n  </div>\n</div>"
+          }
+        }
+      },
+      "block_order": [
+        "badge_ChqgGj",
+        "title",
+        "description_gN9BL9",
+        "price",
+        "custom_liquid_bEnQPr",
+        "image_cJA3dL",
+        "variant_picker",
+        "buy_buttons",
+        "custom_liquid_ARV8Ey"
+      ],
+      "custom_css": [
+        ".sls-widget-branding,.ddreview-star {display: none;}",
+        ".sls-price {margin-top: 15px;}",
+        ".sls-option-container.seal-table {display: none;}",
+        ".sls-option-container.seal-table.sls-active {display: block;}",
+        "@media only screen and (min-width: 768px) {.m-product-form--input {width: 100px; } .m-product-form .m-add-to-cart {width: 36%; position: relative; flex-grow: 1; } .main-product__block-buy_buttons .m-product-dynamic-checkout.show-add-to-cart {width: 36%; margin-top: 20px; margin-left: 20px; }}"
+      ],
+      "settings": {
+        "container": "container-fluid",
+        "layout": "layout-4",
+        "show_atwl": true,
+        "enable_history_state": true,
+        "enable_variant_group_images": false,
+        "disable_selected_variant_default": false,
+        "show_featured_media": true,
+        "show_zoom_button": true,
+        "enable_video_autoplay": true,
+        "show_nav_media_mobile": false,
+        "show_pagination_mobile": true,
+        "use_sticky_atc": false,
+        "use_sticky_atc_on_mobile": false,
+        "enable_dynamic_checkout": false,
+        "sticky_atc_wishtlist": false,
+        "sticky_atc_compare": false
+      }
+    },
+    "product-details-tabs": {
+      "type": "product-details-tabs",
+      "blocks": {
+        "description": {
+          "type": "description",
+          "settings": {
+            "header": "Product description"
+          }
+        },
+        "tab": {
+          "type": "tab",
+          "settings": {
+            "header": "Shipping & Return",
+            "content": "<p>Shipping cost is based on weight. Just add products to your cart and use the Shipping Calculator to see the shipping price.</p><p>We want you to be 100% satisfied with your purchase. Items can be returned or exchanged within 30 days of delivery.</p>",
+            "content_page": "connect"
+          }
+        }
+      },
+      "block_order": [
+        "description",
+        "tab"
+      ],
+      "custom_css": [
+        ".m-tabs__header {justify-content: flex-start;}"
+      ],
+      "settings": {
+        "container": "container",
+        "color_scheme": "",
+        "default_open": true,
+        "padding_top": 0,
+        "padding_bottom": 50,
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "brands_list_a7HM9d": {
+      "type": "brands-list",
+      "blocks": {
+        "image_xgycDP": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Make-In-IndiaLogo650_7_b6aa8b0f-6836-48af-93e1-6bb594582fff.png",
+            "image_by_url": "",
+            "image_link": "",
+            "max_width": ""
+          }
+        },
+        "image_6wwYxi": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Make-In-IndiaLogo650_8.png",
+            "image_by_url": "",
+            "image_link": "",
+            "max_width": ""
+          }
+        },
+        "image_mtHEUm": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Make-In-IndiaLogo650_9.png",
+            "image_by_url": "",
+            "image_link": "",
+            "max_width": ""
+          }
+        },
+        "image_8mbjia": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Make-In-IndiaLogo650_10.png",
+            "image_by_url": "",
+            "image_link": "",
+            "max_width": ""
+          }
+        },
+        "image_ELULCg": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Make-In-IndiaLogo650_4.png",
+            "image_by_url": "",
+            "image_link": "",
+            "max_width": ""
+          }
+        },
+        "image_TeJd7n": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Make-In-IndiaLogo650_5.png",
+            "image_by_url": "",
+            "image_link": "",
+            "max_width": ""
+          }
+        },
+        "image_kMprmb": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Make-In-IndiaLogo650_6_a1506dfe-b1f2-46bb-bcf2-acb56e136c45.png",
+            "image_by_url": "",
+            "image_link": "",
+            "max_width": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_xgycDP",
+        "image_6wwYxi",
+        "image_mtHEUm",
+        "image_8mbjia",
+        "image_ELULCg",
+        "image_TeJd7n",
+        "image_kMprmb"
+      ],
+      "custom_css": [
+        "#m-brand-list-template--15914741989478__brands_list_a7HM9d {border-radius: 20px 20px 0px 0px; margin-top: 20px !important;}",
+        "@media only screen and (max-width: 431px) {.m-brands-list__inner {justify-items: center; } .swiper-slide {width: 75%; }"
+      ],
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "header_alignment": "center",
+        "container": "container",
+        "color_scheme": "scheme-cee058e4-58e3-46aa-9af9-219dadc79066",
+        "item_per_row": 7,
+        "column_gap": 30,
+        "row_gap": 30,
+        "column_gap_mobile": 25,
+        "row_gap_mobile": 35,
+        "enable_slider": false,
+        "show_nav": false,
+        "show_pagination": false,
+        "autorotate": false,
+        "autorotate_speed": 3,
+        "padding_top": 90,
+        "padding_bottom": 90,
+        "custom_class": "rc",
+        "animations": "inherit"
+      }
+    },
+    "image_with_text_Y3JMfg": {
+      "type": "image-with-text",
+      "disabled": true,
+      "custom_css": [
+        ".cus {margin-bottom: 50px;}",
+        ".container {background-color: white; padding-right: 70px; padding-left: 70px; border-radius: 20px;}"
+      ],
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "container": "container",
+        "color_scheme": "scheme-cee058e4-58e3-46aa-9af9-219dadc79066",
+        "item_gap": 100,
+        "item_gap_mobile": 30,
+        "layout": "right",
+        "image_column_size": "6",
+        "image_overlap": false,
+        "show_image_reverse": false,
+        "hover_effect": false,
+        "image_animation": "none",
+        "image": "shopify://shop_images/Group_8_12838df2-efba-44a3-9586-d9eda601f10a.png",
+        "link": "",
+        "link_2": "",
+        "second_image_offset_top": 10,
+        "title": "Scale-O : O Factor",
+        "sub_title": "SCALE-O USP",
+        "text": "<p>Scale-O chemically alters the structure and forms a coating on Ca+2 & Mg+2 ions present in hard water such that they do not react with negative ions like Cl- or SO4-2 and prevents the formation insoluble salts or scale in common language.</p>",
+        "text_size": "medium",
+        "content_alignment": "left",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "m-button--link",
+        "button_size": "",
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "custom_class": "cus",
+        "animations": "inherit"
+      }
+    },
+    "custom_liquid_9WEEfN": {
+      "type": "custom-liquid",
+      "custom_css": [
+        ".cus {margin-bottom: 50px;}",
+        ".container {background-color: white; padding-right: 70px; padding-left: 70px; border-radius: 20px;}",
+        "@media only screen and (max-width: 767px) {.container {padding-right: 20px; padding-left: 20px; }}"
+      ],
+      "settings": {
+        "custom_liquid": "<div\n  id=\"shopify-section-template--15914741989478__image_with_text_Y3JMfg-2\"\n  class=\"shopify-section\"\n>\n  <link\n    href=\"//scale-o.com/cdn/shop/t/2/assets/image-with-text.css?v=147296142482609620351720499195\"\n    rel=\"stylesheet\"\n    type=\"text/css\"\n    media=\"all\"\n  />\n\n  <script\n    src=\"//scale-o.com/cdn/shop/t/2/assets/image-layer.js?v=65467045674204492761720499196\"\n    defer=\"defer\"\n  ></script>\n\n  <style data-shopify=\"\">\n    .m-section-template--15914741989478__image_with_text_Y3JMfg {\n      --section-padding-top: 60px;\n      --section-padding-bottom: 60px;\n      --column-gap: 100px;\n      --row-gap: 50px;\n      --column-gap-mobile: 30px;\n      --row-gap-mobile: 30px;\n\n      background-color: ;\n    }\n  </style>\n  <section\n    id=\"m-section-template--15914741989478__image_with_text_Y3JMfg\"\n    class=\"m-section m-image-with-text cus m-section-template--15914741989478__image_with_text_Y3JMfg m-gradient m-color-scheme-cee058e4-58e3-46aa-9af9-219dadc79066\"\n  >\n    <div class=\"container m-section-my m-section-py\">\n      <div\n        class=\"m-image-with-text__inner m:flex m:flex-wrap m:flex-row-reverse\"\n      >\n        <div\n          class=\"m-image-with-text__image m:column m:w-full md:m:w-1/2 lg:m:w-6/12\"\n          data-cascade=\"\"\n          style=\"--animation-order: 1\"\n        >\n          <m-image-layer\n            class=\"m-image-with-text__image-wrapper m-image-with-text--right\"\n            style=\"--offset-top: 10%\"\n          >\n            <div class=\"m-image-with-text__image-first\">\n              <responsive-image\n                class=\"m-image m-image-loaded\"\n                style=\"--aspect-ratio: 1.1773122125702606\"\n                intersecting=\"true\"\n              >\n                <img\n                  srcset=\"\n                  {{ product.metafields.custom.ofactor.value }}&amp;width=165   165w,\n                  {{ product.metafields.custom.ofactor.value }}&amp;width=360   360w,\n                  {{ product.metafields.custom.ofactor.value }}&amp;width=533   533w,\n                  {{ product.metafields.custom.ofactor.value }}&amp;width=720   720w,\n                  {{ product.metafields.custom.ofactor.value }}&amp;width=940   940w,\n                  {{ product.metafields.custom.ofactor.value }}&amp;width=1066 1066w,\n                  {{ product.metafields.custom.ofactor.value }}&amp;width=1500 1500w,\n                  {{ product.metafields.custom.ofactor.value }}&amp;width=1780 1780w,\n                  {{ product.metafields.custom.ofactor.value }}&amp;width=2000 2000w,\n                  {{ product.metafields.custom.ofactor.value }}                2304w\n                \"\n                  src=\"{{ product.metafields.custom.ofactor.value }}&amp;width=360\"\n                  sizes=\"590px\"\n                  alt=\"\"\n                  loading=\"lazy\"\n                  class=\"m:w-full m:h-full\"\n                  width=\"590\"\n                  height=\"501\"\n                />\n\n                <noscript>\n                  <img\n                    class=\"m:w-full m:h-full\"\n                    loading=\"lazy\"\n                    width=\"\"\n                    height=\"\"\n                    src=\"{{ product.metafields.custom.ofactor.value }}?crop=center&height=2048&width=2048\"\n                    alt=\"\"\n                  />\n                </noscript>\n              </responsive-image>\n            </div>\n          </m-image-layer>\n        </div>\n        <div\n          class=\"m-image-with-text__content m:column m:w-full md:m:w-1/2 lg:m:w-6/12 m-scroll-trigger animate--fade-in-up\"\n          data-cascade=\"\"\n          style=\"--animation-order: 0\"\n        >\n          <div\n            class=\"m-content-box m-richtext m-richtext--large m:w-full m:text-left\"\n          >\n            <p class=\"m-richtext__subtitle m-content-box__subheading h5\">\n              SCALE-O USP\n            </p>\n\n            <h3 class=\"m-richtext__title m-content-box__heading h1\">\n              Scale-O : 0 Factor\n            </h3>\n\n            <div\n              class=\"m-richtext__description rte m-content-box__description h5\"\n            >\n              <p>\n                Scale-O chemically alters the structure and forms a coating on\n                Ca<sup style=\"color: #000\">+2</sup> &amp; Mg<sup\n                  style=\"color: #000\"\n                  >+2</sup\n                >\n                ions present in hard water such that they do not react with\n                negative ions like Cl<sup style=\"color: #000\">-1</sup> or SO<sub\n                  >4</sub\n                ><sup style=\"color: #000\">-2</sup> and prevents the formation\n                insoluble salts or scale in common language.<br />\n              </p>\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n  </section>\n\n  <style>\n    #shopify-section-template--15914741989478__image_with_text_Y3JMfg .cus {\n      margin-bottom: 50px;\n    }\n    #shopify-section-template--15914741989478__image_with_text_Y3JMfg\n      .container {\n      background-color: white;\n      padding-right: 70px;\n      padding-left: 70px;\n      border-radius: 20px;\n    }\n  </style>\n</div>",
+        "custom_class": "cus"
+      }
+    },
+    "custom_content_dPpedp": {
+      "type": "custom-content",
+      "blocks": {
+        "liquid_eDVYa3": {
+          "type": "liquid",
+          "settings": {
+            "custom_liquid": "<style>\n  .intab {\n    display: flex;\n    align-items: flex-start;\n  }\n.m-tab-header:after{\nheight: 0px!important;\n}\n  .intab img {\n    width: 30%;\n    height: fit-content !important;\n    margin-right: 30px;\n  }\n\n  .rte h1 {\n    margin-top: 0px !important;\n  }\n\n  @media only screen and (max-width: 431px) {\n    .intab {\n      display: inline-grid !important ;\n    }\n\n    .intab img {\n      width: 100%;\n      height: fit-content !important;\n      margin-right: 30px;\n    }\n  }\n\n  .installation-instructions {\n    padding: 20px;\n\n    border-radius: 8px;\n  }\n\n  .installation-instructions h1 {\n    font-size: 24px;\n    margin-bottom: 16px;\n  }\n\n  .installation-instructions p {\n    margin-bottom: 16px;\n  }\n\n  .installation-instructions li {\n    color: black;\n    margin-bottom: 16px;\n  }\n\n  .installation-instructions .note {\n    color: #007bff;\n  }\n</style>\n\n<m-product-details-tabs\n  style=\"border-radius: 10px\"\n  class=\"m-section m-product-details-tabs m:block m-gradient m-color-default\"\n  data-section-type=\"product-details-tabs\"\n  data-section-id=\"template--15914741989478__product-details-tabs\"\n>\n  <div class=\"container\" style=\"padding: 10px 20px 10px 20px\">\n    <div class=\"m-tabs m-scroll-trigger animate--fade-in-up\">\n      <div class=\"m-tabs__header m:display-flex m:justify-center\">\n        <div class=\"m-tabs__header-inner\">\n          <div\n            class=\"m-tab-header active\"\n            data-block-type=\"how-to-install\"\n            data-index=\"0\"\n          >\n            How To Use?\n          </div>\n\n          <div\n            class=\"m-tab-header\"\n            data-block-type=\"how-to-clean\"\n            data-index=\"1\"\n          >\n            How To Test?\n          </div>\n\n          <div\n            class=\"m-tab-header\"\n            data-block-type=\"how-it-works\"\n            data-index=\"2\"\n          >\n            What Next?\n          </div>\n        </div>\n      </div>\n      <div class=\"m-tabs__content m-product-collapsible\">\n        <div\n          class=\"m-tab-content--how-to-install m-tab-content active\"\n          data-block-type=\"how-to-use\"\n          style=\"opacity: 1\"\n        >\n          <div class=\"m-tab-content__inner\">\n            <div class=\"rte\">\n              <div class=\"intab\">\n<img\n                  src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/how-to-use.png?v=1726899902\"\n                  alt=\"\"\n                />\n                <div class=\"installation-instructions\">\n                  <h1>How To Use?</h1>\n                  <ul>\n                    <li>\n                      Unbox the Scale-O Nano Package received in the parcel.\n                    </li>\n                    <li>\n                      Take 0.5 L to 1 L of water from any tap in the house and\n                      insert the product\n                    </li>\n                    <li>\n                      Ensure module is fully submerged in water for 5 minutes\n                      and then use the tiny rope to pull out\n                    </li>\n                    <li>\n                      Keep the water sample ready for Boiling Test and dispose\n                      the product responsibly\n                    </li>\n                  </ul>\n                </div>\n              </div>\n            </div>\n          </div>\n        </div>\n\n        <div\n          class=\"m-tab-content--how-to-clean m-tab-content\"\n          data-block-type=\"how-to-test\"\n        >\n          <div class=\"m-tab-content__inner\">\n            <div class=\"rte\">\n              <div class=\"intab\">\n<div style=\"width: 52%\">\n                  <img\n                    style=\"width: 40%\"\n                    src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/how-to-test-before.png?v=1721994904\"\n                    alt=\"\"\n                  />\n                  <img\n                    style=\"width: 40%\"\n                    src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/how-to-test-after.png?v=1721994905\"\n                    alt=\"\"\n                  />\n                </div>\n                <div class=\"installation-instructions\">\n                  <h1>How To Test?</h1>\n                  <ul>\n                    <li>\n                      To test the water quality and check the performance of the\n                      Scale-O Nano, a simple 10 -minute boiling test can be\n                      performed at home or premises\n                    </li>\n                    <li>\n                      Take two equal volume of water samples, 0.5 L to 1 L each\n                      in two separate cooking stainless steel vessels- Sample 1\n                      from the nearest tap water as suitable and Sample 2 is\n                      where Scale-O Nano was immersed\n                    </li>\n\n                    <li>\n                      Boil both samples of water parallelly in two separate\n                      vessels for 5 minutes until water vapour is visible and\n                      allow the liquids to cool down for next 5 minutes\n                    </li>\n                    <li>\n                      Sample 1 or Source Water will be turbid and with whitish\n                      layer on top indicating hardness and presence of scale\n                    </li>\n                    <li>\n                      Sample 2 or Soft Water will be clean and transparent\n                      without any white deposits indicating softness and absence\n                      of scale\n                    </li>\n                    <li>\n                      Boiling Test is easy, quick and definite method to check\n                      water softening without any laboratory apparatus or\n                      complex tests and can be conducted instantly at home\n                    </li>\n                  </ul>\n                </div>\n              </div>\n            </div>\n          </div>\n        </div>\n\n        <div\n          class=\"m-tab-content--when-to-replace m-tab-content\"\n          data-block-type=\"when-to-replace\"\n        >\n          <div class=\"m-tab-content__inner\">\n            <div class=\"rte\">\n              <div class=\"intab\">\n                <div class=\"installation-instructions\">\n                  <h1>What Next?</h1>\n                  <ul>\n                    <li>\n                      Once you are satisfied with Trial using Scale-O Nano, you\n                      can expect the same results on a larger scale for your\n                      house or property with our range of Water Softeners\n                    </li>\n                    <li>The technology, concept and application is the same</li>\n                    <li>\n                      Imagine if test gives clear results in 15 minutes, the\n                      same boiling test conducted after few days to few months\n                      shall yield even better results\n                    </li>\n                    <li>\n                      Once can observe consistently good soft and clean water\n                      quality with our range of products over the guaranteed\n                      period\n                    </li>\n                    <li>\n                      Boiling Test Results are guaranteed for any chosen product\n                      or plans\n                    </li>\n                  </ul>\n                </div>\n              </div>\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</m-product-details-tabs>",
+            "width": "100%",
+            "block_custom_class": "br",
+            "animations": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "liquid_eDVYa3"
+      ],
+      "custom_css": [
+        ".im {align-items: flex-start;}",
+        ".m\\:justify-center {justify-content: flex-start;}",
+        "@media screen and (min-width: 768px) {.m-tabs__content {padding-top: 5px; }}"
+      ],
+      "settings": {
+        "heading": "Scale-O Water Softener Guide",
+        "heading_size": "h3",
+        "subheading": "SOLUTION",
+        "description": "",
+        "header_alignment": "left",
+        "container": "container",
+        "color_scheme": "scheme-cee058e4-58e3-46aa-9af9-219dadc79066",
+        "content_color_scheme": "scheme-cee058e4-58e3-46aa-9af9-219dadc79066",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "gap": 30,
+        "gap_mobile": 16,
+        "use_scroll_mobile": false,
+        "padding_top": 70,
+        "padding_bottom": 90,
+        "custom_class": ""
+      }
+    },
+    "rich_text_phYTdk": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_Tw9RDc": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "FEATURES"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_Tw9RDc"
+      ],
+      "settings": {
+        "container": "container",
+        "color_scheme": "scheme-cee058e4-58e3-46aa-9af9-219dadc79066",
+        "content_alignment": "center",
+        "padding_top": 92,
+        "padding_bottom": 52,
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "custom_liquid_qR7BgT": {
+      "type": "custom-liquid",
+      "custom_css": [
+        ".sec {background-color: #f5f7ff;}"
+      ],
+      "settings": {
+        "custom_liquid": "<style>\n  .image-container {\n    display: none;\n    margin-top: 10px;\n  }\n  #section1 {\n    display: block; /* Display the first image by default */\n  }\n  .button {\n    padding: 10px 20px;\n    cursor: pointer;\n    margin-right: 10px;\n    border-radius: 5px;\n    border: 2px solid #333333;\n  }\n  .button1 {\n    background-color: #333333;\n    color: white;\n  }\n  .button1:hover {\n    background-color: transparent;\n    color: #333333;\n  }\n  .button2 {\n    background-color: transparent;\n    color: #333333;\n  }\n  .button2:hover {\n    background-color: #333333;\n    color: white;\n  }\n  .button.active {\n    background-color: #333333;\n    color: white;\n  }\n  .button-container {\n    margin-bottom: 20px;\n    text-align: center;\n  }\n</style>\n\n<div class=\"button-container\">\n  <button class=\"button button1 active\" onclick=\"showImage('section1', this)\">\n    For People\n  </button>\n  <button class=\"button button2\" onclick=\"showImage('section2', this)\">\n    For Property\n  </button>\n</div>\n\n<div id=\"section1\" class=\"image-container\">\n  <a\n    data-fancybox=\"gallery\"\n    href=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/for-people.png?v=1726896899\"\n  >\n    <img\n      src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/for-people.png?v=1726896899\"\n      alt=\"Thumbnail\"\n    />\n  </a>\n</div>\n\n<div id=\"section2\" class=\"image-container\">\n  <a\n    data-fancybox=\"gallery\"\n    href=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/for_property.png?v=1724149776\"\n  >\n    <img\n      src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/for_property.png?v=1724149776\"\n      alt=\"Thumbnail\"\n    />\n  </a>\n</div>\n\n<script>\n  function showImage(sectionId, button) {\n    var sections = document.querySelectorAll(\".image-container\");\n    sections.forEach((section) => {\n      section.style.display = \"none\";\n    });\n    document.getElementById(sectionId).style.display = \"block\";\n\n    var buttons = document.querySelectorAll(\".button\");\n    buttons.forEach((btn) => {\n      btn.classList.remove(\"active\");\n      if (btn !== button) {\n        btn.classList.add(\"button2\"); // Make inactive button white\n        btn.classList.remove(\"button1\");\n      } else {\n        btn.classList.add(\"button1\"); // Make active button colored\n        btn.classList.remove(\"button2\");\n      }\n    });\n    button.classList.add(\"active\");\n  }\n</script>",
+        "custom_class": "container m-section-my m-section-py sec"
+      }
+    },
+    "brands_list_fkAJzd": {
+      "type": "brands-list",
+      "blocks": {
+        "image_XcTgtY": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Frame_427319350_a3f5ce84-cccd-4c10-afb4-5012dd7363e2.png",
+            "image_by_url": "",
+            "image_link": "",
+            "max_width": ""
+          }
+        },
+        "image_YQUdfR": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Frame_427319359_c5d43ec2-7057-4665-aa3d-c482022779dc.png",
+            "image_by_url": "",
+            "image_link": "",
+            "max_width": ""
+          }
+        },
+        "image_rCTFHB": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Frame_427319361_337c0762-9714-4dc2-8ea1-d937ed026347.png",
+            "image_by_url": "",
+            "image_link": "",
+            "max_width": ""
+          }
+        },
+        "image_WGQeQJ": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/skin.png",
+            "image_by_url": "",
+            "image_link": "",
+            "max_width": ""
+          }
+        },
+        "image_6tGxQ7": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Frame_427319358_51f3533f-0692-46cd-919b-6080fde751c9.png",
+            "image_by_url": "",
+            "image_link": "",
+            "max_width": ""
+          }
+        },
+        "image_QJdiq6": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Frame_427319360_46031da2-81d7-40ac-be39-835ade189d0b.png",
+            "image_by_url": "",
+            "image_link": "",
+            "max_width": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_XcTgtY",
+        "image_YQUdfR",
+        "image_rCTFHB",
+        "image_WGQeQJ",
+        "image_6tGxQ7",
+        "image_QJdiq6"
+      ],
+      "settings": {
+        "heading": "<h2>Before & After Results</h2>",
+        "heading_size": "h3",
+        "subheading": "ADVANTAGES",
+        "header_alignment": "center",
+        "container": "container",
+        "color_scheme": "scheme-cee058e4-58e3-46aa-9af9-219dadc79066",
+        "item_per_row": 3,
+        "column_gap": 30,
+        "row_gap": 30,
+        "column_gap_mobile": 10,
+        "row_gap_mobile": 10,
+        "enable_slider": true,
+        "show_nav": true,
+        "show_pagination": false,
+        "autorotate": false,
+        "autorotate_speed": 3,
+        "padding_top": 90,
+        "padding_bottom": 90,
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "rich_text_gYypF4": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_xD3gr9": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "TESTIMONIALS"
+          }
+        },
+        "heading_n4MYCk": {
+          "type": "heading",
+          "settings": {
+            "heading": "Customer Reviews",
+            "heading_size": "h2"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_xD3gr9",
+        "heading_n4MYCk"
+      ],
+      "custom_css": [
+        ".sec {border-radius: 20px 20px 0px 0px;}"
+      ],
+      "settings": {
+        "container": "container",
+        "color_scheme": "scheme-cee058e4-58e3-46aa-9af9-219dadc79066",
+        "content_alignment": "center",
+        "padding_top": 92,
+        "padding_bottom": 92,
+        "custom_class": "sec",
+        "animations": "inherit"
+      }
+    },
+    "968209871838256835": {
+      "type": "apps",
+      "custom_css": [
+        ".sec2 {border-radius: 0px 0px 20px 20px;}",
+        ".CommonWidget_likecon__7P2RN {display: none;}"
+      ],
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "header_alignment": "center",
+        "container": "container",
+        "background_color": "#f5f7ff",
+        "padding_top": 0,
+        "padding_bottom": 90,
+        "custom_class": "sec2"
+      }
+    },
+    "custom_code_XRU3nW": {
+      "type": "custom-code",
+      "custom_css": [],
+      "settings": {
+        "custom_css": ".Layout_isPcReviewsLayout1__3D2we {\n  display: none !important;\n}\n.Layout_collapseCol__1a0eu {\n  display: none !important;\n}"
+      }
+    },
+    "644185576073085482": {
+      "type": "apps",
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "header_alignment": "center",
+        "container": "container",
+        "background_color": "",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "custom_class": ""
+      }
+    },
+    "201524113761360265": {
+      "type": "apps",
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "header_alignment": "center",
+        "container": "container",
+        "background_color": "",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "custom_class": ""
+      }
+    },
+    "custom_content_BUnkYP": {
+      "type": "custom-content",
+      "blocks": {
+        "image_MFUqW6": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Group_44_6dd7f55a-7c3f-4a7b-b8f2-0025c0a01ae1.png",
+            "link": "",
+            "width": "100%",
+            "alignment": "center",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "image_MFUqW6"
+      ],
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "header_alignment": "center",
+        "container": "w-full",
+        "color_scheme": "scheme-cee058e4-58e3-46aa-9af9-219dadc79066",
+        "content_color_scheme": "scheme-cee058e4-58e3-46aa-9af9-219dadc79066",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "gap": 30,
+        "gap_mobile": 16,
+        "use_scroll_mobile": false,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "custom_class": ""
+      }
+    }
+  },
+  "order": [
+    "breadcrumb",
+    "main",
+    "product-details-tabs",
+    "brands_list_a7HM9d",
+    "image_with_text_Y3JMfg",
+    "custom_liquid_9WEEfN",
+    "custom_content_dPpedp",
+    "rich_text_phYTdk",
+    "custom_liquid_qR7BgT",
+    "brands_list_fkAJzd",
+    "rich_text_gYypF4",
+    "968209871838256835",
+    "custom_code_XRU3nW",
+    "644185576073085482",
+    "201524113761360265",
+    "custom_content_BUnkYP"
+  ]
+}

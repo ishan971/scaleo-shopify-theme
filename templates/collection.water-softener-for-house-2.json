@@ -1,0 +1,793 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "collection-header": {
+      "type": "collection-page-header",
+      "blocks": {
+        "banner_K8yyJz": {
+          "type": "banner",
+          "settings": {
+            "collection": ""
+          }
+        }
+      },
+      "block_order": [
+        "banner_K8yyJz"
+      ],
+      "disabled": true,
+      "settings": {
+        "color_scheme": "scheme-cee058e4-58e3-46aa-9af9-219dadc79066",
+        "container": "w-full",
+        "layout": "inside",
+        "image_position": "background",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "text_alignment": "center",
+        "text_color": "inherit",
+        "upper_title": false,
+        "show_desc": true,
+        "collection_all_desc": "",
+        "padding_top": 36,
+        "padding_bottom": 50,
+        "enable_bg_zoom_effect": true
+      }
+    },
+    "slider_aCejJU": {
+      "type": "slider",
+      "blocks": {
+        "slider_item_HMGEMm": {
+          "type": "slider_item",
+          "settings": {
+            "background": "shopify://shop_images/scale_o_banner_main_page.png",
+            "content_in_container": false,
+            "content_position": "center middle",
+            "text_alignment": "center",
+            "text_size": "medium",
+            "text_color": "black",
+            "subheading": "",
+            "title": "",
+            "description": "",
+            "image_link": "",
+            "button_text": "",
+            "button_link": "",
+            "button_style": "m-button--link",
+            "button_size": "",
+            "second_button_text": "",
+            "second_button_link": "",
+            "second_button_style": "m-button--primary",
+            "second_button_size": "m-button--large",
+            "show_footer": false,
+            "footer_alignment": "end",
+            "footer_text": "New Collection",
+            "footer_button": "Shop Now",
+            "footer_link": ""
+          }
+        },
+        "slider_item_6QRnUP": {
+          "type": "slider_item",
+          "settings": {
+            "background": "shopify://shop_images/scale-o_main_page_2_banner.png",
+            "content_in_container": false,
+            "content_position": "center middle",
+            "text_alignment": "center",
+            "text_size": "medium",
+            "text_color": "black",
+            "subheading": "",
+            "title": "",
+            "description": "",
+            "image_link": "",
+            "button_text": "",
+            "button_link": "",
+            "button_style": "m-button--primary",
+            "button_size": "",
+            "second_button_text": "",
+            "second_button_link": "",
+            "second_button_style": "m-button--primary",
+            "second_button_size": "",
+            "show_footer": false,
+            "footer_alignment": "end",
+            "footer_text": "New Collection",
+            "footer_button": "Shop Now",
+            "footer_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "slider_item_HMGEMm",
+        "slider_item_6QRnUP"
+      ],
+      "disabled": true,
+      "name": "Slideshow",
+      "settings": {
+        "container": "w-full",
+        "slideshow_height": "adapt",
+        "show_overlay": false,
+        "dots_position": "bottom",
+        "dots_color": "dark",
+        "show_dots": true,
+        "show_arrows": false,
+        "autorotate": false,
+        "autorotate_speed": 5,
+        "use_content_above": false,
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "image_with_text_2_V9kKLU": {
+      "type": "image-with-text-2",
+      "custom_css": [
+        "@media screen and (max-width: 767px) {.m-hero--content-stack {overflow: visible; margin-bottom: 0px; }}"
+      ],
+      "settings": {
+        "color_scheme": "",
+        "container": "w-full",
+        "hero_size": "adapt",
+        "show_overlay": false,
+        "image": "shopify://shop_images/scale-o_home_banner_approved.png",
+        "image_link": "",
+        "parallax": false,
+        "parallax_direction": "vertical",
+        "content_in_container": false,
+        "content_position": "center middle",
+        "text_alignment": "center",
+        "text_size": "medium",
+        "text_color": "white",
+        "title": "",
+        "subtitle": "",
+        "text": "",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "m-button--primary",
+        "button_size": "",
+        "text_alignment_mobile": "center",
+        "use_content_above": false,
+        "custom_class": "",
+        "animations": "inherit",
+        "enable_bg_zoom_effect": true
+      }
+    },
+    "rich_text_NXiEK9": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_epHbtn": {
+          "type": "heading",
+          "settings": {
+            "heading": "Best Water Softener for House",
+            "heading_size": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "heading_epHbtn"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "container": "container",
+        "color_scheme": "",
+        "content_alignment": "center",
+        "padding_top": 24,
+        "padding_bottom": 24,
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "main": {
+      "type": "main-collection-product-grid",
+      "custom_css": [
+        ".m-banner-promotion {order: 3 !important; margin-top: 30px; margin-bottom: 0;}",
+        ".m-collection-filters-form {margin-bottom: 0;}",
+        ".ddreview-star {display: none;}",
+        ".m-button--secondary {background-color: #0c7fdf;}",
+        ".m\\:text-left {text-align: center;}",
+        ".m-product-card__title {padding-bottom: 20px; border-bottom: 1.5px solid #d6e2fa;}",
+        ".m-button--secondary:hover {background: black;}",
+        ".m-tooltip:nth-child(1),.m-tooltip:nth-child(5) {display: none;}"
+      ],
+      "settings": {
+        "container": "container-fluid",
+        "grid_layout": "grid",
+        "grid_columns": "4",
+        "show_columns_switcher": false,
+        "pagination_limit": 12,
+        "paginate_type": "infinite",
+        "show_sorting": true,
+        "show_filter": true,
+        "filters_type": "storefront_filters",
+        "sidebar": "leftColumn",
+        "sidebar_title": "Filters",
+        "limit_height_widget": true,
+        "limit_height": 300,
+        "change_product_variant_on_fitlering": true,
+        "show_product_count": true,
+        "collapsed_groups": "Product type, Brand, Vendor, Size",
+        "color_swatches": "color,colour,couleur,farbe",
+        "color_swatches_design": "list"
+      }
+    },
+    "rich_text_Tgxhai": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_qn8iqA": {
+          "type": "heading",
+          "settings": {
+            "heading": "Hard Water Is Hurting Your Home",
+            "heading_size": "h2"
+          }
+        },
+        "text_Cbbz7x": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Hard water silently damages your bathroom fittings, geysers, pipelines, washing machines, taps, and shower heads every single day. White stains on tiles, clogged faucets, reduced appliance life, and rough water quality are all signs of hard water entering your home through the overhead water tank.</p><p>Scale-O is a <strong>salt-free water softener</strong> for overhead tanks designed specifically for independent houses, villas, bungalows, and whole house water systems. It helps reduce hard water scaling without chemicals, salt, electricity, or complicated installation.</p><h3>Why Homeowners Choose Scale-O</h3><ul><li><strong>Salt-free water softener</strong></li><li>DIY installation in overhead tanks</li><li>No plumbing modification required</li><li>Suitable for whole house water supply</li><li>Designed for houses & bungalows</li><li>Low maintenance hard water solution</li></ul>"
+          }
+        },
+        "button_BA9yrL": {
+          "type": "button",
+          "settings": {
+            "button_label": "Get Scale-O",
+            "button_link": "shopify://collections/all",
+            "button_style": "m-button--secondary",
+            "button_size": "m-button--small"
+          }
+        }
+      },
+      "block_order": [
+        "heading_qn8iqA",
+        "text_Cbbz7x",
+        "button_BA9yrL"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "container": "container-fluid",
+        "color_scheme": "",
+        "content_alignment": "left",
+        "padding_top": 12,
+        "padding_bottom": 12,
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "rich_text_DPiJQB": {
+      "type": "rich-text",
+      "blocks": {
+        "text_cUAeQP": {
+          "type": "text",
+          "settings": {
+            "text": "<h2>Hard Water Problems in Homes</h2><p>Hard water affects every corner of your house because all water flows through the overhead tank before reaching bathrooms, kitchens, washing areas, and appliances.</p><h3>Common Problems Caused by Hard Water</h3><ul><li>White scaling on taps & shower heads</li><li>Stains on bathroom tiles & glass</li><li>Reduced geyser efficiency</li><li>Pipe choking & plumbing buildup</li><li>Appliance damage over time</li><li>Dry skin & dull hair after bathing</li><li>Increased cleaning effort</li></ul><p>If your home uses overhead tank storage, installing a <strong>water softener for water tank</strong> systems can help reduce these issues across the entire house.</p><h2>How Scale-O Solves Hard Water Problems </h2><p>Scale-O is a salt-free <strong>water tank softener</strong> designed to work directly inside overhead water tanks. Unlike traditional systems that require electricity, salt refilling, plumbing modifications, or professional installation, Scale-O provides a simple DIY solution for hard water management.</p><h3>How It Works </h3><p>Scale-O uses advanced<strong> </strong>chelation<strong> </strong>technology that helps reduce hard water scale formation before the water travels through your home’s plumbing system.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_cUAeQP"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "container": "container-fluid",
+        "color_scheme": "",
+        "content_alignment": "left",
+        "padding_top": 12,
+        "padding_bottom": 12,
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "image_with_text_wCQUQn": {
+      "type": "image-with-text",
+      "name": "Image with text",
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "container": "container-fluid",
+        "color_scheme": "",
+        "item_gap": 100,
+        "item_gap_mobile": 30,
+        "layout": "left",
+        "image_column_size": "6",
+        "image_overlap": false,
+        "show_image_reverse": false,
+        "hover_effect": false,
+        "image_animation": "none",
+        "image": "shopify://shop_images/step_1_scale_o.png",
+        "link": "",
+        "link_2": "",
+        "second_image_offset_top": 10,
+        "title": "Step 1 – Install Inside the Overhead Tank",
+        "sub_title": "",
+        "text": "<p>The Scale-O unit is placed directly inside the overhead water tank using its simple DIY installation setup. No plumber, power connection, or pipeline cutting is required.</p>",
+        "text_size": "medium",
+        "content_alignment": "left",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "m-button--link",
+        "button_size": "",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "image_with_text_AzLk4y": {
+      "type": "image-with-text",
+      "name": "Image with text",
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "container": "container-fluid",
+        "color_scheme": "",
+        "item_gap": 100,
+        "item_gap_mobile": 30,
+        "layout": "right",
+        "image_column_size": "6",
+        "image_overlap": false,
+        "show_image_reverse": false,
+        "hover_effect": false,
+        "image_animation": "none",
+        "image": "shopify://shop_images/step_2_scale_o.png",
+        "link": "",
+        "link_2": "",
+        "second_image_offset_top": 10,
+        "title": "Step 2 – Water Flows Around the Scale-O Unit",
+        "sub_title": "",
+        "text": "<p>As water continuously circulates inside the tank, it flows around the Scale-O device during daily household usage and tank refilling cycles.</p>",
+        "text_size": "medium",
+        "content_alignment": "left",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "m-button--link",
+        "button_size": "",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "image_with_text_RNgjFe": {
+      "type": "image-with-text",
+      "name": "Image with text",
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "container": "container-fluid",
+        "color_scheme": "",
+        "item_gap": 100,
+        "item_gap_mobile": 30,
+        "layout": "left",
+        "image_column_size": "6",
+        "image_overlap": false,
+        "show_image_reverse": false,
+        "hover_effect": false,
+        "image_animation": "none",
+        "image": "shopify://shop_images/step_3_scale_o.png",
+        "link": "",
+        "link_2": "",
+        "second_image_offset_top": 10,
+        "title": "Step 3 – Chelation Technology Conditions Hard Water Minerals",
+        "sub_title": "",
+        "text": "<p>Scale-O uses advanced chelation technology that helps condition hard water minerals like calcium and magnesium. This process helps reduce the ability of minerals to stick to surfaces and form stubborn scale deposits.</p>",
+        "text_size": "medium",
+        "content_alignment": "left",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "m-button--link",
+        "button_size": "",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "image_with_text_We7wVT": {
+      "type": "image-with-text",
+      "name": "Image with text",
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "container": "container-fluid",
+        "color_scheme": "",
+        "item_gap": 100,
+        "item_gap_mobile": 30,
+        "layout": "right",
+        "image_column_size": "6",
+        "image_overlap": false,
+        "show_image_reverse": false,
+        "hover_effect": false,
+        "image_animation": "none",
+        "image": "shopify://shop_images/step_4_scale_o.png",
+        "link": "",
+        "link_2": "",
+        "second_image_offset_top": 10,
+        "title": "Step 4 – Reduced Scaling Across the Home",
+        "sub_title": "",
+        "text": "<p>The conditioned water then flows through your home’s plumbing system, helping reduce white scaling on taps, showers, bathroom fittings, tiles, geysers, washing machines, and kitchen appliances.</p>",
+        "text_size": "medium",
+        "content_alignment": "left",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "m-button--link",
+        "button_size": "",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "image_with_text_T4b7p7": {
+      "type": "image-with-text",
+      "name": "Image with text",
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "container": "container-fluid",
+        "color_scheme": "",
+        "item_gap": 100,
+        "item_gap_mobile": 30,
+        "layout": "left",
+        "image_column_size": "6",
+        "image_overlap": false,
+        "show_image_reverse": false,
+        "hover_effect": false,
+        "image_animation": "none",
+        "image": "shopify://shop_images/step_5_scale_o.png",
+        "link": "",
+        "link_2": "",
+        "second_image_offset_top": 10,
+        "title": "Step 5 – Whole House Hard Water Protection",
+        "sub_title": "",
+        "text": "<p>By working directly from the overhead tank, Scale-O helps provide soft water support across the entire home while helping improve appliance efficiency and reducing hard water maintenance issues.</p>",
+        "text_size": "medium",
+        "content_alignment": "left",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "m-button--link",
+        "button_size": "",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "rich_text_J3rhqd": {
+      "type": "rich-text",
+      "blocks": {
+        "text_9ajFWY": {
+          "type": "text",
+          "settings": {
+            "text": "<h3>Why Scale-O Is Unique</h3><ul><li>No salt required</li><li>No electricity required</li><li>DIY installation</li><li>No water wastage</li><li>No maintenance hassles</li><li>Suitable for all types of water tanks</li><li>Works for whole house water supply</li></ul><h3>Perfect For:</h3><ul><li>Independent houses</li><li>Villas</li><li>Bungalows</li><li>Duplex homes</li><li>Row houses</li><li>Farmhouses</li></ul><h2>Choose Scale-O by Storage & Usage</h2><p>Select the right <strong>hard water softener for tank</strong> systems based on your overhead tank size and daily household water consumption.</p><h2><a href=\"/products/scale-o-mini\" title=\"Mini Water Softener\">Scale-O Mini Water Softener</a></h2><h3>Best Water Softener for Small Families</h3><p>The Scale-O Mini is a compact and efficient water softener designed for small homes, and families with lower daily water usage. It helps reduce hard water scaling in bathrooms, taps, showers, geysers, and washing machines while improving overall water quality for everyday use.</p><p>Perfect for compact spaces, the Scale-O Mini fits easily with overhead tank setups and offers a low-maintenance solution for hard water problems.</p><h3>Why Choose Scale-O Mini?</h3><ul><li>Compact space-saving design</li><li>Helps protect bathroom fittings & appliances</li><li>Reduces white scaling caused by hard water</li><li>No maintenance required</li></ul>"
+          }
+        }
+      },
+      "block_order": [
+        "text_9ajFWY"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "container": "container-fluid",
+        "color_scheme": "",
+        "content_alignment": "left",
+        "padding_top": 12,
+        "padding_bottom": 12,
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "custom_content_wmcV9P": {
+      "type": "custom-content",
+      "blocks": {
+        "liquid_hdGJiH": {
+          "type": "liquid",
+          "settings": {
+            "custom_liquid": "<style>\n  @media (max-width: 431px) {\n    .pricing-section {\n      padding: 0px !important;\n    }\n\n    .pricing-section2 {\n      padding: 0rem !important;\n    }\n\n    .pricing-table td {\n      padding: 8px !important;\n    }\n  }\n\n  .pricing-table .save {\n    background-color: #ffcc00 !important;\n    border-radius: 50px;\n    padding: 10px 20px;\n    display: inline-block;\n  }\n\n  .pricing-section {\n    background-color: #fff;\n    padding: 2rem;\n    border-radius: 8px;\n  }\n\n  .content h5 {\n    color: #1c7acc;\n    font-size: 17px !important;\n    margin-bottom: 1rem;\n  }\n\n  .content h2 {\n    font-size: 32px;\n    margin-bottom: 0.5rem;\n  }\n\n  .content p {\n    font-size: 18px !important;\n    margin-bottom: 1rem;\n    line-height: 1.8;\n  }\n\n  .pricing-table {\n    margin: auto;\n    border-collapse: separate;\n    border-spacing: 0;\n    overflow: hidden;\n    border-radius: 10px;\n    border: 1px solid #ddd;\n    width: 100%;\n    background-color: #f9f9f9;\n  }\n\n  .pricing-table td {\n    padding: 15px !important;\n    text-align: center;\n    border: 1px solid #ddd;\n    background-color: #f9f9f9;\n  }\n\n  .pricing-table th {\n    padding: 15px;\n    text-align: center;\n    background-color: #333;\n    color: white;\n  }\n\n  .pricing-table .plan2 {\n    text-align: center;\n    padding: 15px !important;\n  }\n\n  .pricing-table .price {\n    background-color: #1c7acc;\n    color: white;\n    border-radius: 50px;\n    padding: 10px 20px;\n    display: inline-block;\n  }\n\n  .pricing-table .save {\n    background-color: #e6e6e6 !important;\n    border-radius: 50px;\n    padding: 10px 20px;\n    display: inline-block;\n  }\n\n  .highlight {\n    color: #2a6ab2 !important;\n  }\n\n  .pricing-table tr:first-child th:first-child {\n    border-top-left-radius: 10px;\n  }\n\n  .pricing-table tr:first-child th:last-child {\n    border-top-right-radius: 10px;\n  }\n\n  .pricing-table tr:last-child td:first-child {\n    border-bottom-left-radius: 10px;\n  }\n\n  .pricing-table tr:last-child td:last-child {\n    border-bottom-right-radius: 10px;\n  }\n\n  .cta-btn {\n    display: inline-block;\n    margin-top: 20px;\n    background-color: #1c7acc;\n    color: #fff !important;\n    padding: 12px 24px;\n    border-radius: 50px;\n    text-decoration: none;\n    font-size: 15px;\n  }\n</style>\n\n<div>\n  <section class=\"pricing-section\">\n    <div class=\"content\">\n\n      <h5>BEST WATER SOFTENER FOR SMALL FAMILIES</h5>\n\n      <h2>Scale-O Mini</h2>\n\n      <p>\n          <p>Ideal For:</p>\n\n<ul style=\"list-style-type: disc; padding-left: 20px;\">\n  <li>1 to 3 family members</li>\n  <li>Bungalows and villa homes</li>\n  <li>Daily water usage up to 500 L/day</li>\n  <li>Small overhead tanks up to 750 Litres</li>\n</ul>\n        <br>\n\n      \n      </p>\n\n      <table class=\"pricing-table\">\n        <tr>\n          <th>Plans</th>\n          <th>Prices</th>\n          <th>Savings</th>\n        </tr>\n\n        <tr>\n          <td class=\"plan2\">\n            6 Months<span class=\"highlight\"> - Trial Plan</span>\n          </td>\n\n          <td>\n            <a href=\"https://scale-o.com/products/scale-o-mini\">\n              <span class=\"price\">INR 3,500/-</span>\n            </a>\n          </td>\n\n          <td>\n            <span class=\"save\">0</span>\n          </td>\n        </tr>\n\n        <tr>\n          <td class=\"plan2\">1 Year Plan</td>\n\n          <td>\n            <a href=\"https://scale-o.com/products/scale-o-mini?variant=41864467775590\">\n              <span class=\"price\">INR 5,000/-</span>\n            </a>\n          </td>\n\n          <td>\n            <span class=\"save\">INR 2,000/-</span>\n          </td>\n        </tr>\n\n        <tr>\n          <td class=\"plan2\">2 Year Plan</td>\n\n          <td>\n            <a href=\"https://scale-o.com/products/scale-o-mini\">\n              <span class=\"price\">INR 8,000/-</span>\n            </a>\n          </td>\n\n          <td>\n            <span class=\"save\">INR 6,000/-</span>\n          </td>\n        </tr>\n\n        <tr>\n          <td class=\"plan2\">\n            3 Year Plan<span class=\"highlight\"> - Popular Plan</span>\n          </td>\n\n          <td>\n            <a href=\"https://scale-o.com/products/scale-o-mini?variant=41864467808358\">\n              <span class=\"price\">INR 10,000/-</span>\n            </a>\n          </td>\n\n          <td>\n            <span class=\"save\">INR 11,000/-</span>\n          </td>\n        </tr>\n      </table>\n\n      <a\n        href=\"https://scale-o.com/products/scale-o-mini\"\n        class=\"cta-btn\"\n      >\n        View Mini Plans\n      </a>\n\n    </div>\n  </section>\n</div>",
+            "width": "66%",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        },
+        "image_VrLyUV": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/100_1_392eddc2-b4e0-4461-b5d4-fd0767d751e3.png",
+            "link": "",
+            "width": "33%",
+            "alignment": "center",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "liquid_hdGJiH",
+        "image_VrLyUV"
+      ],
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "header_alignment": "center",
+        "container": "container-fluid",
+        "color_scheme": "",
+        "content_color_scheme": "",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "gap": 30,
+        "gap_mobile": 16,
+        "use_scroll_mobile": false,
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "custom_class": ""
+      }
+    },
+    "rich_text_A7F3PB": {
+      "type": "rich-text",
+      "blocks": {
+        "text_wCCHgQ": {
+          "type": "text",
+          "settings": {
+            "text": "<h2><a href=\"/products/scale-o-semi\" title=\"Semi Water Softener\">Scale-O Semi Water Softener</a></h2><h3>Best Water Softener for Medium Sized Families</h3><p>The Scale-O Semi is built for medium-sized homes and families that need a more powerful hard water solution for higher daily water consumption. It helps reduce scale build-up across bathrooms, kitchen fittings, water heaters, and plumbing systems.</p><p>With higher storage capacity and improved flow support, the Scale-O Semi is ideal for families looking for a reliable water softener for overhead tanks.</p><h3>Why Choose Scale-O Semi?</h3><ul><li>Suitable for continuous water usage</li><li>Helps extend appliance life</li><li>Reduces hard water stains & scaling</li><li>Efficient performance for daily household use</li><li>Safe & Reliable overhead tank water softener</li></ul>"
+          }
+        }
+      },
+      "block_order": [
+        "text_wCCHgQ"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "container": "container-fluid",
+        "color_scheme": "",
+        "content_alignment": "left",
+        "padding_top": 12,
+        "padding_bottom": 60,
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "custom_content_aQFqKb": {
+      "type": "custom-content",
+      "blocks": {
+        "image_nEzrid": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/100_1_80125cd2-961f-4826-bdc7-e98dbebed6fb.png",
+            "link": "",
+            "width": "33%",
+            "alignment": "center",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        },
+        "liquid_WNbznN": {
+          "type": "liquid",
+          "settings": {
+            "custom_liquid": "<div>\n  <section class=\"pricing-section2\">\n    <div class=\"content\">\n\n      <h5>BEST WATER SOFTENER FOR MEDIUM SIZED FAMILIES</h5>\n\n      <h2>Scale-O Semi</h2>\n\n      <p>\n\n        Ideal For:<br>\n<ul style=\"list-style-type: disc; padding-left: 20px;\">\n  <li>4 to 6 family members</li>\n  <li>Medium-sized homes</li>\n  <li>Daily water usage up to 1500 L/day</li>\n  <li>For 1000 L - 1500 L Storage Tanks</li>\n</ul>\n  \n\n             </p>\n\n      <table class=\"pricing-table\">\n        <tr>\n          <th>Plans</th>\n          <th>Prices</th>\n          <th>Savings</th>\n        </tr>\n\n        <tr>\n          <td class=\"plan2\">\n            6 Months<span class=\"highlight\"> - Trial Plan</span>\n          </td>\n\n          <td>\n            <a href=\"https://scale-o.com/products/scale-o-semi\">\n              <span class=\"price\">INR 3,500/-</span>\n            </a>\n          </td>\n\n          <td>\n            <span class=\"save\">0</span>\n          </td>\n        </tr>\n\n        <tr>\n          <td class=\"plan2\">1 Year Plan</td>\n\n          <td>\n            <a href=\"https://scale-o.com/products/scale-o-semi?variant=41864581087334\">\n              <span class=\"price\">INR 6,000/-</span>\n            </a>\n          </td>\n\n          <td>\n            <span class=\"save\">INR 1,000/-</span>\n          </td>\n        </tr>\n\n        <tr>\n          <td class=\"plan2\">2 Year Plan</td>\n\n          <td>\n            <a href=\"https://scale-o.com/products/scale-o-semi?variant=41864581120102\">\n              <span class=\"price\">INR 10,000/-</span>\n            </a>\n          </td>\n\n          <td>\n            <span class=\"save\">INR 4,000/-</span>\n          </td>\n        </tr>\n\n        <tr>\n          <td class=\"plan2\">\n            3 Year Plan<span class=\"highlight\"> - Popular Plan</span>\n          </td>\n\n          <td>\n            <a href=\"https://scale-o.com/products/scale-o-semi?variant=41864581152870\">\n              <span class=\"price\">INR 12,000/-</span>\n            </a>\n          </td>\n\n          <td>\n            <span class=\"save\">INR 9,000/-</span>\n          </td>\n        </tr>\n      </table>\n\n      <a\n        href=\"https://scale-o.com/products/scale-o-semi\"\n        class=\"price cta-btn\"\n        style=\"margin-top:20px; text-decoration:none;\"\n      >\n        View Semi Plans\n      </a>\n\n    </div>\n  </section>\n</div>",
+            "width": "66%",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "image_nEzrid",
+        "liquid_WNbznN"
+      ],
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "header_alignment": "center",
+        "container": "container-fluid",
+        "color_scheme": "scheme-cee058e4-58e3-46aa-9af9-219dadc79066",
+        "content_color_scheme": "scheme-cee058e4-58e3-46aa-9af9-219dadc79066",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "gap": 30,
+        "gap_mobile": 16,
+        "use_scroll_mobile": false,
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "custom_class": ""
+      }
+    },
+    "rich_text_anPcim": {
+      "type": "rich-text",
+      "blocks": {
+        "text_Qbc3b3": {
+          "type": "text",
+          "settings": {
+            "text": "<h2><a href=\"/products/scale-o-centi\" title=\"Centi Water Softener\">Scale-O Centi Water Softener</a></h2><h3>Best Water Softener for Large Sized Families</h3><p>The Scale-O Centi is built for large-sized homes and families that need a more powerful hard water solution for higher daily water consumption. It helps reduce scale build-up across bathrooms, kitchen fittings, water heaters, and plumbing systems.</p><p>With higher storage capacity and improved flow support, the Scale-O Centi is ideal for families looking for a reliable water softener for overhead tanks.</p><h3>Why Choose Scale-O Centi?</h3><ul><li>Suitable for continuous water usage</li><li>Helps extend appliance life</li><li>Reduces hard water stains & scaling</li><li>Efficient performance for daily household use</li><li>Safe & Reliable overhead tank water softener</li></ul>"
+          }
+        }
+      },
+      "block_order": [
+        "text_Qbc3b3"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "container": "container-fluid",
+        "color_scheme": "",
+        "content_alignment": "left",
+        "padding_top": 12,
+        "padding_bottom": 12,
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "custom_content_aNcTmq": {
+      "type": "custom-content",
+      "blocks": {
+        "liquid_LqKyxy": {
+          "type": "liquid",
+          "settings": {
+            "custom_liquid": "<div>\n  <section class=\"pricing-section\">\n    <div class=\"content\">\n\n      <h5>ADVANCED WATER SOFTENER FOR LARGE HOMES & VILLAS</h5>\n\n      <h2>Scale-O Centi</h2>\n\n      <p>\n\n\n\n        Ideal For:<br>\n        <ul style=\"list-style-type: disc; padding-left: 20px;\">\n  <li>7 to 10 family members</li>\n  <li>Large homes &amp; villas</li>\n  <li>Daily water usage up to 2500 L/day</li>\n  <li>For Overhead Tanks up to 3000 Litres</li>\n</ul>\n       \n\n       \n      </p>\n\n      <table class=\"pricing-table\">\n        <tr>\n          <th>Plans</th>\n          <th>Prices</th>\n          <th>Savings</th>\n        </tr>\n\n        <tr>\n          <td class=\"plan2\">\n            6 Months<span class=\"highlight\"> - Trial Plan</span>\n          </td>\n\n          <td>\n            <a href=\"https://scale-o.com/products/scale-o-centi\">\n              <span class=\"price\">INR 4,500/-</span>\n            </a>\n          </td>\n\n          <td>\n            <span class=\"save\">0</span>\n          </td>\n        </tr>\n\n        <tr>\n          <td class=\"plan2\">1 Year Plan</td>\n\n          <td>\n            <a href=\"https://scale-o.com/products/scale-o-centi?variant=41864489336934\">\n              <span class=\"price\">INR 7,000/-</span>\n            </a>\n          </td>\n\n          <td>\n            <span class=\"save\">INR 2,000/-</span>\n          </td>\n        </tr>\n\n        <tr>\n          <td class=\"plan2\">2 Year Plan</td>\n\n          <td>\n            <a href=\"https://scale-o.com/products/scale-o-centi?variant=41864489369702\">\n              <span class=\"price\">INR 12,000/-</span>\n            </a>\n          </td>\n\n          <td>\n            <span class=\"save\">INR 6,000/-</span>\n          </td>\n        </tr>\n\n        <tr>\n          <td class=\"plan2\">\n            3 Year Plan<span class=\"highlight\"> - Popular Plan</span>\n          </td>\n\n          <td>\n            <a href=\"https://scale-o.com/products/scale-o-centi?variant=41864489402470\">\n              <span class=\"price\">INR 15,000/-</span>\n            </a>\n          </td>\n\n          <td>\n            <span class=\"save\">INR 12,000/-</span>\n          </td>\n        </tr>\n      </table>\n\n      <a\n        href=\"https://scale-o.com/products/scale-o-centi\"\n        class=\"price cta-btn\"\n        style=\"margin-top:20px; text-decoration:none;\"\n      >\n        View Centi Plans\n      </a>\n\n    </div>\n  </section>\n</div>",
+            "width": "66%",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        },
+        "image_CBVQk6": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/100_1_-1.png",
+            "link": "",
+            "width": "33%",
+            "alignment": "center",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "liquid_LqKyxy",
+        "image_CBVQk6"
+      ],
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "header_alignment": "center",
+        "container": "container-fluid",
+        "color_scheme": "",
+        "content_color_scheme": "",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "gap": 30,
+        "gap_mobile": 16,
+        "use_scroll_mobile": false,
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "custom_class": ""
+      }
+    },
+    "rich_text_R9LcRa": {
+      "type": "rich-text",
+      "blocks": {
+        "text_9hcdy7": {
+          "type": "text",
+          "settings": {
+            "text": "<h2>Scale-O Benefits for Soft Water Living</h2><p>Scale-O helps improve your everyday water experience by reducing hard water scaling across your entire home.</p><h3>Benefits of Scale-O</h3><h4>Protects Appliances</h4><p>Helps reduce scale buildup in geysers, washing machines, dishwashers, and pipelines.</p><h4>Cleaner Bathrooms</h4><p>Reduces white stains and scaling on taps, showers, and tiles.</p><h4>Better Water Flow</h4><p>Helps reduce mineral buildup inside plumbing systems.</p><h4>Salt-Free Technology</h4><p>No salt refilling, chemicals, or regeneration required.</p><h4>DIY Installation</h4><p>Simply placed inside the overhead tank without plumbing modifications.</p><h4>Whole House Protection</h4><p>Supports hard water treatment for the entire house through the overhead tank system.</p><h4>Zero Maintenance</h4><p>No complicated servicing or recurring maintenance needs.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_9hcdy7"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "container": "container-fluid",
+        "color_scheme": "",
+        "content_alignment": "left",
+        "padding_top": 12,
+        "padding_bottom": 60,
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "custom_content_nbWpyC": {
+      "type": "custom-content",
+      "blocks": {
+        "html_NUaaJk": {
+          "type": "html",
+          "settings": {
+            "code": "<div class=\"content\" style=\"text-align:center;\">\n\n  <h2>Before &amp; After Using Scale-O</h2>\n\n  <table class=\"pricing-table\">\n    <tbody>\n<tr>\n      <th>Before Scale-O</th>\n      <th>After Scale-O</th>\n    </tr>\n\n    <tr>\n      <td>White scaling on taps &amp; fittings</td>\n      <td>Reduced visible scaling</td>\n    </tr>\n\n    <tr>\n      <td>Frequent bathroom cleaning</td>\n      <td>Cleaner bathroom fittings</td>\n    </tr>\n\n    <tr>\n      <td>Reduced geyser efficiency</td>\n      <td>Better appliance protection</td>\n    </tr>\n    <tr>\n      <td>Hard water stains on tiles</td>\n      <td>Reduced hard water stains</td>\n    </tr>\n\n    <tr>\n      <td>Mineral deposits in plumbing</td>\n      <td>Improved water usage experience</td>\n    </tr>\n\n    <tr>\n      <td>Appliance scaling issues</td>\n      <td>Lower maintenance concerns</td>\n    </tr>\n  </tbody>\n</table>\n\n</div>",
+            "width": "100%",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "html_NUaaJk"
+      ],
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "header_alignment": "center",
+        "container": "container-fluid",
+        "color_scheme": "scheme-cee058e4-58e3-46aa-9af9-219dadc79066",
+        "content_color_scheme": "scheme-cee058e4-58e3-46aa-9af9-219dadc79066",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "gap": 30,
+        "gap_mobile": 16,
+        "use_scroll_mobile": false,
+        "padding_top": 52,
+        "padding_bottom": 52,
+        "custom_class": ""
+      }
+    },
+    "custom_content_H9MhAX": {
+      "type": "custom-content",
+      "blocks": {
+        "liquid_MFfcCe": {
+          "type": "liquid",
+          "settings": {
+            "custom_liquid": "<style>\n    @media (min-width:768px) {\n        .faq-container {\n            padding: 20px;\n            display: flex;\n            justify-content: space-between;\n            gap: 20px;\n        }\n\n        .faqdiv {\n            width: 50%;\n        }\n    }\n\n    .faq-item {\n        margin-bottom: 20px;\n    }\n\n    .faq-question {\n        width: 100%;\n        background-color: #F5F7FF;\n        border: none;\n        padding: 15px;\n        text-align: left;\n        cursor: pointer;\n        border-radius: 4px;\n        transition: background-color 0.3s;\n        display: flex;\n        justify-content: space-between;\n        align-items: center;\n        color: #000;\n    }\n\n    .faq-question h4 {\n        margin: 0;\n        font-weight: 600;\n        line-height: 1.5;\n        width: calc(100% - 30px);\n    }\n\n    .faq-question:hover {\n        background-color: #e1e1e1;\n    }\n\n    .faq-question.active {\n        background-color: #2a6ab2;\n        color: #fff;\n        border-radius: 4px 4px 0 0;\n    }\n\n    .faq-question.active h4 {\n        color: #fff;\n    }\n\n    .faq-answer {\n        max-height: 0;\n        opacity: 0;\n        overflow: hidden;\n        padding: 0 15px;\n        background-color: #2a6ab2;\n        border-radius: 0 0 4px 4px;\n        font-size: 14px;\n        line-height: 1.8;\n        color: #fff;\n        transition: max-height 0.5s ease, opacity 0.5s ease, padding 0.5s ease;\n    }\n\n    .faq-answer.open {\n        max-height: 500px;\n        opacity: 1;\n        padding: 15px;\n        border-top: 1px solid #DBE2FF;\n    }\n\n    .faq-icon {\n        width: 20px;\n        height: 20px;\n        margin-left: 10px;\n        flex-shrink: 0;\n    }\n</style>\n\n<div class=\"faq-container\">\n\n    <!-- Left Column -->\n    <div class=\"faqdiv\">\n\n        <div class=\"faq-item\">\n            <button class=\"faq-question\">\n                <h4>Is Scale-O suitable for apartments?</h4>\n\n                <span>\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_49.png?v=1720679877\"\n                        class=\"faq-icon open-icon\" alt=\"Open Icon\">\n\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/4444.png?v=1720679877\"\n                        class=\"faq-icon close-icon\" style=\"display:none;\" alt=\"Close Icon\">\n                </span>\n            </button>\n\n            <div class=\"faq-answer\">No. Scale-O is designed specifically for houses, villas, and bungalows with overhead water tanks.\n            </div>\n        </div>\n\n        <div class=\"faq-item\">\n            <button class=\"faq-question\">\n                <h4>Does Scale-O require installation?</h4>\n\n                <span>\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_49.png?v=1720679877\"\n                        class=\"faq-icon open-icon\" alt=\"Open Icon\">\n\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/4444.png?v=1720679877\"\n                        class=\"faq-icon close-icon\" style=\"display:none;\" alt=\"Close Icon\">\n                </span>\n            </button>\n\n            <div class=\"faq-answer\">No. Scale-O is a DIY water softener and can be placed directly inside the overhead tank and it can be used for underground installation as well.\n            </div>\n        </div>\n        <div class=\"faq-item\">\n            <button class=\"faq-question\">\n                <h4>Does Scale-O require electricity?</h4>\n\n                <span>\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_49.png?v=1720679877\"\n                        class=\"faq-icon open-icon\" alt=\"Open Icon\">\n\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/4444.png?v=1720679877\"\n                        class=\"faq-icon close-icon\" style=\"display:none;\" alt=\"Close Icon\">\n                </span>\n            </button>\n\n            <div class=\"faq-answer\">No. Scale-O works without electricity or external power.\n            </div>\n        </div>\n\n    </div>\n\n    <!-- Right Column -->\n    <div class=\"faqdiv\">\n\n        <div class=\"faq-item\">\n            <button class=\"faq-question\">\n                <h4>Does Scale-O use salt?</h4>\n\n                <span>\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_49.png?v=1720679877\"\n                        class=\"faq-icon open-icon\" alt=\"Open Icon\">\n\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/4444.png?v=1720679877\"\n                        class=\"faq-icon close-icon\" style=\"display:none;\" alt=\"Close Icon\">\n                </span>\n            </button>\n\n            <div class=\"faq-answer\">No. Scale-O is a salt-free water softener and does not require salt refilling.\n            </div>\n        </div>\n\n        <div class=\"faq-item\">\n            <button class=\"faq-question\">\n                <h4>Is Scale-O suitable for whole house water supply?</h4>\n\n                <span>\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_49.png?v=1720679877\"\n                        class=\"faq-icon open-icon\" alt=\"Open Icon\">\n\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/4444.png?v=1720679877\"\n                        class=\"faq-icon close-icon\" style=\"display:none;\" alt=\"Close Icon\">\n                </span>\n            </button>\n\n            <div class=\"faq-answer\">Yes. Since it works inside the overhead tank, it supports water supply across the entire house.\n            </div>\n        </div>\n        <div class=\"faq-item\">\n            <button class=\"faq-question\">\n                <h4>Which Scale-O model should I choose?</h4>\n\n                <span>\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_49.png?v=1720679877\"\n                        class=\"faq-icon open-icon\" alt=\"Open Icon\">\n\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/4444.png?v=1720679877\"\n                        class=\"faq-icon close-icon\" style=\"display:none;\" alt=\"Close Icon\">\n                </span>\n            </button>\n\n            <div class=\"faq-answer\">You can choose based on your overhead tank size, family size, and daily water consumption.\n            </div>\n        </div>\n    </div>\n\n</div>\n\n<script>\n    document.addEventListener('DOMContentLoaded', function () {\n\n        const questions = document.querySelectorAll('.faq-question');\n\n        questions.forEach(question => {\n\n            question.addEventListener('click', function () {\n\n                const answer = this.nextElementSibling;\n                const isOpen = answer.classList.contains('open');\n\n                // Close all FAQ items\n                document.querySelectorAll('.faq-answer').forEach(item => {\n                    item.classList.remove('open');\n                });\n\n                document.querySelectorAll('.faq-question').forEach(item => {\n                    item.classList.remove('active');\n                });\n\n                document.querySelectorAll('.open-icon').forEach(icon => {\n                    icon.style.display = 'inline-block';\n                });\n\n                document.querySelectorAll('.close-icon').forEach(icon => {\n                    icon.style.display = 'none';\n                });\n\n                // Open current FAQ item\n                if (!isOpen) {\n                    answer.classList.add('open');\n                    this.classList.add('active');\n\n                    this.querySelector('.open-icon').style.display = 'none';\n                    this.querySelector('.close-icon').style.display = 'inline-block';\n                }\n\n            });\n\n        });\n\n    });\n</script>",
+            "width": "100%",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "liquid_MFfcCe"
+      ],
+      "name": "Custom content",
+      "settings": {
+        "heading": "Frequently Asked Questions",
+        "heading_size": "h3",
+        "subheading": "FAQ",
+        "description": "",
+        "header_alignment": "center",
+        "container": "container-fluid",
+        "color_scheme": "",
+        "content_color_scheme": "",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "gap": 30,
+        "gap_mobile": 16,
+        "use_scroll_mobile": false,
+        "padding_top": 24,
+        "padding_bottom": 10,
+        "custom_class": ""
+      }
+    }
+  },
+  "order": [
+    "collection-header",
+    "slider_aCejJU",
+    "image_with_text_2_V9kKLU",
+    "rich_text_NXiEK9",
+    "main",
+    "rich_text_Tgxhai",
+    "rich_text_DPiJQB",
+    "image_with_text_wCQUQn",
+    "image_with_text_AzLk4y",
+    "image_with_text_RNgjFe",
+    "image_with_text_We7wVT",
+    "image_with_text_T4b7p7",
+    "rich_text_J3rhqd",
+    "custom_content_wmcV9P",
+    "rich_text_A7F3PB",
+    "custom_content_aQFqKb",
+    "rich_text_anPcim",
+    "custom_content_aNcTmq",
+    "rich_text_R9LcRa",
+    "custom_content_nbWpyC",
+    "custom_content_H9MhAX"
+  ]
+}

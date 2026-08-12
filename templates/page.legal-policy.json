@@ -1,0 +1,157 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "page",
+      "disabled": true,
+      "settings": {}
+    },
+    "rich_text_yqBY4B": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_RwWFUp": {
+          "type": "heading",
+          "settings": {
+            "heading": "Legal Policy",
+            "heading_size": "h2"
+          }
+        },
+        "text_Umimwj": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Welcome to Scale-O. By accessing our website and using our products and services, you agree to comply with and be bound by the following legal policy. Please read the following terms carefully before using our website or placing an order.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_RwWFUp",
+        "text_Umimwj"
+      ],
+      "settings": {
+        "container": "container",
+        "color_scheme": "",
+        "content_alignment": "left",
+        "padding_top": 92,
+        "padding_bottom": 40,
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "custom_content_dBtipC": {
+      "type": "custom-content",
+      "blocks": {
+        "text_haRF6e": {
+          "type": "text",
+          "settings": {
+            "title": "",
+            "subheading": "",
+            "text": "<h4>1. lntellectual Property<br/>2. Limitation of Liability<br/>3. Indemnification<br/>4. Governing Law<br/>5. Changes to This Policy</h4>",
+            "width": "33%",
+            "alignment": "start",
+            "align_text": "left",
+            "text_size": "medium",
+            "text_color": "inherit",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "m-button--primary",
+            "button_size": "",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        },
+        "text_wQBhyP": {
+          "type": "text",
+          "settings": {
+            "title": "",
+            "subheading": "",
+            "text": "<h5><strong>1.Intellectual Property</strong><br/>All content, logos, trademarks, and materials available on the Scale-O website are the intellectual property of Panthera or its licensors and are protected by copyright, trademark, and other intellectual property laws.<br/>You may not modify, copy, reproduce, republish, upload, post, transmit, or distribute any content from this website without prior written consent from Panthera.<br/><br/><strong>2.Limitation of Liability</strong><br/>Scale-O shall not be liable for any direct, indirect, incidental, special, consequential, or punitive damages arising out of or in connection with your use of our website or products.<br/>Scale-O makes no warranties or representations about the accuracy or completeness of the information on this website and assumes no liability for any errors or omissions in the content.<br/><br/><strong>3.Indemnification</strong><br/>You agree to indemnify, defend, and hold harmless Scale-O, its officers, directors, employees, agents, and affiliates from and against any and all claims, liabilities, damages, losses, costs, expenses, or fees arising out of or in connection with your use of our website or products, or your violation of these terms.<br/><br/><strong>4.Governing Law</strong><br/>This legal policy shall be governed by and construed in accordance with the laws of Ahmedabad jurisdiction, without regard to its conflict of law principles.<br/>Any disputes arising out of or in connection with this legal policy shall be subject to the exclusive jurisdiction of the courts located in Ahmedabad.<br/><br/><strong>5.Changes to This Policy</strong><br/>Scale-O reserves the right to update or modify this legal policy at any time without prior notice. We encourage you to review this policy periodically for any changes.<br/>Your continued use of our website or services after the posting of any updates constitutes your acceptance of such changes.<br/><br/>Thank you for reading Scale-O's legal policy. By using our website and services, you acknowledge that you have read, understood, and agree to be bound by these terms and conditions.</h5>",
+            "width": "66%",
+            "alignment": "center",
+            "align_text": "left",
+            "text_size": "medium",
+            "text_color": "inherit",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "m-button--primary",
+            "button_size": "",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "text_haRF6e",
+        "text_wQBhyP"
+      ],
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "header_alignment": "left",
+        "container": "container",
+        "color_scheme": "",
+        "content_color_scheme": "",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "gap": 30,
+        "gap_mobile": 16,
+        "use_scroll_mobile": false,
+        "padding_top": 50,
+        "padding_bottom": 90,
+        "custom_class": ""
+      }
+    },
+    "custom_content_cAKe96": {
+      "type": "custom-content",
+      "blocks": {
+        "image_fLQt4k": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Group_44_6dd7f55a-7c3f-4a7b-b8f2-0025c0a01ae1.png",
+            "link": "",
+            "width": "100%",
+            "alignment": "center",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "image_fLQt4k"
+      ],
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "header_alignment": "center",
+        "container": "w-full",
+        "color_scheme": "",
+        "content_color_scheme": "",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "gap": 30,
+        "gap_mobile": 16,
+        "use_scroll_mobile": false,
+        "padding_top": 100,
+        "padding_bottom": 0,
+        "custom_class": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "rich_text_yqBY4B",
+    "custom_content_dBtipC",
+    "custom_content_cAKe96"
+  ]
+}

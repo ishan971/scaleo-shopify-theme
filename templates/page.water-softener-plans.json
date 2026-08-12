@@ -1,0 +1,691 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "page",
+      "disabled": true,
+      "settings": {}
+    },
+    "image_with_text_2_e6Gb6w": {
+      "type": "image-with-text-2",
+      "name": "Image with text overlay",
+      "settings": {
+        "color_scheme": "",
+        "container": "w-full",
+        "hero_size": "adapt",
+        "show_overlay": false,
+        "image": "shopify://shop_images/scale-o_home_banner_approved_1.png",
+        "image_link": "",
+        "parallax": false,
+        "parallax_direction": "vertical",
+        "content_in_container": false,
+        "content_position": "center middle",
+        "text_alignment": "center",
+        "text_size": "medium",
+        "text_color": "white",
+        "title": "",
+        "subtitle": "",
+        "text": "",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "m-button--primary",
+        "button_size": "",
+        "text_alignment_mobile": "center",
+        "use_content_above": false,
+        "custom_class": "",
+        "animations": "inherit",
+        "enable_bg_zoom_effect": true
+      }
+    },
+    "custom_content_jqkW8n": {
+      "type": "custom-content",
+      "blocks": {
+        "liquid_6TWDDG": {
+          "type": "liquid",
+          "settings": {
+            "custom_liquid": "<div class=\"\">\n\n  <p>\n    Protect your taps, showers, geysers, washing machines, and plumbing from\n    hard water damage with Scale-O hard water softener solutions. Designed as\n    salt free water softener systems for Indian homes, Scale-O products help\n    reduce scaling while supporting cleaner and better water usage throughout\n    the house.\n\n    Whether you live in a small apartment, medium-sized family home, or large\n    villa, we have a water softener plan designed for your daily water usage\n    and family size.\n  </p>\n<br>\n  <ul style=\"list-style: disc; padding-left: 20px;\">\n    <li>No salt refill or manpower hassles</li>\n    <li>Easy installation inside overhead tanks</li>\n    <li>Helps reduce scaling on bathroom fittings & appliances</li>\n    <li>Designed for Indian water conditions from all sources</li>\n    <li>Multiple plan options to suit your budget and extended guarantees</li>\n  </ul>\n\n</div>",
+            "width": "83%",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "liquid_6TWDDG"
+      ],
+      "settings": {
+        "heading": "Find the Right Water Softener Plan for Your Home",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "header_alignment": "center",
+        "container": "container",
+        "color_scheme": "scheme-cee058e4-58e3-46aa-9af9-219dadc79066",
+        "content_color_scheme": "scheme-cee058e4-58e3-46aa-9af9-219dadc79066",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "gap": 30,
+        "gap_mobile": 16,
+        "use_scroll_mobile": false,
+        "padding_top": 90,
+        "padding_bottom": 22,
+        "custom_class": ""
+      }
+    },
+    "custom_content_4Xx9cx": {
+      "type": "custom-content",
+      "blocks": {
+        "image_AtiaiN": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/100_1_392eddc2-b4e0-4461-b5d4-fd0767d751e3.png",
+            "link": "",
+            "width": "50%",
+            "alignment": "center",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        },
+        "liquid_qRKPfU": {
+          "type": "liquid",
+          "settings": {
+            "custom_liquid": "<style>\n  .pricing-section3 {\n    background-color: #f5f7ff;\n    padding: 2rem;\n    border-radius: 8px;\n    /* box-shadow: 0 2px 10px rgba(0,0,0,0.1);\n      max-width: 600px;\n      width: 100%; */\n  }\n\n  .content h5 {\n    color: #73c2fb;\n    font-size: 14px;\n    margin-bottom: 1rem;\n  }\n\n  .content h1 {\n    color: #333;\n    font-size: 32px;\n    font-weight: bold;\n    margin-bottom: 0.5rem;\n  }\n\n  .content p {\n    color: #666;\n    font-size: 18px;\n    margin-bottom: 2rem;\n  }\n\n  .pricing-table {\n    margin: auto;\n    border-collapse: separate;\n    border-spacing: 0;\n    overflow: hidden;\n    border-radius: 10px;\n    border: 1px solid #ddd;\n    width: 100%;\n    background-color: #f9f9f9;\n  }\n  .pricing-table td {\n    padding: 15px !important;\n    text-align: center;\n    border: 1px solid #ddd;\n  }\n\n  .pricing-table th {\n    padding: 15px;\n    text-align: center;\n  }\n\n  .pricing-table th {\n    background-color: #333;\n    color: white;\n  }\n  .pricing-table td {\n    background-color: #f9f9f9;\n  }\n  .pricing-table .plan2 {\n    text-align: center;\n    padding: 15px !important;\n  }\n  .pricing-table .price {\n    background-color: #2a6ab2;\n    color: white;\n    border-radius: 50px;\n    padding: 10px 20px;\n    display: inline-block;\n  }\n\n  .pricing-table .save {\n    background-color: #ffb802;\n    border-radius: 50px;\n    padding: 10px 20px;\n    display: inline-block;\n  }\n\n  .highlight {\n    color: #00aaff;\n  }\n  .pricing-table tr:first-child th:first-child {\n    border-top-left-radius: 10px;\n  }\n  .pricing-table tr:first-child th:last-child {\n    border-top-right-radius: 10px;\n  }\n  .pricing-table tr:last-child td:first-child {\n    border-bottom-left-radius: 10px;\n  }\n  .pricing-table tr:last-child td:last-child {\n    border-bottom-right-radius: 10px;\n  }\n</style>\n\n<div>\n  <section class=\"pricing-section3\">\n    <div class=\"content\">\n      <h5>SUBSCRIPTION PLANS</h5>\n      <h1>Scale-O Mini Water Softener</h1>\n      <p>\n        Suitable for 500 L Storage Tanks || Daily Usage of 500 L/d || Upto 3\n        People in the House\n      </p>\n      <table class=\"pricing-table\">\n        <tr>\n          <th>Plans</th>\n          <th>Prices</th>\n          <th>Savings</th>\n        </tr>\n        <tr>\n          <td class=\"plan2\">\n            6 Months<span class=\"highlight\"> - Basic Plan</span>\n          </td>\n          <td>\n            <a href=\"https://scale-o.com/products/scale-o-mini\"\n              ><span class=\"price\">INR 2500/-</span></a\n            >\n          </td>\n          <td><span class=\"save\"> 0 </span></td>\n        </tr>\n        <tr>\n          <td class=\"plan2\">1 Year</td>\n          <td>\n            <a\n              href=\"https://scale-o.com/products/scale-o-mini?variant=41864467775590\"\n              ><span class=\"price\">INR 4000/-</span></a\n            >\n          </td>\n          <td><span class=\"save\">₹ 1000/-</span></td>\n        </tr>\n        <tr>\n          <td class=\"plan2\">\n            3 Year<span class=\"highlight\"> - Popular Plan</span>\n          </td>\n          <td>\n            <a\n              href=\"https://scale-o.com/products/scale-o-mini?variant=41864467808358\"\n              ><span class=\"price\">INR 10,000/-</span></a\n            >\n          </td>\n          <td><span class=\"save\">₹ 5000/-</span></td>\n        </tr>\n        <tr>\n          <td class=\"plan2\">5 Year</td>\n          <td>\n            <a\n              href=\"https://scale-o.com/products/scale-o-mini?variant=41864467841126\"\n              ><span class=\"price\">INR 15,000/-</span></a\n            >\n          </td>\n          <td><span class=\"save\">₹ 10,000/-</span></td>\n        </tr>\n      </table>\n    </div>\n  </section>\n</div>",
+            "width": "50%",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "image_AtiaiN",
+        "liquid_qRKPfU"
+      ],
+      "disabled": true,
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "header_alignment": "center",
+        "container": "container-fluid",
+        "color_scheme": "scheme-cee058e4-58e3-46aa-9af9-219dadc79066",
+        "content_color_scheme": "scheme-cee058e4-58e3-46aa-9af9-219dadc79066",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "gap": 30,
+        "gap_mobile": 16,
+        "use_scroll_mobile": false,
+        "padding_top": 90,
+        "padding_bottom": 90,
+        "custom_class": ""
+      }
+    },
+    "custom_content_9VNC9w": {
+      "type": "custom-content",
+      "blocks": {
+        "liquid_KECcPj": {
+          "type": "liquid",
+          "settings": {
+            "custom_liquid": "<style>\n  @media (max-width: 431px) {\n    .pricing-section {\n      padding: 0px !important;\n    }\n\n    .pricing-section2 {\n      padding: 0rem !important;\n    }\n\n    .pricing-table td {\n      padding: 8px !important;\n    }\n  }\n\n  .pricing-table .save {\n    background-color: #ffcc00 !important;\n    border-radius: 50px;\n    padding: 10px 20px;\n    display: inline-block;\n  }\n\n  .pricing-section {\n    background-color: #fff;\n    padding: 2rem;\n    border-radius: 8px;\n  }\n\n  .content h5 {\n    color: #1c7acc;\n    font-size: 17px !important;\n    margin-bottom: 1rem;\n  }\n\n  .content h2 {\n    font-size: 32px;\n    margin-bottom: 0.5rem;\n  }\n\n  .content p {\n    font-size: 18px !important;\n    margin-bottom: 1rem;\n    line-height: 1.8;\n  }\n\n  .pricing-table {\n    margin: auto;\n    border-collapse: separate;\n    border-spacing: 0;\n    overflow: hidden;\n    border-radius: 10px;\n    border: 1px solid #ddd;\n    width: 100%;\n    background-color: #f9f9f9;\n  }\n\n  .pricing-table td {\n    padding: 15px !important;\n    text-align: center;\n    border: 1px solid #ddd;\n    background-color: #f9f9f9;\n  }\n\n  .pricing-table th {\n    padding: 15px;\n    text-align: center;\n    background-color: #333;\n    color: white;\n  }\n\n  .pricing-table .plan2 {\n    text-align: center;\n    padding: 15px !important;\n  }\n\n  .pricing-table .price {\n    background-color: #1c7acc;\n    color: white;\n    border-radius: 50px;\n    padding: 10px 20px;\n    display: inline-block;\n  }\n\n  .pricing-table .save {\n    background-color: #e6e6e6 !important;\n    border-radius: 50px;\n    padding: 10px 20px;\n    display: inline-block;\n  }\n\n  .highlight {\n    color: #2a6ab2 !important;\n  }\n\n  .pricing-table tr:first-child th:first-child {\n    border-top-left-radius: 10px;\n  }\n\n  .pricing-table tr:first-child th:last-child {\n    border-top-right-radius: 10px;\n  }\n\n  .pricing-table tr:last-child td:first-child {\n    border-bottom-left-radius: 10px;\n  }\n\n  .pricing-table tr:last-child td:last-child {\n    border-bottom-right-radius: 10px;\n  }\n\n  .cta-btn {\n    display: inline-block;\n    margin-top: 20px;\n    background-color: #1c7acc;\n    color: #fff !important;\n    padding: 12px 24px;\n    border-radius: 50px;\n    text-decoration: none;\n    font-size: 15px;\n  }\n</style>\n\n<div>\n  <section class=\"pricing-section\">\n    <div class=\"content\">\n\n      <h5>BEST WATER SOFTENER FOR SMALL FAMILIES</h5>\n\n      <h2>Scale-O Mini</h2>\n\n      <p>\n          <p>Ideal For:</p>\n\n<ul style=\"list-style-type: disc; padding-left: 20px;\">\n  <li>1 to 3 family members</li>\n  <li>Bungalows and villa homes</li>\n  <li>Daily water usage up to 500 L/day</li>\n  <li>Small overhead tanks up to 750 Litres</li>\n</ul>\n        <br>\n\n      \n      </p>\n\n      <table class=\"pricing-table\">\n        <tr>\n          <th>Plans</th>\n          <th>Prices</th>\n          <th>Savings</th>\n        </tr>\n\n        <tr>\n          <td class=\"plan2\">\n            6 Months<span class=\"highlight\"> - Trial Plan</span>\n          </td>\n\n          <td>\n            <a href=\"https://scale-o.com/products/scale-o-mini\">\n              <span class=\"price\">INR 3,500/-</span>\n            </a>\n          </td>\n\n          <td>\n            <span class=\"save\">0</span>\n          </td>\n        </tr>\n\n        <tr>\n          <td class=\"plan2\">1 Year Plan</td>\n\n          <td>\n            <a href=\"https://scale-o.com/products/scale-o-mini?variant=41864467775590\">\n              <span class=\"price\">INR 5,000/-</span>\n            </a>\n          </td>\n\n          <td>\n            <span class=\"save\">INR 2,000/-</span>\n          </td>\n        </tr>\n\n        <tr>\n          <td class=\"plan2\">2 Year Plan</td>\n\n          <td>\n            <a href=\"https://scale-o.com/products/scale-o-mini\">\n              <span class=\"price\">INR 8,000/-</span>\n            </a>\n          </td>\n\n          <td>\n            <span class=\"save\">INR 6,000/-</span>\n          </td>\n        </tr>\n\n        <tr>\n          <td class=\"plan2\">\n            3 Year Plan<span class=\"highlight\"> - Popular Plan</span>\n          </td>\n\n          <td>\n            <a href=\"https://scale-o.com/products/scale-o-mini?variant=41864467808358\">\n              <span class=\"price\">INR 10,000/-</span>\n            </a>\n          </td>\n\n          <td>\n            <span class=\"save\">INR 11,000/-</span>\n          </td>\n        </tr>\n      </table>\n\n      <a\n        href=\"https://scale-o.com/products/scale-o-mini\"\n        class=\"cta-btn\"\n      >\n        View Mini Plans\n      </a>\n\n    </div>\n  </section>\n</div>",
+            "width": "66%",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        },
+        "image_MEpW37": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/100_1_392eddc2-b4e0-4461-b5d4-fd0767d751e3.png",
+            "link": "",
+            "width": "33%",
+            "alignment": "center",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "liquid_KECcPj",
+        "image_MEpW37"
+      ],
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "header_alignment": "center",
+        "container": "container-fluid",
+        "color_scheme": "",
+        "content_color_scheme": "",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "gap": 30,
+        "gap_mobile": 16,
+        "use_scroll_mobile": false,
+        "padding_top": 90,
+        "padding_bottom": 90,
+        "custom_class": ""
+      }
+    },
+    "custom_content_hm9Gf6": {
+      "type": "custom-content",
+      "blocks": {
+        "image_7HxNPg": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/100_1_80125cd2-961f-4826-bdc7-e98dbebed6fb.png",
+            "link": "",
+            "width": "50%",
+            "alignment": "center",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        },
+        "liquid_T7LX6r": {
+          "type": "liquid",
+          "settings": {
+            "custom_liquid": "<div>\n  <section class=\"pricing-section2\">\n    <div class=\"content\">\n\n      <h5>BEST WATER SOFTENER FOR MEDIUM SIZED FAMILIES</h5>\n\n      <h2>Scale-O Semi</h2>\n\n      <p>\n\n        Ideal For:<br>\n<ul style=\"list-style-type: disc; padding-left: 20px;\">\n  <li>4 to 6 family members</li>\n  <li>Medium-sized homes</li>\n  <li>Daily water usage up to 1500 L/day</li>\n  <li>For 1000 L - 1500 L Storage Tanks</li>\n</ul>\n  \n\n             </p>\n\n      <table class=\"pricing-table\">\n        <tr>\n          <th>Plans</th>\n          <th>Prices</th>\n          <th>Savings</th>\n        </tr>\n\n        <tr>\n          <td class=\"plan2\">\n            6 Months<span class=\"highlight\"> - Trial Plan</span>\n          </td>\n\n          <td>\n            <a href=\"https://scale-o.com/products/scale-o-semi\">\n              <span class=\"price\">INR 3,500/-</span>\n            </a>\n          </td>\n\n          <td>\n            <span class=\"save\">0</span>\n          </td>\n        </tr>\n\n        <tr>\n          <td class=\"plan2\">1 Year Plan</td>\n\n          <td>\n            <a href=\"https://scale-o.com/products/scale-o-semi?variant=41864581087334\">\n              <span class=\"price\">INR 6,000/-</span>\n            </a>\n          </td>\n\n          <td>\n            <span class=\"save\">INR 1,000/-</span>\n          </td>\n        </tr>\n\n        <tr>\n          <td class=\"plan2\">2 Year Plan</td>\n\n          <td>\n            <a href=\"https://scale-o.com/products/scale-o-semi?variant=41864581120102\">\n              <span class=\"price\">INR 10,000/-</span>\n            </a>\n          </td>\n\n          <td>\n            <span class=\"save\">INR 4,000/-</span>\n          </td>\n        </tr>\n\n        <tr>\n          <td class=\"plan2\">\n            3 Year Plan<span class=\"highlight\"> - Popular Plan</span>\n          </td>\n\n          <td>\n            <a href=\"https://scale-o.com/products/scale-o-semi?variant=41864581152870\">\n              <span class=\"price\">INR 12,000/-</span>\n            </a>\n          </td>\n\n          <td>\n            <span class=\"save\">INR 9,000/-</span>\n          </td>\n        </tr>\n      </table>\n\n      <a\n        href=\"https://scale-o.com/products/scale-o-semi\"\n        class=\"price cta-btn\"\n        style=\"margin-top:20px; text-decoration:none;\"\n      >\n        View Semi Plans\n      </a>\n\n    </div>\n  </section>\n</div>",
+            "width": "50%",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "image_7HxNPg",
+        "liquid_T7LX6r"
+      ],
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "header_alignment": "center",
+        "container": "container-fluid",
+        "color_scheme": "scheme-cee058e4-58e3-46aa-9af9-219dadc79066",
+        "content_color_scheme": "scheme-cee058e4-58e3-46aa-9af9-219dadc79066",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "gap": 30,
+        "gap_mobile": 16,
+        "use_scroll_mobile": false,
+        "padding_top": 90,
+        "padding_bottom": 90,
+        "custom_class": ""
+      }
+    },
+    "custom_content_ELR7RX": {
+      "type": "custom-content",
+      "blocks": {
+        "liquid_nhjkzg": {
+          "type": "liquid",
+          "settings": {
+            "custom_liquid": "<div>\n  <section class=\"pricing-section\">\n    <div class=\"content\">\n\n      <h5>ADVANCED WATER SOFTENER FOR LARGE HOMES & VILLAS</h5>\n\n      <h2>Scale-O Centi</h2>\n\n      <p>\n\n\n\n        Ideal For:<br>\n        <ul style=\"list-style-type: disc; padding-left: 20px;\">\n  <li>7 to 10 family members</li>\n  <li>Large homes &amp; villas</li>\n  <li>Daily water usage up to 2500 L/day</li>\n  <li>For Overhead Tanks up to 3000 Litres</li>\n</ul>\n       \n\n       \n      </p>\n\n      <table class=\"pricing-table\">\n        <tr>\n          <th>Plans</th>\n          <th>Prices</th>\n          <th>Savings</th>\n        </tr>\n\n        <tr>\n          <td class=\"plan2\">\n            6 Months<span class=\"highlight\"> - Trial Plan</span>\n          </td>\n\n          <td>\n            <a href=\"https://scale-o.com/products/scale-o-centi\">\n              <span class=\"price\">INR 4,500/-</span>\n            </a>\n          </td>\n\n          <td>\n            <span class=\"save\">0</span>\n          </td>\n        </tr>\n\n        <tr>\n          <td class=\"plan2\">1 Year Plan</td>\n\n          <td>\n            <a href=\"https://scale-o.com/products/scale-o-centi?variant=41864489336934\">\n              <span class=\"price\">INR 7,000/-</span>\n            </a>\n          </td>\n\n          <td>\n            <span class=\"save\">INR 2,000/-</span>\n          </td>\n        </tr>\n\n        <tr>\n          <td class=\"plan2\">2 Year Plan</td>\n\n          <td>\n            <a href=\"https://scale-o.com/products/scale-o-centi?variant=41864489369702\">\n              <span class=\"price\">INR 12,000/-</span>\n            </a>\n          </td>\n\n          <td>\n            <span class=\"save\">INR 6,000/-</span>\n          </td>\n        </tr>\n\n        <tr>\n          <td class=\"plan2\">\n            3 Year Plan<span class=\"highlight\"> - Popular Plan</span>\n          </td>\n\n          <td>\n            <a href=\"https://scale-o.com/products/scale-o-centi?variant=41864489402470\">\n              <span class=\"price\">INR 15,000/-</span>\n            </a>\n          </td>\n\n          <td>\n            <span class=\"save\">INR 12,000/-</span>\n          </td>\n        </tr>\n      </table>\n\n      <a\n        href=\"https://scale-o.com/products/scale-o-centi\"\n        class=\"price cta-btn\"\n        style=\"margin-top:20px; text-decoration:none;\"\n      >\n        View Centi Plans\n      </a>\n\n    </div>\n  </section>\n</div>",
+            "width": "50%",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        },
+        "image_cW6kfc": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/100_1_-1.png",
+            "link": "",
+            "width": "50%",
+            "alignment": "center",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "liquid_nhjkzg",
+        "image_cW6kfc"
+      ],
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "header_alignment": "center",
+        "container": "container-fluid",
+        "color_scheme": "",
+        "content_color_scheme": "",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "gap": 30,
+        "gap_mobile": 16,
+        "use_scroll_mobile": false,
+        "padding_top": 90,
+        "padding_bottom": 90,
+        "custom_class": ""
+      }
+    },
+    "custom_content_iEpfwq": {
+      "type": "custom-content",
+      "blocks": {
+        "liquid_ERwhFX": {
+          "type": "liquid",
+          "settings": {
+            "custom_liquid": "<div class=\"content\" style=\"text-align:center;\">\n\n  <h5>COMBO WATER SOFTENER SOLUTIONS</h5>\n\n  <h1>Scale-O Combo Packs for Larger Homes & Higher Water Usage</h1>\n\n  <p style=\"line-height:1.9; margin-bottom:30px;\">\n    For homes with larger overhead tanks, higher daily water consumption, or\n    multiple water storage systems, Scale-O also offers combo water softener\n    solutions. These combo packs are ideal for villas, duplex homes, bungalows,\n    farmhouses, and large independent houses that require additional hard\n    water protection.\n    <br><br>\n\n    Scale-O combo products help support better water conditioning across\n    larger water storage capacities while maintaining the same salt-free,\n    low-maintenance, DIY-friendly approach.\n  </p>\n\n</div>",
+            "width": "100%",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        },
+        "image_raa7Hh": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/2-mini_1.png",
+            "link": "",
+            "width": "50%",
+            "alignment": "center",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "liquid_ERwhFX",
+        "image_raa7Hh"
+      ],
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "header_alignment": "center",
+        "container": "container-fluid",
+        "color_scheme": "scheme-cee058e4-58e3-46aa-9af9-219dadc79066",
+        "content_color_scheme": "scheme-cee058e4-58e3-46aa-9af9-219dadc79066",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "gap": 30,
+        "gap_mobile": 16,
+        "use_scroll_mobile": false,
+        "padding_top": 90,
+        "padding_bottom": 90,
+        "custom_class": ""
+      }
+    },
+    "custom_content_PP3rdU": {
+      "type": "custom-content",
+      "blocks": {
+        "image_ReyJh9": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/mini-combo-1_92e9b3ef-462c-49fe-b657-8ad6dbfaba0f.jpg",
+            "link": "",
+            "width": "50%",
+            "alignment": "center",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        },
+        "liquid_M3qprd": {
+          "type": "liquid",
+          "settings": {
+            "custom_liquid": "<div class=\"pricing-wrapper\">\n\n  <div class=\"content\">\n\n    <h5>SCALE-O MINI (x2) COMBO</h5>\n\n    <h1>Perfect for Medium Family Homes</h1>\n\n    <p><strong>Ideal For:</strong></p>\n\n    <ul style=\"list-style-type: disc; padding-left: 20px;\">\n      <li>3 to 5 family members</li>\n      <li>Apartments, duplex homes &amp; villas</li>\n      <li>Daily water usage up to 1000 L/day</li>\n      <li>Overhead storage tanks up to 1500 Litres</li>\n    </ul>\n\n    <a\n      href=\"https://scale-o.com/products/2-scale-o-mini-combo-pack\"\n      class=\"price cta-btn\"\n      style=\"text-decoration:none;\"\n    >\n      View Product\n    </a>\n\n  </div>\n\n</div>",
+            "width": "50%",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "image_ReyJh9",
+        "liquid_M3qprd"
+      ],
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "header_alignment": "center",
+        "container": "container-fluid",
+        "color_scheme": "",
+        "content_color_scheme": "",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "gap": 30,
+        "gap_mobile": 16,
+        "use_scroll_mobile": false,
+        "padding_top": 90,
+        "padding_bottom": 90,
+        "custom_class": ""
+      }
+    },
+    "custom_content_RPVepV": {
+      "type": "custom-content",
+      "blocks": {
+        "liquid_daCwpb": {
+          "type": "liquid",
+          "settings": {
+            "custom_liquid": "<div class=\"pricing-wrapper reverse-layout\">\n\n  <div class=\"content\">\n\n    <h5>SCALE-O SEMI (x2) COMBO</h5>\n\n    <h1>Built for Larger Homes & Villas</h1>\n\n    <p><strong>Ideal For:</strong></p>\n\n    <ul style=\"list-style-type: disc; padding-left: 20px;\">\n      <li>6 to 10 family members</li>\n      <li>Large apartments, villas &amp; independent homes</li>\n      <li>Daily water usage up to 3000 L/day</li>\n      <li>Overhead storage tanks from 2000 to 3000 Litres</li>\n    </ul>\n\n    <a\n      href=\"https://scale-o.com/products/scale-o-semi-x2\"\n      class=\"price cta-btn\"\n      style=\"text-decoration:none;\"\n    >\n      View Product\n    </a>\n\n  </div>\n\n</div>",
+            "width": "50%",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        },
+        "image_nDH6EN": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/semi-combo-1_3d481a3b-8501-44fe-9067-6687837a2536.jpg",
+            "link": "",
+            "width": "50%",
+            "alignment": "center",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "liquid_daCwpb",
+        "image_nDH6EN"
+      ],
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "header_alignment": "center",
+        "container": "container-fluid",
+        "color_scheme": "scheme-cee058e4-58e3-46aa-9af9-219dadc79066",
+        "content_color_scheme": "scheme-cee058e4-58e3-46aa-9af9-219dadc79066",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "gap": 30,
+        "gap_mobile": 16,
+        "use_scroll_mobile": false,
+        "padding_top": 90,
+        "padding_bottom": 90,
+        "custom_class": ""
+      }
+    },
+    "custom_content_jrR3Ef": {
+      "type": "custom-content",
+      "blocks": {
+        "image_bMx7n9": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/semi-centi-1_a749742b-7cb8-4df1-82eb-f30726bf5365.jpg",
+            "link": "",
+            "width": "50%",
+            "alignment": "center",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        },
+        "liquid_mbdUne": {
+          "type": "liquid",
+          "settings": {
+            "custom_liquid": "<div class=\"pricing-wrapper\">\n\n  <div class=\"content\">\n\n    <h5>SCALE-O SEMI + CENTI COMBO</h5>\n\n    <h1>Advanced Water Softener Combo</h1>\n\n    <p><strong>Ideal For:</strong></p>\n\n    <ul style=\"list-style-type: disc; padding-left: 20px;\">\n      <li>8 to 12 family members</li>\n      <li>Luxury villas &amp; large independent homes</li>\n      <li>Daily water usage up to 4000 L/day</li>\n      <li>Overhead storage tanks up to 5000 Litres</li>\n    </ul>\n\n    <a\n      href=\"https://scale-o.com/products/scale-o-semi-centi-combo\"\n      class=\"price cta-btn\"\n      style=\"text-decoration:none;\"\n    >\n      View Product\n    </a>\n\n  </div>\n\n</div>",
+            "width": "50%",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "image_bMx7n9",
+        "liquid_mbdUne"
+      ],
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "header_alignment": "center",
+        "container": "container-fluid",
+        "color_scheme": "",
+        "content_color_scheme": "",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "gap": 30,
+        "gap_mobile": 16,
+        "use_scroll_mobile": false,
+        "padding_top": 90,
+        "padding_bottom": 90,
+        "custom_class": ""
+      }
+    },
+    "custom_content_VXW3DV": {
+      "type": "custom-content",
+      "blocks": {
+        "liquid_grDARw": {
+          "type": "liquid",
+          "settings": {
+            "custom_liquid": "<div class=\"pricing-wrapper reverse-layout\">\n\n  <div class=\"content\">\n\n    <h5>SCALE-O CENTI x2 COMBO</h5>\n\n    <h1>High-Capacity Water Softener Solution</h1>\n\n    <p><strong>Ideal For:</strong></p>\n\n    <ul style=\"list-style-type: disc; padding-left: 20px;\">\n      <li>10+ family members</li>\n      <li>Large bungalows, farmhouses &amp; commercial-sized homes</li>\n      <li>Daily water usage up to 5000 L/day</li>\n      <li>Overhead storage tanks up to 6000 Litres</li>\n    </ul>\n\n    <a\n      href=\"https://scale-o.com/products/scale-o-centi-x2\"\n      class=\"price cta-btn\"\n      style=\"text-decoration:none;\"\n    >\n      View Product\n    </a>\n\n  </div>\n\n</div>",
+            "width": "50%",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        },
+        "image_Tfh3Qt": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/centi-combo-1_4f861c55-6539-4f2a-9fb8-30f843307abe.jpg",
+            "link": "",
+            "width": "50%",
+            "alignment": "center",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "liquid_grDARw",
+        "image_Tfh3Qt"
+      ],
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "header_alignment": "center",
+        "container": "container-fluid",
+        "color_scheme": "scheme-cee058e4-58e3-46aa-9af9-219dadc79066",
+        "content_color_scheme": "scheme-cee058e4-58e3-46aa-9af9-219dadc79066",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "gap": 30,
+        "gap_mobile": 16,
+        "use_scroll_mobile": false,
+        "padding_top": 90,
+        "padding_bottom": 90,
+        "custom_class": ""
+      }
+    },
+    "custom_content_KA9Wjn": {
+      "type": "custom-content",
+      "blocks": {
+        "image_QXLWnN": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/mini-semi-1_4ca739bf-9e00-49d8-a4eb-34acbb36db5f.jpg",
+            "link": "",
+            "width": "50%",
+            "alignment": "center",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        },
+        "liquid_mhDDNT": {
+          "type": "liquid",
+          "settings": {
+            "custom_liquid": "<div class=\"pricing-wrapper\">\n\n  <div class=\"content\">\n\n    <h5>SCALE-O MINI + SEMI COMBO</h5>\n\n    <h1>Reliable Combo for Growing Families</h1>\n\n    <p>\n      <strong>Ideal For:</strong><br>\n      4 to 7 family members<br>\n      Medium to large homes & duplex apartments<br>\n      Daily water usage up to 2000 L/day<br>\n      Overhead storage tanks up to 2500 Litres\n    </p>\n\n    <a\n      href=\"https://scale-o.com/products/scale-o-mini-semi-combo\"\n      class=\"cta-btn\"\n      style=\"text-decoration:none;\"\n    >\n      View Product\n    </a>\n\n  </div>\n\n</div>",
+            "width": "50%",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "image_QXLWnN",
+        "liquid_mhDDNT"
+      ],
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "header_alignment": "center",
+        "container": "container-fluid",
+        "color_scheme": "default",
+        "content_color_scheme": "default",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "gap": 30,
+        "gap_mobile": 16,
+        "use_scroll_mobile": false,
+        "padding_top": 90,
+        "padding_bottom": 90,
+        "custom_class": ""
+      }
+    },
+    "custom_content_DDHL9B": {
+      "type": "custom-content",
+      "blocks": {
+        "liquid_JEjPTL": {
+          "type": "liquid",
+          "settings": {
+            "custom_liquid": "<div class=\"pricing-wrapper reverse-layout\">\n\n  <div class=\"content\">\n\n    <h5>Mini+Centi Combo Water Softeners</h5>\n\n    <h1>High-Capacity Water Softener Solution</h1>\n\n    <p><strong>Ideal For:</strong></p>\n\n    <ul style=\"list-style-type: disc; padding-left: 20px;\">\n      <li>Storage: 1000 L-1500 L(x2)</li>\n      <li>Daily Usage: 2500 L/day</li>\n      <li>Family: 7 to 10 Members</li>\n      <li>Sizes: Small & Large</li>\n    </ul>\n\n    <a\n      href=\"https://scale-o.com/products/scale-o-mini-centi-combo\"\n      class=\"price cta-btn\"\n      style=\"text-decoration:none;\"\n    >\n      View Product\n    </a>\n\n  </div>\n\n</div>",
+            "width": "50%",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        },
+        "image_PgYnFX": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/mini-centi-1_8569e242-5bdc-4fcc-9987-992f82516cba.jpg",
+            "link": "",
+            "width": "50%",
+            "alignment": "center",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "liquid_JEjPTL",
+        "image_PgYnFX"
+      ],
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "header_alignment": "center",
+        "container": "container-fluid",
+        "color_scheme": "scheme-cee058e4-58e3-46aa-9af9-219dadc79066",
+        "content_color_scheme": "scheme-cee058e4-58e3-46aa-9af9-219dadc79066",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "gap": 30,
+        "gap_mobile": 16,
+        "use_scroll_mobile": false,
+        "padding_top": 90,
+        "padding_bottom": 90,
+        "custom_class": ""
+      }
+    },
+    "custom_content_PTVYMD": {
+      "type": "custom-content",
+      "blocks": {
+        "html_T9N9E4": {
+          "type": "html",
+          "settings": {
+            "code": "<div class=\"content\" style=\"text-align:center;\">\n\n  <h5>COMPARISON SECTION</h5>\n\n  <h1>Which Scale-O Water Softener Is Right for You?</h1>\n\n  <table class=\"pricing-table\">\n    <tbody>\n<tr>\n      <th>Product</th>\n      <th>Family Size</th>\n      <th>Daily Usage</th>\n      <th>Best For</th>\n    </tr>\n\n    <tr>\n      <td>Scale-O Mini</td>\n      <td>Up to 3 People</td>\n      <td>500 L/day</td>\n      <td>Small Families</td>\n    </tr>\n\n    <tr>\n      <td>Scale-O Semi</td>\n      <td>4 – 6 People</td>\n      <td>1500 L/day</td>\n      <td>Medium-sized families</td>\n    </tr>\n\n    <tr>\n      <td>Scale-O Centi</td>\n      <td>7 – 10 People</td>\n      <td>2500 L/day</td>\n      <td>Large homes &amp; villas</td>\n    </tr>\n  </tbody>\n</table>\n\n</div>",
+            "width": "100%",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "html_T9N9E4"
+      ],
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "header_alignment": "center",
+        "container": "container-fluid",
+        "color_scheme": "scheme-cee058e4-58e3-46aa-9af9-219dadc79066",
+        "content_color_scheme": "scheme-cee058e4-58e3-46aa-9af9-219dadc79066",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "gap": 30,
+        "gap_mobile": 16,
+        "use_scroll_mobile": false,
+        "padding_top": 52,
+        "padding_bottom": 52,
+        "custom_class": ""
+      }
+    },
+    "custom_content_tr4Nqa": {
+      "type": "custom-content",
+      "blocks": {
+        "html_L9zc4W": {
+          "type": "html",
+          "settings": {
+            "code": "<div class=\"content\" style=\"text-align:center; max-width:1100px; margin:auto;\">\n\n  <h5>WHY CHOOSE SCALE-O?</h5>\n\n  <h1>Trusted Water Softener Solutions for Indian Homes</h1>\n\n  <br>\n\n  <p style=\"line-height:1.9;\">\n    Scale-O water softeners are designed to help homeowners deal with hard\n    water problems commonly found across Indian cities. As modern soft water\n    conditioners, Scale-O products help reduce scaling without the need for\n    salt, electricity, or complicated installation systems. From reducing\n    scaling on taps and showers to helping protect appliances and plumbing\n    systems, Scale-O provides practical water softening solutions for modern homes.\n  </p>\n\n  <div style=\"display:inline-block; text-align:left; margin-top:20px;\">\n\n    <ul style=\"list-style-type: disc; padding-left: 20px; line-height:1.9;\">\n      <li>Helps reduce hard water scaling</li>\n      <li>Supports better appliance efficiency</li>\n      <li>Suitable for overhead water tanks</li>\n      <li>Multiple sizes for different family needs</li>\n      <li>DIY installation &amp; zero maintenance</li>\n      <li>Reliable water softener plans for every home size</li>\n      <li>No regular servicing required since it’s zero maintenance</li>\n      <li>No salt refill or salt regeneration needed since it uses Zero Salt Technology</li>\n      <li>Zero Power Consumption, works without electricity or power connection</li>\n      <li>Zero Water Wastage, no backwash or drainage water loss</li>\n    </ul>\n\n  </div>\n\n</div>",
+            "width": "100%",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "html_L9zc4W"
+      ],
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "header_alignment": "center",
+        "container": "w-full",
+        "color_scheme": "default",
+        "content_color_scheme": "default",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "gap": 30,
+        "gap_mobile": 16,
+        "use_scroll_mobile": false,
+        "padding_top": 52,
+        "padding_bottom": 52,
+        "custom_class": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_with_text_2_e6Gb6w",
+    "custom_content_jqkW8n",
+    "custom_content_4Xx9cx",
+    "custom_content_9VNC9w",
+    "custom_content_hm9Gf6",
+    "custom_content_ELR7RX",
+    "custom_content_iEpfwq",
+    "custom_content_PP3rdU",
+    "custom_content_RPVepV",
+    "custom_content_jrR3Ef",
+    "custom_content_VXW3DV",
+    "custom_content_KA9Wjn",
+    "custom_content_DDHL9B",
+    "custom_content_PTVYMD",
+    "custom_content_tr4Nqa"
+  ]
+}

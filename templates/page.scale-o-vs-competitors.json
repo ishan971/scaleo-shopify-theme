@@ -1,0 +1,407 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "page",
+      "disabled": true,
+      "settings": {}
+    },
+    "image_with_text_2_JDNPaN": {
+      "type": "image-with-text-2",
+      "name": "Image with text overlay",
+      "settings": {
+        "color_scheme": "",
+        "container": "w-full",
+        "hero_size": "adapt",
+        "show_overlay": false,
+        "image": "shopify://shop_images/scale-o_competitor_banner_image.png",
+        "image_link": "",
+        "parallax": false,
+        "parallax_direction": "vertical",
+        "content_in_container": false,
+        "content_position": "center middle",
+        "text_alignment": "center",
+        "text_size": "medium",
+        "text_color": "white",
+        "title": "",
+        "subtitle": "",
+        "text": "",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "m-button--primary",
+        "button_size": "",
+        "text_alignment_mobile": "center",
+        "use_content_above": false,
+        "custom_class": "",
+        "animations": "inherit",
+        "enable_bg_zoom_effect": false
+      }
+    },
+    "rich_text_qQX4qJ": {
+      "type": "rich-text",
+      "blocks": {
+        "text_czzGWq": {
+          "type": "text",
+          "settings": {
+            "text": "<h1>Scale-O vs Competitors: The Complete Comparison</h1><h4>Looking for the Best Water Softener System for Your Home?</h4><p>Hard water is one of the biggest hidden problems in Indian homes. From white scaling on bathroom fittings to damaged geysers, blocked pipelines, stained tiles, and appliance issues, hard water affects your entire house every single day.</p><p>When homeowners start searching for the best water softener system, they usually compare:</p><ul><li>Salt based water softener</li><li>Electro magnetic water softener</li><li>Multi media water softener</li><li>Salt free water softener</li></ul><p>But which solution actually works best for Indian homes with overhead water tanks?</p><p>This guide compares Scale-O with other hard water softener systems to help you choose the right solution for your home.</p><p></p><h4>The Problem with Traditional Water Softeners</h4><h4>Most Hard Water Softeners Come with Hidden Problems</h4><p>Traditional hard water softener systems often require:</p><ul><li>Salt refilling</li><li>Electricity</li><li>Plumbing modifications</li><li>Regular servicing</li><li>Water wastage during regeneration</li><li>High maintenance costs</li></ul><p>For many homeowners, these systems become expensive and difficult to maintain over time.</p><h3>Why Traditional Water Softeners Become Expensive</h3><p>Most traditional hard water softeners require:</p><ul><li>Salt refilling</li><li>Electricity consumption</li><li>Plumbing modifications</li><li>Regular servicing</li><li>Water wastage during regeneration</li><li>Expensive maintenance contracts</li></ul><p>Over time, these hidden costs make traditional systems difficult and expensive to maintain for most homeowners.</p><p>This is where Scale-O offers a simpler alternative.</p><h3>Scale-O – A Smarter Salt Free Water Softener</h3><p>Scale-O is designed specifically for independent houses, villas, and bungalows that use overhead water tanks.</p><h4>How Scale-O Works</h4><p>Scale-O is placed directly inside the overhead tank where it continuously conditions water before it enters your bathrooms, kitchen, geysers, washing machines, and plumbing systems.</p><p>The result:</p><ul><li>Reduced hard water scaling</li><li>Better appliance protection</li><li>Cleaner bathroom fittings</li><li>Lower maintenance hassles</li></ul><h4>Why Homeowners Prefer Scale-O</h4><ul><li>DIY setup</li><li>No plumber required</li><li>No recurring salt expenses</li><li>No electricity consumption</li><li>Suitable for whole house water systems</li><li>Compact & easy to maintain</li></ul><h3>Scale-O vs Other Water Softener Systems</h3><p>There are many types of water softeners, with each having its own pros and cons. This comparison helps to understand advantages and disadvantages of each of the water softener systems.</p><p></p><h4>Salt Free Water Softener vs Salt Based Water Softeners </h4>"
+          }
+        }
+      },
+      "block_order": [
+        "text_czzGWq"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "container": "container",
+        "color_scheme": "",
+        "content_alignment": "left",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "custom_content_WGnYHt": {
+      "type": "custom-content",
+      "blocks": {
+        "image_qbGLF6": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/scale-o_salt_based_banner_approved.png",
+            "link": "",
+            "width": "100%",
+            "alignment": "center",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "image_qbGLF6"
+      ],
+      "name": "Custom content",
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "header_alignment": "center",
+        "container": "container-fluid",
+        "color_scheme": "",
+        "content_color_scheme": "",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "gap": 30,
+        "gap_mobile": 16,
+        "use_scroll_mobile": false,
+        "padding_top": 48,
+        "padding_bottom": 0,
+        "custom_class": ""
+      }
+    },
+    "rich_text_6QrD34": {
+      "type": "rich-text",
+      "blocks": {
+        "text_RVRFhm": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Traditional salt-based water softeners are expensive, maintenance-heavy systems that require regular salt refilling, electricity, plumbing modifications, and continuous servicing. These systems also waste a significant amount of water during the regeneration process and usually require dedicated installation space.</p><p>In comparison, Scale-O Salt-Free Water Softener offers a simple overhead tank solution that works without salt, electricity, or plumbing changes. Scale-O uses advanced food-grade media technology to help reduce hard water scaling while maintaining a zero-maintenance experience for homeowners.</p><h4>Why Scale-O Salt Free Water Softener is Better</h4><ul><li>No salt refilling required</li><li>No water wastage from regeneration cycles</li><li>No electricity consumption</li><li>DIY installation in minutes</li><li>No plumbing or pipe cutting needed</li><li>Zero operating cost after installation</li><li>Compact overhead tank setup</li><li>Lower initial investment compared to salt systems</li></ul>"
+          }
+        }
+      },
+      "block_order": [
+        "text_RVRFhm"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "container": "container",
+        "color_scheme": "",
+        "content_alignment": "left",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "rich_text_d6QxK8": {
+      "type": "rich-text",
+      "blocks": {
+        "text_QD9BHJ": {
+          "type": "text",
+          "settings": {
+            "text": "<h3>Salt Free Water Softener  vs Electro-Magnetic Water Softeners</h3>"
+          }
+        }
+      },
+      "block_order": [
+        "text_QD9BHJ"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "container": "container",
+        "color_scheme": "",
+        "content_alignment": "left",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "custom_content_H73LrX": {
+      "type": "custom-content",
+      "blocks": {
+        "image_8cFwjz": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/scale-o_electro_magnetic_banner.png",
+            "link": "",
+            "width": "100%",
+            "alignment": "center",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "image_8cFwjz"
+      ],
+      "name": "Custom content",
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "header_alignment": "center",
+        "container": "container-fluid",
+        "color_scheme": "",
+        "content_color_scheme": "",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "gap": 30,
+        "gap_mobile": 16,
+        "use_scroll_mobile": false,
+        "padding_top": 48,
+        "padding_bottom": 0,
+        "custom_class": ""
+      }
+    },
+    "rich_text_9hDh7U": {
+      "type": "rich-text",
+      "blocks": {
+        "text_PyUmCq": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Electro-magnetic water softeners rely on electricity and magnetic/electrical signals to alter mineral behavior in water. These systems often require professional installation, electrical dependency, and additional piping or mounting support.</p><p>Scale-O Salt-Free Water Softener eliminates these complexities with a completely passive, power-free design. Installed directly inside the overhead water tank, Scale-O works continuously without wiring, power consumption, or external system dependency.</p><h4>Why Scale-O Salt Free Water Softener is Better</h4><ul><li>Zero electricity or power usage</li><li>No electronic components or breakdown risk</li><li>No external installation setup required</li><li>No technical maintenance needed</li><li>Lower operating costs</li><li>Works directly inside overhead tanks</li><li>Easier and faster DIY installation</li><li>No dependency on continuous electrical supply</li></ul><h4></h4>"
+          }
+        }
+      },
+      "block_order": [
+        "text_PyUmCq"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "container": "container",
+        "color_scheme": "",
+        "content_alignment": "left",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "rich_text_HrqDBT": {
+      "type": "rich-text",
+      "blocks": {
+        "text_7VCHtr": {
+          "type": "text",
+          "settings": {
+            "text": "<h4></h4><h4>Salt Free Water Softener vs Multi-Media Water Softeners </h4>"
+          }
+        }
+      },
+      "block_order": [
+        "text_7VCHtr"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "container": "container",
+        "color_scheme": "",
+        "content_alignment": "left",
+        "padding_top": 16,
+        "padding_bottom": 0,
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "custom_content_Cgi7Na": {
+      "type": "custom-content",
+      "blocks": {
+        "image_qjcPmC": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/scale-o_multi_media_competitor_banner.png",
+            "link": "",
+            "width": "100%",
+            "alignment": "center",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "image_qjcPmC"
+      ],
+      "name": "Custom content",
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "header_alignment": "center",
+        "container": "container-fluid",
+        "color_scheme": "",
+        "content_color_scheme": "",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "gap": 30,
+        "gap_mobile": 16,
+        "use_scroll_mobile": false,
+        "padding_top": 48,
+        "padding_bottom": 0,
+        "custom_class": ""
+      }
+    },
+    "rich_text_Ex4H9z": {
+      "type": "rich-text",
+      "blocks": {
+        "text_F3D6f7": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Multi-media water softeners and filtration systems generally use layers of sand, gravel, and media for water treatment. These systems can require plumbing modifications, backwashing, regular servicing, media replacement, and additional installation space.</p><p>Scale-O Salt-Free Water Softener provides a cleaner and more convenient hard water solution without the hassle of heavy maintenance or water wastage. Its food-grade media technology is designed for simple overhead tank installation with long-lasting performance.</p><h4>Why Scale-O Salt Free Water Softener is Better</h4><ul><li>No backwashing or water wastage unlike multi-media water softeners</li><li>No salt refilling required unlike salt-based water softeners</li><li>No electricity consumption unlike electro-magnetic systems</li><li>No media replacement or recurring maintenance costs</li><li>No plumbing modifications or pipe cutting required</li><li>No bulky external setup taking extra installation space</li><li>No technician or manpower dependency for installation</li><li>DIY installation within minutes inside overhead tanks</li><li>Zero maintenance operation compared to traditional systems</li><li>No regeneration cycles or water loss</li><li>Lower initial investment compared to many traditional water softeners</li><li>Zero operating cost with no salt, power, or servicing expenses</li><li>No valves, motors, or electrical parts that can fail over time</li><li>Compact overhead tank design suitable for Indian homes</li><li>Better long-term savings compared to high-maintenance water softeners</li></ul><h3>5 Year Cost Comparison</h3><h4>Hidden Costs of Traditional Hard Water Softeners</h4><p>Most homeowners only compare the initial price of a water softener system. However, long-term ownership costs can become very expensive. </p><h5>Estimated 5-Year Ownership Comparison (need to add costing and compare other water softeners) </h5>"
+          }
+        }
+      },
+      "block_order": [
+        "text_F3D6f7"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "container": "container",
+        "color_scheme": "",
+        "content_alignment": "left",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "custom_content_dDaxTi": {
+      "type": "custom-content",
+      "blocks": {
+        "html_p4iJkK": {
+          "type": "html",
+          "settings": {
+            "code": "<table class=\"pricing-table\">\n    <tbody>\n\n      <tr>\n        <th>Expense Type</th>\n        <th>Scale-O Salt-Free Water Softener</th>\n        <th>Salt-Based Water Softener</th>\n        <th>Electro-Magnetic Water Softener</th>\n        <th>Multi-Media Water Softener</th>\n      </tr>\n\n      <tr>\n        <td>Initial Product Cost</td>\n        <td>₹3,000</td>\n        <td>₹40,000+</td>\n        <td>₹20,000+</td>\n        <td>₹10,000+</td>\n      </tr>\n\n      <tr>\n        <td>Salt Refill Costs</td>\n        <td>None</td>\n        <td>Recurring Expense</td>\n        <td>None</td>\n        <td>None</td>\n      </tr>\n\n      <tr>\n        <td>Electricity Usage</td>\n        <td>None</td>\n        <td>Continuous</td>\n        <td>Continuous</td>\n        <td>Continuous</td>\n      </tr>\n\n      <tr>\n        <td>Water Wastage Costs</td>\n        <td>None</td>\n        <td>High</td>\n        <td>Moderate</td>\n        <td>High</td>\n      </tr>\n\n      <tr>\n        <td>Servicing &amp; Maintenance</td>\n        <td>Minimal / Zero Maintenance</td>\n        <td>Frequent</td>\n        <td>Moderate</td>\n        <td>Regular</td>\n      </tr>\n\n      <tr>\n        <td>Plumbing Repairs</td>\n        <td>Minimal</td>\n        <td>Possible</td>\n        <td>Possible</td>\n        <td>Possible</td>\n      </tr>\n\n      <tr>\n        <td>5-Year Estimated Operating Cost</td>\n        <td>₹10,000</td>\n        <td>₹50,000+</td>\n        <td>₹5000+</td>\n        <td>₹15,000+</td>\n      </tr>\n\n      <tr>\n        <td>Total 5-Year Maintenance</td>\n        <td>Very Low</td>\n        <td>Very High</td>\n        <td>Medium to High</td>\n        <td>Medium to High</td>\n      </tr>\n\n    </tbody>\n  </table>\n\n\n<style>\n  @media (max-width: 431px) {\n    .pricing-section {\n      padding: 0px !important;\n    }\n\n    .pricing-section2 {\n      padding: 0rem !important;\n    }\n\n    .pricing-table td {\n      padding: 8px !important;\n    }\n  }\n.pricing-table .save {\n  background-color: #ffcc00 !important;\n  color: black;\n  border-radius: 50px;\n  padding: 10px 20px;\n  display: inline-block;\n  font-weight: 600;\n}\n  .pricing-section {\n    background-color: #fff;\n    padding: 2rem;\n    border-radius: 8px;\n  }\n\n  .content h5 {\n    color: #1c7acc;\n    font-size: 17px !important;\n    margin-bottom: 1rem;\n  }\n\n  .content h1 {\n    color: black !important;\n    font-size: 32px;\n    margin-bottom: 0.5rem;\n  }\n\n  .content p {\n    color: black !important;\n    font-size: 15px !important;\n    margin-bottom: 2rem;\n    line-height: 1.8;\n  }\n\n  .pricing-table {\n    margin: auto;\n    border-collapse: separate;\n    border-spacing: 0;\n    overflow: hidden;\n    border-radius: 10px;\n    border: 1px solid #ddd;\n    width: 100%;\n    background-color: #f9f9f9;\n  }\n\n  .pricing-table td {\n    padding: 15px !important;\n    text-align: center;\n    border: 1px solid #ddd;\n    background-color: #f9f9f9;\n  }\n\n  .pricing-table th {\n    padding: 15px;\n    text-align: center;\n    background-color: #333;\n    color: white;\n  }\n\n  .pricing-table .plan2 {\n    text-align: center;\n    padding: 15px !important;\n  }\n\n  .pricing-table .price {\n    background-color: #1c7acc;\n    color: white;\n    border-radius: 50px;\n    padding: 10px 20px;\n    display: inline-block;\n    font-weight: 600;\n  }\n\n  .pricing-table .save {\n    background-color: #e\n6e6e6 !important;\n    color: black;\n    border-radius: 50px;\n    padding: 10px 20px;\n    display: inline-block;\n    font-weight: 600;\n  }\n\n  .highlight {\n    color: #2a6ab2 !important;\n  }\n\n  .pricing-table tr:first-child th:first-child {\n    border-top-left-radius: 10px;\n  }\n\n  .pricing-table tr:first-child th:last-child {\n    border-top-right-radius: 10px;\n  }\n\n  .pricing-table tr:last-child td:first-child {\n    border-bottom-left-radius: 10px;\n  }\n\n  .pricing-table tr:last-child td:last-child {\n    border-bottom-right-radius: 10px;\n  }\n\n  .cta-btn {\n    display: inline-block;\n    margin-top: 20px;\n    background-color: #1c7acc;\n    color: #fff !important;\n    padding: 12px 24px;\n    border-radius: 50px;\n    text-decoration: none;\n    font-size: 15px;\n    font-weight: 600;\n  }\n</style>",
+            "width": "100%",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "html_p4iJkK"
+      ],
+      "name": "Custom content",
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "header_alignment": "center",
+        "container": "container-fluid",
+        "color_scheme": "",
+        "content_color_scheme": "",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "gap": 30,
+        "gap_mobile": 16,
+        "use_scroll_mobile": false,
+        "padding_top": 48,
+        "padding_bottom": 0,
+        "custom_class": ""
+      }
+    },
+    "rich_text_axK6xG": {
+      "type": "rich-text",
+      "blocks": {
+        "text_49XcrY": {
+          "type": "text",
+          "settings": {
+            "text": "<h4>Why This Matters</h4><p>Traditional systems often become expensive due to:</p><ul><li>Salt purchases</li><li>Valve replacements</li><li>Leakage issues</li><li>Service visits</li><li>Water regeneration cycles</li><li>Refills</li><li>Cartridge Replacement</li><li>Power Costs</li><li>Higher operational costs</li></ul><p>Scale-O helps eliminate many of these recurring expenses with its salt free water softener<strong> </strong>design.</p><h4>Save More with Scale-O</h4><p>Traditional water softeners often become expensive because of:</p><ul><li>Salt refill costs</li><li>Electricity bills</li><li>Plumbing repairs</li><li>AMC & servicing charges</li><li>Water wastage</li></ul><p>Scale-O helps reduce these recurring costs with its zero-maintenance salt-free water softener design.</p><h4>Why Scale-O Is Becoming One of the Best Water Softener Systems in India</h4><p>Scale-O is built specifically for Indian homes dealing with hard water through overhead tanks.</p><h4>Designed for Indian Homes</h4><p>Perfect for:</p><ul><li>Villas</li><li>Bungalows</li><li>Duplex homes</li><li>Independent houses</li><li>Farmhouses</li></ul><h4>Salt-Free Operation</h4><p>No salt storage, no refilling hassles, and no chemical dependency.</p><h4>No Installation Complexity</h4><p>Simply place the unit inside the overhead water tank.</p><h4>No Water Wastage</h4><p>Unlike traditional systems, Scale-O does not waste water during regeneration.</p><h4>Low Maintenance</h4><p>No complicated valves, motors, or servicing schedules.</p><h4>Whole House Water Support</h4><p>Since Scale-O works through the overhead tank and underground pipe as well, it supports water flow across the entire home.</p><h4>Better Long-Term Value</h4><p>Lower operational costs make Scale-O a practical alternative to traditional hard water softener systems.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_49XcrY"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "container": "container",
+        "color_scheme": "",
+        "content_alignment": "left",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "rich_text_BUyWhi": {
+      "type": "rich-text",
+      "blocks": {
+        "text_z8GRUi": {
+          "type": "text",
+          "settings": {
+            "text": "<h4>Who Should Choose Scale-O?</h4><p>Scale-O is specially designed for Indian homes dealing with borewell water, municipal water, and mixed hard water supply. Its overhead tank installation system makes it suitable for villas, independent homes, and bungalows across India. </p><p>Scale-O Salt-Free Water Softener is ideal for homeowners looking for a smarter, low-maintenance, and cost-effective solution for hard water problems. Designed specifically for Indian homes with overhead water tanks, Scale-O helps protect appliances, reduce hard water scaling, improve water flow, and keep bathrooms cleaner with less maintenance.</p><p>Unlike traditional water softeners that require electricity, salt refilling, plumbing modifications, and regular servicing, Scale-O works with zero maintenance and zero operating cost. Its salt-free technology helps homeowners save money over the long term by reducing appliance repair costs, minimizing plumbing issues, avoiding recurring maintenance expenses, and eliminating electricity and salt usage.</p><p>With simple DIY installation and whole-house hard water protection, Scale-O offers an affordable and user-friendly hard water softener solution for villas, bungalows, duplex homes, and independent houses looking for better water quality and long-term savings.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_z8GRUi"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "container": "container",
+        "color_scheme": "",
+        "content_alignment": "left",
+        "padding_top": 28,
+        "padding_bottom": 0,
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_with_text_2_JDNPaN",
+    "rich_text_qQX4qJ",
+    "custom_content_WGnYHt",
+    "rich_text_6QrD34",
+    "rich_text_d6QxK8",
+    "custom_content_H73LrX",
+    "rich_text_9hDh7U",
+    "rich_text_HrqDBT",
+    "custom_content_Cgi7Na",
+    "rich_text_Ex4H9z",
+    "custom_content_dDaxTi",
+    "rich_text_axK6xG",
+    "rich_text_BUyWhi"
+  ]
+}

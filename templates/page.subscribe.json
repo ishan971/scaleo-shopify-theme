@@ -1,0 +1,577 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "page",
+      "settings": {}
+    },
+    "custom_content_jqkW8n": {
+      "type": "custom-content",
+      "blocks": {
+        "image_gGdrD9": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Frame_1166_0b729a6f-034c-4cc2-965c-c52de9fa055c.png",
+            "link": "",
+            "width": "100%",
+            "alignment": "center",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "image_gGdrD9"
+      ],
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "header_alignment": "center",
+        "container": "w-full",
+        "color_scheme": "",
+        "content_color_scheme": "",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "gap": 30,
+        "gap_mobile": 16,
+        "use_scroll_mobile": false,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "custom_class": ""
+      }
+    },
+    "custom_content_4Xx9cx": {
+      "type": "custom-content",
+      "blocks": {
+        "image_AtiaiN": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/100_1_392eddc2-b4e0-4461-b5d4-fd0767d751e3.png",
+            "link": "",
+            "width": "50%",
+            "alignment": "center",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        },
+        "liquid_qRKPfU": {
+          "type": "liquid",
+          "settings": {
+            "custom_liquid": "<style>\n  .pricing-section3 {\n    background-color: #f5f7ff;\n    padding: 2rem;\n    border-radius: 8px;\n    /* box-shadow: 0 2px 10px rgba(0,0,0,0.1);\n      max-width: 600px;\n      width: 100%; */\n  }\n\n  .content h5 {\n    color: #73c2fb;\n    font-size: 14px;\n    margin-bottom: 1rem;\n  }\n\n  .content h1 {\n    color: #333;\n    font-size: 32px;\n    font-weight: bold;\n    margin-bottom: 0.5rem;\n  }\n\n  .content p {\n    color: #666;\n    font-size: 14px;\n    margin-bottom: 2rem;\n  }\n\n  .pricing-table {\n    margin: auto;\n    border-collapse: separate;\n    border-spacing: 0;\n    overflow: hidden;\n    border-radius: 10px;\n    border: 1px solid #ddd;\n    width: 100%;\n    background-color: #f9f9f9;\n  }\n  .pricing-table td {\n    padding: 15px !important;\n    text-align: center;\n    border: 1px solid #ddd;\n  }\n\n  .pricing-table th {\n    padding: 15px;\n    text-align: center;\n  }\n\n  .pricing-table th {\n    background-color: #333;\n    color: white;\n  }\n  .pricing-table td {\n    background-color: #f9f9f9;\n  }\n  .pricing-table .plan2 {\n    text-align: center;\n    padding: 15px !important;\n  }\n  .pricing-table .price {\n    background-color: #2a6ab2;\n    color: white;\n    border-radius: 50px;\n    padding: 10px 20px;\n    display: inline-block;\n  }\n\n  .pricing-table .save {\n    background-color: #ffb802;\n    color: black;\n    border-radius: 50px;\n    padding: 10px 20px;\n    display: inline-block;\n  }\n\n  .highlight {\n    color: #00aaff;\n  }\n  .pricing-table tr:first-child th:first-child {\n    border-top-left-radius: 10px;\n  }\n  .pricing-table tr:first-child th:last-child {\n    border-top-right-radius: 10px;\n  }\n  .pricing-table tr:last-child td:first-child {\n    border-bottom-left-radius: 10px;\n  }\n  .pricing-table tr:last-child td:last-child {\n    border-bottom-right-radius: 10px;\n  }\n</style>\n\n<div>\n  <section class=\"pricing-section3\">\n    <div class=\"content\">\n      <h5>SUBSCRIPTION PLANS</h5>\n      <h1>Scale-O Mini Water Softener</h1>\n      <p>\n        Suitable for 500 L Storage Tanks || Daily Usage of 500 L/d || Upto 3\n        People in the House\n      </p>\n      <table class=\"pricing-table\">\n        <tr>\n          <th>Plans</th>\n          <th>Prices</th>\n          <th>Savings</th>\n        </tr>\n        <tr>\n          <td class=\"plan2\">\n            6 Months<span class=\"highlight\"> - Basic Plan</span>\n          </td>\n          <td>\n            <a href=\"https://scale-o.com/products/scale-o-mini\"\n              ><span class=\"price\">INR 2500/-</span></a\n            >\n          </td>\n          <td><span class=\"save\"> 0 </span></td>\n        </tr>\n        <tr>\n          <td class=\"plan2\">1 Year</td>\n          <td>\n            <a\n              href=\"https://scale-o.com/products/scale-o-mini?variant=41864467775590\"\n              ><span class=\"price\">INR 4000/-</span></a\n            >\n          </td>\n          <td><span class=\"save\">₹ 1000/-</span></td>\n        </tr>\n        <tr>\n          <td class=\"plan2\">\n            3 Year<span class=\"highlight\"> - Popular Plan</span>\n          </td>\n          <td>\n            <a\n              href=\"https://scale-o.com/products/scale-o-mini?variant=41864467808358\"\n              ><span class=\"price\">INR 10,000/-</span></a\n            >\n          </td>\n          <td><span class=\"save\">₹ 5000/-</span></td>\n        </tr>\n        <tr>\n          <td class=\"plan2\">5 Year</td>\n          <td>\n            <a\n              href=\"https://scale-o.com/products/scale-o-mini?variant=41864467841126\"\n              ><span class=\"price\">INR 15,000/-</span></a\n            >\n          </td>\n          <td><span class=\"save\">₹ 10,000/-</span></td>\n        </tr>\n      </table>\n    </div>\n  </section>\n</div>",
+            "width": "50%",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "image_AtiaiN",
+        "liquid_qRKPfU"
+      ],
+      "disabled": true,
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "header_alignment": "center",
+        "container": "container-fluid",
+        "color_scheme": "scheme-cee058e4-58e3-46aa-9af9-219dadc79066",
+        "content_color_scheme": "scheme-cee058e4-58e3-46aa-9af9-219dadc79066",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "gap": 30,
+        "gap_mobile": 16,
+        "use_scroll_mobile": false,
+        "padding_top": 90,
+        "padding_bottom": 90,
+        "custom_class": ""
+      }
+    },
+    "custom_content_9VNC9w": {
+      "type": "custom-content",
+      "blocks": {
+        "image_MEpW37": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/100_1_392eddc2-b4e0-4461-b5d4-fd0767d751e3.png",
+            "link": "",
+            "width": "50%",
+            "alignment": "center",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        },
+        "liquid_KECcPj": {
+          "type": "liquid",
+          "settings": {
+            "custom_liquid": "<style>\n  @media (max-width: 431px) {\n    .pricing-section {\n      padding: 0px !important;\n    }\n\n    .pricing-section2 {\n      padding: 0rem !important;\n    }\n\n    .pricing-table td {\n      padding: 8px !important;\n    }\n  }\n  .pricing-section {\n    background-color: #fff;\n    padding: 2rem;\n    border-radius: 8px;\n    /* box-shadow: 0 2px 10px rgba(0,0,0,0.1);\n        max-width: 600px;\n        width: 100%; */\n  }\n  .pricing-section {\n    background-color: #fff;\n    padding: 2rem;\n    border-radius: 8px;\n    /* box-shadow: 0 2px 10px rgba(0,0,0,0.1);\n      max-width: 600px;\n      width: 100%; */\n  }\n\n  .content h5 {\n    color: #1c7acc;\n    font-size: 17px !important;\n    margin-bottom: 1rem;\n  }\n\n  .content h1 {\n    color: black !important;\n    font-size: 32px;\n\n    margin-bottom: 0.5rem;\n  }\n\n  .content p {\n    color: black !important;\n    font-size: 15px !important;\n    margin-bottom: 2rem;\n  }\n\n  .pricing-table {\n    margin: auto;\n    border-collapse: separate;\n    border-spacing: 0;\n    overflow: hidden;\n    border-radius: 10px;\n    border: 1px solid #ddd;\n    width: 100%;\n    background-color: #f9f9f9;\n  }\n  .pricing-table td {\n    padding: 15px !important;\n    text-align: center;\n    border: 1px solid #ddd;\n  }\n\n  .pricing-table th {\n    padding: 15px;\n    text-align: center;\n  }\n\n  .pricing-table th {\n    background-color: #333;\n    color: white;\n  }\n  .pricing-table td {\n    background-color: #f9f9f9;\n  }\n  .pricing-table .plan2 {\n    text-align: center;\n    padding: 15px !important;\n  }\n  .pricing-table .price {\n    background-color: #1c7acc;\n    color: white;\n    border-radius: 50px;\n    padding: 10px 20px;\n    display: inline-block;\n  }\n\n  .pricing-table .save {\n    background-color: #e6e6e6 !important;\n    color: black;\n    border-radius: 50px;\n    padding: 10px 20px;\n    display: inline-block;\n  }\n\n  .highlight {\n    color: #2a6ab2 !important;\n  }\n  .pricing-table tr:first-child th:first-child {\n    border-top-left-radius: 10px;\n  }\n  .pricing-table tr:first-child th:last-child {\n    border-top-right-radius: 10px;\n  }\n  .pricing-table tr:last-child td:first-child {\n    border-bottom-left-radius: 10px;\n  }\n  .pricing-table tr:last-child td:last-child {\n    border-bottom-right-radius: 10px;\n  }\n</style>\n\n<div>\n  <section class=\"pricing-section\">\n    <div class=\"content\">\n      <h5>SUBSCRIPTION PLANS</h5>\n      <h1>Scale-O Mini Water Softener</h1>\n      <p>\n        Suitable for 500 L Storage Tanks || Daily Usage of 500 L/d || Upto 3\n        People in the House\n      </p>\n      <table class=\"pricing-table\">\n        <tr>\n          <th>Plans</th>\n          <th>Prices</th>\n          <th>Savings</th>\n        </tr>\n        <tr>\n          <td class=\"plan2\">\n            6 Months<span class=\"highlight\"> - Basic Plan</span>\n          </td>\n          <td>\n            <a href=\"https://scale-o.com/products/scale-o-mini\"\n              ><span class=\"price\">INR 2500/-</span></a\n            >\n          </td>\n          <td><span class=\"save\"> 0 </span></td>\n        </tr>\n        <tr>\n          <td class=\"plan2\">1 Year</td>\n          <td>\n            <a\n              href=\"https://scale-o.com/products/scale-o-mini?variant=41864467775590\"\n              ><span class=\"price\">INR 4000/-</span></a\n            >\n          </td>\n          <td><span class=\"save\">₹1000/-</span></td>\n        </tr>\n        <tr>\n          <td class=\"plan2\">\n            3 Years<span class=\"highlight\"> - Popular Plan</span>\n          </td>\n          <td>\n            <a\n              href=\"https://scale-o.com/products/scale-o-mini?variant=41864467808358\"\n              ><span class=\"price\">INR 10,000/-</span></a\n            >\n          </td>\n          <td><span class=\"save\">₹5000/-</span></td>\n        </tr>\n        <tr>\n          <td class=\"plan2\">5 Years</td>\n          <td>\n            <a\n              href=\"https://scale-o.com/products/scale-o-mini?variant=41864467841126\"\n              ><span class=\"price\">INR 15,000/-</span></a\n            >\n          </td>\n          <td><span class=\"save\">₹10,000/-</span></td>\n        </tr>\n      </table>\n    </div>\n  </section>\n</div>",
+            "width": "50%",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "image_MEpW37",
+        "liquid_KECcPj"
+      ],
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "header_alignment": "center",
+        "container": "container-fluid",
+        "color_scheme": "",
+        "content_color_scheme": "",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "gap": 30,
+        "gap_mobile": 16,
+        "use_scroll_mobile": false,
+        "padding_top": 90,
+        "padding_bottom": 90,
+        "custom_class": ""
+      }
+    },
+    "custom_content_hm9Gf6": {
+      "type": "custom-content",
+      "blocks": {
+        "liquid_T7LX6r": {
+          "type": "liquid",
+          "settings": {
+            "custom_liquid": "<style>\n  @media (max-width: 431px) {\n    .pricing-section {\n      padding: 0px !important;\n    }\n\n    .pricing-section2 {\n      padding: 0rem !important;\n    }\n\n    .pricing-table td {\n      padding: 8px !important;\n    }\n  }\n  .pricing-section {\n    background-color: #fff;\n    padding: 2rem;\n    border-radius: 8px;\n    /* box-shadow: 0 2px 10px rgba(0,0,0,0.1);\n        max-width: 600px;\n        width: 100%; */\n  }\n  .pricing-section2 {\n    background-color: #f5f7ff;\n    padding: 2rem;\n    border-radius: 8px;\n    /* box-shadow: 0 2px 10px rgba(0,0,0,0.1);\n      max-width: 600px;\n      width: 100%; */\n  }\n\n  .content h5 {\n    color: #1c7acc;\n    font-size: 18px;\n    margin-bottom: 1rem;\n  }\n\n  .content h1 {\n    color: #333;\n    font-size: 32px;\n\n    margin-bottom: 0.5rem;\n  }\n\n  .content p {\n    color: #666;\n    font-size: 14px;\n    margin-bottom: 2rem;\n  }\n\n  .pricing-table {\n    margin: auto;\n    border-collapse: separate;\n    border-spacing: 0;\n    overflow: hidden;\n    border-radius: 10px;\n    border: 1px solid #ddd;\n    width: 100%;\n    background-color: #f9f9f9;\n  }\n  .pricing-table td {\n    padding: 15px !important;\n    text-align: center;\n    border: 1px solid #ddd;\n  }\n\n  .pricing-table th {\n    padding: 15px;\n    text-align: center;\n  }\n\n  .pricing-table th {\n    background-color: #333;\n    color: white;\n  }\n  .pricing-table td {\n    background-color: #f9f9f9;\n  }\n  .pricing-table .plan2 {\n    text-align: center;\n    padding: 15px !important;\n  }\n  .pricing-table .price {\n    background-color: #2a6ab2;\n    color: white;\n    border-radius: 50px;\n    padding: 10px 20px;\n    display: inline-block;\n  }\n\n  .pricing-table .save {\n    background-color: #ffb802;\n    color: black;\n    border-radius: 50px;\n    padding: 10px 20px;\n    display: inline-block;\n  }\n\n  .highlight {\n    color: #00aaff;\n  }\n  .pricing-table tr:first-child th:first-child {\n    border-top-left-radius: 10px;\n  }\n  .pricing-table tr:first-child th:last-child {\n    border-top-right-radius: 10px;\n  }\n  .pricing-table tr:last-child td:first-child {\n    border-bottom-left-radius: 10px;\n  }\n  .pricing-table tr:last-child td:last-child {\n    border-bottom-right-radius: 10px;\n  }\n</style>\n\n<div>\n  <section class=\"pricing-section2\">\n    <div class=\"content\">\n      <h5>SUBSCRIPTION PLANS</h5>\n      <h1>Scale-O Semi Water Softener</h1>\n      <p>\n        Suitable for 1000 L- 1500 L Storage Tanks || Daily Usage of 1000 L/d ||\n        4 to 6 People in the House\n      </p>\n      <table class=\"pricing-table\">\n        <tr>\n          <th>Plans</th>\n          <th>Prices</th>\n          <th>Savings</th>\n        </tr>\n        <tr>\n          <td class=\"plan2\">\n            6 Months<span class=\"highlight\"> - Basic Plan</span>\n          </td>\n          <td>\n            <a href=\"https://scale-o.com/products/scale-o-semi\"\n              ><span class=\"price\">INR 3000/-</span></a\n            >\n          </td>\n          <td><span class=\"save\"> 0 </span></td>\n        </tr>\n        <tr>\n          <td class=\"plan2\">1 Year</td>\n          <td>\n            <a\n              href=\"https://scale-o.com/products/scale-o-semi?variant=41864581087334\"\n              ><span class=\"price\">INR 5000/-</span></a\n            >\n          </td>\n          <td><span class=\"save\">₹1000/-</span></td>\n        </tr>\n        <tr>\n          <td class=\"plan2\">\n            3 Years<span class=\"highlight\"> - Popular Plan</span>\n          </td>\n          <td>\n            <a\n              href=\"https://scale-o.com/products/scale-o-semi?variant=41864581120102\"\n              ><span class=\"price\">INR 13,000/-</span></a\n            >\n          </td>\n          <td><span class=\"save\">₹5000/-</span></td>\n        </tr>\n        <tr>\n          <td class=\"plan2\">5 Years</td>\n          <td>\n            <a\n              href=\"https://scale-o.com/products/scale-o-semi?variant=41864581152870\"\n              ><span class=\"price\">INR 20,000/-</span></a\n            >\n          </td>\n          <td><span class=\"save\">₹10,000/-</span></td>\n        </tr>\n      </table>\n    </div>\n  </section>\n</div>",
+            "width": "50%",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        },
+        "image_7HxNPg": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/100_1_80125cd2-961f-4826-bdc7-e98dbebed6fb.png",
+            "link": "",
+            "width": "50%",
+            "alignment": "center",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "liquid_T7LX6r",
+        "image_7HxNPg"
+      ],
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "header_alignment": "center",
+        "container": "container-fluid",
+        "color_scheme": "scheme-cee058e4-58e3-46aa-9af9-219dadc79066",
+        "content_color_scheme": "scheme-cee058e4-58e3-46aa-9af9-219dadc79066",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "gap": 30,
+        "gap_mobile": 16,
+        "use_scroll_mobile": false,
+        "padding_top": 90,
+        "padding_bottom": 90,
+        "custom_class": ""
+      }
+    },
+    "custom_content_ELR7RX": {
+      "type": "custom-content",
+      "blocks": {
+        "image_cW6kfc": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/100_1_-1.png",
+            "link": "",
+            "width": "50%",
+            "alignment": "center",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        },
+        "liquid_nhjkzg": {
+          "type": "liquid",
+          "settings": {
+            "custom_liquid": "<style>\n  @media (max-width: 431px) {\n    .pricing-section {\n      padding: 0px !important;\n    }\n\n    .pricing-section2 {\n      padding: 0rem !important;\n    }\n\n    .pricing-table td {\n      padding: 8px !important;\n    }\n  }\n  .pricing-section {\n    background-color: #fff;\n    padding: 2rem;\n    border-radius: 8px;\n    /* box-shadow: 0 2px 10px rgba(0,0,0,0.1);\n        max-width: 600px;\n        width: 100%; */\n  }\n  .pricing-section {\n    background-color: #fff;\n    padding: 2rem;\n    border-radius: 8px;\n    /* box-shadow: 0 2px 10px rgba(0,0,0,0.1);\n      max-width: 600px;\n      width: 100%; */\n  }\n\n  .content h5 {\n    color: #1c7acc;\n    font-size: 18px;\n    margin-bottom: 1rem;\n  }\n\n  .content h1 {\n    color: #333;\n    font-size: 32px;\n\n    margin-bottom: 0.5rem;\n  }\n\n  .content p {\n    color: #666;\n    font-size: 14px;\n    margin-bottom: 2rem;\n  }\n\n  .pricing-table {\n    margin: auto;\n    border-collapse: separate;\n    border-spacing: 0;\n    overflow: hidden;\n    border-radius: 10px;\n    border: 1px solid #ddd;\n    width: 100%;\n    background-color: #f9f9f9;\n  }\n  .pricing-table td {\n    padding: 15px !important;\n    text-align: center;\n    border: 1px solid #ddd;\n  }\n\n  .pricing-table th {\n    padding: 15px;\n    text-align: center;\n  }\n\n  .pricing-table th {\n    background-color: #333;\n    color: white;\n  }\n  .pricing-table td {\n    background-color: #f9f9f9;\n  }\n  .pricing-table .plan2 {\n    text-align: center;\n    padding: 15px !important;\n  }\n  .pricing-table .price {\n    background-color: #2a6ab2;\n    color: white;\n    border-radius: 50px;\n    padding: 10px 20px;\n    display: inline-block;\n  }\n\n  .pricing-table .save {\n    background-color: #ffb802;\n    color: black;\n    border-radius: 50px;\n    padding: 10px 20px;\n    display: inline-block;\n  }\n\n  .highlight {\n    color: #00aaff;\n  }\n  .pricing-table tr:first-child th:first-child {\n    border-top-left-radius: 10px;\n  }\n  .pricing-table tr:first-child th:last-child {\n    border-top-right-radius: 10px;\n  }\n  .pricing-table tr:last-child td:first-child {\n    border-bottom-left-radius: 10px;\n  }\n  .pricing-table tr:last-child td:last-child {\n    border-bottom-right-radius: 10px;\n  }\n</style>\n\n<div>\n  <section class=\"pricing-section\">\n    <div class=\"content\">\n      <h5>SUBSCRIPTION PLANS</h5>\n      <h1>Scale-O Centi Water Softener</h1>\n      <p>\n        Suitable for 2000 L – 2500 L Storage Tanks || Daily Usage of 1500 L/d ||\n        7 to 10 People in the House\n      </p>\n      <table class=\"pricing-table\">\n        <tr>\n          <th>Plans</th>\n          <th>Prices</th>\n          <th>Savings</th>\n        </tr>\n        <tr>\n          <td class=\"plan2\">\n            6 Months<span class=\"highlight\"> - Basic Plan</span>\n          </td>\n          <td>\n            <a href=\"https://scale-o.com/products/scale-o-centi\"\n              ><span class=\"price\">INR 3500/-</span></a\n            >\n          </td>\n          <td><span class=\"save\"> 0 </span></td>\n        </tr>\n        <tr>\n          <td class=\"plan2\">1 Year</td>\n          <td>\n            <a\n              href=\"https://scale-o.com/products/scale-o-centi?variant=41864489336934\"\n              ><span class=\"price\">INR 6000/-</span></a\n            >\n          </td>\n          <td><span class=\"save\">₹1000/-</span></td>\n        </tr>\n        <tr>\n          <td class=\"plan2\">\n            3 Years<span class=\"highlight\"> - Popular Plan</span>\n          </td>\n          <td>\n            <a\n              href=\"https://scale-o.com/products/scale-o-centi?variant=41864489369702\"\n              ><span class=\"price\">INR 16,000/-</span></a\n            >\n          </td>\n          <td><span class=\"save\">₹5000/-</span></td>\n        </tr>\n        <tr>\n          <td class=\"plan2\">5 Years</td>\n          <td>\n            <a\n              href=\"https://scale-o.com/products/scale-o-centi?variant=41864489402470\"\n              ><span class=\"price\">INR 25,000/-</span></a\n            >\n          </td>\n          <td><span class=\"save\">₹10,000/-</span></td>\n        </tr>\n      </table>\n    </div>\n  </section>\n</div>",
+            "width": "50%",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "image_cW6kfc",
+        "liquid_nhjkzg"
+      ],
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "header_alignment": "center",
+        "container": "container-fluid",
+        "color_scheme": "",
+        "content_color_scheme": "",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "gap": 30,
+        "gap_mobile": 16,
+        "use_scroll_mobile": false,
+        "padding_top": 90,
+        "padding_bottom": 90,
+        "custom_class": ""
+      }
+    },
+    "custom_content_iEpfwq": {
+      "type": "custom-content",
+      "blocks": {
+        "liquid_ERwhFX": {
+          "type": "liquid",
+          "settings": {
+            "custom_liquid": "<style>\n  @media (max-width: 431px) {\n    .pricing-section {\n      padding: 0px !important;\n    }\n\n    .pricing-section2 {\n      padding: 0rem !important;\n    }\n\n    .pricing-table td {\n      padding: 8px !important;\n    }\n  }\n  .pricing-section {\n    background-color: #fff;\n    padding: 2rem;\n    border-radius: 8px;\n    /* box-shadow: 0 2px 10px rgba(0,0,0,0.1);\n        max-width: 600px;\n        width: 100%; */\n  }\n  .pricing-section2 {\n    background-color: #f5f7ff;\n    padding: 2rem;\n    border-radius: 8px;\n    /* box-shadow: 0 2px 10px rgba(0,0,0,0.1);\n      max-width: 600px;\n      width: 100%; */\n  }\n\n  .content h5 {\n    color: #1c7acc;\n    font-size: 18px;\n    margin-bottom: 1rem;\n  }\n\n  .content h1 {\n    color: #333;\n    font-size: 32px;\n\n    margin-bottom: 0.5rem;\n  }\n\n  .content p {\n    color: #666;\n    font-size: 14px;\n    margin-bottom: 2rem;\n  }\n\n  .pricing-table {\n    margin: auto;\n    border-collapse: separate;\n    border-spacing: 0;\n    overflow: hidden;\n    border-radius: 10px;\n    border: 1px solid #ddd;\n    width: 100%;\n    background-color: #f9f9f9;\n  }\n  .pricing-table td {\n    padding: 15px !important;\n    text-align: center;\n    border: 1px solid #ddd;\n  }\n\n  .pricing-table th {\n    padding: 15px;\n    text-align: center;\n  }\n\n  .pricing-table th {\n    background-color: #333;\n    color: white;\n  }\n  .pricing-table td {\n    background-color: #f9f9f9;\n  }\n  .pricing-table .plan2 {\n    text-align: center;\n    padding: 15px !important;\n  }\n  .pricing-table .price {\n    background-color: #2a6ab2;\n    color: white;\n    border-radius: 50px;\n    padding: 10px 20px;\n    display: inline-block;\n  }\n\n  .pricing-table .save {\n    background-color: #ffb802;\n    color: black;\n    border-radius: 50px;\n    padding: 10px 20px;\n    display: inline-block;\n  }\n\n  .highlight {\n    color: #00aaff;\n  }\n  .pricing-table tr:first-child th:first-child {\n    border-top-left-radius: 10px;\n  }\n  .pricing-table tr:first-child th:last-child {\n    border-top-right-radius: 10px;\n  }\n  .pricing-table tr:last-child td:first-child {\n    border-bottom-left-radius: 10px;\n  }\n  .pricing-table tr:last-child td:last-child {\n    border-bottom-right-radius: 10px;\n  }\n</style>\n\n<div>\n  <section class=\"pricing-section2\">\n    <div class=\"content\">\n      <h5>SUBSCRIPTION PLANS</h5>\n      <h1>Scale-O Mini Combo Pack (x2)</h1>\n      <p>\n        Suitable for Two tanks of 500 L || Daily Usage of 1000 L/d || 4 to 6\n        People in the House\n      </p>\n      <table class=\"pricing-table\">\n        <tr>\n          <th>Plans</th>\n          <th>Prices</th>\n          <th>Savings</th>\n        </tr>\n        <tr>\n          <td class=\"plan2\">\n            6 Months<span class=\"highlight\"> - Basic Plan</span>\n          </td>\n          <td>\n            <a href=\"https://scale-o.com/products/2-scale-o-mini-combo-pack\"\n              ><span class=\"price\">INR 4500/-</span></a\n            >\n          </td>\n          <td><span class=\"save\"> 0 </span></td>\n        </tr>\n        <tr>\n          <td class=\"plan2\">1 Year</td>\n          <td>\n            <a\n              href=\"https://scale-o.com/products/2-scale-o-mini-combo-pack?variant=41864486551654\"\n              ><span class=\"price\">INR 8000/-</span></a\n            >\n          </td>\n          <td><span class=\"save\">₹1000/-</span></td>\n        </tr>\n        <tr>\n          <td class=\"plan2\">\n            3 Years<span class=\"highlight\"> - Popular Plan</span>\n          </td>\n          <td>\n            <a\n              href=\"https://scale-o.com/products/2-scale-o-mini-combo-pack?variant=41864486584422\"\n              ><span class=\"price\">INR 22,000/-</span></a\n            >\n          </td>\n          <td><span class=\"save\">₹5000/-</span></td>\n        </tr>\n        <tr>\n          <td class=\"plan2\">5 Years</td>\n          <td>\n            <a\n              href=\"https://scale-o.com/products/2-scale-o-mini-combo-pack?variant=41864486617190\"\n              ><span class=\"price\">INR 35,000/-</span></a\n            >\n          </td>\n          <td><span class=\"save\">₹10,000/-</span></td>\n        </tr>\n      </table>\n    </div>\n  </section>\n</div>",
+            "width": "50%",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        },
+        "image_raa7Hh": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/2-mini_1.png",
+            "link": "",
+            "width": "50%",
+            "alignment": "center",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "liquid_ERwhFX",
+        "image_raa7Hh"
+      ],
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "header_alignment": "center",
+        "container": "container-fluid",
+        "color_scheme": "scheme-cee058e4-58e3-46aa-9af9-219dadc79066",
+        "content_color_scheme": "scheme-cee058e4-58e3-46aa-9af9-219dadc79066",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "gap": 30,
+        "gap_mobile": 16,
+        "use_scroll_mobile": false,
+        "padding_top": 90,
+        "padding_bottom": 90,
+        "custom_class": ""
+      }
+    },
+    "custom_content_PP3rdU": {
+      "type": "custom-content",
+      "blocks": {
+        "image_ReyJh9": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/mini-semi_1.png",
+            "link": "",
+            "width": "50%",
+            "alignment": "center",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        },
+        "liquid_M3qprd": {
+          "type": "liquid",
+          "settings": {
+            "custom_liquid": "<style>\n  @media (max-width: 431px) {\n    .pricing-section {\n      padding: 0px !important;\n    }\n\n    .pricing-section2 {\n      padding: 0rem !important;\n    }\n\n    .pricing-table td {\n      padding: 8px !important;\n    }\n  }\n  .pricing-section {\n    background-color: #fff;\n    padding: 2rem;\n    border-radius: 8px;\n    /* box-shadow: 0 2px 10px rgba(0,0,0,0.1);\n        max-width: 600px;\n        width: 100%; */\n  }\n  .pricing-section {\n    background-color: #fff;\n    padding: 2rem;\n    border-radius: 8px;\n    /* box-shadow: 0 2px 10px rgba(0,0,0,0.1);\n      max-width: 600px;\n      width: 100%; */\n  }\n\n  .content h5 {\n    color: #1c7acc;\n    font-size: 18px;\n    margin-bottom: 1rem;\n  }\n\n  .content h1 {\n    color: #333;\n    font-size: 32px;\n\n    margin-bottom: 0.5rem;\n  }\n\n  .content p {\n    color: #666;\n    font-size: 14px;\n    margin-bottom: 2rem;\n  }\n\n  .pricing-table {\n    margin: auto;\n    border-collapse: separate;\n    border-spacing: 0;\n    overflow: hidden;\n    border-radius: 10px;\n    border: 1px solid #ddd;\n    width: 100%;\n    background-color: #f9f9f9;\n  }\n  .pricing-table td {\n    padding: 15px !important;\n    text-align: center;\n    border: 1px solid #ddd;\n  }\n\n  .pricing-table th {\n    padding: 15px;\n    text-align: center;\n  }\n\n  .pricing-table th {\n    background-color: #333;\n    color: white;\n  }\n  .pricing-table td {\n    background-color: #f9f9f9;\n  }\n  .pricing-table .plan2 {\n    text-align: center;\n    padding: 15px !important;\n  }\n  .pricing-table .price {\n    background-color: #2a6ab2;\n    color: white;\n    border-radius: 50px;\n    padding: 10px 20px;\n    display: inline-block;\n  }\n\n  .pricing-table .save {\n    background-color: #ffb802;\n    color: black;\n    border-radius: 50px;\n    padding: 10px 20px;\n    display: inline-block;\n  }\n\n  .highlight {\n    color: #00aaff;\n  }\n  .pricing-table tr:first-child th:first-child {\n    border-top-left-radius: 10px;\n  }\n  .pricing-table tr:first-child th:last-child {\n    border-top-right-radius: 10px;\n  }\n  .pricing-table tr:last-child td:first-child {\n    border-bottom-left-radius: 10px;\n  }\n  .pricing-table tr:last-child td:last-child {\n    border-bottom-right-radius: 10px;\n  }\n</style>\n\n<div>\n  <section class=\"pricing-section\">\n    <div class=\"content\">\n      <h5>SUBSCRIPTION PLANS</h5>\n      <h1>Scale-O Mini + Semi Combo Pack</h1>\n      <p>\n        Suitable for Two tanks of 1000 L-1500 L || Daily Usage of 1000 L/d || 4\n        to 6 People in the House\n      </p>\n      <table class=\"pricing-table\">\n        <tr>\n          <th>Plans</th>\n          <th>Prices</th>\n          <th>Savings</th>\n        </tr>\n        <tr>\n          <td class=\"plan2\">\n            6 Months<span class=\"highlight\"> - Basic Plan</span>\n          </td>\n          <td>\n            <a href=\"https://scale-o.com/products/scale-o-mini-semi-combo\"\n              ><span class=\"price\">INR 5000/-</span></a\n            >\n          </td>\n          <td><span class=\"save\"> 0 </span></td>\n        </tr>\n        <tr>\n          <td class=\"plan2\">1 Year</td>\n          <td>\n            <a\n              href=\"https://scale-o.com/products/scale-o-mini-semi-combo?variant=41864577974374\"\n              ><span class=\"price\">INR 9000/-</span></a\n            >\n          </td>\n          <td><span class=\"save\">₹1000/-</span></td>\n        </tr>\n        <tr>\n          <td class=\"plan2\">\n            3 Years<span class=\"highlight\"> - Popular Plan</span>\n          </td>\n          <td>\n            <a\n              href=\"https://scale-o.com/products/scale-o-mini-semi-combo?variant=41864578007142\"\n              ><span class=\"price\">INR 25,000/-</span></a\n            >\n          </td>\n          <td><span class=\"save\">₹5000/-</span></td>\n        </tr>\n        <tr>\n          <td class=\"plan2\">5 Years</td>\n          <td>\n            <a\n              href=\"https://scale-o.com/products/scale-o-mini-semi-combo?variant=41864578039910\"\n              ><span class=\"price\">INR 40,000/-</span></a\n            >\n          </td>\n          <td><span class=\"save\">₹10,000/-</span></td>\n        </tr>\n      </table>\n    </div>\n  </section>\n</div>",
+            "width": "50%",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "image_ReyJh9",
+        "liquid_M3qprd"
+      ],
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "header_alignment": "center",
+        "container": "container-fluid",
+        "color_scheme": "",
+        "content_color_scheme": "",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "gap": 30,
+        "gap_mobile": 16,
+        "use_scroll_mobile": false,
+        "padding_top": 90,
+        "padding_bottom": 90,
+        "custom_class": ""
+      }
+    },
+    "custom_content_RPVepV": {
+      "type": "custom-content",
+      "blocks": {
+        "liquid_daCwpb": {
+          "type": "liquid",
+          "settings": {
+            "custom_liquid": "<style>\n  @media (max-width: 431px) {\n    .pricing-section {\n      padding: 0px !important;\n    }\n\n    .pricing-section2 {\n      padding: 0rem !important;\n    }\n\n    .pricing-table td {\n      padding: 8px !important;\n    }\n  }\n  .pricing-section {\n    background-color: #fff;\n    padding: 2rem;\n    border-radius: 8px;\n    /* box-shadow: 0 2px 10px rgba(0,0,0,0.1);\n        max-width: 600px;\n        width: 100%; */\n  }\n  .pricing-section2 {\n    background-color: #f5f7ff;\n    padding: 2rem;\n    border-radius: 8px;\n    /* box-shadow: 0 2px 10px rgba(0,0,0,0.1);\n      max-width: 600px;\n      width: 100%; */\n  }\n\n  .content h5 {\n    color: #1c7acc;\n    font-size: 18px;\n    margin-bottom: 1rem;\n  }\n\n  .content h1 {\n    color: #333;\n    font-size: 32px;\n\n    margin-bottom: 0.5rem;\n  }\n\n  .content p {\n    color: #666;\n    font-size: 14px;\n    margin-bottom: 2rem;\n  }\n\n  .pricing-table {\n    margin: auto;\n    border-collapse: separate;\n    border-spacing: 0;\n    overflow: hidden;\n    border-radius: 10px;\n    border: 1px solid #ddd;\n    width: 100%;\n    background-color: #f9f9f9;\n  }\n  .pricing-table td {\n    padding: 15px !important;\n    text-align: center;\n    border: 1px solid #ddd;\n  }\n\n  .pricing-table th {\n    padding: 15px;\n    text-align: center;\n  }\n\n  .pricing-table th {\n    background-color: #333;\n    color: white;\n  }\n  .pricing-table td {\n    background-color: #f9f9f9;\n  }\n  .pricing-table .plan2 {\n    text-align: center;\n    padding: 15px !important;\n  }\n  .pricing-table .price {\n    background-color: #2a6ab2;\n    color: white;\n    border-radius: 50px;\n    padding: 10px 20px;\n    display: inline-block;\n  }\n\n  .pricing-table .save {\n    background-color: #ffb802;\n    color: black;\n    border-radius: 50px;\n    padding: 10px 20px;\n    display: inline-block;\n  }\n\n  .highlight {\n    color: #00aaff;\n  }\n  .pricing-table tr:first-child th:first-child {\n    border-top-left-radius: 10px;\n  }\n  .pricing-table tr:first-child th:last-child {\n    border-top-right-radius: 10px;\n  }\n  .pricing-table tr:last-child td:first-child {\n    border-bottom-left-radius: 10px;\n  }\n  .pricing-table tr:last-child td:last-child {\n    border-bottom-right-radius: 10px;\n  }\n</style>\n\n<div>\n  <section class=\"pricing-section2\">\n    <div class=\"content\">\n      <h5>SUBSCRIPTION PLANS</h5>\n      <h1>Scale-O Mini + Centi Combo Pack</h1>\n      <p>\n        Suitable for Two tanks of 500 L || Daily Usage of 2000 L/d || 11 to 15\n        People in the House\n      </p>\n      <table class=\"pricing-table\">\n        <tr>\n          <th>Plans</th>\n          <th>Prices</th>\n          <th>Savings</th>\n        </tr>\n        <tr>\n          <td class=\"plan2\">\n            6 Months<span class=\"highlight\"> - Basic Plan</span>\n          </td>\n          <td>\n            <a href=\"https://scale-o.com/products/scale-o-mini-centi-combo\"\n              ><span class=\"price\">INR 5500/-</span></a\n            >\n          </td>\n          <td><span class=\"save\"> 0 </span></td>\n        </tr>\n        <tr>\n          <td class=\"plan2\">1 Year</td>\n          <td>\n            <a\n              href=\"https://scale-o.com/products/scale-o-mini-centi-combo?variant=41864570273894\"\n              ><span class=\"price\">INR 10000/-</span></a\n            >\n          </td>\n          <td><span class=\"save\">₹1000/-</span></td>\n        </tr>\n        <tr>\n          <td class=\"plan2\">\n            3 Years<span class=\"highlight\"> - Popular Plan</span>\n          </td>\n          <td>\n            <a\n              href=\"https://scale-o.com/products/scale-o-mini-centi-combo?variant=41864570306662\"\n              ><span class=\"price\">INR 28,000/-</span></a\n            >\n          </td>\n          <td><span class=\"save\">₹5000/-</span></td>\n        </tr>\n        <tr>\n          <td class=\"plan2\">5 Years</td>\n          <td>\n            <a\n              href=\"https://scale-o.com/products/scale-o-mini-centi-combo?variant=41864570339430\"\n              ><span class=\"price\">INR 45,000/-</span></a\n            >\n          </td>\n          <td><span class=\"save\">₹10,000/-</span></td>\n        </tr>\n      </table>\n    </div>\n  </section>\n</div>",
+            "width": "50%",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        },
+        "image_nDH6EN": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/dvsasfasc.png",
+            "link": "",
+            "width": "50%",
+            "alignment": "center",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "liquid_daCwpb",
+        "image_nDH6EN"
+      ],
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "header_alignment": "center",
+        "container": "container-fluid",
+        "color_scheme": "scheme-cee058e4-58e3-46aa-9af9-219dadc79066",
+        "content_color_scheme": "scheme-cee058e4-58e3-46aa-9af9-219dadc79066",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "gap": 30,
+        "gap_mobile": 16,
+        "use_scroll_mobile": false,
+        "padding_top": 90,
+        "padding_bottom": 90,
+        "custom_class": ""
+      }
+    },
+    "custom_content_jrR3Ef": {
+      "type": "custom-content",
+      "blocks": {
+        "image_bMx7n9": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/semi-centi_1.png",
+            "link": "",
+            "width": "50%",
+            "alignment": "center",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        },
+        "liquid_mbdUne": {
+          "type": "liquid",
+          "settings": {
+            "custom_liquid": "<style>\n  @media (max-width: 431px) {\n    .pricing-section {\n      padding: 0px !important;\n    }\n\n    .pricing-section2 {\n      padding: 0rem !important;\n    }\n\n    .pricing-table td {\n      padding: 8px !important;\n    }\n  }\n  .pricing-section {\n    background-color: #fff;\n    padding: 2rem;\n    border-radius: 8px;\n    /* box-shadow: 0 2px 10px rgba(0,0,0,0.1);\n        max-width: 600px;\n        width: 100%; */\n  }\n  .pricing-section {\n    background-color: #fff;\n    padding: 2rem;\n    border-radius: 8px;\n    /* box-shadow: 0 2px 10px rgba(0,0,0,0.1);\n      max-width: 600px;\n      width: 100%; */\n  }\n\n  .content h5 {\n    color: #1c7acc;\n    font-size: 18px;\n    margin-bottom: 1rem;\n  }\n\n  .content h1 {\n    color: #333;\n    font-size: 32px;\n\n    margin-bottom: 0.5rem;\n  }\n\n  .content p {\n    color: #666;\n    font-size: 14px;\n    margin-bottom: 2rem;\n  }\n\n  .pricing-table {\n    margin: auto;\n    border-collapse: separate;\n    border-spacing: 0;\n    overflow: hidden;\n    border-radius: 10px;\n    border: 1px solid #ddd;\n    width: 100%;\n    background-color: #f9f9f9;\n  }\n  .pricing-table td {\n    padding: 15px !important;\n    text-align: center;\n    border: 1px solid #ddd;\n  }\n\n  .pricing-table th {\n    padding: 15px;\n    text-align: center;\n  }\n\n  .pricing-table th {\n    background-color: #333;\n    color: white;\n  }\n  .pricing-table td {\n    background-color: #f9f9f9;\n  }\n  .pricing-table .plan2 {\n    text-align: center;\n    padding: 15px !important;\n  }\n  .pricing-table .price {\n    background-color: #2a6ab2;\n    color: white;\n    border-radius: 50px;\n    padding: 10px 20px;\n    display: inline-block;\n  }\n\n  .pricing-table .save {\n    background-color: #ffb802;\n    color: black;\n    border-radius: 50px;\n    padding: 10px 20px;\n    display: inline-block;\n  }\n\n  .highlight {\n    color: #00aaff;\n  }\n  .pricing-table tr:first-child th:first-child {\n    border-top-left-radius: 10px;\n  }\n  .pricing-table tr:first-child th:last-child {\n    border-top-right-radius: 10px;\n  }\n  .pricing-table tr:last-child td:first-child {\n    border-bottom-left-radius: 10px;\n  }\n  .pricing-table tr:last-child td:last-child {\n    border-bottom-right-radius: 10px;\n  }\n</style>\n\n<div>\n  <section class=\"pricing-section\">\n    <div class=\"content\">\n      <h5>SUBSCRIPTION PLANS</h5>\n      <h1>Scale-O Semi + Centi Combo Pack</h1>\n      <p>\n        Suitable for Two tanks of 2000 L-2500 L || Daily Usage of 1500 L/d || 7\n        to 10 People in the House\n      </p>\n      <table class=\"pricing-table\">\n        <tr>\n          <th>Plans</th>\n          <th>Prices</th>\n          <th>Savings</th>\n        </tr>\n        <tr>\n          <td class=\"plan2\">\n            6 Months<span class=\"highlight\"> - Basic Plan</span>\n          </td>\n          <td>\n            <a href=\"https://scale-o.com/products/scale-o-semi-centi-combo\"\n              ><span class=\"price\">INR 6000/-</span></a\n            >\n          </td>\n          <td><span class=\"save\"> 0 </span></td>\n        </tr>\n        <tr>\n          <td class=\"plan2\">1 Year</td>\n          <td>\n            <a\n              href=\"https://scale-o.com/products/scale-o-semi-centi-combo?variant=41864585085030\"\n              ><span class=\"price\">INR 11000/-</span></a\n            >\n          </td>\n          <td><span class=\"save\">₹1000/-</span></td>\n        </tr>\n        <tr>\n          <td class=\"plan2\">\n            3 Years<span class=\"highlight\"> - Popular Plan</span>\n          </td>\n          <td>\n            <a\n              href=\"https://scale-o.com/products/scale-o-semi-centi-combo?variant=41864585117798\"\n              ><span class=\"price\">INR 31,000/-</span></a\n            >\n          </td>\n          <td><span class=\"save\">₹5000/-</span></td>\n        </tr>\n        <tr>\n          <td class=\"plan2\">5 Years</td>\n          <td>\n            <a\n              href=\"https://scale-o.com/products/scale-o-semi-centi-combo?variant=41864585150566\"\n              ><span class=\"price\">INR 50,000/-</span></a\n            >\n          </td>\n          <td><span class=\"save\">₹10,000/-</span></td>\n        </tr>\n      </table>\n    </div>\n  </section>\n</div>",
+            "width": "50%",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "image_bMx7n9",
+        "liquid_mbdUne"
+      ],
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "header_alignment": "center",
+        "container": "container-fluid",
+        "color_scheme": "",
+        "content_color_scheme": "",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "gap": 30,
+        "gap_mobile": 16,
+        "use_scroll_mobile": false,
+        "padding_top": 90,
+        "padding_bottom": 90,
+        "custom_class": ""
+      }
+    },
+    "custom_content_VXW3DV": {
+      "type": "custom-content",
+      "blocks": {
+        "liquid_grDARw": {
+          "type": "liquid",
+          "settings": {
+            "custom_liquid": "<style>\n  @media (max-width: 431px) {\n    .pricing-section {\n      padding: 0px !important;\n    }\n\n    .pricing-section2 {\n      padding: 0rem !important;\n    }\n\n    .pricing-table td {\n      padding: 8px !important;\n    }\n  }\n  .pricing-section {\n    background-color: #fff;\n    padding: 2rem;\n    border-radius: 8px;\n    /* box-shadow: 0 2px 10px rgba(0,0,0,0.1);\n        max-width: 600px;\n        width: 100%; */\n  }\n  .pricing-section2 {\n    background-color: #f5f7ff;\n    padding: 2rem;\n    border-radius: 8px;\n    /* box-shadow: 0 2px 10px rgba(0,0,0,0.1);\n      max-width: 600px;\n      width: 100%; */\n  }\n\n  .content h5 {\n    color: #1c7acc;\n    font-size: 18px;\n    margin-bottom: 1rem;\n  }\n\n  .content h1 {\n    color: #333;\n    font-size: 32px;\n\n    margin-bottom: 0.5rem;\n  }\n\n  .content p {\n    color: #666;\n    font-size: 14px;\n    margin-bottom: 2rem;\n  }\n\n  .pricing-table {\n    margin: auto;\n    border-collapse: separate;\n    border-spacing: 0;\n    overflow: hidden;\n    border-radius: 10px;\n    border: 1px solid #ddd;\n    width: 100%;\n    background-color: #f9f9f9;\n  }\n  .pricing-table td {\n    padding: 15px !important;\n    text-align: center;\n    border: 1px solid #ddd;\n  }\n\n  .pricing-table th {\n    padding: 15px;\n    text-align: center;\n  }\n\n  .pricing-table th {\n    background-color: #333;\n    color: white;\n  }\n  .pricing-table td {\n    background-color: #f9f9f9;\n  }\n  .pricing-table .plan2 {\n    text-align: center;\n    padding: 15px !important;\n  }\n  .pricing-table .price {\n    background-color: #2a6ab2;\n    color: white;\n    border-radius: 50px;\n    padding: 10px 20px;\n    display: inline-block;\n  }\n\n  .pricing-table .save {\n    background-color: #ffb802;\n    color: black;\n    border-radius: 50px;\n    padding: 10px 20px;\n    display: inline-block;\n  }\n\n  .highlight {\n    color: #00aaff;\n  }\n  .pricing-table tr:first-child th:first-child {\n    border-top-left-radius: 10px;\n  }\n  .pricing-table tr:first-child th:last-child {\n    border-top-right-radius: 10px;\n  }\n  .pricing-table tr:last-child td:first-child {\n    border-bottom-left-radius: 10px;\n  }\n  .pricing-table tr:last-child td:last-child {\n    border-bottom-right-radius: 10px;\n  }\n</style>\n\n<div>\n  <section class=\"pricing-section2\">\n    <div class=\"content\">\n      <h5>SUBSCRIPTION PLANS</h5>\n      <h1>Scale-O Semi Combo Pack (x2)</h1>\n      <p>\n        Suitable for Two tanks of 1000 L-1500 L || Daily Usage of 1500 L/d || 7\n        to 10 People in the House\n      </p>\n      <table class=\"pricing-table\">\n        <tr>\n          <th>Plans</th>\n          <th>Prices</th>\n          <th>Savings</th>\n        </tr>\n        <tr>\n          <td class=\"plan2\">\n            6 Months<span class=\"highlight\"> - Basic Plan</span>\n          </td>\n          <td>\n            <a href=\"https://scale-o.com/products/scale-o-semi-x2\"\n              ><span class=\"price\">INR 5500/-</span></a\n            >\n          </td>\n          <td><span class=\"save\"> 0 </span></td>\n        </tr>\n        <tr>\n          <td class=\"plan2\">1 Year</td>\n          <td>\n            <a\n              href=\"https://scale-o.com/products/scale-o-semi-x2?variant=41864582398054\"\n              ><span class=\"price\">INR 10000/-</span></a\n            >\n          </td>\n          <td><span class=\"save\">₹1000/-</span></td>\n        </tr>\n        <tr>\n          <td class=\"plan2\">\n            3 Years<span class=\"highlight\"> - Popular Plan</span>\n          </td>\n          <td>\n            <a\n              href=\"https://scale-o.com/products/scale-o-semi-x2?variant=41864582430822\"\n              ><span class=\"price\">INR 28,000/-</span></a\n            >\n          </td>\n          <td><span class=\"save\">₹5000/-</span></td>\n        </tr>\n        <tr>\n          <td class=\"plan2\">5 Years</td>\n          <td>\n            <a\n              href=\"https://scale-o.com/products/scale-o-semi-x2?variant=41864582463590\"\n              ><span class=\"price\">INR 45,000/-</span></a\n            >\n          </td>\n          <td><span class=\"save\">₹10,000/-</span></td>\n        </tr>\n      </table>\n    </div>\n  </section>\n</div>",
+            "width": "50%",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        },
+        "image_Tfh3Qt": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/2-semi_1.png",
+            "link": "",
+            "width": "50%",
+            "alignment": "center",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "liquid_grDARw",
+        "image_Tfh3Qt"
+      ],
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "header_alignment": "center",
+        "container": "container-fluid",
+        "color_scheme": "scheme-cee058e4-58e3-46aa-9af9-219dadc79066",
+        "content_color_scheme": "scheme-cee058e4-58e3-46aa-9af9-219dadc79066",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "gap": 30,
+        "gap_mobile": 16,
+        "use_scroll_mobile": false,
+        "padding_top": 90,
+        "padding_bottom": 90,
+        "custom_class": ""
+      }
+    },
+    "custom_content_KA9Wjn": {
+      "type": "custom-content",
+      "blocks": {
+        "image_QXLWnN": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/2-centi_1.png",
+            "link": "",
+            "width": "50%",
+            "alignment": "center",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        },
+        "liquid_mhDDNT": {
+          "type": "liquid",
+          "settings": {
+            "custom_liquid": "<style>\n  @media (max-width: 431px) {\n    .pricing-section {\n      padding: 0px !important;\n    }\n\n    .pricing-section2 {\n      padding: 0rem !important;\n    }\n\n    .pricing-table td {\n      padding: 8px !important;\n    }\n  }\n  .pricing-section {\n    background-color: #fff;\n    padding: 2rem;\n    border-radius: 8px;\n    /* box-shadow: 0 2px 10px rgba(0,0,0,0.1);\n        max-width: 600px;\n        width: 100%; */\n  }\n  .pricing-section {\n    background-color: white;\n    padding: 2rem;\n    border-radius: 8px;\n    /* box-shadow: 0 2px 10px rgba(0,0,0,0.1);\n      max-width: 600px;\n      width: 100%; */\n  }\n\n  .content h5 {\n    color: #1c7acc;\n    font-size: 18px;\n    margin-bottom: 1rem;\n  }\n\n  .content h1 {\n    color: #333;\n    font-size: 32px;\n\n    margin-bottom: 0.5rem;\n  }\n\n  .content p {\n    color: #666;\n    font-size: 14px;\n    margin-bottom: 2rem;\n  }\n\n  .pricing-table {\n    margin: auto;\n    border-collapse: separate;\n    border-spacing: 0;\n    overflow: hidden;\n    border-radius: 10px;\n    border: 1px solid #ddd;\n    width: 100%;\n    background-color: #f9f9f9;\n  }\n  .pricing-table td {\n    padding: 15px;\n    text-align: center;\n    border: 1px solid #ddd;\n  }\n\n  .pricing-table th {\n    padding: 15px;\n    text-align: center;\n  }\n\n  .pricing-table th {\n    background-color: #333;\n    color: white;\n  }\n  .pricing-table td {\n    background-color: #f9f9f9;\n  }\n  .pricing-table .plan2 {\n    text-align: center;\n    padding: 15px !important;\n  }\n  .pricing-table .price {\n    background-color: #2a6ab2;\n    color: white;\n    border-radius: 50px;\n    padding: 10px 20px;\n    display: inline-block;\n  }\n\n  .pricing-table .save {\n    background-color: #ffb802;\n    color: black;\n    border-radius: 50px;\n    padding: 10px 20px;\n    display: inline-block;\n  }\n\n  .highlight {\n    color: #00aaff;\n  }\n  .pricing-table tr:first-child th:first-child {\n    border-top-left-radius: 10px;\n  }\n  .pricing-table tr:first-child th:last-child {\n    border-top-right-radius: 10px;\n  }\n  .pricing-table tr:last-child td:first-child {\n    border-bottom-left-radius: 10px;\n  }\n  .pricing-table tr:last-child td:last-child {\n    border-bottom-right-radius: 10px;\n  }\n</style>\n\n<div>\n  <section class=\"pricing-section\">\n    <div class=\"content\">\n      <h5>SUBSCRIPTION PLANS</h5>\n      <h1>Scale-O Centi Combo Pack (x2)</h1>\n      <p>\n        Suitable for Two tanks of 2000 L-2500 L || Daily Usage of 2000 L/d || 11\n        to 15 People in the House\n      </p>\n      <table class=\"pricing-table\">\n        <tr>\n          <th>Plans</th>\n          <th>Prices</th>\n          <th>Savings</th>\n        </tr>\n        <tr>\n          <td class=\"plan2\">\n            6 Months<span class=\"highlight\"> - Basic Plan</span>\n          </td>\n          <td>\n            <a href=\"https://scale-o.com/products/scale-o-centi-x2\"\n              ><span class=\"price\">INR 6500/-</span></a\n            >\n          </td>\n          <td><span class=\"save\"> 0 </span></td>\n        </tr>\n        <tr>\n          <td class=\"plan2\">1 Year</td>\n          <td>\n            <a\n              href=\"https://scale-o.com/products/scale-o-centi-x2?variant=41864491663462\"\n              ><span class=\"price\">INR 12000/-</span></a\n            >\n          </td>\n          <td><span class=\"save\">₹1000/-</span></td>\n        </tr>\n        <tr>\n          <td class=\"plan2\">\n            3 Years<span class=\"highlight\"> - Popular Plan</span>\n          </td>\n          <td>\n            <a\n              href=\"https://scale-o.com/products/scale-o-centi-x2?variant=41864491696230\"\n              ><span class=\"price\">INR 34,000/-</span></a\n            >\n          </td>\n          <td><span class=\"save\">₹5000/-</span></td>\n        </tr>\n        <tr>\n          <td class=\"plan2\">5 Years</td>\n          <td>\n            <a\n              href=\"https://scale-o.com/products/scale-o-centi-x2?variant=41864491728998\"\n              ><span class=\"price\">INR 55,000/-</span></a\n            >\n          </td>\n          <td><span class=\"save\">₹10,000/-</span></td>\n        </tr>\n      </table>\n    </div>\n  </section>\n</div>",
+            "width": "50%",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "image_QXLWnN",
+        "liquid_mhDDNT"
+      ],
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "header_alignment": "center",
+        "container": "container-fluid",
+        "color_scheme": "default",
+        "content_color_scheme": "default",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "gap": 30,
+        "gap_mobile": 16,
+        "use_scroll_mobile": false,
+        "padding_top": 90,
+        "padding_bottom": 90,
+        "custom_class": ""
+      }
+    },
+    "custom_content_PTVYMD": {
+      "type": "custom-content",
+      "blocks": {
+        "image_BApmqD": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Group_44_6dd7f55a-7c3f-4a7b-b8f2-0025c0a01ae1.png",
+            "link": "",
+            "width": "100%",
+            "alignment": "center",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "image_BApmqD"
+      ],
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "header_alignment": "center",
+        "container": "w-full",
+        "color_scheme": "default",
+        "content_color_scheme": "default",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "gap": 30,
+        "gap_mobile": 16,
+        "use_scroll_mobile": false,
+        "padding_top": 82,
+        "padding_bottom": 0,
+        "custom_class": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "custom_content_jqkW8n",
+    "custom_content_4Xx9cx",
+    "custom_content_9VNC9w",
+    "custom_content_hm9Gf6",
+    "custom_content_ELR7RX",
+    "custom_content_iEpfwq",
+    "custom_content_PP3rdU",
+    "custom_content_RPVepV",
+    "custom_content_jrR3Ef",
+    "custom_content_VXW3DV",
+    "custom_content_KA9Wjn",
+    "custom_content_PTVYMD"
+  ]
+}

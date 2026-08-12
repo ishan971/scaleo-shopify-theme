@@ -1,0 +1,302 @@
+{% if product.metafields.custom.specification != blank %}
+  {% assign ps = product.metafields.custom.specification.value %}
+  {% if ps %}
+    <div class="product-specification-content">
+      <div class="specification-popup-overlay"></div>
+      <div class="product-wrapper">
+        <div class="close-pop">{% render 'close-icon' %}</div>
+                <div class="ps-product-title"><h4><b>{{ product.title }}</b>
+<div data-shop-id="{{shop.id}}" product-id="{{product.id }}" data-page="{{request.page_type}}" class="ddreview-star"></div></h4></div>
+        {% if ps.product_dimension_image %}
+        <div class="ps-product-image active" data-type="product"><img src="{{ ps.product_dimension_image | img_url:'1024x' }}"></div>
+        {% endif %}
+        <div class="ps-product-image" data-type="package"><img src="{{ ps._package_dimensions_image | img_url:'1024x' }}"></div>
+      <div class="ps-tabs">
+        <div class="ps-product-tab active" data-type="product">Product</div>
+        <div class="ps-product-tab" data-type="package">Package</div>
+      </div>
+      <div class="product-specification-product-dimention active" data-type="product">
+        <div class="fc1">
+           <div class="trp">
+            <div class="tp-label_1"></div>
+            <div class="tp-label_2">Inch</div>
+            <div class="tp-label_3">C.M</div>
+          </div>
+            <div class="trp">
+            <div class="tp-label_1">Length</div>
+            <div class="tp-label_2">{{ ps.product_dimension_length_inch }}</div>
+            <div class="tp-label_3">{{ ps.product_dimension_length_cm }}</div>
+          </div>
+
+          <div class="trp">
+            <div class="tp-label_1">Width</div>
+            <div class="tp-label_2">{{ ps.product_dimension_width_inch }}</div>
+            <div class="tp-label_3">{{ ps.product_dimension_width_cm }}</div>
+          </div>
+          <div class="trp">
+            <div class="tp-label_1">Height</div>
+            <div class="tp-label_2">{{ ps.product_dimension_height_inch }}</div>
+            <div class="tp-label_3">{{ ps.product_dimension_height_cm }}</div>
+          </div>
+        
+          </div>
+        {% if ps.product_weight %}
+        <h5 class="product-weight"><b>Weight</b> : {{ ps.product_weight }}</h5>
+        {% endif %}
+      </div>
+      <div class="product-specification-product-dimention" data-type="package">
+        <div class="fc1">
+           <div class="trp">
+            <div class="tp-label_1"></div>
+            <div class="tp-label_2">Inch</div>
+            <div class="tp-label_3">C.M</div>
+          </div>
+          <div class="trp">
+             <div class="tp-label_1">Length</div>
+            <div class="tp-label_2">{{ ps.package_dimensions_length_inch }}</div>
+            <div class="tp-label_3">{{ ps.package_dimensions_length_cm }}</div>           
+          </div>
+          <div class="trp">
+            <div class="tp-label_1">Width</div>
+            <div class="tp-label_2">{{ ps.package_dimensions_width_inch }}</div>
+            <div class="tp-label_3">{{ ps.package_dimensions_width_cm }}</div>
+          </div>
+          <div class="trp">
+            <div class="tp-label_1">Height</div>
+            <div class="tp-label_2">{{ ps.package_dimensions_height_inch }}</div>
+            <div class="tp-label_3">{{ ps.package_dimensions_height_cm }}</div>
+          </div>
+        </div>
+        {% if ps.package_weight %}
+        <h5 class="product-weight"><b>Weight</b> : {{ ps.package_weight }}</h5>
+        {% endif %}          
+      </div>
+
+     <div class="addon-info">
+  {% assign filters = ps.additional_information.value %}
+
+  <div class="filter-wrapper">
+    {% for i in filters %}
+      {%  assign dfl = forloop.index0 | modulo: 2 %}
+      {% if dfl == 0 %}
+        <div class="filter-pair">
+      {% endif %}
+      <div class="filter-item">{{ i }}</div>
+      {% if dfl == 1 or forloop.last %}
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
+
+  {% if ps.specification_bottom_content %}
+  <div class="bottom-content">
+    {{ ps.specification_bottom_content | metafield_tag }}
+  </div>
+  {% endif %}
+        
+      </div>
+    </div>
+    {% endif %}
+{% endif %}
+
+
+<style>
+.product-wrapper{
+position: fixed;
+    right: 0;
+    top: 0;
+    background: #fff;
+    width: 40%;
+    height: 100%;
+    z-index: 999;
+    padding: 40px 40px 20px 40px;
+  overflow: auto;
+   transform: translateX(100%);
+  transition: 0.3s;
+}  
+.product-wrapper.active{
+  transform: translateX(0%);
+}
+  .ps-product-image{
+    display:none;
+  }
+   .ps-product-image.active{
+    display:block;
+  }
+  .ps-tabs{
+    display:flex;
+    justify-content: center;
+    column-gap: 10px;
+    margin: 15px 0;
+  }
+  .ps-product-tab.active {
+    color:#000;
+  }
+.product-specification-product-dimention .fc1 {
+    width: 100%;
+    padding: 15px;
+    border-radius: 10px;
+    background: #fcfcfc;
+  margin-bottom: 20px;
+}
+.product-specification-product-dimention .fc1 .tp-label_1{
+   text-align: left;
+}
+  .product-specification-product-dimention .fc1 .tp-label_2{
+   text-align: center;
+}
+  .product-specification-product-dimention .fc1 .tp-label_3{
+   text-align: right;
+}
+.trp {
+    display: flex;
+    margin-bottom: 7px;
+}
+  .trp div{
+    width: 33.33%;    
+  }
+.ps-product-tab {
+    width: 50%;
+    border: 1px solid;
+    display: block;
+    color: grey;
+    border-radius: 20px;
+    text-align: center;
+    padding: 5px;
+}
+  .specification-popup-overlay{
+    visibility: hidden;
+   opacity: 0;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    background-color: #202020b3;
+    z-index: 999;
+    margin: 0 auto;
+}
+    .specification-popup-overlay.active{
+      visibility: visible;
+     opacity: 1;
+  }
+  .product-specification-product-dimention.active{
+     display:block !important;
+  }
+  .product-specification-product-dimention{
+    display:none;  
+  }
+  .specification-block{
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid grey;
+    border-bottom: 1px solid grey;
+    padding: 12px 0px;
+    cursor: pointer;
+  }
+
+  .specification-block span{
+        font-weight: 600;
+    font-size: 17px;
+  }
+  
+  .specification-block svg{
+    width:8px;
+  } 
+  .close-pop{
+    cursor: pointer;
+  }
+  body.active{
+   overflow: hidden;
+    height: 100%;
+  }
+  .filter-pair{
+  margin-bottom: 12px;
+    width:50%;
+  }
+  .filter-pair .filter-item:first-child{
+  font-weight: bold;      
+  }
+  .filter-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 30px;
+}
+  .filter-pair {
+    margin-bottom: 5px;
+    width: calc(50% - 12px);
+}
+  .bottom-content{
+    margin-top: 30px;
+  }
+  .bottom-content p{
+    text-align: center;
+    font-size: 13px;
+  }
+.product-specification-content{
+  position:relative;
+}  
+.close-pop{
+      display: inline-grid;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+} 
+.ps-product-title{
+  margin-bottom: 10px;
+      text-align: center;
+}
+.ps-product-image img{
+  width:100%;
+}
+
+@media (max-width: 1365px) and (min-width: 768px) {
+  .product-wrapper{
+     width: 50%;
+  }
+}
+@media (max-width: 767px) {
+  .product-wrapper{
+     width: 100%;
+  }
+  .product-wrapper {
+   padding: 40px 20px 20px 20px;
+  }
+}  
+  
+</style>
+
+<script>
+  $('.ps-product-tab').click(function(){
+    $('.ps-product-tab').removeClass('active');
+    $('.product-specification-product-dimention').removeClass('active');
+    $('.ps-product-image').removeClass('active');
+    let d_type = $(this).attr('data-type');
+    console.log('d_type ',d_type)
+    $('.product-specification-product-dimention[data-type="' + d_type + '"]').addClass('active');
+    $('.ps-product-image[data-type="' + d_type + '"]').addClass('active');
+    $(this).addClass('active');
+  })
+$(document).mouseup(function (e) {
+    if ($(e.target).closest(".product-wrapper").length === 0) {
+        $('.specification-popup-overlay').removeClass('active');
+      $('.product-wrapper').removeClass('active');
+      $("body").removeClass('active')
+    }
+});
+$('.close-pop').click(function(){
+      $('.specification-popup-overlay').removeClass('active');
+  $('.product-wrapper').removeClass('active');
+  $("body").removeClass('active')
+})  
+$('.specification-block').click(function(){
+  $('.product-wrapper').addClass('active');
+    $('.specification-popup-overlay').addClass('active');
+  $("body").addClass('active')
+})
+</script>

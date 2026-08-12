@@ -1,0 +1,140 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "page",
+      "disabled": true,
+      "settings": {}
+    },
+    "custom_content_bkWrxF": {
+      "type": "custom-content",
+      "blocks": {
+        "image_Dp393E": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/customers_1.png",
+            "link": "",
+            "width": "100%",
+            "alignment": "center",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "image_Dp393E"
+      ],
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "header_alignment": "center",
+        "container": "w-full",
+        "color_scheme": "",
+        "content_color_scheme": "",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "gap": 30,
+        "gap_mobile": 16,
+        "use_scroll_mobile": false,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "custom_class": ""
+      }
+    },
+    "rich_text_dhE6Mb": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_yqTrCt": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "Quotes"
+          }
+        },
+        "heading_KYEHj7": {
+          "type": "heading",
+          "settings": {
+            "heading": "Client Testimonials",
+            "heading_size": "h2"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_yqTrCt",
+        "heading_KYEHj7"
+      ],
+      "settings": {
+        "container": "container",
+        "color_scheme": "scheme-cee058e4-58e3-46aa-9af9-219dadc79066",
+        "content_alignment": "left",
+        "padding_top": 100,
+        "padding_bottom": 0,
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "custom_liquid_x4KAWh": {
+      "type": "custom-liquid",
+      "custom_css": [
+        "section.m-section.m-custom-liquid {display: flex !important; justify-content: center;}"
+      ],
+      "settings": {
+        "custom_liquid": "<style>\n\n\n/*tablet*/\n    @media (min-width: 768px) and (max-width: 1024px){\n    }\n/*mobile*/\n    @media (max-width: 767px){\n    }\n\n\n    .tr-slider.slick-initialized.slick-slider ,\n    .tr-slider2.slick-initialized.slick-slider{\n        margin: 0 -20px;\n    }\n    .tr-container{\n        margin-top: 61px !important;\n        width: 100%;\n        max-width: 1440px;\n        \n        padding: 0 20px;\n    z-index: 90 !important;\n    position: relative;\n    }\n    .slick-track {\n        display: flex;\n        gap: 20px;\n    }\n    .slick-list {\n        display: flex!important;\n    }\n    .tr-slider2{\n        padding-top: 40px;\n        padding-bottom: 90px;\n    }\n    .tr-slide {\n        background: white;\n        padding: 20px;\n        border-radius: 20px;\n        display: flex!important;\n        flex-direction: column;\n        justify-content: space-between;\n        gap: 30px;\n    }\n    .slick-slide{\n        height: auto!important;\n    }\n    .tr-author-info{\n        display: flex;\n        align-items: center;\n        gap: 10px;\n    }\n    .tr-content {\n        display: grid;\n        gap: 20px;\n    }\n    \n    /* Texts */\n    .tr-content p{\n        /* font-family: Neue Montreal; */\n        font-size: 22px;\n        line-height: 26.4px;\n        color: #333333;\n        margin: 0;\n    }\n    .tr-author-info span{\n        /* font-family: Neue Montreal; */\n        font-size: 16px;\n        line-height: 19.2px;\n        font-weight: 500;\n        color: #333333;\n    }\n    /* Navigations */\n    .slick-next{\n        position: absolute;\n        top: -80px;\n        right: 20px!important;\n        padding: 23px;\n        border-radius: 50%;\n        background: transparent;\n        transition: .4s all ease;\n    }\n    .slick-prev{\n        position: absolute;\n        top: -80px;\n        right: 70px!important;\n        left: auto;\n        padding: 23px;\n        border-radius: 50%;\n        background: transparent;\n        transition: .4s all ease;\n    }\n    .slick-prev:hover,.slick-next:hover{\n        transition: .4s all ease;\n        background: black;\n    }\n    .slick-prev:hover::before,\n    .slick-next:hover::before{\n        filter: brightness(0) invert(1);\n        transition: .4s all ease;\n    }\n    .slick-prev::before{\n        content: url('https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Group_1.svg?v=1722327196')!important;\n        display: flex;\n        width: 24px;\n        height: 24px;\n        transform: translate(-11px,-11px);\n        transition: .4s all ease;\n    }\n    .slick-next::before{\n        content: url('https://cdn.shopify.com/s/files/1/0592/6508/9638/files/cfsafa.svg?v=1722327196')!important;\n        display: flex;\n        width: 24px;\n        height: 24px;\n        transform: translate(-11px,-11px);\n        transition: .4s all ease;\n    }\n    /* Responsive */\n    @media (min-width: 768px) and (max-width: 1024px){\n    }\n    @media (max-width: 767px){\n    }\n    </style>\n    \n    \n    \n    <div class=\"tr-container\">\n        <div class=\"tr-slider\">\n            <div class=\"tr-slide\">\n                <div class=\"tr-content\">\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_40.svg?v=1722325727\" width=\"50px\" height=\"50px\">\n                    <p>\"Scale-O is a very innovative product. I'm very happy with the product, reason is it is very easy to install, no hassles. hard water is a big problem, we wanted a solution but not a salt based softner@\"</p>\n                </div>\n                <div class=\"tr-author-info\">\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/OBJECTS.svg?v=1722326122\" width=\"45px\" height=\"45px\">\n                    <span>Mrs. Pragati Choksi</span>\n                </div>\n            </div>\n            <div class=\"tr-slide\">\n                <div class=\"tr-content\">\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_40.svg?v=1722325727\" width=\"50px\" height=\"50px\">\n                    <p>\"We absolutely loved Scale-O. Very compact and easy to install design. We found it really effective and could avoid the hassle and cumbersome process of conventional plant installation.\"</p>\n                </div>\n                <div class=\"tr-author-info\">\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/dvefgsdef.svg?v=1722326122\" width=\"45px\" height=\"45px\">\n                    <span>Dr. Gaurav Kharana</span>\n                </div>\n            </div>\n            <div class=\"tr-slide\">\n                <div class=\"tr-content\">\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_40.svg?v=1722325727\" width=\"50px\" height=\"50px\">\n                    <p>\"The product is really good, and just one day post installation we can see the change in quality of water. good work!\"</p>\n                </div>\n                <div class=\"tr-author-info\">\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/ddsgege.svg?v=1722326122\" width=\"45px\" height=\"45px\">\n                    <span>Ms. Avani Nathwani</span>\n                </div>\n            </div>\n            <div class=\"tr-slide\">\n                <div class=\"tr-content\">\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_40.svg?v=1722325727\" width=\"50px\" height=\"50px\">\n                    <p>\"Good concept, as we are facing problems due to hard water. Easy installation and friendly customer service!\"</p>\n                </div>\n                <div class=\"tr-author-info\">\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/sfawff.svg?v=1722326122\" width=\"45px\" height=\"45px\">\n                    <span>Mrs. Prabha Harwani</span>\n                </div>\n            </div>\n            <div class=\"tr-slide\">\n                <div class=\"tr-content\">\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_40.svg?v=1722325727\" width=\"50px\" height=\"50px\">\n                    <p>\"Scale-O is a very innovative product. I'm very happy with the product, reason is it is very easy to install, no hassles. hard water is a big problem, we wanted a solution but not a salt based softner@\"</p>\n                </div>\n                <div class=\"tr-author-info\">\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/OBJECTS.svg?v=1722326122\" width=\"45px\" height=\"45px\">\n                    <span>Mrs. Pragati Choksi</span>\n                </div>\n            </div>\n            <div class=\"tr-slide\">\n                <div class=\"tr-content\">\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_40.svg?v=1722325727\" width=\"50px\" height=\"50px\">\n                    <p>\"We absolutely loved Scale-O. Very compact and easy to install design. We found it really effective and could avoid the hassle and cumbersome process of conventional plant installation.\"</p>\n                </div>\n                <div class=\"tr-author-info\">\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/dvefgsdef.svg?v=1722326122\" width=\"45px\" height=\"45px\">\n                    <span>Dr. Gaurav Kharana</span>\n                </div>\n            </div>\n            <div class=\"tr-slide\">\n                <div class=\"tr-content\">\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_40.svg?v=1722325727\" width=\"50px\" height=\"50px\">\n                    <p>\"The product is really good, and just one day post installation we can see the change in quality of water. good work!\"</p>\n                </div>\n                <div class=\"tr-author-info\">\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/ddsgege.svg?v=1722326122\" width=\"45px\" height=\"45px\">\n                    <span>Ms. Avani Nathwani</span>\n                </div>\n            </div>\n            <div class=\"tr-slide\">\n                <div class=\"tr-content\">\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_40.svg?v=1722325727\" width=\"50px\" height=\"50px\">\n                    <p>\"Good concept, as we are facing problems due to hard water. Easy installation and friendly customer service!\"</p>\n                </div>\n                <div class=\"tr-author-info\">\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/sfawff.svg?v=1722326122\" width=\"45px\" height=\"45px\">\n                    <span>Mrs. Prabha Harwani</span>\n                </div>\n            </div>\n        </div>\n        <div class=\"tr-slider2\">\n            <div class=\"tr-slide\">\n                <div class=\"tr-content\">\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_40.svg?v=1722325727\" width=\"50px\" height=\"50px\">\n                    <p>\"Scale-O is a very innovative product. I'm very happy with the product, reason is it is very easy to install, no hassles. hard water is a big problem, we wanted a solution but not a salt based softner@\"</p>\n                </div>\n                <div class=\"tr-author-info\">\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/OBJECTS.svg?v=1722326122\" width=\"45px\" height=\"45px\">\n                    <span>Mrs. Pragati Choksi</span>\n                </div>\n            </div>\n            <div class=\"tr-slide\">\n                <div class=\"tr-content\">\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_40.svg?v=1722325727\" width=\"50px\" height=\"50px\">\n                    <p>\"We absolutely loved Scale-O. Very compact and easy to install design. We found it really effective and could avoid the hassle and cumbersome process of conventional plant installation.\"</p>\n                </div>\n                <div class=\"tr-author-info\">\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/dvefgsdef.svg?v=1722326122\" width=\"45px\" height=\"45px\">\n                    <span>Dr. Gaurav Kharana</span>\n                </div>\n            </div>\n            <div class=\"tr-slide\">\n                <div class=\"tr-content\">\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_40.svg?v=1722325727\" width=\"50px\" height=\"50px\">\n                    <p>\"The product is really good, and just one day post installation we can see the change in quality of water. good work!\"</p>\n                </div>\n                <div class=\"tr-author-info\">\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/ddsgege.svg?v=1722326122\" width=\"45px\" height=\"45px\">\n                    <span>Ms. Avani Nathwani</span>\n                </div>\n            </div>\n            <div class=\"tr-slide\">\n                <div class=\"tr-content\">\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_40.svg?v=1722325727\" width=\"50px\" height=\"50px\">\n                    <p>\"Good concept, as we are facing problems due to hard water. Easy installation and friendly customer service!\"</p>\n                </div>\n                <div class=\"tr-author-info\">\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/sfawff.svg?v=1722326122\" width=\"45px\" height=\"45px\">\n                    <span>Mrs. Prabha Harwani</span>\n                </div>\n            </div>\n            <div class=\"tr-slide\">\n                <div class=\"tr-content\">\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_40.svg?v=1722325727\" width=\"50px\" height=\"50px\">\n                    <p>\"Scale-O is a very innovative product. I'm very happy with the product, reason is it is very easy to install, no hassles. hard water is a big problem, we wanted a solution but not a salt based softner@\"</p>\n                </div>\n                <div class=\"tr-author-info\">\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/OBJECTS.svg?v=1722326122\" width=\"45px\" height=\"45px\">\n                    <span>Mrs. Pragati Choksi</span>\n                </div>\n            </div>\n            <div class=\"tr-slide\">\n                <div class=\"tr-content\">\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_40.svg?v=1722325727\" width=\"50px\" height=\"50px\">\n                    <p>\"We absolutely loved Scale-O. Very compact and easy to install design. We found it really effective and could avoid the hassle and cumbersome process of conventional plant installation.\"</p>\n                </div>\n                <div class=\"tr-author-info\">\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/dvefgsdef.svg?v=1722326122\" width=\"45px\" height=\"45px\">\n                    <span>Dr. Gaurav Kharana</span>\n                </div>\n            </div>\n            <div class=\"tr-slide\">\n                <div class=\"tr-content\">\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_40.svg?v=1722325727\" width=\"50px\" height=\"50px\">\n                    <p>\"The product is really good, and just one day post installation we can see the change in quality of water. good work!\"</p>\n                </div>\n                <div class=\"tr-author-info\">\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/ddsgege.svg?v=1722326122\" width=\"45px\" height=\"45px\">\n                    <span>Ms. Avani Nathwani</span>\n                </div>\n            </div>\n            <div class=\"tr-slide\">\n                <div class=\"tr-content\">\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_40.svg?v=1722325727\" width=\"50px\" height=\"50px\">\n                    <p>\"Good concept, as we are facing problems due to hard water. Easy installation and friendly customer service!\"</p>\n                </div>\n                <div class=\"tr-author-info\">\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/sfawff.svg?v=1722326122\" width=\"45px\" height=\"45px\">\n                    <span>Mrs. Prabha Harwani</span>\n                </div>\n            </div>\n        </div>\n    </div>\n            \n    </div>\n    \n    <script>\n    $(document).ready(function(){\n    var $slider1 = $('.tr-slider');\n    var $slider2 = $('.tr-slider2');\n    \n    $slider1.slick({\n        slidesToShow: 4,\n        slidesToScroll: 1,\n        arrows: true,\n        autoplay: true,\n        autoplaySpeed: 1500,\n        responsive: [\n            {\n                breakpoint: 680,\n                settings: {\n                    slidesToShow: 1,\n                    slidesToScroll: 1\n                }\n            },\n            {\n                breakpoint: 768,\n                settings: {\n                    slidesToShow: 2,\n                    slidesToScroll: 1\n                }\n            },\n            {\n                breakpoint: 1024,\n                settings: {\n                    slidesToShow: 3,\n                    slidesToScroll: 1\n                }\n            }\n        ]\n    });\n    $slider2.slick({\n        slidesToShow: 4,\n        slidesToScroll: 1,\n        arrows: false,\n        autoplay: true,\n        autoplaySpeed: 1500,\n        responsive: [\n            {\n                breakpoint: 680,\n                settings: {\n                    slidesToShow: 1,\n                    slidesToScroll: 1\n                }\n            },\n            {\n                breakpoint: 768,\n                settings: {\n                    slidesToShow: 2,\n                    slidesToScroll: 1\n                }\n            },\n            {\n                breakpoint: 1024,\n                settings: {\n                    slidesToShow: 3,\n                    slidesToScroll: 1\n                }\n            }\n        ]\n    });\n    $('.slick-prev').on('click', function() {\n        $slider1.slick('slickPrev');\n        $slider2.slick('slickPrev');\n    });\n    $('.slick-next').on('click', function() {\n        $slider1.slick('slickNext');\n        $slider2.slick('slickNext');\n    });\n    });\n    </script>",
+        "custom_class": ""
+      }
+    },
+    "custom_content_7qh3m3": {
+      "type": "custom-content",
+      "blocks": {
+        "image_ewgbUw": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Group_44_6dd7f55a-7c3f-4a7b-b8f2-0025c0a01ae1.png",
+            "link": "",
+            "width": "100%",
+            "alignment": "center",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "image_ewgbUw"
+      ],
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "header_alignment": "center",
+        "container": "w-full",
+        "color_scheme": "scheme-cee058e4-58e3-46aa-9af9-219dadc79066",
+        "content_color_scheme": "scheme-cee058e4-58e3-46aa-9af9-219dadc79066",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "gap": 30,
+        "gap_mobile": 16,
+        "use_scroll_mobile": false,
+        "padding_top": 100,
+        "padding_bottom": 0,
+        "custom_class": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "custom_content_bkWrxF",
+    "rich_text_dhE6Mb",
+    "custom_liquid_x4KAWh",
+    "custom_content_7qh3m3"
+  ]
+}

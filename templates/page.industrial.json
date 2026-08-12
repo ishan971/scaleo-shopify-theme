@@ -1,0 +1,182 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "page",
+      "disabled": true,
+      "settings": {}
+    },
+    "custom_content_KxB6Yh": {
+      "type": "custom-content",
+      "blocks": {
+        "image_fUiAGh": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Industrial.png",
+            "link": "",
+            "width": "100%",
+            "alignment": "center",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "image_fUiAGh"
+      ],
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "header_alignment": "center",
+        "container": "w-full",
+        "color_scheme": "",
+        "content_color_scheme": "",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "gap": 30,
+        "gap_mobile": 16,
+        "use_scroll_mobile": false,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "custom_class": ""
+      }
+    },
+    "rich_text_8KrCFt": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_3a4GUd": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "SHOP BY PURPOSE"
+          }
+        },
+        "heading_YhqpUi": {
+          "type": "heading",
+          "settings": {
+            "heading": "Industrial - For Factories, Warehouses,\nQuarters",
+            "heading_size": "h2"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_3a4GUd",
+        "heading_YhqpUi"
+      ],
+      "settings": {
+        "container": "container",
+        "color_scheme": "",
+        "content_alignment": "left",
+        "padding_top": 100,
+        "padding_bottom": 0,
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "custom_content_DRaBcM": {
+      "type": "custom-content",
+      "blocks": {
+        "liquid_M3k7TE": {
+          "type": "liquid",
+          "settings": {
+            "custom_liquid": "<style>\n  .required {\n    color: red;\n    margin-left: 5px;\n  }\n\n  p {\n    color: #0c7fdf;\n    font-size: 15px;\n    font-weight: 500;\n    text-transform: uppercase;\n  }\n\n  .form-container {\n    margin-top: 50px;\n    max-width: 1500px;\n    width: 100%;\n    justify-content: center;\n  }\n\n  .form-inputs {\n    display: flex;\n    width: 100%;\n    flex-direction: row;\n    gap: 45px;\n  }\n\n  .form-left-con,\n  .form-right-con {\n    display: flex;\n    flex-direction: column;\n    gap: 30px;\n    width: 50%;\n  }\n\n  .form-group {\n    display: flex;\n    flex-wrap: wrap;\n    width: 100%;\n    position: relative;\n  }\n\n  .form-group label {\n    font-size: 16px;\n    flex: 1 1 100%;\n    margin-bottom: 5px;\n    font-weight: bold;\n  }\n\n  .form-group2 {\n    display: flex;\n    justify-content: space-between;\n    gap: 15px;\n  }\n\n  .form-group input,\n  .form-group select {\n    padding: 15px;\n    border: none;\n    font-size: 18px;\n    width: 100%;\n    font-weight: 500;\n    border-radius: 10px;\n    background: #eeeeee;\n    color: gray;\n  }\n\n  .form-group select {\n    -webkit-appearance: none; /* Remove default arrow in WebKit browsers */\n    -moz-appearance: none; /* Remove default arrow in Firefox */\n    appearance: none; /* Remove default arrow in other browsers */\n    background: #eeeeee; /* Background color of the select box */\n    background-image: url(\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Group.svg?v=1722926013\"); /* Custom arrow */\n    background-repeat: no-repeat;\n    background-position: right 10px center; /* Position of the arrow */\n    background-size: 24px; /* Size of the arrow */\n  }\n\n  .form-group input::placeholder {\n    color: #858585;\n  }\n\n  .submit-btn {\n    width: 195px;\n    padding: 15px 20px;\n    margin-top: 40px;\n    background-color: #007bff;\n    border: none;\n    color: white;\n    font-size: 16px;\n    cursor: pointer;\n    border-radius: 100px;\n  }\n\n  .submit-btn:hover {\n    background-color: #4d4d4d;\n  }\n\n  .error {\n    color: red;\n    font-size: 14px;\n  }\n\n  @media (max-width: 767px) {\n    .form-group2 {\n      flex-direction: column;\n      gap: 30px;\n    }\n\n    .form-inputs {\n      width: 100%;\n      flex-direction: column;\n      gap: 30px;\n    }\n\n    .form-left-con,\n    .form-right-con {\n      width: 100%;\n      gap: 30px;\n    }\n\n    h2 {\n      font-size: 28px;\n    }\n  }\n</style>\n\n<div class=\"form-container\">\n  <form\n    class=\"form-main\"\n    action=\"https://formspree.io/f/mblrobee\"\n    method=\"post\"\n    id=\"waterForm\"\n  >\n    <div class=\"form-inputs\">\n      <div class=\"form-left-con\">\n        <div class=\"form-group\">\n          <label for=\"name\">Name:<span class=\"required\">*</span></label>\n          <input type=\"text\" name=\"Name\" id=\"name\" placeholder=\"Enter your name\" />\n          <span id=\"error_name\" class=\"error\"></span>\n        </div>\n        <div class=\"form-group\">\n          <label for=\"email\">E-mail:<span class=\"required\">*</span></label>\n          <input\n            type=\"email\"\n            name=\"Email\"\n            id=\"email\"\n            placeholder=\"Enter your email\"\n          />\n          <span id=\"error_email\" class=\"error\"></span>\n        </div>\n        <div class=\"form-group\">\n          <label for=\"contact\"\n            >Contact No.:<span class=\"required\">*</span></label\n          >\n          <input\n            type=\"number\"\n            name=\"Contact No\"\n            id=\"contact\"\n            placeholder=\"+91 | XXXXXX XXXXX\"\n          />\n          <span id=\"error_contact\" class=\"error\"></span>\n        </div>\n        <div class=\"form-group\">\n          <label for=\"address\">Address:<span class=\"required\">*</span></label>\n          <input\n            type=\"text\"\n            name=\"Address\"\n            id=\"address\"\n            placeholder=\"Address\"\n          />\n          <span id=\"error_address\" class=\"error\"></span>\n        </div>\n\n        <div class=\"form-group2\">\n          <div class=\"form-group\">\n            <label for=\"state\">State:<span class=\"required\">*</span></label>\n            <select id=\"state\" name=\"State\" onchange=\"fetchCities()\">\n              <option value=\"default\">Select State</option>\n            </select>\n            <span id=\"error_state\" class=\"error\"></span>\n          </div>\n          <div class=\"form-group\">\n            <label for=\"city\">City/town:<span class=\"required\">*</span></label>\n            <select id=\"city\" name=\"City\">\n              <option value=\"default\">Select City</option>\n            </select>\n            <span id=\"error_city\" class=\"error\"></span>\n          </div>\n          <div class=\"form-group\">\n            <label for=\"pincode\"\n              >Pin code:<span class=\"required\">*</span></label\n            >\n            <input\n              type=\"text\"\n              name=\"Pincode\"\n              id=\"pincode\"\n              placeholder=\"123456\"\n            />\n            <span id=\"error_pincode\" class=\"error\"></span>\n          </div>\n        </div>\n      </div>\n      <div class=\"form-right-con\">\n        <div class=\"form-group\">\n          <label for=\"property-type\"\n            >Type of Property:<span class=\"required\">*</span></label\n          >\n          <select id=\"property-type\" name=\"Type of Property\">\n            <option value=\"default\">Select Property Type</option>\n            <option value=\"For Industry/Factory\">For Industry/Factory</option>\n            <option value=\"For Warehouse/Stockyard\">\n              For Warehouse/Stockyard\n            </option>\n          </select>\n          <span id=\"error_property_type\" class=\"error\"></span>\n        </div>\n        <div class=\"form-group\">\n          <label for=\"overhead-tank\"\n            >Overhead Water Storage Tank Capacity:<span class=\"required\"\n              >*</span\n            ></label\n          >\n          <select\n            id=\"overhead-tank\"\n            name=\"Overhead Water Storage Tank Capacity\"\n          >\n            <option value=\"default\">Select Capacity</option>\n            <option value=\"10,000 L\">10,000 L</option>\n            <option value=\"15,000 L\">15,000 L</option>\n            <option value=\"20,000 L\">20,000 L</option>\n            <option value=\"25,000 L\">25,000 L</option>\n            <option value=\"30,000 L\">30,000 L</option>\n            <option value=\"50,000 L\">50,000 L</option>\n          </select>\n          <span id=\"error_overhead_tank\" class=\"error\"></span>\n        </div>\n        <div class=\"form-group\">\n          <label for=\"underground-tank\"\n            >Underground Water Storage Tank Capacity: (Common Society Tank)<span\n              class=\"required\"\n              >*</span\n            ></label\n          >\n          <select\n            id=\"underground-tank\"\n            name=\"Underground Water Storage Tank Capacity\"\n          >\n            <option value=\"default\">Select Capacity</option>\n            <option value=\"50,000 L\">50,000 L</option>\n            <option value=\"1,00,000 L\">1,00,000 L</option>\n            <option value=\"1,50,000 L\">1,50,000 L</option>\n            <option value=\"2,00,000 L\">2,00,000 L</option>\n            <option value=\"3,00,000 L & Above\">3,00,000 L & Above</option>\n          </select>\n          <span id=\"error_underground_tank\" class=\"error\"></span>\n        </div>\n        <div class=\"form-group\">\n          <label for=\"water-usage\"\n            >Average Daily Water Usage:<span class=\"required\">*</span></label\n          >\n          <select id=\"water-usage\" name=\"Average Daily Water Usage\">\n            <option value=\"default\">Select Usage</option>\n            <option value=\"5000 L/d to 10,000 L/d\">\n              5000 L/d to 10,000 L/d\n            </option>\n            <option value=\"10,000 L/d to 20,000 L/d\">\n              10,000 L/d to 20,000 L/d\n            </option>\n            <option value=\"15,000 L/d to 30,000 L/d\">\n              15,000 L/d to 30,000 L/d\n            </option>\n            <option value=\"25,000 L/d to 50,000 L/d\">\n              25,000 L/d to 50,000 L/d\n            </option>\n            <option value=\"50,000 L/d to 1,00,000 L/d\">\n              50,000 L/d to 1,00,000 L/d\n            </option>\n            <option value=\"1,00,000 L/d to 1,50,000 L/d\">\n              1,00,000 L/d to 1,50,000 L/d\n            </option>\n            <option value=\"1,50,000 L/d to 2,00,000 L/d\">\n              1,50,000 L/d to 2,00,000 L/d\n            </option>\n            <option value=\"3,00,000 L/d & Above\">3,00,000 L/d & Above</option>\n          </select>\n          <span id=\"error_water_usage\" class=\"error\"></span>\n        </div>\n      </div>\n    </div>\n    <button type=\"submit\" class=\"submit-btn\">Submit</button>\n  </form>\n</div>\n\n<script>\n  let token;\n  const url = \"https://www.universal-tutorial.com/api/getaccesstoken\";\n\n  fetch(url, {\n    method: \"GET\",\n    headers: {\n      Accept: \"application/json\",\n      \"api-token\":\n        \"EWxxAo1zZSIBtaBaOskfGxuYwwrW7jQnfosSNVe54KvKbVLQnb3m47vqk79Ow163ZO8\",\n      \"user-email\": \"ketan.tupple@gmail.com\",\n    },\n  })\n    .then((response) => response.json())\n    .then((data) => {\n      token = data.auth_token;\n\n      fetch(\"https://www.universal-tutorial.com/api/states/India\", {\n        method: \"GET\",\n        headers: {\n          Authorization: \"Bearer \" + data.auth_token,\n          Accept: \"application/json\",\n        },\n      })\n        .then((response) => response.json())\n        .then((data) => {\n          const stateSelect = document.getElementById(\"state\");\n\n          // Populate states dropdown\n          data.forEach((state) => {\n            let option = document.createElement(\"option\");\n            option.textContent = state.state_name;\n            option.value = state.state_name; // You can use state ID or any unique identifier here\n            stateSelect.appendChild(option);\n          });\n        })\n        .catch((error) => {\n          console.error(\"Error fetching data:\", error);\n        });\n    })\n    .catch((error) => {\n      console.error(\"Error fetching data:\", error);\n    });\n\n  async function fetchCities() {\n    const selectedState = document.getElementById(\"state\").value;\n\n    if (selectedState === \"default\") {\n      return; // No state selected, do nothing\n    }\n    // Clear existing cities in the dropdown\n    const citySelect = document.getElementById(\"city\");\n    citySelect.innerHTML = \"\"; // Clear existing options\n\n    // Add default \"Select City\" option\n    let defaultOption = document.createElement(\"option\");\n    defaultOption.textContent = \"Select City\";\n    defaultOption.value = \"default\";\n    citySelect.appendChild(defaultOption);\n\n    fetch(\"https://www.universal-tutorial.com/api/cities/\" + selectedState, {\n      method: \"GET\",\n      headers: {\n        Authorization: \"Bearer \" + token,\n        Accept: \"application/json\",\n      },\n    })\n      .then((response) => response.json())\n      .then((data) => {\n        const citySelect = document.getElementById(\"city\");\n\n        // Populate states dropdown\n        data.forEach((city) => {\n          let option = document.createElement(\"option\");\n          option.textContent = city.city_name;\n          option.value = city.city_name;\n          citySelect.appendChild(option);\n        });\n      })\n      .catch((error) => {\n        console.error(\"Error fetching data:\", error);\n      });\n  }\n\n  document\n    .getElementById(\"waterForm\")\n    .addEventListener(\"submit\", function (event) {\n      event.preventDefault();\n\n      let isValid = true;\n\n      const fields = [\n        { id: \"name\", errorId: \"error_name\", message: \"Name is required\" },\n        {\n          id: \"contact\",\n          errorId: \"error_contact\",\n          message: \"Contact is required\",\n        },\n        {\n          id: \"state\",\n          errorId: \"error_state\",\n          message: \"State is required\",\n          isSelect: true,\n        },\n        {\n          id: \"city\",\n          errorId: \"error_city\",\n          message: \"City is required\",\n          isSelect: true,\n        },\n        { id: \"email\", errorId: \"error_email\", message: \"Email is required\" },\n        {\n          id: \"address\",\n          errorId: \"error_address\",\n          message: \"Address is required\",\n        },\n        {\n          id: \"pincode\",\n          errorId: \"error_pincode\",\n          message: \"Pincode is required\",\n        },\n        {\n          id: \"property-type\",\n          errorId: \"error_property_type\",\n          message: \"Property Type is required\",\n          isSelect: true,\n        },\n        {\n          id: \"overhead-tank\",\n          errorId: \"error_overhead_tank\",\n          message: \"Overhead Tank Capacity is required\",\n          isSelect: true,\n        },\n        {\n          id: \"underground-tank\",\n          errorId: \"error_underground_tank\",\n          message: \"Underground Tank Capacity is required\",\n          isSelect: true,\n        },\n        {\n          id: \"water-usage\",\n          errorId: \"error_water_usage\",\n          message: \"Water Usage is required\",\n          isSelect: true,\n        },\n      ];\n\n      fields.forEach((field) => {\n        const input = document.getElementById(field.id);\n        const error = document.getElementById(field.errorId);\n\n        if (field.isSelect) {\n          if (input.value === \"default\") {\n            error.textContent = field.message;\n            isValid = false;\n          } else {\n            error.textContent = \"\";\n          }\n        } else {\n          if (!input.value.trim()) {\n            error.textContent = field.message;\n            isValid = false;\n          } else {\n            error.textContent = \"\";\n          }\n        }\n      });\n\n      if (isValid) {\n        document.getElementById(\"waterForm\").submit();\n      }\n    });\n</script>",
+            "width": "100%",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "liquid_M3k7TE"
+      ],
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "header_alignment": "center",
+        "container": "container",
+        "color_scheme": "",
+        "content_color_scheme": "",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "gap": 30,
+        "gap_mobile": 16,
+        "use_scroll_mobile": false,
+        "padding_top": 0,
+        "padding_bottom": 100,
+        "custom_class": ""
+      }
+    },
+    "custom_code_VbYU9Q": {
+      "type": "custom-code",
+      "custom_css": [],
+      "settings": {
+        "custom_css": "#MainContent {\n  background-color: white;\n}"
+      }
+    },
+    "custom_liquid_Ah3hqY": {
+      "type": "custom-liquid",
+      "disabled": true,
+      "settings": {
+        "custom_liquid": "<div\n  id=\"shopify-section-template--15926225305702__custom_content_4Xx9cx\"\n  class=\"shopify-section shopify-section-custom-content\"\n>\n  <link\n    href=\"//scale-o.com/cdn/shop/t/2/assets/custom-content.css?v=143733402900438853091720499194\"\n    rel=\"stylesheet\"\n    type=\"text/css\"\n    media=\"all\"\n  />\n\n  <style>\n    #m-custom-template--15926225305702__custom_content_4Xx9cx {\n      --column-gap: 30px;\n      --column-gap-mobile: 16px;\n      --section-padding-top: 90px;\n      --section-padding-bottom: 90px;\n    }\n  </style>\n\n  <div\n    id=\"m-custom-template--15926225305702__custom_content_4Xx9cx\"\n    class=\"m-section m-custom-content m-gradient m-color-scheme-cee058e4-58e3-46aa-9af9-219dadc79066\"\n    data-section-type=\"custom-content\"\n    data-section-id=\"template--15926225305702__custom_content_4Xx9cx\"\n  >\n    <div class=\"container-fluid m-section-my m-section-py\">\n      <div\n        class=\"m-gradient m-color-scheme-cee058e4-58e3-46aa-9af9-219dadc79066\"\n      >\n        <div class=\"m-custom-content__wrapper m:flex m:flex-wrap\">\n          <div\n            id=\"m-custom__block--image_AtiaiN\"\n            class=\"m:column m:display-flex m-custom-content__block m-custom-content__block-image lg:m:w-1/2 m:w-full m:items-center\"\n          >\n            <div class=\"m-custom-content__block-inner m:w-full\">\n              <div\n                class=\"m:w-full m:block m-scroll-trigger animate--fade-in-up\"\n                data-cascade=\"\"\n                style=\"--animation-order: 2\"\n              >\n                <div>\n                  <responsive-image\n                    class=\"m-image m-image-loaded\"\n                    style=\"--aspect-ratio: 0.8446372239747634\"\n                    intersecting=\"true\"\n                  >\n                    <img\n                      srcset=\"\n                        //scale-o.com/cdn/shop/files/100_1_392eddc2-b4e0-4461-b5d4-fd0767d751e3.png?v=1722504424&amp;width=165   165w,\n                        //scale-o.com/cdn/shop/files/100_1_392eddc2-b4e0-4461-b5d4-fd0767d751e3.png?v=1722504424&amp;width=360   360w,\n                        //scale-o.com/cdn/shop/files/100_1_392eddc2-b4e0-4461-b5d4-fd0767d751e3.png?v=1722504424&amp;width=533   533w,\n                        //scale-o.com/cdn/shop/files/100_1_392eddc2-b4e0-4461-b5d4-fd0767d751e3.png?v=1722504424&amp;width=720   720w,\n                        //scale-o.com/cdn/shop/files/100_1_392eddc2-b4e0-4461-b5d4-fd0767d751e3.png?v=1722504424&amp;width=940   940w,\n                        //scale-o.com/cdn/shop/files/100_1_392eddc2-b4e0-4461-b5d4-fd0767d751e3.png?v=1722504424&amp;width=1066 1066w,\n                        //scale-o.com/cdn/shop/files/100_1_392eddc2-b4e0-4461-b5d4-fd0767d751e3.png?v=1722504424                1071w\n                      \"\n                      src=\"https://scale-o.com/cdn/shop/files/100_1_392eddc2-b4e0-4461-b5d4-fd0767d751e3.png?v=1722504424&amp;width=360\"\n                      sizes=\"408px\"\n                      alt=\"\"\n                      loading=\"lazy\"\n                      class=\"\"\n                      width=\"408\"\n                      height=\"483\"\n                    />\n\n                    <noscript>\n                      <img\n                        class=\"\"\n                        loading=\"lazy\"\n                        width=\"\"\n                        height=\"\"\n                        src=\"//scale-o.com/cdn/shop/files/100_1_392eddc2-b4e0-4461-b5d4-fd0767d751e3.png?crop=center&height=2048&v=1722504424&width=2048\"\n                        alt=\"\"\n                      />\n                    </noscript>\n                  </responsive-image>\n                </div>\n              </div>\n            </div>\n          </div>\n\n          <div\n            id=\"m-custom__block--liquid_qRKPfU\"\n            class=\"m:column m:display-flex m-custom-content__block m-custom-content__block-liquid lg:m:w-1/2 m:w-full\"\n          >\n            <div class=\"m-custom-content__block-inner m:w-full\">\n              <style>\n                .pricing-section3 {\n                  background-color: #f5f7ff;\n                  padding: 2rem;\n                  border-radius: 8px;\n                  /* box-shadow: 0 2px 10px rgba(0,0,0,0.1);\n        max-width: 600px;\n        width: 100%; */\n                }\n\n                .content h5 {\n                  color: #73c2fb;\n                  font-size: 14px;\n                  margin-bottom: 1rem;\n                }\n\n                .content h1 {\n                  color: #333;\n                  font-size: 32px;\n\n                  margin-bottom: 0.5rem;\n                }\n\n                .content p {\n                  color: #666;\n                  font-size: 14px;\n                  margin-bottom: 2rem;\n                }\n\n                .pricing-table {\n                  margin: auto;\n                  border-collapse: separate;\n                  border-spacing: 0;\n                  overflow: hidden;\n                  border-radius: 10px;\n                  border: 1px solid #ddd;\n                  width: 100%;\n                  background-color: #f9f9f9;\n                }\n                .pricing-table td {\n                  padding: 15px !important;\n                  text-align: center;\n                  border: 1px solid #ddd;\n                }\n\n                .pricing-table th {\n                  padding: 15px;\n                  text-align: center;\n                }\n\n                .pricing-table th {\n                  background-color: #333;\n                  color: white;\n                }\n                .pricing-table td {\n                  background-color: #f9f9f9;\n                }\n                .pricing-table .plan2 {\n                  text-align: center;\n                  padding: 15px !important;\n                }\n                .pricing-table .price {\n                  background-color: #2a6ab2;\n                  color: white;\n                  border-radius: 50px;\n                  padding: 10px 20px;\n                  display: inline-block;\n                }\n\n                .pricing-table .save {\n                  background-color: #ffb802;\n                  color: black;\n                  border-radius: 50px;\n                  padding: 10px 20px;\n                  display: inline-block;\n                }\n\n                .highlight {\n                  color: #00aaff;\n                }\n                .pricing-table tr:first-child th:first-child {\n                  border-top-left-radius: 10px;\n                }\n                .pricing-table tr:first-child th:last-child {\n                  border-top-right-radius: 10px;\n                }\n                .pricing-table tr:last-child td:first-child {\n                  border-bottom-left-radius: 10px;\n                }\n                .pricing-table tr:last-child td:last-child {\n                  border-bottom-right-radius: 10px;\n                }\n              </style>\n\n              <div>\n                <section class=\"pricing-section3\">\n                  <div class=\"content\">\n                    <h5>SUBSCRIPTION PLANS</h5>\n                    <h1>Scale-O Mini Water Softener</h1>\n                    <p>\n                      Suitable for 500 L Storage Tanks || Daily Usage of 500 L/d\n                      || Upto 3 People in the House\n                    </p>\n                    <table class=\"pricing-table\">\n                      <tbody>\n                        <tr>\n                          <th>Plans</th>\n                          <th>Prices</th>\n                          <th>Savings</th>\n                        </tr>\n                        <tr>\n                          <td class=\"plan2\">\n                            6 Months<span class=\"highlight\"> - Basic Plan</span>\n                          </td>\n                          <td>\n                            <a\n                              href=\"https://scale-o.com/products/scale-o-mini\"\n                              previewlistener=\"true\"\n                              ><span class=\"price\">INR 2500/-</span></a\n                            >\n                          </td>\n                          <td><span class=\"save\"> 0 </span></td>\n                        </tr>\n                        <tr>\n                          <td class=\"plan2\">1 Year</td>\n                          <td>\n                            <a\n                              href=\"https://scale-o.com/products/scale-o-mini?variant=41864467775590\"\n                              previewlistener=\"true\"\n                              ><span class=\"price\">INR 4000/-</span></a\n                            >\n                          </td>\n                          <td><span class=\"save\">₹ 1000/-</span></td>\n                        </tr>\n                        <tr>\n                          <td class=\"plan2\">\n                            3 Year<span class=\"highlight\"> - Popular Plan</span>\n                          </td>\n                          <td>\n                            <a\n                              href=\"https://scale-o.com/products/scale-o-mini?variant=41864467808358\"\n                              previewlistener=\"true\"\n                              ><span class=\"price\">INR 10,000/-</span></a\n                            >\n                          </td>\n                          <td><span class=\"save\">₹ 5000/-</span></td>\n                        </tr>\n                        <tr>\n                          <td class=\"plan2\">5 Year</td>\n                          <td>\n                            <a\n                              href=\"https://scale-o.com/products/scale-o-mini?variant=41864467841126\"\n                              previewlistener=\"true\"\n                              ><span class=\"price\">INR 15,000/-</span></a\n                            >\n                          </td>\n                          <td><span class=\"save\">₹ 10,000/-</span></td>\n                        </tr>\n                      </tbody>\n                    </table>\n                  </div>\n                </section>\n              </div>\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>",
+        "custom_class": ""
+      }
+    },
+    "custom_content_hbM3WC": {
+      "type": "custom-content",
+      "blocks": {
+        "image_kmyrNB": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Group_44_6dd7f55a-7c3f-4a7b-b8f2-0025c0a01ae1.png",
+            "link": "",
+            "width": "100%",
+            "alignment": "center",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "image_kmyrNB"
+      ],
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "header_alignment": "center",
+        "container": "w-full",
+        "color_scheme": "default",
+        "content_color_scheme": "default",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "gap": 30,
+        "gap_mobile": 16,
+        "use_scroll_mobile": false,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "custom_class": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "custom_content_KxB6Yh",
+    "rich_text_8KrCFt",
+    "custom_content_DRaBcM",
+    "custom_code_VbYU9Q",
+    "custom_liquid_Ah3hqY",
+    "custom_content_hbM3WC"
+  ]
+}

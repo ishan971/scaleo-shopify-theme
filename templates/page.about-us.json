@@ -1,0 +1,494 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "page-about-us",
+      "settings": {}
+    },
+    "custom_content_H3N3x8": {
+      "type": "custom-content",
+      "blocks": {
+        "image_PCt3RV": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Frame_1166_f2225413-9be1-4a2e-ba37-23e0962d13a7.jpg",
+            "link": "",
+            "width": "100%",
+            "alignment": "center",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "image_PCt3RV"
+      ],
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "header_alignment": "center",
+        "container": "w-full",
+        "color_scheme": "",
+        "content_color_scheme": "",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "gap": 30,
+        "gap_mobile": 16,
+        "use_scroll_mobile": false,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "custom_class": ""
+      }
+    },
+    "custom_content_RfNGRd": {
+      "type": "custom-content",
+      "blocks": {
+        "image_TGij4e": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_17878_d274675e-9119-46c1-a25e-3529da9ecdd7.png",
+            "link": "",
+            "width": "50%",
+            "alignment": "center",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        },
+        "liquid_CEgcGa": {
+          "type": "liquid",
+          "settings": {
+            "custom_liquid": "<style>\n        \n        .mission-section {\n            text-align: left;\n            padding: 50px 20px;\n            background-color: #fff;\n        }\n        .mission-section h6 {\n            color: #007bff;\n            margin-bottom: 20px;\n        }\n        .mission-section p {\n            font-size: 18px;\n            margin-bottom: 40px;\n        }\n        .mission-item {\n            display: flex;\n            align-items: flex-start;\n            margin-bottom: 30px;\n        }\n        .mission-item img {\n            margin-right: 20px;\n        }\n        .mission-item h2 {\n            margin: 0;\n            font-size: 24px;\n            color: #333;\n        }\n        .mission-item p {\n            margin: 10px 0 0;\n            font-size: 16px;\n            color: #666;\n        }\n    </style>\n\n    <div class=\"mission-section\">\n        <h6>OUR MISSION</h6>\n        <p>Join Panthera in its mission to revolutionize water quality and experience the difference that innovations can create!</p>\n        \n        <div class=\"mission-item\">\n            <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_41_1d782729-0edf-4f44-86a0-eed78b6e0dce.png?v=1721282040\" alt=\"Creativity Icon\" width=\"50\" height=\"50\">\n            <div>\n                <h2>Creativity</h2>\n                <p>Panthera has become synonymous with cutting-edge technology and forward-thinking solutions. We have spearheaded the development of revolutionary products that not only soften water but also protect the health of our consumers while retaining essential minerals in the water.</p>\n            </div>\n        </div>\n        \n        <div class=\"mission-item\">\n            <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_42_ef8670d2-04da-4899-998d-e6700085a832.png?v=1721282040\" alt=\"Sustainability Icon\" width=\"50\" height=\"50\">\n            <div>\n                <h2>Sustainability</h2>\n                <p>Panthera's products are designed and manufactured with sustainability in mind, utilizing eco-friendly materials and processes to minimize carbon footprint and preserve natural resources.</p>\n            </div>\n        </div>\n        \n        <div class=\"mission-item\">\n            <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_42-1_3e94c957-8684-4719-9253-8152ea7a70c0.png?v=1721282041\" alt=\"Affordability Icon\" width=\"50\" height=\"50\">\n            <div>\n                <h2>Affordability</h2>\n                <p>Panthera's focus area has guided every decision and initiative to be customer-centric and considering the affordability and mass adoption in our economic plans.</p>\n            </div>\n        </div>\n    </div>",
+            "width": "50%",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "image_TGij4e",
+        "liquid_CEgcGa"
+      ],
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "header_alignment": "center",
+        "container": "container-fluid",
+        "color_scheme": "",
+        "content_color_scheme": "",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "gap": 30,
+        "gap_mobile": 16,
+        "use_scroll_mobile": false,
+        "padding_top": 100,
+        "padding_bottom": 100,
+        "custom_class": ""
+      }
+    },
+    "custom_content_DApbEH": {
+      "type": "custom-content",
+      "blocks": {
+        "text_gNHGeN": {
+          "type": "text",
+          "settings": {
+            "title": "Making India Water Positive!",
+            "subheading": "OUR VISION",
+            "text": "<p>Driven by a vision of a world where clean, soft water is accessible to all, Panthera was established in 2022 with a clear objective to develop innovative solutions that combat the effects of water hardness while promoting sustainability and environmental stewardship.</p><p>In an era where water quality is paramount, Panthera emerges as a pioneering force, dedicated to transforming the landscape of water treatment. With a focused mission to combat water scaling caused by hardness, Panthera stands at the forefront of innovation, offering unique solutions to soften water and enhance its quality.</p><p>At the heart of Panthera's ethos, lies an aim to improve the quality of life for its customers but also contributes to the preservation of our country’s precious resources. Our products are meticulously crafted to minimize environmental impact while maximizing performance, ensuring a harmonious balance between efficacy and eco-consciousness.</p><p>With a team of dedicated professionals, Panthera goes above and beyond to understand the unique needs of its clients, offering personalized solutions and unparalleled support every step of the way. Whether it's residential, commercial, or industrial applications, Panthera stands ready to deliver tailored solutions that exceed expectations.</p><p>In a world where water quality is non-negotiable, Panthera emerges as a beacon of innovation and integrity, driving positive change one drop at a time. With a steadfast focus on excellence, sustainability, and customer satisfaction, Panthera is not just a cleantech company but a catalyst for a brighter, cleaner future.</p>",
+            "width": "50%",
+            "alignment": "center",
+            "align_text": "left",
+            "text_size": "medium",
+            "text_color": "inherit",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "m-button--primary",
+            "button_size": "",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        },
+        "image_kYWjpi": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_17878_fa57f83f-fe13-49fc-8266-d14f40af40ab.png",
+            "link": "",
+            "width": "50%",
+            "alignment": "center",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "text_gNHGeN",
+        "image_kYWjpi"
+      ],
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "header_alignment": "center",
+        "container": "container",
+        "color_scheme": "scheme-cee058e4-58e3-46aa-9af9-219dadc79066",
+        "content_color_scheme": "scheme-cee058e4-58e3-46aa-9af9-219dadc79066",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "gap": 30,
+        "gap_mobile": 16,
+        "use_scroll_mobile": false,
+        "padding_top": 90,
+        "padding_bottom": 90,
+        "custom_class": ""
+      }
+    },
+    "custom_content_DK7AfY": {
+      "type": "custom-content",
+      "blocks": {
+        "image_H7TpFx": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_17878_286d53f2-1c52-4778-9f7f-e25d00d2d4ad.png",
+            "link": "",
+            "width": "50%",
+            "alignment": "center",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        },
+        "text_GQMryG": {
+          "type": "text",
+          "settings": {
+            "title": "Mr. Prasham Mehta",
+            "subheading": "OUR FOUNDER",
+            "text": "<h6>visionary leader and driving force behind Panthera, a pioneering company dedicated to revolutionizing water treatment and cleaning solutions. With a passion for innovation and a commitment to environmental sustainability, Prasham has built Panthera from the ground up, shaping it into a trusted name in the industry.</h6><h6>Prasham brings a wealth of expertise and experience to Panthera, with a Bachelors in Environmental Engineering & 1O year business experience in water treatment industry.</h6><h6>After graduating from LD College Of Engineering, Ahmedabad, back in 2014, he landed his first job with an MNC called Passavant Energy which had water treatment project running for end-user Ford Motors India at the manufacturing facility in Sanand, Gujarat. Post this, he served in different roles from Marketing to Proposals & Sales and worked his way to be promoted as a Business Development Director with Advent Envirocare Technology Pvt. Ltd.</h6><h6>From a rich experience in diverse fields such as engineering, project management,research and commercialization, and business development, it was finally the right time to start a venture which acknowledges the issue of water scaling caused by hardness and recognising the detrimental effects it has on individuals, communities and the environment.</h6>",
+            "width": "50%",
+            "alignment": "center",
+            "align_text": "left",
+            "text_size": "medium",
+            "text_color": "inherit",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "m-button--primary",
+            "button_size": "",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "image_H7TpFx",
+        "text_GQMryG"
+      ],
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "header_alignment": "center",
+        "container": "container",
+        "color_scheme": "default",
+        "content_color_scheme": "default",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "gap": 30,
+        "gap_mobile": 16,
+        "use_scroll_mobile": false,
+        "padding_top": 90,
+        "padding_bottom": 90,
+        "custom_class": ""
+      }
+    },
+    "image_with_text_Gx7RDm": {
+      "type": "image-with-text",
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "container": "container",
+        "color_scheme": "scheme-cee058e4-58e3-46aa-9af9-219dadc79066",
+        "item_gap": 40,
+        "item_gap_mobile": 4,
+        "layout": "left",
+        "image_column_size": "6",
+        "image_overlap": false,
+        "show_image_reverse": false,
+        "hover_effect": false,
+        "image_animation": "none",
+        "image": "shopify://shop_images/Rectangle_17880.png",
+        "link": "",
+        "link_2": "",
+        "second_image_offset_top": 10,
+        "title": "Idea & Eureka Moments",
+        "sub_title": "OUR STORY",
+        "text": "<p>The Founder and his family had moved into their new house just a couple of years ago, and they started seeing all new taps, bathroom fixtures and showers being choked of water supply and white stain formations on new utensils! Gradually the water heaters and washing machines got affected, and they were observing hard water problems everywhere. In spite of installing a new salt-based traditional water softener and being in water industry, they were still helpless with the existing technologies. </p><p>One fine day during Covid lockdown, when no manpower was available, the softener suddenly stopped working and water woes worsened. After getting on numerous video calls and working with our plumber and technician, we managed to just start the operations. This was the moment, he felt something radical was needed to solve hard water problems with an effective, convenient and sustainable solution which does not waste salt or water.</p><p>After months of R&D on water softening agents, having tested different water quality samples across the city, we witnessed initial results with some experiments. On repeated trials, we saw an emerging consistency trend and decided to design a prototype. We developed a concept which can directly purify the water at source, without the need of complex installation or after services.  Finally, the ‘Eureka’ moment arrived and we could use our product for longer durations and decided to launch the MVP in the market to see the validation from customers! This is how, Scale-O was born.</p>",
+        "text_size": "medium",
+        "content_alignment": "left",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "m-button--link",
+        "button_size": "",
+        "padding_top": 100,
+        "padding_bottom": 90,
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "brands_list_YnCpci": {
+      "type": "brands-list",
+      "blocks": {
+        "image_GHtDmj": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Frame_427319397.png",
+            "image_by_url": "",
+            "image_link": "",
+            "max_width": ""
+          }
+        },
+        "image_jahMUL": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Frame_427319398.png",
+            "image_by_url": "",
+            "image_link": "",
+            "max_width": ""
+          }
+        },
+        "image_WpatqN": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Frame_427319399.png",
+            "image_by_url": "",
+            "image_link": "",
+            "max_width": ""
+          }
+        },
+        "image_FVjD8R": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Frame_427319400.png",
+            "image_by_url": "",
+            "image_link": "",
+            "max_width": ""
+          }
+        },
+        "image_EYMhFG": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Frame_427319401.png",
+            "image_by_url": "",
+            "image_link": "",
+            "max_width": ""
+          }
+        },
+        "image_iqjaTq": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Frame_427319402.png",
+            "image_by_url": "",
+            "image_link": "",
+            "max_width": ""
+          }
+        },
+        "image_wkw7kp": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Frame_427319403.png",
+            "image_by_url": "",
+            "image_link": "",
+            "max_width": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_GHtDmj",
+        "image_jahMUL",
+        "image_WpatqN",
+        "image_FVjD8R",
+        "image_EYMhFG",
+        "image_iqjaTq",
+        "image_wkw7kp"
+      ],
+      "disabled": true,
+      "settings": {
+        "heading": "From Blogs Media",
+        "heading_size": "h3",
+        "subheading": "BLOGS",
+        "header_alignment": "center",
+        "container": "container",
+        "color_scheme": "",
+        "item_per_row": 4,
+        "column_gap": 20,
+        "row_gap": 20,
+        "column_gap_mobile": 10,
+        "row_gap_mobile": 10,
+        "enable_slider": false,
+        "show_nav": false,
+        "show_pagination": false,
+        "autorotate": false,
+        "autorotate_speed": 3,
+        "padding_top": 90,
+        "padding_bottom": 90,
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "custom_content_kXyD8W": {
+      "type": "custom-content",
+      "blocks": {
+        "liquid_MAKKtH": {
+          "type": "liquid",
+          "settings": {
+            "custom_liquid": "<style>\n  .card {\n    background-color: #f5f7ff;\n    border-radius: 10px;\n    overflow: hidden;\n  }\n  .header {\n    background-color: black;\n    border-radius: 50px;\n    width: fit-content;\n    color: #f5f7ff;\n    padding: 10px;\n    font-size: 11px;\n    margin-left: 20px;\n    margin-top: 20px;\n  }\n  .content {\n    padding: 20px;\n    text-align: left;\n  }\n  .number {\n    font-size: 34px;\n    font-weight: 500;\n    color: #0c7fdf;\nline-height: 30px;\n  }\n  .description {\n    font-size: 16px;\n    color: black;\n    margin-top: 10px;\n  }\n  .image {\n    width: 100%;\n\n    background-image: url(\"path_to_your_image.jpg\");\n    background-size: cover;\n    background-position: center;\n  }\n</style>\n\n<div class=\"card\">\n  <div class=\"header\"><p>ECOLOGICAL IMPACT</p></div>\n  <div class=\"content\">\n    <div class=\"number\">5000+</div>\n    <div class=\"description\"><p>of water saved per day / per year</p></div>\n  </div>\n  <div class=\"image\">\n    <img\n      src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Rectangle_17881.png?v=1722844984\"\n      alt=\"\"\n    />\n  </div>\n</div>",
+            "width": "25%",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        },
+        "liquid_zBqjkG": {
+          "type": "liquid",
+          "settings": {
+            "custom_liquid": "<div class=\"card\">\n  <div class=\"header\"><p>SOCIAL IMPACT</p></div>\n  <div class=\"content\">\n    <div class=\"number\">3500+</div>\n    <div class=\"description\"><p>homes in rural and urban India serviced</p></div>\n  </div>\n  <div class=\"image\">\n    <img\n      src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/454546.png?v=1722846819\"\n      alt=\"\"\n    />\n  </div>\n</div>",
+            "width": "25%",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        },
+        "liquid_cgzRb6": {
+          "type": "liquid",
+          "settings": {
+            "custom_liquid": "<div class=\"card\">\n  <div class=\"header\"><p>HEALTH IMPACT</p></div>\n  <div class=\"content\">\n    <div class=\"number\">Hair, skin, kidney</div>\n    <div class=\"description\"><p>of xx lives changed for better with our clean\nwater</p></div>\n  </div>\n  <div class=\"image\">\n    <img\n      src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/4556.png?v=1722846818\"\n      alt=\"\"\n    />\n  </div>\n</div>",
+            "width": "25%",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        },
+        "liquid_8dRJFU": {
+          "type": "liquid",
+          "settings": {
+            "custom_liquid": "<div class=\"card\">\n  <div class=\"header\"><p>ECONOMIC IMPACT</p></div>\n  <div class=\"content\">\n    <div class=\"number\">45000+</div>\n    <div class=\"description\"><p>rupees saved per house per year with our\nproducts</p></div>\n  </div>\n  <div class=\"image\">\n    <img\n      src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/144242.png?v=1722846819\"\n      alt=\"\"\n    />\n  </div>\n</div>",
+            "width": "25%",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        },
+        "liquid_fAhbzU": {
+          "type": "liquid",
+          "settings": {
+            "custom_liquid": "<div class=\"card\">\n  <div class=\"header\"><p>INFRASTRUCTURE IMPACT</p></div>\n  <div class=\"content\">\n    <div class=\"number\">150+</div>\n    <div class=\"description\"><p>pipes, hardware and fittings saved from scaling</p></div>\n  </div>\n  <div class=\"image\">\n    <img\n      src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/5444544.png?v=1722846819\"\n      alt=\"\"\n    />\n  </div>\n</div>",
+            "width": "25%",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        },
+        "liquid_jRUjfa": {
+          "type": "liquid",
+          "settings": {
+            "custom_liquid": "<div class=\"card\">\n  <div class=\"header\"><p>ENERGY IMPACT</p></div>\n  <div class=\"content\">\n    <div class=\"number\">250+</div>\n    <div class=\"description\"><p>units of power saved by improved efficiency\nand reduced wear-tear of electronic appliances</p></div>\n  </div>\n  <div class=\"image\">\n    <img\n      src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/5555.png?v=1722846819\"\n      alt=\"\"\n    />\n  </div>\n</div>",
+            "width": "25%",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        },
+        "liquid_GW4baB": {
+          "type": "liquid",
+          "settings": {
+            "custom_liquid": "<div class=\"card\">\n  <div class=\"header\"><p>ENVIRONMENTAL IMPACT</p></div>\n  <div class=\"content\">\n    <div class=\"number\">Zero salt</div>\n    <div class=\"description\"><p>or chemical discharge in the ground for every\nwater softener installed</p></div>\n  </div>\n  <div class=\"image\">\n    <img\n      src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/448.png?v=1722846819\"\n      alt=\"\"\n    />\n  </div>\n</div>",
+            "width": "25%",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "liquid_MAKKtH",
+        "liquid_zBqjkG",
+        "liquid_cgzRb6",
+        "liquid_8dRJFU",
+        "liquid_fAhbzU",
+        "liquid_jRUjfa",
+        "liquid_GW4baB"
+      ],
+      "disabled": true,
+      "settings": {
+        "heading": "From Blogs Media",
+        "heading_size": "h3",
+        "subheading": "BLOGS",
+        "description": "",
+        "header_alignment": "center",
+        "container": "container-fluid",
+        "color_scheme": "",
+        "content_color_scheme": "",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "gap": 30,
+        "gap_mobile": 16,
+        "use_scroll_mobile": false,
+        "padding_top": 100,
+        "padding_bottom": 100,
+        "custom_class": ""
+      }
+    },
+    "custom_content_ecVVzW": {
+      "type": "custom-content",
+      "blocks": {
+        "image_mkCgyL": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Group_44_6dd7f55a-7c3f-4a7b-b8f2-0025c0a01ae1.png",
+            "link": "",
+            "width": "100%",
+            "alignment": "center",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "image_mkCgyL"
+      ],
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "header_alignment": "center",
+        "container": "w-full",
+        "color_scheme": "scheme-cee058e4-58e3-46aa-9af9-219dadc79066",
+        "content_color_scheme": "scheme-cee058e4-58e3-46aa-9af9-219dadc79066",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "gap": 30,
+        "gap_mobile": 16,
+        "use_scroll_mobile": false,
+        "padding_top": 100,
+        "padding_bottom": 0,
+        "custom_class": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "custom_content_H3N3x8",
+    "custom_content_RfNGRd",
+    "custom_content_DApbEH",
+    "custom_content_DK7AfY",
+    "image_with_text_Gx7RDm",
+    "brands_list_YnCpci",
+    "custom_content_kXyD8W",
+    "custom_content_ecVVzW"
+  ]
+}

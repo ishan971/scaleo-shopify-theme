@@ -1,0 +1,123 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "page",
+      "disabled": true,
+      "settings": {}
+    },
+    "rich_text_yqBY4B": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_RwWFUp": {
+          "type": "heading",
+          "settings": {
+            "heading": "Refund Policy",
+            "heading_size": "h2"
+          }
+        },
+        "text_Umimwj": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Customers may place a refund request within 7 days of the original purchase date, if item is undelivered or missing. In case the product delivered and is partially or completely damaged and the buyer is not willing to get a replacement for the same, they will be requested to ship the product back, post which they will be provided with a full refund.<br/><br/>Customers can also opt for a refund, if the purchase is made by mistake or change in mind after placing the order, provided the product is shipped back with its original packaging intact. Our customer service team shall check the conditions of the package and if verified, buyer shall obtain the refund to his/her respective bank by online mode only.<br/>- To initiate a refund, please contact our customer service team with your order details.<br/>- Please allow 7 business days for the refund to be processed and reflected in your account<br/><br/>We are not responsible for damages once the product is in use and guarantee is activated and in such a case no refund but only replacement can be provided which is subject to the Replacement Policy</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_RwWFUp",
+        "text_Umimwj"
+      ],
+      "settings": {
+        "container": "container",
+        "color_scheme": "",
+        "content_alignment": "left",
+        "padding_top": 92,
+        "padding_bottom": 40,
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "rich_text_LbApKT": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_ABakff": {
+          "type": "heading",
+          "settings": {
+            "heading": "Replacement Policy",
+            "heading_size": "h2"
+          }
+        },
+        "text_yNLXpN": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Customers may request a replacement within 24 hours of delivery, if item is partially or completely damaged. We will require the product shipped back to us by the customer- the courier charges will be reimbursed by us- after which the customer service team will provide a replacement for the same. In case of undelivered or missing product within 7 days of original purchase date, customers are requested to contact our team and we will immediately dispatch a replacement.<br/><br/>We provide an extra replacement product in case the life of Scale-O Water Softener is exhausted earlier than 6 months subject to clear evidence displayed as photos and videos indicating that the product is consumed and floating on the surface of water inside the tank or if caps have opened and media bag leaks inside the water for unknown reasons.<br/><br/>The damaged or exhausted product needs to be first shipped back to our office by the customer at his own cost, our customer service team shall conduct a thorough inspection and if verified and genuine, we shall ship the replacement product to your premises.<br/><br/>Charges paid by customer for return parcel of damaged product shall be reimbursed as actual amount mentioned in the courier receipt or invoice. <br/><br/>No charges are to be paid by the customer towards the product cost, shipping or installation of the replacement product.<br/><br/>Invoice & Guarantee Activation shall be checked and confirmed as a part of the procedure.<br/><br/>Please note no replacement shall be provided by the company to the customer in case of failure to activate the guarantee on our website after initial purchase.<br/></p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_ABakff",
+        "text_yNLXpN"
+      ],
+      "settings": {
+        "container": "container",
+        "color_scheme": "",
+        "content_alignment": "left",
+        "padding_top": 92,
+        "padding_bottom": 40,
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "custom_content_HAFneN": {
+      "type": "custom-content",
+      "blocks": {
+        "image_KMCwzV": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Group_44_6dd7f55a-7c3f-4a7b-b8f2-0025c0a01ae1.png",
+            "link": "",
+            "width": "100%",
+            "alignment": "center",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "image_KMCwzV"
+      ],
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "header_alignment": "center",
+        "container": "w-full",
+        "color_scheme": "",
+        "content_color_scheme": "",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "gap": 30,
+        "gap_mobile": 16,
+        "use_scroll_mobile": false,
+        "padding_top": 100,
+        "padding_bottom": 0,
+        "custom_class": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "rich_text_yqBY4B",
+    "rich_text_LbApKT",
+    "custom_content_HAFneN"
+  ]
+}

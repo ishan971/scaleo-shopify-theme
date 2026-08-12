@@ -1,0 +1,138 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "page",
+      "disabled": true,
+      "settings": {}
+    },
+    "custom_content_mWEbHk": {
+      "type": "custom-content",
+      "blocks": {
+        "image_TMAbc4": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Book_Trial_091fb96f-460a-4368-ae29-4ec65fac0165.jpg",
+            "link": "",
+            "width": "100%",
+            "alignment": "center",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "image_TMAbc4"
+      ],
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "header_alignment": "center",
+        "container": "w-full",
+        "color_scheme": "scheme-cee058e4-58e3-46aa-9af9-219dadc79066",
+        "content_color_scheme": "scheme-cee058e4-58e3-46aa-9af9-219dadc79066",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "gap": 30,
+        "gap_mobile": 16,
+        "use_scroll_mobile": false,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "custom_class": ""
+      }
+    },
+    "rich_text_KCi9PM": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_rYKWtw": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "Book Trial"
+          }
+        },
+        "heading_WBkmMg": {
+          "type": "heading",
+          "settings": {
+            "heading": "Book a Scale-O Trial Softener for quick and easy water test at your place with fast delivery!",
+            "heading_size": "h2"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_rYKWtw",
+        "heading_WBkmMg"
+      ],
+      "settings": {
+        "container": "container",
+        "color_scheme": "scheme-cee058e4-58e3-46aa-9af9-219dadc79066",
+        "content_alignment": "left",
+        "padding_top": 100,
+        "padding_bottom": 0,
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "custom_liquid_nmgm4g": {
+      "type": "custom-liquid",
+      "custom_css": [],
+      "settings": {
+        "custom_liquid": "<style>\n  .required {\n    color: red;\n    margin-left: 5px;\n  }\n\n  p {\n    color: #0c7fdf;\n    font-size: 15px;\n    font-weight: 500;\n    text-transform: uppercase;\n  }\n  .form-container {\n    margin-top: 50px;\n    max-width: 1500px;\n    width: 100%;\n    justify-content: center;\n  }\n  .form-inputs {\n    display: flex;\n    width: 100%;\n    flex-direction: row;\n    gap: 45px;\n    justify-content: center;\n  }\n  .form-left-con {\n    display: flex;\n    flex-direction: column;\n    gap: 30px;\n  }\n  .form-left-con,\n  .form-right-con {\n    width: 100%;\n  }\n  .form-group {\n    display: flex;\n    flex-wrap: wrap;\n    flex: 1;\n  }\n  .form-group label {\n    font-size: 16px;\n    flex: 1 1 100%;\n    margin-bottom: 5px;\n    font-weight: bold;\n  }\n  .form-group2 {\n    display: flex;\n    justify-content: space-between;\n    gap: 15px;\n  }\n  .form-group input,\n  .form-group select {\n    padding: 15px;\n    border: none;\n    font-size: 18px;\n    width: 100%;\n    font-weight: 500;\n    border-radius: 10px;\n    background: #eeeeee;\n    color: gray;\n  }\n  .ta {\n    padding: 15px;\n    border: none;\n    border-width: 0;\n    font-size: 18px;\n    width: 100%;\n    font-weight: 500;\n    border-radius: 10px;\n    background: #eeeeee;\n    color: gray;\n  }\n  .form-group select {\n    width: 100%;\n  }\n  .form-group input::placeholder {\n    color: #858585;\n  }\n  .submit-btn {\n    width: 195px;\n    padding: 15px 20px;\n    margin-top: 15px;\n    background-color: #007bff;\n    border: none;\n    color: white;\n    font-size: 16px;\n    cursor: pointer;\n    border-radius: 100px;\n  }\n  .submit-btn:hover {\n    background-color: #4d4d4d;\n  }\n  .error {\n    color: red;\n    font-size: 14px;\n  }\n  @media (max-width: 767px) {\n    .form-group2 {\n      flex-direction: column;\n      gap: 30px;\n    }\n    .form-inputs {\n      width: 100%;\n      flex-direction: column;\n      gap: 30px;\n    }\n    .form-left-con,\n    .form-right-con {\n      width: 100%;\n      gap: 30px;\n    }\n    h2 {\n      font-size: 28px;\n    }\n  }\n</style>\n\n<div class=\"form-container\">\n  <form id=\"mainForm\" method=\"post\" class=\"form-main\">\n    <div class=\"form-inputs\">\n      <div class=\"form-left-con\">\n        <div class=\"form-group\">\n          <label for=\"name\">Name:<span class=\"required\">*</span></label>\n          <input type=\"text\" id=\"name\" name=\"name\" />\n          <span id=\"error_name\" class=\"error\"></span>\n        </div>\n        <div class=\"form-group\">\n          <label for=\"location\">Location:<span class=\"required\">*</span></label>\n          <input type=\"text\" id=\"location\" name=\"location\" />\n          <span id=\"error_location\" class=\"error\"></span>\n        </div>\n        <div class=\"form-group\">\n          <label for=\"email\">E-mail:<span class=\"required\">*</span></label>\n          <input type=\"email\" id=\"email\" name=\"_replyto\" />\n          <span id=\"error_email\" class=\"error\"></span>\n        </div>\n        <div class=\"form-group\">\n          <label for=\"contact\"\n            >Contact No:<span class=\"required\">*</span></label\n          >\n          <input type=\"number\" id=\"contact\" name=\"contact\" />\n          <span id=\"error_contact\" class=\"error\"></span>\n        </div>\n        <div class=\"form-group\">\n          <label for=\"query\"\n            >Type your Query:<span class=\"required\">*</span></label\n          >\n          <textarea\n            style=\"border-width: 0\"\n            class=\"ta\"\n            id=\"query\"\n            name=\"query\"\n            rows=\"5\"\n            cols=\"63\"\n          ></textarea>\n        </div>\n        <button type=\"submit\" class=\"submit-btn\">Submit</button>\n      </div>\n    </div>\n  </form>\n</div>\n\n<script>\n  document\n    .getElementById(\"mainForm\")\n    .addEventListener(\"submit\", function (event) {\n      event.preventDefault();\n\n      var name = document.getElementById(\"name\").value;\n      var location = document.getElementById(\"location\").value;\n      var email = document.getElementById(\"email\").value;\n      var contact = document.getElementById(\"contact\").value;\n\n      if (!name) {\n        document.getElementById(\"error_name\").innerHTML =\n          \"Name field is required\";\n      } else {\n        document.getElementById(\"error_name\").innerHTML = \"\";\n      }\n      if (!location) {\n        document.getElementById(\"error_location\").innerHTML =\n          \"Location field is required\";\n      } else {\n        document.getElementById(\"error_location\").innerHTML = \"\";\n      }\n      if (!email) {\n        document.getElementById(\"error_email\").innerHTML =\n          \"Email field is required\";\n      } else {\n        document.getElementById(\"error_email\").innerHTML = \"\";\n      }\n      if (!contact) {\n        document.getElementById(\"error_contact\").innerHTML =\n          \"Contact field is required\";\n      } else {\n        document.getElementById(\"error_contact\").innerHTML = \"\";\n      }\n      if (name && location && email && contact) {\n        this.submit();\n      }\n    });\n</script>",
+        "custom_class": "container"
+      }
+    },
+    "custom_content_aKkaNN": {
+      "type": "custom-content",
+      "blocks": {
+        "image_pKg6G7": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Group_44_6dd7f55a-7c3f-4a7b-b8f2-0025c0a01ae1.png",
+            "link": "",
+            "width": "100%",
+            "alignment": "center",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "image_pKg6G7"
+      ],
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "header_alignment": "center",
+        "container": "w-full",
+        "color_scheme": "scheme-cee058e4-58e3-46aa-9af9-219dadc79066",
+        "content_color_scheme": "scheme-cee058e4-58e3-46aa-9af9-219dadc79066",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "gap": 30,
+        "gap_mobile": 16,
+        "use_scroll_mobile": false,
+        "padding_top": 100,
+        "padding_bottom": 0,
+        "custom_class": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "custom_content_mWEbHk",
+    "rich_text_KCi9PM",
+    "custom_liquid_nmgm4g",
+    "custom_content_aKkaNN"
+  ]
+}

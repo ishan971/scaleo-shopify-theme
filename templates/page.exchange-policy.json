@@ -1,0 +1,91 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "page",
+      "disabled": true,
+      "settings": {}
+    },
+    "rich_text_yqBY4B": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_RwWFUp": {
+          "type": "heading",
+          "settings": {
+            "heading": "Exchange & Subscription Policy",
+            "heading_size": "h2"
+          }
+        },
+        "text_Umimwj": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Scale-O Water Softener needs to be exchanged every 6 months, once the time nears to the exchange date. Please remove the product from the water tank, dry wipe it and pack it inside an eco-friendly bag within a box.<br/><br/>Next, book the return courier of the packed box to our office and get the return parcel discount on your exchange product or any new purchase thereafter.<br/><br/>Kindly allow at least 7-day time period to return and exchange the product with all formalities.<br/><br/>Invoice & Guarantee Activation shall be checked and confirmed as a part of the procedure.<br/><br/>In case of commercial, industrial or societal application, Scale-O Water Softeners are exchanged with new refills which is managed by our team at the premises so there shall be no requirement to ship the return product to our office.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_RwWFUp",
+        "text_Umimwj"
+      ],
+      "settings": {
+        "container": "container",
+        "color_scheme": "",
+        "content_alignment": "left",
+        "padding_top": 92,
+        "padding_bottom": 40,
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "custom_content_URp6CJ": {
+      "type": "custom-content",
+      "blocks": {
+        "image_LhaDdE": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Group_44_6dd7f55a-7c3f-4a7b-b8f2-0025c0a01ae1.png",
+            "link": "",
+            "width": "100%",
+            "alignment": "center",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "image_LhaDdE"
+      ],
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "header_alignment": "center",
+        "container": "w-full",
+        "color_scheme": "",
+        "content_color_scheme": "",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "gap": 30,
+        "gap_mobile": 16,
+        "use_scroll_mobile": false,
+        "padding_top": 100,
+        "padding_bottom": 0,
+        "custom_class": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "rich_text_yqBY4B",
+    "custom_content_URp6CJ"
+  ]
+}

@@ -1,0 +1,243 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "page",
+      "disabled": true,
+      "settings": {}
+    },
+    "image_with_text_2_6rMNAB": {
+      "type": "image-with-text-2",
+      "name": "Image with text overlay",
+      "settings": {
+        "color_scheme": "",
+        "container": "w-full",
+        "hero_size": "adapt",
+        "show_overlay": false,
+        "image": "shopify://shop_images/scale-o_bangalore_banner_image.jpg",
+        "image_link": "",
+        "parallax": false,
+        "parallax_direction": "vertical",
+        "content_in_container": false,
+        "content_position": "center middle",
+        "text_alignment": "center",
+        "text_size": "medium",
+        "text_color": "white",
+        "title": "",
+        "subtitle": "",
+        "text": "",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "m-button--primary",
+        "button_size": "",
+        "text_alignment_mobile": "center",
+        "use_content_above": false,
+        "custom_class": "",
+        "animations": "inherit",
+        "enable_bg_zoom_effect": true
+      }
+    },
+    "rich_text_Fz3V6V": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_RNBCy3": {
+          "type": "heading",
+          "settings": {
+            "heading": "Best Water Softener in Bangalore",
+            "heading_size": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "heading_RNBCy3"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "container": "container",
+        "color_scheme": "",
+        "content_alignment": "center",
+        "padding_top": 44,
+        "padding_bottom": 44,
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "featured_collection_8MTc7Y": {
+      "type": "featured-collection",
+      "name": "Featured collection",
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "header_alignment": "center",
+        "color_scheme": "",
+        "container": "container-fluid",
+        "collection": "best-water-softener-in-ahmedabad",
+        "enable_flashsale": false,
+        "show_countdown": false,
+        "product_to_show": 8,
+        "items_per_row": 3,
+        "item_gap": 30,
+        "pcard_layout": "",
+        "pcard_image_ratio": "",
+        "show_vendor": false,
+        "hide_title": false,
+        "enable_slider": false,
+        "show_pagination": false,
+        "show_navigation": false,
+        "show_button_on_header": false,
+        "button_type": "link",
+        "button_text": "",
+        "button_style": "m-button--primary",
+        "button_size": "",
+        "infinite_load": false,
+        "max_page_load": 3,
+        "mobile_disable_slider": false,
+        "use_scroll_mobile": true,
+        "item_gap_mobile": 16,
+        "padding_top": 0,
+        "padding_bottom": 44,
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "custom_content_Kf3JzP": {
+      "type": "custom-content",
+      "blocks": {
+        "html_yiKGX4": {
+          "type": "html",
+          "settings": {
+            "code": "<style>\n.map-wrapper {\n    width: 100%;\n    overflow: hidden;\n    border-radius: 16px;\n    box-shadow: 0 4px 20px rgba(0,0,0,0.08);\n}\n\n.map-wrapper iframe {\n    width: 100%;\n    height: 500px;\n    border: 0;\n    display: block;\n}\n\n@media (max-width: 768px) {\n    .map-wrapper iframe {\n        height: 350px;\n    }\n}\n</style>\n\n<div class=\"map-wrapper\">\n\n<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3672.719864128443!2d72.5019976!3d22.997326599999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e9bef2f2ec713%3A0x9809378bf6b4ee64!2sScale-O!5e0!3m2!1sen!2sin!4v1779710877783!5m2!1sen!2sin%22%20width=\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>\n \n\n</div>",
+            "width": "100%",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "html_yiKGX4"
+      ],
+      "disabled": true,
+      "name": "Custom content",
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "header_alignment": "center",
+        "container": "container-fluid",
+        "color_scheme": "",
+        "content_color_scheme": "",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "gap": 30,
+        "gap_mobile": 16,
+        "use_scroll_mobile": false,
+        "padding_top": 52,
+        "padding_bottom": 16,
+        "custom_class": ""
+      }
+    },
+    "rich_text_RBjtUd": {
+      "type": "rich-text",
+      "blocks": {
+        "text_3GFNKR": {
+          "type": "text",
+          "settings": {
+            "text": "<h2>Best Water Softener in Bangalore for Overhead Tanks</h2><p>Hard water has always been a problem in Bangalore homes, especially those that are dependent on borewell water or mixed municipal supply. Through time, mineral-water can enamel white over taps, clog pipelines, lower geyser productivity and render normal cleansing tougher. When you are looking for the <strong>best water softener in Bangalore</strong>, Scale-O is the ideal solution that is designed to meet Indian water conditions and installation in overhead tanks.</p><p>Scale-O solutions are installed inside the overhead tank, using no salt, no power and making no significant changes to piping works quite differently than bulky traditional systems. Scale-O is an excellent option for homeowners in need of the <strong>best water softener for home in Bangalore</strong> that can help lessen hard water scaling throughout your home.</p><h2>Why Hard Water is A Pervasive Problem In Bangalore</h2><p>Water supplied to some Bangalore neighbourhoods has been found to have extra calcium and magnesium. The hardness that can slowly damage plumbing systems, appliances and convenience of household members caused by these minerals.</p><h3>Common Problems Due To Hard Water In Bangalore Homes</h3><ul><li>Scaling formation on taps, shower heads and bath fittings with white sticked ground.</li><li>Loss of efficiency for geysers and water heaters.</li><li>Deposits of minerals in pipelines and storage tanks</li><li>Dull, dry skin and rough hair after showering.</li><li>Higher soap and detergent consumption.</li><li>Cleaning stains from sanitary ware and utensils.</li></ul><p>Ignoring these issues can result in extensive and expensive repairs and shorten the lifespan of your appliance. Hardness can easily be addressed by installing a good quality <strong>water softener for overhead tanks</strong> to prevent scaling at the point of entry before it even enters your bathrooms, kitchen and laundry rooms.</p><h2>Benefits for Bangalore Households</h2><ul><li>Designed to combat the adverse effects of hard water throughout your entire home.</li><li>Reduces scaling in pipelines and overhead tanks.</li><li>Improves efficiency of geysers, washing machines and bathroom fittings.</li><li>Can help increase the lifespan of your appliances and minimize mineral build up.</li><li>It can help make bathing water less irritating to your skin and hair.</li><li>Ideal for villas, individual homes and bungalows.</li><li>Small footprint with low maintenance costs</li></ul><p>If you are comparing <strong>soft water conditioners</strong> for household application, Scale-O is ideal as it has overhead tank installation which is popular in Indian households. It is a workable solution to a full <strong>hard water softener</strong> that needs continuous salt and maintenance.</p><h2>Scale-O: The Simple Bangalore Home Solution</h2><p>Scale-O is custom designed for residential overhead tank systems and operates well with borewell, municipal or mixed water supply. For villas and bungalows</p><h3>Easy DIY installation in a few simple steps: </h3><p><strong>Step 1: </strong>Open the overhead water tank and find a good place to put it.</p><p><strong>Step 2: </strong>Put the Scale-O unit at the bottom of your tank, ensuring it's covered completely underwater.</p><p><strong>Step 3:</strong> Secure the unit in place during water flow and refilling regularly.</p><p><strong>Step 4: </strong>Close the tank lid. There is no need for pipe cutting, electricity connection or external setup.</p><p><strong>Step 5: </strong>Scale-O solutions are combined with the water that flows through the tank to help reduce hard scaling in taps, shower heads, geysers, washing machines and plumbing systems across the home.</p><p>If you are a homeowner who wants to look for the <strong>best water softener for an overhead tank</strong>, the ease of quickly installing without any help is a big plus point.</p><h2>Why Many Homeowners Prefer Scale-O</h2><p>Conventional <strong>hard water softener</strong> systems are likely salt refilling, electricity required (which is not environmental friendly), plumbing needed and much maintenance/servicing over the years is required time. They also sometimes use up water during regeneration cycles. Scale-O has a unique way to overcome this challenge by using salt-free conditioning technology in the overhead tank.</p><h3>1. No salt required</h3><p>No need for chemical regeneration and salt refilling.</p><h3>2. No electricity needed</h3><p>Functions without drawing power, assisting in reducing operating costs.</p><h3>3. Low maintenance</h3><p>No regular servicing backwashing or maintenance contracts are required.</p><h3>4. No water wastage</h3><p>Function without the water loss of numerous regeneration cycles.</p><h3>5. Easy DIY installation</h3><p>Installs directly in the overhead tank in minutes.</p><h3>6. Lower operating cost</h3><p>Less salt, power or periodic maintenance in turn which results in lower sustainable costs.</p><p>These benefits make Scale-O the best water softener for home in Bangalore and consequently have made it a popular choice among homeowners looking for the best suitable water softeners.</p><h2>Conclusion</h2><p>Hard water in Bangalore is a problem faced by many households which could deteriorate the plumbing, appliances and comfort of your home. Scale-O provides a comprehensive solution to your hard water concerns with an easy, saltless unit for overhead tanks that will help minimize scale buildup in every part of your house. If you want to find out the <strong>best water softener in Bangalore</strong>, Scale-O gives your water system reliable low-maintenance protection.</p><p><a href=\"https://scale-o.com/pages/connect\"><span style=\"text-decoration:underline\"><strong>Get in touch</strong></span></a> with us today to identify the Scale-O unit for your household and experience how much your water quality improves.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_3GFNKR"
+      ],
+      "custom_css": [
+        ".m-richtext__description p {color: #222222 !important;}"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "container": "container",
+        "color_scheme": "",
+        "content_alignment": "left",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "custom_content_jUmVj8": {
+      "type": "custom-content",
+      "blocks": {
+        "text_RGrYgf": {
+          "type": "text",
+          "settings": {
+            "title": "Frequently asked questions",
+            "subheading": "FAQ",
+            "text": "",
+            "width": "100%",
+            "alignment": "center",
+            "align_text": "center",
+            "text_size": "medium",
+            "text_color": "inherit",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "m-button--primary",
+            "button_size": "",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        },
+        "liquid_Qh8FyJ": {
+          "type": "liquid",
+          "settings": {
+            "custom_liquid": "<style>\n    @media (min-width:768px) {\n        .faq-container {\n            padding: 20px;\n            display: flex;\n            justify-content: space-between;\n            gap: 20px;\n        }\n\n        .faqdiv {\n            width: 50%;\n        }\n    }\n\n    .faq-item {\n        margin-bottom: 20px;\n    }\n\n    .faq-question {\n        width: 100%;\n        background-color: #F5F7FF;\n        border: none;\n        padding: 15px;\n        text-align: left;\n        cursor: pointer;\n        border-radius: 4px;\n        transition: background-color 0.3s;\n        display: flex;\n        justify-content: space-between;\n        align-items: center;\n        color: #000;\n    }\n\n    .faq-question h4 {\n        margin: 0;\n        font-size: 16px;\n        font-weight: 600;\n        line-height: 1.5;\n        width: calc(100% - 30px);\n    }\n\n    .faq-question:hover {\n        background-color: #e1e1e1;\n    }\n\n    .faq-question.active {\n        background-color: #2a6ab2;\n        color: #fff;\n        border-radius: 4px 4px 0 0;\n    }\n\n    .faq-question.active h4 {\n        color: #fff;\n    }\n\n    .faq-answer {\n        max-height: 0;\n        opacity: 0;\n        overflow: hidden;\n        padding: 0 15px;\n        background-color: #2a6ab2;\n        border-radius: 0 0 4px 4px;\n        font-size: 14px;\n        line-height: 1.8;\n        color: #fff;\n        transition: max-height 0.5s ease, opacity 0.5s ease, padding 0.5s ease;\n    }\n\n    .faq-answer.open {\n        max-height: 500px;\n        opacity: 1;\n        padding: 15px;\n        border-top: 1px solid #DBE2FF;\n    }\n\n    .faq-icon {\n        width: 20px;\n        height: 20px;\n        margin-left: 10px;\n        flex-shrink: 0;\n    }\n</style>\n\n<div class=\"faq-container\">\n\n    <!-- Left Column -->\n    <div class=\"faqdiv\">\n\n        <div class=\"faq-item\">\n            <button class=\"faq-question\">\n                <h4>What are the signs of hard water in Bangalore homes?</h4>\n\n                <span>\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_49.png?v=1720679877\"\n                        class=\"faq-icon open-icon\" alt=\"Open Icon\">\n\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/4444.png?v=1720679877\"\n                        class=\"faq-icon close-icon\" style=\"display:none;\" alt=\"Close Icon\">\n                </span>\n            </button>\n\n            <div class=\"faq-answer\">\n                Common signs include white deposits on taps and tiles, reduced geyser efficiency, blocked shower heads, dry skin and hair and stains on bathroom fittings.\n            </div>\n        </div>\n\n        <div class=\"faq-item\">\n            <button class=\"faq-question\">\n                <h4>Can hard water damage appliances and plumbing?</h4>\n\n                <span>\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_49.png?v=1720679877\"\n                        class=\"faq-icon open-icon\" alt=\"Open Icon\">\n\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/4444.png?v=1720679877\"\n                        class=\"faq-icon close-icon\" style=\"display:none;\" alt=\"Close Icon\">\n                </span>\n            </button>\n\n            <div class=\"faq-answer\">\n                Yes. Mineral scaling can build up inside geysers, washing machines, taps and pipelines, which may reduce efficiency and shorten appliance lifespan over time.\n            </div>\n        </div>\n\n        <div class=\"faq-item\">\n            <button class=\"faq-question\">\n                <h4>Does hard water affect skin and hair?</h4>\n\n                <span>\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_49.png?v=1720679877\"\n                        class=\"faq-icon open-icon\" alt=\"Open Icon\">\n\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/4444.png?v=1720679877\"\n                        class=\"faq-icon close-icon\" style=\"display:none;\" alt=\"Close Icon\">\n                </span>\n            </button>\n\n            <div class=\"faq-answer\">Many people find that hard water leaves skin feeling dry and hair feeling rough or difficult to manage after bathing.\n            </div>\n        </div>\n\n    </div>\n\n    <!-- Right Column -->\n    <div class=\"faqdiv\">\n\n        <div class=\"faq-item\">\n            <button class=\"faq-question\">\n                <h4>Which is the best water softener for home in Bangalore?</h4>\n\n                <span>\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_49.png?v=1720679877\"\n                        class=\"faq-icon open-icon\" alt=\"Open Icon\">\n\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/4444.png?v=1720679877\"\n                        class=\"faq-icon close-icon\" style=\"display:none;\" alt=\"Close Icon\">\n                </span>\n            </button>\n\n            <div class=\"faq-answer\">Scale-O is a strong option for homeowners seeking the best water softener for home in Bangalore because it is designed for overhead tanks, requires no electricity, and operates without salt refills.\n            </div>\n        </div>\n\n        <div class=\"faq-item\">\n            <button class=\"faq-question\">\n                <h4>How does a water softener help with hard water?</h4>\n\n                <span>\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_49.png?v=1720679877\"\n                        class=\"faq-icon open-icon\" alt=\"Open Icon\">\n\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/4444.png?v=1720679877\"\n                        class=\"faq-icon close-icon\" style=\"display:none;\" alt=\"Close Icon\">\n                </span>\n            </button>\n\n            <div class=\"faq-answer\">A water softening solution helps reduce the effects of minerals such as calcium and magnesium before the water flows through your home’s plumbing system and appliances, helping to minimize scaling and buildup.\n            </div>\n        </div>\n\n    </div>\n\n</div>\n\n<script>\n    document.addEventListener('DOMContentLoaded', function () {\n\n        const questions = document.querySelectorAll('.faq-question');\n\n        questions.forEach(question => {\n\n            question.addEventListener('click', function () {\n\n                const answer = this.nextElementSibling;\n                const isOpen = answer.classList.contains('open');\n\n                // Close all FAQ items\n                document.querySelectorAll('.faq-answer').forEach(item => {\n                    item.classList.remove('open');\n                });\n\n                document.querySelectorAll('.faq-question').forEach(item => {\n                    item.classList.remove('active');\n                });\n\n                document.querySelectorAll('.open-icon').forEach(icon => {\n                    icon.style.display = 'inline-block';\n                });\n\n                document.querySelectorAll('.close-icon').forEach(icon => {\n                    icon.style.display = 'none';\n                });\n\n                // Open current FAQ item\n                if (!isOpen) {\n                    answer.classList.add('open');\n                    this.classList.add('active');\n\n                    this.querySelector('.open-icon').style.display = 'none';\n                    this.querySelector('.close-icon').style.display = 'inline-block';\n                }\n\n            });\n\n        });\n\n    });\n</script>",
+            "width": "100%",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "text_RGrYgf",
+        "liquid_Qh8FyJ"
+      ],
+      "name": "Custom content",
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "header_alignment": "center",
+        "container": "container-fluid",
+        "color_scheme": "",
+        "content_color_scheme": "",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "gap": 30,
+        "gap_mobile": 16,
+        "use_scroll_mobile": false,
+        "padding_top": 46,
+        "padding_bottom": 22,
+        "custom_class": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_with_text_2_6rMNAB",
+    "rich_text_Fz3V6V",
+    "featured_collection_8MTc7Y",
+    "custom_content_Kf3JzP",
+    "rich_text_RBjtUd",
+    "custom_content_jUmVj8"
+  ]
+}

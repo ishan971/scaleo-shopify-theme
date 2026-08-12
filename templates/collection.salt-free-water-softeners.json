@@ -1,0 +1,447 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "collection-header": {
+      "type": "collection-page-header",
+      "blocks": {
+        "banner_K8yyJz": {
+          "type": "banner",
+          "settings": {
+            "collection": ""
+          }
+        }
+      },
+      "block_order": [
+        "banner_K8yyJz"
+      ],
+      "disabled": true,
+      "settings": {
+        "color_scheme": "scheme-cee058e4-58e3-46aa-9af9-219dadc79066",
+        "container": "w-full",
+        "layout": "inside",
+        "image_position": "background",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "text_alignment": "center",
+        "text_color": "inherit",
+        "upper_title": false,
+        "show_desc": true,
+        "collection_all_desc": "",
+        "padding_top": 36,
+        "padding_bottom": 50,
+        "enable_bg_zoom_effect": true
+      }
+    },
+    "image_with_text_2_BhPGq3": {
+      "type": "image-with-text-2",
+      "disabled": true,
+      "custom_css": [
+        "@media screen and (max-width: 767px) {.m-hero--content-stack {overflow: visible; margin-bottom: 0px; }}"
+      ],
+      "settings": {
+        "color_scheme": "",
+        "container": "w-full",
+        "hero_size": "adapt",
+        "show_overlay": false,
+        "image": "shopify://shop_images/scale-o_home_banner_approved.png",
+        "image_link": "",
+        "parallax": false,
+        "parallax_direction": "vertical",
+        "content_in_container": false,
+        "content_position": "center middle",
+        "text_alignment": "center",
+        "text_size": "medium",
+        "text_color": "white",
+        "title": "",
+        "subtitle": "",
+        "text": "",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "m-button--primary",
+        "button_size": "",
+        "text_alignment_mobile": "center",
+        "use_content_above": false,
+        "custom_class": "",
+        "animations": "inherit",
+        "enable_bg_zoom_effect": true
+      }
+    },
+    "slider_Q6ATqq": {
+      "type": "slider",
+      "blocks": {
+        "slider_item_yftc9e": {
+          "type": "slider_item",
+          "settings": {
+            "background": "shopify://shop_images/Salt-Free_Water_Softners_Image.png",
+            "content_in_container": false,
+            "content_position": "center middle",
+            "text_alignment": "center",
+            "text_size": "medium",
+            "text_color": "black",
+            "subheading": "",
+            "title": "",
+            "description": "",
+            "image_link": "",
+            "button_text": "",
+            "button_link": "",
+            "button_style": "m-button--link",
+            "button_size": "",
+            "second_button_text": "",
+            "second_button_link": "",
+            "second_button_style": "m-button--primary",
+            "second_button_size": "m-button--large",
+            "show_footer": false,
+            "footer_alignment": "end",
+            "footer_text": "New Collection",
+            "footer_button": "Shop Now",
+            "footer_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "slider_item_yftc9e"
+      ],
+      "name": "Slideshow",
+      "settings": {
+        "container": "w-full",
+        "slideshow_height": "adapt",
+        "show_overlay": false,
+        "dots_position": "bottom",
+        "dots_color": "dark",
+        "show_dots": true,
+        "show_arrows": false,
+        "autorotate": false,
+        "autorotate_speed": 5,
+        "use_content_above": false,
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "rich_text_wehJU4": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_tRYhPx": {
+          "type": "heading",
+          "settings": {
+            "heading": "Best Salt-Free Water Softeners",
+            "heading_size": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "heading_tRYhPx"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "container": "container",
+        "color_scheme": "",
+        "content_alignment": "center",
+        "padding_top": 68,
+        "padding_bottom": 0,
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "main": {
+      "type": "main-collection-product-grid",
+      "custom_css": [
+        ".m-banner-promotion {order: 3 !important; margin-top: 30px; margin-bottom: 0;}",
+        ".m-collection-filters-form {margin-bottom: 0;}",
+        ".ddreview-star {display: none;}",
+        ".m-button--secondary {background-color: #0c7fdf;}",
+        ".m\\:text-left {text-align: center;}",
+        ".m-product-card__title {padding-bottom: 20px; border-bottom: 1.5px solid #d6e2fa;}",
+        ".m-button--secondary:hover {background: black;}",
+        ".m-tooltip:nth-child(1),.m-tooltip:nth-child(5) {display: none;}"
+      ],
+      "settings": {
+        "container": "container-fluid",
+        "grid_layout": "grid",
+        "grid_columns": "4",
+        "show_columns_switcher": false,
+        "pagination_limit": 12,
+        "paginate_type": "infinite",
+        "show_sorting": true,
+        "show_filter": true,
+        "filters_type": "storefront_filters",
+        "sidebar": "leftColumn",
+        "sidebar_title": "Filters",
+        "limit_height_widget": true,
+        "limit_height": 300,
+        "change_product_variant_on_fitlering": true,
+        "show_product_count": true,
+        "collapsed_groups": "Product type, Brand, Vendor, Size",
+        "color_swatches": "color,colour,couleur,farbe",
+        "color_swatches_design": "list"
+      }
+    },
+    "rich_text_9dCnXV": {
+      "type": "rich-text",
+      "blocks": {
+        "text_KwH7D7": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Hard water goes beyond just being a mere inconvenience. In the long run, it leaves behind stubborn scale deposits that clog pipes, reduce the efficiency of water heaters, stain bathroom fixtures, and shorten the lifespan of expensive appliances. The good news is you don't have to struggle with these issues using large salt-based systems anymore. With the arrival of a salt free water softener with a modern, maintenance-friendly solution that helps prevent scale without adding sodium or requiring regular salt refills.</p><p>If you're planning to build a new home or upgrade your current water system, then a salt free water softener can help you preserve those minerals in your water while protecting your investment. If you're searching for the best salt-free water softener, today's advanced technologies make it easier than ever to enjoy cleaner plumbing and hassle-free performance.</p><h2>Why Choose a Salt-Free Water Softener?</h2><p>While most softeners remove calcium and magnesium through the exchange of sodium (salt), a salt-less water softener treats hardness minerals to prevent them from sticking to pipes and surfaces. Utilizing this greatly reduces scale development but keeps the water's structure intact.</p><p>More and more homeowners are choosing the most effective <strong>salt free water softener</strong> because it provides:</p><ul><li>No salt refills or regeneration cycles</li><li>No wastewater during operation</li><li>Minimal maintenance requirements</li><li>Not consuming any electricity in most of the methods</li><li>Protection for plumbing and appliances</li><li>Keeping the good minerals in water intact</li></ul><p>These advantages have made modern conditioning systems some of the <strong>top rated salt free water softeners</strong> available today.</p><h2>Technology Behind the Scale-O Products</h2><p>Scale-O uses advanced chelation technology to reduce hard water scale, without the use of chemicals, salt or ion exchange. Calcium and magnesium are not taken out but converted to a different structure. The Scale-O technology alters the hard water crystal structure so they remain suspended in water rather than attaching to pipes, tanks, geysers, and fixtures. This novel solution provides households and businesses with the opportunity to benefit from a salt free water softener system without the upkeep and running costs of traditional models.</p><p>For anyone looking for the <strong>best salt free water softener</strong> <strong>system</strong>, Scale-O offers a practical solution that works continuously with minimal intervention and no recurring salt expenses.</p><h2>Who Can Install a Water Softener Without Salt?</h2><p>If you deal with hard water problems in your residential or commercial property, a salt free system is the best choice for nearly any home. Salt-free technology reduces scale accumulation and protects expensive infrastructures in residential buildings down to large institutions.</p><h3>1. Homes & Residential Areas</h3><p>Household plumbing is also subjected to hard water minerals from daily activities like bathing, cooking and washing. Along with minimizing maintenance costs, installing a <strong>salt free water softener</strong> also preserves taps, showers and appliances in a clearer state.</p><h3>2. Villas & Bungalows</h3><p>Large residences often have elaborate plumbing systems and multiple water outlets. Long-term scaling puts premium fittings, water heaters and pipelines at risk that you can avoid with the <strong>best salt free water softener</strong>.</p><h3>3. Hotels & Resorts</h3><p>Hotels depend on uninterrupted water systems for guest comfort. The <strong>best salt free water softener</strong> system helps maintain boilers, laundry equipment, showers and plumbing without the downtime associated with scale buildup.</p><h3>4. Offices & Commercial Buildings</h3><p>A <strong>Salt free water softener</strong> can save you the wear & tear of pantry equipment, restrooms, cooling systems & plumbing infrastructure, which ultimately lowers the repair cost for businesses.</p><h3>5. Hospitals</h3><p>Healthcare facilities require reliable water systems every day. A salt free water softener helps minimise scale in pipelines and heating systems without introducing additional sodium into the water supply.</p><h3>6. Schools & Universities</h3><p>Educational institutions with large student populations consume thousands of litres of water daily. Installing one of the <strong>top rated salt free water softeners</strong> helps safeguard water distribution systems, laboratories, hostels, and sanitation facilities.</p><h3>7. Public Buildings</h3><p>Government offices, municipal facilities, community centres and public infrastructure can also benefit from the <strong>best</strong> <strong>water softener without salt</strong>, reducing scale-related maintenance while extending the lifespan of plumbing systems.</p><h2>Choose by Tank Size & Daily Water Usage</h2><p>The type of salt free water softener that is right for you will depend on the size of your house and how much water you use daily. Having an appropriately sized system will guarantee optimal scale prevention, enhanced protection of plumbing and appliances, and consistent performance throughout your home. Be it a small flat or a big villa, Scale-O provides you with the same solution crafted in line with your needs.</p><h3>For Small Families (2–4 Members)</h3><p>If you have a 2-4 member family and moderate household water consumption, Scale-O <a href=\"https://scale-o.com/products/scale-o-mini\"><span style=\"text-decoration:underline\"><strong>Mini Water Softener</strong></span></a> is definitely for you. Suitable for small overhead tanks, it is a salt free and electricity free solution to avoid unwanted hardness scale formation in your geysers, taps, showers and appliances. This water softener without salt is perfect for small homes looking for an easy, low-maintenance solution.</p><h3>For Medium Families (4–6 Members)</h3><p>Medium-sized households are generally larger and have multiple bathrooms. The Scale-O <a href=\"https://scale-o.com/products/scale-o-semi\"><span style=\"text-decoration:underline\"><strong>Semi Water Softener</strong></span></a> is designed to handle these requirements by helping reduce mineral buildup throughout your plumbing system and protecting water heaters, pipelines, and everyday appliances. This is a great option for homeowners in search of the <strong>best salt free water softener</strong> for medium size homes.</p><h3>For Large Families (6+ Members)</h3><p>Bigger households use a lot more drinking water per day raising the risk of scale form throughout our home. The Scale-O <a href=\"https://scale-o.com/products/scale-o-centi\"><span style=\"text-decoration:underline\"><strong>Centi Water Softener</strong></span></a> is built for high-capacity applications, offering reliable protection for overhead tanks, plumbing systems, pumps and expensive appliances. If you're looking for the <strong>best saltless water softener</strong> for villas, bungalows or large homes, this solution delivers long-term performance with little upkeep.</p><h2>How to Install on Your Overhead Tank</h2><p>Salt free water softener has an easy-to-install system, which is one of the advantages. Many new systems are designed to be installed inside the overhead water tank, unlike their traditional softener counterparts that require complex plumbing renovations. They are great for homes, villas, hotels, offices, schools and commercial buildings that want trouble free upgrade.</p><p>Scale-O products are designed to integrate easily into existing water storage systems without requiring extensive modifications.</p><h3>Installation Process</h3><p>Installing a <strong>water softener without salt</strong> is straightforward and takes only a few simple steps:</p><p><strong>Step 1: </strong>Open your overhead water tank and identify a suitable position for the unit.</p><p><strong>Step 2: </strong>Place the device securely at the bottom of the tank, ensuring it remains fully submerged.</p><p><strong>Step 3: </strong>Position it so it stays stable during water inflow and daily usage.</p><p><strong>Step 4: </strong>Close the tank and allow the system to continuously condition the water without electricity, chemicals, or salt refills.</p><p>Once installed, the system works automatically, helping reduce scale formation throughout your water supply.</p><h2>Benefits of Choosing the Best Salt Free Water Softener</h2><p>Investing in the <strong>best salt free water softener</strong> offers long-term advantages that go beyond cleaner taps.</p><ul><li>Increases the life of geysers and water heaters</li><li>Helps maintain efficient plumbing flow</li><li>Reduces white scale deposits on bathroom fixtures</li><li>Minimises maintenance costs for appliances</li><li>Eliminates the need for monthly salt purchases</li><li>Supports environmentally friendly water treatment</li><li>Preserves naturally occurring minerals in water</li></ul><p>For these reasons, many homeowners consider salt-free conditioning as one of the best salt free water softeners on the market.</p><h2>Salt Free Water Softener: A Smarter Alternative to Traditional Softeners</h2><p>A <strong>saltless water softener</strong> is an easier solution if you are looking to quit the salt refills, regeneration cycles and regular maintenance. It provides effective scale protection by conditioning hardness minerals rather than removing them, and it is both sustainable and cost-effective.</p><p>Whether you're looking for the best no salt water softener for a small apartment or the <strong>best salt free water softener</strong> <strong>system</strong> for a large commercial property, picking the correct technology can go a long way in improving your plumbing and appliance life.</p><p>Innovative solutions like Scale-O allow you to protect your water infrastructure more easily, cleanly and conveniently, making it a perfect solution for all modern homes or businesses. Contact us to know more about the <strong>best salt free water softener</strong>. Explore the right Scale-O solution for your needs and take the first step towards cleaner, smarter, and hassle-free water protection today!</p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_KwH7D7"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "container": "container",
+        "color_scheme": "",
+        "content_alignment": "left",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "image_with_text_8ddqLE": {
+      "type": "image-with-text",
+      "disabled": true,
+      "name": "Image with text",
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "container": "container-fluid",
+        "color_scheme": "",
+        "item_gap": 100,
+        "item_gap_mobile": 30,
+        "layout": "right",
+        "image_column_size": "7",
+        "image_overlap": false,
+        "show_image_reverse": false,
+        "hover_effect": false,
+        "image_animation": "none",
+        "image": "shopify://shop_images/step_1_scale_o.png",
+        "link": "",
+        "link_2": "",
+        "second_image_offset_top": 10,
+        "title": "Step 1 – Install Inside the Overhead Tank",
+        "sub_title": "",
+        "text": "<p>The Scale-O unit is placed directly inside the overhead water tank using its simple DIY installation setup. No plumber, power connection, or pipeline cutting is required.</p>",
+        "text_size": "small",
+        "content_alignment": "left",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "m-button--link",
+        "button_size": "",
+        "padding_top": 54,
+        "padding_bottom": 20,
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "image_with_text_ajUA9Q": {
+      "type": "image-with-text",
+      "disabled": true,
+      "custom_css": [],
+      "name": "Image with text",
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "container": "container-fluid",
+        "color_scheme": "",
+        "item_gap": 100,
+        "item_gap_mobile": 30,
+        "layout": "left",
+        "image_column_size": "7",
+        "image_overlap": false,
+        "show_image_reverse": false,
+        "hover_effect": false,
+        "image_animation": "none",
+        "image": "shopify://shop_images/step_2_scale_o.png",
+        "link": "",
+        "link_2": "",
+        "second_image_offset_top": 10,
+        "title": "Step 2 – Water Flows Around the Scale-O Unit",
+        "sub_title": "",
+        "text": "<p>As water continuously circulates inside the tank, it flows around the Scale-O device during daily household usage and tank refilling cycles.</p>",
+        "text_size": "small",
+        "content_alignment": "left",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "m-button--link",
+        "button_size": "",
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "image_with_text_jKTDq9": {
+      "type": "image-with-text",
+      "disabled": true,
+      "name": "Image with text",
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "container": "container-fluid",
+        "color_scheme": "",
+        "item_gap": 100,
+        "item_gap_mobile": 30,
+        "layout": "right",
+        "image_column_size": "7",
+        "image_overlap": false,
+        "show_image_reverse": false,
+        "hover_effect": false,
+        "image_animation": "none",
+        "image": "shopify://shop_images/step_3_scale_o.png",
+        "link": "",
+        "link_2": "",
+        "second_image_offset_top": 10,
+        "title": "Step 3 – Chelation Technology Conditions Hard Water Minerals",
+        "sub_title": "",
+        "text": "<p>Scale-O uses advanced chelation technology that helps condition hard water minerals like calcium and magnesium. This process helps reduce the ability of minerals to stick to surfaces and form stubborn scale deposits.</p>",
+        "text_size": "small",
+        "content_alignment": "left",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "m-button--link",
+        "button_size": "",
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "image_with_text_xq8rzc": {
+      "type": "image-with-text",
+      "disabled": true,
+      "name": "Image with text",
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "container": "container-fluid",
+        "color_scheme": "",
+        "item_gap": 100,
+        "item_gap_mobile": 30,
+        "layout": "left",
+        "image_column_size": "7",
+        "image_overlap": false,
+        "show_image_reverse": false,
+        "hover_effect": false,
+        "image_animation": "none",
+        "image": "shopify://shop_images/step_4_scale_o.png",
+        "link": "",
+        "link_2": "",
+        "second_image_offset_top": 10,
+        "title": "Step 4 – Reduced Scaling Across the Home",
+        "sub_title": "",
+        "text": "<p>The conditioned water then flows through your home’s plumbing system, helping reduce white scaling on taps, showers, bathroom fittings, tiles, geysers, washing machines, and kitchen appliances.</p>",
+        "text_size": "small",
+        "content_alignment": "left",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "m-button--link",
+        "button_size": "",
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "image_with_text_Bq3ECK": {
+      "type": "image-with-text",
+      "disabled": true,
+      "name": "Image with text",
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "container": "container-fluid",
+        "color_scheme": "",
+        "item_gap": 100,
+        "item_gap_mobile": 30,
+        "layout": "right",
+        "image_column_size": "7",
+        "image_overlap": false,
+        "show_image_reverse": false,
+        "hover_effect": false,
+        "image_animation": "none",
+        "image": "shopify://shop_images/step_5_scale_o.png",
+        "link": "",
+        "link_2": "",
+        "second_image_offset_top": 10,
+        "title": "Step 5 – Whole House Hard Water Protection",
+        "sub_title": "",
+        "text": "<p>By working directly from the overhead tank, Scale-O helps provide soft water support across the entire home while helping improve appliance efficiency and reducing hard water maintenance issues.<br/></p>",
+        "text_size": "small",
+        "content_alignment": "left",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "m-button--link",
+        "button_size": "",
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "custom_content_mDBmjW": {
+      "type": "custom-content",
+      "blocks": {
+        "html_DYjkRi": {
+          "type": "html",
+          "settings": {
+            "code": "<style>\n    @media (min-width:768px) {\n        .faq-container {\n            padding: 20px;\n            display: flex;\n            justify-content: space-between;\n            gap: 20px;\n        }\n\n        .faqdiv {\n            width: 50%;\n        }\n    }\n\n    .faq-item {\n        margin-bottom: 20px;\n    }\n\n    .faq-question {\n        width: 100%;\n        background-color: #F5F7FF;\n        border: none;\n        padding: 15px;\n        text-align: left;\n        cursor: pointer;\n        border-radius: 4px;\n        transition: background-color 0.3s;\n        display: flex;\n        justify-content: space-between;\n        align-items: center;\n        color: #000;\n    }\n\n    .faq-question h4 {\n        margin: 0;\n        font-size: 16px;\n        font-weight: 600;\n        line-height: 1.5;\n        width: calc(100% - 30px);\n    }\n\n    .faq-question:hover {\n        background-color: #e1e1e1;\n    }\n\n    .faq-question.active {\n        background-color: #2a6ab2;\n        color: #fff;\n        border-radius: 4px 4px 0 0;\n    }\n\n    .faq-question.active h4 {\n        color: #fff;\n    }\n\n    .faq-answer {\n        max-height: 0;\n        opacity: 0;\n        overflow: hidden;\n        padding: 0 15px;\n        background-color: #2a6ab2;\n        border-radius: 0 0 4px 4px;\n        font-size: 14px;\n        line-height: 1.8;\n        color: #fff;\n        transition: max-height 0.5s ease, opacity 0.5s ease, padding 0.5s ease;\n    }\n\n    .faq-answer.open {\n        max-height: 500px;\n        opacity: 1;\n        padding: 15px;\n        border-top: 1px solid #DBE2FF;\n    }\n\n    .faq-icon {\n        width: 20px;\n        height: 20px;\n        margin-left: 10px;\n        flex-shrink: 0;\n    }\n</style>\n\n<div class=\"faq-container\">\n\n    <!-- Left Column -->\n    <div class=\"faqdiv\">\n\n        <div class=\"faq-item\">\n            <button class=\"faq-question\">\n                <h4>Is a water softener without salt better than a traditional salt-based softener?</h4>\n\n                <span>\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_49.png?v=1720679877\" class=\"faq-icon open-icon\" alt=\"Open Icon\">\n\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/4444.png?v=1720679877\" class=\"faq-icon close-icon\" style=\"display:none;\" alt=\"Close Icon\">\n                </span>\n            </button>\n\n            <div class=\"faq-answer\">\nIt depends on your needs. A <strong>water softener without salt </strong>is ideal for homeowners who want to reduce scale buildup without dealing with salt refills, regeneration cycles, or water wastage. It also retains beneficial minerals in the water.\n            </div>\n        </div>\n\n        <div class=\"faq-item\">\n            <button class=\"faq-question\">\n                <h4>Does a salt free water softener remove calcium and magnesium from water?</h4>\n\n                <span>\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_49.png?v=1720679877\" class=\"faq-icon open-icon\" alt=\"Open Icon\">\n\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/4444.png?v=1720679877\" class=\"faq-icon close-icon\" style=\"display:none;\" alt=\"Close Icon\">\n                </span>\n            </button>\n\n            <div class=\"faq-answer\">\n         No. A salt free water softener does not remove calcium or magnesium. Instead, it conditions these minerals so they are less likely to stick to surfaces and create scale buildup.\n            </div>\n        </div>\n\n        <div class=\"faq-item\">\n            <button class=\"faq-question\">\n                <h4>Can I install a water softener without salt in my overhead water tank?</h4>\n\n                <span>\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_49.png?v=1720679877\" class=\"faq-icon open-icon\" alt=\"Open Icon\">\n\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/4444.png?v=1720679877\" class=\"faq-icon close-icon\" style=\"display:none;\" alt=\"Close Icon\">\n                </span>\n            </button>\n\n            <div class=\"faq-answer\">\nYes. Many <strong>water softener without salt</strong> systems, including overhead tank solutions, are designed for easy installation inside the water storage tank without requiring major plumbing modifications.\n            </div>\n        </div>\n\n    </div>\n\n    <!-- Right Column -->\n    <div class=\"faqdiv\">\n\n        <div class=\"faq-item\">\n            <button class=\"faq-question\">\n                <h4>Do salt free water softeners require electricity?</h4>\n\n                <span>\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_49.png?v=1720679877\" class=\"faq-icon open-icon\" alt=\"Open Icon\">\n\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/4444.png?v=1720679877\" class=\"faq-icon close-icon\" style=\"display:none;\" alt=\"Close Icon\">\n                </span>\n            </button>\n\n            <div class=\"faq-answer\">\nMost modern <strong>saltless water softener</strong> systems operate without electricity, making them energy-efficient and suitable for continuous use.\n            </div>\n        </div>\n\n        <div class=\"faq-item\">\n            <button class=\"faq-question\">\n                <h4>Is maintenance required for a salt free water softener?</h4>\n\n                <span>\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_49.png?v=1720679877\" class=\"faq-icon open-icon\" alt=\"Open Icon\">\n\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/4444.png?v=1720679877\" class=\"faq-icon close-icon\" style=\"display:none;\" alt=\"Close Icon\">\n                </span>\n            </button>\n\n            <div class=\"faq-answer\">\nOne of the biggest advantages of the Scale-O salt free water softener is its low-maintenance design. Unlike traditional systems, there are no salt refills or regeneration cycles, significantly reducing upkeep.\n            </div>\n        </div>\n\n        <div class=\"faq-item\">\n            <button class=\"faq-question\">\n                <h4>Will a salt free water softener improve the lifespan of appliances?</h4>\n\n                <span>\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_49.png?v=1720679877\" class=\"faq-icon open-icon\" alt=\"Open Icon\">\n\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/4444.png?v=1720679877\" class=\"faq-icon close-icon\" style=\"display:none;\" alt=\"Close Icon\">\n                </span>\n            </button>\n\n            <div class=\"faq-answer\">\nYes. By reducing scale formation, a salt free water softener helps protect geysers, washing machines, dishwashers, water heaters, pipelines and other appliances, which can improve their efficiency and longevity.\n            </div>\n        </div>\n        <div class=\"faq-item\">\n            <button class=\"faq-question\">\n                <h4>Does a saltless water softener change the taste of water?</h4>\n\n                <span>\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_49.png?v=1720679877\" class=\"faq-icon open-icon\" alt=\"Open Icon\">\n\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/4444.png?v=1720679877\" class=\"faq-icon close-icon\" style=\"display:none;\" alt=\"Close Icon\">\n                </span>\n            </button>\n\n            <div class=\"faq-answer\">\nNo. Since a <strong>saltless water softener</strong> does not add sodium or remove natural minerals, it generally does not alter the taste of the water.\n            </div>\n        </div>\n\n    </div>\n\n</div>\n\n<script>\n    document.addEventListener('DOMContentLoaded', function () {\n\n        const questions = document.querySelectorAll('.faq-question');\n\n        questions.forEach(question => {\n\n            question.addEventListener('click', function () {\n\n                const answer = this.nextElementSibling;\n                const isOpen = answer.classList.contains('open');\n\n                // Close all FAQ items\n                document.querySelectorAll('.faq-answer').forEach(item => {\n                    item.classList.remove('open');\n                });\n\n                document.querySelectorAll('.faq-question').forEach(item => {\n                    item.classList.remove('active');\n                });\n\n                document.querySelectorAll('.open-icon').forEach(icon => {\n                    icon.style.display = 'inline-block';\n                });\n\n                document.querySelectorAll('.close-icon').forEach(icon => {\n                    icon.style.display = 'none';\n                });\n\n                // Open current FAQ item\n                if (!isOpen) {\n                    answer.classList.add('open');\n                    this.classList.add('active');\n\n                    this.querySelector('.open-icon').style.display = 'none';\n                    this.querySelector('.close-icon').style.display = 'inline-block';\n                }\n\n            });\n\n        });\n\n    });\n</script>",
+            "width": "100%",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "html_DYjkRi"
+      ],
+      "name": "Custom content",
+      "settings": {
+        "heading": "Frequently Asked Questions",
+        "heading_size": "h3",
+        "subheading": "FAQ",
+        "description": "",
+        "header_alignment": "center",
+        "container": "container-fluid",
+        "color_scheme": "",
+        "content_color_scheme": "",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "gap": 30,
+        "gap_mobile": 16,
+        "use_scroll_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 30,
+        "custom_class": ""
+      }
+    }
+  },
+  "order": [
+    "collection-header",
+    "image_with_text_2_BhPGq3",
+    "slider_Q6ATqq",
+    "rich_text_wehJU4",
+    "main",
+    "rich_text_9dCnXV",
+    "image_with_text_8ddqLE",
+    "image_with_text_ajUA9Q",
+    "image_with_text_jKTDq9",
+    "image_with_text_xq8rzc",
+    "image_with_text_Bq3ECK",
+    "custom_content_mDBmjW"
+  ]
+}

@@ -1,0 +1,192 @@
+<div class="location-delivery-checker">
+  {% assign delivery_available_message = 'Delivery is available!' %}
+  {% assign cod_available_message = 'COD is available!' %}
+  {% assign cod_unavailable_message = 'Oops! COD is not currently available in your area.' %}
+  {% assign delivery_unavailable_message = 'Oops! We are not currently servicing your area.' %}
+  {% assign placeholder_message = 'Check Pincode Availability ex. 400057' %}
+  {% assign check_button_text = 'Check' %}
+  {% assign success_color = '#468847' %}
+  {% assign failure_color = '#FF0000' %}
+  {% assign spacing_in_pixels = 10 %}
+  <style>
+    .location-delivery-checker #PostalCode{
+      width:75%;
+      padding: 0 15px;
+    }
+    .location-delivery-checker .btn{ 
+      width: 25%;
+      display: flex;
+      justify-content: center;
+    }
+    @media only screen and (max-width: 768px) {
+      #PostalCode{
+        width:70%;
+        padding: 0 10px;
+      }
+    }
+  </style>
+
+  <h3 style="margin: {{ spacing_in_pixels | append: 'px' }} 0">{{ title | escape }}</h3>
+  <div style="display: flex; margin-bottom: {{ spacing_in_pixels | append: 'px' }};">
+    <input
+      type="text"
+      id="PostalCode"
+      name="PostalCode"
+      placeholder="{{ placeholder_message | escape }}"
+      style="margin: 0 {{ spacing_in_pixels | divided_by: 2 | append: 'px' }} 0 0;"
+      onkeypress="return event.keyCode != 13;"
+    >
+
+    <button type="button" class="btn btn--primary" onclick="checkCodAndDeliveryAvailability()">
+      {{ check_button_text | escape }}
+    </button>
+  </div>
+  <p id="PostalCodeCheckerAvailability" style="display: none;"></p>
+</div>
+
+{% assign file_name = 'shipping-delivery-pincode.json' %}
+{% assign file_url = file_name | asset_url %}
+<script type="text/javascript">
+    var availabilityData = [];
+
+    function fetchAvailabilityData() {
+      var jsonFileUrl = '{{ file_url }}';
+      var request = new XMLHttpRequest();
+      request.open('GET', jsonFileUrl, true);
+      request.onload = function() {
+        console.log('yest')
+        if (request.status >= 200 && request.status < 400) {
+          var jsonData = JSON.parse(request.responseText);
+          jsonData.forEach(function(data) {
+           
+            availabilityData.push({
+              pincode: data.Pincode,
+              cod_available: data.Delivery,
+              day_to_deliver: data.Day_to_deliver   
+            });
+          });
+           // console.log('availabilityData ',availabilityData)
+        } else {
+          console.error('Error fetching JSON data');
+        }
+      };
+      request.onerror = function() {
+        console.error('Request failed');
+      };
+      request.send();
+    }
+
+    fetchAvailabilityData();
+    var checkCodAndDeliveryAvailability = function() {
+      var box = document.getElementById('PostalCodeCheckerAvailability');
+      var postalCode = document.getElementById('PostalCode').value;
+        console.log(postalCode)
+      box.style.display = 'block';
+      box.style.visibility = 'hidden';
+
+      var availability = getAvailability(postalCode);
+       // console.log('availability ',availability)
+      if (availability) {
+        var availabilityText = ' ';
+
+       if (availability.cod_available) {
+        
+          availabilityText += '  ' + {{ delivery_available_message | json }};
+        } else {
+          availabilityText += '  ' + {{ delivery_unavailable_message | json }};
+        }
+
+        
+        // if (availability.cod_available) {
+        //   availabilityText += '  ' + {{ cod_available_message | json }};
+        // } else {
+        //   availabilityText += '  ' + {{ cod_unavailable_message | json }};
+        // }
+
+          let today = new Date();
+          let options = { weekday: 'short', day: '2-digit', month: 'short' };
+         let formattedDate = today.toLocaleDateString('en-GB', options);
+          formattedDate = formattedDate.replace(',', '');
+        console.log('formattedDate --> ',formattedDate)
+          $('.order-placed-content .date').html(formattedDate)
+          // $('.order-dispatched-content .date').html(formattedDate)
+
+          let new_today = new Date();
+          let addon_day = new_today.setDate(new_today.getDate() + 1);
+          let new_formattedDate = new_today.toLocaleDateString('en-GB', options);
+          new_formattedDate = new_formattedDate.replace(',', '');
+        console.log('new formattedDate --> ',new_formattedDate)
+        
+          $('.order-dispatched-content .date').html(new_formattedDate)
+
+
+    function getFormattedDate(offset) {
+        var date = new Date();
+      // let delivery_day = new_today.setDate(new_today.getDate() + 2);
+        date.setDate(date.getDate() + offset + 2);
+        var options = { weekday: 'short', day: '2-digit', month: 'short' };
+        let formattedDate_1 = date.toLocaleDateString('en-GB', options);
+        formattedDate_1 = formattedDate_1.replace(',', '');
+      console.log('formattedDate_1 ***',formattedDate_1)
+      return formattedDate_1
+      
+    }
+    const newDate = getFormattedDate(availability.day_to_deliver);
+        console.log('new date= ',newDate)
+    $('.order-delivered-content .date').html(newDate);
+
+
+        
+             
+        $('.delivery-time-show').show();
+        box.textContent = availabilityText;       
+        box.style.color = (availability.cod_available) ? {{ success_color | json }} : {{ failure_color | json }};
+        // box.style.color = (availability.delivery_available && availability.cod_available) ? {{ success_color | json }} : {{ failure_color | json }};
+      } else {
+        box.textContent = "We currently do not service to this pincode.";
+        box.style.color = {{ failure_color | json }};
+        $('.delivery-time-show').hide();
+      }
+
+      box.style.visibility = 'visible';
+    };
+
+    function getAvailability(postalCode) {
+      for (var i = 0; i < availabilityData.length; i++) {
+      
+        if (availabilityData[i].pincode == postalCode) {
+          console.log('matched')
+          return {
+            cod_available: availabilityData[i].cod_available,
+            day_to_deliver: availabilityData[i].day_to_deliver
+          };
+        }
+      }
+      return null;
+    }
+
+  //   function fetchAvailabilityData() {
+  //   var jsonFileUrl = '{{ file_url }}';
+  //   var request = new XMLHttpRequest();
+  //   request.open('GET', jsonFileUrl, true);
+  //   request.onload = function() {
+  //     if (request.status >= 200 && request.status < 400) {
+  //       var jsonData = JSON.parse(request.responseText);
+  //       //console.log(jsonData); // Check the JSON data in the console
+  //       jsonData.forEach(function(data) {
+  //         availabilityData.push({
+  //           pincode: data[0].toString(),
+  //           cod_available: data[1] === 'Yes',
+  //           delivery_available: data[2] === 'Yes'
+  //         });
+  //       });
+  //     } else {
+  //       console.error('Error fetching JSON data');
+  //     }
+  //   };
+  //   request.onerror = function() {
+  //     console.error('Request failed');
+  //   };
+  //   request.send();
+  // }
+</script>

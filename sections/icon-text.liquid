@@ -1,0 +1,74 @@
+ {% if section.blocks.size > 0 %}
+<div class="container-fluid">
+<div class="icon-text-section">
+  {% for block in section.blocks %}
+    <div class="icon-text-inner">
+    <img src="{{ block.settings.logo | img_url : 'master' }}">
+      <span>{{ block.settings.heading }}</span>
+    </div>
+  {% endfor %}
+</div>  
+</div>
+   {% endif %}
+<style>
+.icon-text-section{
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 10px;
+    row-gap: 20px;
+  justify-content: center;
+}  
+.icon-text-section .icon-text-inner{
+  width:calc(16.66% - 10px);
+  text-align:center;
+} 
+.icon-text-inner span{
+      margin-top: 10px;
+    display: block;
+} 
+.icon-text-inner img{  
+      padding: 20px;
+}  
+
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    .icon-text-section .icon-text-inner{
+  width:calc(25% - 10px);
+  text-align:center;
+} 
+  }
+  @media screen and (max-width: 767px) {
+    .icon-text-section .icon-text-inner{
+  width:calc(50% - 10px);
+  text-align:center;
+} 
+  }  
+</style>
+{% schema %}
+  {
+    "name": "Icon Text",
+    "settings": [],
+    "blocks": [
+      {
+      "type": "icon_text",
+      "name": "Icon",
+      "settings": [
+        {
+       "type": "image_picker",
+        "label":"logo",
+        "id":"logo"
+        },
+        {
+       "type": "text",
+        "label":"Heading",
+        "id":"heading"
+        }
+          ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Icon Text"
+      }
+    ]
+  }
+{% endschema %}

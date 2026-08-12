@@ -1,0 +1,91 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "page",
+      "disabled": true,
+      "settings": {}
+    },
+    "rich_text_yqBY4B": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_RwWFUp": {
+          "type": "heading",
+          "settings": {
+            "heading": "Terms and Conditions",
+            "heading_size": "h2"
+          }
+        },
+        "text_Umimwj": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>1. Introduction</strong></p><p>Welcome to Scale-O! These Terms and Conditions govern your use of our website, scale-o.com, and the purchase of water filters and related products. By using our website and/or making a purchase, you agree to be bound by these Terms and Conditions. If you do not agree with any part of these terms, please do not use our website or make a purchase.</p><p><strong>2. Company Information</strong></p><ul><li><strong>Company Name:</strong> Scale-O</li><li><strong>Email:</strong> <a>sales@scale-o.com</a></li><li><strong>Contact Number:</strong> +91 9909963304</li><li><strong>Website:</strong> scale-o.com</li></ul><p><strong>3. Products and Services</strong></p><p>Scale-O provides water filters and related products. All products are subject to availability, and we reserve the right to limit the quantity of products we supply. We make every effort to ensure that product descriptions and prices are accurate; however, errors may occur. We reserve the right to correct any errors and adjust prices as necessary.</p><p><strong>4. Ordering and Payment</strong></p><p>To place an order, you must be over 18 years old. All orders are subject to acceptance and availability. We will confirm receipt of your order by sending you an email containing the details of your order. Payment can be made through the methods available on our website. All payments must be made in full before products are shipped.</p><p><strong>5. Shipping and Delivery</strong></p><p>We will make every effort to deliver products within the estimated delivery times. However, we are not responsible for any delays caused by factors beyond our control. Delivery charges are calculated based on the delivery location and will be displayed at checkout.</p><p><strong>6. Returns and Refunds</strong></p><p>If you are not satisfied with your purchase, you may return the product within [insert number] days of receipt. The product must be unused and in its original packaging. To request a return, please contact us at <a>sales@scale-o.com</a>. Refunds will be processed according to our refund policy.</p><p><strong>7. Warranty</strong></p><p>Our products come with a [insert number]-year warranty covering manufacturing defects. The warranty does not cover damage resulting from misuse, accidents, or unauthorized repairs.</p><p><strong>8. Intellectual Property</strong></p><p>All content on our website, including text, images, logos, and trademarks, is the property of Scale-O or its licensors and is protected by copyright and trademark laws. You may not reproduce, distribute, or otherwise use any content from our website without our prior written permission.</p><p><strong>9. Limitation of Liability</strong></p><p>To the fullest extent permitted by law, Scale-O shall not be liable for any indirect, incidental, or consequential damages arising from the use of our products or website. Our total liability for any claims arising from your use of our products or website shall not exceed the amount you paid for the product or service in question.</p><p><strong>10. Governing Law</strong></p><p>These Terms and Conditions shall be governed by and construed in accordance with the laws of [insert jurisdiction]. Any disputes arising from or related to these Terms and Conditions shall be resolved in the courts of [insert jurisdiction].</p><p><strong>11. Changes to Terms and Conditions</strong></p><p>We reserve the right to modify these Terms and Conditions at any time. Any changes will be posted on our website, and your continued use of the website or purchase of products will constitute acceptance of the revised terms.</p><p><strong>12. Contact Us</strong></p><p>If you have any questions or concerns regarding these Terms and Conditions, please contact us at:</p><ul><li><strong>Email:</strong> <a>sales@scale-o.com</a></li><li><strong>Contact Number:</strong> +91 9909963304</li></ul><p>Thank you for choosing Scale-O!</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_RwWFUp",
+        "text_Umimwj"
+      ],
+      "settings": {
+        "container": "container",
+        "color_scheme": "",
+        "content_alignment": "left",
+        "padding_top": 92,
+        "padding_bottom": 40,
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "custom_content_HAFneN": {
+      "type": "custom-content",
+      "blocks": {
+        "image_KMCwzV": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Group_44_6dd7f55a-7c3f-4a7b-b8f2-0025c0a01ae1.png",
+            "link": "",
+            "width": "100%",
+            "alignment": "center",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "image_KMCwzV"
+      ],
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "header_alignment": "center",
+        "container": "w-full",
+        "color_scheme": "",
+        "content_color_scheme": "",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "gap": 30,
+        "gap_mobile": 16,
+        "use_scroll_mobile": false,
+        "padding_top": 100,
+        "padding_bottom": 0,
+        "custom_class": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "rich_text_yqBY4B",
+    "custom_content_HAFneN"
+  ]
+}

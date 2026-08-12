@@ -1,0 +1,1560 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "1621243260e1af0c20": {
+      "type": "slider",
+      "blocks": {
+        "1621243260e1af0c20-0": {
+          "type": "slider_item",
+          "settings": {
+            "background": "shopify://shop_images/banner-3_8afb6499-7f5d-4998-b8be-7a4dc15ca6fe.jpg",
+            "mb_background": "shopify://shop_images/1_56b6adee-a1d2-4b37-8c86-80b8f503370e.jpg",
+            "content_in_container": false,
+            "content_position": "left top",
+            "text_alignment": "left",
+            "text_size": "medium",
+            "text_color": "black",
+            "subheading": "",
+            "title": "Protect your Family from <br> Hair Fall, Dry Skin & Kidney <br>Stones!",
+            "description": "",
+            "image_link": "",
+            "button_text": "",
+            "button_link": "",
+            "button_style": "sf__btn-secondary",
+            "button_size": "",
+            "second_button_text": "Shop Now",
+            "second_button_link": "https://scale-o.com/collections/all",
+            "second_button_style": "m-button--primary",
+            "second_button_size": "",
+            "show_footer": true,
+            "footer_alignment": "end",
+            "footer_text": "",
+            "footer_button": "",
+            "footer_link": ""
+          }
+        },
+        "slider_item_mVh9Yk": {
+          "type": "slider_item",
+          "settings": {
+            "background": "shopify://shop_images/banner-2_a3a0f78f-8da6-4dc2-bee5-68dfa8f6af77.jpg",
+            "mb_background": "shopify://shop_images/2_0672745a-c7cf-471d-9582-829a01378d06.jpg",
+            "content_in_container": false,
+            "content_position": "left top",
+            "text_alignment": "left",
+            "text_size": "large",
+            "text_color": "black",
+            "subheading": "",
+            "title": "Save Your Bathroom<br> Floors & Fittings!",
+            "description": "",
+            "image_link": "",
+            "button_text": "",
+            "button_link": "",
+            "button_style": "sf__btn-secondary",
+            "button_size": "",
+            "second_button_text": "Shop Now",
+            "second_button_link": "https://scale-o.com/collections/all",
+            "second_button_style": "m-button--primary",
+            "second_button_size": "",
+            "show_footer": true,
+            "footer_alignment": "center",
+            "footer_text": "",
+            "footer_button": "",
+            "footer_link": ""
+          }
+        },
+        "slider_item_7hzTpK": {
+          "type": "slider_item",
+          "settings": {
+            "background": "shopify://shop_images/banner-4_0c47473e-1ff7-4bc2-9581-b7b95035b755.jpg",
+            "mb_background": "shopify://shop_images/3_3b1b8baf-0e53-4da3-9570-c005b6a05812.jpg",
+            "content_in_container": false,
+            "content_position": "left top",
+            "text_alignment": "left",
+            "text_size": "large",
+            "text_color": "black",
+            "subheading": "",
+            "title": "Keep your Kitchen Utensils <br> & Glassware Stain-Free!",
+            "description": "",
+            "image_link": "",
+            "button_text": "",
+            "button_link": "",
+            "button_style": "m-button--primary",
+            "button_size": "",
+            "second_button_text": "Shop Now",
+            "second_button_link": "https://scale-o.com/collections/all",
+            "second_button_style": "m-button--primary",
+            "second_button_size": "",
+            "show_footer": false,
+            "footer_alignment": "center",
+            "footer_text": "",
+            "footer_button": "",
+            "footer_link": ""
+          }
+        },
+        "slider_item_xrxKn6": {
+          "type": "slider_item",
+          "settings": {
+            "background": "shopify://shop_images/banner-4_06fefd66-f0b8-4ff1-bd88-f6816a0223d8.jpg",
+            "mb_background": "shopify://shop_images/115151.jpg",
+            "content_in_container": false,
+            "content_position": "left top",
+            "text_alignment": "left",
+            "text_size": "large",
+            "text_color": "black",
+            "subheading": "",
+            "title": "Brighter & Better Laundry <br> with Efficient Washes!",
+            "description": "",
+            "image_link": "",
+            "button_text": "",
+            "button_link": "",
+            "button_style": "sf__btn-secondary",
+            "button_size": "",
+            "second_button_text": "Shop Now",
+            "second_button_link": "https://scale-o.com/collections/all",
+            "second_button_style": "m-button--primary",
+            "second_button_size": "",
+            "show_footer": true,
+            "footer_alignment": "end",
+            "footer_text": "",
+            "footer_button": "",
+            "footer_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "1621243260e1af0c20-0",
+        "slider_item_mVh9Yk",
+        "slider_item_7hzTpK",
+        "slider_item_xrxKn6"
+      ],
+      "settings": {
+        "container": "w-full",
+        "slideshow_height": "adapt",
+        "show_overlay": false,
+        "dots_position": "bottom",
+        "dots_color": "dark",
+        "show_dots": true,
+        "show_arrows": true,
+        "autorotate": true,
+        "autorotate_speed": 2,
+        "use_content_above": true,
+        "custom_class": "sf-home__slideshow",
+        "animations": "fade-in-left"
+      }
+    },
+    "custom_content_PHMhVN": {
+      "type": "custom-content",
+      "blocks": {
+        "liquid_hGTWjK": {
+          "type": "liquid",
+          "settings": {
+            "custom_liquid": "<style>\n  .ctabox {\n    padding: 20px;\n    border: 1.5px solid #858585;\n    border-radius: 10px;\n    text-align: -webkit-center;\n    position: relative; /* Ensure the image is positioned relative to its parent */\n  }\n\n  .ctabox:hover {\n    background-image: url(\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/CTA_4fb3526a-6955-49dd-aed6-f6607544c1b3.png?v=1721886594\");\n    background-position: center;\n    background-repeat: no-repeat;\n    background-size: cover;\n    padding-top: 20px;\n    padding-bottom: 20px;\n    border-radius: 10px;\n    text-align: -webkit-center;\n  }\n\n  .ctabox img {\n    transition: opacity 0.3s ease; /* Smooth transition for image change */\n  }\n\n  .ctabox:hover img {\n    content: url(\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/consult-now-white.svg?v=1723111490\");\n  }\n\n  .ctabox h3 {\n    font-size: 24px;\n    margin-top: 26px;\n  }\n\n  .ctabox:hover h3 {\n    color: white;\n  }\n\n  @media only screen and (max-width: 431px) {\n    .ctabox h3 {\n      font-size: 16px;\n    }\n  }\n</style>\n\n<a href=\"https://ae1ef9-c0.myshopify.com/pages/consult-now\" target=\"_blank\">\n  <div class=\"ctabox\">\n    <img\n      src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_41.svg?v=1722323519\"\n      alt=\"\"\n    />\n    <h3>Consult Now</h3>\n  </div>\n</a>",
+            "width": "25%",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        },
+        "liquid_nnWxRW": {
+          "type": "liquid",
+          "settings": {
+            "custom_liquid": "<style>\n  .ctabox2 {\n    padding: 20px;\n    border: 1.5px solid #858585;\n    border-radius: 10px;\n    text-align: -webkit-center;\n    position: relative; /* Ensure the image is positioned relative to its parent */\n  }\n\n  .ctabox2:hover {\n    background-image: url(\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/CTA_4fb3526a-6955-49dd-aed6-f6607544c1b3.png?v=1721886594\");\n    background-position: center;\n    background-repeat: no-repeat;\n    background-size: cover;\n    padding-top: 20px;\n    padding-bottom: 20px;\n    border-radius: 10px;\n    text-align: -webkit-center;\n  }\n\n  .ctabox2 img {\n    transition: opacity 0.3s ease; /* Smooth transition for image change */\n  }\n\n  .ctabox2:hover img {\n    content: url(\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/book-trial-white.svg?v=1723111490\");\n  }\n\n  .ctabox2 h3 {\n    font-size: 24px;\n    margin-top: 26px;\n  }\n\n  .ctabox2:hover h3 {\n    color: white;\n  }\n\n  @media only screen and (max-width: 431px) {\n    .ctabox2 h3 {\n      font-size: 16px;\n    }\n  }\n</style>\n\n<a href=\"https://scale-o.com/products/scale-o-nano-water-softeners\" target=\"_blank\">\n  <div class=\"ctabox2\">\n    <img\n      src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_1370.svg?v=1722323519\"\n      alt=\"\"\n    />\n    <h3>Book Trial</h3>\n  </div>\n</a>",
+            "width": "25%",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        },
+        "liquid_3jeg7M": {
+          "type": "liquid",
+          "settings": {
+            "custom_liquid": "<style>\n  .ctabox3 {\n    padding: 20px;\n    border: 1.5px solid #858585;\n    border-radius: 10px;\n    text-align: -webkit-center;\n    position: relative; /* Ensure the image is positioned relative to its parent */\n  }\n\n  .ctabox3:hover {\n    background-image: url(\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/CTA_4fb3526a-6955-49dd-aed6-f6607544c1b3.png?v=1721886594\");\n    background-position: center;\n    background-repeat: no-repeat;\n    background-size: cover;\n    padding-top: 20px;\n    padding-bottom: 20px;\n    border-radius: 10px;\n    text-align: -webkit-center;\n  }\n\n  .ctabox3 img {\n    transition: opacity 0.3s ease; /* Smooth transition for image change */\n  }\n\n  .ctabox3:hover img {\n    content: url(\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/active-guarantee-white.svg?v=1723111489\");\n  }\n\n  .ctabox3 h3 {\n    font-size: 24px;\n    margin-top: 26px;\n  }\n\n  .ctabox3:hover h3 {\n    color: white;\n  }\n\n  @media only screen and (max-width: 431px) {\n    .ctabox3 h3 {\n      font-size: 15px;\n    }\n  }\n</style>\n\n<a href=\"https://ae1ef9-c0.myshopify.com/pages/activate-guarantee\" target=\"_blank\">\n  <div class=\"ctabox3\">\n    <img\n      src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/active-guarantee-blue.svg?v=1723111490\"\n      alt=\"\"\n    />\n    <h3>Activate Guarantee</h3>\n  </div>\n</a>",
+            "width": "25%",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        },
+        "liquid_rf3bCb": {
+          "type": "liquid",
+          "settings": {
+            "custom_liquid": "<style>\n  .ctabox4 {\n    padding: 20px;\n    border: 1.5px solid #858585;\n    border-radius: 10px;\n    text-align: -webkit-center;\n    position: relative; /* Ensure the image is positioned relative to its parent */\n  }\n\n  .ctabox4:hover {\n    background-image: url(\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/CTA_4fb3526a-6955-49dd-aed6-f6607544c1b3.png?v=1721886594\");\n    background-position: center;\n    background-repeat: no-repeat;\n    background-size: cover;\n    padding-top: 20px;\n    padding-bottom: 20px;\n    border-radius: 10px;\n    text-align: -webkit-center;\n  }\n\n  .ctabox4 img {\n    transition: opacity 0.3s ease; /* Smooth transition for image change */\n  }\n\n  .ctabox4:hover img {\n    content: url(\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/track-order-white.svg?v=1723111490\");\n  }\n\n  .ctabox4 h3 {\n    font-size: 24px;\n    margin-top: 26px;\n  }\n\n  .ctabox4:hover h3 {\n    color: white;\n  }\n\n  @media only screen and (max-width: 431px) {\n    .ctabox4 h3 {\n      font-size: 16px;\n    }\n  }\n</style>\n\n<a href=\"https://scale-o.ithinklogistics.co.in/\"_blank\">\n  <div class=\"ctabox4\">\n    <img\n      src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/ssfsfsf.svg?v=1722323518\"\n      alt=\"\"\n    />\n    <h3>Track Order</h3>\n  </div>\n</a>",
+            "width": "25%",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "liquid_hGTWjK",
+        "liquid_nnWxRW",
+        "liquid_3jeg7M",
+        "liquid_rf3bCb"
+      ],
+      "custom_css": [],
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "header_alignment": "center",
+        "container": "container",
+        "color_scheme": "default",
+        "content_color_scheme": "default",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "gap": 20,
+        "gap_mobile": 16,
+        "use_scroll_mobile": false,
+        "padding_top": 90,
+        "padding_bottom": 100,
+        "custom_class": "br"
+      }
+    },
+    "featured_collection_hJqRXq": {
+      "type": "featured-collection",
+      "custom_css": [
+        "#trust-bar {display: none !important;}",
+        ".ddreview-star {display: none;}",
+        ".m-button--secondary {background-color: #0c7fdf;}",
+        ".m\\:text-left {text-align: left;}",
+        ".m-product-card__title {padding-bottom: 20px; /* border-bottom: 1.5px solid #d6e2fa; */}",
+        ".m-button--secondary:hover {background: black;}",
+        "@media only screen and (max-width: 431px) {#template--15914742120550__featured_collection_hJqRXq {padding-bottom: 40px; }}"
+      ],
+      "settings": {
+        "heading": "Shop by Products",
+        "heading_size": "h2",
+        "subheading": "PRODUCTS",
+        "description": "",
+        "header_alignment": "center",
+        "color_scheme": "",
+        "container": "container-fluid",
+        "collection": "water-softeners",
+        "enable_flashsale": false,
+        "show_countdown": false,
+        "product_to_show": 12,
+        "items_per_row": 4,
+        "item_gap": 30,
+        "pcard_layout": "",
+        "pcard_image_ratio": "3/4",
+        "show_vendor": false,
+        "hide_title": false,
+        "enable_slider": true,
+        "show_pagination": true,
+        "show_navigation": true,
+        "show_button_on_header": false,
+        "button_type": "link",
+        "button_text": "",
+        "button_style": "m-button--primary",
+        "button_size": "",
+        "infinite_load": false,
+        "max_page_load": 3,
+        "mobile_disable_slider": false,
+        "use_scroll_mobile": true,
+        "item_gap_mobile": 16,
+        "padding_top": 12,
+        "padding_bottom": 10,
+        "custom_class": "br",
+        "animations": "inherit"
+      }
+    },
+    "icon_box_aXcwE8": {
+      "type": "icon-box",
+      "blocks": {
+        "iconbox_33aVH9": {
+          "type": "iconbox",
+          "settings": {
+            "image": "shopify://shop_images/Frame_1360.png",
+            "image_by_url": "",
+            "title": "Residential 1",
+            "description": "<p>Bungalows & Houses</p>",
+            "link": "https://scale-o.com/pages/shop-by-purpose",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "m-button--link",
+            "button_size": ""
+          }
+        },
+        "iconbox_fPiwnG": {
+          "type": "iconbox",
+          "settings": {
+            "image": "shopify://shop_images/Frame_1360_eb196bb5-96f6-4c5f-9143-5e554a252261.png",
+            "image_by_url": "",
+            "title": "Residential 2",
+            "description": "<p>Societies & Apartments</p>",
+            "link": "https://scale-o.com/pages/shop-by-purpose",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "m-button--secondary",
+            "button_size": ""
+          }
+        },
+        "iconbox_7yF6Bx": {
+          "type": "iconbox",
+          "settings": {
+            "image": "shopify://shop_images/svsv.png",
+            "image_by_url": "",
+            "title": "Commercial",
+            "description": "<p>Offices, Corporates, Hotels & Hospitals</p>",
+            "link": "https://scale-o.com/pages/commercial",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "m-button--link",
+            "button_size": ""
+          }
+        },
+        "iconbox_fmRw3k": {
+          "type": "iconbox",
+          "settings": {
+            "image": "shopify://shop_images/Frame_1360_1d4e85ed-2f83-45c6-b166-52e9133bde60.png",
+            "image_by_url": "",
+            "title": "Institutional",
+            "description": "<p>Schools, Universities & Public Buildings</p>",
+            "link": "https://scale-o.com/pages/institutional",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "m-button--link",
+            "button_size": ""
+          }
+        },
+        "iconbox_CcbCbH": {
+          "type": "iconbox",
+          "settings": {
+            "image": "shopify://shop_images/safsdfs.png",
+            "image_by_url": "",
+            "title": "Industrial",
+            "description": "<p>Factories, Warehouses & Workshops</p>",
+            "link": "https://scale-o.com/pages/industrial",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "m-button--link",
+            "button_size": ""
+          }
+        },
+        "iconbox_iPM3zk": {
+          "type": "iconbox",
+          "settings": {
+            "image": "shopify://shop_images/svffsfs.png",
+            "image_by_url": "",
+            "title": "Agricultural",
+            "description": "<p>Farms, Tube-wells & Villages</p>",
+            "link": "https://scale-o.com/pages/agricultural",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "m-button--link",
+            "button_size": ""
+          }
+        },
+        "iconbox_cTwGcM": {
+          "type": "iconbox",
+          "settings": {
+            "image": "shopify://shop_images/Frame_1360_009f98a9-038b-46f7-9c58-ef95d3db05bf.png",
+            "image_by_url": "",
+            "title": "Custom",
+            "description": "<p>Construction & Government Projects</p>",
+            "link": "https://scale-o.com/pages/others-form",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "m-button--link",
+            "button_size": ""
+          }
+        }
+      },
+      "block_order": [
+        "iconbox_33aVH9",
+        "iconbox_fPiwnG",
+        "iconbox_7yF6Bx",
+        "iconbox_fmRw3k",
+        "iconbox_CcbCbH",
+        "iconbox_iPM3zk",
+        "iconbox_cTwGcM"
+      ],
+      "disabled": true,
+      "custom_css": [
+        ".m-section__subheading {color: #0c7fdf;}",
+        ".br {border-radius: 0px 0px 20px 20px;}"
+      ],
+      "settings": {
+        "heading": "Shop by Purpose",
+        "heading_size": "h3",
+        "subheading": "CATEGORIES",
+        "description": "",
+        "header_alignment": "center",
+        "container": "container",
+        "color_scheme": "default",
+        "item_per_row": 5,
+        "item_gap": 30,
+        "item_gap_mobile": 10,
+        "card_color_scheme": "default",
+        "card_style": "vertical",
+        "image_max_width": "",
+        "content_alignment": "center",
+        "hover_effect": "scaling-up",
+        "enable_slider": true,
+        "show_pagination": true,
+        "show_navigation": true,
+        "use_scroll_mobile": true,
+        "use_grid_column_mb": false,
+        "padding_top": 30,
+        "padding_bottom": 0,
+        "custom_class": "br",
+        "animations": "inherit"
+      }
+    },
+    "icon_box_Twp6KE": {
+      "type": "icon-box",
+      "blocks": {
+        "iconbox_ffPfm6": {
+          "type": "iconbox",
+          "settings": {
+            "image": "shopify://shop_images/Frame_1360.png",
+            "image_by_url": "",
+            "title": "Residential 1",
+            "description": "<p>Bungalows & Houses</p>",
+            "link": "https://scale-o.com/pages/shop-by-purpose",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "m-button--link",
+            "button_size": ""
+          }
+        },
+        "iconbox_G4KkJT": {
+          "type": "iconbox",
+          "settings": {
+            "image": "shopify://shop_images/Frame_1360_eb196bb5-96f6-4c5f-9143-5e554a252261.png",
+            "image_by_url": "",
+            "title": "Residential 2",
+            "description": "<p>Societies & Apartments</p>",
+            "link": "https://scale-o.com/pages/shop-by-purpose",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "m-button--link",
+            "button_size": ""
+          }
+        },
+        "iconbox_XxCKWU": {
+          "type": "iconbox",
+          "settings": {
+            "image": "shopify://shop_images/svsv.png",
+            "image_by_url": "",
+            "title": "Commercial",
+            "description": "<p>Offices, Corporates, Hotels & Hospitals</p>",
+            "link": "https://scale-o.com/pages/commercial",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "m-button--link",
+            "button_size": ""
+          }
+        },
+        "iconbox_pyFgLd": {
+          "type": "iconbox",
+          "settings": {
+            "image": "shopify://shop_images/Frame_1360_1d4e85ed-2f83-45c6-b166-52e9133bde60.png",
+            "image_by_url": "",
+            "title": "Institutional",
+            "description": "<p>Schools, Universities & Public Buildings</p>",
+            "link": "https://scale-o.com/pages/institutional",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "m-button--link",
+            "button_size": ""
+          }
+        },
+        "iconbox_8LJmwE": {
+          "type": "iconbox",
+          "settings": {
+            "image": "shopify://shop_images/safsdfs.png",
+            "image_by_url": "",
+            "title": "Industrial",
+            "description": "<p>Factories, Warehouses & Workshops</p>",
+            "link": "https://scale-o.com/pages/industrial",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "m-button--link",
+            "button_size": ""
+          }
+        },
+        "iconbox_qLQDyX": {
+          "type": "iconbox",
+          "settings": {
+            "image": "shopify://shop_images/Frame_1360_009f98a9-038b-46f7-9c58-ef95d3db05bf.png",
+            "image_by_url": "",
+            "title": "Custom",
+            "description": "<p>Construction & Government Projects</p>",
+            "link": "https://scale-o.com/pages/others-form",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "m-button--link",
+            "button_size": ""
+          }
+        },
+        "iconbox_qWbmnY": {
+          "type": "iconbox",
+          "settings": {
+            "image": "shopify://shop_images/svffsfs.png",
+            "image_by_url": "",
+            "title": "Agricultural",
+            "description": "<p>Farms, Tube-wells & Villages</p>",
+            "link": "https://scale-o.com/pages/agricultural",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "m-button--link",
+            "button_size": ""
+          }
+        }
+      },
+      "block_order": [
+        "iconbox_ffPfm6",
+        "iconbox_G4KkJT",
+        "iconbox_XxCKWU",
+        "iconbox_pyFgLd",
+        "iconbox_8LJmwE",
+        "iconbox_qLQDyX",
+        "iconbox_qWbmnY"
+      ],
+      "custom_css": [
+        ".m-section__subheading {color: #0c7fdf;}",
+        ".br {border-radius: 0px 0px 20px 20px;}"
+      ],
+      "settings": {
+        "heading": "<h2>Shop by Purpose</h2>",
+        "heading_size": "h3",
+        "subheading": "CATEGORIES",
+        "description": "",
+        "header_alignment": "center",
+        "container": "container",
+        "color_scheme": "default",
+        "item_per_row": 5,
+        "item_gap": 30,
+        "item_gap_mobile": 10,
+        "card_color_scheme": "default",
+        "card_style": "vertical",
+        "image_max_width": "",
+        "content_alignment": "center",
+        "hover_effect": "scaling-up",
+        "enable_slider": true,
+        "show_pagination": true,
+        "show_navigation": true,
+        "use_scroll_mobile": true,
+        "use_grid_column_mb": false,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "custom_class": "br",
+        "animations": "inherit"
+      }
+    },
+    "rich_text_eQc6cD": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_rRdiem": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "PROBLEMS"
+          }
+        },
+        "heading_ntDM4U": {
+          "type": "heading",
+          "settings": {
+            "heading": "Hard Water & Scaling",
+            "heading_size": "h2"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_rRdiem",
+        "heading_ntDM4U"
+      ],
+      "custom_css": [
+        ".m-richtext__subtitle {color: #0c7fdf;}"
+      ],
+      "settings": {
+        "container": "container",
+        "color_scheme": "",
+        "content_alignment": "center",
+        "padding_top": 48,
+        "padding_bottom": 40,
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "custom_content_9arDHN": {
+      "type": "custom-content",
+      "blocks": {
+        "liquid_EnHafP": {
+          "type": "liquid",
+          "settings": {
+            "custom_liquid": "<div>\n<a\n    data-fancybox=\"gallery1\"\n    href=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_1235.webp?v=1728388704\"\n  >\n    <img\n      src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_1235.webp?v=1728388704\"\n      alt=\"Thumbnail\"\n    />\n  </a>\n</div>",
+            "width": "100%",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "liquid_EnHafP"
+      ],
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "header_alignment": "center",
+        "container": "container-fluid",
+        "color_scheme": "",
+        "content_color_scheme": "",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "gap": 30,
+        "gap_mobile": 16,
+        "use_scroll_mobile": false,
+        "padding_top": 0,
+        "padding_bottom": 100,
+        "custom_class": ""
+      }
+    },
+    "custom_content_yCRmH3": {
+      "type": "custom-content",
+      "blocks": {
+        "text_7KpE34": {
+          "type": "text",
+          "settings": {
+            "title": "Scale-O Water Softeners",
+            "subheading": "SOLUTION",
+            "text": "",
+            "width": "75%",
+            "alignment": "center",
+            "align_text": "center",
+            "text_size": "medium",
+            "text_color": "inherit",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "m-button--primary",
+            "button_size": "",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        },
+        "html_aHQf6p": {
+          "type": "html",
+          "settings": {
+            "code": "<center>Scale-O chemically alters the structure and forms a coating on Ca<sup style=\"color:#000;\">+2</sup> &amp; Mg<sup style=\"color:#000;\">+2</sup> ions present in hard water such that they do not react with negative ions like Cl<sup style=\"color:#000;\">-1</sup> or SO<sub>4</sub><sup style=\"color:#000;\">-2</sup> and prevents the formation insoluble salts or scale in common language.</center>",
+            "width": "75%",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        },
+        "image_UDqFem": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/buk.png",
+            "link": "",
+            "width": "83%",
+            "alignment": "center",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "text_7KpE34",
+        "html_aHQf6p",
+        "image_UDqFem"
+      ],
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "header_alignment": "center",
+        "container": "container-fluid",
+        "color_scheme": "scheme-cee058e4-58e3-46aa-9af9-219dadc79066",
+        "content_color_scheme": "scheme-cee058e4-58e3-46aa-9af9-219dadc79066",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "gap": 30,
+        "gap_mobile": 16,
+        "use_scroll_mobile": false,
+        "padding_top": 100,
+        "padding_bottom": 90,
+        "custom_class": ""
+      }
+    },
+    "rich_text_9UaYFN": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_JQDiX8": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "TECHNOLOGY"
+          }
+        },
+        "heading_MpzanU": {
+          "type": "heading",
+          "settings": {
+            "heading": "Scale-O Video",
+            "heading_size": "h2"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_JQDiX8",
+        "heading_MpzanU"
+      ],
+      "custom_css": [
+        ".m-richtext__subtitle {color: #0c7fdf;}"
+      ],
+      "settings": {
+        "container": "container",
+        "color_scheme": "",
+        "content_alignment": "center",
+        "padding_top": 72,
+        "padding_bottom": 40,
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "video_nTNUNr": {
+      "type": "video",
+      "custom_css": [
+        ".scale-o-video .container {border: 2px solid #0c7fdf; border-radius: 20px;}"
+      ],
+      "settings": {
+        "container": "container",
+        "color_scheme": "",
+        "video_type": "external",
+        "video_link": "https://vimeo.com/999469587",
+        "ratio": "16:9",
+        "image": "shopify://shop_images/scale-o-video.png",
+        "video_title": "",
+        "text_size": "medium",
+        "text_color": "inherit",
+        "play_style": "solid",
+        "play_size": "large",
+        "width": "",
+        "autoplay": false,
+        "loop": false,
+        "muted": false,
+        "show_controls": false,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "custom_class": "scale-o-video",
+        "animations": "inherit"
+      }
+    },
+    "icon_box_iaQiym": {
+      "type": "icon-box",
+      "blocks": {
+        "iconbox_CJwKAy": {
+          "type": "iconbox",
+          "settings": {
+            "image": "shopify://shop_images/1_4.png",
+            "image_by_url": "",
+            "title": "",
+            "description": "",
+            "link": "",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "m-button--link",
+            "button_size": ""
+          }
+        },
+        "iconbox_8pN8PL": {
+          "type": "iconbox",
+          "settings": {
+            "image": "shopify://shop_images/2_2.png",
+            "image_by_url": "",
+            "title": "",
+            "description": "",
+            "link": "",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "m-button--link",
+            "button_size": ""
+          }
+        },
+        "iconbox_PzcinF": {
+          "type": "iconbox",
+          "settings": {
+            "image": "shopify://shop_images/Frame_1245_e93ecbf9-ae2d-4b63-b58d-4efbfea26eb2.png",
+            "image_by_url": "",
+            "title": "",
+            "description": "",
+            "link": "",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "m-button--link",
+            "button_size": ""
+          }
+        },
+        "iconbox_n6krQE": {
+          "type": "iconbox",
+          "settings": {
+            "image": "shopify://shop_images/Frame_1246_5a593388-52c2-4d58-a5f7-a1d0ff02c013.png",
+            "image_by_url": "",
+            "title": "",
+            "description": "",
+            "link": "",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "m-button--link",
+            "button_size": ""
+          }
+        },
+        "iconbox_M6GUUt": {
+          "type": "iconbox",
+          "settings": {
+            "image": "shopify://shop_images/Frame_1248_2e13f4a1-14e8-4b77-ae35-6a08a37038d3.png",
+            "image_by_url": "",
+            "title": "",
+            "description": "",
+            "link": "",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "m-button--link",
+            "button_size": ""
+          }
+        },
+        "iconbox_xit4pa": {
+          "type": "iconbox",
+          "settings": {
+            "image": "shopify://shop_images/Frame_1249_fcda097e-d75f-49d9-8b24-9a72c7eb5cc3.png",
+            "image_by_url": "",
+            "title": "",
+            "description": "",
+            "link": "",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "m-button--link",
+            "button_size": ""
+          }
+        },
+        "iconbox_XmcqXP": {
+          "type": "iconbox",
+          "settings": {
+            "image": "shopify://shop_images/3_2.png",
+            "image_by_url": "",
+            "title": "",
+            "description": "",
+            "link": "",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "m-button--link",
+            "button_size": ""
+          }
+        },
+        "iconbox_i9UMBA": {
+          "type": "iconbox",
+          "settings": {
+            "image": "shopify://shop_images/Frame_1251_8ba320d1-78fe-4d6a-aed8-649668519003.png",
+            "image_by_url": "",
+            "title": "",
+            "description": "",
+            "link": "",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "m-button--link",
+            "button_size": ""
+          }
+        }
+      },
+      "block_order": [
+        "iconbox_CJwKAy",
+        "iconbox_8pN8PL",
+        "iconbox_PzcinF",
+        "iconbox_n6krQE",
+        "iconbox_M6GUUt",
+        "iconbox_xit4pa",
+        "iconbox_XmcqXP",
+        "iconbox_i9UMBA"
+      ],
+      "custom_css": [
+        ".m-icon-box__icon {border-radius: 15px;}",
+        ".gp .m\\:grid {row-gap: 1px;}"
+      ],
+      "settings": {
+        "heading": "<h2>People & Property</h2>",
+        "heading_size": "h3",
+        "subheading": "ADVANTAGES",
+        "description": "",
+        "header_alignment": "center",
+        "container": "container",
+        "color_scheme": "default",
+        "item_per_row": 4,
+        "item_gap": 20,
+        "item_gap_mobile": 10,
+        "card_color_scheme": "default",
+        "card_style": "vertical",
+        "image_max_width": "",
+        "content_alignment": "center",
+        "hover_effect": "scaling-up",
+        "enable_slider": false,
+        "show_pagination": false,
+        "show_navigation": false,
+        "use_scroll_mobile": true,
+        "use_grid_column_mb": false,
+        "padding_top": 70,
+        "padding_bottom": 70,
+        "custom_class": "gp",
+        "animations": "inherit"
+      }
+    },
+    "custom_content_hgEnhK": {
+      "type": "custom-content",
+      "blocks": {
+        "image_epEW38": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/vg1.svg",
+            "link": "",
+            "width": "33%",
+            "alignment": "center",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        },
+        "image_Vp8Qxc": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/vg2.svg",
+            "link": "",
+            "width": "16%",
+            "alignment": "center",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        },
+        "image_enFTpH": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/vg3.svg",
+            "link": "",
+            "width": "16%",
+            "alignment": "center",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        },
+        "image_QJymax": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/vg4.svg",
+            "link": "",
+            "width": "16%",
+            "alignment": "center",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        },
+        "image_C3KFRL": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/vgvgvg.svg",
+            "link": "",
+            "width": "16%",
+            "alignment": "center",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "image_epEW38",
+        "image_Vp8Qxc",
+        "image_enFTpH",
+        "image_QJymax",
+        "image_C3KFRL"
+      ],
+      "custom_css": [
+        "@media (min-width: 800px) {.m-custom-content__wrapper {justify-content: center; } #m-custom__block--image_epEW38 {width: 21%; }}",
+        "@media screen and (max-width: 795px) {.m-mixed-layout--mobile-scroll .m-mixed-layout__inner > * {flex: none; width: 50% !important; } #m-custom__block--image_epEW38 {width: 63% !important; }}"
+      ],
+      "settings": {
+        "heading": "<h2>Technology Comparison Matrix</h2>",
+        "heading_size": "h3",
+        "subheading": "COMPETITOR ANALYSIS",
+        "description": "",
+        "header_alignment": "center",
+        "container": "container-fluid",
+        "color_scheme": "",
+        "content_color_scheme": "",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "gap": 0,
+        "gap_mobile": 0,
+        "use_scroll_mobile": true,
+        "padding_top": 40,
+        "padding_bottom": 38,
+        "custom_class": ""
+      }
+    },
+    "custom_content_HgFVDW": {
+      "type": "custom-content",
+      "blocks": {
+        "liquid_mHALk3": {
+          "type": "liquid",
+          "settings": {
+            "custom_liquid": "<div>\n  <a\n    data-fancybox=\"gallery3\"\n    href=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_1289.svg?v=1724392935\"\n  >\n    <img\n      src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_1289.svg?v=1724392935\"\n      alt=\"Thumbnail\"\n    />\n  </a>\n</div>",
+            "width": "100%",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "liquid_mHALk3"
+      ],
+      "disabled": true,
+      "settings": {
+        "heading": "Technology Comparison Matrix",
+        "heading_size": "h3",
+        "subheading": "COMPETITOR ANALYSIS",
+        "description": "",
+        "header_alignment": "center",
+        "container": "container-fluid",
+        "color_scheme": "",
+        "content_color_scheme": "",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "gap": 0,
+        "gap_mobile": 0,
+        "use_scroll_mobile": true,
+        "padding_top": 40,
+        "padding_bottom": 38,
+        "custom_class": ""
+      }
+    },
+    "rich_text_PwY3ay": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_iVgtqm": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "TESTIMONIALS"
+          }
+        },
+        "heading_KCRbGz": {
+          "type": "heading",
+          "settings": {
+            "heading": "<h2>Quotes</h2>",
+            "heading_size": "h2"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_iVgtqm",
+        "heading_KCRbGz"
+      ],
+      "settings": {
+        "container": "container",
+        "color_scheme": "scheme-cee058e4-58e3-46aa-9af9-219dadc79066",
+        "content_alignment": "center",
+        "padding_top": 80,
+        "padding_bottom": 60,
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "custom_liquid_etEAdK": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<style>\n\n\n  .st-container{\n      width: 100%;\n      max-width: 1440px;\n      margin: 0 auto;\n      padding: 0 80px;\n  }\n  .slick-track {\n      display: flex;\n      gap: 20px;\n  }\n  .slick-list {\n      display: flex!important;\n  }\n  .st-slider2{\n      padding-top: 40px;\n  }\n  .st-slide {\n      background: white;\n      padding: 20px;\n      border-radius: 20px;\n      display: flex!important;\n      flex-direction: column;\n      justify-content: space-between;\n      gap: 30px;\n  }\n  .slick-slide{\n      height: auto!important;\n  }\n  .st-author-info{\n      display: flex;\n      align-items: center;\n      gap: 10px;\n  }\n  .st-content {\n      display: grid;\n      gap: 20px;\n  }\n  \n  /* Texts */\n  .st-content p{\n      /* font-family: Neue Montreal; */\n      font-size: 15px;\n      line-height: 26.4px;\n      color: #333333;\n      margin: 0;\n  }\n  .st-author-info span{\n      /* font-family: Neue Montreal; */\n      font-size: 16px;\n      line-height: 19.2px;\n      font-weight: 500;\n      color: #333333;\n  }\n  /* Navigations */\n  .slick-next{\n      right: -60px!important;\n      padding: 23px;\n      border-radius: 50%;\n      background: white;\n      transition: .4s all ease;\n  }\n  .slick-prev{\n      left: -60px!important;\n      padding: 23px;\n      border-radius: 50%;\n      background: white;\n      transition: .4s all ease;\n  }\n  .slick-prev:hover,.slick-next:hover{\n      transition: .4s all ease;\n      background: black;\n  }\n  .slick-prev:hover::before,\n  .slick-next:hover::before{\n      filter: brightness(0) invert(1);\n      transition: .4s all ease;\n  }\n  .slick-prev::before{\n      content: url('https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Group_1.svg?v=1722327196')!important;\n      display: flex;\n      width: 24px;\n      height: 24px;\n      transform: translate(-11px,-11px);\n      transition: .4s all ease;\n  }\n  .slick-next::before{\n      content: url('https://cdn.shopify.com/s/files/1/0592/6508/9638/files/cfsafa.svg?v=1722327196')!important;\n      display: flex;\n      width: 24px;\n      height: 24px;\n      transform: translate(-11px,-11px);\n      transition: .4s all ease;\n  }\n  \n  /* Responsive */\n  @media (min-width: 768px) and (max-width: 1024px){\n      .st-container{\n          padding: 0 40px;\n      }\n  }\n  @media (max-width: 767px){\n      .st-container{\n          padding: 0 20px;\n      }\n  }\n  </style>\n  \n  <div class=\"st-container\">\n      <div class=\"st-slider\">\n          <div class=\"st-slide\">\n              <div class=\"st-content\">\n                  <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_40.svg?v=1722325727\" width=\"50px\" height=\"50px\">\n                  <p>\"Scale-O is a very innovative product. I'm very happy with the product, reason is it is very easy to install, no hassles. hard water is a big problem, we wanted a solution but not a salt based softener\"</p>\n              </div>\n              <div class=\"st-author-info\">\n                  <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/OBJECTS.svg?v=1722326122\" width=\"45px\" height=\"45px\">\n                  <span>Mrs. Pragati Choksi</span>\n              </div>\n          </div>\n          <div class=\"st-slide\">\n              <div class=\"st-content\">\n                  <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_40.svg?v=1722325727\" width=\"50px\" height=\"50px\">\n                  <p>\"We absolutely loved Scale-O. Very compact and easy to install design. We found it really effective and could avoid the hassle and cumbersome process of conventional plant installation.\"</p>\n              </div>\n              <div class=\"st-author-info\">\n                  <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/dvefgsdef.svg?v=1722326122\" width=\"45px\" height=\"45px\">\n                  <span>Dr. Gaurav Khurana</span>\n              </div>\n          </div>\n          <div class=\"st-slide\">\n              <div class=\"st-content\">\n                  <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_40.svg?v=1722325727\" width=\"50px\" height=\"50px\">\n                  <p>\"The product is really good, and just one day post installation we can see the change in quality of water. good work!\"</p>\n              </div>\n              <div class=\"st-author-info\">\n                  <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/ddsgege.svg?v=1722326122\" width=\"45px\" height=\"45px\">\n                  <span>Ms. Avani Nathwani</span>\n              </div>\n          </div>\n          <div class=\"st-slide\">\n              <div class=\"st-content\">\n                  <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_40.svg?v=1722325727\" width=\"50px\" height=\"50px\">\n                  <p>\"Good concept, as we are facing problems due to hard water. Easy installation and friendly customer service!\"</p>\n              </div>\n              <div class=\"st-author-info\">\n                  <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/sfawff.svg?v=1722326122\" width=\"45px\" height=\"45px\">\n                  <span>Mrs. Prabha Harwani</span>\n              </div>\n          </div>\n          <div class=\"st-slide\">\n              <div class=\"st-content\">\n                  <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_40.svg?v=1722325727\" width=\"50px\" height=\"50px\">\n                  <p>\"Scale-O is a very innovative product. I'm very happy with the product, reason is it is very easy to install, no hassles. hard water is a big problem, we wanted a solution but not a salt based softners\"</p>\n              </div>\n              <div class=\"st-author-info\">\n                  <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/OBJECTS.svg?v=1722326122\" width=\"45px\" height=\"45px\">\n                  <span>Mrs. Pragati Choksi</span>\n              </div>\n          </div>\n          <div class=\"st-slide\">\n              <div class=\"st-content\">\n                  <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_40.svg?v=1722325727\" width=\"50px\" height=\"50px\">\n                  <p>\"The product is really good, and just one day post installation we can see the change in quality of water. good work!\"</p>\n              </div>\n              <div class=\"st-author-info\">\n                  <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/ddsgege.svg?v=1722326122\" width=\"45px\" height=\"45px\">\n                  <span>Ms. Avani Nathwani</span>\n              </div>\n          </div>\n          <div class=\"st-slide\">\n              <div class=\"st-content\">\n                  <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_40.svg?v=1722325727\" width=\"50px\" height=\"50px\">\n                  <p>\"Good concept, as we are facing problems due to hard water. Easy installation and friendly customer service!\"</p>\n              </div>\n              <div class=\"st-author-info\">\n                  <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/sfawff.svg?v=1722326122\" width=\"45px\" height=\"45px\">\n                  <span>Mrs. Prabha Harwani</span>\n              </div>\n          </div>\n      </div>\n  </div>        \n  </div>\n  \n  \n  <script>\n  $(document).ready(function(){\n  var $slider1 = $('.st-slider');\n  $slider1.slick({\n      slidesToShow: 4,\n      slidesToScroll: 1,\n      arrows: true,\n      autoplay: true,\n      autoplaySpeed: 1500,\n      responsive: [\n          {\n              breakpoint: 680,\n              settings: {\n                  slidesToShow: 1,\n                  slidesToScroll: 1,\n                  arrows: false \n              }\n          },\n          {\n              breakpoint: 768,\n              settings: {\n                  slidesToShow: 2,\n                  slidesToScroll: 1,\n                  arrows: false \n              }\n          },\n          {\n              breakpoint: 1140,\n              settings: {\n                  slidesToShow: 3,\n                  slidesToScroll: 1,\n                  arrows: false\n              }\n          }\n      ]\n  });\n  });\n  </script>",
+        "custom_class": ""
+      }
+    },
+    "custom_content_jPga7b": {
+      "type": "custom-content",
+      "blocks": {
+        "text_CimUQQ": {
+          "type": "text",
+          "settings": {
+            "title": "<h3>IP & Quality</h3>",
+            "subheading": "CERTIFICATES",
+            "text": "",
+            "width": "100%",
+            "alignment": "center",
+            "align_text": "center",
+            "text_size": "medium",
+            "text_color": "inherit",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "m-button--primary",
+            "button_size": "",
+            "block_custom_class": "hed",
+            "animations": "inherit"
+          }
+        },
+        "liquid_iCjf3H": {
+          "type": "liquid",
+          "settings": {
+            "custom_liquid": "<a\n  data-fancybox=\"gallery2\"\n  href=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/1_1fab6577-7a28-415e-9544-f0e2b240e5cc.jpg?v=1722329025\"\n>\n  <img\n    src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/1_1fab6577-7a28-415e-9544-f0e2b240e5cc.jpg?v=1722329025\"\n    alt=\"Thumbnail\"\n    \n  />\n</a>",
+            "width": "25%",
+            "block_custom_class": "i1",
+            "animations": "inherit"
+          }
+        },
+        "liquid_g3iNfW": {
+          "type": "liquid",
+          "settings": {
+            "custom_liquid": "<a\n  data-fancybox=\"gallery2\"\n  href=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/2.jpg?v=1722329026\"\n>\n  <img\n    src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/2.jpg?v=1722329026\"\n    alt=\"Thumbnail\"\n    \n  />\n</a>",
+            "width": "25%",
+            "block_custom_class": "i1",
+            "animations": "inherit"
+          }
+        },
+        "liquid_t7JWTm": {
+          "type": "liquid",
+          "settings": {
+            "custom_liquid": "<a\n  data-fancybox=\"gallery2\"\n  href=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/certifacate_430x.jpg?v=1724232526\"\n>\n  <img\n    src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/certifacate_430x.jpg?v=1724232526\"\n    alt=\"Thumbnail\"\n    \n  />\n</a>",
+            "width": "25%",
+            "block_custom_class": "i1",
+            "animations": "inherit"
+          }
+        },
+        "liquid_pfDUbE": {
+          "type": "liquid",
+          "settings": {
+            "custom_liquid": "<a\n  data-fancybox=\"gallery2\"\n  href=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/certificate-1.jpg?v=1723541003\"\n>\n  <img\n    src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/certificate-1.jpg?v=1723541003\"\n    alt=\"Thumbnail\"\n    \n  />\n</a>",
+            "width": "25%",
+            "block_custom_class": "i1",
+            "animations": "inherit"
+          }
+        },
+        "liquid_RpXbHD": {
+          "type": "liquid",
+          "settings": {
+            "custom_liquid": "<a\n  data-fancybox=\"gallery2\"\n  href=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/certificate-2_1.jpg?v=1723541047\"\n>\n  <img\n    src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/certificate-2_1.jpg?v=1723541047\"\n    alt=\"Thumbnail\"\n    \n  />\n</a>",
+            "width": "25%",
+            "block_custom_class": "i1",
+            "animations": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "text_CimUQQ",
+        "liquid_iCjf3H",
+        "liquid_g3iNfW",
+        "liquid_t7JWTm",
+        "liquid_pfDUbE",
+        "liquid_RpXbHD"
+      ],
+      "custom_css": [
+        ".cer {padding-right: 8%; padding-left: 8%;}",
+        ".i1 {width: 18%; margin-bottom: 50px;}",
+        ".hed {margin-top: 50px;}"
+      ],
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "header_alignment": "center",
+        "container": "container-fluid",
+        "color_scheme": "scheme-cee058e4-58e3-46aa-9af9-219dadc79066",
+        "content_color_scheme": "",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "gap": 20,
+        "gap_mobile": 16,
+        "use_scroll_mobile": false,
+        "padding_top": 100,
+        "padding_bottom": 70,
+        "custom_class": "cer"
+      }
+    },
+    "brands_list_c7kdGA": {
+      "type": "brands-list",
+      "blocks": {
+        "image_AWWHiB": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/sp-1.png",
+            "image_by_url": "",
+            "image_link": "",
+            "max_width": ""
+          }
+        },
+        "image_Xm9DUy": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/sp-2.png",
+            "image_by_url": "",
+            "image_link": "",
+            "max_width": ""
+          }
+        },
+        "image_CHM8kn": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Frame_1312.png",
+            "image_by_url": "",
+            "image_link": "",
+            "max_width": ""
+          }
+        },
+        "image_6meBbb": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Frame_1310_6eed278e-7133-4307-bdf6-9a7dff5c9fed.png",
+            "image_by_url": "",
+            "image_link": "",
+            "max_width": ""
+          }
+        },
+        "image_6JeYGy": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/sp-3.png",
+            "image_by_url": "",
+            "image_link": "",
+            "max_width": ""
+          }
+        },
+        "image_JYfhcU": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Frame_1313.png",
+            "image_by_url": "",
+            "image_link": "",
+            "max_width": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_AWWHiB",
+        "image_Xm9DUy",
+        "image_CHM8kn",
+        "image_6meBbb",
+        "image_6JeYGy",
+        "image_JYfhcU"
+      ],
+      "settings": {
+        "heading": "<h2>Supported By</h2>",
+        "heading_size": "h3",
+        "subheading": "AFFILIATION",
+        "header_alignment": "center",
+        "container": "container-fluid",
+        "color_scheme": "scheme-cee058e4-58e3-46aa-9af9-219dadc79066",
+        "item_per_row": 5,
+        "column_gap": 16,
+        "row_gap": 30,
+        "column_gap_mobile": 10,
+        "row_gap_mobile": 10,
+        "enable_slider": true,
+        "show_nav": true,
+        "show_pagination": false,
+        "autorotate": true,
+        "autorotate_speed": 2,
+        "padding_top": 0,
+        "padding_bottom": 74,
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "icon_box_XWCp6B": {
+      "type": "icon-box",
+      "blocks": {
+        "iconbox_ttpLpX": {
+          "type": "iconbox",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_17858.jpg",
+            "image_by_url": "",
+            "title": "Innovation Coverage",
+            "description": "<p>Divya Bhaskar</p>",
+            "link": "https://www.divyabhaskar.co.in/local/gujarat/ahmedabad/news/this-cheap-device-will-make-1-lakh-liters-of-water-salt-less-130302889.html",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "m-button--link",
+            "button_size": ""
+          }
+        },
+        "iconbox_tP7dpC": {
+          "type": "iconbox",
+          "settings": {
+            "image": "shopify://shop_images/vvfsvasf.png",
+            "image_by_url": "",
+            "title": "Founder with CM of Gujarat",
+            "description": "<p>News 18</p>",
+            "link": "https://gujarati.news18.com/news/ahmedabad/ahmedabad-student-make-device-for-pure-water-kp-1252526.html",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "m-button--link",
+            "button_size": ""
+          }
+        },
+        "iconbox_FHqgJj": {
+          "type": "iconbox",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_17858.png",
+            "image_by_url": "",
+            "title": "Business Coverage",
+            "description": "<p>Ahmedabad Mirror</p>",
+            "link": "https://x.com/kuldeep_2105/status/1798197609057919273?t=j-Qm6Q-rhyoeLGNkS2-FrQ&s=08",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "m-button--link",
+            "button_size": ""
+          }
+        },
+        "iconbox_TnCkrp": {
+          "type": "iconbox",
+          "settings": {
+            "image": "shopify://shop_images/image.png",
+            "image_by_url": "",
+            "title": "Innovation Showcase",
+            "description": "<p>Book of Innovations, GOI</p>",
+            "link": "https://drive.google.com/file/d/1aL92QXJ3c6KWcYwp1iX2MUM7mVn_ujJX/view?usp=sharing",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "m-button--link",
+            "button_size": ""
+          }
+        },
+        "iconbox_DEXn8i": {
+          "type": "iconbox",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_17856.png",
+            "image_by_url": "",
+            "title": "Product Footage",
+            "description": "<p>ABP TV</p>",
+            "link": "https://drive.google.com/file/d/1MBQKO1pXFFjj-QUsexCY2aHWe_LNqt8o/view?usp=sharing",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "m-button--link",
+            "button_size": ""
+          }
+        },
+        "iconbox_UfXtic": {
+          "type": "iconbox",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_17857_4d8df349-c855-4d7d-95b2-8f84c9bc0065.png",
+            "image_by_url": "",
+            "title": "Founder’s Pitch",
+            "description": "<p>Zee Business OTT</p>",
+            "link": "https://www.youtube.com/watch?v=kWfxUZZRbRE",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "m-button--link",
+            "button_size": ""
+          }
+        }
+      },
+      "block_order": [
+        "iconbox_ttpLpX",
+        "iconbox_tP7dpC",
+        "iconbox_FHqgJj",
+        "iconbox_TnCkrp",
+        "iconbox_DEXn8i",
+        "iconbox_UfXtic"
+      ],
+      "settings": {
+        "heading": "<h2>News & Media</h2>",
+        "heading_size": "h3",
+        "subheading": "RECOGNITIONS",
+        "description": "",
+        "header_alignment": "center",
+        "container": "container",
+        "color_scheme": "default",
+        "item_per_row": 4,
+        "item_gap": 30,
+        "item_gap_mobile": 10,
+        "card_color_scheme": "default",
+        "card_style": "vertical",
+        "image_max_width": "",
+        "content_alignment": "center",
+        "hover_effect": "scaling-up",
+        "enable_slider": true,
+        "show_pagination": false,
+        "show_navigation": true,
+        "use_scroll_mobile": true,
+        "use_grid_column_mb": false,
+        "padding_top": 70,
+        "padding_bottom": 70,
+        "custom_class": "br",
+        "animations": "inherit"
+      }
+    },
+    "blog_posts_ryzFA7": {
+      "type": "blog-posts",
+      "disabled": true,
+      "settings": {
+        "heading": "Blog posts",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "header_alignment": "center",
+        "container": "container-fluid",
+        "color_scheme": "",
+        "blog": "",
+        "limit": 4,
+        "column": 4,
+        "column_gap": 30,
+        "mobile_gap": 10,
+        "article_image_aspect_ratio": "16/9",
+        "article_align_content": "text-left",
+        "article_show_tags": true,
+        "article_show_date": true,
+        "article_show_excerpt": true,
+        "article_show_button": true,
+        "show_button_on_header": false,
+        "button_link": "",
+        "button_text": "View More",
+        "button_style": "m-button--primary",
+        "button_size": "",
+        "use_scroll_mobile": true,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "custom_content_EwkEYn": {
+      "type": "custom-content",
+      "blocks": {
+        "image_eyY9e6": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Group_44_6dd7f55a-7c3f-4a7b-b8f2-0025c0a01ae1.png",
+            "link": "",
+            "width": "100%",
+            "alignment": "center",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "image_eyY9e6"
+      ],
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "header_alignment": "center",
+        "container": "w-full",
+        "color_scheme": "",
+        "content_color_scheme": "",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "gap": 30,
+        "gap_mobile": 16,
+        "use_scroll_mobile": false,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "custom_class": ""
+      }
+    },
+    "553051375185654411": {
+      "type": "apps",
+      "disabled": true,
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "header_alignment": "center",
+        "container": "container",
+        "background_color": "",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "custom_class": ""
+      }
+    },
+    "211940625599402079": {
+      "type": "apps",
+      "disabled": true,
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "header_alignment": "center",
+        "container": "container",
+        "background_color": "",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "custom_class": ""
+      }
+    },
+    "collection_banner_eHRCAd": {
+      "type": "collection-banner",
+      "blocks": {
+        "slide_tDqfkJ": {
+          "type": "slide",
+          "settings": {
+            "desktop_banner": "shopify://shop_images/banner-3_8afb6499-7f5d-4998-b8be-7a4dc15ca6fe.jpg",
+            "mobile_banner": "shopify://shop_images/1_56b6adee-a1d2-4b37-8c86-80b8f503370e.jpg",
+            "heading": "<p>Indias best <br/>Selling purifier</p>",
+            "subtext": "Scale-O Centi Water Softener",
+            "subtext_2": "Starting at 4500*",
+            "info": "<p>10% instant bank discount</p>",
+            "btn_label": "Shop now",
+            "btn_link": "shopify://collections",
+            "specification_image_1": "shopify://shop_images/mini-centi-2_18d57853-eaa8-4a3c-be4f-7b8dd0ee6708.jpg",
+            "specification_heading_1": "specification 1",
+            "specification_content_1": "<p>specification content 1</p>",
+            "specification_image_2": "shopify://shop_images/mini-combo-1_92e9b3ef-462c-49fe-b657-8ad6dbfaba0f.jpg",
+            "specification_heading_2": "specification 2",
+            "specification_content_2": "<p>specification content 2</p>",
+            "specification_image_3": "shopify://shop_images/mini-centi-04_1.jpg",
+            "specification_heading_3": "specification 3",
+            "specification_content_3": "<p>specification content 3</p>"
+          }
+        },
+        "slide_mfhB8E": {
+          "type": "slide",
+          "settings": {
+            "desktop_banner": "shopify://shop_images/banner-4_06fefd66-f0b8-4ff1-bd88-f6816a0223d8.jpg",
+            "heading": "",
+            "subtext": "",
+            "subtext_2": "",
+            "info": "",
+            "btn_label": "",
+            "btn_link": "",
+            "specification_heading_1": "",
+            "specification_content_1": "",
+            "specification_heading_2": "",
+            "specification_content_2": "",
+            "specification_heading_3": "",
+            "specification_content_3": ""
+          }
+        }
+      },
+      "block_order": [
+        "slide_tDqfkJ",
+        "slide_mfhB8E"
+      ],
+      "disabled": true,
+      "settings": {}
+    }
+  },
+  "order": [
+    "1621243260e1af0c20",
+    "custom_content_PHMhVN",
+    "featured_collection_hJqRXq",
+    "icon_box_aXcwE8",
+    "icon_box_Twp6KE",
+    "rich_text_eQc6cD",
+    "custom_content_9arDHN",
+    "custom_content_yCRmH3",
+    "rich_text_9UaYFN",
+    "video_nTNUNr",
+    "icon_box_iaQiym",
+    "custom_content_hgEnhK",
+    "custom_content_HgFVDW",
+    "rich_text_PwY3ay",
+    "custom_liquid_etEAdK",
+    "custom_content_jPga7b",
+    "brands_list_c7kdGA",
+    "icon_box_XWCp6B",
+    "blog_posts_ryzFA7",
+    "custom_content_EwkEYn",
+    "553051375185654411",
+    "211940625599402079",
+    "collection_banner_eHRCAd"
+  ]
+}

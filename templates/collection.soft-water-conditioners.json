@@ -1,0 +1,447 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "collection-header": {
+      "type": "collection-page-header",
+      "blocks": {
+        "banner_K8yyJz": {
+          "type": "banner",
+          "settings": {
+            "collection": ""
+          }
+        }
+      },
+      "block_order": [
+        "banner_K8yyJz"
+      ],
+      "disabled": true,
+      "settings": {
+        "color_scheme": "scheme-cee058e4-58e3-46aa-9af9-219dadc79066",
+        "container": "w-full",
+        "layout": "inside",
+        "image_position": "background",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "text_alignment": "center",
+        "text_color": "inherit",
+        "upper_title": false,
+        "show_desc": true,
+        "collection_all_desc": "",
+        "padding_top": 36,
+        "padding_bottom": 50,
+        "enable_bg_zoom_effect": true
+      }
+    },
+    "image_with_text_2_BhPGq3": {
+      "type": "image-with-text-2",
+      "disabled": true,
+      "custom_css": [
+        "@media screen and (max-width: 767px) {.m-hero--content-stack {overflow: visible; margin-bottom: 0px; }}"
+      ],
+      "settings": {
+        "color_scheme": "",
+        "container": "w-full",
+        "hero_size": "adapt",
+        "show_overlay": false,
+        "image": "shopify://shop_images/scale-o_home_banner_approved.png",
+        "image_link": "",
+        "parallax": false,
+        "parallax_direction": "vertical",
+        "content_in_container": false,
+        "content_position": "center middle",
+        "text_alignment": "center",
+        "text_size": "medium",
+        "text_color": "white",
+        "title": "",
+        "subtitle": "",
+        "text": "",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "m-button--primary",
+        "button_size": "",
+        "text_alignment_mobile": "center",
+        "use_content_above": false,
+        "custom_class": "",
+        "animations": "inherit",
+        "enable_bg_zoom_effect": true
+      }
+    },
+    "slider_Q6ATqq": {
+      "type": "slider",
+      "blocks": {
+        "slider_item_yftc9e": {
+          "type": "slider_item",
+          "settings": {
+            "background": "shopify://shop_images/Soft_Water_Conditioner_Image.png",
+            "content_in_container": false,
+            "content_position": "center middle",
+            "text_alignment": "center",
+            "text_size": "medium",
+            "text_color": "black",
+            "subheading": "",
+            "title": "",
+            "description": "",
+            "image_link": "",
+            "button_text": "",
+            "button_link": "",
+            "button_style": "m-button--link",
+            "button_size": "",
+            "second_button_text": "",
+            "second_button_link": "",
+            "second_button_style": "m-button--primary",
+            "second_button_size": "m-button--large",
+            "show_footer": false,
+            "footer_alignment": "end",
+            "footer_text": "New Collection",
+            "footer_button": "Shop Now",
+            "footer_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "slider_item_yftc9e"
+      ],
+      "name": "Slideshow",
+      "settings": {
+        "container": "w-full",
+        "slideshow_height": "adapt",
+        "show_overlay": false,
+        "dots_position": "bottom",
+        "dots_color": "dark",
+        "show_dots": true,
+        "show_arrows": false,
+        "autorotate": false,
+        "autorotate_speed": 5,
+        "use_content_above": false,
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "rich_text_wehJU4": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_tRYhPx": {
+          "type": "heading",
+          "settings": {
+            "heading": "Soft Water Conditioners for Every Home",
+            "heading_size": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "heading_tRYhPx"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "container": "container",
+        "color_scheme": "",
+        "content_alignment": "center",
+        "padding_top": 68,
+        "padding_bottom": 0,
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "main": {
+      "type": "main-collection-product-grid",
+      "custom_css": [
+        ".m-banner-promotion {order: 3 !important; margin-top: 30px; margin-bottom: 0;}",
+        ".m-collection-filters-form {margin-bottom: 0;}",
+        ".ddreview-star {display: none;}",
+        ".m-button--secondary {background-color: #0c7fdf;}",
+        ".m\\:text-left {text-align: center;}",
+        ".m-product-card__title {padding-bottom: 20px; border-bottom: 1.5px solid #d6e2fa;}",
+        ".m-button--secondary:hover {background: black;}",
+        ".m-tooltip:nth-child(1),.m-tooltip:nth-child(5) {display: none;}"
+      ],
+      "settings": {
+        "container": "container-fluid",
+        "grid_layout": "grid",
+        "grid_columns": "4",
+        "show_columns_switcher": false,
+        "pagination_limit": 12,
+        "paginate_type": "infinite",
+        "show_sorting": true,
+        "show_filter": true,
+        "filters_type": "storefront_filters",
+        "sidebar": "leftColumn",
+        "sidebar_title": "Filters",
+        "limit_height_widget": true,
+        "limit_height": 300,
+        "change_product_variant_on_fitlering": true,
+        "show_product_count": true,
+        "collapsed_groups": "Product type, Brand, Vendor, Size",
+        "color_swatches": "color,colour,couleur,farbe",
+        "color_swatches_design": "list"
+      }
+    },
+    "rich_text_9dCnXV": {
+      "type": "rich-text",
+      "blocks": {
+        "text_KwH7D7": {
+          "type": "text",
+          "settings": {
+            "text": "<h2>Soft Water Conditioners That Protect Your Water and Your Property</h2><p>Hard water one of the major problems in most parts of India. From stubborn scale deposits inside overhead tanks to clogged pipelines, damaged bathroom fittings, and inefficient water heaters, mineral-rich water can silently reduce the lifespan of your plumbing system. This is where soft water conditioners come into the picture</p><p>In contrast to conventional systems that need manual salt refills or periodic maintenance, sophisticated conditioning technology minimizes scaling without altering the water's intrinsic mineral composition. Regardless of whether you possess a home, estate, lodging, emergency clinic or office building and so forth, picking the right arrangement can serve to keep away from messy plumbing blockage and improve water flow for a long time.</p><p>If you're looking for a long-term, hassle-free option, choosing the best soft water conditioner can help you save money on repairs while improving the overall water experience.</p><h2>Technology Behind Scale-O Soft Water Conditioners</h2><p>The Scale-O uses advanced chelation technology that is specifically designed to change the behaviour of hardness minerals like calcium and magnesium. The technology alters the crystallisation of these minerals so they remain suspended in water and pass through the system more easily, instead of allowing them to attach themselves as hard scale to pipes and appliances.</p><p>Scale-O is not a salt-based softener and does not require chemicals, electricity, backwashing or regular maintenance as in the case of conventional softeners. The Scale-O soft water conditioner unit works silently inside the overhead tank and provides round-the-clock conditioned water without wasting a single drop.</p><p>This makes Scale-O an excellent option for home or business owners searching for dependable soft water conditioners that are easy to install and economical to maintain.</p><h2>Why Get Soft Water Conditioners for Your Water Tank?</h2><p>Many people do not realize that hard water leaves white marks on the taps and also geysers stop performing efficiently. But the issue originated earlier within the plumbing network itself.</p><p>Soft water conditioners add softeners directly in the storage tank to stop scale from accumulating on pipes and the hot side of appliances such as your washing machine, heater, bathroom and kitchen areas. This translates into cleaner pipelines, improved water flow and ultimately reduced maintenance costs down the line.</p><p>For residential properties, conditioned water helps preserve expensive fixtures and sanitaryware. For commercial establishments such as hotels, schools, hospitals, offices, and public buildings, it contributes to smoother operations by reducing downtime caused by scaling.</p><p>The best technique for always preventing some costly plumbing repairs down the road is to have a soft water conditioner today.</p><h2>Benefits of Using Soft Water Conditioners</h2><h3>1. Reduces Scale Formation</h3><p>The primary advantage of soft water conditioners is minimizing limescale deposits inside pipelines, storage tanks, taps and water heaters.</p><h3>2. Extends Appliance Life</h3><p>Geysers, washing machines, dishwashers and plumbing fixtures remain clean and function effectively for a longer time.</p><h3>3. No Salt or Chemical Usage</h3><p>Scale-O units work by using no salt or chemicals in your water, unlike classic water softeners.</p><h3>4. Zero Water Wastage</h3><p>There is no backwashing process, which means every drop of water is utilized effectively.</p><h3>5. Low Maintenance</h3><p>Once the unit is installed, it requires almost no regular maintenance, making it perfect for busy homeowners and commercial buildings.</p><h3>6. Easy Installation</h3><p>The product is installed inside the overhead tank and functions without involving tedious plumbing tasks since it does not require any piping.</p><h3>7. Suitable for Multiple Applications</h3><p>Hence, the conditioned water is beneficial for all kinds of properties, i.e., independent houses and villas, bungalows, hotels, hospitals, offices, universities, or schools and Industrial buildings.</p><h2>How to Choose the Best Soft Water Conditioner by Tank Size </h2><p>Not every property has the same water requirements. Choosing the appropriate model according to storage capacity and daily consumption will help you maximize the effectiveness of your conditioning system.</p><p>For smaller homes with limited water usage, compact units are often sufficient. Larger villas, hotels or institutions with higher demand may require bigger or multiple units to ensure consistent performance.</p><h3>When evaluating the best soft water conditioner, consider:</h3><ul><li>Total overhead tank capacity</li><li>Number of family members or occupants</li><li>Daily water consumption</li><li>Hardness level of the incoming water</li><li>Commercial or residential usage</li><li>Future expansion requirements</li></ul><p>Scale-O features varying solutions tailored to suit different tank size types, allowing users to choose an option that fits their specific needs without unnecessary complexity.</p><h2>Installation Process for Soft Water Conditioners</h2><p>One of the biggest advantages of Scale-O is its simple installation procedure.</p><p><strong>Step 1: </strong>Open your overhead water tank and identify a suitable location.</p><p><strong>Step 2: </strong>Place the Scale-O unit at the bottom of the tank, ensuring it remains fully submerged.</p><p><strong>Step 3: </strong>Secure the unit properly so it stays in position during water inflow and daily usage.</p><p><strong>Step 4: </strong>Close the tank and allow the technology to begin conditioning the water continuously.</p><p>The installation requires no plumbing alterations, no electrical connections and no chemical dosing systems, making it significantly easier than many conventional alternatives.</p><h2>Why Scale-O Stands Out for Their Soft Water Conditioners?</h2><p>Many homeowners hesitate before investing in water treatment because they expect regular maintenance, expensive consumables or complicated servicing. Scale-O changes that experience completely.</p><p>With its salt-free design, with zero water waste and operational cost free provides a solution for people who want efficiency against scaling without needing so much involvement in its implementation. It operates silently in the overhead tank and dispenses conditioned water 24×7, ensuring plumbing infrastructure, along with appliances at home, are preserved.</p><p>For those searching for dependable soft water conditioners, Scale-O combines simplicity, efficiency, and long-term value in one compact solution.</p><h2>Conclusion</h2><p>Okay, you may think that hard water problems are going to go away on their own, but here is a little secret: They do. It gets worse over time = higher maintenance costs, reduced lifespan of your plumbing and appliances! It is therefore sensible to invest in high-quality soft water conditioners that protect your property while enhancing daily use of water</p><p>Whether you're upgrading your home, managing a commercial facility or planning a new construction project, selecting the best soft water conditioner can deliver long-term savings and peace of mind. With easy installation, no salt requirement and maintenance-free performance, Scale-O provides a smart and sustainable approach to water conditioning for modern living. Contact us today to learn more about Scale-O’s soft water conditioners and find the solution that’s best suited to your water needs and tank size.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_KwH7D7"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "container": "container",
+        "color_scheme": "",
+        "content_alignment": "left",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "image_with_text_8ddqLE": {
+      "type": "image-with-text",
+      "disabled": true,
+      "name": "Image with text",
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "container": "container-fluid",
+        "color_scheme": "",
+        "item_gap": 100,
+        "item_gap_mobile": 30,
+        "layout": "right",
+        "image_column_size": "7",
+        "image_overlap": false,
+        "show_image_reverse": false,
+        "hover_effect": false,
+        "image_animation": "none",
+        "image": "shopify://shop_images/step_1_scale_o.png",
+        "link": "",
+        "link_2": "",
+        "second_image_offset_top": 10,
+        "title": "Step 1 – Install Inside the Overhead Tank",
+        "sub_title": "",
+        "text": "<p>The Scale-O unit is placed directly inside the overhead water tank using its simple DIY installation setup. No plumber, power connection, or pipeline cutting is required.</p>",
+        "text_size": "small",
+        "content_alignment": "left",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "m-button--link",
+        "button_size": "",
+        "padding_top": 54,
+        "padding_bottom": 20,
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "image_with_text_ajUA9Q": {
+      "type": "image-with-text",
+      "disabled": true,
+      "custom_css": [],
+      "name": "Image with text",
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "container": "container-fluid",
+        "color_scheme": "",
+        "item_gap": 100,
+        "item_gap_mobile": 30,
+        "layout": "left",
+        "image_column_size": "7",
+        "image_overlap": false,
+        "show_image_reverse": false,
+        "hover_effect": false,
+        "image_animation": "none",
+        "image": "shopify://shop_images/step_2_scale_o.png",
+        "link": "",
+        "link_2": "",
+        "second_image_offset_top": 10,
+        "title": "Step 2 – Water Flows Around the Scale-O Unit",
+        "sub_title": "",
+        "text": "<p>As water continuously circulates inside the tank, it flows around the Scale-O device during daily household usage and tank refilling cycles.</p>",
+        "text_size": "small",
+        "content_alignment": "left",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "m-button--link",
+        "button_size": "",
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "image_with_text_jKTDq9": {
+      "type": "image-with-text",
+      "disabled": true,
+      "name": "Image with text",
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "container": "container-fluid",
+        "color_scheme": "",
+        "item_gap": 100,
+        "item_gap_mobile": 30,
+        "layout": "right",
+        "image_column_size": "7",
+        "image_overlap": false,
+        "show_image_reverse": false,
+        "hover_effect": false,
+        "image_animation": "none",
+        "image": "shopify://shop_images/step_3_scale_o.png",
+        "link": "",
+        "link_2": "",
+        "second_image_offset_top": 10,
+        "title": "Step 3 – Chelation Technology Conditions Hard Water Minerals",
+        "sub_title": "",
+        "text": "<p>Scale-O uses advanced chelation technology that helps condition hard water minerals like calcium and magnesium. This process helps reduce the ability of minerals to stick to surfaces and form stubborn scale deposits.</p>",
+        "text_size": "small",
+        "content_alignment": "left",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "m-button--link",
+        "button_size": "",
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "image_with_text_xq8rzc": {
+      "type": "image-with-text",
+      "disabled": true,
+      "name": "Image with text",
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "container": "container-fluid",
+        "color_scheme": "",
+        "item_gap": 100,
+        "item_gap_mobile": 30,
+        "layout": "left",
+        "image_column_size": "7",
+        "image_overlap": false,
+        "show_image_reverse": false,
+        "hover_effect": false,
+        "image_animation": "none",
+        "image": "shopify://shop_images/step_4_scale_o.png",
+        "link": "",
+        "link_2": "",
+        "second_image_offset_top": 10,
+        "title": "Step 4 – Reduced Scaling Across the Home",
+        "sub_title": "",
+        "text": "<p>The conditioned water then flows through your home’s plumbing system, helping reduce white scaling on taps, showers, bathroom fittings, tiles, geysers, washing machines, and kitchen appliances.</p>",
+        "text_size": "small",
+        "content_alignment": "left",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "m-button--link",
+        "button_size": "",
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "image_with_text_Bq3ECK": {
+      "type": "image-with-text",
+      "disabled": true,
+      "name": "Image with text",
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "container": "container-fluid",
+        "color_scheme": "",
+        "item_gap": 100,
+        "item_gap_mobile": 30,
+        "layout": "right",
+        "image_column_size": "7",
+        "image_overlap": false,
+        "show_image_reverse": false,
+        "hover_effect": false,
+        "image_animation": "none",
+        "image": "shopify://shop_images/step_5_scale_o.png",
+        "link": "",
+        "link_2": "",
+        "second_image_offset_top": 10,
+        "title": "Step 5 – Whole House Hard Water Protection",
+        "sub_title": "",
+        "text": "<p>By working directly from the overhead tank, Scale-O helps provide soft water support across the entire home while helping improve appliance efficiency and reducing hard water maintenance issues.<br/></p>",
+        "text_size": "small",
+        "content_alignment": "left",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "m-button--link",
+        "button_size": "",
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "custom_content_mDBmjW": {
+      "type": "custom-content",
+      "blocks": {
+        "html_DYjkRi": {
+          "type": "html",
+          "settings": {
+            "code": "<style>\n    @media (min-width:768px) {\n        .faq-container {\n            padding: 20px;\n            display: flex;\n            justify-content: space-between;\n            gap: 20px;\n        }\n\n        .faqdiv {\n            width: 50%;\n        }\n    }\n\n    .faq-item {\n        margin-bottom: 20px;\n    }\n\n    .faq-question {\n        width: 100%;\n        background-color: #F5F7FF;\n        border: none;\n        padding: 15px;\n        text-align: left;\n        cursor: pointer;\n        border-radius: 4px;\n        transition: background-color 0.3s;\n        display: flex;\n        justify-content: space-between;\n        align-items: center;\n        color: #000;\n    }\n\n    .faq-question h4 {\n        margin: 0;\n        font-size: 16px;\n        font-weight: 600;\n        line-height: 1.5;\n        width: calc(100% - 30px);\n    }\n\n    .faq-question:hover {\n        background-color: #e1e1e1;\n    }\n\n    .faq-question.active {\n        background-color: #2a6ab2;\n        color: #fff;\n        border-radius: 4px 4px 0 0;\n    }\n\n    .faq-question.active h4 {\n        color: #fff;\n    }\n\n    .faq-answer {\n        max-height: 0;\n        opacity: 0;\n        overflow: hidden;\n        padding: 0 15px;\n        background-color: #2a6ab2;\n        border-radius: 0 0 4px 4px;\n        font-size: 14px;\n        line-height: 1.8;\n        color: #fff;\n        transition: max-height 0.5s ease, opacity 0.5s ease, padding 0.5s ease;\n    }\n\n    .faq-answer.open {\n        max-height: 500px;\n        opacity: 1;\n        padding: 15px;\n        border-top: 1px solid #DBE2FF;\n    }\n\n    .faq-icon {\n        width: 20px;\n        height: 20px;\n        margin-left: 10px;\n        flex-shrink: 0;\n    }\n</style>\n\n<div class=\"faq-container\">\n\n    <!-- Left Column -->\n    <div class=\"faqdiv\">\n\n        <div class=\"faq-item\">\n            <button class=\"faq-question\">\n                <h4>What are soft water conditioners?</h4>\n\n                <span>\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_49.png?v=1720679877\" class=\"faq-icon open-icon\" alt=\"Open Icon\">\n\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/4444.png?v=1720679877\" class=\"faq-icon close-icon\" style=\"display:none;\" alt=\"Close Icon\">\n                </span>\n            </button>\n\n            <div class=\"faq-answer\">\n                Soft water conditioners are systems designed to reduce the effects of hard water by preventing scale buildup inside pipes, appliances and plumbing fixtures without necessarily removing the minerals from the water.\n            </div>\n        </div>\n\n        <div class=\"faq-item\">\n            <button class=\"faq-question\">\n                <h4>Are soft water conditioners better than traditional salt-based softeners?</h4>\n\n                <span>\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_49.png?v=1720679877\" class=\"faq-icon open-icon\" alt=\"Open Icon\">\n\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/4444.png?v=1720679877\" class=\"faq-icon close-icon\" style=\"display:none;\" alt=\"Close Icon\">\n                </span>\n            </button>\n\n            <div class=\"faq-answer\">\n           They serve different purposes. Salt-free conditioners help prevent scaling without adding sodium or requiring regular salt refills, making them a convenient, low-maintenance option for many households.\n            </div>\n        </div>\n\n        <div class=\"faq-item\">\n            <button class=\"faq-question\">\n                <h4>How do I choose the best soft water conditioner for my home?</h4>\n\n                <span>\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_49.png?v=1720679877\" class=\"faq-icon open-icon\" alt=\"Open Icon\">\n\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/4444.png?v=1720679877\" class=\"faq-icon close-icon\" style=\"display:none;\" alt=\"Close Icon\">\n                </span>\n            </button>\n\n            <div class=\"faq-answer\">\n  Consider your overhead tank size, daily water usage, number of occupants and water hardness level. Matching the unit to your requirements ensures optimal performance.\n            </div>\n        </div>\n\n    </div>\n\n    <!-- Right Column -->\n    <div class=\"faqdiv\">\n\n        <div class=\"faq-item\">\n            <button class=\"faq-question\">\n                <h4>Do Scale-O soft water conditioner units require electricity or chemicals?</h4>\n\n                <span>\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_49.png?v=1720679877\" class=\"faq-icon open-icon\" alt=\"Open Icon\">\n\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/4444.png?v=1720679877\" class=\"faq-icon close-icon\" style=\"display:none;\" alt=\"Close Icon\">\n                </span>\n            </button>\n\n            <div class=\"faq-answer\">\nNo. Scale-O operates without electricity, chemicals or salt and does not require backwashing or frequent maintenance.\n            </div>\n        </div>\n\n        <div class=\"faq-item\">\n            <button class=\"faq-question\">\n                <h4>How long does installation take?</h4>\n\n                <span>\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_49.png?v=1720679877\" class=\"faq-icon open-icon\" alt=\"Open Icon\">\n\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/4444.png?v=1720679877\" class=\"faq-icon close-icon\" style=\"display:none;\" alt=\"Close Icon\">\n                </span>\n            </button>\n\n            <div class=\"faq-answer\">\n  Installation is simple and usually takes only a few minutes since the unit is placed directly inside the overhead tank without plumbing modifications.\n            </div>\n        </div>\n\n        <div class=\"faq-item\">\n            <button class=\"faq-question\">\n                <h4>Is maintenance required after installation?</h4>\n\n                <span>\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_49.png?v=1720679877\" class=\"faq-icon open-icon\" alt=\"Open Icon\">\n\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/4444.png?v=1720679877\" class=\"faq-icon close-icon\" style=\"display:none;\" alt=\"Close Icon\">\n                </span>\n            </button>\n\n            <div class=\"faq-answer\">\nScale-O is designed for hassle-free operation with no regular servicing, salt refills or water wastage, making it an easy long-term solution for hard water management.\n            </div>\n        </div>\n\n    </div>\n\n</div>\n\n<script>\n    document.addEventListener('DOMContentLoaded', function () {\n\n        const questions = document.querySelectorAll('.faq-question');\n\n        questions.forEach(question => {\n\n            question.addEventListener('click', function () {\n\n                const answer = this.nextElementSibling;\n                const isOpen = answer.classList.contains('open');\n\n                // Close all FAQ items\n                document.querySelectorAll('.faq-answer').forEach(item => {\n                    item.classList.remove('open');\n                });\n\n                document.querySelectorAll('.faq-question').forEach(item => {\n                    item.classList.remove('active');\n                });\n\n                document.querySelectorAll('.open-icon').forEach(icon => {\n                    icon.style.display = 'inline-block';\n                });\n\n                document.querySelectorAll('.close-icon').forEach(icon => {\n                    icon.style.display = 'none';\n                });\n\n                // Open current FAQ item\n                if (!isOpen) {\n                    answer.classList.add('open');\n                    this.classList.add('active');\n\n                    this.querySelector('.open-icon').style.display = 'none';\n                    this.querySelector('.close-icon').style.display = 'inline-block';\n                }\n\n            });\n\n        });\n\n    });\n</script>",
+            "width": "100%",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "html_DYjkRi"
+      ],
+      "name": "Custom content",
+      "settings": {
+        "heading": "Frequently Asked Questions",
+        "heading_size": "h3",
+        "subheading": "FAQ",
+        "description": "",
+        "header_alignment": "center",
+        "container": "container-fluid",
+        "color_scheme": "",
+        "content_color_scheme": "",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "gap": 30,
+        "gap_mobile": 16,
+        "use_scroll_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 30,
+        "custom_class": ""
+      }
+    }
+  },
+  "order": [
+    "collection-header",
+    "image_with_text_2_BhPGq3",
+    "slider_Q6ATqq",
+    "rich_text_wehJU4",
+    "main",
+    "rich_text_9dCnXV",
+    "image_with_text_8ddqLE",
+    "image_with_text_ajUA9Q",
+    "image_with_text_jKTDq9",
+    "image_with_text_xq8rzc",
+    "image_with_text_Bq3ECK",
+    "custom_content_mDBmjW"
+  ]
+}

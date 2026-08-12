@@ -1,0 +1,293 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "collection-header": {
+      "type": "collection-page-header",
+      "blocks": {
+        "banner_K8yyJz": {
+          "type": "banner",
+          "settings": {
+            "collection": ""
+          }
+        }
+      },
+      "block_order": [
+        "banner_K8yyJz"
+      ],
+      "disabled": true,
+      "settings": {
+        "color_scheme": "scheme-cee058e4-58e3-46aa-9af9-219dadc79066",
+        "container": "w-full",
+        "layout": "inside",
+        "image_position": "background",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "text_alignment": "center",
+        "text_color": "inherit",
+        "upper_title": false,
+        "show_desc": true,
+        "collection_all_desc": "",
+        "padding_top": 36,
+        "padding_bottom": 50,
+        "enable_bg_zoom_effect": true
+      }
+    },
+    "slider_aCejJU": {
+      "type": "slider",
+      "blocks": {
+        "slider_item_HMGEMm": {
+          "type": "slider_item",
+          "settings": {
+            "background": "shopify://shop_images/scale_o_banner_main_page.png",
+            "content_in_container": false,
+            "content_position": "center middle",
+            "text_alignment": "center",
+            "text_size": "medium",
+            "text_color": "black",
+            "subheading": "",
+            "title": "",
+            "description": "",
+            "image_link": "",
+            "button_text": "",
+            "button_link": "",
+            "button_style": "m-button--link",
+            "button_size": "",
+            "second_button_text": "",
+            "second_button_link": "",
+            "second_button_style": "m-button--primary",
+            "second_button_size": "m-button--large",
+            "show_footer": false,
+            "footer_alignment": "end",
+            "footer_text": "New Collection",
+            "footer_button": "Shop Now",
+            "footer_link": ""
+          }
+        },
+        "slider_item_6QRnUP": {
+          "type": "slider_item",
+          "settings": {
+            "background": "shopify://shop_images/scale-o_main_page_2_banner.png",
+            "content_in_container": false,
+            "content_position": "center middle",
+            "text_alignment": "center",
+            "text_size": "medium",
+            "text_color": "black",
+            "subheading": "",
+            "title": "",
+            "description": "",
+            "image_link": "",
+            "button_text": "",
+            "button_link": "",
+            "button_style": "m-button--primary",
+            "button_size": "",
+            "second_button_text": "",
+            "second_button_link": "",
+            "second_button_style": "m-button--primary",
+            "second_button_size": "",
+            "show_footer": false,
+            "footer_alignment": "end",
+            "footer_text": "New Collection",
+            "footer_button": "Shop Now",
+            "footer_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "slider_item_HMGEMm",
+        "slider_item_6QRnUP"
+      ],
+      "disabled": true,
+      "name": "Slideshow",
+      "settings": {
+        "container": "w-full",
+        "slideshow_height": "adapt",
+        "show_overlay": false,
+        "dots_position": "bottom",
+        "dots_color": "dark",
+        "show_dots": true,
+        "show_arrows": false,
+        "autorotate": false,
+        "autorotate_speed": 5,
+        "use_content_above": false,
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "image_with_text_2_V9kKLU": {
+      "type": "image-with-text-2",
+      "custom_css": [
+        "@media screen and (max-width: 767px) {.m-hero--content-stack {overflow: visible; margin-bottom: 0px; }}"
+      ],
+      "settings": {
+        "color_scheme": "",
+        "container": "w-full",
+        "hero_size": "adapt",
+        "show_overlay": false,
+        "image": "shopify://shop_images/scale-o_home_banner_approved.png",
+        "image_link": "",
+        "parallax": false,
+        "parallax_direction": "vertical",
+        "content_in_container": false,
+        "content_position": "center middle",
+        "text_alignment": "center",
+        "text_size": "medium",
+        "text_color": "white",
+        "title": "",
+        "subtitle": "",
+        "text": "",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "m-button--primary",
+        "button_size": "",
+        "text_alignment_mobile": "center",
+        "use_content_above": false,
+        "custom_class": "",
+        "animations": "inherit",
+        "enable_bg_zoom_effect": true
+      }
+    },
+    "rich_text_NXiEK9": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_epHbtn": {
+          "type": "heading",
+          "settings": {
+            "heading": "Best Water Softener for Water Tanks",
+            "heading_size": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "heading_epHbtn"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "container": "container",
+        "color_scheme": "",
+        "content_alignment": "center",
+        "padding_top": 24,
+        "padding_bottom": 24,
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "main": {
+      "type": "main-collection-product-grid",
+      "custom_css": [
+        ".m-banner-promotion {order: 3 !important; margin-top: 30px; margin-bottom: 0;}",
+        ".m-collection-filters-form {margin-bottom: 0;}",
+        ".ddreview-star {display: none;}",
+        ".m-button--secondary {background-color: #0c7fdf;}",
+        ".m\\:text-left {text-align: center;}",
+        ".m-product-card__title {padding-bottom: 20px; border-bottom: 1.5px solid #d6e2fa;}",
+        ".m-button--secondary:hover {background: black;}",
+        ".m-tooltip:nth-child(1),.m-tooltip:nth-child(5) {display: none;}"
+      ],
+      "settings": {
+        "container": "container-fluid",
+        "grid_layout": "grid",
+        "grid_columns": "4",
+        "show_columns_switcher": false,
+        "pagination_limit": 12,
+        "paginate_type": "infinite",
+        "show_sorting": true,
+        "show_filter": true,
+        "filters_type": "storefront_filters",
+        "sidebar": "leftColumn",
+        "sidebar_title": "Filters",
+        "limit_height_widget": true,
+        "limit_height": 300,
+        "change_product_variant_on_fitlering": true,
+        "show_product_count": true,
+        "collapsed_groups": "Product type, Brand, Vendor, Size",
+        "color_swatches": "color,colour,couleur,farbe",
+        "color_swatches_design": "list"
+      }
+    },
+    "rich_text_Tgxhai": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_qn8iqA": {
+          "type": "heading",
+          "settings": {
+            "heading": "Water Softener for Tanks in India",
+            "heading_size": "h2"
+          }
+        },
+        "text_Cbbz7x": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Tired of white stains on taps, dry skin after showers, damaged bathroom fittings and scaling inside pipes? Hard water can silently destroy your home, and appliances, day in, and day out. And now, Scale-O’s smart water softener for overhead tanks will safeguard your entire water supply while giving you softer and cleaner water throughout the home.</p><p>Our solution, Scale-O, is an efficient whole house water softener that uses Chelation Technology and easy to maintain. It has been designed for Indian households with separate storage tanks. Whether you are living in a bungalow,a villa or an independent house our system treats and lowers scaling of hard water before it reaches your bathrooms geysers washing machines and kitchen.</p><p>Searching for Best Water Softener For Tanks or Top Water Softener in India? Scale-O is a durable solution designed and developed for Indian water conditions.</p><h3>Technology Behind the Scale-O Products</h3><p>Scale-O uses advanced chelation-based water conditioning technology to help reduce hard water scaling inside overhead tanks, pipelines, taps, and appliances. The technology works by chemically altering and coating calcium (Ca+2) and magnesium (Mg+2) ions present in hard water so they do not react with negative ions to form hard scale deposits. Unlike traditional salt-based softeners, it does not require salt, electricity, plumbing modifications, or regular maintenance. Since the product works directly inside the overhead tank, the water gets longer reaction time, allowing continuous 24x7 conditioning before reaching your bathrooms, kitchen, and appliances. Scale-O also helps retain essential minerals in the water while maintaining the natural pH and taste, making it suitable for daily household use such as bathing, washing, and cleaning.</p><h3>Why Get a Water Softener for a Storage Tank?</h3><p>Hard water contains excess minerals like calcium and magnesium that gradually form scale deposits inside pipelines, taps, geysers, appliances, and overhead tanks. Installing a water softener directly in the tank is often more effective than installing it only on pipelines because the water gets a longer reaction time inside the storage tank before being used throughout the house. This allows continuous 24x7 water conditioning, helping improve softening effectiveness across all outlets while reducing scaling, improving water flow, and protecting household appliances more efficiently. </p><h4>Benefits of Installing a Water Softener for Overhead Tanks<strong> </strong></h4><ul><li>Helps to eliminate scaling on tanks and concealed water pipes</li><li>Prevents the formation of white stains on bathroom fittings and also sanitary ware.</li><li>Increases the longevity of geysers, washing machines and water heaters.</li><li>So natural and pleasant feeling of onset time to make your skin and hair hydrated</li><li>Helps save soap and detergent waste</li><li>Improves water flow due to less scale build up around pipes.</li><li>Residential overhead tank systems are quick and easy to install</li><li>No plumbing or ping or any changes required - no need of plumber/technician</li></ul><p>The Scale-O technology intends to efficiently condition water with zero maintenance. Best suited for homes with moderate to heavy hard water problems.<br/><br/></p><h3>Choose by Tank Size & Daily Water Usage </h3><p>The selection of water softener depends on the size of the overhead tank and daily water usage at home.</p><h4>For Small Families (2–4 Members) </h4><ul><li>Ideal for households that consume less water on a daily basis</li><li>Ideal for overhead tanks of capacity up to 500–750 litres</li><li>Perfect for couples, senior citizens in small homes</li></ul><h4>For Medium Families (4–6 Members)</h4><ul><li>Ideal for everyday use with several bathrooms</li><li>For use in overhead tanks of 1000–1500 litres</li><li>Ideal for homes and villas of medium size</li></ul><h4>For Large Families (6+ Members) </h4><ul><li>Suitable for villas, bungalows and big or joint families</li><li>Suitable for high-capacity overhead tanks</li><li>Helps to provide more consistent water quality from all outlets</li></ul><p>Scale-O offers solutions depending on the daily water consumption and overhead tank storage, so choosing the right variant of water softener could be really easy for your home.</p><h3>How to Install on Your Overhead Tank </h3><p>Super Quick & Easy DIY Scale-O Water Softener Installation</p><h4>Installation Process </h4><ul><li>Open the lid of your overhead water tank.</li><li>Unbox the Scale-O unit and tie the attached black rope securely to the tank lid, cover, or a nearby pipe for support.</li><li>Lower the Scale-O product into the tank so it remains submerged a few inches above the bottom of the tank.</li><li>Close the tank lid after installation. The product will begin conditioning the water continuously inside the tank.</li><li>Over the next few days, the water supplied throughout your home will gradually feel softer and help reduce hard water scaling.</li></ul><p>The system can be set up in self-contained homes, condo buildings and the normal plumbing associations. Scale-O products do not require any help for installation, anyone can do it as it is very simple to understand and execute.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_qn8iqA",
+        "text_Cbbz7x"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "container": "container-fluid",
+        "color_scheme": "",
+        "content_alignment": "left",
+        "padding_top": 12,
+        "padding_bottom": 12,
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "custom_content_H9MhAX": {
+      "type": "custom-content",
+      "blocks": {
+        "liquid_MFfcCe": {
+          "type": "liquid",
+          "settings": {
+            "custom_liquid": "<style>\n    @media (min-width:768px) {\n        .faq-container {\n            padding: 20px;\n            display: flex;\n            justify-content: space-between;\n            gap: 20px;\n        }\n\n        .faqdiv {\n            width: 50%;\n        }\n    }\n\n    .faq-item {\n        margin-bottom: 20px;\n    }\n\n    .faq-question {\n        width: 100%;\n        background-color: #F5F7FF;\n        border: none;\n        padding: 15px;\n        text-align: left;\n        cursor: pointer;\n        border-radius: 4px;\n        transition: background-color 0.3s;\n        display: flex;\n        justify-content: space-between;\n        align-items: center;\n        color: #000;\n    }\n\n    .faq-question h4 {\n        margin: 0;\n        font-weight: 600;\n        line-height: 1.5;\n        width: calc(100% - 30px);\n    }\n\n    .faq-question:hover {\n        background-color: #e1e1e1;\n    }\n\n    .faq-question.active {\n        background-color: #2a6ab2;\n        color: #fff;\n        border-radius: 4px 4px 0 0;\n    }\n\n    .faq-question.active h4 {\n        color: #fff;\n    }\n\n    .faq-answer {\n        max-height: 0;\n        opacity: 0;\n        overflow: hidden;\n        padding: 0 15px;\n        background-color: #2a6ab2;\n        border-radius: 0 0 4px 4px;\n        font-size: 14px;\n        line-height: 1.8;\n        color: #fff;\n        transition: max-height 0.5s ease, opacity 0.5s ease, padding 0.5s ease;\n    }\n\n    .faq-answer.open {\n        max-height: 500px;\n        opacity: 1;\n        padding: 15px;\n        border-top: 1px solid #DBE2FF;\n    }\n\n    .faq-icon {\n        width: 20px;\n        height: 20px;\n        margin-left: 10px;\n        flex-shrink: 0;\n    }\n</style>\n\n<div class=\"faq-container\">\n\n    <!-- Left Column -->\n    <div class=\"faqdiv\">\n\n        <div class=\"faq-item\">\n            <button class=\"faq-question\">\n                <h4>What is the life cycle of Scale-O Salt free water Softeners?</h4>\n\n                <span>\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_49.png?v=1720679877\"\n                        class=\"faq-icon open-icon\" alt=\"Open Icon\">\n\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/4444.png?v=1720679877\"\n                        class=\"faq-icon close-icon\" style=\"display:none;\" alt=\"Close Icon\">\n                </span>\n            </button>\n\n            <div class=\"faq-answer\">\n                Life of Scale-O water softener is 6 months, after the product is inside the water which can extend up to 8 months. The shelf life of unused products is 2 years.\n            </div>\n        </div>\n\n        <div class=\"faq-item\">\n            <button class=\"faq-question\">\n                <h4>How long is the guarantee for Scale-O water softeners?</h4>\n\n                <span>\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_49.png?v=1720679877\"\n                        class=\"faq-icon open-icon\" alt=\"Open Icon\">\n\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/4444.png?v=1720679877\"\n                        class=\"faq-icon close-icon\" style=\"display:none;\" alt=\"Close Icon\">\n                </span>\n            </button>\n\n            <div class=\"faq-answer\">\n                All of Scale-O salt free water softeners come with a 6 months guarantee from the date of purchase against manufacturing defects.\n            </div>\n        </div>\n\n    </div>\n\n    <!-- Right Column -->\n    <div class=\"faqdiv\">\n\n        <div class=\"faq-item\">\n            <button class=\"faq-question\">\n                <h4>Is it difficult to install Scale-O water softeners?</h4>\n\n                <span>\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_49.png?v=1720679877\"\n                        class=\"faq-icon open-icon\" alt=\"Open Icon\">\n\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/4444.png?v=1720679877\"\n                        class=\"faq-icon close-icon\" style=\"display:none;\" alt=\"Close Icon\">\n                </span>\n            </button>\n\n            <div class=\"faq-answer\">\n                Scale-O is designed for easy DIY installation and does not require professional installation.\n            </div>\n        </div>\n\n        <div class=\"faq-item\">\n            <button class=\"faq-question\">\n                <h4>What is the best water softener system?</h4>\n\n                <span>\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_49.png?v=1720679877\"\n                        class=\"faq-icon open-icon\" alt=\"Open Icon\">\n\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/4444.png?v=1720679877\"\n                        class=\"faq-icon close-icon\" style=\"display:none;\" alt=\"Close Icon\">\n                </span>\n            </button>\n\n            <div class=\"faq-answer\">\n                A salt-free water softener is considered one of the best solutions for modern homes because it helps reduce hard water scaling without using salt, electricity, or complicated plumbing systems. It is low maintenance, eco-friendly, and ideal for overhead tanks as it provides continuous 24x7 water conditioning while helping protect pipelines, bathroom fittings, and appliances from scale buildup. Scale-O provide the best salt free water softener.\n            </div>\n        </div>\n\n    </div>\n\n</div>\n\n<script>\n    document.addEventListener('DOMContentLoaded', function () {\n\n        const questions = document.querySelectorAll('.faq-question');\n\n        questions.forEach(question => {\n\n            question.addEventListener('click', function () {\n\n                const answer = this.nextElementSibling;\n                const isOpen = answer.classList.contains('open');\n\n                // Close all FAQ items\n                document.querySelectorAll('.faq-answer').forEach(item => {\n                    item.classList.remove('open');\n                });\n\n                document.querySelectorAll('.faq-question').forEach(item => {\n                    item.classList.remove('active');\n                });\n\n                document.querySelectorAll('.open-icon').forEach(icon => {\n                    icon.style.display = 'inline-block';\n                });\n\n                document.querySelectorAll('.close-icon').forEach(icon => {\n                    icon.style.display = 'none';\n                });\n\n                // Open current FAQ item\n                if (!isOpen) {\n                    answer.classList.add('open');\n                    this.classList.add('active');\n\n                    this.querySelector('.open-icon').style.display = 'none';\n                    this.querySelector('.close-icon').style.display = 'inline-block';\n                }\n\n            });\n\n        });\n\n    });\n</script>",
+            "width": "100%",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "liquid_MFfcCe"
+      ],
+      "name": "Custom content",
+      "settings": {
+        "heading": "Frequently Asked Questions",
+        "heading_size": "h3",
+        "subheading": "FAQ",
+        "description": "",
+        "header_alignment": "center",
+        "container": "container-fluid",
+        "color_scheme": "",
+        "content_color_scheme": "",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "gap": 30,
+        "gap_mobile": 16,
+        "use_scroll_mobile": false,
+        "padding_top": 24,
+        "padding_bottom": 10,
+        "custom_class": ""
+      }
+    }
+  },
+  "order": [
+    "collection-header",
+    "slider_aCejJU",
+    "image_with_text_2_V9kKLU",
+    "rich_text_NXiEK9",
+    "main",
+    "rich_text_Tgxhai",
+    "custom_content_H9MhAX"
+  ]
+}

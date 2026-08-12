@@ -1,0 +1,243 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "page",
+      "disabled": true,
+      "settings": {}
+    },
+    "image_with_text_2_6rMNAB": {
+      "type": "image-with-text-2",
+      "name": "Image with text overlay",
+      "settings": {
+        "color_scheme": "",
+        "container": "w-full",
+        "hero_size": "adapt",
+        "show_overlay": false,
+        "image": "shopify://shop_images/best_water_softner_in_delhi.png",
+        "image_link": "",
+        "parallax": false,
+        "parallax_direction": "vertical",
+        "content_in_container": false,
+        "content_position": "center middle",
+        "text_alignment": "center",
+        "text_size": "medium",
+        "text_color": "white",
+        "title": "",
+        "subtitle": "",
+        "text": "",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "m-button--primary",
+        "button_size": "",
+        "text_alignment_mobile": "center",
+        "use_content_above": false,
+        "custom_class": "",
+        "animations": "inherit",
+        "enable_bg_zoom_effect": true
+      }
+    },
+    "rich_text_Fz3V6V": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_RNBCy3": {
+          "type": "heading",
+          "settings": {
+            "heading": "Water Softener in Delhi for Overhead Tanks",
+            "heading_size": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "heading_RNBCy3"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "container": "container",
+        "color_scheme": "",
+        "content_alignment": "center",
+        "padding_top": 44,
+        "padding_bottom": 44,
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "featured_collection_8MTc7Y": {
+      "type": "featured-collection",
+      "name": "Featured collection",
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "header_alignment": "center",
+        "color_scheme": "",
+        "container": "container-fluid",
+        "collection": "best-water-softener-in-ahmedabad",
+        "enable_flashsale": false,
+        "show_countdown": false,
+        "product_to_show": 8,
+        "items_per_row": 3,
+        "item_gap": 30,
+        "pcard_layout": "",
+        "pcard_image_ratio": "",
+        "show_vendor": false,
+        "hide_title": false,
+        "enable_slider": false,
+        "show_pagination": false,
+        "show_navigation": false,
+        "show_button_on_header": false,
+        "button_type": "link",
+        "button_text": "",
+        "button_style": "m-button--primary",
+        "button_size": "",
+        "infinite_load": false,
+        "max_page_load": 3,
+        "mobile_disable_slider": false,
+        "use_scroll_mobile": true,
+        "item_gap_mobile": 16,
+        "padding_top": 0,
+        "padding_bottom": 44,
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "custom_content_Kf3JzP": {
+      "type": "custom-content",
+      "blocks": {
+        "html_yiKGX4": {
+          "type": "html",
+          "settings": {
+            "code": "<style>\n.map-wrapper {\n    width: 100%;\n    overflow: hidden;\n    border-radius: 16px;\n    box-shadow: 0 4px 20px rgba(0,0,0,0.08);\n}\n\n.map-wrapper iframe {\n    width: 100%;\n    height: 500px;\n    border: 0;\n    display: block;\n}\n\n@media (max-width: 768px) {\n    .map-wrapper iframe {\n        height: 350px;\n    }\n}\n</style>\n\n<div class=\"map-wrapper\">\n\n<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3672.719864128443!2d72.5019976!3d22.997326599999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e9bef2f2ec713%3A0x9809378bf6b4ee64!2sScale-O!5e0!3m2!1sen!2sin!4v1779710877783!5m2!1sen!2sin%22%20width=\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>\n \n\n</div>",
+            "width": "100%",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "html_yiKGX4"
+      ],
+      "disabled": true,
+      "name": "Custom content",
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "header_alignment": "center",
+        "container": "container-fluid",
+        "color_scheme": "",
+        "content_color_scheme": "",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "gap": 30,
+        "gap_mobile": 16,
+        "use_scroll_mobile": false,
+        "padding_top": 52,
+        "padding_bottom": 16,
+        "custom_class": ""
+      }
+    },
+    "rich_text_RBjtUd": {
+      "type": "rich-text",
+      "blocks": {
+        "text_3GFNKR": {
+          "type": "text",
+          "settings": {
+            "text": "<h2>Water Softener in Delhi for Overhead Tanks</h2><p>One of the major problems in Delhi, which is also one of the fastest-growing cities in India, is hard water, as it is still a challenge for many people across the concerned households. No matter if your home is supplied by borewell water, municipal supply or a combination of both, excessive minerals in the water will eventually have an impact on your plumbing system, appliances and day-to-day comfort. <strong>Scale-O</strong> is the simplest and most effective solution developed for Indian homes. We offer a complete setup if you are looking for a reliable <a href=\"https://scale-o.com/collections/all-products\"><span style=\"text-decoration:underline\"><strong>water softener in Delhi</strong></span></a>.</p><p>Unlike conventional systems that require complicated plumbing and regular maintenance, Scale-O works directly inside your overhead water tank. It helps condition hard water before it reaches your taps, showers, geysers and appliances. Whether you live in an independent house, villa, bungalow or residential property, Scale-O provides an easy way to tackle hard water problems across your home.</p><h2>Signs of hard water in Delhi homes:</h2><ul><li>White deposits on taps, sinks and showerheads</li><li>Reduced performance of geysers and water heaters</li><li>Blockages inside pipes due to mineral buildup</li><li>Dry skin and rough hair after bathing</li><li>Stains on bathroom fittings and kitchen utensils</li></ul><p>These can get very expensive over time with maintenance and appliance repair. A <strong>hard water softener</strong> should be installed at the source to prevent these issues before the water is used throughout your home.</p><h2>Why Scale-O Is The Best Water Softener in Delhi?</h2><p>By installing Scale-O water softener for overhead tanks, you are not only protecting your expensive appliances and fixtures but also improving the entire water system at your home.</p><h3>Key Benefits Of Scale-O’s Soft Water Conditioners Include:</h3><ul><li>Reduces the formation of hard scale in pipelines and water tanks</li><li>Enables improved functioning of geysers and water heaters</li><li>Prevents mineral deposition on bathroom furniture</li><li>Contributes to the longevity of home appliances</li><li>Makes water softer to bathe for your body and hair</li><li>Perfect for villas, bungalows & independent homes</li><li>No blocks or any kind of periodic maintenance required</li><li>Serves as a great <strong>water softener for overhead tanks</strong> of all sizes</li></ul><h2>Water Softener for Home in Delhi: A Simple Solution with Scale-O</h2><p>Scale-O has been uniquely engineered to address the challenge of hard water in Indian households. The best part is that it works as one of the easiest to use <strong>soft water conditioners</strong> for overhead tanks, which can prevent scale formation in every corner of your house plumbing network.</p><h3>Easy DIY installation in a few simple steps:</h3><p><strong>Step 1: </strong>Open the overhead water tank and identify a suitable location for placing the Scale-O unit.</p><p><strong>Step 2: </strong>Place the Scale-O unit at the bottom of the tank, ensuring it remains fully submerged underwater for optimal performance.</p><p><strong>Step 3: </strong>Position the unit securely so it stays stable during regular water flow and tank refilling cycles.</p><p><strong>Step 4: </strong>Close the tank lid properly. No plumbing modifications, pipe cutting, electricity, or external installation setup is required.</p><p><strong>Step 5: </strong>As water circulates through the tank, Scale-O starts conditioning the water and helps reduce hard water scale formation in taps, showerheads, geysers, washing machines, pipelines, and other household plumbing systems.</p><p>Scale-O is capable of treating your water as it flows through the tank and it continues conditioning the water. This modest arrangement makes Scale-O one of the best-fit water softener for home in Delhi without major redesigns.</p><h2>Why Many Homeowners Prefer Scale-O For The Best Water Softener For Overhead Tank</h2><p>Most hard water softeners work by a combination of salt regeneration, electricity, frequent servicing and plumbing changes. Although they can soften water, they normally incur operational costs and wasted water.</p><p>Scale-O presents homeowners with a much more intelligent and robust solution as compared to other products available in the marketplace today as the best water softener in Delhi. </p><h2>Advantages of Scale-O soft water conditioners:</h2><h3>1. No Salt Refilling Required</h3><p>Unlike conventional systems, Scale-O works without salt or chemical regeneration.</p><h3>2. No Electricity Consumption</h3><p>The system requires no power, helping to keep running costs low.</p><h3>3. Maintenance-Free Operation</h3><p>There is no need for periodic servicing or backwashing.</p><h3>4. No Water Wastage</h3><p>Unlike traditional systems that waste gallons of water every single time their regeneration cycle kicks in, Scale-O uses no water at all.</p><h3>5. Quick DIY Installation</h3><p>The unit can be installed inside the tank within minutes without requiring professional assistance.</p><h3>6. Compact and Space Efficient</h3><p>Scale-O fits inside the tank easily and does not occupy much floor space.</p><h3>7. Designed for Indian Water Conditions</h3><p>It has been professionally developed to perform with Indian hard water sources.</p><p>Due to these features, Scale-O has become a go-to <strong>water softener in Delhi</strong> for homeowners.</p><h2>Protect Your Home from Hard Water Today</h2><p>Don't let hard water damage your plumbing, appliances, and daily comfort. Scale-O offers a simple, salt-free solution designed for Delhi homes and overhead tanks. Enjoy cleaner water flow, reduced scaling, and long-term protection throughout your home. <a href=\"https://scale-o.com/pages/connect\"><span style=\"text-decoration:underline\"><strong>Contact us</strong></span></a> now to find the right Scale-O solution for your household.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_3GFNKR"
+      ],
+      "custom_css": [
+        ".m-richtext__description p {color: #222222 !important;}"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "container": "container",
+        "color_scheme": "",
+        "content_alignment": "left",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "custom_content_jUmVj8": {
+      "type": "custom-content",
+      "blocks": {
+        "text_RGrYgf": {
+          "type": "text",
+          "settings": {
+            "title": "Frequently asked questions",
+            "subheading": "FAQ",
+            "text": "",
+            "width": "100%",
+            "alignment": "center",
+            "align_text": "center",
+            "text_size": "medium",
+            "text_color": "inherit",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "m-button--primary",
+            "button_size": "",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        },
+        "liquid_Qh8FyJ": {
+          "type": "liquid",
+          "settings": {
+            "custom_liquid": "<style>\n    @media (min-width:768px) {\n        .faq-container {\n            padding: 20px;\n            display: flex;\n            justify-content: space-between;\n            gap: 20px;\n        }\n\n        .faqdiv {\n            width: 50%;\n        }\n    }\n\n    .faq-item {\n        margin-bottom: 20px;\n    }\n\n    .faq-question {\n        width: 100%;\n        background-color: #F5F7FF;\n        border: none;\n        padding: 15px;\n        text-align: left;\n        cursor: pointer;\n        border-radius: 4px;\n        transition: background-color 0.3s;\n        display: flex;\n        justify-content: space-between;\n        align-items: center;\n        color: #000;\n    }\n\n    .faq-question h4 {\n        margin: 0;\n        font-size: 16px;\n        font-weight: 600;\n        line-height: 1.5;\n        width: calc(100% - 30px);\n    }\n\n    .faq-question:hover {\n        background-color: #e1e1e1;\n    }\n\n    .faq-question.active {\n        background-color: #2a6ab2;\n        color: #fff;\n        border-radius: 4px 4px 0 0;\n    }\n\n    .faq-question.active h4 {\n        color: #fff;\n    }\n\n    .faq-answer {\n        max-height: 0;\n        opacity: 0;\n        overflow: hidden;\n        padding: 0 15px;\n        background-color: #2a6ab2;\n        border-radius: 0 0 4px 4px;\n        font-size: 14px;\n        line-height: 1.8;\n        color: #fff;\n        transition: max-height 0.5s ease, opacity 0.5s ease, padding 0.5s ease;\n    }\n\n    .faq-answer.open {\n        max-height: 500px;\n        opacity: 1;\n        padding: 15px;\n        border-top: 1px solid #DBE2FF;\n    }\n\n    .faq-icon {\n        width: 20px;\n        height: 20px;\n        margin-left: 10px;\n        flex-shrink: 0;\n    }\n</style>\n\n<div class=\"faq-container\">\n\n    <!-- Left Column -->\n    <div class=\"faqdiv\">\n\n        <div class=\"faq-item\">\n            <button class=\"faq-question\">\n                <h4>What are the common signs of hard water in Delhi?</h4>\n\n                <span>\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_49.png?v=1720679877\"\n                        class=\"faq-icon open-icon\" alt=\"Open Icon\">\n\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/4444.png?v=1720679877\"\n                        class=\"faq-icon close-icon\" style=\"display:none;\" alt=\"Close Icon\">\n                </span>\n            </button>\n\n            <div class=\"faq-answer\">Hard water usually causes white scaling on taps, bathroom fittings, showerheads, and tiles. It can also reduce the efficiency of geysers, washing machines, and plumbing systems.\n            </div>\n        </div>\n\n        <div class=\"faq-item\">\n            <button class=\"faq-question\">\n                <h4>Can hard water damage household appliances?</h4>\n\n                <span>\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_49.png?v=1720679877\"\n                        class=\"faq-icon open-icon\" alt=\"Open Icon\">\n\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/4444.png?v=1720679877\"\n                        class=\"faq-icon close-icon\" style=\"display:none;\" alt=\"Close Icon\">\n                </span>\n            </button>\n\n            <div class=\"faq-answer\">Yes. Mineral deposits from hard water can accumulate inside appliances such as geysers, washing machines, dishwashers, and water heaters, reducing their efficiency and lifespan.\n            </div>\n        </div>\n\n        <div class=\"faq-item\">\n            <button class=\"faq-question\">\n                <h4>Does hard water affect skin and hair?</h4>\n\n                <span>\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_49.png?v=1720679877\"\n                        class=\"faq-icon open-icon\" alt=\"Open Icon\">\n\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/4444.png?v=1720679877\"\n                        class=\"faq-icon close-icon\" style=\"display:none;\" alt=\"Close Icon\">\n                </span>\n            </button>\n\n            <div class=\"faq-answer\">Many people experience dry skin, rough hair, and difficulty creating lather with soaps when exposed to hard water regularly.\n            </div>\n        </div>\n\n    </div>\n\n    <!-- Right Column -->\n    <div class=\"faqdiv\">\n\n        <div class=\"faq-item\">\n            <button class=\"faq-question\">\n                <h4>Which is the best water softener for home use in Delhi?</h4>\n\n                <span>\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_49.png?v=1720679877\"\n                        class=\"faq-icon open-icon\" alt=\"Open Icon\">\n\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/4444.png?v=1720679877\"\n                        class=\"faq-icon close-icon\" style=\"display:none;\" alt=\"Close Icon\">\n                </span>\n            </button>\n\n            <div class=\"faq-answer\">Scale-O is considered a practical solution for homeowners because it is easy to install, requires no salt or electricity, and works directly inside overhead tanks.\n            </div>\n        </div>\n\n        <div class=\"faq-item\">\n            <button class=\"faq-question\">\n                <h4>How do soft water conditioners work?</h4>\n\n                <span>\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_49.png?v=1720679877\"\n                        class=\"faq-icon open-icon\" alt=\"Open Icon\">\n\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/4444.png?v=1720679877\"\n                        class=\"faq-icon close-icon\" style=\"display:none;\" alt=\"Close Icon\">\n                </span>\n            </button>\n\n            <div class=\"faq-answer\"><strong>Soft water conditioners</strong> help reduce the effects of hard water minerals by conditioning calcium and magnesium before the water reaches household plumbing systems and appliances.\n            </div>\n        </div>\n        <div class=\"faq-item\">\n            <button class=\"faq-question\">\n                <h4>Why is Scale-O considered one of the best water softener for overhead tank solutions?</h4>\n\n                <span>\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_49.png?v=1720679877\"\n                        class=\"faq-icon open-icon\" alt=\"Open Icon\">\n\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/4444.png?v=1720679877\"\n                        class=\"faq-icon close-icon\" style=\"display:none;\" alt=\"Close Icon\">\n                </span>\n            </button>\n\n            <div class=\"faq-answer\">Scale-O is designed specifically for overhead tank installation, requires zero maintenance, does not waste water, and operates without electricity, making it the best water softener for overhead tank solution for Delhi households.\n            </div>\n        </div>\n    </div>\n\n</div>\n\n<script>\n    document.addEventListener('DOMContentLoaded', function () {\n\n        const questions = document.querySelectorAll('.faq-question');\n\n        questions.forEach(question => {\n\n            question.addEventListener('click', function () {\n\n                const answer = this.nextElementSibling;\n                const isOpen = answer.classList.contains('open');\n\n                // Close all FAQ items\n                document.querySelectorAll('.faq-answer').forEach(item => {\n                    item.classList.remove('open');\n                });\n\n                document.querySelectorAll('.faq-question').forEach(item => {\n                    item.classList.remove('active');\n                });\n\n                document.querySelectorAll('.open-icon').forEach(icon => {\n                    icon.style.display = 'inline-block';\n                });\n\n                document.querySelectorAll('.close-icon').forEach(icon => {\n                    icon.style.display = 'none';\n                });\n\n                // Open current FAQ item\n                if (!isOpen) {\n                    answer.classList.add('open');\n                    this.classList.add('active');\n\n                    this.querySelector('.open-icon').style.display = 'none';\n                    this.querySelector('.close-icon').style.display = 'inline-block';\n                }\n\n            });\n\n        });\n\n    });\n</script>",
+            "width": "100%",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "text_RGrYgf",
+        "liquid_Qh8FyJ"
+      ],
+      "name": "Custom content",
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "header_alignment": "center",
+        "container": "container-fluid",
+        "color_scheme": "",
+        "content_color_scheme": "",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "gap": 30,
+        "gap_mobile": 16,
+        "use_scroll_mobile": false,
+        "padding_top": 46,
+        "padding_bottom": 22,
+        "custom_class": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_with_text_2_6rMNAB",
+    "rich_text_Fz3V6V",
+    "featured_collection_8MTc7Y",
+    "custom_content_Kf3JzP",
+    "rich_text_RBjtUd",
+    "custom_content_jUmVj8"
+  ]
+}

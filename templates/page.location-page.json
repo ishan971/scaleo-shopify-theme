@@ -1,0 +1,174 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "breadcrumb_THVn8h": {
+      "type": "breadcrumb",
+      "name": "Breadcrumb",
+      "settings": {
+        "container": "container",
+        "text_alignment": "left",
+        "hide_current": false,
+        "hide_on_mb": false,
+        "animations": "inherit"
+      }
+    },
+    "main": {
+      "type": "page",
+      "disabled": true,
+      "settings": {}
+    },
+    "rich_text_Y89VeW": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_eKjKaz": {
+          "type": "heading",
+          "settings": {
+            "heading": "Talk about your brand",
+            "heading_size": "h2"
+          }
+        },
+        "text_8h7Qt9": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post.<br> Add details on availability, style, or even provide a review.</p>"
+          }
+        },
+        "button_UVGNHq": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop Collection",
+            "button_link": "shopify://collections",
+            "button_style": "m-button--link",
+            "button_size": ""
+          }
+        }
+      },
+      "block_order": [
+        "heading_eKjKaz",
+        "text_8h7Qt9",
+        "button_UVGNHq"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "container": "container",
+        "color_scheme": "",
+        "content_alignment": "center",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "empty_space_yjpAyf": {
+      "type": "empty-space",
+      "name": "Empty space",
+      "settings": {
+        "container": "container-fluid",
+        "color_scheme": "",
+        "show_divider_line": true,
+        "divider_style": "solid",
+        "divider_height": 1,
+        "padding_top": 60,
+        "padding_bottom": 0,
+        "custom_class": ""
+      }
+    },
+    "new_featured_product_M8NQmN": {
+      "type": "new-featured-product",
+      "blocks": {
+        "title_wjJbzQ": {
+          "type": "title",
+          "settings": {}
+        },
+        "price_7aFUP7": {
+          "type": "price",
+          "settings": {
+            "show_saving": false,
+            "sale_badge_type": "percentage"
+          }
+        },
+        "variant_picker_tdzWjL": {
+          "type": "variant_picker",
+          "settings": {}
+        },
+        "buy_buttons_aTjaxb": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_quantity_selector": true,
+            "show_atc_button": true,
+            "show_dynamic_checkout": true
+          }
+        }
+      },
+      "block_order": [
+        "title_wjJbzQ",
+        "price_7aFUP7",
+        "variant_picker_tdzWjL",
+        "buy_buttons_aTjaxb"
+      ],
+      "name": "Featured product",
+      "settings": {
+        "container": "container",
+        "color_scheme": "",
+        "featured_product": "mini-water-softener-500l-750l-tanks",
+        "enable_variant_group_images": false,
+        "column_gap": 100,
+        "column_gap_mobile": 30,
+        "image_placement": "left",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "empty_space_QFKn8C": {
+      "type": "empty-space",
+      "name": "Empty space",
+      "settings": {
+        "container": "container-fluid",
+        "color_scheme": "",
+        "show_divider_line": true,
+        "divider_style": "solid",
+        "divider_height": 1,
+        "padding_top": 60,
+        "padding_bottom": 0,
+        "custom_class": ""
+      }
+    },
+    "maps_6aBkCP": {
+      "type": "maps",
+      "name": "Google map",
+      "settings": {
+        "container": "container",
+        "color_scheme": "",
+        "map_height": "medium",
+        "textx": "23.000012883641116",
+        "texty": "72.50165427574545",
+        "zoom": "11",
+        "text2": "",
+        "content_position": "middle-left",
+        "text_alignment": "left",
+        "use_content_in_container": false,
+        "animations": "inherit",
+        "custom_class": ""
+      }
+    }
+  },
+  "order": [
+    "breadcrumb_THVn8h",
+    "main",
+    "rich_text_Y89VeW",
+    "empty_space_yjpAyf",
+    "new_featured_product_M8NQmN",
+    "empty_space_QFKn8C",
+    "maps_6aBkCP"
+  ]
+}

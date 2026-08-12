@@ -1,0 +1,533 @@
+{% liquid
+  assign enable_rtl = settings.enable_rtl
+  assign language_support_rtl = settings.language_support_rtl
+  if enable_rtl and language_support_rtl != blank
+    assign shop_locale = localization.language.iso_code
+    assign language_support_rtl_list = language_support_rtl | split: ','
+    assign is_rtl = language_support_rtl_list | where: shop_locale
+    if is_rtl.size > 0
+      assign enable_rtl = true
+    else
+      assign enable_rtl = false
+    endif
+  endif
+
+  assign body_classes = 'template-' | append: template.name | append: ' ' | append: template.suffix | append: ' m-gradient m-color-' | append: settings.default_color_scheme
+  if settings.page_transition
+    assign body_classes = body_classes | append: ' m:overflow-hidden'
+  endif
+  if template.suffix == 'about-us'
+    assign body_classes = body_classes | append: ' sf__page-about'
+  endif
+%}
+<!doctype html>
+<html
+  class="no-js {% if settings.page_transition %} m:overflow-hidden{% endif %}"
+  lang="{{ request.locale.iso_code }}"
+  data-template="{{ template.name }}"
+  {% if enable_rtl %}
+    dir="rtl"
+  {% endif %}
+>
+  <head>
+    
+{% include 'wp-page-speed-optimization-header' %}
+
+    <a href="https://api.whatsapp.com/send?phone=919909963304" aria-label="whats app"> 
+    <div class="qr_wa_icon" style="
+        height:54px;
+        box-sizing:border-box;
+        padding:10px;
+        border-radius:27px;
+        cursor: pointer;
+        position: fixed;
+        bottom: 30px;
+        right: 20px;
+        box-shadow: 0 0 0px 0 #000;
+        z-index: 99999 !important;
+        background: #007bff;
+      ">
+      <!-- Change Background Color #0C6743 As per your Brand -->
+          <svg style="all:unset; vertical-align: middle; display: inline-block; height:34px; width:34px; margin:0px; padding:0px" width="34" height="34" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M10.8039 0.0681698C6.25549 0.756887 2.54823 3.69142 0.901889 7.90756C-0.353895 11.1236 -0.185656 14.8007 1.35253 17.9149L1.71304 18.6396L0.841803 21.8077C0.367129 23.5504 -0.0174167 24.9877 0.00060889 24.9997C0.012626 25.0117 1.48472 24.6404 3.27526 24.1733L6.53188 23.3228L7.19282 23.6343C10.6297 25.2393 14.5833 25.2213 17.9661 23.5804C19.5464 22.8138 20.9704 21.6939 22.13 20.3105C24.1609 17.891 25.2064 14.639 24.9661 11.5069C24.6236 7.04517 22.0039 3.1644 18.0262 1.23C16.8966 0.679031 15.9533 0.3736 14.6314 0.12207C13.9164 -0.00968513 11.555 -0.045618 10.8039 0.0681698ZM14.343 2.18822C15.3164 2.35591 16.2537 2.67332 17.2151 3.15841C18.2906 3.7034 19.0176 4.23041 19.8588 5.06885C21.7875 6.99127 22.797 9.31494 22.9051 12.0459C22.9893 14.3156 22.3463 16.4656 21.0004 18.382C20.4236 19.2085 19.2039 20.3943 18.3567 20.9513C16.5842 22.1311 14.9138 22.6641 12.8288 22.718C10.7018 22.7779 9.13358 22.3766 7.08467 21.2327L6.83832 21.095L4.93962 21.5921C3.90015 21.8676 3.01689 22.0832 2.98685 22.0712C2.95681 22.0592 3.1611 21.2267 3.43749 20.2206C3.70787 19.2145 3.9362 18.3581 3.9362 18.3102C3.9362 18.2623 3.83405 18.0646 3.70186 17.861C2.06754 15.2798 1.68901 11.9321 2.70445 9.02149C3.7259 6.11091 5.95506 3.81718 8.86319 2.69727C9.68636 2.37986 10.5215 2.19421 11.7473 2.05048C12.1979 1.99658 13.676 2.07443 14.343 2.18822Z" fill="#fff"></path><path d="M7.81182 6.69762C7.3732 6.8174 6.70626 7.61392 6.39381 8.39247C6.26763 8.70987 6.25562 8.84762 6.25562 9.59023C6.25562 10.4107 6.26162 10.4407 6.47192 11.0216C7.0908 12.6745 8.96546 14.9742 10.8221 16.3636C11.8135 17.1062 12.6908 17.5434 14.1929 18.0465C15.5088 18.4837 16.374 18.4717 17.3353 17.9986C18.0263 17.6572 18.525 17.1601 18.6813 16.6571C18.8315 16.1839 18.8795 15.4653 18.7714 15.3335C18.6031 15.1299 16.0435 13.9321 15.7791 13.9321C15.5748 13.9321 15.5869 13.9202 14.986 14.6748C14.4272 15.3695 14.247 15.5491 14.0847 15.5491C13.8444 15.5491 12.7929 15.0341 12.162 14.6209C11.8435 14.4053 11.3569 14.022 11.0865 13.7704C10.2933 13.0278 9.40409 11.8121 9.40409 11.4707C9.40409 11.3689 9.52426 11.1833 9.77061 10.9018C10.1552 10.4646 10.4255 10.0095 10.4255 9.79984C10.4255 9.68007 9.57232 7.55403 9.344 7.10487C9.28391 6.99108 9.18778 6.85333 9.12769 6.79943C8.98349 6.67367 8.14229 6.60779 7.81182 6.69762Z" fill="#fff"></path>
+      </svg>
+    </div>
+  </a>
+  <style>
+  div#df-btn-cont {
+    display: none;
+}</style>
+
+    
+<meta name="facebook-domain-verification" content="0b1x87kk98xwoyr40lvgb5vod3ac63" />
+
+    
+    <!-- Google tag (gtag.js) -->
+<script defer src="https://www.googletagmanager.com/gtag/js?id=G-Q9RM17H6B8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Q9RM17H6B8');
+</script>
+     <!-- Global site tag (gtag.js) - Google Ads: 16646732061 -->
+<script defer src="https://www.googletagmanager.com/gtag/js?id=AW-16646732061"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-16646732061');
+</script>
+ {%- render 'ecom_header' -%}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
+    <meta name="theme-color" content="{{ settings.color_primary }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+      
+    
+     <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+   
+    <!-- <script async src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/js/bootstrap.min.js" ></script>
+    {% render 'judgeme-reviews-setup'%}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+
+    
+
+
+
+    {%- liquid
+      render 'preload'
+      render 'SEO'
+      render 'social-meta-tags'
+      render 'font-face'
+    -%}
+
+    {% render 'critical-css' %}
+
+    {{ 'main.css' | asset_url | stylesheet_tag }}
+    {{ 'custom-dev.css' | asset_url | stylesheet_tag }}
+
+    {% render 'style-tags' %}
+
+    <script src="{{ 'vendor.min.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'theme-global.js' | asset_url }}" defer="defer"></script>
+    {%- if settings.animations != 'none' -%}
+      <script src="{{ 'animations.js' | asset_url }}" defer="defer"></script>
+    {%- endif -%}
+    {%- if request.design_mode -%}
+      <script src="{{ 'theme-editor.js' | asset_url }}" defer="defer"></script>
+    {%- endif -%}
+
+    <script src="{{ 'custom-dev.js' | asset_url }}" defer="defer"></script>
+
+    {%- if tinyscript -%}{{ content_for_header }}{%- else -%}{% render 'tiny-script-control' %}{%- endif -%}
+
+    <script>
+      document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
+      if (Shopify.designMode) {
+        document.documentElement.classList.add('shopify-design-mode');
+      }
+    </script>
+
+    <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "nrmdhf6zvz");
+</script>
+    <script type="text/javascript" src="https://d3mkw6s8thqya7.cloudfront.net/integration-plugin.js" id="aisensy-wa-widget" widget-id="miU1WT"></script>
+    
+    {% render 'theme-data' %}
+    {% render 'custom-code-head' %}
+  {% include 'dadao_reviews_core.liquid' %}
+{% include 'pagefly-app-header' %}<script data-custom-wpsob="1">function a(e){const t=e.getBoundingClientRect();return t.top>=0&&t.left>=0&&t.bottom<=(window.innerHeight||document.documentElement.clientHeight)&&t.right<=(window.innerWidth||document.documentElement.clientWidth)}function b(e){e.hasAttribute("data-wpsob-width")&&e.removeAttribute("width"),e.hasAttribute("data-wpsob-height")&&e.removeAttribute("height")}function c(){const e=document.querySelectorAll("img");for(let t=0;t<e.length;t++)a(e[t])&&b(e[t])}function d(){const e=document.querySelectorAll("img");for(let t=0;t<e.length;t++)b(e[t])}window.onload=c,window.addEventListener("scroll",d);</script></head>
+
+
+  <body
+    id="m-theme"
+    class="{{ body_classes }}"
+    {% if template.name == 'product' %}
+      data-product-id="{{ product.id }}"
+    {% endif %}
+  >
+    {% render 'page-transition' %}
+    {%- liquid
+      render 'scroll-top-button'
+      sections 'header-group'
+    -%}
+
+    <main role="main" id="MainContent">
+      {{ content_for_layout }}
+    </main>
+
+    <!--ECOM-FOOTER--><!--/ECOM-FOOTER-->
+
+    
+    
+    
+
+    <script src="{{ 'product-quick-view.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'wishlist.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'compare-product.js' | asset_url }}" defer="defer"></script>
+    
+    {%- if settings.enable_predictive_search -%}
+      <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
+    {%- endif -%}
+
+    {%- if linklists['gift-wrapping'].links != blank
+      and linklists['gift-wrapping'].links.first.type == 'product_link'
+    -%}
+      <script src="{{ 'gift-wrapping.js' | asset_url }}" defer="defer"></script>
+    {%- endif -%}
+
+    {%- if settings.show_swatch_option -%}
+      <script src="{{ 'product-card-swatch.js' | asset_url }}" defer="defer"></script>
+    {%- endif -%}
+
+    {%- if settings.enable_cart_drawer and template != 'cart' -%}
+      
+    {%- endif -%}
+  
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+            mutation.addedNodes.forEach(function(node) {
+                if (node.nodeType === 1 && node.textContent.includes("Built with")) {
+                    node.remove();
+                }
+            });
+        });
+    });
+
+    observer.observe(document.body, { childList: true, subtree: true });
+});
+</script>
+
+
+<!-- <script>
+    document.addEventListener('DOMContentLoaded', function() {
+  // Select the button using its class
+  var addToCartButton = document.querySelector('.m-add-to-cart--text');
+
+  // Check if the button exists
+  if (addToCartButton) {
+    // Update the text content
+    addToCartButton.textContent = "Add to Cart";
+  }
+});
+</script> -->
+<!-- google dynamic remarketing tag for theme.liquid -->
+{% if template contains 'product' %}
+<script type="text/javascript">
+  var json_product = {{ product | json }};
+</script>
+<script>
+  var ecomm_prodid=[];
+  for(var i=0;i<json_product.variants.length;i++)
+    ecomm_prodid.push('shopify_IN_{{product.id}}_'+json_product.variants[i].id);
+</script>
+<script type="text/javascript">
+  var google_tag_params = {
+    ecomm_prodid: ecomm_prodid,
+    ecomm_pagetype: 'product',
+    ecomm_totalvalue: parseFloat('{{ product.price | money_without_currency | remove: ","}}')
+  };
+</script>
+{% elsif template contains 'collection' %}
+<script type="text/javascript">
+  var google_tag_params = {
+    ecomm_pagetype: 'category'
+  };
+</script>
+{% elsif template contains 'cart' %}
+<script type="text/javascript">
+  var id = new Array();
+  {% for item in cart.items %}
+  id.push('shopify_IN_{{item.product.id}}_{{item.variant.id}}');
+   {% endfor %}
+
+   var google_tag_params = {
+     ecomm_prodid: id,
+     ecomm_pagetype: 'cart',
+     ecomm_totalvalue: parseFloat('{{ cart.total_price | money_without_currency | remove: ","}}')
+   };
+</script>
+{% elsif template contains 'search' %}
+<script type="text/javascript">
+  var google_tag_params = {
+    ecomm_pagetype: 'searchresults'
+  };
+</script>
+{% elsif template contains 'index' %}
+<script type="text/javascript">
+  var google_tag_params = {
+    ecomm_pagetype: 'home'
+  };
+</script>
+{% else %}
+<script type="text/javascript">
+  var google_tag_params = {
+    ecomm_pagetype: 'other'
+  };
+</script>
+{% endif %}
+<script>
+  gtag('event', 'page_view', {'send_to': 'AW-16646732061',
+                              'ecomm_prodid':window.google_tag_params.ecomm_prodid,
+                              'ecomm_pagetype': window.google_tag_params.ecomm_pagetype,
+                              'ecomm_totalvalue':window.google_tag_params.ecomm_totalvalue
+                             });
+</script>
+
+<script>
+  $(document).ready(function() {
+    // Function to update the button text
+    function updateButtonText() {
+      $('.m-add-to-cart--text').text('Add to Cart');
+    }
+
+    // Initial update when the page loads
+    updateButtonText();
+
+    // Update button text when variant changes
+    $(document).on('change', '.m-product-option--content', function() {
+      updateButtonText();
+    });
+  });
+</script>   
+
+<script>
+  $(document).ready(function() {
+    // Function to update the "Buy it now" button text
+    function updateBuyNowButtonText() {
+      $('.shopify-payment-button__button').each(function() {
+        if ($(this).text().trim() === 'Buy it now') {
+          $(this).text('Buy Now');
+        }
+      });
+    }
+
+    // Initial update when the page loads
+    updateBuyNowButtonText();
+
+    // Use a MutationObserver to handle dynamic content changes
+    const observer = new MutationObserver(updateBuyNowButtonText);
+    observer.observe(document.body, { childList: true, subtree: true });
+
+    // Additionally, update button text on variant change
+    $(document).on('change', '.m-product-option--content', function() {
+      updateBuyNowButtonText();
+    });
+  });
+</script>
+
+
+    <script>
+  $(document).ready(function() {
+    // Function to remove trailing .00 from the price
+    function updatePriceText() {
+      $('.m-price-item').each(function() {
+        let priceText = $(this).text().trim();
+
+        // Use a regular expression to remove .00 if it exists
+        priceText = priceText.replace(/(\.00)(\s*\/-)?$/, '$2');
+
+        // Update the text content of the element
+        $(this).text(priceText);
+      });
+    }
+
+    // Initial update when the page loads
+    updatePriceText();
+
+
+     // Update price text on variant change
+    $(document).on('change', '.m-product-option--content', function() {
+      updatePriceText();
+    });
+    
+  });
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+  // Function to hide the specific list item
+  function hideShopByProduct() {
+    // Check if the viewport is for mobile devices
+    if (window.innerWidth <= 1023) { // You can adjust the breakpoint as needed
+      // Select all list items with the class 'm-menu-mobile__item'
+      const menuItems = document.querySelectorAll('.m-menu-mobile__item');
+
+      menuItems.forEach(item => {
+        // Find the span element containing "Shop By Product"
+        const linkText = item.querySelector('.m-menu-mobile__link span');
+        
+        if (linkText && linkText.textContent.trim() === "Shop By Product") {
+          // Hide the list item
+          item.style.display = 'none';
+        }
+      });
+    }
+  }
+
+  // Initial call to hide the list item
+  hideShopByProduct();
+
+  // Optionally, add an event listener to handle window resize events
+  window.addEventListener('resize', hideShopByProduct);
+});
+
+</script>
+
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+  // Function to hide the specific list item
+  function hideAllProductsMenu() {
+    // Check if the viewport is for desktop devices
+    if (window.innerWidth > 1024) { // Adjust the breakpoint as needed
+      // Select all list items with the class 'm-sub-menu__item--level-1'
+      const menuItems = document.querySelectorAll('.m-sub-menu__item--level-1');
+
+      menuItems.forEach(item => {
+        // Find the anchor element containing "All Products"
+        const linkText = item.querySelector('.m-menu__link');
+
+        if (linkText && linkText.textContent.trim() === "Shop By Products") {
+          // Hide the list item
+          item.style.display = 'none';
+        }
+      });
+    }
+  }
+
+  // Call the function to hide the menu
+  hideAllProductsMenu();
+});
+
+    </script>
+
+
+   
+<script>
+  $(document).ready(function() {
+    // Function to update the 'Save' text to ensure it's correctly capitalized
+    function updateSaveText() {
+      $('.m-price__badge-sale .m-product-tag').each(function() {
+        let tagText = $(this).contents().filter(function() {
+          return this.nodeType === 3; // Get only the text nodes
+        }).text().trim();
+
+        if (tagText === 'SAVE') {
+          $(this).contents().filter(function() {
+            return this.nodeType === 3; // Get only the text nodes
+          })[0].nodeValue = 'Save ';
+        }
+      });
+    }
+
+    // Initial update when the page loads
+    updateSaveText();
+
+    // Use a MutationObserver to handle dynamic content changes
+    const observer = new MutationObserver(updateSaveText);
+    observer.observe(document.body, { childList: true, subtree: true });
+
+    // Update on variant change
+    $(document).on('change', '.m-product-option--content', function() {
+      updateSaveText();
+    });
+  });
+</script>
+
+
+<script>
+  // Check if the class "_1fragem2i" is found on the page
+if (document.querySelector('._1fragem2i')) {
+  
+  // Global site tag (gtag.js) - Google AdWords: 16646732061
+  (function() {
+    var gtagScript = document.createElement('script');
+    gtagScript.async = true;
+    gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=AW-16646732061';
+    document.head.appendChild(gtagScript);
+
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'AW-16646732061', {'allow_enhanced_conversions': true});
+  })();
+
+  {% if first_time_accessed %}
+  <script>
+    gtag('event', 'conversion', {
+        'send_to': 'AW-16646732061/9VaPCLHCqc8ZEJ3y44E-',
+        'value': {{ total_price | money_without_currency | remove: "," }},
+        'currency': 'INR',
+        'transaction_id': '{{ order.order_number }}'
+    });
+    var enhanced_conversion_data = {
+    "email": "{{ customer.email }}",
+    "phone_number": "{{billing_address.phone}}",
+    "first_name": "{{ billing_address.first_name }}",
+    "last_name": "{{billing_address.last_name}}",
+    "home_address": {
+    "street": "{{billing_address.street}}",
+    "city":"{{billing_address.city}}",
+    "region": "{{billing_address.province}}",
+    "postal_code": "{{billing_address.zip}}",
+    "country": "{{billing_address.country}}"
+    }
+    };
+  </script>
+  {% endif %}
+
+  // Google dynamic remarketing tag for order confirmation page
+  <script>
+    var id = new Array();
+    {% for line_item in order.line_items %}
+    id.push('shopify_IN_{{line_item.product.id}}_{{line_item.variant.id}}');
+    {% endfor %}
+    var google_tag_params = {
+      ecomm_prodid: id,
+      ecomm_pagetype: 'purchase',
+      ecomm_totalvalue: parseFloat('{{ subtotal_price | money_without_currency | remove: ","}}')
+    };
+    gtag('event', 'page_view', {'send_to': 'AW-16646732061',
+                                'ecomm_prodid':window.google_tag_params.ecomm_prodid,
+                                'ecomm_pagetype': window.google_tag_params.ecomm_pagetype,
+                                'ecomm_totalvalue':window.google_tag_params.ecomm_totalvalue
+                               });
+  </script>
+
+</script> 
+
+
+
+{% if template contains 'product' %}
+  
+{% endif %}    
+
+<a href="https://review.wsy400.com" style="display: none;">Dadao proudct review</a >
+<a href="https://review.wsy400.com" style="display: none;">Shopify review</a >
+
+</body>
+
+<!--Speed Optimized By SpeedBoostr WebPlanex Infotech App-->
+</html>

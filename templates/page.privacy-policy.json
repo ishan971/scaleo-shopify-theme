@@ -1,0 +1,157 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "page",
+      "disabled": true,
+      "settings": {}
+    },
+    "rich_text_yqBY4B": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_RwWFUp": {
+          "type": "heading",
+          "settings": {
+            "heading": "Privacy Policy",
+            "heading_size": "h2"
+          }
+        },
+        "text_Umimwj": {
+          "type": "text",
+          "settings": {
+            "text": "<p>At Scale-O, we are committed to protecting the privacy and security of our customers' personal information. Our privacy policy outlines how we collect, use, disclose, and safeguard your information when you use our website or interact with our products and services.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_RwWFUp",
+        "text_Umimwj"
+      ],
+      "settings": {
+        "container": "container",
+        "color_scheme": "",
+        "content_alignment": "left",
+        "padding_top": 92,
+        "padding_bottom": 40,
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "custom_content_dBtipC": {
+      "type": "custom-content",
+      "blocks": {
+        "text_haRF6e": {
+          "type": "text",
+          "settings": {
+            "title": "",
+            "subheading": "",
+            "text": "<h4>1. Information We Collect<br/>2. How We Use Your Information<br/>3. Information Sharing and Disclosure<br/>4. Data Security<br/>5. Your Choices and Rights<br/>6. Updates to This Policy</h4>",
+            "width": "33%",
+            "alignment": "start",
+            "align_text": "left",
+            "text_size": "medium",
+            "text_color": "inherit",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "m-button--primary",
+            "button_size": "",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        },
+        "text_wQBhyP": {
+          "type": "text",
+          "settings": {
+            "title": "",
+            "subheading": "",
+            "text": "<h5><strong>1.Information We Collect</strong><br/>When you visit our website or place an order, we may collect personal information such as your name, email address, shipping address, billing address, and payment details.<br/>We may also collect non-personal information such as your IP address, browser type, operating system, and browsing behaviour to improve our website's performance and user experience.<br/><br/><strong>2.How We Use Your Information</strong><br/>We use the information we collect to process orders, provide customer support, communicate with you about your account and orders, and personalize your shopping experience.<br/>Your information may also be used for internal purposes such as data analysis, improving our products and services, marketing and promotional efforts.<br/><br/><strong>3.Information Sharing and Disclosure</strong><br/>Scale-O does not sell, trade, or rent your personal information to third parties for their marketing purposes.<br/>We may share your information with trusted third-party service providers who assist us in operating our website, conducting business, or servicing you, as long as they agree to keep your information confidential.<br/>We may also disclose your information when required by law or to protect our rights, property, or safety, or the rights, property, or safety of others.<br/><br/><strong>4.Data Security</strong><br/>Scale-O implements appropriate technical and organizational measures to safeguard your personal information against unauthorized access, disclosure, alteration, or destruction.<br/>We use industry-standard encryption and security protocols to protect sensitive information transmitted online.<br/>Despite our best efforts, no method of transmission over the internet or electronic storage is 100% secure, and we cannot guarantee absolute security.<br/><br/><strong>5.Your Choices and Rights</strong><br/>You have the right to access, update, or delete your personal information at any time by contacting us.<br/>You may also opt-out of receiving marketing communications from us by following the unsubscribe instructions included in our emails or contacting us directly.<br/>Please note that certain information is necessary for us to provide our products and services, and deleting such information may affect your ability to use our website or place orders.<br/><br/><br/><strong>6.Updates to This Policy</strong><br/>Scale-O reserves the right to update or modify this privacy policy at any time without prior notice. We encourage you to review this policy periodically for any changes.<br/>Your continued use of our website or services after the posting of any updates constitutes your acceptance of such changes.<br/><br/>Thank you for trusting Scale-O with your personal information. We are committed to protecting your privacy and providing a safe and secure online experience.<br/></h5>",
+            "width": "66%",
+            "alignment": "center",
+            "align_text": "left",
+            "text_size": "medium",
+            "text_color": "inherit",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "m-button--primary",
+            "button_size": "",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "text_haRF6e",
+        "text_wQBhyP"
+      ],
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "header_alignment": "left",
+        "container": "container",
+        "color_scheme": "",
+        "content_color_scheme": "",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "gap": 30,
+        "gap_mobile": 16,
+        "use_scroll_mobile": false,
+        "padding_top": 50,
+        "padding_bottom": 90,
+        "custom_class": ""
+      }
+    },
+    "custom_content_keXmNJ": {
+      "type": "custom-content",
+      "blocks": {
+        "image_8mXGYp": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Group_44_6dd7f55a-7c3f-4a7b-b8f2-0025c0a01ae1.png",
+            "link": "",
+            "width": "100%",
+            "alignment": "center",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "image_8mXGYp"
+      ],
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "header_alignment": "center",
+        "container": "w-full",
+        "color_scheme": "",
+        "content_color_scheme": "",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "gap": 30,
+        "gap_mobile": 16,
+        "use_scroll_mobile": false,
+        "padding_top": 80,
+        "padding_bottom": 0,
+        "custom_class": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "rich_text_yqBY4B",
+    "custom_content_dBtipC",
+    "custom_content_keXmNJ"
+  ]
+}

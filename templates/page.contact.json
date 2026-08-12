@@ -1,0 +1,117 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "custom_content_yAkrPG": {
+      "type": "custom-content",
+      "blocks": {
+        "image_Lj9MPR": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/44544554.png",
+            "link": "",
+            "width": "100%",
+            "alignment": "center",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "image_Lj9MPR"
+      ],
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "header_alignment": "center",
+        "container": "w-full",
+        "color_scheme": "",
+        "content_color_scheme": "",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "gap": 30,
+        "gap_mobile": 16,
+        "use_scroll_mobile": false,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "custom_class": ""
+      }
+    },
+    "main": {
+      "type": "page-contact",
+      "disabled": true,
+      "settings": {
+        "container": "container"
+      }
+    },
+    "contact-form": {
+      "type": "contact-form",
+      "blocks": {
+        "text-block-1": {
+          "type": "textblock",
+          "settings": {
+            "title": "Visit Us",
+            "content": "<p>A-8, Safal Profitaire, Corporate Road, Prahladnagar, Ahmedabad - 30015</p>"
+          }
+        },
+        "text-block-2": {
+          "type": "textblock",
+          "settings": {
+            "title": "For Sale",
+            "content": "<p>+91 9909963304</p><p>sales@scaleo.com</p>"
+          }
+        },
+        "text-block-4": {
+          "type": "textblock",
+          "settings": {
+            "title": "For Support",
+            "content": "<p>+91 9909963304</p><p>support@scale-o.com</p>"
+          }
+        },
+        "textblock_PkYebQ": {
+          "type": "textblock",
+          "settings": {
+            "title": "For Business",
+            "content": "<p>+91 99099 63303</p><p>support@scale-o.com</p>"
+          }
+        }
+      },
+      "block_order": [
+        "text-block-1",
+        "text-block-2",
+        "text-block-4",
+        "textblock_PkYebQ"
+      ],
+      "settings": {
+        "container": "container",
+        "title": "We would love to hear from you.",
+        "description": "<p>If you’ve got great products your making or looking to work with us then drop us a line.</p>",
+        "show_name": true,
+        "show_phone": false,
+        "show_signup_email": true,
+        "animations": "inherit"
+      }
+    },
+    "custom_code_YGHWVE": {
+      "type": "custom-code",
+      "settings": {
+        "custom_css": ".formh{\n\ndisplay: none;\n\n}"
+      }
+    }
+  },
+  "order": [
+    "custom_content_yAkrPG",
+    "main",
+    "contact-form",
+    "custom_code_YGHWVE"
+  ]
+}

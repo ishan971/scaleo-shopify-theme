@@ -1,0 +1,145 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "page",
+      "disabled": true,
+      "settings": {}
+    },
+    "custom_content_KxB6Yh": {
+      "type": "custom-content",
+      "blocks": {
+        "image_fUiAGh": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/acacacda.png",
+            "link": "",
+            "width": "100%",
+            "alignment": "center",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "image_fUiAGh"
+      ],
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "header_alignment": "center",
+        "container": "w-full",
+        "color_scheme": "",
+        "content_color_scheme": "",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "gap": 30,
+        "gap_mobile": 16,
+        "use_scroll_mobile": false,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "custom_class": ""
+      }
+    },
+    "rich_text_8KrCFt": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_Qm3r7p": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "SHOP BY PURPOSE"
+          }
+        },
+        "heading_YhqpUi": {
+          "type": "heading",
+          "settings": {
+            "heading": "Residential 2 - For Society and Apartments",
+            "heading_size": "h2"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_Qm3r7p",
+        "heading_YhqpUi"
+      ],
+      "settings": {
+        "container": "container",
+        "color_scheme": "",
+        "content_alignment": "left",
+        "padding_top": 100,
+        "padding_bottom": 0,
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "custom_liquid_YtCDhU": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<style>\n  .error-message {\n    color: red;\n    font-size: 12px;\n  }\n\n  .required {\n    color: red;\n  }\n\n  p {\n    color: #0c7fdf;\n    font-size: 15px;\n    font-weight: 500;\n    text-transform: uppercase;\n  }\n\n  .form-container {\n    margin-top: 50px;\n    max-width: 1500px;\n    width: 100%;\n    justify-content: center;\n  }\n\n  .form-inputs {\n    display: flex;\n    width: 100%;\n    flex-direction: row;\n    gap: 45px;\n  }\n\n  .form-left-con,\n  .form-right-con {\n    display: flex;\n    flex-direction: column;\n    gap: 30px;\n    width: 50%;\n  }\n\n  .form-group {\n    display: flex;\n    flex-wrap: wrap;\n    flex: 1;\n    position: relative;\n  }\n\n  .form-group label {\n    font-size: 16px;\n    flex: 1 1 100%;\n    margin-bottom: 5px;\n    font-weight: bold;\n  }\n\n  .form-group2 {\n    display: flex;\n    justify-content: space-between;\n    gap: 15px;\n  }\n\n  .form-group input,\n  .form-group select {\n    padding: 15px;\n    border: none;\n    font-size: 18px;\n    width: 100%;\n    font-weight: 500;\n    border-radius: 10px;\n    background: #eeeeee;\n    color: gray;\n  }\n\n  .form-group select {\n    -webkit-appearance: none; /* Remove default arrow in WebKit browsers */\n    -moz-appearance: none; /* Remove default arrow in Firefox */\n    appearance: none; /* Remove default arrow in other browsers */\n    background: #eeeeee; /* Background color of the select box */\n    background-image: url(\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Group.svg?v=1722926013\"); /* Custom arrow */\n    background-repeat: no-repeat;\n    background-position: right 10px center; /* Position of the arrow */\n    background-size: 24px; /* Size of the arrow */\n  }\n\n  .form-group input::placeholder {\n    color: #858585;\n  }\n\n  .submit-btn {\n    width: 195px;\n    padding: 15px 20px;\n    margin-top: 40px;\n    background-color: #007bff;\n    border: none;\n    color: white;\n    font-size: 16px;\n    cursor: pointer;\n    border-radius: 100px;\n  }\n\n  .submit-btn:hover {\n    background-color: #4d4d4d;\n  }\n\n  @media (max-width: 767px) {\n    .form-group2 {\n      flex-direction: column;\n      gap: 30px;\n    }\n\n    .form-inputs {\n      width: 100%;\n      flex-direction: column;\n      gap: 30px;\n    }\n\n    .form-left-con,\n    .form-right-con {\n      width: 100%;\n      gap: 30px;\n    }\n\n    h2 {\n      font-size: 28px;\n    }\n  }\n</style>\n\n<div class=\"form-container\">\n  <form\n    class=\"form-main\"\n    action=\"https://formspree.io/f/manwokzy\"\n    method=\"post\"\n    id=\"waterForm\"\n  >\n    <div class=\"form-inputs\">\n      <div class=\"form-left-con\">\n        <div class=\"form-group\">\n          <label for=\"name\">Name:<span class=\"required\">*</span></label>\n          <input type=\"text\" name=\"Name\" id=\"name\" placeholder=\"Enter your name\" />\n          <span class=\"error-message\" id=\"name-error\"></span>\n        </div>\n        <div class=\"form-group\">\n          <label for=\"email\">E-mail:<span class=\"required\">*</span></label>\n          <input\n            type=\"email\"\n            name=\"Email\"\n            id=\"email\"\n            placeholder=\"Enter your email\"\n          />\n          <span class=\"error-message\" id=\"email-error\"></span>\n        </div>\n        <div class=\"form-group\">\n          <label for=\"contact\"\n            >Contact No.:<span class=\"required\">*</span></label\n          >\n          <input\n            type=\"number\"\n            name=\"Contact No\"\n            id=\"contact\"\n            placeholder=\"+91 | XXXXXX XXXXX\"\n          />\n          <span class=\"error-message\" id=\"contact-error\"></span>\n        </div>\n        <div class=\"form-group\">\n          <label for=\"address\">Address:<span class=\"required\">*</span></label>\n          <input\n            type=\"text\"\n            name=\"Address\"\n            id=\"address\"\n            placeholder=\"Address\"\n            class=\"full-width\"\n          />\n          <span class=\"error-message\" id=\"address-error\"></span>\n        </div>\n        <div class=\"form-group\">\n          <label for=\"pincode\">Pin code:<span class=\"required\">*</span></label>\n          <input\n            type=\"number\"\n            name=\"Pin code\"\n            id=\"pincode\"\n            placeholder=\"123456\"\n          />\n          <span class=\"error-message\" id=\"pincode-error\"></span>\n        </div>\n        <div class=\"form-group2\">\n          <div class=\"form-group\">\n            <label for=\"state\">State:<span class=\"required\">*</span></label>\n            <select id=\"state\" name=\"State\" onchange=\"fetchCities()\">\n              <option value=\"default\">Select State</option>\n            </select>\n            <span class=\"error-message\" id=\"state-error\"></span>\n          </div>\n          <div class=\"form-group\">\n            <label for=\"city\">City/town:<span class=\"required\">*</span></label>\n            <select id=\"city\" name=\"city\">\n              <option value=\"default\">Select City</option>\n            </select>\n            <span class=\"error-message\" id=\"city-error\"></span>\n          </div>\n        </div>\n      </div>\n      <div class=\"form-right-con\">\n        <div class=\"form-group\">\n          <label for=\"bungalows-flats\"\n            >No. of Bungalows/Flats/Units in the Society:<span class=\"required\"\n              >*</span\n            ></label\n          >\n          <input\n            type=\"text\"\n            name=\"No. of Bungalows/Flats/Units in the Society\"\n            id=\"bungalows-flats\"\n            placeholder=\"e.g. 10 Bungalows or 20 Flats\"\n          />\n          <span class=\"error-message\" id=\"bungalows-flats-error\"></span>\n        </div>\n        <div class=\"form-group\">\n          <label for=\"blocks-wings\"\n            >No. of Blocks/Wings/Towers:<span class=\"required\">*</span></label\n          >\n          <input\n            type=\"text\"\n            name=\"No. of Blocks/Wings/Towers\"\n            id=\"blocks-wings\"\n            placeholder=\"e.g. 3 Blocks\"\n          />\n          <span class=\"error-message\" id=\"blocks-wings-error\"></span>\n        </div>\n        <div class=\"form-group\">\n          <label for=\"house-type\"\n            >Type of House:<span class=\"required\">*</span></label\n          >\n          <select name=\"Type of House\" id=\"house-type\">\n            <option value=\"\" selected>Select Type</option>\n            <option value=\"2 BHK\">2 BHK</option>\n            <option value=\"3 BHK\">3 BHK</option>\n            <option value=\"4 BHK\">4 BHK</option>\n            <option value=\"5 BHK\">5 BHK</option>\n          </select>\n          <span class=\"error-message\" id=\"house-type-error\"></span>\n        </div>\n        <div class=\"form-group\">\n          <label for=\"overhead-tank\"\n            >Overhead Water Storage Tank Capacity:<span class=\"required\"\n              >*</span\n            ></label\n          >\n          <select\n            id=\"overhead-tank\"\n            name=\"Overhead Water Storage Tank Capacity\"\n          >\n            <option value=\"\" selected>Select Capacity</option>\n            <option value=\"10,000 L\">10,000 L</option>\n            <option value=\"15,000 L\">15,000 L</option>\n            <option value=\"20,000 L\">20,000 L</option>\n            <option value=\"25,000 L\">25,000 L</option>\n            <option value=\"30,000 L\">30,000 L</option>\n            <option value=\"50,000 L\">50,000 L</option>\n          </select>\n          <span class=\"error-message\" id=\"overhead-tank-error\"></span>\n        </div>\n        <div class=\"form-group\">\n          <label for=\"underground-tank\"\n            >Underground Water Storage Tank Capacity: (Common Society Tank)<span\n              class=\"required\"\n              >*</span\n            ></label\n          >\n          <select\n            id=\"underground-tank\"\n            name=\"Underground Water Storage Tank Capacity\"\n          >\n            <option value=\"\" selected>Select Capacity</option>\n            <option value=\"50,000 L\">50,000 L</option>\n            <option value=\"1,00,000 L\">1,00,000 L</option>\n            <option value=\"1,50,000 L\">1,50,000 L</option>\n            <option value=\"2,00,000 L\">2,00,000 L</option>\n            <option value=\"3,00,000 L & Above\">3,00,000 L & Above</option>\n          </select>\n          <span class=\"error-message\" id=\"underground-tank-error\"></span>\n        </div>\n        <div class=\"form-group\">\n          <label for=\"water-usage\"\n            >Average Daily Water Usage:<span class=\"required\">*</span></label\n          >\n          <select id=\"water-usage\" name=\"Average Daily Water Usage\">\n            <option value=\"\" selected>Select Usage</option>\n            <option value=\"5000 L/d to 10,000 L/d\">\n              5000 L/d to 10,000 L/d\n            </option>\n            <option value=\"10,000 L/d to 20,000 L/d\">\n              10,000 L/d to 20,000 L/d\n            </option>\n            <option value=\"15,000 L/d to 30,000 L/d\">\n              15,000 L/d to 30,000 L/d\n            </option>\n            <option value=\"25,000 L/d to 50,000 L/d\">\n              25,000 L/d to 50,000 L/d\n            </option>\n            <option value=\"50,000 L/d to 1,00,000 L/d\">\n              50,000 L/d to 1,00,000 L/d\n            </option>\n            <option value=\"1,00,000 L/d to 1,50,000 L/d\">\n              1,00,000 L/d to 1,50,000 L/d\n            </option>\n            <option value=\"1,50,000 L/d to 2,00,000 L/d\">\n              1,50,000 L/d to 2,00,000 L/d\n            </option>\n            <option value=\"3,00,000 L/d & Above\">3,00,000 L/d & Above</option>\n          </select>\n          <span class=\"error-message\" id=\"water-usage-error\"></span>\n        </div>\n      </div>\n    </div>\n    <button type=\"submit\" class=\"submit-btn\">Submit</button>\n  </form>\n</div>\n\n<script>\n  document.getElementById(\"waterForm\").addEventListener(\"submit\", function (event) {\n    var name = document.getElementById(\"name\");\n    var email = document.getElementById(\"email\");\n    var contact = document.getElementById(\"contact\");\n    var address = document.getElementById(\"address\");\n    var pincode = document.getElementById(\"pincode\");\n    var state = document.getElementById(\"state\");\n    var city = document.getElementById(\"city\");\n    var bungalowsFlats = document.getElementById(\"bungalows-flats\");\n    var blocksWings = document.getElementById(\"blocks-wings\");\n    var houseType = document.getElementById(\"house-type\");\n    var overheadTank = document.getElementById(\"overhead-tank\");\n    var undergroundTank = document.getElementById(\"underground-tank\");\n    var waterUsage = document.getElementById(\"water-usage\");\n\n    var nameError = document.getElementById(\"name-error\");\n    var emailError = document.getElementById(\"email-error\");\n    var contactError = document.getElementById(\"contact-error\");\n    var addressError = document.getElementById(\"address-error\");\n    var pincodeError = document.getElementById(\"pincode-error\");\n    var stateError = document.getElementById(\"state-error\");\n    var cityError = document.getElementById(\"city-error\");\n    var bungalowsFlatsError = document.getElementById(\"bungalows-flats-error\");\n    var blocksWingsError = document.getElementById(\"blocks-wings-error\");\n    var houseTypeError = document.getElementById(\"house-type-error\");\n    var overheadTankError = document.getElementById(\"overhead-tank-error\");\n    var undergroundTankError = document.getElementById(\"underground-tank-error\");\n    var waterUsageError = document.getElementById(\"water-usage-error\");\n\n    nameError.textContent = \"\";\n    emailError.textContent = \"\";\n    contactError.textContent = \"\";\n    addressError.textContent = \"\";\n    pincodeError.textContent = \"\";\n    stateError.textContent = \"\";\n    cityError.textContent = \"\";\n    bungalowsFlatsError.textContent = \"\";\n    blocksWingsError.textContent = \"\";\n    houseTypeError.textContent = \"\";\n    overheadTankError.textContent = \"\";\n    undergroundTankError.textContent = \"\";\n    waterUsageError.textContent = \"\";\n\n    var isValid = true;\n\n    if (name.value.trim() === \"\") {\n      nameError.textContent = \"Name is required\";\n      isValid = false;\n    }\n\n    if (email.value.trim() === \"\") {\n      emailError.textContent = \"Email is required\";\n      isValid = false;\n    }\n\n    if (contact.value.trim() === \"\") {\n      contactError.textContent = \"Contact number is required\";\n      isValid = false;\n    } else if (contact.value.length !== 10) {\n      contactError.textContent = \"Contact number must be 10 digits\";\n      isValid = false;\n    }\n\n    if (address.value.trim() === \"\") {\n      addressError.textContent = \"Address is required\";\n      isValid = false;\n    }\n\n    if (pincode.value.trim() === \"\") {\n      pincodeError.textContent = \"Pincode is required\";\n      isValid = false;\n    } else if (pincode.value.length !== 6) {\n      pincodeError.textContent = \"Pincode must be 6 digits\";\n      isValid = false;\n    }\n\n    if (state.value === \"default\") {\n      stateError.textContent = \"State is required\";\n      isValid = false;\n    }\n\n    if (city.value === \"default\") {\n      cityError.textContent = \"City is required\";\n      isValid = false;\n    }\n\n    if (bungalowsFlats.value.trim() === \"\") {\n      bungalowsFlatsError.textContent = \"Number of Bungalows/Flats/Units is required\";\n      isValid = false;\n    }\n\n    if (blocksWings.value.trim() === \"\") {\n      blocksWingsError.textContent = \"Number of Blocks/Wings/Towers is required\";\n      isValid = false;\n    }\n\n    if (houseType.value === \"\") {\n      houseTypeError.textContent = \"House type is required\";\n      isValid = false;\n    }\n\n    if (overheadTank.value === \"\") {\n      overheadTankError.textContent = \"Overhead tank capacity is required\";\n      isValid = false;\n    }\n\n    if (undergroundTank.value === \"\") {\n      undergroundTankError.textContent = \"Underground tank capacity is required\";\n      isValid = false;\n    }\n\n    if (waterUsage.value === \"\") {\n      waterUsageError.textContent = \"Average daily water usage is required\";\n      isValid = false;\n    }\n\n    if (!isValid) {\n      event.preventDefault();\n    }\n  });\n\n  // Fetch state/city from Shopify JSON asset\n  let stateMap = {};\n\n  fetch('{{ \"india_states_cities.json\" | asset_url }}')\n    .then(response => response.json())\n    .then(data => {\n      data.forEach(item => {\n        const state = item.state.trim();\n        const city = item.city.trim();\n        if (!stateMap[state]) {\n          stateMap[state] = [];\n        }\n        if (!stateMap[state].includes(city)) {\n          stateMap[state].push(city);\n        }\n      });\n\n      const stateSelect = document.getElementById(\"state\");\n      const citySelect = document.getElementById(\"city\");\n\n      stateSelect.innerHTML = '<option value=\"default\">Select State</option>';\n      Object.keys(stateMap).sort().forEach(state => {\n        const option = document.createElement(\"option\");\n        option.value = state;\n        option.textContent = state;\n        stateSelect.appendChild(option);\n      });\n\n      stateSelect.addEventListener(\"change\", () => {\n        const selectedState = stateSelect.value;\n        citySelect.innerHTML = '<option value=\"default\">Select City</option>';\n        if (stateMap[selectedState]) {\n          stateMap[selectedState].sort().forEach(city => {\n            const option = document.createElement(\"option\");\n            option.value = city;\n            option.textContent = city;\n            citySelect.appendChild(option);\n          });\n        }\n      });\n    })\n    .catch(error => {\n      console.error(\"Error loading states and cities:\", error);\n    });\n</script>",
+        "custom_class": "container"
+      }
+    },
+    "custom_code_VbYU9Q": {
+      "type": "custom-code",
+      "custom_css": [],
+      "settings": {
+        "custom_css": "#MainContent {\n  background-color: white;\n}"
+      }
+    },
+    "custom_content_nmfVdF": {
+      "type": "custom-content",
+      "blocks": {
+        "image_68rKxj": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Group_44_6dd7f55a-7c3f-4a7b-b8f2-0025c0a01ae1.png",
+            "link": "",
+            "width": "100%",
+            "alignment": "center",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "image_68rKxj"
+      ],
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "header_alignment": "center",
+        "container": "w-full",
+        "color_scheme": "",
+        "content_color_scheme": "",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "gap": 30,
+        "gap_mobile": 16,
+        "use_scroll_mobile": false,
+        "padding_top": 100,
+        "padding_bottom": 0,
+        "custom_class": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "custom_content_KxB6Yh",
+    "rich_text_8KrCFt",
+    "custom_liquid_YtCDhU",
+    "custom_code_VbYU9Q",
+    "custom_content_nmfVdF"
+  ]
+}

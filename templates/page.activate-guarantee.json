@@ -1,0 +1,153 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "page",
+      "disabled": true,
+      "settings": {}
+    },
+    "custom_content_gC7cC4": {
+      "type": "custom-content",
+      "blocks": {
+        "image_pkdet8": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Activate_Guarantee_1.png",
+            "link": "",
+            "width": "100%",
+            "alignment": "center",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "image_pkdet8"
+      ],
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "header_alignment": "center",
+        "container": "w-full",
+        "color_scheme": "",
+        "content_color_scheme": "",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "gap": 30,
+        "gap_mobile": 16,
+        "use_scroll_mobile": false,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "custom_class": ""
+      }
+    },
+    "rich_text_eMVY9x": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_HwnBtb": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "Activate Guarantee or Leave Feedback"
+          }
+        },
+        "heading_3AqxDQ": {
+          "type": "heading",
+          "settings": {
+            "heading": "Activate the guarantee or leave feedback on your purchased plan so as to enjoy the refund and replacement benefits!",
+            "heading_size": "h3"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_HwnBtb",
+        "heading_3AqxDQ"
+      ],
+      "settings": {
+        "container": "container",
+        "color_scheme": "scheme-cee058e4-58e3-46aa-9af9-219dadc79066",
+        "content_alignment": "left",
+        "padding_top": 100,
+        "padding_bottom": 0,
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "custom_liquid_n6GM9C": {
+      "type": "custom-liquid",
+      "custom_css": [],
+      "settings": {
+        "custom_liquid": "<style>\n\n\n    .required {\n      color: red;\n      margin-left: 5px;\n    }\n  \n    p {\n      color: #0c7fdf;\n      font-size: 15px;\n      font-weight: 500;\n      text-transform: uppercase;\n    }\n    .form-container {\n      margin-top: 50px;\n      max-width: 1500px;\n      width: 100%;\n      justify-content: center;\n    }\n    .form-inputs {\n      display: flex;\n      width: 100%;\n      flex-direction: row;\n      gap: 45px;\n    }\n    .form-left-con,\n    .form-right-con {\n      display: flex;\n      flex-direction: column;\n      gap: 30px;\n    }\n    .form-left-con,\n    .form-right-con {\n      width: 50%;\n    }\n    .form-group {\n      display: flex;\n      flex-wrap: wrap;\n      width: 100%;\n      position: relative;\n    }\n    .form-group label {\n      font-size: 16px;\n      flex: 1 1 100%;\n      margin-bottom: 5px;\n      font-weight: bold;\n    }\n    .form-group2 {\n      display: flex;\n      justify-content: space-between;\n      gap: 15px;\n    }\n    .form-group input,\n    .form-group select {\n      padding: 15px;\n      border: none;\n      font-size: 18px;\n      width: 100%;\n      font-weight: 500;\n      border-radius: 10px;\n      background: #eeeeee;\n      color: gray;\n    }\n    .form-group select {\n      width: 100%;\n    }\n    .form-group input::placeholder {\n      color: #858585;\n    }\n    .submit-btn {\n      width: 195px;\n      padding: 15px 20px;\n      margin-top: 40px;\n      background-color: #007bff;\n      border: none;\n      color: white;\n      font-size: 16px;\n      cursor: pointer;\n      border-radius: 100px;\n    }\n    .submit-btn:hover {\n      background-color: #4d4d4d;\n    }\n    .error {\n      color: red;\n      font-size: 14px;\n    }\n  /* Custom dropdown arrow styling */\n  .form-group select {\n    -webkit-appearance: none; /* Remove default arrow in WebKit browsers */\n    -moz-appearance: none; /* Remove default arrow in Firefox */\n    appearance: none; /* Remove default arrow in other browsers */\n    background: #eeeeee; /* Background color of the select box */\n    background-image: url('https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Group.svg?v=1722926013'); /* Custom arrow */\n    background-repeat: no-repeat;\n    background-position: right 10px center; /* Position of the arrow */\n    background-size: 24px; /* Size of the arrow */\n    padding-right: 40px; /* Ensure space for the arrow */\n  }\n  \n  /* Style for IE to remove default dropdown arrow */\n  .form-group select::-ms-expand {\n    display: none;\n  }\n  \n    @media (max-width: 767px) {\n      .form-group2 {\n        flex-direction: column;\n        gap: 30px;\n      }\n      .form-inputs {\n        width: 100%;\n        flex-direction: column;\n        gap: 30px;\n      }\n      .form-left-con,\n      .form-right-con {\n        width: 100%;\n        gap: 30px;\n      }\n      h2 {\n        font-size: 28px;\n      }\n    }\n  \n      .stars {\n        font-size: 2em;\n        color: #ddd;\n        cursor: pointer;\n      }\n  \n      .star {\n        display: inline-block;\n        margin: 0 5px;\n      }\n  \n      .star.selected {\n        color: #ffd700;\n      }\n  \n      .star.hover {\n        color: #ffdf70;\n      }\n      .rating-info p{\n        color: black;\n        font-weight: 600;\n      }\n  \n  </style>\n  \n    <div class=\"form-container fm\">\n        <form class=\"form-main\" action=\"https://formspree.io/f/xnnadrwk\" method=\"post\" id=\"waterForm\">\n          <div class=\"form-inputs\">\n            <div class=\"form-left-con\">\n              <div class=\"form-group\">\n                <label for=\"name\">Name:<span class=\"required\">*</span></label>\n                <input type=\"text\" id=\"name\" placeholder=\"Enter your name\" name=\"Name\" />\n                <span id=\"error_name\" class=\"error\"></span>\n              </div>\n              <div class=\"form-group\">\n                <label for=\"contact\">Contact No.:<span class=\"required\">*</span></label>\n                <input type=\"number\" id=\"contact\" placeholder=\"+91 | XXXXXX XXXXX\" name=\"Contact No.\"/>\n                <span id=\"error_contact\" class=\"error\"></span>\n              </div>\n              <div class=\"form-group2\">\n                <div class=\"form-group\">\n                  <label for=\"state\">State:<span class=\"required\">*</span></label>\n                  <select id=\"state\" onchange=\"fetchCities()\" name=\"State\">\n                    <option value=\"default\">Select State</option>\n                  </select>\n                  <span id=\"error_state\" class=\"error\"></span>\n                </div>\n                <div class=\"form-group\">\n                  <label for=\"city\">City/town:<span class=\"required\">*</span></label>\n                  <select id=\"city\" name=\"city\">\n                    <option value=\"default\">Select City</option>\n                  </select>\n                  <span id=\"error_city\" class=\"error\"></span>\n                </div>\n              </div>\n            </div>\n            <div class=\"form-right-con\">\n              <div class=\"form-group\">\n                <label for=\"email\">E-mail:<span class=\"required\">*</span></label>\n                <input type=\"email\" id=\"email\" placeholder=\"Enter your email\" name=\"Email\" />\n                <span id=\"error_email\" class=\"error\"></span>\n              </div>\n              <div class=\"form-group2\">\n                <div class=\"form-group\">\n                  <label for=\"address\">Invoice No:<span class=\"required\">*</span></label>\n                  <input\n                    type=\"text\"\n                    id=\"address\"\n                    placeholder=\"Invoice Number\"\n                    class=\"full-width\"\n                    name=\"Invoice No\"\n                  />\n                  <span id=\"error_address\" class=\"error\"></span>\n                </div>\n                <div class=\"form-group\">\n                    <label for=\"rating\">Rating:<span class=\"required\">*</span></label>\n                    <div class=\"rating-container\">\n                        <div class=\"stars\">\n                          <span class=\"star\" data-value=\"1\">&#9733;</span>\n                          <span class=\"star\" data-value=\"2\">&#9733;</span>\n                          <span class=\"star\" data-value=\"3\">&#9733;</span>\n                          <span class=\"star\" data-value=\"4\">&#9733;</span>\n                          <span class=\"star\" data-value=\"5\">&#9733;</span>\n                        </div>\n                    </div>\n                    <input type=\"hidden\" id=\"rating\" name=\"rating\" value=\"0\">\n                    <span id=\"error_rating\" class=\"error\"></span>\n                  </div>\n              </div>\n              \n              <div class=\"form-group\">\n                <label for=\"water-usage\">Feedback:<span class=\"required\">*</span></label>\n                <select id=\"water-usage\" name=\"Feedback\">\n                  <option value=\"default\">Select Feedback</option>\n                  <option value=\"Poor\">Poor</option>\n                  <option value=\"Average\">Average</option>\n                  <option value=\"Good\">Good</option>\n                  <option value=\"Great\">Great</option>\n                </select>\n                <span id=\"error_water_usage\" class=\"error\"></span>\n              </div>\n\n            </div>\n        </div>\n        <div class=\"form-group\" style=\"margin-top: 30px;\">\n          <label for=\"review\">Review:</label>\n          <textarea id=\"review\" name=\"Review\" placeholder=\"Write your review here\" rows=\"4\" style=\"width: 100%; padding: 15px; border: none; font-size: 18px; font-weight: 500; border-radius: 10px; background: #eeeeee; color: #858585;\"></textarea>\n        </div>\n          </div>\n          <button type=\"submit\" class=\"submit-btn\">Submit</button>\n        </form>\n      </div>\n      \n  \n  <script>\n    document\n    .getElementById(\"waterForm\")\n    .addEventListener(\"submit\", function (event) {\n      event.preventDefault();\n  \n      let isValid = true;\n  \n      const name = document.getElementById(\"name\").value.trim();\n      const contact = document.getElementById(\"contact\").value.trim();\n      const state = document.getElementById(\"state\").value;\n      const city = document.getElementById(\"city\").value;\n      const email = document.getElementById(\"email\").value.trim();\n      const address = document.getElementById(\"address\").value.trim();\n      const rating = document.getElementById(\"rating\").value;\n      const feedback = document.getElementById(\"water-usage\").value;\n  \n      if (!name) {\n        document.getElementById(\"error_name\").innerHTML = \"Name is required\";\n        isValid = false;\n      } else {\n        document.getElementById(\"error_name\").innerHTML = \"\";\n      }\n      \n      if (!contact || !/^\\d{10}$/.test(contact)) {\n        document.getElementById(\"error_contact\").innerHTML =\n          \"Contact must be a 10-digit number\";\n        isValid = false;\n      } else {\n        document.getElementById(\"error_contact\").innerHTML = \"\";\n      }\n      \n      if (state === \"default\") {\n        document.getElementById(\"error_state\").innerHTML = \"State is required\";\n        isValid = false;\n      } else {\n        document.getElementById(\"error_state\").innerHTML = \"\";\n      }\n      \n      if (city === \"default\") {\n        document.getElementById(\"error_city\").innerHTML = \"City is required\";\n        isValid = false;\n      } else {\n        document.getElementById(\"error_city\").innerHTML = \"\";\n      }\n      \n      if (!email) {\n        document.getElementById(\"error_email\").innerHTML = \"Email is required\";\n        isValid = false;\n      } else {\n        document.getElementById(\"error_email\").innerHTML = \"\";\n      }\n      \n      if (!address) {\n        document.getElementById(\"error_address\").innerHTML =\n          \"Address is required\";\n        isValid = false;\n      } else {\n        document.getElementById(\"error_address\").innerHTML = \"\";\n      }\n      \n      if (rating === \"0\") {\n        document.getElementById(\"error_rating\").innerHTML =\n          \"Stars rating is required\";\n        isValid = false;\n      } else {\n        document.getElementById(\"error_rating\").innerHTML = \"\";\n      }\n      \n      if (feedback === \"default\") {\n        document.getElementById(\"error_water_usage\").innerHTML =\n          \"Feedback is required\";\n        isValid = false;\n      } else {\n        document.getElementById(\"error_water_usage\").innerHTML = \"\";\n      }\n      \n      if (isValid) {\n        this.submit();\n      }\n    });\n\n</script>\n\n\n<script>\ndocument.addEventListener(\"DOMContentLoaded\", () => {\n  const stateSelect = document.getElementById(\"state\");\n  const citySelect = document.getElementById(\"city\");\n\n  fetch(\"{{ 'india_states_cities.json' | asset_url }}\")\n    .then(response => response.json())\n    .then(data => {\n      const stateMap = {};\n      data.forEach(item => {\n        const state = item.state;\n        const city = item.city;\n        if (!stateMap[state]) {\n          stateMap[state] = [];\n        }\n        stateMap[state].push(city);\n      });\n\n      stateSelect.innerHTML = '<option value=\"default\">Select State</option>';\n      Object.keys(stateMap).sort().forEach(state => {\n        const option = document.createElement(\"option\");\n        option.value = state;\n        option.textContent = state;\n        stateSelect.appendChild(option);\n      });\n\n      stateSelect.addEventListener(\"change\", () => {\n        const selectedState = stateSelect.value;\n        citySelect.innerHTML = '<option value=\"default\">Select City</option>';\n\n        if (stateMap[selectedState]) {\n          stateMap[selectedState].sort().forEach(city => {\n            const option = document.createElement(\"option\");\n            option.value = city;\n            option.textContent = city;\n            citySelect.appendChild(option);\n          });\n        }\n      });\n    })\n    .catch(error => {\n      console.error(\"❌ Failed to load city/state data:\", error);\n    });\n\n  // Star Rating Logic\n  const stars = document.querySelectorAll(\".star\");\n  const ratingInput = document.getElementById(\"rating\");\n  let currentRating = 0;\n\n  stars.forEach((star) => {\n    star.addEventListener(\"click\", () => {\n      const rating = parseInt(star.getAttribute(\"data-value\"));\n      currentRating = (currentRating === rating) ? 0 : rating;\n      ratingInput.value = currentRating;\n      updateStars();\n    });\n\n    star.addEventListener(\"mouseover\", () => {\n      highlightStars(parseInt(star.getAttribute(\"data-value\")));\n    });\n\n    star.addEventListener(\"mouseout\", () => {\n      updateStars();\n    });\n  });\n\n  function updateStars() {\n    stars.forEach((star) => {\n      const rating = parseInt(star.getAttribute(\"data-value\"));\n      star.classList.toggle(\"selected\", rating <= currentRating);\n      star.classList.remove(\"hover\");\n    });\n  }\n\n  function highlightStars(rating) {\n    stars.forEach((star) => {\n      const starRating = parseInt(star.getAttribute(\"data-value\"));\n      star.classList.toggle(\"hover\", starRating <= rating);\n    });\n  }\n}); \n</script>",
+        "custom_class": "container"
+      }
+    },
+    "custom_content_bVR3iA": {
+      "type": "custom-content",
+      "blocks": {
+        "image_pPtixM": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Group_44_6dd7f55a-7c3f-4a7b-b8f2-0025c0a01ae1.png",
+            "link": "",
+            "width": "100%",
+            "alignment": "center",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "image_pPtixM"
+      ],
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "header_alignment": "center",
+        "container": "w-full",
+        "color_scheme": "scheme-cee058e4-58e3-46aa-9af9-219dadc79066",
+        "content_color_scheme": "scheme-cee058e4-58e3-46aa-9af9-219dadc79066",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "gap": 30,
+        "gap_mobile": 16,
+        "use_scroll_mobile": false,
+        "padding_top": 100,
+        "padding_bottom": 0,
+        "custom_class": ""
+      }
+    },
+    "1721118922ff816c30": {
+      "type": "apps",
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "header_alignment": "center",
+        "container": "container",
+        "background_color": "",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "custom_class": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "custom_content_gC7cC4",
+    "rich_text_eMVY9x",
+    "custom_liquid_n6GM9C",
+    "custom_content_bVR3iA",
+    "1721118922ff816c30"
+  ]
+}

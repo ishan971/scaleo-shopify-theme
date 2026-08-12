@@ -1,0 +1,139 @@
+{% liquid
+  assign gift_card_recipient_feature_active = false
+  if block.settings.show_gift_card_recipient and product.gift_card?
+    assign gift_card_recipient_feature_active = true
+  endif
+
+  assign show_dynamic_checkout = block.settings.show_dynamic_checkout
+  if image_field.size > 0 or gift_card_recipient_feature_active == true
+    assign show_dynamic_checkout = false
+  endif
+%}
+<product-form class="m-product-form m-product-form--main" data-product-id="{{ product.id }}">
+  {%- form 'product',
+    product,
+    id: product_form_id,
+    data-product-id: product.id,
+    class: product_form_class,
+    novalidate: 'novalidate',
+    data-type: 'add-to-cart-form',
+    data-product-id: product.id,
+    data-product-handle: product.handle,
+    data-dynamic-checkout: show_dynamic_checkout,
+    data-enable-image-zoom: section.settings.show_zoom_button,
+    data-enable-history-state: section.settings.enable_history_state,
+    data-enable-video-autoplay: section.settings.enable_video_autoplay
+  -%}
+    <input
+      type="hidden"
+      name="id"
+      value="{{ variant_id }}"
+      data-selected-variant="{{ selected_variant_id }}"
+      disabled
+    >
+    {%- if gift_card_recipient_feature_active -%}
+      {%- render 'gift-card-recipient-form', product: product, form: form, section: section -%}
+    {%- endif -%}
+
+    <div class="m-product-form--wrapper m:display-flex m:flex-wrap m:items-end">
+      {% if block.settings.show_quantity_selector %}
+        <div class="m-product-form--input">
+          <label class="m-product-option--label">
+            {{ 'products.product.quantity' | t }}
+          </label>
+          {% render 'product-qty-input', product_form_id: product_form_id, product: product %}
+        </div>
+      {% endif %}
+      {% if block.settings.show_atc_button %}
+        {% liquid
+          assign btn_class = 'm-button--primary'
+          if show_dynamic_checkout
+            assign btn_class = 'm-button--secondary'
+          endif
+        %}
+        <button
+          type="submit"
+          name="add"
+          class="m-add-to-cart m-spinner-button m-button {{ btn_class }} {% unless product.selected_or_first_available_variant.available %}disabled{% endunless %}"
+          data-atc-text="Add to Cart"
+        >
+          <span class="m-spinner-icon">
+            <svg
+              class="animate-spin m-svg-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+            >
+              <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+              <path fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            </svg>
+          </span>
+          <span class="m-add-to-cart--text">Add to Cart</span>
+        </button>
+        {% if section.settings.show_atwl and section.settings.layout == 'layout-7' %}
+          <div class="m-product-wishlist m:hidden md:m:block">
+            {% render 'tooltip', type: 'wishlist', class_name: 'm-tooltip--top' %}
+          </div>
+        {% endif %}
+      {% endif %}
+      {% liquid
+        assign show_terms = false
+        if settings.agree_text != blank and settings.show_agree_on_product
+          render 'agree-terms-checkbox'
+          assign show_terms = true
+        endif
+      %}
+      {% if show_dynamic_checkout %}
+        <div
+          class="m-product-dynamic-checkout buy-one-click{% if block.settings.show_atc_button %} show-add-to-cart{% else %} m:flex-1{% endif %}"
+          {% if show_terms %}
+            data-terms-action disabled
+          {% endif %}
+        >
+          {{ form | payment_button }}
+        </div>
+      {% endif %}
+    </div>
+    <div class="m-product-form-message"></div>
+  {%- endform -%}
+</product-form>
+<link
+  rel="stylesheet"
+  href="{{ 'pickup-availability.css' | asset_url }}"
+  media="print"
+  onload="this.media='all';"
+>
+{%- assign pick_up_availabilities = product.selected_or_first_available_variant.store_availabilities
+  | where: 'pick_up_enabled', true
+-%}
+{% capture available %}{% if product.selected_or_first_available_variant.available and pick_up_availabilities.size > 0 %} available{% endif %}{% endcapture %}
+<pickup-availability
+  {{ available }}
+  class="product__pickup-availabilities"
+  data-base-url="{{ routes.root_url }}"
+  data-variant-id="{{ product.selected_or_first_available_variant.id }}"
+  data-has-only-default-variant="{{ product.has_only_default_variant }}"
+>
+  <template>
+    <pickup-availability-preview class="m-pickup-availability__preview m:display-flex">
+      <svg
+        class="m-svg-icon"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        aria-hidden="true"
+        viewBox="0 0 20 20"
+      >
+        <path fill="#DE3618" stroke="#fff" d="M13.94 3.94 10 7.878l-3.94-3.94A1.499 1.499 0 1 0 3.94 6.06L7.88 10l-3.94 3.94a1.499 1.499 0 1 0 2.12 2.12L10 12.12l3.94 3.94a1.497 1.497 0 0 0 2.12 0 1.499 1.499 0 0 0 0-2.12L12.122 10l3.94-3.94a1.499 1.499 0 1 0-2.121-2.12z"/>
+      </svg>
+      <div class="m-pickup-availability__info">
+        <p class="m:text-color-subtext">
+          {%- render 'new-locale', key: 'products.product.pickup_availability.unavailable' -%}
+        </p>
+        <button class="m-pickup-availability__button m-button m-button--link">
+          {%- render 'new-locale', key: 'products.product.pickup_availability.refresh' -%}
+        </button>
+      </div>
+    </pickup-availability-preview>
+  </template>
+</pickup-availability>
+<script src="{{ 'pickup-availability.js' | asset_url }}" defer="defer"></script>

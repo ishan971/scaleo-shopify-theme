@@ -1,0 +1,138 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "page",
+      "disabled": true,
+      "settings": {}
+    },
+    "custom_content_KxB6Yh": {
+      "type": "custom-content",
+      "blocks": {
+        "image_fUiAGh": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Partners.jpg",
+            "link": "",
+            "width": "100%",
+            "alignment": "center",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "image_fUiAGh"
+      ],
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "header_alignment": "center",
+        "container": "w-full",
+        "color_scheme": "",
+        "content_color_scheme": "",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "gap": 30,
+        "gap_mobile": 16,
+        "use_scroll_mobile": false,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "custom_class": ""
+      }
+    },
+    "rich_text_8KrCFt": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_YhqpUi": {
+          "type": "heading",
+          "settings": {
+            "heading": "Partner as\nIndividual/Business",
+            "heading_size": "h2"
+          }
+        }
+      },
+      "block_order": [
+        "heading_YhqpUi"
+      ],
+      "settings": {
+        "container": "container",
+        "color_scheme": "",
+        "content_alignment": "left",
+        "padding_top": 100,
+        "padding_bottom": 0,
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "custom_liquid_YtCDhU": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<style>\n  .required {\n    color: red;\n    margin-left: 5px;\n  }\n\n  p {\n    color: #0c7fdf;\n    font-size: 15px;\n    font-weight: 500;\n    text-transform: uppercase;\n  }\n  .form-container {\n    margin-top: 50px;\n    max-width: 1500px;\n    width: 100%;\n    justify-content: center;\n  }\n  .form-inputs {\n    display: flex;\n    width: 100%;\n    flex-direction: row;\n    gap: 45px;\n  }\n  .form-left-con,\n  .form-right-con {\n    display: flex;\n    flex-direction: column;\n    gap: 30px;\n  }\n  .form-left-con,\n  .form-right-con {\n    width: 50%;\n  }\n  .form-group {\n    display: flex;\n    flex-wrap: wrap;\n    width: 100%;\n    position: relative;\n  }\n  .form-group label {\n    font-size: 16px;\n    flex: 1 1 100%;\n    margin-bottom: 5px;\n    font-weight: bold;\n  }\n  .form-group2 {\n    display: flex;\n    justify-content: space-between;\n    gap: 15px;\n  }\n  .form-group input,\n  .form-group select {\n    padding: 15px;\n    border: none;\n    font-size: 18px;\n    width: 100%;\n    font-weight: 500;\n    border-radius: 10px;\n    background: #eeeeee;\n    color: gray;\n  }\n  .form-group select {\n    width: 100%;\n  }\n  .form-group input::placeholder {\n    color: #858585;\n  }\n  .submit-btn {\n    width: 195px;\n    padding: 15px 20px;\n    margin-top: 40px;\n    background-color: #007bff;\n    border: none;\n    color: white;\n    font-size: 16px;\n    cursor: pointer;\n    border-radius: 100px;\n  }\n  .submit-btn:hover {\n    background-color: #4d4d4d;\n  }\n  .error {\n    color: red;\n    font-size: 14px;\n  }\n  /* Custom dropdown arrow styling */\n  .form-group select {\n    -webkit-appearance: none; /* Remove default arrow in WebKit browsers */\n    -moz-appearance: none; /* Remove default arrow in Firefox */\n    appearance: none; /* Remove default arrow in other browsers */\n    background: #eeeeee; /* Background color of the select box */\n    background-image: url(\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Group.svg?v=1722926013\"); /* Custom arrow */\n    background-repeat: no-repeat;\n    background-position: right 10px center; /* Position of the arrow */\n    background-size: 24px; /* Size of the arrow */\n    padding-right: 40px; /* Ensure space for the arrow */\n  }\n\n  /* Style for IE to remove default dropdown arrow */\n  .form-group select::-ms-expand {\n    display: none;\n  }\n\n  @media (max-width: 767px) {\n    .form-group2 {\n      flex-direction: column;\n      gap: 30px;\n    }\n    .form-inputs {\n      width: 100%;\n      flex-direction: column;\n      gap: 30px;\n    }\n    .form-left-con,\n    .form-right-con {\n      width: 100%;\n      gap: 30px;\n    }\n    h2 {\n      font-size: 28px;\n    }\n  }\n</style>\n\n<div class=\"form-container\">\n  <form\n    class=\"form-main\"\n    id=\"partnerForm\"\n    action=\"https://formspree.io/f/xanwjwyg\"\n    method=\"post\"\n  >\n    <div class=\"form-inputs\">\n      <div class=\"form-left-con\">\n        <div class=\"form-group\">\n          <label for=\"name\">Name:<span class=\"required\">*</span></label>\n          <input type=\"text\" name=\"Name\" id=\"name\" placeholder=\"Prashant\" />\n          <span id=\"error_name\" class=\"error\"></span>\n        </div>\n        <div class=\"form-group\">\n          <label for=\"email\">E-mail:<span class=\"required\">*</span></label>\n          <input\n            type=\"email\"\n            name=\"Email\"\n            id=\"email\"\n            placeholder=\"E.g. sem@leo.com\"\n          />\n          <span id=\"error_email\" class=\"error\"></span>\n        </div>\n        <div class=\"form-group\">\n          <label for=\"contact\"\n            >Contact No.:<span class=\"required\">*</span></label\n          >\n          <input\n            type=\"number\"\n            name=\"Contact No\"\n            id=\"contact\"\n            placeholder=\"+91 | XXXXXX XXXXX\"\n          />\n          <span id=\"error_contact\" class=\"error\"></span>\n        </div>\n        <div class=\"form-group\">\n          <label for=\"company\"\n            >Company/Firm/Agency:<span class=\"required\">*</span></label\n          >\n          <input\n            type=\"text\"\n            name=\"Company/Firm/Agency\"\n            id=\"company\"\n            placeholder=\"Company Name\"\n          />\n          <span id=\"error_company\" class=\"error\"></span>\n        </div>\n        <div class=\"form-group\">\n          <label for=\"address\">Address:<span class=\"required\">*</span></label>\n          <input\n            type=\"text\"\n            name=\"Address\"\n            id=\"address\"\n            placeholder=\"Address\"\n          />\n          <span id=\"error_address\" class=\"error\"></span>\n        </div>\n        <div class=\"form-group2\">\n          <div class=\"form-group\">\n            <label for=\"state\">State:<span class=\"required\">*</span></label>\n            <select id=\"state\" name=\"State\" onchange=\"fetchCities()\">\n              <option value=\"default\">Select State</option>\n            </select>\n            <span id=\"error_state\" class=\"error\"></span>\n          </div>\n          <div class=\"form-group\">\n            <label for=\"city\">City/town:<span class=\"required\">*</span></label>\n            <select id=\"city\" name=\"city\">\n              <option value=\"default\">Select City</option>\n            </select>\n            <span id=\"error_city\" class=\"error\"></span>\n          </div>\n        </div>\n      </div>\n      <div class=\"form-right-con\">\n        <div class=\"form-group\">\n          <label for=\"association-type\"\n            >Type of Association:<span class=\"required\">*</span></label\n          >\n          <select id=\"association-type\" name=\"Type of Association\">\n            <option value=\"default\">Select Type</option>\n            <option value=\"Manufacturer\">Manufacturer</option>\n            <option value=\"Distributor/Wholesaler\">\n              Distributor/Wholesaler\n            </option>\n            <option value=\"Dealer\">Dealer</option>\n            <option value=\"Retailer\">Retailer</option>\n            <option value=\"Channel Partner\">Channel Partner</option>\n            <option value=\"Company Agent\">Company Agent</option>\n            <option value=\"Company Partner\">Company Partner</option>\n            <option value=\"Architect or MEP Consultant\">\n              Architect or MEP Consultant\n            </option>\n            <option value=\"Brand Collaboration\">Brand Collaboration</option>\n            <option value=\"Business Partner (Individual)\">\n              Business Partner (Individual)\n            </option>\n            <option value=\"Investor (Individual or VC or PE)\">\n              Investor (Individual or VC or PE)\n            </option>\n          </select>\n          <span id=\"error_association_type\" class=\"error\"></span>\n        </div>\n        <div class=\"form-group\">\n          <label for=\"requirement\"\n            >Requirement/Proposal:<span class=\"required\">*</span></label\n          >\n          <input\n            type=\"text\"\n            name=\"Requirement/Proposal\"\n            id=\"requirement\"\n            placeholder=\"Describe your requirement\"\n          />\n          <span id=\"error_requirement\" class=\"error\"></span>\n        </div>\n        <div class=\"form-group\">\n          <label for=\"product-interest\"\n            >Product Interested:<span class=\"required\">*</span></label\n          >\n          <select id=\"product-interest\" name=\"Product Interested\">\n            <option value=\"default\">Select Product</option>\n            <option\n              value=\"Scale-O Mini, Semi, Centi (For Individual/Small Units)\"\n            >\n              Scale-O Mini, Semi, Centi (For Individual/Small Units)\n            </option>\n            <option\n              value=\"Scale-O Ultra, Mega, Giga (For Collective/Large Units)\"\n            >\n              Scale-O Ultra, Mega, Giga (For Collective/Large Units)\n            </option>\n          </select>\n          <span id=\"error_product_interest\" class=\"error\"></span>\n        </div>\n        <div class=\"form-group\">\n          <label for=\"quantity\">Quantity:<span class=\"required\">*</span></label>\n          <select id=\"quantity\" name=\"Quantity\">\n            <option value=\"default\">Select Quantity</option>\n            <option value=\"Upto 25 modules\">Upto 25 modules</option>\n            <option value=\"50 to 100 modules\">50 to 100 modules</option>\n            <option value=\"100 to 500 modules\">100 to 500 modules</option>\n            <option value=\"500 to 1000 modules\">500 to 1000 modules</option>\n            <option value=\"Above 1000 modules\">Above 1000 modules</option>\n            <option value=\"Custom\">Custom</option>\n          </select>\n          <span id=\"error_quantity\" class=\"error\"></span>\n        </div>\n        <div class=\"form-group\">\n          <label for=\"comments\">Comments:<span class=\"required\">*</span></label>\n          <input\n            type=\"text\"\n            id=\"comments\"\n            name=\"Comments\"\n            placeholder=\"Additional comments\"\n          />\n          <span id=\"error_comments\" class=\"error\"></span>\n        </div>\n      </div>\n    </div>\n    <button type=\"submit\" class=\"submit-btn\">Submit</button>\n  </form>\n</div>\n\n<script>\n  let token;\n  const url = \"https://www.universal-tutorial.com/api/getaccesstoken\";\n\n  fetch(url, {\n    method: \"GET\",\n    headers: {\n      Accept: \"application/json\",\n      \"api-token\":\n        \"EWxxAo1zZSIBtaBaOskfGxuYwwrW7jQnfosSNVe54KvKbVLQnb3m47vqk79Ow163ZO8\",\n      \"user-email\": \"ketan.tupple@gmail.com\",\n    },\n  })\n    .then((response) => response.json())\n    .then((data) => {\n      token = data.auth_token;\n\n      fetch(\"https://www.universal-tutorial.com/api/states/India\", {\n        method: \"GET\",\n        headers: {\n          Authorization: \"Bearer \" + data.auth_token,\n          Accept: \"application/json\",\n        },\n      })\n        .then((response) => response.json())\n        .then((data) => {\n          const stateSelect = document.getElementById(\"state\");\n\n          // Populate states dropdown\n          data.forEach((state) => {\n            let option = document.createElement(\"option\");\n            option.textContent = state.state_name;\n            option.value = state.state_name; // You can use state ID or any unique identifier here\n            stateSelect.appendChild(option);\n          });\n        })\n        .catch((error) => {\n          console.error(\"Error fetching data:\", error);\n        });\n    })\n    .catch((error) => {\n      console.error(\"Error fetching data:\", error);\n    });\n\n  async function fetchCities() {\n    const selectedState = document.getElementById(\"state\").value;\n\n    if (selectedState === \"default\") {\n      return; // No state selected, do nothing\n    }\n    // Clear existing cities in the dropdown\n    const citySelect = document.getElementById(\"city\");\n    citySelect.innerHTML = \"\"; // Clear existing options\n\n    // Add default \"Select City\" option\n    let defaultOption = document.createElement(\"option\");\n    defaultOption.textContent = \"Select City\";\n    defaultOption.value = \"default\";\n    citySelect.appendChild(defaultOption);\n\n    fetch(\"https://www.universal-tutorial.com/api/cities/\" + selectedState, {\n      method: \"GET\",\n      headers: {\n        Authorization: \"Bearer \" + token,\n        Accept: \"application/json\",\n      },\n    })\n      .then((response) => response.json())\n      .then((data) => {\n        const citySelect = document.getElementById(\"city\");\n\n        // Populate states dropdown\n        data.forEach((city) => {\n          let option = document.createElement(\"option\");\n          option.textContent = city.city_name;\n          option.value = city.city_name;\n          citySelect.appendChild(option);\n        });\n      })\n      .catch((error) => {\n        console.error(\"Error fetching data:\", error);\n      });\n  }\n\n  document\n    .getElementById(\"partnerForm\")\n    .addEventListener(\"submit\", function (event) {\n      event.preventDefault();\n\n      let isValid = true;\n\n      const fields = [\n        { id: \"name\", errorId: \"error_name\", message: \"Name is required\" },\n        { id: \"email\", errorId: \"error_email\", message: \"Email is required\" },\n        {\n          id: \"contact\",\n          errorId: \"error_contact\",\n          message: \"Contact is required\",\n          validate: (value) =>\n            /^\\d{10}$/.test(value) || \"Contact number must be 10 digits\",\n        },\n        {\n          id: \"company\",\n          errorId: \"error_company\",\n          message: \"Company is required\",\n        },\n        {\n          id: \"address\",\n          errorId: \"error_address\",\n          message: \"Address is required\",\n        },\n        {\n          id: \"state\",\n          errorId: \"error_state\",\n          message: \"State is required\",\n          isSelect: true,\n        },\n        {\n          id: \"city\",\n          errorId: \"error_city\",\n          message: \"City is required\",\n          isSelect: true,\n        },\n        {\n          id: \"association-type\",\n          errorId: \"error_association_type\",\n          message: \"Association Type is required\",\n          isSelect: true,\n        },\n        {\n          id: \"requirement\",\n          errorId: \"error_requirement\",\n          message: \"Requirement is required\",\n        },\n        {\n          id: \"product-interest\",\n          errorId: \"error_product_interest\",\n          message: \"Product Interest is required\",\n          isSelect: true,\n        },\n        {\n          id: \"quantity\",\n          errorId: \"error_quantity\",\n          message: \"Quantity is required\",\n          isSelect: true,\n        },\n        {\n          id: \"comments\",\n          errorId: \"error_comments\",\n          message: \"Comments are required\",\n        },\n      ];\n\n      fields.forEach((field) => {\n        const input = document.getElementById(field.id);\n        const error = document.getElementById(field.errorId);\n\n        if (field.isSelect) {\n          if (input.value === \"default\") {\n            error.textContent = field.message;\n            isValid = false;\n          } else {\n            error.textContent = \"\";\n          }\n        } else {\n          if (!input.value.trim()) {\n            error.textContent = field.message;\n            isValid = false;\n          } else if (field.validate) {\n            const validationResult = field.validate(input.value.trim());\n            if (validationResult !== true) {\n              error.textContent = validationResult;\n              isValid = false;\n            } else {\n              error.textContent = \"\";\n            }\n          } else {\n            error.textContent = \"\";\n          }\n        }\n      });\n\n      if (isValid) {\n        document.getElementById(\"partnerForm\").submit();\n      }\n    });\n</script>",
+        "custom_class": "container"
+      }
+    },
+    "custom_code_VbYU9Q": {
+      "type": "custom-code",
+      "custom_css": [],
+      "settings": {
+        "custom_css": "#MainContent {\n  background-color: white;\n}"
+      }
+    },
+    "custom_content_96QWz8": {
+      "type": "custom-content",
+      "blocks": {
+        "image_FCTAJB": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Group_44_6dd7f55a-7c3f-4a7b-b8f2-0025c0a01ae1.png",
+            "link": "",
+            "width": "100%",
+            "alignment": "center",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "image_FCTAJB"
+      ],
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "header_alignment": "center",
+        "container": "w-full",
+        "color_scheme": "",
+        "content_color_scheme": "",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "gap": 30,
+        "gap_mobile": 16,
+        "use_scroll_mobile": false,
+        "padding_top": 100,
+        "padding_bottom": 0,
+        "custom_class": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "custom_content_KxB6Yh",
+    "rich_text_8KrCFt",
+    "custom_liquid_YtCDhU",
+    "custom_code_VbYU9Q",
+    "custom_content_96QWz8"
+  ]
+}

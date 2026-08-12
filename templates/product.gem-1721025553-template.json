@@ -1,0 +1,611 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "breadcrumb": {
+      "type": "breadcrumb",
+      "settings": {
+        "container": "container",
+        "text_alignment": "center",
+        "hide_current": false,
+        "hide_on_mb": false,
+        "animations": "inherit"
+      }
+    },
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "badge_ChqgGj": {
+          "type": "badge",
+          "settings": {}
+        },
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "description_gN9BL9": {
+          "type": "description",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+            "show_saving": false,
+            "sale_badge_type": "percentage"
+          }
+        },
+        "custom_liquid_bEnQPr": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<style>\n    .strip{\n        display: flex;\n        background-color: #0000000D;\n        border-radius: 100px;\n        max-width: max-content;\n        padding-top: 10px;\n        padding-bottom: 10px;\n        padding-right: 30px;\n        padding-left: 20px;\n        font-size: 15px;\n        font-style: italic;\n    }\n</style>\n\n\n<div class=\"strip\">\n\n    <div style=\"margin-right: 10px;\">\n        <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame.png?v=1720613329\" alt=\"\">\n    </div>\n\n    <div>\n        <p>Minimum Life of every product is 6 months.</p>\n    </div>\n\n\n</div>"
+          }
+        },
+        "image_cJA3dL": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/Frame_427319313_6d16ce47-c8ec-47aa-b743-51c5e2d1fbd6.png",
+            "image_link": "",
+            "image_width": 100,
+            "image_alignment": "start"
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "size_title": "Size"
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_quantity_selector": true,
+            "show_atc_button": true,
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        },
+        "custom_liquid_ARV8Ey": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<style>\n\n    .mainbox{\n        background-color: white;\n        border-radius: 20px;\n        justify-content: space-between;\n    }\n\n    .features {\n        display: flex;\n        justify-content: space-around;\n        \n        padding: 20px 0;\n    }\n    \n    .feature {\n        text-align: center;\n        color: #333333;\n        font-size: 12px;\n    }\n    \n    .feature img {\n        display: block;\n        margin: 0 auto 10px;\n    }\n    \n    .ratings {\n        padding: 20px;\n        display: flex;\n    }\n    \n    .ratings h2 {\n        font-size: 19px;\n        margin-bottom: 10px;\n    }\n    \n    .overall-rating {\n        display: flex;\n        align-items: center;\n        font-size: 18px;\n        margin-bottom: 20px;\n    }\n    \n    .stars {\n        color: #ffba00;\n        margin-right: 10px;\n    }\n    \n    .rating {\n        color: #666;\n        display: flex;\n        font-size: 12px;\n    }\n    \n    .feature-ratings {\n        display: flex;\n        flex-direction: column;\n        width: 50%;\n    }\n    \n    .rating-item {\n        display: flex;\n        align-items: center;\n        justify-content: space-between;\n        background-color: #F5F7FF;\n        padding-right: 10px;\n        padding-left: 10px;\n        margin-bottom: 10px;\n        border-radius: 20px;\n    }\n    \n    .feature-name {\n        font-weight: bold;\n        font-size: 12px;\n    }\n    \n    </style>\n    \n    \n    \n    \n        <div class=\"features\">\n            <div class=\"feature\">\n                <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_48.png?v=1720614692\" alt=\"Quick Delivery\">\n                <p>QUICK DELIVERY</p>\n            </div>\n            <div class=\"feature\">\n                <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/51651.png?v=1720614693\" alt=\"Simple Installation\">\n                <p>SIMPLE INSTALLATION</p>\n            </div>\n            <div class=\"feature\">\n                <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/15151.png?v=1720614692\" alt=\"Full Guarantee\">\n                <p>FULL GUARANTEE</p>\n            </div>\n            <div class=\"feature\">\n                <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/14516144.png?v=1720614693\" alt=\"Easy Exchange\">\n                <p>EASY EXCHANGE</p>\n            </div>\n        </div>\n        <div class=\"ratings mainbox\">\n        \n            <div>\n                <h2>Customer<br>ratings by feature</h2>\n                <div class=\"overall-rating\">\n                    <span class=\"stars\">★★★★☆</span>\n                    <span class=\"rating\">4.1/5.0 (52 Reviews)</span>\n                </div>\n            </div>\n            \n            <div class=\"feature-ratings\">\n                <div class=\"rating-item\">\n                    <span class=\"feature-name\">CONCEPT</span>\n                    <div style=\"display: flex;     align-items: baseline;\">\n                        <span class=\"stars\">★</span>\n                        <span class=\"rating\">3.4 | 5.0</span>\n                    </div>\n                    \n                    \n                </div>\n                <div class=\"rating-item\">\n                    <span class=\"feature-name\">EASE</span>\n                    <div style=\"display: flex;     align-items: baseline;\">\n                        <span class=\"stars\">★</span>\n                        <span class=\"rating\">4.8 | 5.0</span>\n                    </div>\n                </div>\n                <div class=\"rating-item\">\n                    <span class=\"feature-name\">PRICING</span>\n                    <div style=\"display: flex;     align-items: baseline;\">\n                        <span class=\"stars\">★</span>\n                        <span class=\"rating\">4.2 | 5.0</span>\n                    </div>\n                </div>\n                <div class=\"rating-item\">\n                    <span class=\"feature-name\">QUALITY</span>\n                    <div style=\"display: flex;     align-items: baseline;\">\n                        <span class=\"stars\">★</span>\n                        <span class=\"rating\">3.2 | 5.0</span>\n                    </div>\n                </div>\n            </div>\n        </div>"
+          }
+        }
+      },
+      "block_order": [
+        "badge_ChqgGj",
+        "title",
+        "description_gN9BL9",
+        "price",
+        "custom_liquid_bEnQPr",
+        "image_cJA3dL",
+        "variant_picker",
+        "buy_buttons",
+        "custom_liquid_ARV8Ey"
+      ],
+      "custom_css": [],
+      "settings": {
+        "container": "container",
+        "layout": "layout-4",
+        "show_atwl": true,
+        "enable_history_state": true,
+        "enable_variant_group_images": false,
+        "disable_selected_variant_default": false,
+        "show_featured_media": true,
+        "show_zoom_button": true,
+        "enable_video_autoplay": true,
+        "show_nav_media_mobile": false,
+        "show_pagination_mobile": true,
+        "use_sticky_atc": true,
+        "use_sticky_atc_on_mobile": true,
+        "enable_dynamic_checkout": false,
+        "sticky_atc_wishtlist": false,
+        "sticky_atc_compare": false
+      }
+    },
+    "product-details-tabs": {
+      "type": "product-details-tabs",
+      "blocks": {
+        "description": {
+          "type": "description",
+          "settings": {
+            "header": "Product description"
+          }
+        },
+        "tab": {
+          "type": "tab",
+          "settings": {
+            "header": "Shipping & Return",
+            "content": "<p>Shipping cost is based on weight. Just add products to your cart and use the Shipping Calculator to see the shipping price.</p><p>We want you to be 100% satisfied with your purchase. Items can be returned or exchanged within 30 days of delivery.</p>",
+            "content_page": "connect"
+          }
+        }
+      },
+      "block_order": [
+        "description",
+        "tab"
+      ],
+      "custom_css": [
+        ".m-tabs__header {justify-content: flex-start;}"
+      ],
+      "settings": {
+        "container": "container",
+        "color_scheme": "",
+        "default_open": true,
+        "padding_top": 0,
+        "padding_bottom": 50,
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "brands_list_a7HM9d": {
+      "type": "brands-list",
+      "blocks": {
+        "image_ELULCg": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Make-In-IndiaLogo650_4.png",
+            "image_by_url": "",
+            "image_link": "",
+            "max_width": ""
+          }
+        },
+        "image_TeJd7n": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Make-In-IndiaLogo650_5.png",
+            "image_by_url": "",
+            "image_link": "",
+            "max_width": ""
+          }
+        },
+        "image_kMprmb": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Make-In-IndiaLogo650_6.png",
+            "image_by_url": "",
+            "image_link": "",
+            "max_width": ""
+          }
+        },
+        "image_xgycDP": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Make-In-IndiaLogo650_7.png",
+            "image_by_url": "",
+            "image_link": "",
+            "max_width": ""
+          }
+        },
+        "image_6wwYxi": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Make-In-IndiaLogo650_8.png",
+            "image_by_url": "",
+            "image_link": "",
+            "max_width": ""
+          }
+        },
+        "image_mtHEUm": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Make-In-IndiaLogo650_9.png",
+            "image_by_url": "",
+            "image_link": "",
+            "max_width": ""
+          }
+        },
+        "image_8mbjia": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Make-In-IndiaLogo650_10.png",
+            "image_by_url": "",
+            "image_link": "",
+            "max_width": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_ELULCg",
+        "image_TeJd7n",
+        "image_kMprmb",
+        "image_xgycDP",
+        "image_6wwYxi",
+        "image_mtHEUm",
+        "image_8mbjia"
+      ],
+      "custom_css": [
+        "#m-brand-list-template--15914741989478__brands_list_a7HM9d {border-radius: 20px 20px 0px 0px; margin-top: 20px !important;}"
+      ],
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "header_alignment": "center",
+        "container": "container",
+        "color_scheme": "scheme-cee058e4-58e3-46aa-9af9-219dadc79066",
+        "item_per_row": 7,
+        "column_gap": 30,
+        "row_gap": 30,
+        "column_gap_mobile": 10,
+        "row_gap_mobile": 10,
+        "enable_slider": false,
+        "show_nav": false,
+        "show_pagination": false,
+        "autorotate": false,
+        "autorotate_speed": 3,
+        "padding_top": 90,
+        "padding_bottom": 90,
+        "custom_class": "rc",
+        "animations": "inherit"
+      }
+    },
+    "image_with_text_Y3JMfg": {
+      "type": "image-with-text",
+      "custom_css": [
+        ".cus {margin-bottom: 50px;}",
+        ".container {background-color: white; padding-right: 70px; padding-left: 70px; border-radius: 20px;}"
+      ],
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "container": "container",
+        "color_scheme": "scheme-cee058e4-58e3-46aa-9af9-219dadc79066",
+        "item_gap": 100,
+        "item_gap_mobile": 30,
+        "layout": "right",
+        "image_column_size": "6",
+        "image_overlap": false,
+        "show_image_reverse": false,
+        "hover_effect": false,
+        "image_animation": "none",
+        "image": "shopify://shop_images/plus-zero-fector_1.png",
+        "link": "",
+        "link_2": "",
+        "second_image_offset_top": 10,
+        "title": "Scale-o Zero Factor",
+        "sub_title": "SOLUTION",
+        "text": "<p>Scale-O chemically alters the structure and forms a coating on Ca+2 & Mg+2 ions present in hard water such that they do not react with negative ions like Cl- or SO4-2 and prevents the formation insoluble salts or scale in common language.</p>",
+        "text_size": "medium",
+        "content_alignment": "left",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "m-button--link",
+        "button_size": "",
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "custom_class": "cus",
+        "animations": "inherit"
+      }
+    },
+    "custom_content_dPpedp": {
+      "type": "custom-content",
+      "blocks": {
+        "liquid_eDVYa3": {
+          "type": "liquid",
+          "settings": {
+            "custom_liquid": "<m-product-details-tabs style=\"border-radius: 10px;\" class=\"m-section m-product-details-tabs m:block m-gradient m-color-default\" data-section-type=\"product-details-tabs\" data-section-id=\"template--15914741989478__product-details-tabs\">\n    <div class=\"container\" style=\"padding: 10px 20px 10px 20px;\">\n      <div class=\"m-tabs m-scroll-trigger animate--fade-in-up\">\n        <div class=\"m-tabs__header m:display-flex m:justify-center\">\n          <div class=\"m-tabs__header-inner\">\n            \n              <div class=\"m-tab-header active\" data-block-type=\"how-to-install\" data-index=\"0\">\n                How to Install?\n              </div>\n            \n              <div class=\"m-tab-header\" data-block-type=\"how-to-clean\" data-index=\"1\">\n                How to Clean?\n              </div>\n            \n              <div class=\"m-tab-header\" data-block-type=\"when-to-replace\" data-index=\"2\">\n                When to Replace?\n              </div>\n            \n              <div class=\"m-tab-header\" data-block-type=\"how-to-replace\" data-index=\"3\">\n                How to Replace?\n              </div>\n            \n              <div class=\"m-tab-header\" data-block-type=\"how-it-works\" data-index=\"4\">\n                How it Works?\n              </div>\n            \n          </div>\n        </div>\n        <div class=\"m-tabs__content m-product-collapsible\">\n          \n            <div class=\"m-tab-content--how-to-install m-tab-content active\" data-block-type=\"how-to-install\" style=\"opacity: 1;\">\n              <div class=\"m-tab-content__inner\">\n                <div class=\"rte\">\n                  \n                    <div style=\"display: flex;\">\n                        <img style=\"width: 40%; margin-right: 30px;\" src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/tank_3.png?v=1720596386\" alt=\"\">\n                        <img style=\"width: 47%;\" src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_427319361.png?v=1720596385\" alt=\"\">\n                    </div>\n                    \n                </div>\n              </div>\n            </div>\n          \n            <div class=\"m-tab-content--how-to-clean m-tab-content\" data-block-type=\"how-to-clean\">\n              <div class=\"m-tab-content__inner\">\n                <div class=\"rte\">\n                  <p>Cleaning instructions content goes here.</p>\n                </div>\n              </div>\n            </div>\n  \n            <div class=\"m-tab-content--when-to-replace m-tab-content\" data-block-type=\"when-to-replace\">\n              <div class=\"m-tab-content__inner\">\n                <div class=\"rte\">\n                  <p>Replacement timing content goes here.</p>\n                </div>\n              </div>\n            </div>\n  \n            <div class=\"m-tab-content--how-to-replace m-tab-content\" data-block-type=\"how-to-replace\">\n              <div class=\"m-tab-content__inner\">\n                <div class=\"rte\">\n                  <p>Replacement instructions content goes here.</p>\n                </div>\n              </div>\n            </div>\n  \n            <div class=\"m-tab-content--how-it-works m-tab-content\" data-block-type=\"how-it-works\">\n              <div class=\"m-tab-content__inner\">\n                <div class=\"rte\">\n                  <p>Explanation of how it works content goes here.</p>\n                </div>\n              </div>\n            </div>\n          \n        </div>\n      </div>\n    </div>\n  </m-product-details-tabs>",
+            "width": "100%",
+            "block_custom_class": "br",
+            "animations": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "liquid_eDVYa3"
+      ],
+      "custom_css": [
+        ".im {align-items: flex-start;}",
+        ".m\\:justify-center {justify-content: flex-start;}",
+        "@media screen and (min-width: 768px) {.m-tabs__content {padding-top: 5px; }}"
+      ],
+      "settings": {
+        "heading": "For Scale-O Water Softner",
+        "heading_size": "h3",
+        "subheading": "SOLUTION",
+        "description": "",
+        "header_alignment": "left",
+        "container": "container",
+        "color_scheme": "scheme-cee058e4-58e3-46aa-9af9-219dadc79066",
+        "content_color_scheme": "scheme-cee058e4-58e3-46aa-9af9-219dadc79066",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "gap": 30,
+        "gap_mobile": 16,
+        "use_scroll_mobile": false,
+        "padding_top": 70,
+        "padding_bottom": 90,
+        "custom_class": ""
+      }
+    },
+    "custom_liquid_MTFkLe": {
+      "type": "custom-liquid",
+      "custom_css": [
+        "@media (min-width: 769px) {.m-custom-content__wrapper {justify-content: center; } #m-custom__block--image_epEW38 {width: 21%; }}",
+        "@media screen and (max-width: 767px) {.m-mixed-layout--mobile-scroll .m-mixed-layout__inner > * {flex: none; width: 50% !important; } #m-custom__block--image_epEW38 {width: 63% !important; }}",
+        ".sec{padding-top:90px; padding-bottom:90px;}"
+      ],
+      "settings": {
+        "custom_liquid": "<div id=\"m-custom-template--15914742120550__custom_content_hgEnhK\" class=\"m-section m-custom-content m-gradient m-color-default\" data-section-type=\"custom-content\" data-section-id=\"template--15914742120550__custom_content_hgEnhK\">\n  \n  <div class=\"container-fluid m-section-my m-section-py\">\n    <div class=\"m-gradient m-color-default\">\n\n\n\n\n  <div class=\"m-section__header m:text-center \">\n    \n    \n      <p class=\"m-section__subheading m-scroll-trigger animate--fade-in-up\">\n        OTHER COMPARISON\n      </p>\n    \n    \n      <h2 class=\"m-section__heading h3 m-scroll-trigger animate--fade-in-up\">\n        </h2><h2>Technology Comparison Matrix</h2>\n      \n    \n    \n    \n    \n  </div>\n\n\n      \n        <div class=\"m-mixed-layout m-mixed-layout--mobile-scroll\">\n        <div class=\"m-custom-content__wrapper m:flex m-mixed-layout__inner md:m:flex-wrap\">\n          \n            \n            <div id=\"m-custom__block--image_epEW38\" class=\"m:column m:display-flex m-custom-content__block m-custom-content__block-image lg:m:w-1/4 md:m:w-1/2 m:w-full m:items-center\">\n              <div class=\"m-custom-content__block-inner m:w-full\">\n                \n                    <div class=\"m:w-full m:block m-scroll-trigger animate--fade-in-up\" data-cascade=\"\" style=\"--animation-order: 0;\">\n                      \n<div>\n                          <responsive-image class=\"m-image m-image-loaded\" style=\"--aspect-ratio: 0.4720496894409938;\" intersecting=\"true\">\n  \n  <img srcset=\"//scale-o.com/cdn/shop/files/Frame_1288_0b806914-b1c7-4442-b0ab-fffccd3a247e.png?v=1720518523&amp;width=165 165w,//scale-o.com/cdn/shop/files/Frame_1288_0b806914-b1c7-4442-b0ab-fffccd3a247e.png?v=1720518523&amp;width=360 360w,//scale-o.com/cdn/shop/files/Frame_1288_0b806914-b1c7-4442-b0ab-fffccd3a247e.png?v=1720518523&amp;width=533 533w,//scale-o.com/cdn/shop/files/Frame_1288_0b806914-b1c7-4442-b0ab-fffccd3a247e.png?v=1720518523&amp;width=720 720w,//scale-o.com/cdn/shop/files/Frame_1288_0b806914-b1c7-4442-b0ab-fffccd3a247e.png?v=1720518523 760w\" src=\"https://scale-o.com/cdn/shop/files/Frame_1288_0b806914-b1c7-4442-b0ab-fffccd3a247e.png?v=1720518523&amp;width=360\" sizes=\"255px\" alt=\"\" loading=\"lazy\" class=\"\" width=\"255\" height=\"540\">\n  \n  <noscript>\n    <img class=\"\" loading=\"lazy\" width=\"\" height=\"\" src=\"//scale-o.com/cdn/shop/files/Frame_1288_0b806914-b1c7-4442-b0ab-fffccd3a247e.png?crop=center&height=2048&v=1720518523&width=2048\" alt=\"\">\n  </noscript>\n</responsive-image>\n\n                        </div>\n                      \n                    </div>\n                  \n              </div>\n            </div>\n          \n            \n            <div id=\"m-custom__block--image_Vp8Qxc\" class=\"m:column m:display-flex m-custom-content__block m-custom-content__block-image lg:m:w-2/12 md:w-1/2 m:w-full m:items-center\">\n              <div class=\"m-custom-content__block-inner m:w-full\">\n                \n                    <div class=\"m:w-full m:block m-scroll-trigger animate--fade-in-up\" data-cascade=\"\" style=\"--animation-order: 1;\">\n                      \n<div>\n                          <responsive-image class=\"m-image m-image-loaded\" style=\"--aspect-ratio: 0.37267080745341613;\" intersecting=\"true\">\n  \n  <img srcset=\"//scale-o.com/cdn/shop/files/Frame_1274.png?v=1720517838&amp;width=165 165w,//scale-o.com/cdn/shop/files/Frame_1274.png?v=1720517838&amp;width=360 360w,//scale-o.com/cdn/shop/files/Frame_1274.png?v=1720517838&amp;width=533 533w,//scale-o.com/cdn/shop/files/Frame_1274.png?v=1720517838 600w\" src=\"https://scale-o.com/cdn/shop/files/Frame_1274.png?v=1720517838&amp;width=360\" sizes=\"203px\" alt=\"\" loading=\"lazy\" class=\"\" width=\"203\" height=\"543\">\n  \n  <noscript>\n    <img class=\"\" loading=\"lazy\" width=\"\" height=\"\" src=\"//scale-o.com/cdn/shop/files/Frame_1274.png?crop=center&height=2048&v=1720517838&width=2048\" alt=\"\">\n  </noscript>\n</responsive-image>\n\n                        </div>\n                      \n                    </div>\n                  \n              </div>\n            </div>\n          \n            \n            <div id=\"m-custom__block--image_enFTpH\" class=\"m:column m:display-flex m-custom-content__block m-custom-content__block-image lg:m:w-2/12 md:w-1/2 m:w-full m:items-center\">\n              <div class=\"m-custom-content__block-inner m:w-full\">\n                \n                    <div class=\"m:w-full m:block m-scroll-trigger animate--fade-in-up\" data-cascade=\"\" style=\"--animation-order: 2;\">\n                      \n<div>\n                          <responsive-image class=\"m-image m-image-loaded\" style=\"--aspect-ratio: 0.37267080745341613;\" intersecting=\"true\">\n  \n  <img srcset=\"//scale-o.com/cdn/shop/files/Frame_1273.png?v=1720517838&amp;width=165 165w,//scale-o.com/cdn/shop/files/Frame_1273.png?v=1720517838&amp;width=360 360w,//scale-o.com/cdn/shop/files/Frame_1273.png?v=1720517838&amp;width=533 533w,//scale-o.com/cdn/shop/files/Frame_1273.png?v=1720517838 600w\" src=\"https://scale-o.com/cdn/shop/files/Frame_1273.png?v=1720517838&amp;width=360\" sizes=\"203px\" alt=\"\" loading=\"lazy\" class=\"\" width=\"203\" height=\"543\">\n  \n  <noscript>\n    <img class=\"\" loading=\"lazy\" width=\"\" height=\"\" src=\"//scale-o.com/cdn/shop/files/Frame_1273.png?crop=center&height=2048&v=1720517838&width=2048\" alt=\"\">\n  </noscript>\n</responsive-image>\n\n                        </div>\n                      \n                    </div>\n                  \n              </div>\n            </div>\n          \n            \n            <div id=\"m-custom__block--image_QJymax\" class=\"m:column m:display-flex m-custom-content__block m-custom-content__block-image lg:m:w-2/12 md:w-1/2 m:w-full m:items-center\">\n              <div class=\"m-custom-content__block-inner m:w-full\">\n                \n                    <div class=\"m:w-full m:block m-scroll-trigger animate--fade-in-up\" data-cascade=\"\" style=\"--animation-order: 3;\">\n                      \n<div>\n                          <responsive-image class=\"m-image m-image-loaded\" style=\"--aspect-ratio: 0.37267080745341613;\" intersecting=\"true\">\n  \n  <img srcset=\"//scale-o.com/cdn/shop/files/Frame_1272.png?v=1720517838&amp;width=165 165w,//scale-o.com/cdn/shop/files/Frame_1272.png?v=1720517838&amp;width=360 360w,//scale-o.com/cdn/shop/files/Frame_1272.png?v=1720517838&amp;width=533 533w,//scale-o.com/cdn/shop/files/Frame_1272.png?v=1720517838 600w\" src=\"https://scale-o.com/cdn/shop/files/Frame_1272.png?v=1720517838&amp;width=360\" sizes=\"203px\" alt=\"\" loading=\"lazy\" class=\"\" width=\"203\" height=\"543\">\n  \n  <noscript>\n    <img class=\"\" loading=\"lazy\" width=\"\" height=\"\" src=\"//scale-o.com/cdn/shop/files/Frame_1272.png?crop=center&height=2048&v=1720517838&width=2048\" alt=\"\">\n  </noscript>\n</responsive-image>\n\n                        </div>\n                      \n                    </div>\n                  \n              </div>\n            </div>\n          \n            \n            <div id=\"m-custom__block--image_C3KFRL\" class=\"m:column m:display-flex m-custom-content__block m-custom-content__block-image lg:m:w-2/12 md:w-1/2 m:w-full m:items-center\">\n              <div class=\"m-custom-content__block-inner m:w-full\">\n                \n                    <div class=\"m:w-full m:block m-scroll-trigger animate--fade-in-up\" data-cascade=\"\" style=\"--animation-order: 4;\">\n                      \n<div>\n                          <responsive-image class=\"m-image m-image-loaded\" style=\"--aspect-ratio: 0.37267080745341613;\" intersecting=\"true\">\n  \n  <img srcset=\"//scale-o.com/cdn/shop/files/Frame_1271.png?v=1720517838&amp;width=165 165w,//scale-o.com/cdn/shop/files/Frame_1271.png?v=1720517838&amp;width=360 360w,//scale-o.com/cdn/shop/files/Frame_1271.png?v=1720517838&amp;width=533 533w,//scale-o.com/cdn/shop/files/Frame_1271.png?v=1720517838 600w\" src=\"https://scale-o.com/cdn/shop/files/Frame_1271.png?v=1720517838&amp;width=360\" sizes=\"203px\" alt=\"\" loading=\"lazy\" class=\"\" width=\"203\" height=\"543\">\n  \n  <noscript>\n    <img class=\"\" loading=\"lazy\" width=\"\" height=\"\" src=\"//scale-o.com/cdn/shop/files/Frame_1271.png?crop=center&height=2048&v=1720517838&width=2048\" alt=\"\">\n  </noscript>\n</responsive-image>\n\n                        </div>\n                      \n                    </div>\n                  \n              </div>\n            </div>\n          \n        </div>\n        </div>\n      \n    </div>\n  </div>\n</div>",
+        "custom_class": "sec"
+      }
+    },
+    "rich_text_phYTdk": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_Tw9RDc": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "FEATURES"
+          }
+        },
+        "heading_XzNiDL": {
+          "type": "heading",
+          "settings": {
+            "heading": "Our Product Benefits",
+            "heading_size": "h2"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_Tw9RDc",
+        "heading_XzNiDL"
+      ],
+      "settings": {
+        "container": "container",
+        "color_scheme": "scheme-cee058e4-58e3-46aa-9af9-219dadc79066",
+        "content_alignment": "center",
+        "padding_top": 92,
+        "padding_bottom": 52,
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "custom_liquid_qR7BgT": {
+      "type": "custom-liquid",
+      "custom_css": [
+        ".sec {background-color: #f5f7ff;}"
+      ],
+      "settings": {
+        "custom_liquid": "<style>\n    .image-container {\n        display: none;\n        margin-top: 10px;\n    }\n    #section1 {\n        display: block; /* Display the first image by default */\n    }\n    .button1 {\n        padding: 10px 20px;\n        background-color: #333333;\n        color: white;\n        border: 2px solid #333333;\n        cursor: pointer;\n        margin-right: 10px;\n        border-radius: 5px;\n    }\n    .button1:hover {\n        background-color: transparent;\n        color: #333333;\n        border: 2px solid #333333;\n    }\n\n    .button2 {\n            padding: 10px 20px;\n            background-color: transparent;\n            color: #333333;\n            border: 2px solid #333333;\n            cursor: pointer;\n            border-radius: 5px;\n        }\n        .button2:hover {\n            background-color: #333333;\n            color: white;\n        }\n\n\n\n    .button-container {\n        margin-bottom: 20px;\n        text-align: center;\n    }\n</style>\n\n\n<div class=\"button-container\">\n    <button class=\"button1\" onclick=\"showImage('section1')\">FOR PEOPLE</button>\n    <button class=\"button2\" onclick=\"showImage('section2')\">FOR PROPERTY</button>\n</div>\n\n<div id=\"section1\" class=\"image-container\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_1247.png?v=1720604164\" alt=\"Image 1\" >\n</div>\n\n<div id=\"section2\" class=\"image-container\">\n    <img src=\"image2.jpg\" alt=\"Image 2\">\n</div>\n    \n<script>\n    function showImage(sectionId) {\n        var sections = document.querySelectorAll('.image-container');\n        sections.forEach(section => {\n            section.style.display = 'none';\n        });\n        document.getElementById(sectionId).style.display = 'block';\n    }\n</script>",
+        "custom_class": "container m-section-my m-section-py sec"
+      }
+    },
+    "brands_list_fkAJzd": {
+      "type": "brands-list",
+      "blocks": {
+        "image_XcTgtY": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Frame_427319350.png",
+            "image_by_url": "",
+            "image_link": "",
+            "max_width": ""
+          }
+        },
+        "image_6tGxQ7": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Frame_427319358.png",
+            "image_by_url": "",
+            "image_link": "",
+            "max_width": ""
+          }
+        },
+        "image_YQUdfR": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Frame_427319359_1802779d-b874-4f1a-a3cd-2a0451dd874f.png",
+            "image_by_url": "",
+            "image_link": "",
+            "max_width": ""
+          }
+        },
+        "image_QJdiq6": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Frame_427319350.png",
+            "image_by_url": "",
+            "image_link": "",
+            "max_width": "150px"
+          }
+        }
+      },
+      "block_order": [
+        "image_XcTgtY",
+        "image_6tGxQ7",
+        "image_YQUdfR",
+        "image_QJdiq6"
+      ],
+      "settings": {
+        "heading": "Witness the difference and our Results",
+        "heading_size": "h3",
+        "subheading": "BEFORE AND AFTER",
+        "header_alignment": "center",
+        "container": "container",
+        "color_scheme": "scheme-cee058e4-58e3-46aa-9af9-219dadc79066",
+        "item_per_row": 3,
+        "column_gap": 30,
+        "row_gap": 30,
+        "column_gap_mobile": 10,
+        "row_gap_mobile": 10,
+        "enable_slider": true,
+        "show_nav": true,
+        "show_pagination": false,
+        "autorotate": false,
+        "autorotate_speed": 3,
+        "padding_top": 90,
+        "padding_bottom": 90,
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "rich_text_gYypF4": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_xD3gr9": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "TESTIMONIALS"
+          }
+        },
+        "heading_n4MYCk": {
+          "type": "heading",
+          "settings": {
+            "heading": "What our client think about us",
+            "heading_size": "h2"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_xD3gr9",
+        "heading_n4MYCk"
+      ],
+      "custom_css": [
+        ".sec {border-radius: 20px 20px 0px 0px;}"
+      ],
+      "settings": {
+        "container": "container",
+        "color_scheme": "scheme-09e5b5b4-774c-4b6c-8025-416ced49cc74",
+        "content_alignment": "center",
+        "padding_top": 92,
+        "padding_bottom": 92,
+        "custom_class": "sec",
+        "animations": "inherit"
+      }
+    },
+    "968209871838256835": {
+      "type": "apps",
+      "custom_css": [
+        ".sec2 {border-radius: 0px 0px 20px 20px;}"
+      ],
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "header_alignment": "center",
+        "container": "container",
+        "background_color": "#d2e7f9",
+        "padding_top": 0,
+        "padding_bottom": 90,
+        "custom_class": "sec2"
+      }
+    },
+    "custom_code_XRU3nW": {
+      "type": "custom-code",
+      "custom_css": [],
+      "settings": {
+        "custom_css": ".Layout_isPcReviewsLayout1__3D2we {\n  display: none !important;\n}\n.Layout_collapseCol__1a0eu {\n  display: none !important;\n}"
+      }
+    },
+    "644185576073085482": {
+      "type": "apps",
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "header_alignment": "center",
+        "container": "container",
+        "background_color": "",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "custom_class": ""
+      }
+    },
+    "201524113761360265": {
+      "type": "apps",
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "header_alignment": "center",
+        "container": "container",
+        "background_color": "",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "custom_class": ""
+      }
+    },
+    "custom_content_3kjdhd": {
+      "type": "custom-content",
+      "blocks": {
+        "text_zNQQic": {
+          "type": "text",
+          "settings": {
+            "title": "Frequently asked the question",
+            "subheading": "FAQ’s",
+            "text": "",
+            "width": "100%",
+            "alignment": "center",
+            "align_text": "center",
+            "text_size": "medium",
+            "text_color": "inherit",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "m-button--primary",
+            "button_size": "",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        },
+        "liquid_xyW9Kg": {
+          "type": "liquid",
+          "settings": {
+            "custom_liquid": "<style>\n        @media (min-width:768px) {\n            .faq-container {\n                padding: 20px;\n                display: flex;\n                justify-content: space-between;\n            }\n\n            .faqdiv {\n                width: 49%;\n            }\n        }\n        \n        .faq-item {\n            margin-bottom: 20px;\n        }\n        \n        .faq-question {\n            width: 100%;\n            background-color: #F5F7FF;\n            border: none;\n            padding: 15px;\n            font-size: 16px;\n            text-align: left;\n            cursor: pointer;\n            border-radius: 4px;\n            transition: background-color 0.3s;\n            display: flex;\n            justify-content: space-between;\n            align-items: center;\n            margin-right: 15px;\n        }\n        \n        .faq-question:hover {\n            background-color: #e1e1e1;\n        }\n        \n        .faq-answer {\n            max-height: 0;\n            opacity: 0;\n            overflow: hidden;\n            padding: 0 15px;\n            background-color: #F5F7FF;\n            border-radius: 0px 0px 4px 4px;\n            margin-top: 0px;\n            font-size: 14px;\n            line-height: 1.6;\n            transition: max-height 0.5s ease, opacity 0.5s ease, padding 0.5s ease;\n        }\n        \n        .faq-answer.open {\n            max-height: 500px; /* Adjust this value based on your content */\n            opacity: 1;\n            padding: 15px;\n        }\n        \n        .faq-icon {\n            width: 20px;\n            height: 20px;\n            margin-left: 5px;\n        }\n    </style>\n\n\n\n\n<div>\n        <div class=\"faq-container\">\n            <!-- col 1 -->\n            <div class=\"faqdiv\">\n                <div class=\"faq-item\">\n                    <button class=\"faq-question\">\n                        What is the life of the Scale-O water softener?\n                        <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_49.png?v=1720679877\" class=\"faq-icon open-icon\" alt=\"Open Icon\">\n                        <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/4444.png?v=1720679877\" class=\"faq-icon close-icon\" style=\"display:none;\" alt=\"Close Icon\">\n                    </button>\n                    <div class=\"faq-answer\">Life of Scale-O water softener is 6 months once the product is inside the water but can extend to 8 months depending on daily usage. However shelf life of an unused product is 2 years.</div>\n                </div>\n                <div class=\"faq-item\">\n                    <button class=\"faq-question\">\n                        What is the guarantee on Scale-O softeners?\n                        <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_49.png?v=1720679877\" class=\"faq-icon open-icon\" alt=\"Open Icon\">\n                        <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/4444.png?v=1720679877\" class=\"faq-icon close-icon\" style=\"display:none;\" alt=\"Close Icon\">\n                    </button>\n                    <div class=\"faq-answer\">Scale-O water softeners come with a one-year warranty from the date of purchase against any manufacturing defects.</div>\n                </div>\n                <div class=\"faq-item\">\n                    <button class=\"faq-question\">\n                        When should I exchange the Scale-O water softener?\n                        <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_49.png?v=1720679877\" class=\"faq-icon open-icon\" alt=\"Open Icon\">\n                        <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/4444.png?v=1720679877\" class=\"faq-icon close-icon\" style=\"display:none;\" alt=\"Close Icon\">\n                    </button>\n                    <div class=\"faq-answer\">You should exchange the Scale-O water softener every 6 to 8 months, depending on your daily usage and water quality.</div>\n                </div>\n                <div class=\"faq-item\">\n                    <button class=\"faq-question\">\n                        Can Scale-O be used with existing water softeners?\n                        <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_49.png?v=1720679877\" class=\"faq-icon open-icon\" alt=\"Open Icon\">\n                        <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/4444.png?v=1720679877\" class=\"faq-icon close-icon\" style=\"display:none;\" alt=\"Close Icon\">\n                    </button>\n                    <div class=\"faq-answer\">Yes, Scale-O can be used in conjunction with existing water softeners to enhance their effectiveness.</div>\n                </div>\n                <div class=\"faq-item\">\n                    <button class=\"faq-question\">\n                        Does Scale-O require installation services by a professional?\n                        <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_49.png?v=1720679877\" class=\"faq-icon open-icon\" alt=\"Open Icon\">\n                        <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/4444.png?v=1720679877\" class=\"faq-icon close-icon\" style=\"display:none;\" alt=\"Close Icon\">\n                    </button>\n                    <div class=\"faq-answer\">No, Scale-O is designed for easy DIY installation and does not require professional services.</div>\n                </div>\n            </div>\n\n            <!-- col 2 -->\n            <div class=\"faqdiv\">\n                <div class=\"faq-item\">\n                    <button class=\"faq-question\">\n                        Why is Scale-O better than other water softeners?\n                        <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_49.png?v=1720679877\" class=\"faq-icon open-icon\" alt=\"Open Icon\">\n                        <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/4444.png?v=1720679877\" class=\"faq-icon close-icon\" style=\"display:none;\" alt=\"Close Icon\">\n                    </button>\n                    <div class=\"faq-answer\">Scale-O offers superior performance, longer life, and easier maintenance compared to other water softeners on the market.</div>\n                </div>\n                <div class=\"faq-item\">\n                    <button class=\"faq-question\">\n                        What’s the maximum level of hardness at which Scale-O can work?\n                        <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_49.png?v=1720679877\" class=\"faq-icon open-icon\" alt=\"Open Icon\">\n                        <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/4444.png?v=1720679877\" class=\"faq-icon close-icon\" style=\"display:none;\" alt=\"Close Icon\">\n                    </button>\n                    <div class=\"faq-answer\">Scale-O can effectively work in water hardness levels up to 300 ppm (parts per million).</div>\n                </div>\n                <div class=\"faq-item\">\n                    <button class=\"faq-question\">\n                        What is the health risk associated with using Scale-O water softeners?\n                        <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_49.png?v=1720679877\" class=\"faq-icon open-icon\" alt=\"Open Icon\">\n                        <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/4444.png?v=1720679877\" class=\"faq-icon close-icon\" style=\"display:none;\" alt=\"Close Icon\">\n                    </button>\n                    <div class=\"faq-answer\">There are no health risks associated with using Scale-O water softeners as they do not add any chemicals to the water.</div>\n                </div>\n                <div class=\"faq-item\">\n                    <button class=\"faq-question\">\n                        How to choose the right Scale-O configuration for my application?\n                        <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_49.png?v=1720679877\" class=\"faq-icon open-icon\" alt=\"Open Icon\">\n                        <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/4444.png?v=1720679877\" class=\"faq-icon close-icon\" style=\"display:none;\" alt=\"Close Icon\">\n                    </button>\n                    <div class=\"faq-answer\">Choosing the right Scale-O configuration depends on the size of your household and your daily water usage. Our customer support can help you make the right choice.</div>\n                </div>\n                <div class=\"faq-item\">\n                    <button class=\"faq-question\">\n                        Can Scale-O be used for commercial purposes?\n                        <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_49.png?v=1720679877\" class=\"faq-icon open-icon\" alt=\"Open Icon\">\n                        <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/4444.png?v=1720679877\" class=\"faq-icon close-icon\" style=\"display:none;\" alt=\"Close Icon\">\n                    </button>\n                    <div class=\"faq-answer\">Yes, Scale-O is suitable for both residential and commercial purposes, depending on the configuration.</div>\n                </div>\n            </div>\n        </div>\n    </div>\n\n    <script>\n        document.addEventListener('DOMContentLoaded', function() {\n            const questions = document.querySelectorAll('.faq-question');\n\n            questions.forEach(question => {\n                question.addEventListener('click', function() {\n                    const answer = this.nextElementSibling;\n                    const isVisible = answer.classList.contains('open');\n\n                    document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));\n                    document.querySelectorAll('.close-icon').forEach(icon => icon.style.display = 'none');\n                    document.querySelectorAll('.open-icon').forEach(icon => icon.style.display = 'block');\n\n                    if (!isVisible) {\n                        answer.classList.add('open');\n                        this.querySelector('.open-icon').style.display = 'none';\n                        this.querySelector('.close-icon').style.display = 'block';\n                    } else {\n                        answer.classList.remove('open');\n                        this.querySelector('.open-icon').style.display = 'block';\n                        this.querySelector('.close-icon').style.display = 'none';\n                    }\n                });\n            });\n        });\n    </script>",
+            "width": "100%",
+            "block_custom_class": "container",
+            "animations": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "text_zNQQic",
+        "liquid_xyW9Kg"
+      ],
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "header_alignment": "center",
+        "container": "container-fluid",
+        "color_scheme": "",
+        "content_color_scheme": "",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "gap": 30,
+        "gap_mobile": 16,
+        "use_scroll_mobile": false,
+        "padding_top": 90,
+        "padding_bottom": 90,
+        "custom_class": ""
+      }
+    }
+  },
+  "order": [
+    "breadcrumb",
+    "main",
+    "product-details-tabs",
+    "brands_list_a7HM9d",
+    "image_with_text_Y3JMfg",
+    "custom_content_dPpedp",
+    "custom_liquid_MTFkLe",
+    "rich_text_phYTdk",
+    "custom_liquid_qR7BgT",
+    "brands_list_fkAJzd",
+    "rich_text_gYypF4",
+    "968209871838256835",
+    "custom_code_XRU3nW",
+    "644185576073085482",
+    "201524113761360265",
+    "custom_content_3kjdhd"
+  ]
+}

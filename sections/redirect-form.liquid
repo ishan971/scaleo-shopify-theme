@@ -1,0 +1,544 @@
+<style>
+        
+        
+    p {
+        color: #0C7FDF;
+        font-size: 15px;
+        font-weight: 500;
+        text-transform: uppercase;
+    }
+    .form-container {
+        margin-top: 50px;
+        max-width: 1500px;
+        width: 100%;
+        justify-content: center;
+    }
+   
+    .form-inputs {
+        display: flex;
+        width: 100%;
+        flex-direction: row;
+        gap: 45px;            
+    }
+    .form-left-con,
+    .form-right-con {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+    .form-left-con,
+    .form-right-con {
+        width: 50%;
+    }
+    .form-group {
+        display: flex;
+        flex-wrap: wrap;
+        flex: 1;
+    }
+    .form-group label {
+        font-size: 16px;
+        flex: 1 1 100%;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+    .form-group2 {
+        display: flex;
+        justify-content: space-between;
+        gap: 15px;
+    }
+    .form-group input,
+    .form-group select {
+        padding: 15px;
+        border: none;
+        font-size: 18px;
+        width: 100%;
+        font-weight: 500;
+        border-radius: 10px;
+        background: #EEEEEE;
+        color: gray;
+    }
+    .form-group select {
+        width: 100%;
+    }
+    .form-group input::placeholder {
+        color: #858585;
+    }
+    .submit-btn {
+        width: 195px;
+        padding: 15px 20px;
+        margin-top: 40px;
+        background-color: #007bff;
+        border: none;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 100px;
+    }
+    .submit-btn:hover {
+        background-color: #4d4d4d;
+    }
+    @media (max-width: 767px) {
+        .form-group2 {
+            flex-direction: column;
+            gap: 30px;
+        }
+        .form-inputs {
+            width: 100%;
+            flex-direction: column;
+            gap: 30px;            
+        }
+        .form-left-con,
+        .form-right-con {
+            width: 100%;
+            gap: 30px;
+        }
+        h2 {
+            font-size: 28px;
+        }
+    }
+</style>
+
+
+
+
+
+<div class="form-container">
+    <form class="form-main" id="waterForm">
+        <div class="form-inputs">
+            <div class="form-left-con">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" placeholder="Prashant">
+                </div>
+                <div class="form-group">
+                    <label for="contact">Contact No.:</label>
+                    <input type="text" id="contact" placeholder="+91 | XXXXXX XXXXX">
+                </div>
+
+                
+                <div class="form-group2">
+                    <div class="form-group">
+                        <label for="state">State:</label>
+                        <select id="state" onchange="fetchCities()">
+                            <option value="default">Select State</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="city">City/town:</label>
+                        <select id="city" name="city">
+                            <option value="default">Select City</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="pincode">Pin code:</label>
+                        <input type="text" id="pincode" placeholder="123456">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="underground-tank">Underground Water Storage Tank Capacity: (Optional)</label>
+                    <select id="underground-tank">
+                        <option>Not Available</option>
+                        <option>1000 L- 1500 L</option>
+                        <option>3000 L - 5000 L </option>
+                        <option>2000 L- 2500 L</option>
+                        <option>10,000 L</option>
+                        <option>15,000 L</option>
+                        <option>20,000 L</option>
+                        <option>25,000 L</option>
+                        <option>30,000 L</option>
+                        <option>50,000 L</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-right-con">
+                <div class="form-group">
+                    <label for="email">E-mail:</label>
+                    <input type="email" id="email" placeholder="E.g. sem@leo.com">
+                </div>
+                <div class="form-group">
+                    <label for="address">Address:</label>
+                    <input type="text" id="address" placeholder="Address" class="full-width">
+                </div>
+                <div class="form-group2">
+                    <div class="form-group">
+                        <label for="members">No. of Members in the house:</label>
+                        <select id="members">
+                            <option>Upto 3</option>
+                            <option>4-6</option>
+                            <option>7-10</option>
+                            <option>11-15</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="overhead-tank">Overhead Water Storage Tank Capacity:</label>
+                        <select id="overhead-tank">
+                            <option>500 L</option>
+                            <option>Two Tanks of 500 L</option>
+                            <option>1000 L- 1500 L</option>
+                            <option>Two Tanks of 1000 L-1500 L</option>
+                            <option>2000 L-2500 L</option>
+                            <option>Two Tanks of 2000 L-2500 L</option>
+                            <option>5000 L</option>
+                            <option>Two tanks of 5000 L</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="water-usage">Average Daily Water Usage:</label>
+                    <select id="water-usage">
+                        <option>500 L/d</option>
+                        <option>1000 L/d</option>
+                        <option>1500 L/d</option>
+                        <option>2000 L/d</option>
+                        <option>3000 L/d</option>
+                        <option>5000 L/d</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="submit-btn">Submit Now</button>
+    </form>
+</div>
+
+<script>
+    document.getElementById('waterForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent the form from submitting the default way
+
+        // Get the selected values
+        var overheadTank = document.getElementById('overhead-tank').value;
+        var members = document.getElementById('members').value;
+        var waterUsage = document.getElementById('water-usage').value;
+
+        // Check the selected values and redirect if they match the criteria
+
+
+        if (overheadTank === '500 L' && members === 'Upto 3' && waterUsage === '500 L/d') {
+
+
+            window.location.href = 'https://scale-o.com/products/scale-o-mini';
+
+
+        } else if (overheadTank === '500 L' && members === '4-6' && waterUsage === '1000 L/d') {
+
+
+            window.location.href = 'https://scale-o.com/products/scale-o-semi';
+
+
+        } else if (overheadTank === '500 L' && members === '7-10' && waterUsage === '1500 L/d') {
+
+
+            window.location.href = 'https://scale-o.com/products/scale-o-centi';
+
+
+        } else if (overheadTank === '1000 L- 1500 L' && members === 'Upto 3' && waterUsage === '500 L/d') {
+
+
+            window.location.href = 'https://scale-o.com/products/scale-o-mini';
+
+
+        } else if (overheadTank === '1000 L- 1500 L' && members === '4-6' && waterUsage === '1000 L/d') {
+
+
+            window.location.href = 'https://scale-o.com/products/scale-o-semi';
+
+
+        } else if (overheadTank === '1000 L- 1500 L' && members === '7-10' && waterUsage === '1500 L/d') {
+
+
+            window.location.href = 'https://scale-o.com/products/scale-o-centi';
+
+
+        } else if (overheadTank === '1000 L- 1500 L' && members === '11-15' && waterUsage === '2000 L/d') {
+
+
+            window.location.href = 'https://scale-o.com/products/scale-o-centi';
+
+
+        } else if (overheadTank === '2000 L-2500 L' && members === 'Upto 3' && waterUsage === '500 L/d') {
+
+
+            window.location.href = 'https://scale-o.com/products/scale-o-semi';
+
+
+        } else if (overheadTank === '2000 L-2500 L' && members === '4-6' && waterUsage === '1000 L/d') {
+
+
+            window.location.href = 'https://scale-o.com/products/scale-o-semi';
+
+
+        } else if (overheadTank === '2000 L-2500 L' && members === '7-10' && waterUsage === '1500 L/d') {
+
+
+            window.location.href = 'https://scale-o.com/products/scale-o-centi';
+
+
+        } else if (overheadTank === '2000 L-2500 L' && members === '11-15' && waterUsage === '2000 L/d') {
+
+
+            window.location.href = 'https://scale-o.com/products/scale-o-centi';
+
+
+        } else if (overheadTank === '5000 L' && members === 'Upto 3' && waterUsage === '500 L/d') {
+
+
+            window.location.href = 'https://scale-o.com/products/scale-o-semi';
+
+
+        } else if (overheadTank === '5000 L' && members === '4-6' && waterUsage === '1000 L/d') {
+
+
+            window.location.href = 'https://scale-o.com/products/scale-o-centi';
+
+
+        } else if (overheadTank === '5000 L' && members === '7-10' && waterUsage === '1500 L/d') {
+
+
+            window.location.href = 'https://scale-o.com/products/scale-o-semi-x2';
+
+
+        } else if (overheadTank === '5000 L' && members === '11-15' && waterUsage === '2000 L/d') {
+
+
+            window.location.href = 'https://scale-o.com/products/scale-o-semi-centi-combo';
+
+
+        } else if (overheadTank === '5000 L' && members === '11-15' && waterUsage === '3000 L/d') {
+
+
+            window.location.href = 'https://scale-o.com/products/scale-o-centi-x2';
+
+
+        } else if (overheadTank === '5000 L' && members === '11-15' && waterUsage === '5000 L/d') {
+
+
+            window.location.href = 'https://scale-o.com/products/scale-o-centi-x2';
+
+
+        } else if (overheadTank === 'Two Tanks of 500 L' && members === 'Upto 3' && waterUsage === '500 L/d') {
+
+
+            window.location.href = 'https://scale-o.com/products/scale-o-mini-x2';
+
+
+        } else if (overheadTank === 'Two Tanks of 500 L' && members === '4-6' && waterUsage === '1000 L/d') {
+
+
+            window.location.href = 'https://scale-o.com/products/scale-o-mini-x2';
+
+
+        } else if (overheadTank === 'Two Tanks of 500 L' && members === '7-10' && waterUsage === '1500 L/d') {
+
+
+            window.location.href = 'https://scale-o.com/products/scale-o-mini-semi-combo';
+
+
+        } else if (overheadTank === 'Two Tanks of 500 L' && members === '11-15' && waterUsage === '2000 L/d') {
+
+
+            window.location.href = 'https://scale-o.com/products/scale-o-mini-centi-combo';
+
+
+        } else if (overheadTank === 'Two Tanks of 1000 L- 1500 L' && members === 'Upto 3' && waterUsage === '500 L/d') {
+
+
+            window.location.href = 'https://scale-o.com/products/scale-o-mini-x2';
+
+
+        } else if (overheadTank === 'Two Tanks of 1000 L- 1500 L' && members === '4-6' && waterUsage === '1000 L/d') {
+
+
+            window.location.href = 'https://scale-o.com/products/scale-o-mini-semi-combo';
+
+
+        } else if (overheadTank === 'Two Tanks of 1000 L- 1500 L' && members === '7-10' && waterUsage === '1500 L/d') {
+
+
+            window.location.href = 'https://scale-o.com/products/scale-o-semi-x2';
+
+
+        } else if (overheadTank === 'Two Tanks of 1000 L- 1500 L' && members === '11-15' && waterUsage === '2000 L/d') {
+
+
+            window.location.href = 'https://scale-o.com/products/scale-o-semi-centi-combo';
+
+
+        } else if (overheadTank === 'Two Tanks of 1000 L- 1500 L' && members === '11-15' && waterUsage === '3000 L/d') {
+
+
+            window.location.href = 'https://scale-o.com/products/scale-o-centi-x2';
+
+
+        } else if (overheadTank === 'Two Tanks of 2000 L-2500 L' && members === 'Upto 3' && waterUsage === '500 L/d') {
+
+
+            window.location.href = 'https://scale-o.com/products/scale-o-semi-x2';
+
+
+        } else if (overheadTank === 'Two Tanks of 2000 L-2500 L' && members === '4-6' && waterUsage === '1000 L/d') {
+
+
+            window.location.href = 'https://scale-o.com/products/scale-o-semi-x2';
+
+
+        } else if (overheadTank === 'Two Tanks of 2000 L-2500 L' && members === '7-10' && waterUsage === '1500 L/d') {
+
+
+            window.location.href = 'hhttps://scale-o.com/products/scale-o-semi-centi-combo';
+
+
+        } else if (overheadTank === 'Two Tanks of 2000 L-2500 L' && members === '11-15' && waterUsage === '2000 L/d') {
+
+
+            window.location.href = 'https://scale-o.com/products/scale-o-centi-x2';
+
+
+        } else if (overheadTank === 'Two Tanks of 2000 L-2500 L' && members === '11-15' && waterUsage === '3000 L/d') {
+
+
+            window.location.href = 'https://scale-o.com/products/scale-o-centi-x2';
+
+
+        } else if (overheadTank === 'Two Tanks of 5000 L' && members === 'Upto 3' && waterUsage === '500 L/d') {
+
+
+            window.location.href = 'https://scale-o.com/products/scale-o-semi-x2';
+
+
+        } else if (overheadTank === 'Two Tanks of 5000 L' && members === '4-6' && waterUsage === '1000 L/d') {
+
+
+            window.location.href = 'https://scale-o.com/products/scale-o-semi-centi-combo';
+
+
+        } else if (overheadTank === 'Two Tanks of 5000 L' && members === '7-10' && waterUsage === '1500 L/d') {
+
+
+            window.location.href = 'https://scale-o.com/products/scale-o-semi-centi-combo';
+
+
+        } else if (overheadTank === 'Two Tanks of 5000 L' && members === '11-15' && waterUsage === '2000 L/d') {
+
+
+            window.location.href = 'https://scale-o.com/products/scale-o-semi-x2';
+
+
+        } else if (overheadTank === 'Two Tanks of 5000 L' && members === '11-15' && waterUsage === '3000 L/d') {
+
+
+            window.location.href = 'https://scale-o.com/products/scale-o-centi-x2';
+
+
+        }else if (overheadTank === 'Two Tanks of 5000 L' && members === '11-15' && waterUsage === '5000 L/d') {
+
+
+            window.location.href = 'https://scale-o.com/products/scale-o-centi-x2';
+
+
+        }
+
+
+
+
+    });
+
+
+
+
+
+
+
+
+    let token;
+    const url = "https://www.universal-tutorial.com/api/getaccesstoken";
+
+    fetch(url, {
+      method: "GET",
+      headers: {
+        "Accept": "application/json",
+        "api-token": "EWxxAo1zZSIBtaBaOskfGxuYwwrW7jQnfosSNVe54KvKbVLQnb3m47vqk79Ow163ZO8",
+        "user-email": "ketan.tupple@gmail.com"
+      }
+    })
+    .then(response => response.json())
+    .then(data => {
+        token = data.auth_token;
+      console.log(data); 
+      console.log("Bearer "+data.auth_token);// This will log the response data to the console
+        fetch("https://www.universal-tutorial.com/api/states/India", {
+            method: "GET",
+            headers: {
+            "Authorization": "Bearer "+data.auth_token,
+            "Accept": "application/json"
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data); 
+            const stateSelect = document.getElementById('state');
+        
+            // Populate states dropdown
+            data.forEach(state => {
+                let option = document.createElement('option');
+                option.textContent = state.state_name;
+                option.value = state.state_name; // You can use state ID or any unique identifier here
+                stateSelect.appendChild(option);
+            });
+        })
+        .catch(error => {
+            console.error('Error fetching data:', error);
+        });
+    })
+    .catch(error => {
+      console.error('Error fetching data:', error);
+    });
+    
+    async function fetchCities() {
+        const selectedState = document.getElementById('state').value;
+        console.log(selectedState);
+        if (selectedState === 'default') {
+            return; // No state selected, do nothing
+        }
+        // Clear existing cities in the dropdown
+        const citySelect = document.getElementById('city');
+        citySelect.innerHTML = ''; // Clear existing options
+
+        // Add default "Select City" option
+        let defaultOption = document.createElement('option');
+        defaultOption.textContent = 'Select City';
+        defaultOption.value = 'default';
+        citySelect.appendChild(defaultOption);
+
+        fetch("https://www.universal-tutorial.com/api/cities/"+selectedState, {
+            method: "GET",
+            headers: {
+            "Authorization": "Bearer "+token,
+            "Accept": "application/json"
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data); 
+            const citySelect = document.getElementById('city');
+        
+            // Populate states dropdown
+            data.forEach(city => {
+                let option = document.createElement('option');
+                option.textContent = city.city_name;
+                option.value = city.city_name;
+                citySelect.appendChild(option);
+            });
+        })
+        .catch(error => {
+            console.error('Error fetching data:', error);
+        });
+    }
+   
+    
+
+    
+
+
+
+    
+</script>
+

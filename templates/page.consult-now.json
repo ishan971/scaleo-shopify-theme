@@ -1,0 +1,137 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "page",
+      "disabled": true,
+      "settings": {}
+    },
+    "custom_content_4TDMwA": {
+      "type": "custom-content",
+      "blocks": {
+        "image_jRUxY6": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Consult_now_44b2514d-c8ee-4804-b368-4eea9930c203.jpg",
+            "link": "",
+            "width": "100%",
+            "alignment": "center",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "image_jRUxY6"
+      ],
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "header_alignment": "center",
+        "container": "w-full",
+        "color_scheme": "",
+        "content_color_scheme": "",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "gap": 30,
+        "gap_mobile": 16,
+        "use_scroll_mobile": false,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "custom_class": ""
+      }
+    },
+    "rich_text_qKiLKX": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_NEb73Y": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "Consult Now"
+          }
+        },
+        "heading_7QiYrP": {
+          "type": "heading",
+          "settings": {
+            "heading": "Talk to our Water Expert regarding your queries or requirements!",
+            "heading_size": "h2"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_NEb73Y",
+        "heading_7QiYrP"
+      ],
+      "settings": {
+        "container": "container",
+        "color_scheme": "scheme-cee058e4-58e3-46aa-9af9-219dadc79066",
+        "content_alignment": "left",
+        "padding_top": 100,
+        "padding_bottom": 0,
+        "custom_class": "",
+        "animations": "inherit"
+      }
+    },
+    "custom_liquid_n6GM9C": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<style>\n  .required {\n    color: red;\n    margin-left: 5px;\n  }\n\n  p {\n    color: #0c7fdf;\n    font-size: 15px;\n    font-weight: 500;\n    text-transform: uppercase;\n  }\n  .form-container {\n    margin-top: 50px;\n    max-width: 1500px;\n    width: 100%;\n    justify-content: center;\n  }\n  .form-inputs {\n    display: flex;\n    width: 100%;\n    flex-direction: row;\n    gap: 45px;\n  }\n  .form-left-con {\n    display: flex;\n    flex-direction: column;\n    gap: 30px;\n  }\n  .form-right-con {\n    display: flex;\n    flex-direction: column;\n    gap: 30px;\n  }\n  .form-left-con,\n  .form-right-con {\n    width: 50%;\n  }\n  .form-group {\n    display: flex;\n    flex-wrap: wrap;\n    width: 100%;\n    position: relative;\n  }\n  .form-group label {\n    font-size: 16px;\n    flex: 1 1 100%;\n    margin-bottom: 5px;\n    font-weight: bold;\n  }\n  .form-group2 {\n    display: flex;\n    justify-content: space-between;\n    gap: 15px;\n  }\n  .form-group input,\n  .form-group select {\n    padding: 15px;\n    border: none;\n    font-size: 18px;\n    width: 100%;\n    font-weight: 500;\n    border-radius: 10px;\n    background: #eeeeee;\n    color: gray;\n  }\n  .ta {\n    padding: 15px;\n    border: none;\n    font-size: 18px;\n    width: 100%;\n    font-weight: 500;\n    border-radius: 10px;\n    background: #eeeeee;\n    color: gray;\n  }\n  .form-group select {\n    width: 100%;\n  }\n  .form-group input::placeholder {\n    color: #858585;\n  }\n  .submit-btn {\n    width: 195px;\n    padding: 15px 20px;\n    margin-top: 40px;\n    background-color: #007bff;\n    border: none;\n    color: white;\n    font-size: 16px;\n    cursor: pointer;\n    border-radius: 100px;\n  }\n  .submit-btn:hover {\n    background-color: #4d4d4d;\n  }\n  .error {\n    color: red;\n    font-size: 14px;\n  }\n\n  /* Custom dropdown arrow styling */\n  .form-group select {\n    -webkit-appearance: none; /* Remove default arrow in WebKit browsers */\n    -moz-appearance: none; /* Remove default arrow in Firefox */\n    appearance: none; /* Remove default arrow in other browsers */\n    background: #eeeeee; /* Background color of the select box */\n    background-image: url(\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Group.svg?v=1722926013\"); /* Custom arrow */\n    background-repeat: no-repeat;\n    background-position: right 10px center; /* Position of the arrow */\n    background-size: 24px; /* Size of the arrow */\n    padding-right: 40px; /* Ensure space for the arrow */\n  }\n\n  /* Style for IE to remove default dropdown arrow */\n  .form-group select::-ms-expand {\n    display: none;\n  }\n\n  @media (max-width: 767px) {\n    .form-group2 {\n      flex-direction: column;\n      gap: 30px;\n    }\n    .form-inputs {\n      width: 100%;\n      flex-direction: column;\n      gap: 30px;\n    }\n    .form-left-con,\n    .form-right-con {\n      width: 100%;\n      gap: 30px;\n    }\n    h2 {\n      font-size: 28px;\n    }\n  }\n</style>\n\n<div class=\"form-container\">\n  <form\n    id=\"secondForm\"\n    action=\"https://formspree.io/f/xpwadnby\"\n    method=\"post\"\n    class=\"form-main\"\n  >\n    <div class=\"form-inputs\">\n      <div class=\"form-left-con\">\n        <div class=\"form-group\">\n          <label for=\"name\">Name:<span class=\"required\">*</span></label>\n          <input type=\"text\" id=\"name\" name=\"name\" />\n          <span id=\"error_name\" class=\"error\"></span>\n        </div>\n        <div class=\"form-group\">\n          <label for=\"location\">Location:<span class=\"required\">*</span></label>\n          <input type=\"text\" id=\"location\" name=\"location\" />\n          <span id=\"error_location\" class=\"error\"></span>\n        </div>\n        <div class=\"form-group\">\n          <label for=\"email\">E-mail:<span class=\"required\">*</span></label>\n          <input type=\"email\" id=\"email\" name=\"Email\" />\n          <span id=\"error_email\" class=\"error\"></span>\n        </div>\n        <div class=\"form-group\">\n          <label for=\"contact\"\n            >Contact No:<span class=\"required\">*</span></label\n          >\n          <input type=\"number\" id=\"contact\" name=\"contact\" />\n          <span id=\"error_contact\" class=\"error\"></span>\n        </div>\n      </div>\n\n      <div class=\"form-right-con\">\n        <div class=\"form-group\">\n          <label for=\"purpose\">Purpose:<span class=\"required\">*</span></label>\n          <select id=\"purpose\" name=\"purpose\" onchange=\"showRequirements()\">\n            <option value=\"\">Select Purpose</option>\n            <option value=\"Residential\">Residential</option>\n            <option value=\"Commercial\">Commercial</option>\n            <option value=\"Industrial\">Industrial</option>\n            <option value=\"Institutional\">Institutional</option>\n            <option value=\"Agricultural\">Agricultural</option>\n            <option value=\"Others\">Others</option>\n          </select>\n          <span id=\"error_purpose\" class=\"error\"></span>\n        </div>\n        <div class=\"form-group\" id=\"requirement-section\" style=\"display: none\">\n          <label for=\"requirement\"\n            >Requirement:<span class=\"required\">*</span></label\n          >\n          <select id=\"requirement\" name=\"requirement\">\n            <optgroup label=\"Residential\" class=\"residential\">\n              <option value=\"Individual Bungalow/House\">\n                For Individual Bungalow/House\n              </option>\n              <option value=\"Society of Bungalows\">\n                For Society of Bungalows\n              </option>\n              <option value=\"Society of Apartments\">\n                For Society of Apartments\n              </option>\n              <option value=\"Weekend Home/Farm Houses\">\n                For Weekend Home/Farm Houses\n              </option>\n            </optgroup>\n            <optgroup label=\"Commercial\" class=\"commercial\">\n              <option value=\"Commercial Complexes\">\n                For Commercial Complexes\n              </option>\n              <option value=\"Office Buildings\">For Office Buildings</option>\n              <option value=\"Corporate Houses\">For Corporate Houses</option>\n              <option value=\"Shopping Malls\">For Shopping Malls</option>\n              <option value=\"Hotels\">For Hotels</option>\n              <option value=\"Hospitals\">For Hospitals</option>\n            </optgroup>\n            <optgroup label=\"Industrial\" class=\"industrial\">\n              <option value=\"Industry/Factory\">For Industry/Factory</option>\n              <option value=\"Warehouse/Stockyard\">\n                For Warehouse/Stockyard\n              </option>\n            </optgroup>\n            <optgroup label=\"Institutional\" class=\"institutional\">\n              <option value=\"School/College/University\">\n                For School/College/University\n              </option>\n              <option value=\"Government Offices\">For Government Offices</option>\n              <option value=\"Public Facilities\">For Public Facilities</option>\n            </optgroup>\n            <optgroup label=\"Agricultural\" class=\"agricultural\">\n              <option value=\"Tube wells\">For Tube wells</option>\n              <option value=\"Farming\">For Farming</option>\n            </optgroup>\n            <optgroup label=\"Others\" class=\"others\">\n              <option value=\"Custom Requirements\">Custom Requirements</option>\n            </optgroup>\n          </select>\n          <span id=\"error_requirement\" class=\"error\"></span>\n        </div>\n        <div class=\"form-group\">\n          <label for=\"query\"\n            >Type your Query:<span class=\"required\">*</span></label\n          >\n          <textarea\n            style=\"border-width: 0\"\n            class=\"ta\"\n            id=\"query\"\n            name=\"query\"\n            rows=\"5\"\n            cols=\"63\"\n          ></textarea>\n        </div>\n      </div>\n    </div>\n    <button type=\"submit\" class=\"submit-btn\">Submit</button>\n  </form>\n</div>\n\n<script>\n  function showRequirements() {\n    var purpose = document.getElementById(\"purpose\").value;\n    var requirementSection = document.getElementById(\"requirement-section\");\n    var requirementSelect = document.getElementById(\"requirement\");\n    var optgroups = requirementSelect.getElementsByTagName(\"optgroup\");\n\n    if (purpose) {\n      requirementSection.style.display = \"block\";\n      for (var i = 0; i < optgroups.length; i++) {\n        var optgroup = optgroups[i];\n        if (optgroup.label.toLowerCase() === purpose.toLowerCase()) {\n          optgroup.style.display = \"block\";\n        } else {\n          optgroup.style.display = \"none\";\n        }\n      }\n    } else {\n      requirementSection.style.display = \"none\";\n    }\n  }\n\n  document\n    .getElementById(\"secondForm\")\n    .addEventListener(\"submit\", function (event) {\n      event.preventDefault();\n\n      var name = document.getElementById(\"name\").value;\n      var location = document.getElementById(\"location\").value;\n      var email = document.getElementById(\"email\").value;\n      var contact = document.getElementById(\"contact\").value;\n      var purpose = document.getElementById(\"purpose\").value;\n      var requirement = document.getElementById(\"requirement\").value;\n\n      var isValid = true;\n\n      if (!name) {\n        document.getElementById(\"error_name\").innerHTML =\n          \"Name field is required\";\n        isValid = false;\n      } else {\n        document.getElementById(\"error_name\").innerHTML = \"\";\n      }\n\n      if (!location) {\n        document.getElementById(\"error_location\").innerHTML =\n          \"Location field is required\";\n        isValid = false;\n      } else {\n        document.getElementById(\"error_location\").innerHTML = \"\";\n      }\n\n      if (!email) {\n        document.getElementById(\"error_email\").innerHTML =\n          \"Email field is required\";\n        isValid = false;\n      } else {\n        document.getElementById(\"error_email\").innerHTML = \"\";\n      }\n\n      if (!contact) {\n        document.getElementById(\"error_contact\").innerHTML =\n          \"Contact field is required\";\n        isValid = false;\n      } else if (!/^\\d{10}$/.test(contact)) {\n        document.getElementById(\"error_contact\").innerHTML =\n          \"Contact number must be 10 digits\";\n        isValid = false;\n      } else {\n        document.getElementById(\"error_contact\").innerHTML = \"\";\n      }\n\n      if (!purpose) {\n        document.getElementById(\"error_purpose\").innerHTML =\n          \"Purpose field is required\";\n        isValid = false;\n      } else {\n        document.getElementById(\"error_purpose\").innerHTML = \"\";\n      }\n\n      if (!requirement) {\n        document.getElementById(\"error_requirement\").innerHTML =\n          \"Requirement field is required\";\n        isValid = false;\n      } else {\n        document.getElementById(\"error_requirement\").innerHTML = \"\";\n      }\n\n      if (isValid) {\n        this.submit();\n      }\n    });\n\n  document\n    .getElementById(\"purpose\")\n    .addEventListener(\"change\", showRequirements);\n  document.addEventListener(\"DOMContentLoaded\", showRequirements);\n</script>",
+        "custom_class": "container"
+      }
+    },
+    "custom_content_DNPQjj": {
+      "type": "custom-content",
+      "blocks": {
+        "image_44QtxV": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Group_44_6dd7f55a-7c3f-4a7b-b8f2-0025c0a01ae1.png",
+            "link": "",
+            "width": "100%",
+            "alignment": "center",
+            "block_custom_class": "",
+            "animations": "inherit"
+          }
+        }
+      },
+      "block_order": [
+        "image_44QtxV"
+      ],
+      "settings": {
+        "heading": "",
+        "heading_size": "h3",
+        "subheading": "",
+        "description": "",
+        "header_alignment": "center",
+        "container": "w-full",
+        "color_scheme": "scheme-cee058e4-58e3-46aa-9af9-219dadc79066",
+        "content_color_scheme": "scheme-cee058e4-58e3-46aa-9af9-219dadc79066",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "gap": 30,
+        "gap_mobile": 16,
+        "use_scroll_mobile": false,
+        "padding_top": 100,
+        "padding_bottom": 0,
+        "custom_class": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "custom_content_4TDMwA",
+    "rich_text_qKiLKX",
+    "custom_liquid_n6GM9C",
+    "custom_content_DNPQjj"
+  ]
+}

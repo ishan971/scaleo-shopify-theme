@@ -1,0 +1,267 @@
+{%- comment -%}
+  Scale-O Watch & Shop card
+  Accepts: block, section
+{%- endcomment -%}
+
+{%- liquid
+  assign product = block.settings.product
+  assign video_obj = block.settings.shopify_video
+  assign video_link = block.settings.video_url
+  assign poster = block.settings.poster
+
+  assign video_src = ''
+  if video_obj != blank
+    for source in video_obj.sources
+      if source.format == 'mp4' or source.mime_type == 'video/mp4'
+        assign video_src = source.url
+      endif
+    endfor
+    if video_src == blank and video_obj.sources.size > 0
+      assign video_src = video_obj.sources.first.url
+    endif
+  endif
+
+  assign media_kind = 'none'
+  if block.settings.video_type == 'external' and video_link != blank and video_link.id != blank
+    if video_link.type == 'youtube'
+      assign media_kind = 'youtube'
+    elsif video_link.type == 'vimeo'
+      assign media_kind = 'vimeo'
+    endif
+  elsif video_src != blank
+    assign media_kind = 'shopify'
+  elsif video_link != blank and video_link.id != blank
+    if video_link.type == 'youtube'
+      assign media_kind = 'youtube'
+    elsif video_link.type == 'vimeo'
+      assign media_kind = 'vimeo'
+    endif
+  endif
+
+  assign poster_url = ''
+  if poster != blank
+    assign poster_url = poster | image_url: width: 900
+  elsif video_obj != blank and video_obj.preview_image != blank
+    assign poster_url = video_obj.preview_image | image_url: width: 900
+  endif
+
+  assign do_autoplay = false
+  if section.settings.autoplay and block.settings.autoplay
+    assign do_autoplay = true
+  endif
+
+  assign do_muted = false
+  if section.settings.muted or block.settings.muted or do_autoplay
+    assign do_muted = true
+  endif
+
+  assign do_loop = false
+  if section.settings.loop and block.settings.loop
+    assign do_loop = true
+  endif
+
+  assign do_controls = false
+  if section.settings.show_controls or block.settings.show_controls
+    assign do_controls = true
+  endif
+
+  assign show_play = false
+  if block.settings.show_play_button and do_autoplay == false
+    assign show_play = true
+  endif
+
+  assign display_title = block.settings.custom_title
+  if display_title == blank and product != blank
+    assign display_title = product.title
+  endif
+
+  assign display_price = block.settings.custom_price
+  if display_price == blank and product != blank
+    assign price_amount = product.price | money_without_currency | strip
+    if section.settings.use_rupee_symbol
+      assign display_price = '₹' | append: price_amount
+    else
+      assign display_price = product.price | money_without_trailing_zeros
+    endif
+  endif
+
+  assign product_url = block.settings.cta_url
+  if product != blank
+    assign product_url = product.url
+  endif
+
+  if product != blank and product.featured_image != blank
+    assign product_image = product.featured_image
+  endif
+
+  assign overlay_title = block.settings.video_title
+  if overlay_title == blank
+    assign overlay_title = block.settings.subtitle
+  endif
+  assign cta_text = block.settings.cta_text | default: 'Shop Now'
+  assign card_label = block.settings.video_title
+  if card_label == blank
+    assign card_label = display_title
+  endif
+  if card_label == blank
+    assign card_label = 'Watch & Shop video'
+  endif
+
+  assign show_product = false
+  if block.settings.show_product
+    if display_title != blank or display_price != blank or product_image != blank
+      assign show_product = true
+    endif
+  endif
+
+  assign origin = shop.url | url_encode
+  assign yt_params = 'playsinline=1&rel=0&modestbranding=1&enablejsapi=1&controls=0&origin=' | append: origin
+  if do_muted
+    assign yt_params = yt_params | append: '&mute=1'
+  endif
+  if do_loop and video_link.id != blank
+    assign yt_params = yt_params | append: '&loop=1&playlist=' | append: video_link.id
+  endif
+
+  assign vimeo_params = 'playsinline=1&title=0&byline=0&portrait=0&dnt=1'
+  if do_muted
+    assign vimeo_params = vimeo_params | append: '&muted=1'
+  endif
+  if do_loop
+    assign vimeo_params = vimeo_params | append: '&loop=1'
+  endif
+-%}
+
+<article
+  class="scale-o-watch-shop__card"
+  {{ block.shopify_attributes }}
+  data-was-card
+  data-autoplay="{% if do_autoplay %}true{% else %}false{% endif %}"
+  data-controls="{% if do_controls %}true{% else %}false{% endif %}"
+>
+  <div class="scale-o-watch-shop__media" data-was-media>
+    {%- if media_kind == 'shopify' -%}
+      <video
+        class="scale-o-watch-shop__video"
+        data-was-video
+        data-src="{{ video_src }}"
+        playsinline
+        preload="none"
+        {% if poster_url != blank %}poster="{{ poster_url }}"{% endif %}
+        {% if do_muted %}muted{% endif %}
+        {% if do_loop %}loop{% endif %}
+        {% if do_controls %}controls{% endif %}
+        aria-label="{{ card_label | escape }}"
+      ></video>
+    {%- elsif media_kind == 'youtube' -%}
+      <iframe
+        class="scale-o-watch-shop__iframe"
+        data-was-iframe
+        data-provider="youtube"
+        data-src="https://www.youtube.com/embed/{{ video_link.id }}?{{ yt_params }}"
+        allow="autoplay; encrypted-media; picture-in-picture"
+        allowfullscreen
+        title="{{ card_label | escape }}"
+        tabindex="-1"
+      ></iframe>
+    {%- elsif media_kind == 'vimeo' -%}
+      <iframe
+        class="scale-o-watch-shop__iframe"
+        data-was-iframe
+        data-provider="vimeo"
+        data-src="https://player.vimeo.com/video/{{ video_link.id }}?{{ vimeo_params }}"
+        allow="autoplay; encrypted-media; picture-in-picture"
+        allowfullscreen
+        title="{{ card_label | escape }}"
+        tabindex="-1"
+      ></iframe>
+    {%- endif -%}
+
+    {%- if poster_url != blank -%}
+      <img
+        class="scale-o-watch-shop__poster"
+        src="{{ poster_url }}"
+        alt="{{ card_label | escape }}"
+        width="450"
+        height="800"
+        loading="lazy"
+      >
+    {%- elsif media_kind == 'none' -%}
+      <div class="scale-o-watch-shop__placeholder" aria-hidden="true">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+      </div>
+    {%- endif -%}
+
+    <div class="scale-o-watch-shop__scrim" aria-hidden="true"></div>
+  </div>
+
+  {%- if block.settings.show_badge and block.settings.badge != blank -%}
+    <p class="scale-o-watch-shop__badge">{{ block.settings.badge | escape }}</p>
+  {%- endif -%}
+
+  {%- if block.settings.show_video_title and overlay_title != blank -%}
+    <p class="scale-o-watch-shop__video-title">{{ overlay_title | escape }}</p>
+  {%- endif -%}
+
+  {%- if show_play and media_kind != 'none' -%}
+    <button
+      type="button"
+      class="scale-o-watch-shop__play"
+      data-was-play
+      aria-label="Play {{ card_label | escape }}"
+      aria-pressed="false"
+    >
+      <svg class="scale-o-watch-shop__play-icon scale-o-watch-shop__play-icon--play" width="18" height="18" viewBox="0 0 18 18" fill="currentColor" aria-hidden="true">
+        <path d="M15.562 8.1L3.87.225c-.818-.562-1.87 0-1.87.9v15.75c0 .9 1.052 1.462 1.87.9L15.563 9.9c.584-.45.584-1.35 0-1.8z"></path>
+      </svg>
+      <svg class="scale-o-watch-shop__play-icon scale-o-watch-shop__play-icon--pause" width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+        <rect x="3" y="2" width="4" height="12" rx="1"></rect>
+        <rect x="9" y="2" width="4" height="12" rx="1"></rect>
+      </svg>
+    </button>
+  {%- endif -%}
+
+  {%- if show_product -%}
+    {%- if product_url != blank -%}
+      <a
+        class="scale-o-watch-shop__product"
+        href="{{ product_url }}"
+        data-was-product
+        aria-label="{{ cta_text | escape }}: {{ display_title | default: card_label | escape }}"
+      >
+    {%- else -%}
+      <div class="scale-o-watch-shop__product" data-was-product>
+    {%- endif -%}
+      {%- if block.settings.show_product_image and product_image != blank -%}
+        <span class="scale-o-watch-shop__product-thumb">
+          <img
+            src="{{ product_image | image_url: width: 120 }}"
+            alt="{{ display_title | escape }}"
+            width="40"
+            height="40"
+            loading="lazy"
+          >
+        </span>
+      {%- endif -%}
+      <span class="scale-o-watch-shop__product-copy">
+        {%- if display_title != blank -%}
+          <span class="scale-o-watch-shop__product-title">{{ display_title | escape }}</span>
+        {%- endif -%}
+        {%- if block.settings.show_product_price and display_price != blank -%}
+          <span class="scale-o-watch-shop__product-price">{{ display_price | escape }}</span>
+        {%- endif -%}
+      </span>
+      {%- if block.settings.show_cta and product_url != blank -%}
+        <span class="scale-o-watch-shop__product-cta" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+            <path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+      {%- endif -%}
+    {%- if product_url != blank -%}
+      </a>
+    {%- else -%}
+      </div>
+    {%- endif -%}
+  {%- endif -%}
+</article>

@@ -62,6 +62,12 @@
     background: linear-gradient(180deg, var(--hiw-bg) 0%, var(--hiw-bg-end) 100%);
     {% endif %}
     overflow: hidden;
+    font-family: var(--font-stack-header);
+    font-style: var(--font-style-header);
+  }
+
+  #shopify-section-{{ section.id }} .scale-o-how-it-works *:not(svg):not(path):not(circle):not(line):not(polyline):not(rect) {
+    font-family: inherit !important;
   }
 
   #shopify-section-{{ section.id }} .scale-o-how-it-works__container {
@@ -83,19 +89,23 @@
   #shopify-section-{{ section.id }} .scale-o-how-it-works__eyebrow {
     margin: 0 0 8px;
     color: var(--hiw-accent);
+    font-family: var(--font-stack-header);
+    font-style: var(--font-style-header);
     font-size: var(--hiw-eyebrow-size);
-    font-weight: 700;
-    letter-spacing: 0.14em;
+    font-weight: var(--font-weight-header);
+    letter-spacing: var(--heading-letter-spacing);
     text-transform: uppercase;
   }
 
   #shopify-section-{{ section.id }} .scale-o-how-it-works__heading {
     margin: 0 0 12px;
     color: var(--hiw-heading);
+    font-family: var(--font-stack-header);
+    font-style: var(--font-style-header);
     font-size: var(--hiw-heading-size);
-    font-weight: 700;
-    line-height: 1.15;
-    letter-spacing: -0.02em;
+    font-weight: var(--font-weight-header);
+    line-height: 1.235;
+    letter-spacing: var(--heading-letter-spacing);
   }
 
   #shopify-section-{{ section.id }} .scale-o-how-it-works__desc {
@@ -946,8 +956,8 @@
     { "type": "color", "id": "step_number_color", "label": "Step number color", "default": "#0C7FDF" },
     { "type": "color", "id": "divider_color", "label": "Divider color", "default": "#D6E2FA" },
     { "type": "header", "content": "Typography" },
-    { "type": "range", "id": "eyebrow_size", "label": "Eyebrow size", "min": 10, "max": 16, "step": 1, "unit": "px", "default": 12 },
-    { "type": "range", "id": "heading_size_desktop", "label": "Heading size (desktop)", "min": 24, "max": 48, "step": 1, "unit": "px", "default": 36 },
+    { "type": "range", "id": "eyebrow_size", "label": "Eyebrow size", "min": 10, "max": 16, "step": 1, "unit": "px", "default": 16 },
+    { "type": "range", "id": "heading_size_desktop", "label": "Heading size (desktop)", "min": 24, "max": 48, "step": 1, "unit": "px", "default": 45 },
     { "type": "range", "id": "heading_size_mobile", "label": "Heading size (mobile)", "min": 20, "max": 36, "step": 1, "unit": "px", "default": 28 },
     { "type": "range", "id": "description_size", "label": "Description size", "min": 13, "max": 20, "step": 1, "unit": "px", "default": 16 },
     { "type": "range", "id": "step_title_size", "label": "Step title size", "min": 14, "max": 22, "step": 1, "unit": "px", "default": 17 },

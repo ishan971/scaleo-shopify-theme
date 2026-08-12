@@ -1,0 +1,130 @@
+{%- liquid
+  assign liner = item.liner | strip
+  assign feature_title = item.title | default: item.heading
+  assign feature_desc = item.description | default: item.text | default: item.details | default: item.subtext
+  assign liner_down = liner | downcase
+  assign title_down = feature_title | downcase
+
+  if feature_title == blank and liner != blank
+    if liner contains ' with '
+      assign liner_parts = liner | split: ' with '
+      assign feature_title = liner_parts.first
+      assign feature_desc = liner_parts.last
+    elsif liner_down contains 'cartridge' or liner_down contains 'home delivered'
+      assign feature_title = 'Timely Cartridge Delivery'
+      assign feature_desc = liner
+    elsif liner_down contains 'track order' or liner_down contains 'remind'
+      assign feature_title = 'Order Tracking & Reminders'
+      assign feature_desc = liner
+    elsif liner_down contains 'hidden extra' or liner_down contains 'transparent pricing'
+      assign feature_title = 'No Hidden Extra Charges'
+      assign feature_desc = liner
+    elsif liner_down contains 'delivery or exchange' or liner_down contains 'charges are included' or liner_down contains 'charges included'
+      assign feature_title = "Delivery's on us"
+      assign feature_desc = liner
+    else
+      assign feature_title = liner
+    endif
+  elsif feature_title != blank and feature_desc == blank and liner != blank and liner != feature_title
+    assign feature_desc = liner
+  endif
+
+  assign check_down = feature_title | downcase | append: ' ' | append: liner_down
+  if title_down contains 'charges are included' or title_down contains 'charges included' or liner_down contains 'charges are included' or liner_down contains 'charges included' or liner_down contains 'delivery or exchange'
+    if feature_title == blank or title_down contains 'charges are included' or title_down contains 'charges included' or title_down contains 'delivery or exchange'
+      assign feature_title = "Delivery's on us"
+    endif
+  endif
+  if feature_title == "Delivery's on us"
+    assign desc_down = feature_desc | downcase
+    if feature_desc == blank or feature_desc == feature_title or desc_down contains 'charges are included' or desc_down contains 'charges included'
+      assign feature_desc = 'No extra charges for delivery or exchange'
+    endif
+  endif
+  if feature_desc == blank or feature_desc == feature_title
+    if check_down contains 'hidden extra'
+      assign feature_desc = 'Transparent pricing with nothing to worry about'
+    elsif check_down contains 'delivery' and check_down contains 'charge'
+      assign feature_desc = 'No extra charges for delivery or exchange'
+    elsif check_down contains 'trial'
+      assign feature_desc = 'Simple 1-time payment for worry-free usage'
+    elsif check_down contains 'subscription' or check_down contains 'pay for'
+      assign feature_desc = 'Simple 1-time payment for worry-free usage'
+    endif
+  endif
+  if feature_desc == feature_title
+    assign feature_desc = ''
+  endif
+
+  assign title_down = feature_title | downcase | append: ' ' | append: liner_down
+  assign icon_type = 'check'
+  if title_down contains 'guarantee' or title_down contains 'replacement' or title_down contains 'damage'
+    assign icon_type = 'shield'
+  elsif title_down contains 'cartridge' or title_down contains 'home delivered' or title_down contains 'timely'
+    assign icon_type = 'truck'
+  elsif title_down contains 'track' or title_down contains 'remind'
+    assign icon_type = 'clipboard'
+  elsif title_down contains 'hidden' or title_down contains 'pricing' or title_down contains 'rupee' or title_down contains 'extra charge'
+    assign icon_type = 'tag'
+  elsif title_down contains 'subscription' or title_down contains 'trial' or title_down contains 'pay for' or title_down contains 'worry-free'
+    assign icon_type = 'calendar'
+  elsif title_down contains 'delivery' or title_down contains 'exchange' or title_down contains 'charges included'
+    assign icon_type = 'box'
+  endif
+-%}
+<div class="plan-features__item">
+  <div class="plan-features__icon">
+    {%- case icon_type -%}
+      {%- when 'shield' -%}
+        <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+          <path d="M24 6.5l14 5.2v11.6c0 8.4-5.6 15.8-14 18.2-8.4-2.4-14-9.8-14-18.2V11.7L24 6.5z" stroke="#0C7FDF" stroke-width="2.2" stroke-linejoin="round"/>
+          <path d="M16.8 23.2l4.6 4.6 10-10" stroke="#0C7FDF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      {%- when 'truck' -%}
+        <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+          <path d="M6.5 14.5h20.5v16H6.5v-16z" stroke="#0C7FDF" stroke-width="2.2" stroke-linejoin="round"/>
+          <path d="M27 19.5h8.2L41 26.2V30.5H27V19.5z" stroke="#0C7FDF" stroke-width="2.2" stroke-linejoin="round"/>
+          <circle cx="14" cy="34.2" r="2.6" stroke="#0C7FDF" stroke-width="2.2"/>
+          <circle cx="34.5" cy="34.2" r="2.6" stroke="#0C7FDF" stroke-width="2.2"/>
+          <circle cx="16.8" cy="20.2" r="4.2" stroke="#0C7FDF" stroke-width="2"/>
+          <path d="M16.8 18.2v2.4l1.7 1.1" stroke="#0C7FDF" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      {%- when 'clipboard' -%}
+        <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+          <rect x="12" y="10" width="24" height="30" rx="3" stroke="#0C7FDF" stroke-width="2.2"/>
+          <rect x="18" y="7" width="12" height="6" rx="2" stroke="#0C7FDF" stroke-width="2.2"/>
+          <path d="M18 22h8M18 28h8" stroke="#0C7FDF" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="31.5" cy="31.5" r="6" fill="#eaf5ff" stroke="#0C7FDF" stroke-width="2"/>
+          <path d="M28.8 31.5l1.8 1.8 3.6-3.8" stroke="#0C7FDF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      {%- when 'box' -%}
+        <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+          <path d="M8 16.5L24 9l16 7.5v16.8L24 41 8 33.3V16.5z" stroke="#0C7FDF" stroke-width="2.2" stroke-linejoin="round"/>
+          <path d="M8 16.5L24 24l16-7.5M24 24v17" stroke="#0C7FDF" stroke-width="2.2" stroke-linejoin="round"/>
+        </svg>
+      {%- when 'tag' -%}
+        <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+          <path d="M10 24.5V12h12.5L38 27.5 26.5 39 10 24.5z" stroke="#0C7FDF" stroke-width="2.2" stroke-linejoin="round"/>
+          <circle cx="16.5" cy="18" r="2" fill="#0C7FDF"/>
+          <text x="24" y="30" text-anchor="middle" fill="#0C7FDF" font-size="11" font-weight="700">₹</text>
+        </svg>
+      {%- when 'calendar' -%}
+        <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+          <rect x="9" y="12" width="30" height="26" rx="3" stroke="#0C7FDF" stroke-width="2.2"/>
+          <path d="M9 19h30M16 8.5v7M32 8.5v7" stroke="#0C7FDF" stroke-width="2.2" stroke-linecap="round"/>
+          <path d="M18.5 29.5l4 4 8-9" stroke="#0C7FDF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      {%- else -%}
+        <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+          <circle cx="24" cy="24" r="14" stroke="#0C7FDF" stroke-width="2.2"/>
+          <path d="M17 24.5l4.5 4.5 9.5-10" stroke="#0C7FDF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    {%- endcase -%}
+  </div>
+  {%- if feature_title != blank -%}
+    <span class="plan-features__title{% if feature_title contains "Delivery's on us" or feature_title contains 'charges are included' or feature_title contains 'Charges Included' %} plan-features__title--oneline{% endif %}">{{ feature_title }}</span>
+  {%- endif -%}
+  {%- if feature_desc != blank and feature_desc != feature_title -%}
+    <span class="plan-features__desc">{{ feature_desc }}</span>
+  {%- endif -%}
+</div>

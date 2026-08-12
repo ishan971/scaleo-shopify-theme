@@ -220,7 +220,7 @@
         "margin_bottom": 0,
         "show_dividers": true,
         "divider_color": "#ffffff",
-        "mobile_layout": "scroll",
+        "mobile_layout": "grid",
         "enable_mobile_auto_scroll": false,
         "hide_desktop": false,
         "hide_mobile": false,

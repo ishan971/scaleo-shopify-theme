@@ -237,6 +237,12 @@
       display: none;
     }
 
+    /* Centre a lone last item when total is odd */
+    #shopify-section-{{ section.id }} .scale-o-stats[data-mobile-layout="grid"] .scale-o-stats__item:last-child:nth-child(odd) {
+      grid-column: 1 / -1;
+      justify-content: center;
+    }
+
     #shopify-section-{{ section.id }} .scale-o-stats[data-mobile-layout="stack"] .scale-o-stats__list {
       grid-template-columns: 1fr;
       gap: 14px;

@@ -232,11 +232,22 @@
       justify-content: flex-start;
     }
 
-    .scale-o-usp-strip[data-mobile-layout="grid"] .scale-o-usp-strip__item:nth-child(2n)::after {
-      display: none;
+    /* show divider only on left-column items (odd) — sits between col 1 and col 2 */
+    .scale-o-usp-strip[data-mobile-layout="grid"] .scale-o-usp-strip__item:nth-child(odd)::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 15%;
+      bottom: 15%;
+      width: 1px;
+      background: var(--usp-divider);
+      opacity: 0.55;
+      pointer-events: none;
+      display: block;
     }
 
-    .scale-o-usp-strip[data-mobile-layout="grid"] .scale-o-usp-strip__item:nth-last-child(-n+2)::after {
+    /* hide divider on right-column items */
+    .scale-o-usp-strip[data-mobile-layout="grid"] .scale-o-usp-strip__item:nth-child(even)::after {
       display: none;
     }
 

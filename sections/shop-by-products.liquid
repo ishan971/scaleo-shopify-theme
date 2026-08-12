@@ -1,0 +1,345 @@
+{%- comment -%}
+  Scale-O Shop by Products — premium consistent product grid
+{%- endcomment -%}
+
+{{ 'scale-o-product-grid.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign collection = collections[section.settings.collection]
+  assign products_limit = section.settings.products_to_show
+  assign display_mode = section.settings.display_mode
+  assign header_align = section.settings.header_alignment
+  assign max_width = section.settings.max_width
+  assign image_ratio = section.settings.image_aspect_ratio
+-%}
+
+<style>
+  #shopify-section-{{ section.id }} .scale-o-product-grid {
+    --spg-bg: {{ section.settings.background_color }};
+    --spg-accent: {{ section.settings.accent_color }};
+    --spg-eyebrow-color: {{ section.settings.eyebrow_color }};
+    --spg-heading-color: {{ section.settings.heading_color }};
+    --spg-text-color: {{ section.settings.text_color }};
+    --spg-title-color: {{ section.settings.title_color }};
+    --spg-price-color: {{ section.settings.price_color }};
+    --spg-compare-color: {{ section.settings.compare_price_color }};
+    --spg-discount-color: {{ section.settings.discount_color }};
+    --spg-spec-background: {{ section.settings.spec_background }};
+    --spg-spec-text-color: {{ section.settings.spec_text_color }};
+    --spg-spec-border-color: {{ section.settings.spec_border_color }};
+    --spg-spec-icon-color: {{ section.settings.spec_icon_color }};
+    --spg-card-bg: {{ section.settings.card_background }};
+    --spg-card-border: {{ section.settings.card_border_color }};
+    --spg-image-bg: {{ section.settings.image_background }};
+    --spg-button-bg: {{ section.settings.button_background }};
+    --spg-button-bg-hover: {{ section.settings.button_background_hover }};
+    --spg-button-text: {{ section.settings.button_text_color }};
+    --spg-badge-sale-bg: {{ section.settings.badge_sale_background }};
+    --spg-badge-sale-text: {{ section.settings.badge_sale_text }};
+    --spg-badge-best-bg: {{ section.settings.badge_best_seller_background }};
+    --spg-badge-best-text: {{ section.settings.badge_best_seller_text_color }};
+    --spg-badge-affordable-bg: {{ section.settings.badge_affordable_background }};
+    --spg-badge-affordable-text: {{ section.settings.badge_affordable_text_color }};
+    --spg-badge-popular-bg: {{ section.settings.badge_popular_background }};
+    --spg-badge-popular-text: {{ section.settings.badge_popular_text_color }};
+    --spg-badge-new-bg: {{ section.settings.badge_new_background }};
+    --spg-badge-new-text: {{ section.settings.badge_new_text_color }};
+    --spg-eyebrow-size: {{ section.settings.eyebrow_size }}px;
+    --spg-heading-size: {{ section.settings.heading_size_mobile }}px;
+    --spg-heading-size-desktop: {{ section.settings.heading_size_desktop }}px;
+    --spg-desc-size: {{ section.settings.description_size }}px;
+    --spg-title-size: {{ section.settings.title_size }}px;
+    --spg-price-size: {{ section.settings.price_size }}px;
+    --spg-spec-size: {{ section.settings.spec_size }}px;
+    --spg-button-size: {{ section.settings.button_text_size }}px;
+    --spg-image-ratio: {{ image_ratio }};
+    --spg-image-padding: {{ section.settings.image_padding }}px;
+    --spg-card-radius: {{ section.settings.card_radius }}px;
+    --spg-card-shadow: 0 4px 16px rgba(26, 43, 74, 0.06);
+    --spg-card-shadow-hover: 0 8px 24px rgba(26, 43, 74, 0.1);
+    --spg-gap: {{ section.settings.card_gap }}px;
+    --spg-gap-mobile: {{ section.settings.card_gap_mobile }}px;
+    --spg-pad-x: {{ section.settings.padding_x }}px;
+    --spg-header-gap: {{ section.settings.header_gap }}px;
+    --spg-header-align: {{ header_align }};
+    --spg-max-width: {% if max_width == 0 %}100%{% else %}{{ max_width }}px{% endif %};
+    --spg-cols-desktop: {{ section.settings.desktop_columns }};
+    --spg-cols-tablet: {{ section.settings.tablet_columns }};
+    --spg-cols-mobile: {{ section.settings.mobile_columns }};
+    --spg-mt: {{ section.settings.margin_top }}px;
+    --spg-mb: {{ section.settings.margin_bottom }}px;
+    --spg-pt: {{ section.settings.padding_top }}px;
+    --spg-pb: {{ section.settings.padding_bottom }}px;
+    margin-top: var(--spg-mt);
+    margin-bottom: var(--spg-mb);
+    padding: var(--spg-pt) 0 var(--spg-pb);
+    background: var(--spg-bg);
+  }
+</style>
+
+<div
+  class="scale-o-product-grid scale-o-product-grid--{{ display_mode }}"
+  data-section-id="{{ section.id }}"
+  data-display-mode="{{ display_mode }}"
+  data-cols-desktop="{{ section.settings.desktop_columns }}"
+  data-cols-tablet="{{ section.settings.tablet_columns }}"
+  data-cols-mobile="{{ section.settings.mobile_columns }}"
+  role="region"
+  aria-label="{{ section.settings.accessibility_label | default: 'Shop by products' | escape }}"
+>
+  <div class="scale-o-product-grid__container">
+    {%- if section.settings.eyebrow != blank or section.settings.heading != blank or section.settings.description != blank -%}
+      <header class="scale-o-product-grid__header">
+        {%- if section.settings.eyebrow != blank -%}
+          <p class="scale-o-product-grid__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+        {%- endif -%}
+        {%- if section.settings.heading != blank -%}
+          <h2 class="scale-o-product-grid__heading">{{ section.settings.heading | escape }}</h2>
+        {%- endif -%}
+        {%- if section.settings.description != blank -%}
+          <p class="scale-o-product-grid__description">{{ section.settings.description | escape }}</p>
+        {%- endif -%}
+      </header>
+    {%- endif -%}
+
+    {%- if collection != blank and collection.products_count > 0 -%}
+      {%- if display_mode == 'carousel' -%}
+        <div class="scale-o-product-grid__carousel-wrap">
+          <button type="button" class="scale-o-product-grid__nav scale-o-product-grid__nav--prev" data-product-grid-prev aria-label="Previous products">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M10 3L5 8L10 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="scale-o-product-grid__viewport" data-product-grid-viewport>
+            <ul class="scale-o-product-grid__track" data-product-grid-track role="list">
+              {%- for product in collection.products limit: products_limit -%}
+                <li class="scale-o-product-grid__slide" data-product-grid-slide>
+                  {% render 'scale-o-product-card', product: product, section: section, card_index: forloop.index %}
+                </li>
+              {%- endfor -%}
+            </ul>
+          </div>
+          <button type="button" class="scale-o-product-grid__nav scale-o-product-grid__nav--next" data-product-grid-next aria-label="Next products">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="scale-o-product-grid__dots" data-product-grid-dots role="tablist" aria-label="Product carousel pagination"></div>
+        </div>
+      {%- else -%}
+        <div class="scale-o-product-grid__viewport" data-product-grid-viewport>
+          <ul class="scale-o-product-grid__track" data-product-grid-track role="list">
+            {%- for product in collection.products limit: products_limit -%}
+              <li class="scale-o-product-grid__slide" data-product-grid-slide>
+                {% render 'scale-o-product-card', product: product, section: section, card_index: forloop.index %}
+              </li>
+            {%- endfor -%}
+          </ul>
+        </div>
+      {%- endif -%}
+    {%- else -%}
+      <ul class="scale-o-product-grid__track" role="list">
+        {%- for i in (1..products_limit) -%}
+          <li class="scale-o-product-grid__slide">
+            <article class="scale-o-product-card">
+              <div class="scale-o-product-card__media-wrap">
+                <div class="scale-o-product-card__media">
+                  <span class="scale-o-product-card__img-wrap scale-o-product-card__img-wrap--placeholder">
+                    {{ 'product-1' | placeholder_svg_tag: 'scale-o-product-card__placeholder' }}
+                  </span>
+                </div>
+              </div>
+              <div class="scale-o-product-card__body">
+                <div class="scale-o-product-card__details">
+                  <h3 class="scale-o-product-card__title">{{ 'homepage.onboarding.product_title' | t }}</h3>
+                  <p class="scale-o-product-card__price">{{ 1999 | money }}</p>
+                </div>
+                <span class="scale-o-product-card__cta m-button m-button--primary">{{ section.settings.button_text | escape }}</span>
+              </div>
+            </article>
+          </li>
+        {%- endfor -%}
+      </ul>
+    {%- endif -%}
+
+    {%- if section.settings.show_view_all -%}
+      {%- liquid
+        assign view_all_url = section.settings.view_all_url
+        if view_all_url == blank and collection != blank
+          assign view_all_url = collection.url
+        endif
+      -%}
+      {%- if view_all_url != blank -%}
+        <div class="scale-o-product-grid__view-all">
+          <a href="{{ view_all_url }}" class="scale-o-product-grid__view-all-btn">
+            <span class="scale-o-product-grid__view-all-grid" aria-hidden="true">
+              <span></span><span></span><span></span><span></span>
+            </span>
+            <span>{{ section.settings.view_all_text | default: 'View all products' | escape }}</span>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      {%- endif -%}
+    {%- endif -%}
+  </div>
+</div>
+
+{%- if display_mode == 'carousel' -%}
+  <script src="{{ 'scale-o-product-grid.js' | asset_url }}" defer></script>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Shop by Products",
+  "tag": "section",
+  "class": "scale-o-product-grid-section",
+  "settings": [
+    { "type": "header", "content": "Header" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "PRODUCTS" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Shop by Products" },
+    { "type": "textarea", "id": "description", "label": "Description", "default": "Choose the perfect Scale-O Water Softener for your home." },
+    {
+      "type": "select",
+      "id": "header_alignment",
+      "label": "Header alignment",
+      "default": "center",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ]
+    },
+    { "type": "header", "content": "Product source" },
+    { "type": "collection", "id": "collection", "label": "Products collection" },
+    { "type": "range", "id": "products_to_show", "label": "Products to show", "min": 4, "max": 16, "step": 1, "default": 8 },
+    {
+      "type": "select",
+      "id": "display_mode",
+      "label": "Product display",
+      "default": "carousel",
+      "options": [
+        { "value": "grid", "label": "Grid" },
+        { "value": "carousel", "label": "Carousel" }
+      ]
+    },
+    { "type": "header", "content": "Card content" },
+    { "type": "checkbox", "id": "show_badges", "label": "Show badges", "default": true },
+    { "type": "checkbox", "id": "show_specifications", "label": "Show specifications", "default": true, "info": "Uses product metafield custom.product_detail_usp" },
+    { "type": "checkbox", "id": "show_spec_icons", "label": "Show specification icons", "default": true },
+    { "type": "checkbox", "id": "use_metafield_spec_colors", "label": "Use product metafield spec colors", "default": false, "info": "When off, all spec pills use the theme colors below" },
+    { "type": "checkbox", "id": "use_rupee_symbol", "label": "Show Indian rupee symbol (₹)", "default": true },
+    { "type": "checkbox", "id": "show_compare_at_price", "label": "Show compare-at price", "default": true },
+    { "type": "checkbox", "id": "show_discount", "label": "Show save badge", "default": true },
+    { "type": "checkbox", "id": "show_ratings", "label": "Show product reviews", "default": false, "info": "Toggle to show or hide Judge.me ratings on cards" },
+    { "type": "checkbox", "id": "show_shop_now_button", "label": "Show Shop Now button", "default": true },
+    { "type": "text", "id": "button_text", "label": "Shop Now button text", "default": "Shop Now" },
+    { "type": "header", "content": "View all products" },
+    { "type": "checkbox", "id": "show_view_all", "label": "Show View all products button", "default": true },
+    { "type": "text", "id": "view_all_text", "label": "View all button text", "default": "View all products" },
+    { "type": "url", "id": "view_all_url", "label": "View all button link", "info": "Leave blank to use the selected collection" },
+    { "type": "checkbox", "id": "enable_image_hover", "label": "Enable image hover", "default": true, "info": "Shows second product image on hover when available" },
+    { "type": "text", "id": "badge_best_seller_text", "label": "Best Seller badge text", "default": "Best Seller" },
+    { "type": "text", "id": "badge_most_affordable_text", "label": "Most Affordable badge text", "default": "Most Affordable" },
+    { "type": "text", "id": "badge_popular_text", "label": "Popular badge text", "default": "Popular" },
+    { "type": "text", "id": "badge_new_text", "label": "New badge text", "default": "New" },
+    { "type": "header", "content": "Layout" },
+    { "type": "range", "id": "max_width", "label": "Maximum width", "min": 0, "max": 1600, "step": 20, "unit": "px", "default": 1200 },
+    {
+      "type": "select",
+      "id": "desktop_columns",
+      "label": "Desktop columns",
+      "default": "4",
+      "options": [
+        { "value": "2", "label": "2" },
+        { "value": "3", "label": "3" },
+        { "value": "4", "label": "4" },
+        { "value": "5", "label": "5" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "tablet_columns",
+      "label": "Tablet columns",
+      "default": "2",
+      "options": [
+        { "value": "2", "label": "2" },
+        { "value": "3", "label": "3" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "mobile_columns",
+      "label": "Mobile columns",
+      "default": "1",
+      "options": [
+        { "value": "1", "label": "1" },
+        { "value": "2", "label": "2" }
+      ]
+    },
+    { "type": "range", "id": "card_gap", "label": "Card gap (desktop)", "min": 12, "max": 40, "step": 2, "unit": "px", "default": 20 },
+    { "type": "range", "id": "card_gap_mobile", "label": "Card gap (mobile)", "min": 8, "max": 24, "step": 2, "unit": "px", "default": 12 },
+    { "type": "range", "id": "padding_top", "label": "Top padding", "min": 0, "max": 100, "step": 4, "unit": "px", "default": 12 },
+    { "type": "range", "id": "padding_bottom", "label": "Bottom padding", "min": 0, "max": 100, "step": 4, "unit": "px", "default": 40 },
+    { "type": "range", "id": "padding_x", "label": "Horizontal padding", "min": 12, "max": 80, "step": 4, "unit": "px", "default": 20 },
+    { "type": "range", "id": "margin_top", "label": "Top spacing", "min": 0, "max": 80, "step": 4, "unit": "px", "default": 0 },
+    { "type": "range", "id": "margin_bottom", "label": "Bottom spacing", "min": 0, "max": 80, "step": 4, "unit": "px", "default": 0 },
+    { "type": "range", "id": "header_gap", "label": "Header bottom gap", "min": 16, "max": 64, "step": 4, "unit": "px", "default": 32 },
+    { "type": "header", "content": "Card image" },
+    {
+      "type": "select",
+      "id": "image_aspect_ratio",
+      "label": "Image aspect ratio",
+      "default": "4 / 3",
+      "options": [
+        { "value": "1 / 1", "label": "Square (1:1)" },
+        { "value": "4 / 3", "label": "Landscape (4:3)" },
+        { "value": "3 / 4", "label": "Portrait (3:4)" }
+      ]
+    },
+    { "type": "range", "id": "image_padding", "label": "Image padding", "min": 0, "max": 32, "step": 2, "unit": "px", "default": 8 },
+    { "type": "range", "id": "card_radius", "label": "Card corner radius", "min": 0, "max": 24, "step": 2, "unit": "px", "default": 16 },
+    { "type": "header", "content": "Typography" },
+    { "type": "range", "id": "eyebrow_size", "label": "Eyebrow size", "min": 10, "max": 16, "step": 1, "unit": "px", "default": 12 },
+    { "type": "range", "id": "heading_size_desktop", "label": "Heading size (desktop)", "min": 24, "max": 48, "step": 1, "unit": "px", "default": 36 },
+    { "type": "range", "id": "heading_size_mobile", "label": "Heading size (mobile)", "min": 20, "max": 36, "step": 1, "unit": "px", "default": 28 },
+    { "type": "range", "id": "description_size", "label": "Description size", "min": 13, "max": 20, "step": 1, "unit": "px", "default": 16 },
+    { "type": "range", "id": "title_size", "label": "Product title size", "min": 12, "max": 18, "step": 1, "unit": "px", "default": 14 },
+    { "type": "range", "id": "price_size", "label": "Price size", "min": 14, "max": 24, "step": 1, "unit": "px", "default": 18 },
+    { "type": "range", "id": "spec_size", "label": "Specification size", "min": 10, "max": 14, "step": 1, "unit": "px", "default": 11 },
+    { "type": "range", "id": "button_text_size", "label": "Button text size", "min": 12, "max": 18, "step": 1, "unit": "px", "default": 14 },
+    { "type": "header", "content": "Colors" },
+    { "type": "color", "id": "background_color", "label": "Section background", "default": "#FFFFFF" },
+    { "type": "color", "id": "accent_color", "label": "Accent color", "default": "#0C7FDF" },
+    { "type": "color", "id": "eyebrow_color", "label": "Eyebrow color", "default": "#0C7FDF" },
+    { "type": "color", "id": "heading_color", "label": "Heading color", "default": "#1A2B4A" },
+    { "type": "color", "id": "text_color", "label": "Description color", "default": "#5A6B85" },
+    { "type": "color", "id": "title_color", "label": "Product title color", "default": "#1A2B4A" },
+    { "type": "color", "id": "price_color", "label": "Price color", "default": "#0C7FDF" },
+    { "type": "color", "id": "compare_price_color", "label": "Compare-at price color", "default": "#8A97AB" },
+    { "type": "color", "id": "discount_color", "label": "Discount color", "default": "#22A06B" },
+    { "type": "color", "id": "spec_background", "label": "Specification background", "default": "#EEF6FF" },
+    { "type": "color", "id": "spec_text_color", "label": "Specification text", "default": "#1A2B4A" },
+    { "type": "color", "id": "spec_border_color", "label": "Specification border", "default": "#C5DFFA" },
+    { "type": "color", "id": "spec_icon_color", "label": "Specification icon", "default": "#0C7FDF" },
+    { "type": "color", "id": "card_background", "label": "Card background", "default": "#FFFFFF" },
+    { "type": "color", "id": "card_border_color", "label": "Card border", "default": "#E8EEF8" },
+    { "type": "color", "id": "image_background", "label": "Image area background", "default": "#F5F7FF" },
+    { "type": "color", "id": "button_background", "label": "Button background", "default": "#0C7FDF" },
+    { "type": "color", "id": "button_background_hover", "label": "Button hover background", "default": "#0A6BC4" },
+    { "type": "color", "id": "button_text_color", "label": "Button text", "default": "#FFFFFF" },
+    { "type": "color", "id": "badge_sale_background", "label": "Sale badge background", "default": "#1A2B4A" },
+    { "type": "color", "id": "badge_sale_text", "label": "Sale badge text", "default": "#FFFFFF" },
+    { "type": "color", "id": "badge_best_seller_background", "label": "Best Seller badge background", "default": "#22A06B" },
+    { "type": "color", "id": "badge_best_seller_text_color", "label": "Best Seller badge text", "default": "#FFFFFF" },
+    { "type": "color", "id": "badge_affordable_background", "label": "Most Affordable badge background", "default": "#F5B800" },
+    { "type": "color", "id": "badge_affordable_text_color", "label": "Most Affordable badge text", "default": "#1A2B4A" },
+    { "type": "color", "id": "badge_popular_background", "label": "Popular badge background", "default": "#0C7FDF" },
+    { "type": "color", "id": "badge_popular_text_color", "label": "Popular badge text", "default": "#FFFFFF" },
+    { "type": "color", "id": "badge_new_background", "label": "New badge background", "default": "#0C7FDF" },
+    { "type": "color", "id": "badge_new_text_color", "label": "New badge text", "default": "#FFFFFF" },
+    { "type": "text", "id": "accessibility_label", "label": "Accessibility label", "default": "Shop by products" }
+  ],
+  "presets": [
+    {
+      "name": "Shop by Products",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

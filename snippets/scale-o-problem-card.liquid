@@ -1,0 +1,53 @@
+{%- comment -%}
+  Secondary hard-water problem card. Accepts: block, section, loading
+{%- endcomment -%}
+{%- liquid
+  assign item = block.settings
+  assign card_image = item.image
+  assign card_mobile = item.image_mobile | default: item.image
+  assign load_mode = loading | default: 'lazy'
+-%}
+<article class="scale-o-problems__card" {{ block.shopify_attributes }}>
+  <div class="scale-o-problems__card-media">
+    {%- if card_image != blank -%}
+      {%- if item.cta_url != blank -%}
+        <a href="{{ item.cta_url }}" aria-label="{{ item.title | escape }}">
+      {%- endif -%}
+      <picture>
+        {%- if item.image_mobile != blank -%}
+          <source media="(max-width: 767px)" srcset="{{ card_mobile | image_url: width: 700 }}">
+        {%- endif -%}
+        {{
+          card_image
+          | image_url: width: 800
+          | image_tag:
+            loading: load_mode,
+            widths: '280,400,600,800',
+            sizes: '(min-width: 1024px) 25vw, (min-width: 768px) 45vw, 100vw',
+            alt: item.title | escape
+        }}
+      </picture>
+      {%- if item.cta_url != blank -%}
+        </a>
+      {%- endif -%}
+    {%- else -%}
+      {{ 'lifestyle-2' | placeholder_svg_tag: 'scale-o-problems__card-placeholder' }}
+    {%- endif -%}
+  </div>
+  <div class="scale-o-problems__card-body">
+    <div class="scale-o-problems__meta">
+      {%- if item.number != blank -%}
+        <span class="scale-o-problems__number">{{ item.number | escape }}</span>
+      {%- endif -%}
+      {%- if item.title != blank -%}
+        <h3 class="scale-o-problems__title">{{ item.title | escape }}</h3>
+      {%- endif -%}
+    </div>
+    {%- if item.description != blank -%}
+      <p class="scale-o-problems__text">{{ item.description | escape }}</p>
+    {%- endif -%}
+    {%- if item.cta_text != blank and item.cta_url != blank -%}
+      <a class="scale-o-problems__link" href="{{ item.cta_url }}">{{ item.cta_text | escape }}</a>
+    {%- endif -%}
+  </div>
+</article>

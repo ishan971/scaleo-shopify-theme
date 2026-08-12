@@ -1,0 +1,214 @@
+{%- comment -%}
+  Scale-O homepage product card — consistent catalog card
+  Accepts: product, section, card_index
+{%- endcomment -%}
+
+{%- liquid
+  assign card_index = card_index | default: 1
+  assign product_url = product.url
+  assign on_sale = false
+  assign discount_pct = 0
+  if product.compare_at_price > product.price
+    assign on_sale = true
+    assign discount_amount = product.compare_at_price | minus: product.price
+    assign discount_pct = discount_amount | times: 100.0 | divided_by: product.compare_at_price | round
+  endif
+
+  assign featured_media = product.featured_media
+  assign hover_media = product.media[1]
+  assign has_hover_image = false
+  if section.settings.enable_image_hover and hover_media != blank and hover_media != featured_media
+    if hover_media.media_type == 'image'
+      assign has_hover_image = true
+    endif
+  endif
+
+  assign spec_limit = 4
+  assign specs = product.metafields.custom.product_detail_usp.value
+
+  assign show_badges = section.settings.show_badges
+  assign show_specs = section.settings.show_specifications
+  assign show_compare = section.settings.show_compare_at_price
+  assign show_discount = section.settings.show_discount
+  assign show_ratings = section.settings.show_ratings
+  assign show_cta = section.settings.show_shop_now_button
+  assign cta_text = section.settings.button_text | default: 'Shop Now'
+  assign show_spec_icons = section.settings.show_spec_icons
+  assign use_rupee = section.settings.use_rupee_symbol
+  assign price_amount = product.price | money_without_currency | strip
+  assign compare_amount = product.compare_at_price | money_without_currency | strip
+
+  assign loading_mode = 'lazy'
+  if card_index <= section.settings.desktop_columns
+    assign loading_mode = 'eager'
+  endif
+-%}
+
+<article class="scale-o-product-card" data-product-id="{{ product.id }}">
+  <div class="scale-o-product-card__media-wrap{% if has_hover_image %} scale-o-product-card__media-wrap--has-hover{% endif %}">
+  {%- if show_badges -%}
+    <div class="scale-o-product-card__badges" aria-hidden="true">
+      <div class="scale-o-product-card__badges-left">
+        {%- if on_sale and show_discount -%}
+          <span class="scale-o-product-card__badge scale-o-product-card__badge--sale">-{{ discount_pct }}%</span>
+        {%- endif -%}
+      </div>
+      <div class="scale-o-product-card__badges-right">
+        {%- if product.metafields.custom.product_badge != blank -%}
+          {%- for badge in product.metafields.custom.product_badge.value limit: 1 -%}
+            <span
+              class="scale-o-product-card__badge scale-o-product-card__badge--custom"
+              style="background:{% if badge.background_color.alpha == 0.0 or badge.background_color == blank %}#22a06b{% else %}{{ badge.background_color }}{% endif %};color:{% if badge.text_color.alpha == 0.0 or badge.text_color == blank %}#fff{% else %}{{ badge.text_color }}{% endif %};"
+            >
+              {{ badge.name }}
+            </span>
+          {%- endfor -%}
+        {%- else -%}
+          {%- for tag in product.tags -%}
+            {%- assign tag_key = tag | downcase | replace: ' ', '-' -%}
+            {%- if tag_key == 'best-seller' or tag == 'tag__hot_Best Seller' -%}
+              <span class="scale-o-product-card__badge scale-o-product-card__badge--best-seller">{{ section.settings.badge_best_seller_text | default: 'Best Seller' }}</span>
+              {%- break -%}
+            {%- elsif tag_key == 'most-affordable' -%}
+              <span class="scale-o-product-card__badge scale-o-product-card__badge--affordable">{{ section.settings.badge_most_affordable_text | default: 'Most Affordable' }}</span>
+              {%- break -%}
+            {%- elsif tag_key == 'popular' -%}
+              <span class="scale-o-product-card__badge scale-o-product-card__badge--popular">{{ section.settings.badge_popular_text | default: 'Popular' }}</span>
+              {%- break -%}
+            {%- elsif tag_key == 'new' -%}
+              <span class="scale-o-product-card__badge scale-o-product-card__badge--new">{{ section.settings.badge_new_text | default: 'New' }}</span>
+              {%- break -%}
+            {%- endif -%}
+          {%- endfor -%}
+        {%- endif -%}
+      </div>
+    </div>
+  {%- endif -%}
+
+    <a class="scale-o-product-card__media" href="{{ product_url }}" aria-label="{{ product.title | escape }}">
+      {%- if featured_media -%}
+        <span class="scale-o-product-card__img-wrap scale-o-product-card__img-wrap--primary">
+          {{
+            featured_media
+            | image_url: width: 800
+            | image_tag:
+              class: 'scale-o-product-card__img',
+              loading: loading_mode,
+              widths: '200,400,600,800',
+              sizes: '(min-width: 1200px) 280px, (min-width: 768px) 220px, 45vw',
+              alt: featured_media.alt | default: product.title | escape
+          }}
+        </span>
+        {%- if has_hover_image -%}
+          <span class="scale-o-product-card__img-wrap scale-o-product-card__img-wrap--hover">
+            {{
+              hover_media
+              | image_url: width: 800
+              | image_tag:
+                class: 'scale-o-product-card__img',
+                loading: 'lazy',
+                widths: '200,400,600,800',
+                sizes: '(min-width: 1200px) 280px, (min-width: 768px) 220px, 45vw',
+                alt: hover_media.alt | default: product.title | escape
+            }}
+          </span>
+        {%- endif -%}
+      {%- else -%}
+        <span class="scale-o-product-card__img-wrap scale-o-product-card__img-wrap--placeholder">
+          {{ 'product-1' | placeholder_svg_tag: 'scale-o-product-card__placeholder' }}
+        </span>
+      {%- endif -%}
+    </a>
+  </div>
+
+  <div class="scale-o-product-card__body">
+    <div class="scale-o-product-card__details">
+      <h3 class="scale-o-product-card__title">
+        <a href="{{ product_url }}">{{ product.title | escape }}</a>
+      </h3>
+
+      {%- if show_specs and specs != blank -%}
+        <div class="scale-o-product-card__specs">
+          {%- for spec in specs limit: spec_limit -%}
+            {%- assign spec_text = spec.detail_name.value -%}
+            {%- assign spec_parts = spec_text | split: ':' -%}
+            {%- if spec_parts.size > 1 -%}
+              {%- assign spec_label = spec_parts[0] | strip -%}
+              {%- assign spec_value = spec_parts[1] | strip -%}
+            {%- else -%}
+              {%- assign spec_label = spec_text -%}
+              {%- assign spec_value = '' -%}
+            {%- endif -%}
+            <div
+              class="scale-o-product-card__spec{% unless section.settings.use_metafield_spec_colors %} scale-o-product-card__spec--theme{% endunless %}"
+              title="{{ spec_text | escape }}"
+            >
+              {%- if section.settings.use_metafield_spec_colors -%}
+                <span
+                  class="scale-o-product-card__spec-inner"
+                  style="color:{{ spec.text_color | default: section.settings.spec_text_color }};background:{{ spec.background_color | default: section.settings.spec_background }};border-color:{{ spec.text_color | default: section.settings.spec_border_color }};"
+                >
+                  {%- if show_spec_icons -%}
+                    {% render 'scale-o-spec-icon', label: spec_label %}
+                  {%- endif -%}
+                  <span class="scale-o-product-card__spec-text">
+                    {%- if spec_value != blank -%}
+                      <span class="scale-o-product-card__spec-label">{{ spec_label | escape }}</span>
+                      <span class="scale-o-product-card__spec-value">{{ spec_value | escape }}</span>
+                    {%- else -%}
+                      <span class="scale-o-product-card__spec-value scale-o-product-card__spec-value--solo">{{ spec_label | escape }}</span>
+                    {%- endif -%}
+                  </span>
+                </span>
+              {%- else -%}
+                <span class="scale-o-product-card__spec-inner">
+                  {%- if show_spec_icons -%}
+                    {% render 'scale-o-spec-icon', label: spec_label %}
+                  {%- endif -%}
+                  <span class="scale-o-product-card__spec-text">
+                    {%- if spec_value != blank -%}
+                      <span class="scale-o-product-card__spec-label">{{ spec_label | escape }}</span>
+                      <span class="scale-o-product-card__spec-value">{{ spec_value | escape }}</span>
+                    {%- else -%}
+                      <span class="scale-o-product-card__spec-value scale-o-product-card__spec-value--solo">{{ spec_label | escape }}</span>
+                    {%- endif -%}
+                  </span>
+                </span>
+              {%- endif -%}
+            </div>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+
+      <div class="scale-o-product-card__price-block">
+        <div class="scale-o-product-card__price-row">
+          <p class="scale-o-product-card__price">
+            {%- if use_rupee -%}₹{{ price_amount }} /-{%- else -%}{{ product.price | money_without_trailing_zeros }}{%- endif -%}
+          </p>
+          {%- if on_sale and show_discount -%}
+            <span class="scale-o-product-card__save-badge">Save {{ discount_pct }}%</span>
+          {%- endif -%}
+        </div>
+        {%- if on_sale and show_compare -%}
+          <p class="scale-o-product-card__compare">
+            <span class="scale-o-product-card__compare-label">MRP</span>
+            <span class="scale-o-product-card__compare-value">{%- if use_rupee -%}₹{{ compare_amount }}/{%- else -%}{{ product.compare_at_price | money_without_trailing_zeros }}{%- endif -%}</span>
+          </p>
+        {%- endif -%}
+      </div>
+
+      {%- if show_ratings -%}
+        <div class="scale-o-product-card__reviews">
+          {% render 'product-reviews-app__badge', product: product %}
+        </div>
+      {%- endif -%}
+    </div>
+
+    {%- if show_cta -%}
+      <a href="{{ product_url }}" class="scale-o-product-card__cta m-button m-button--primary">
+        <svg class="scale-o-product-card__cta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+        <span>{{ cta_text | escape }}</span>
+      </a>
+    {%- endif -%}
+  </div>
+</article>

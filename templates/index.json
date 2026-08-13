@@ -294,7 +294,7 @@
         "margin_bottom": 16,
         "show_dividers": true,
         "divider_color": "#0c7fdf",
-        "mobile_layout": "grid",
+        "mobile_layout": "stack",
         "enable_entrance_animation": false,
         "accessibility_label": "Customer statistics"
       }
@@ -1294,6 +1294,7 @@
         "flow_step_4": "Zero-Factor Benefits",
         "show_connectors": true,
         "product_image": "shopify://shop_images/ChatGPT_Image_Aug_13_2026_09_06_52_AM.png",
+        "product_image_mobile": "shopify://shop_images/ChatGPT_Image_Aug_13_2026_09_15_28_AM.png",
         "product_image_alt": "Scale-O water softeners",
         "product_image_width": 420,
         "show_product_label": true,

@@ -112,6 +112,12 @@
               data-stc-animate
               {{ block.shopify_attributes }}
             >
+              {%- if block.settings.show_badge and block.settings.badge_text != blank -%}
+                <p class="scale-o-compare__badge">
+                  <span aria-hidden="true">★</span>
+                  {{ block.settings.badge_text | escape }}
+                </p>
+              {%- endif -%}
               <div class="scale-o-compare__media">
                 {%- if card_image != blank -%}
                   <picture>
@@ -134,10 +140,6 @@
                   <div class="scale-o-compare__placeholder" aria-hidden="true">
                     {% render 'scale-o-compare-icon', icon: block.settings.theme_icon, class: 'scale-o-compare__placeholder-svg' %}
                   </div>
-                {%- endif -%}
-
-                {%- if block.settings.show_badge and block.settings.badge_text != blank -%}
-                  <p class="scale-o-compare__badge">{{ block.settings.badge_text | escape }}</p>
                 {%- endif -%}
 
                 <span class="scale-o-compare__card-icon" aria-hidden="true">

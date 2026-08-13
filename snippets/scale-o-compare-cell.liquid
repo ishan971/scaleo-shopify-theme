@@ -12,7 +12,9 @@
 -%}
   <span class="scale-o-compare__cell scale-o-compare__cell--{{ cell_status }}{% if is_featured %} scale-o-compare__cell--featured{% endif %}">
     <span class="scale-o-compare__mark" aria-hidden="true">
-      {%- if cell_status == 'positive' or cell_status == 'not_required' -%}
+      {%- if is_featured -%}
+        <svg viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.2 3.2L13 4.8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      {%- elsif cell_status == 'positive' or cell_status == 'not_required' -%}
         <svg viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.2 3.2L13 4.8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
       {%- elsif cell_status == 'negative' -%}
         <svg viewBox="0 0 16 16" fill="none"><path d="M4 4l8 8M12 4 4 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>

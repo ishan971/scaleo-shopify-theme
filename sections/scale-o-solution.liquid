@@ -1,0 +1,530 @@
+{%- comment -%}
+  Scale-O Solution — problem → product → Zero Factor storytelling section
+{%- endcomment -%}
+
+{{ 'scale-o-solution.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign problem_blocks = section.blocks | where: 'type', 'problem'
+  assign benefit_blocks = section.blocks | where: 'type', 'benefit'
+  assign header_align = section.settings.header_alignment
+  assign product_image = section.settings.product_image
+  assign product_image_mobile = section.settings.product_image_mobile | default: product_image
+  assign use_theme_product = false
+  if product_image == blank
+    assign use_theme_product = true
+  endif
+  assign show_header = false
+  if section.settings.heading != blank
+    assign show_header = true
+  endif
+  if section.settings.show_eyebrow and section.settings.eyebrow != blank
+    assign show_header = true
+  endif
+  if section.settings.show_description and section.settings.description != blank
+    assign show_header = true
+  endif
+-%}
+
+<style>
+  #shopify-section-{{ section.id }} .scale-o-solution {
+    --sos-bg: {{ section.settings.background_color }};
+    --sos-heading: {{ section.settings.heading_color }};
+    --sos-text: {{ section.settings.text_color }};
+    --sos-accent: {{ section.settings.accent_color }};
+    --sos-accent-hover: {{ section.settings.accent_hover_color }};
+    --sos-card-bg: {{ section.settings.card_background }};
+    --sos-card-border: {{ section.settings.card_border_color }};
+    --sos-radius: {{ section.settings.card_radius }}px;
+    --sos-shadow: 0 4px {{ section.settings.shadow_strength | divided_by: 4 | plus: 10 }}px rgba(26, 43, 74, {{ section.settings.shadow_strength | times: 0.0012 }});
+    --sos-shadow-hover: 0 10px {{ section.settings.shadow_strength | divided_by: 3 | plus: 14 }}px rgba(26, 43, 74, {{ section.settings.shadow_strength | times: 0.0018 }});
+    --sos-eyebrow-size: {{ section.settings.eyebrow_size }}px;
+    --sos-heading-size: {{ section.settings.heading_size_mobile }}px;
+    --sos-heading-size-desktop: {{ section.settings.heading_size_desktop }}px;
+    --sos-desc-size: {{ section.settings.description_size }}px;
+    --sos-col-title-size: {{ section.settings.column_title_size }}px;
+    --sos-card-title-size: {{ section.settings.card_title_size }}px;
+    --sos-card-desc-size: {{ section.settings.card_description_size }}px;
+    --sos-solution-desc-size: {{ section.settings.solution_description_size }}px;
+    --sos-icon-size: {{ section.settings.icon_size }}px;
+    --sos-product-width: {{ section.settings.product_image_width }}px;
+    --sos-col-gap: {{ section.settings.column_gap }}px;
+    --sos-pad-x: {{ section.settings.padding_x }}px;
+    --sos-header-gap: {{ section.settings.header_gap }}px;
+    --sos-header-align: {{ header_align }};
+    --sos-max-width: {% if section.settings.max_width == 0 %}100%{% else %}{{ section.settings.max_width }}px{% endif %};
+    margin-top: {{ section.settings.margin_top }}px;
+    margin-bottom: {{ section.settings.margin_bottom }}px;
+    padding: {{ section.settings.padding_top_mobile }}px 0 {{ section.settings.padding_bottom_mobile }}px;
+    background: var(--sos-bg);
+  }
+  @media (min-width: 900px) {
+    #shopify-section-{{ section.id }} .scale-o-solution {
+      padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px;
+    }
+  }
+</style>
+
+<div
+  class="scale-o-solution"
+  data-section-id="{{ section.id }}"
+  data-animate="{% if section.settings.enable_animations %}true{% else %}false{% endif %}"
+  role="region"
+  aria-label="{{ section.settings.accessibility_label | default: 'Scale-O water softeners solution' | escape }}"
+>
+  <div class="scale-o-solution__container">
+    {%- if show_header -%}
+      <header class="scale-o-solution__header scale-o-solution__header--{{ header_align }}" data-sos-animate>
+        {%- if section.settings.show_eyebrow and section.settings.eyebrow != blank -%}
+          <p class="scale-o-solution__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+        {%- endif -%}
+        {%- if section.settings.heading != blank -%}
+          <h2 class="scale-o-solution__heading">{{ section.settings.heading | escape }}</h2>
+        {%- endif -%}
+        {%- if section.settings.show_description and section.settings.description != blank -%}
+          <p class="scale-o-solution__description">{{ section.settings.description | escape }}</p>
+        {%- endif -%}
+      </header>
+    {%- endif -%}
+
+    {%- if section.settings.show_flow -%}
+      <div class="scale-o-solution__flow" aria-hidden="true" data-sos-animate>
+        {%- if section.settings.flow_step_1 != blank -%}
+          <span class="scale-o-solution__flow-item">{{ section.settings.flow_step_1 | escape }}</span>
+        {%- endif -%}
+        {%- if section.settings.flow_step_2 != blank -%}
+          <span class="scale-o-solution__flow-arrow" aria-hidden="true">→</span>
+          <span class="scale-o-solution__flow-item">{{ section.settings.flow_step_2 | escape }}</span>
+        {%- endif -%}
+        {%- if section.settings.flow_step_3 != blank -%}
+          <span class="scale-o-solution__flow-arrow" aria-hidden="true">→</span>
+          <span class="scale-o-solution__flow-item">{{ section.settings.flow_step_3 | escape }}</span>
+        {%- endif -%}
+        {%- if section.settings.flow_step_4 != blank -%}
+          <span class="scale-o-solution__flow-arrow" aria-hidden="true">→</span>
+          <span class="scale-o-solution__flow-item">{{ section.settings.flow_step_4 | escape }}</span>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    <div class="scale-o-solution__layout">
+      <div class="scale-o-solution__col scale-o-solution__col--problem scale-o-solution__mobile-order-problem">
+        {%- if section.settings.problem_heading != blank -%}
+          <h3 class="scale-o-solution__col-title" data-sos-animate>{{ section.settings.problem_heading | escape }}</h3>
+        {%- endif -%}
+        {%- if problem_blocks.size > 0 -%}
+          <ul class="scale-o-solution__list" role="list">
+            {%- for block in problem_blocks -%}
+              {%- liquid
+                assign icon_image = block.settings.icon_image
+                assign icon_style = block.settings.icon_style
+                assign card_tag = 'div'
+                if block.settings.link != blank
+                  assign card_tag = 'a'
+                endif
+              -%}
+              <li {{ block.shopify_attributes }} data-sos-animate>
+                <{{ card_tag }}
+                  class="scale-o-solution__card{% if block.settings.link != blank %} scale-o-solution__card-link{% endif %}"
+                  {% if block.settings.link != blank %}href="{{ block.settings.link }}"{% endif %}
+                >
+                  <span class="scale-o-solution__icon" aria-hidden="true">
+                    {%- if icon_style == 'custom' and icon_image != blank -%}
+                      {{
+                        icon_image
+                        | image_url: width: 96
+                        | image_tag: loading: 'lazy', widths: '48,72,96', alt: ''
+                      }}
+                    {%- elsif block.settings.theme_icon != blank and block.settings.theme_icon != 'none' -%}
+                      {% render 'scale-o-solution-icon', icon: block.settings.theme_icon, class: 'scale-o-solution__icon-svg' %}
+                    {%- elsif icon_image != blank -%}
+                      {{
+                        icon_image
+                        | image_url: width: 96
+                        | image_tag: loading: 'lazy', widths: '48,72,96', alt: ''
+                      }}
+                    {%- endif -%}
+                  </span>
+                  <span class="scale-o-solution__card-copy">
+                    {%- if block.settings.title != blank -%}
+                      <p class="scale-o-solution__card-title">{{ block.settings.title | escape }}</p>
+                    {%- endif -%}
+                    {%- if block.settings.description != blank -%}
+                      <p class="scale-o-solution__card-desc">{{ block.settings.description | escape }}</p>
+                    {%- endif -%}
+                  </span>
+                </{{ card_tag }}>
+              </li>
+            {%- endfor -%}
+          </ul>
+        {%- endif -%}
+      </div>
+
+      <div class="scale-o-solution__col scale-o-solution__center scale-o-solution__mobile-order-product" data-sos-animate>
+        {%- if section.settings.show_connectors -%}
+          <div class="scale-o-solution__connectors" aria-hidden="true">
+            <span class="scale-o-solution__connector scale-o-solution__connector--left"></span>
+            <span class="scale-o-solution__connector scale-o-solution__connector--right"></span>
+          </div>
+        {%- endif -%}
+
+        <div class="scale-o-solution__product-wrap">
+          {%- if section.settings.show_product_glow -%}
+            <div class="scale-o-solution__product-glow" aria-hidden="true"></div>
+          {%- endif -%}
+
+          <div class="scale-o-solution__product-media">
+            {%- liquid
+              assign product_alt = section.settings.product_image_alt | default: section.settings.heading | default: 'Scale-O water softener'
+              assign product_sizes = '(max-width: 899px) 80vw, min(40vw, ' | append: section.settings.product_image_width | append: 'px)'
+            -%}
+            {%- if product_image != blank -%}
+              <picture>
+                {%- if section.settings.product_image_mobile != blank -%}
+                  <source
+                    media="(max-width: 899px)"
+                    srcset="{{ product_image_mobile | image_url: width: 400 }} 400w, {{ product_image_mobile | image_url: width: 700 }} 700w, {{ product_image_mobile | image_url: width: 1000 }} 1000w"
+                    sizes="(max-width: 899px) 80vw, {{ section.settings.product_image_width }}px"
+                  >
+                {%- endif -%}
+                {{
+                  product_image
+                  | image_url: width: 1000
+                  | image_tag:
+                    loading: 'lazy',
+                    widths: '320,480,640,800,1000',
+                    sizes: product_sizes,
+                    alt: product_alt
+                }}
+              </picture>
+            {%- elsif use_theme_product -%}
+              <img
+                src="{{ 'scale-o-solution-product.png' | asset_url }}"
+                alt="{{ product_alt | escape }}"
+                width="900"
+                height="1200"
+                loading="lazy"
+              >
+            {%- else -%}
+              <div class="scale-o-solution__product-placeholder" role="img" aria-label="{{ product_alt | escape }}">
+                Add product image
+              </div>
+            {%- endif -%}
+          </div>
+
+          {%- if section.settings.show_product_label and section.settings.solution_label != blank -%}
+            <p class="scale-o-solution__product-label">{{ section.settings.solution_label | escape }}</p>
+          {%- endif -%}
+
+          {%- if section.settings.solution_description != blank -%}
+            <p class="scale-o-solution__solution-copy">{{ section.settings.solution_description | escape }}</p>
+          {%- endif -%}
+        </div>
+      </div>
+
+      <div class="scale-o-solution__col scale-o-solution__col--benefits scale-o-solution__mobile-order-benefits">
+        {%- if section.settings.benefits_heading != blank -%}
+          <h3 class="scale-o-solution__col-title" data-sos-animate>{{ section.settings.benefits_heading | escape }}</h3>
+        {%- endif -%}
+        {%- if benefit_blocks.size > 0 -%}
+          <ul class="scale-o-solution__list" role="list">
+            {%- for block in benefit_blocks -%}
+              {%- liquid
+                assign icon_image = block.settings.icon_image
+                assign icon_style = block.settings.icon_style
+              -%}
+              <li {{ block.shopify_attributes }} data-sos-animate>
+                <div class="scale-o-solution__card">
+                  <span class="scale-o-solution__icon" aria-hidden="true">
+                    {%- if icon_style == 'custom' and icon_image != blank -%}
+                      {{
+                        icon_image
+                        | image_url: width: 96
+                        | image_tag: loading: 'lazy', widths: '48,72,96', alt: ''
+                      }}
+                    {%- elsif block.settings.theme_icon != blank and block.settings.theme_icon != 'none' -%}
+                      {% render 'scale-o-solution-icon', icon: block.settings.theme_icon, class: 'scale-o-solution__icon-svg' %}
+                    {%- elsif icon_image != blank -%}
+                      {{
+                        icon_image
+                        | image_url: width: 96
+                        | image_tag: loading: 'lazy', widths: '48,72,96', alt: ''
+                      }}
+                    {%- endif -%}
+                  </span>
+                  <span class="scale-o-solution__card-copy">
+                    {%- if block.settings.short_label != blank -%}
+                      <span class="scale-o-solution__card-label">{{ block.settings.short_label | escape }}</span>
+                    {%- endif -%}
+                    {%- if block.settings.title != blank -%}
+                      <p class="scale-o-solution__card-title">{{ block.settings.title | escape }}</p>
+                    {%- endif -%}
+                    {%- if block.settings.description != blank -%}
+                      <p class="scale-o-solution__card-desc">{{ block.settings.description | escape }}</p>
+                    {%- endif -%}
+                  </span>
+                </div>
+              </li>
+            {%- endfor -%}
+          </ul>
+        {%- endif -%}
+      </div>
+    </div>
+
+    {%- if section.settings.show_cta and section.settings.cta_text != blank -%}
+      <div class="scale-o-solution__cta-wrap" data-sos-animate>
+        <a
+          class="scale-o-solution__cta"
+          href="{{ section.settings.cta_url | default: '#' }}"
+          {% if section.settings.cta_url == blank %}aria-disabled="true"{% endif %}
+        >
+          <span>{{ section.settings.cta_text | escape }}</span>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+{%- if section.settings.enable_animations -%}
+  <script src="{{ 'scale-o-solution.js' | asset_url }}" defer></script>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Scale-O Water Softeners",
+  "tag": "section",
+  "class": "scale-o-solution-section",
+  "max_blocks": 14,
+  "settings": [
+    { "type": "header", "content": "Content" },
+    { "type": "checkbox", "id": "show_eyebrow", "label": "Show eyebrow", "default": true },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "SOLUTION" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Scale-O Water Softeners" },
+    { "type": "checkbox", "id": "show_description", "label": "Show description", "default": true },
+    { "type": "textarea", "id": "description", "label": "Description", "default": "A smarter, salt-free approach to protecting your home from hard-water scale." },
+    {
+      "type": "select",
+      "id": "header_alignment",
+      "label": "Header alignment",
+      "default": "center",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ]
+    },
+    { "type": "text", "id": "problem_heading", "label": "Problem heading", "default": "The Hard Water Problem" },
+    { "type": "text", "id": "solution_label", "label": "Solution label", "default": "Scale-O 0 Factor" },
+    { "type": "textarea", "id": "solution_description", "label": "Solution description", "default": "Scale-O changes how hard-water minerals behave, helping reduce scale formation without salt, electricity or water wastage." },
+    { "type": "text", "id": "benefits_heading", "label": "Benefits heading", "default": "The Scale-O Difference" },
+
+    { "type": "header", "content": "Story flow" },
+    { "type": "checkbox", "id": "show_flow", "label": "Show story flow", "default": true },
+    { "type": "text", "id": "flow_step_1", "label": "Flow step 1", "default": "Hard Water" },
+    { "type": "text", "id": "flow_step_2", "label": "Flow step 2", "default": "Scale-O Technology" },
+    { "type": "text", "id": "flow_step_3", "label": "Flow step 3", "default": "Scale Protection" },
+    { "type": "text", "id": "flow_step_4", "label": "Flow step 4", "default": "Zero-Factor Benefits" },
+    { "type": "checkbox", "id": "show_connectors", "label": "Show desktop connecting lines", "default": true },
+
+    { "type": "header", "content": "Product visual" },
+    { "type": "image_picker", "id": "product_image", "label": "Product image (desktop)" },
+    { "type": "image_picker", "id": "product_image_mobile", "label": "Product image (mobile)", "info": "Optional. Falls back to desktop image." },
+    { "type": "text", "id": "product_image_alt", "label": "Product image alt text", "default": "Scale-O water softener" },
+    { "type": "range", "id": "product_image_width", "label": "Product image width", "min": 220, "max": 520, "step": 10, "unit": "px", "default": 360 },
+    { "type": "checkbox", "id": "show_product_label", "label": "Show product label", "default": true },
+    { "type": "checkbox", "id": "show_product_glow", "label": "Show soft blue glow behind product", "default": true },
+
+    { "type": "header", "content": "CTA" },
+    { "type": "checkbox", "id": "show_cta", "label": "Show CTA", "default": true },
+    { "type": "text", "id": "cta_text", "label": "CTA text", "default": "Explore How Scale-O Works" },
+    { "type": "url", "id": "cta_url", "label": "CTA URL" },
+
+    { "type": "header", "content": "Layout" },
+    { "type": "range", "id": "max_width", "label": "Maximum width", "min": 0, "max": 1600, "step": 20, "unit": "px", "default": 1200 },
+    { "type": "range", "id": "column_gap", "label": "Column gap", "min": 16, "max": 56, "step": 2, "unit": "px", "default": 28 },
+    { "type": "range", "id": "icon_size", "label": "Icon size", "min": 32, "max": 48, "step": 2, "unit": "px", "default": 40 },
+    { "type": "range", "id": "card_radius", "label": "Card corner radius", "min": 8, "max": 28, "step": 1, "unit": "px", "default": 16 },
+    { "type": "range", "id": "shadow_strength", "label": "Shadow strength", "min": 0, "max": 100, "step": 5, "default": 45 },
+    { "type": "checkbox", "id": "enable_animations", "label": "Enable reveal animations", "default": true },
+
+    { "type": "header", "content": "Spacing" },
+    { "type": "range", "id": "padding_top", "label": "Top padding (desktop)", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 80 },
+    { "type": "range", "id": "padding_bottom", "label": "Bottom padding (desktop)", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 80 },
+    { "type": "range", "id": "padding_top_mobile", "label": "Top padding (mobile)", "min": 0, "max": 80, "step": 4, "unit": "px", "default": 52 },
+    { "type": "range", "id": "padding_bottom_mobile", "label": "Bottom padding (mobile)", "min": 0, "max": 80, "step": 4, "unit": "px", "default": 52 },
+    { "type": "range", "id": "padding_x", "label": "Horizontal padding", "min": 12, "max": 80, "step": 4, "unit": "px", "default": 20 },
+    { "type": "range", "id": "margin_top", "label": "Top spacing", "min": 0, "max": 80, "step": 4, "unit": "px", "default": 0 },
+    { "type": "range", "id": "margin_bottom", "label": "Bottom spacing", "min": 0, "max": 80, "step": 4, "unit": "px", "default": 0 },
+    { "type": "range", "id": "header_gap", "label": "Header bottom gap", "min": 16, "max": 64, "step": 4, "unit": "px", "default": 32 },
+
+    { "type": "header", "content": "Typography" },
+    { "type": "range", "id": "eyebrow_size", "label": "Eyebrow size", "min": 12, "max": 22, "step": 1, "unit": "px", "default": 16 },
+    { "type": "range", "id": "heading_size_desktop", "label": "Heading size (desktop)", "min": 24, "max": 56, "step": 1, "unit": "px", "default": 45 },
+    { "type": "range", "id": "heading_size_mobile", "label": "Heading size (mobile)", "min": 20, "max": 40, "step": 1, "unit": "px", "default": 26 },
+    { "type": "range", "id": "description_size", "label": "Description size", "min": 13, "max": 20, "step": 1, "unit": "px", "default": 16 },
+    { "type": "range", "id": "column_title_size", "label": "Column title size", "min": 14, "max": 28, "step": 1, "unit": "px", "default": 18 },
+    { "type": "range", "id": "card_title_size", "label": "Card title size", "min": 13, "max": 20, "step": 1, "unit": "px", "default": 15 },
+    { "type": "range", "id": "card_description_size", "label": "Card description size", "min": 12, "max": 18, "step": 1, "unit": "px", "default": 13 },
+    { "type": "range", "id": "solution_description_size", "label": "Solution description size", "min": 13, "max": 18, "step": 1, "unit": "px", "default": 15 },
+
+    { "type": "header", "content": "Colors" },
+    { "type": "color", "id": "background_color", "label": "Background", "default": "#F7FBFF" },
+    { "type": "color", "id": "heading_color", "label": "Heading", "default": "#1A2B4A" },
+    { "type": "color", "id": "text_color", "label": "Body text", "default": "#5A6B85" },
+    { "type": "color", "id": "accent_color", "label": "Accent", "default": "#0C7FDF" },
+    { "type": "color", "id": "accent_hover_color", "label": "Accent hover", "default": "#0A6BC4" },
+    { "type": "color", "id": "card_background", "label": "Card background", "default": "#FFFFFF" },
+    { "type": "color", "id": "card_border_color", "label": "Card border", "default": "#E8EEF8" },
+    { "type": "text", "id": "accessibility_label", "label": "Accessibility label", "default": "Scale-O water softeners solution" }
+  ],
+  "blocks": [
+    {
+      "type": "problem",
+      "name": "Problem",
+      "limit": 6,
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon_style",
+          "label": "Icon style",
+          "default": "theme",
+          "options": [
+            { "value": "theme", "label": "Theme icon" },
+            { "value": "custom", "label": "Custom image" }
+          ]
+        },
+        {
+          "type": "select",
+          "id": "theme_icon",
+          "label": "Theme icon",
+          "default": "scale",
+          "options": [
+            { "value": "scale", "label": "Scale / buildup" },
+            { "value": "appliance", "label": "Appliance" },
+            { "value": "faucet", "label": "Faucet" },
+            { "value": "droplet", "label": "Droplet" },
+            { "value": "shield", "label": "Shield" },
+            { "value": "home", "label": "Home" },
+            { "value": "none", "label": "None" }
+          ]
+        },
+        { "type": "image_picker", "id": "icon_image", "label": "Custom icon image" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Scale & Mineral Buildup" },
+        { "type": "textarea", "id": "description", "label": "Description", "default": "Hard-water minerals can leave deposits on everyday surfaces." },
+        { "type": "url", "id": "link", "label": "Optional link" }
+      ]
+    },
+    {
+      "type": "benefit",
+      "name": "Zero Factor Benefit",
+      "limit": 8,
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon_style",
+          "label": "Icon style",
+          "default": "theme",
+          "options": [
+            { "value": "theme", "label": "Theme icon" },
+            { "value": "custom", "label": "Custom image" }
+          ]
+        },
+        {
+          "type": "select",
+          "id": "theme_icon",
+          "label": "Theme icon",
+          "default": "electricity",
+          "options": [
+            { "value": "electricity", "label": "Electricity" },
+            { "value": "salt", "label": "Salt" },
+            { "value": "water", "label": "Water" },
+            { "value": "maintenance", "label": "Maintenance" },
+            { "value": "shield", "label": "Shield" },
+            { "value": "droplet", "label": "Droplet" },
+            { "value": "home", "label": "Home" },
+            { "value": "none", "label": "None" }
+          ]
+        },
+        { "type": "image_picker", "id": "icon_image", "label": "Custom icon image" },
+        { "type": "text", "id": "short_label", "label": "Optional short label" },
+        { "type": "text", "id": "title", "label": "Title", "default": "ZERO ELECTRICITY" },
+        { "type": "textarea", "id": "description", "label": "Description", "default": "No electricity required." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Scale-O Water Softeners",
+      "category": "Custom",
+      "blocks": [
+        {
+          "type": "problem",
+          "settings": {
+            "icon_style": "theme",
+            "theme_icon": "scale",
+            "title": "Scale & Mineral Buildup",
+            "description": "Hard-water minerals can leave deposits on everyday surfaces."
+          }
+        },
+        {
+          "type": "problem",
+          "settings": {
+            "icon_style": "theme",
+            "theme_icon": "appliance",
+            "title": "Appliance Scaling",
+            "description": "Mineral buildup can affect water-using appliances."
+          }
+        },
+        {
+          "type": "problem",
+          "settings": {
+            "icon_style": "theme",
+            "theme_icon": "faucet",
+            "title": "Tap & Shower Deposits",
+            "description": "Hard-water scale can accumulate around fixtures."
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "icon_style": "theme",
+            "theme_icon": "electricity",
+            "title": "ZERO ELECTRICITY",
+            "description": "No electricity required."
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "icon_style": "theme",
+            "theme_icon": "salt",
+            "title": "ZERO SALT",
+            "description": "Salt-free scale protection."
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "icon_style": "theme",
+            "theme_icon": "water",
+            "title": "ZERO WATER WASTAGE",
+            "description": "No regeneration water waste."
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "icon_style": "theme",
+            "theme_icon": "maintenance",
+            "title": "ZERO MAINTENANCE",
+            "description": "Minimal ongoing maintenance."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

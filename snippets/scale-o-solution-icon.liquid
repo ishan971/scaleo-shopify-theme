@@ -1,0 +1,52 @@
+{%- comment -%}
+  Scale-O Solution icons. Accepts: icon, class
+  Used when no custom image is uploaded.
+{%- endcomment -%}
+{%- liquid
+  assign icon_name = icon | default: 'none'
+  assign svg_class = class | default: 'scale-o-solution__icon-svg'
+-%}
+{%- unless icon_name == 'none' or icon_name == blank -%}
+  {%- case icon_name -%}
+    {%- when 'scale' -%}
+      <svg class="{{ svg_class }}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+        <path d="M12 3v4"/><path d="M8 7h8"/><path d="M6 11c0 4 2.5 7 6 9 3.5-2 6-5 6-9"/><path d="M9 14h6"/>
+      </svg>
+    {%- when 'appliance' -%}
+      <svg class="{{ svg_class }}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+        <rect x="4" y="3" width="16" height="18" rx="2"/><path d="M4 8h16"/><circle cx="12" cy="14.5" r="3"/>
+      </svg>
+    {%- when 'faucet' -%}
+      <svg class="{{ svg_class }}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+        <path d="M12 2v6"/><path d="M8 8h8"/><path d="M7 8a5 5 0 0 0 10 0"/><path d="M12 13v3"/><path d="M10 18c0 1.1.9 2 2 2s2-.9 2-2"/><path d="M8 21h8"/>
+      </svg>
+    {%- when 'droplet' -%}
+      <svg class="{{ svg_class }}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+        <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
+      </svg>
+    {%- when 'electricity' -%}
+      <svg class="{{ svg_class }}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+        <path d="M13 2 4 14h7l-1 8 9-12h-7l1-8z"/>
+      </svg>
+    {%- when 'salt' -%}
+      <svg class="{{ svg_class }}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+        <path d="M8 4h8l2 6H6l2-6z"/><path d="M6 10v8a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-8"/><path d="M10 14h.01"/><path d="M14 14h.01"/><path d="M12 17h.01"/>
+      </svg>
+    {%- when 'water' -%}
+      <svg class="{{ svg_class }}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+        <path d="M3 15c2 0 2-2 4-2s2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M3 9c2 0 2-2 4-2s2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M12 3v2"/>
+      </svg>
+    {%- when 'maintenance' -%}
+      <svg class="{{ svg_class }}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+        <path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L4 17v3h3l5.3-5.3a4 4 0 0 0 5.4-5.4z"/><path d="m15 7 2 2"/>
+      </svg>
+    {%- when 'shield' -%}
+      <svg class="{{ svg_class }}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+        <path d="M12 3 5 6v6c0 4.5 3 7.5 7 9 4-1.5 7-4.5 7-9V6l-7-3z"/><path d="m9 12 2 2 4-4"/>
+      </svg>
+    {%- when 'home' -%}
+      <svg class="{{ svg_class }}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+        <path d="m3 11 9-8 9 8"/><path d="M5 10v10h14V10"/>
+      </svg>
+  {%- endcase -%}
+{%- endunless -%}

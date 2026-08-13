@@ -1169,71 +1169,143 @@
         "accessibility_label": "Watch and shop"
       }
     },
-    "custom_content_yCRmH3": {
-      "type": "custom-content",
+    "scale_o_solution_home": {
+      "type": "scale-o-solution",
       "blocks": {
-        "text_7KpE34": {
-          "type": "text",
+        "problem_scale": {
+          "type": "problem",
           "settings": {
-            "title": "Scale-O Water Softeners",
-            "subheading": "SOLUTION",
-            "text": "",
-            "width": "75%",
-            "alignment": "center",
-            "align_text": "center",
-            "text_size": "medium",
-            "text_color": "inherit",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "m-button--primary",
-            "button_size": "",
-            "block_custom_class": "",
-            "animations": "inherit"
+            "icon_style": "theme",
+            "theme_icon": "scale",
+            "title": "Scale & Mineral Buildup",
+            "description": "Hard-water minerals can leave deposits on everyday surfaces.",
+            "link": ""
           }
         },
-        "html_aHQf6p": {
-          "type": "html",
+        "problem_appliance": {
+          "type": "problem",
           "settings": {
-            "code": "<center>Scale-O chemically alters the structure and forms a coating on Ca<sup style=\"color:#000;\">+2</sup> &amp; Mg<sup style=\"color:#000;\">+2</sup> ions present in hard water such that they do not react with negative ions like Cl<sup style=\"color:#000;\">-1</sup> or SO<sub>4</sub><sup style=\"color:#000;\">-2</sup> and prevents the formation insoluble salts or scale in common language.</center>",
-            "width": "75%",
-            "block_custom_class": "",
-            "animations": "inherit"
+            "icon_style": "theme",
+            "theme_icon": "appliance",
+            "title": "Appliance Scaling",
+            "description": "Mineral buildup can affect water-using appliances.",
+            "link": ""
           }
         },
-        "image_UDqFem": {
-          "type": "image",
+        "problem_fixtures": {
+          "type": "problem",
           "settings": {
-            "image": "shopify://shop_images/buk.png",
-            "link": "",
-            "width": "83%",
-            "alignment": "center",
-            "block_custom_class": "",
-            "animations": "inherit"
+            "icon_style": "theme",
+            "theme_icon": "faucet",
+            "title": "Tap & Shower Deposits",
+            "description": "Hard-water scale can accumulate around fixtures.",
+            "link": ""
+          }
+        },
+        "benefit_electricity": {
+          "type": "benefit",
+          "settings": {
+            "icon_style": "theme",
+            "theme_icon": "electricity",
+            "short_label": "",
+            "title": "ZERO ELECTRICITY",
+            "description": "No electricity required."
+          }
+        },
+        "benefit_salt": {
+          "type": "benefit",
+          "settings": {
+            "icon_style": "theme",
+            "theme_icon": "salt",
+            "short_label": "",
+            "title": "ZERO SALT",
+            "description": "Salt-free scale protection."
+          }
+        },
+        "benefit_water": {
+          "type": "benefit",
+          "settings": {
+            "icon_style": "theme",
+            "theme_icon": "water",
+            "short_label": "",
+            "title": "ZERO WATER WASTAGE",
+            "description": "No regeneration water waste."
+          }
+        },
+        "benefit_maintenance": {
+          "type": "benefit",
+          "settings": {
+            "icon_style": "theme",
+            "theme_icon": "maintenance",
+            "short_label": "",
+            "title": "ZERO MAINTENANCE",
+            "description": "Minimal ongoing maintenance."
           }
         }
       },
       "block_order": [
-        "text_7KpE34",
-        "html_aHQf6p",
-        "image_UDqFem"
+        "problem_scale",
+        "problem_appliance",
+        "problem_fixtures",
+        "benefit_electricity",
+        "benefit_salt",
+        "benefit_water",
+        "benefit_maintenance"
       ],
       "settings": {
-        "heading": "",
-        "heading_size": "h3",
-        "subheading": "",
-        "description": "",
+        "show_eyebrow": true,
+        "eyebrow": "SOLUTION",
+        "heading": "Scale-O Water Softeners",
+        "show_description": true,
+        "description": "A smarter, salt-free approach to protecting your home from hard-water scale.",
         "header_alignment": "center",
-        "container": "container-fluid",
-        "color_scheme": "scheme-cee058e4-58e3-46aa-9af9-219dadc79066",
-        "content_color_scheme": "scheme-cee058e4-58e3-46aa-9af9-219dadc79066",
-        "enable_parallax": false,
-        "parallax_direction": "vertical",
-        "gap": 30,
-        "gap_mobile": 16,
-        "use_scroll_mobile": false,
-        "padding_top": 100,
-        "padding_bottom": 90,
-        "custom_class": ""
+        "problem_heading": "The Hard Water Problem",
+        "solution_label": "Scale-O 0 Factor",
+        "solution_description": "Scale-O changes how hard-water minerals behave, helping reduce scale formation without salt, electricity or water wastage.",
+        "benefits_heading": "The Scale-O Difference",
+        "show_flow": true,
+        "flow_step_1": "Hard Water",
+        "flow_step_2": "Scale-O Technology",
+        "flow_step_3": "Scale Protection",
+        "flow_step_4": "Zero-Factor Benefits",
+        "show_connectors": true,
+        "product_image_alt": "Scale-O water softeners",
+        "product_image_width": 420,
+        "show_product_label": true,
+        "show_product_glow": true,
+        "show_cta": true,
+        "cta_text": "Explore How Scale-O Works",
+        "cta_url": "",
+        "max_width": 1200,
+        "column_gap": 28,
+        "icon_size": 40,
+        "card_radius": 16,
+        "shadow_strength": 45,
+        "enable_animations": true,
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "padding_top_mobile": 52,
+        "padding_bottom_mobile": 52,
+        "padding_x": 20,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "header_gap": 32,
+        "eyebrow_size": 16,
+        "heading_size_desktop": 45,
+        "heading_size_mobile": 26,
+        "description_size": 16,
+        "column_title_size": 18,
+        "card_title_size": 15,
+        "card_description_size": 13,
+        "solution_description_size": 15,
+        "background_color": "#f7fbff",
+        "heading_color": "#1a2b4a",
+        "text_color": "#5a6b85",
+        "accent_color": "#0c7fdf",
+        "accent_hover_color": "#0a6bc4",
+        "card_background": "#ffffff",
+        "card_border_color": "#e8eef8",
+        "accessibility_label": "Scale-O water softeners solution"
       }
     },
     "rich_text_9UaYFN": {
@@ -2092,7 +2164,7 @@
     "icon_box_Twp6KE",
     "hard_water_problems_home",
     "watch_and_shop_home",
-    "custom_content_yCRmH3",
+    "scale_o_solution_home",
     "rich_text_9UaYFN",
     "video_nTNUNr",
     "icon_box_iaQiym",

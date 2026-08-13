@@ -1,0 +1,518 @@
+{%- comment -%}
+  Scale-O People & Property Advantages — image-first editorial tabs
+{%- endcomment -%}
+
+{{ 'scale-o-advantages.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign category_blocks = section.blocks | where: 'type', 'category'
+  assign benefit_blocks = section.blocks | where: 'type', 'benefit'
+  assign header_align = section.settings.header_alignment
+  assign show_header = false
+  if section.settings.heading != blank
+    assign show_header = true
+  endif
+  if section.settings.show_eyebrow and section.settings.eyebrow != blank
+    assign show_header = true
+  endif
+  if section.settings.show_description and section.settings.description != blank
+    assign show_header = true
+  endif
+-%}
+
+<style>
+  #shopify-section-{{ section.id }} .scale-o-advantages {
+    --soa-bg: {{ section.settings.background_color }};
+    --soa-heading: {{ section.settings.heading_color }};
+    --soa-text: {{ section.settings.text_color }};
+    --soa-accent: {{ section.settings.accent_color }};
+    --soa-accent-hover: {{ section.settings.accent_hover_color }};
+    --soa-card-bg: {{ section.settings.card_background }};
+    --soa-card-border: {{ section.settings.card_border_color }};
+    --soa-panel-bg: {{ section.settings.panel_background }};
+    --soa-tab-active-bg: {{ section.settings.tab_active_background }};
+    --soa-tab-active-text: {{ section.settings.tab_active_text }};
+    --soa-radius: {{ section.settings.card_radius }}px;
+    --soa-shadow: 0 4px {{ section.settings.shadow_strength | divided_by: 4 | plus: 10 }}px rgba(26, 43, 74, {{ section.settings.shadow_strength | times: 0.0012 }});
+    --soa-shadow-hover: 0 10px {{ section.settings.shadow_strength | divided_by: 3 | plus: 14 }}px rgba(26, 43, 74, {{ section.settings.shadow_strength | times: 0.0018 }});
+    --soa-eyebrow-size: {{ section.settings.eyebrow_size }}px;
+    --soa-heading-size: {{ section.settings.heading_size_mobile }}px;
+    --soa-heading-size-desktop: {{ section.settings.heading_size_desktop }}px;
+    --soa-desc-size: {{ section.settings.description_size }}px;
+    --soa-col-title-size: {{ section.settings.category_title_size }}px;
+    --soa-card-title-size: {{ section.settings.card_title_size }}px;
+    --soa-card-desc-size: {{ section.settings.card_description_size }}px;
+    --soa-gap: {{ section.settings.card_gap }}px;
+    --soa-cols: {{ section.settings.desktop_columns }};
+    --soa-hero-ratio: {{ section.settings.hero_aspect_ratio }};
+    --soa-card-ratio: {{ section.settings.card_aspect_ratio }};
+    --soa-pad-x: {{ section.settings.padding_x }}px;
+    --soa-header-gap: {{ section.settings.header_gap }}px;
+    --soa-header-align: {{ header_align }};
+    --soa-max-width: {% if section.settings.max_width == 0 %}100%{% else %}{{ section.settings.max_width }}px{% endif %};
+    margin-top: {{ section.settings.margin_top }}px;
+    margin-bottom: {{ section.settings.margin_bottom }}px;
+    padding: {{ section.settings.padding_top_mobile }}px 0 {{ section.settings.padding_bottom_mobile }}px;
+    background: var(--soa-bg);
+  }
+  @media (min-width: 768px) {
+    #shopify-section-{{ section.id }} .scale-o-advantages {
+      padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px;
+    }
+  }
+</style>
+
+<div
+  class="scale-o-advantages"
+  data-section-id="{{ section.id }}"
+  data-animate="{% if section.settings.enable_animations %}true{% else %}false{% endif %}"
+  role="region"
+  aria-label="{{ section.settings.accessibility_label | default: 'People and property advantages' | escape }}"
+>
+  <div class="scale-o-advantages__container">
+    {%- if show_header -%}
+      <header class="scale-o-advantages__header scale-o-advantages__header--{{ header_align }}" data-soa-animate>
+        {%- if section.settings.show_eyebrow and section.settings.eyebrow != blank -%}
+          <p class="scale-o-advantages__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+        {%- endif -%}
+        {%- if section.settings.heading != blank -%}
+          <h2 class="scale-o-advantages__heading">{{ section.settings.heading | escape }}</h2>
+        {%- endif -%}
+        {%- if section.settings.show_description and section.settings.description != blank -%}
+          <p class="scale-o-advantages__description">{{ section.settings.description | escape }}</p>
+        {%- endif -%}
+      </header>
+    {%- endif -%}
+
+    {%- if category_blocks.size > 0 -%}
+      {%- if category_blocks.size > 1 -%}
+        <div class="scale-o-advantages__tabs" role="tablist" aria-label="{{ section.settings.heading | default: 'Advantages' | escape }}" data-soa-tabs>
+          {%- for category in category_blocks -%}
+            <button
+              type="button"
+              class="scale-o-advantages__tab{% if forloop.first %} is-active{% endif %}"
+              id="soa-tab-{{ section.id }}-{{ category.id }}"
+              role="tab"
+              aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"
+              aria-controls="soa-panel-{{ section.id }}-{{ category.id }}"
+              tabindex="{% if forloop.first %}0{% else %}-1{% endif %}"
+              data-soa-tab="{{ category.id }}"
+            >
+              {{ category.settings.tab_label | default: category.settings.heading | escape }}
+            </button>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+
+      {%- for category in category_blocks -%}
+        {%- liquid
+          assign cat_handle = category.settings.handle
+          assign hero = category.settings.image
+          assign hero_mobile = category.settings.image_mobile | default: hero
+          assign hero_alt = category.settings.image_alt | default: category.settings.heading | default: 'Scale-O advantage'
+          assign hero_fallback = ''
+          if cat_handle == 'property'
+            assign hero_fallback = 'scale-o-adv-property-hero.jpg'
+          else
+            assign hero_fallback = 'scale-o-adv-people-hero.jpg'
+          endif
+          assign shown_benefits = 0
+        -%}
+        <div
+          class="scale-o-advantages__panel{% if forloop.first %} is-active{% endif %}"
+          id="soa-panel-{{ section.id }}-{{ category.id }}"
+          role="tabpanel"
+          {% if category_blocks.size > 1 %}aria-labelledby="soa-tab-{{ section.id }}-{{ category.id }}"{% elsif category.settings.heading != blank %}aria-label="{{ category.settings.heading | escape }}"{% endif %}
+          data-soa-panel="{{ category.id }}"
+          {% unless forloop.first %}hidden{% endunless %}
+          {{ category.shopify_attributes }}
+        >
+          <div class="scale-o-advantages__stage">
+            <div class="scale-o-advantages__hero" data-soa-animate>
+              {%- if hero != blank -%}
+                <picture>
+                  {%- if category.settings.image_mobile != blank -%}
+                    <source
+                      media="(max-width: 767px)"
+                      srcset="{{ hero_mobile | image_url: width: 800 }} 800w, {{ hero_mobile | image_url: width: 1200 }} 1200w"
+                      sizes="(max-width: 899px) 100vw, 42vw"
+                    >
+                  {%- endif -%}
+                  {{
+                    hero
+                    | image_url: width: 1200
+                    | image_tag:
+                      loading: 'lazy',
+                      widths: '480,720,960,1200',
+                      sizes: '(max-width: 899px) 100vw, 42vw',
+                      alt: hero_alt
+                  }}
+                </picture>
+              {%- elsif hero_fallback != blank -%}
+                <img
+                  src="{{ hero_fallback | asset_url }}"
+                  alt="{{ hero_alt | escape }}"
+                  width="900"
+                  height="1200"
+                  loading="lazy"
+                >
+              {%- endif -%}
+            </div>
+
+            <div class="scale-o-advantages__content">
+              {%- if category.settings.heading != blank or category.settings.description != blank or category.settings.show_cta and category.settings.cta_text != blank -%}
+                <div class="scale-o-advantages__intro" data-soa-animate>
+                  {%- if section.settings.show_category_icon -%}
+                    <span class="scale-o-advantages__intro-icon" aria-hidden="true">
+                      {%- if cat_handle == 'property' -%}
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 9-8 9 8"/><path d="M5 10v10h14V10"/></svg>
+                      {%- else -%}
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><circle cx="16" cy="9" r="2.4"/><path d="M3.5 19c.6-3 2.8-4.6 5.5-4.6S14 16 14.6 19"/><path d="M14.2 14.8c1.7-.4 3.6.4 4.3 2.7"/></svg>
+                      {%- endif -%}
+                    </span>
+                  {%- endif -%}
+                  <div class="scale-o-advantages__intro-copy">
+                    {%- if category.settings.heading != blank -%}
+                      <h3 class="scale-o-advantages__intro-title">{{ category.settings.heading | escape }}</h3>
+                    {%- endif -%}
+                    {%- if category.settings.description != blank -%}
+                      <p class="scale-o-advantages__intro-text">{{ category.settings.description | escape }}</p>
+                    {%- endif -%}
+                    {%- if category.settings.show_cta and category.settings.cta_text != blank and category.settings.cta_url != blank -%}
+                      <a class="scale-o-advantages__cta" href="{{ category.settings.cta_url }}">
+                        <span>{{ category.settings.cta_text | escape }}</span>
+                        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                          <path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                      </a>
+                    {%- endif -%}
+                  </div>
+                </div>
+              {%- endif -%}
+
+              <ul class="scale-o-advantages__grid" role="list">
+            {%- for block in benefit_blocks -%}
+              {%- if block.settings.category == cat_handle and shown_benefits < 8 -%}
+                {%- liquid
+                  assign shown_benefits = shown_benefits | plus: 1
+                  assign benefit_image = block.settings.image
+                  assign benefit_mobile = block.settings.image_mobile | default: benefit_image
+                  assign benefit_alt = block.settings.image_alt | default: block.settings.title | default: 'Scale-O benefit'
+                  assign card_index = shown_benefits | prepend: '0' | slice: -2, 2
+                  assign card_tag = 'article'
+                  if block.settings.link != blank
+                    assign card_tag = 'a'
+                  endif
+                  assign benefit_fallback = 'scale-o-adv-' | append: cat_handle | append: '-' | append: shown_benefits | append: '.jpg'
+                -%}
+                <li data-soa-animate {{ block.shopify_attributes }}>
+                  <{{ card_tag }}
+                    class="scale-o-advantages__card"
+                    {% if block.settings.link != blank %}href="{{ block.settings.link }}"{% endif %}
+                  >
+                    <div class="scale-o-advantages__card-media">
+                      {%- if benefit_image != blank -%}
+                        <picture>
+                          {%- if block.settings.image_mobile != blank -%}
+                            <source media="(max-width: 767px)" srcset="{{ benefit_mobile | image_url: width: 800 }}">
+                          {%- endif -%}
+                          {{
+                            benefit_image
+                            | image_url: width: 900
+                            | image_tag:
+                              loading: 'lazy',
+                              widths: '400,640,900',
+                              sizes: '(max-width: 767px) 100vw, (max-width: 899px) 50vw, 22vw',
+                              alt: benefit_alt
+                          }}
+                        </picture>
+                      {%- elsif shown_benefits <= 4 -%}
+                        <img
+                          src="{{ benefit_fallback | asset_url }}"
+                          alt="{{ benefit_alt | escape }}"
+                          width="800"
+                          height="450"
+                          loading="lazy"
+                        >
+                      {%- endif -%}
+                      {%- if section.settings.show_card_index -%}
+                        <span class="scale-o-advantages__card-index">{{ card_index }}</span>
+                      {%- endif -%}
+                    </div>
+                    <div class="scale-o-advantages__card-body">
+                      {%- if block.settings.short_label != blank -%}
+                        <p class="scale-o-advantages__card-label">{{ block.settings.short_label | escape }}</p>
+                      {%- endif -%}
+                      {%- if block.settings.title != blank -%}
+                        <h4 class="scale-o-advantages__card-title">{{ block.settings.title | escape }}</h4>
+                      {%- endif -%}
+                      {%- if block.settings.description != blank -%}
+                        <p class="scale-o-advantages__card-desc">{{ block.settings.description | escape }}</p>
+                      {%- endif -%}
+                      {%- if block.settings.cta_text != blank -%}
+                        <span class="scale-o-advantages__card-cta">{{ block.settings.cta_text | escape }}</span>
+                      {%- endif -%}
+                    </div>
+                  </{{ card_tag }}>
+                </li>
+              {%- endif -%}
+            {%- endfor -%}
+              </ul>
+            </div>
+          </div>
+        </div>
+      {%- endfor -%}
+    {%- else -%}
+      <p class="scale-o-advantages__empty">Add People and Property categories in the theme editor.</p>
+    {%- endif -%}
+  </div>
+</div>
+
+<script src="{{ 'scale-o-advantages.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "People & Property",
+  "tag": "section",
+  "class": "scale-o-advantages-section",
+  "max_blocks": 18,
+  "settings": [
+    { "type": "header", "content": "Header" },
+    { "type": "checkbox", "id": "show_eyebrow", "label": "Show eyebrow", "default": true },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "ADVANTAGES" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "People & Property" },
+    { "type": "checkbox", "id": "show_description", "label": "Show description", "default": true },
+    { "type": "textarea", "id": "description", "label": "Description", "default": "Discover how Scale-O helps protect your everyday water experience and your home." },
+    {
+      "type": "select",
+      "id": "header_alignment",
+      "label": "Header alignment",
+      "default": "center",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ]
+    },
+
+    { "type": "header", "content": "Layout" },
+    { "type": "range", "id": "max_width", "label": "Maximum width", "min": 0, "max": 1600, "step": 20, "unit": "px", "default": 1200 },
+    {
+      "type": "select",
+      "id": "desktop_columns",
+      "label": "Benefit columns (desktop)",
+      "default": "2",
+      "options": [
+        { "value": "2", "label": "2" },
+        { "value": "4", "label": "4" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "hero_aspect_ratio",
+      "label": "Main image ratio",
+      "default": "3 / 4",
+      "options": [
+        { "value": "3 / 4", "label": "Portrait (3:4)" },
+        { "value": "4 / 5", "label": "Portrait (4:5)" },
+        { "value": "4 / 3", "label": "Editorial (4:3)" },
+        { "value": "16 / 9", "label": "Landscape (16:9)" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "card_aspect_ratio",
+      "label": "Benefit image ratio",
+      "default": "16 / 9",
+      "options": [
+        { "value": "16 / 9", "label": "Wide (16:9)" },
+        { "value": "16 / 10", "label": "Wide (16:10)" },
+        { "value": "4 / 3", "label": "Landscape (4:3)" },
+        { "value": "1 / 1", "label": "Square (1:1)" }
+      ]
+    },
+    { "type": "range", "id": "card_gap", "label": "Card gap", "min": 8, "max": 32, "step": 2, "unit": "px", "default": 14 },
+    { "type": "range", "id": "card_radius", "label": "Corner radius", "min": 8, "max": 28, "step": 1, "unit": "px", "default": 18 },
+    { "type": "range", "id": "shadow_strength", "label": "Shadow strength", "min": 0, "max": 100, "step": 5, "default": 30 },
+    { "type": "checkbox", "id": "show_category_icon", "label": "Show category icon", "default": true },
+    { "type": "checkbox", "id": "show_card_index", "label": "Show benefit numbers", "default": false },
+    { "type": "checkbox", "id": "enable_animations", "label": "Enable reveal animations", "default": true },
+
+    { "type": "header", "content": "Spacing" },
+    { "type": "range", "id": "padding_top", "label": "Top padding (desktop)", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 72 },
+    { "type": "range", "id": "padding_bottom", "label": "Bottom padding (desktop)", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 72 },
+    { "type": "range", "id": "padding_top_mobile", "label": "Top padding (mobile)", "min": 0, "max": 80, "step": 4, "unit": "px", "default": 52 },
+    { "type": "range", "id": "padding_bottom_mobile", "label": "Bottom padding (mobile)", "min": 0, "max": 80, "step": 4, "unit": "px", "default": 52 },
+    { "type": "range", "id": "padding_x", "label": "Horizontal padding", "min": 12, "max": 80, "step": 4, "unit": "px", "default": 20 },
+    { "type": "range", "id": "margin_top", "label": "Top spacing", "min": 0, "max": 80, "step": 4, "unit": "px", "default": 0 },
+    { "type": "range", "id": "margin_bottom", "label": "Bottom spacing", "min": 0, "max": 80, "step": 4, "unit": "px", "default": 0 },
+    { "type": "range", "id": "header_gap", "label": "Header bottom gap", "min": 16, "max": 64, "step": 4, "unit": "px", "default": 28 },
+
+    { "type": "header", "content": "Typography" },
+    { "type": "range", "id": "eyebrow_size", "label": "Eyebrow size", "min": 12, "max": 22, "step": 1, "unit": "px", "default": 16 },
+    { "type": "range", "id": "heading_size_desktop", "label": "Heading size (desktop)", "min": 24, "max": 56, "step": 1, "unit": "px", "default": 45 },
+    { "type": "range", "id": "heading_size_mobile", "label": "Heading size (mobile)", "min": 20, "max": 40, "step": 1, "unit": "px", "default": 26 },
+    { "type": "range", "id": "description_size", "label": "Description size", "min": 13, "max": 20, "step": 1, "unit": "px", "default": 16 },
+    { "type": "range", "id": "category_title_size", "label": "Category title size", "min": 16, "max": 32, "step": 1, "unit": "px", "default": 22 },
+    { "type": "range", "id": "card_title_size", "label": "Benefit title size", "min": 14, "max": 22, "step": 1, "unit": "px", "default": 17 },
+    { "type": "range", "id": "card_description_size", "label": "Benefit description size", "min": 12, "max": 18, "step": 1, "unit": "px", "default": 14 },
+
+    { "type": "header", "content": "Colors" },
+    { "type": "color", "id": "background_color", "label": "Background", "default": "#FFFFFF" },
+    { "type": "color", "id": "panel_background", "label": "Content panel background", "default": "#F3F6FA" },
+    { "type": "color", "id": "heading_color", "label": "Heading", "default": "#1A2B4A" },
+    { "type": "color", "id": "text_color", "label": "Body text", "default": "#5A6B85" },
+    { "type": "color", "id": "accent_color", "label": "Accent", "default": "#0C7FDF" },
+    { "type": "color", "id": "accent_hover_color", "label": "Accent hover", "default": "#0A6BC4" },
+    { "type": "color", "id": "card_background", "label": "Card background", "default": "#FFFFFF" },
+    { "type": "color", "id": "card_border_color", "label": "Card border", "default": "#E8EEF8" },
+    { "type": "color", "id": "tab_active_background", "label": "Active tab background", "default": "#0C7FDF" },
+    { "type": "color", "id": "tab_active_text", "label": "Active tab text", "default": "#FFFFFF" },
+    { "type": "text", "id": "accessibility_label", "label": "Accessibility label", "default": "People and property advantages" }
+  ],
+  "blocks": [
+    {
+      "type": "category",
+      "name": "Category",
+      "limit": 2,
+      "settings": [
+        {
+          "type": "select",
+          "id": "handle",
+          "label": "Category key",
+          "info": "Benefits with the same key appear in this category.",
+          "default": "people",
+          "options": [
+            { "value": "people", "label": "For People" },
+            { "value": "property", "label": "For Property" }
+          ]
+        },
+        { "type": "text", "id": "tab_label", "label": "Tab label", "default": "For People" },
+        { "type": "text", "id": "heading", "label": "Category heading", "default": "For People" },
+        { "type": "textarea", "id": "description", "label": "Category description", "default": "Better water for everyday life." },
+        { "type": "image_picker", "id": "image", "label": "Main image", "info": "Leave empty to use the default campaign image. Replace anytime from Theme Editor." },
+        { "type": "image_picker", "id": "image_mobile", "label": "Main image (mobile)" },
+        { "type": "text", "id": "image_alt", "label": "Main image alt text" },
+        { "type": "checkbox", "id": "show_cta", "label": "Show category CTA", "default": false },
+        { "type": "text", "id": "cta_text", "label": "CTA text", "default": "Learn more" },
+        { "type": "url", "id": "cta_url", "label": "CTA URL" }
+      ]
+    },
+    {
+      "type": "benefit",
+      "name": "Benefit",
+      "limit": 16,
+      "settings": [
+        {
+          "type": "select",
+          "id": "category",
+          "label": "Show in category",
+          "default": "people",
+          "options": [
+            { "value": "people", "label": "For People" },
+            { "value": "property", "label": "For Property" }
+          ]
+        },
+        { "type": "image_picker", "id": "image", "label": "Image", "info": "Leave empty to use the default campaign image. Replace anytime from Theme Editor." },
+        { "type": "image_picker", "id": "image_mobile", "label": "Image (mobile)" },
+        { "type": "text", "id": "image_alt", "label": "Image alt text" },
+        { "type": "text", "id": "short_label", "label": "Optional short label" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Better Shower Experience" },
+        { "type": "textarea", "id": "description", "label": "Description", "default": "Help reduce visible hard-water scale around everyday bathroom fixtures." },
+        { "type": "text", "id": "cta_text", "label": "Optional CTA text" },
+        { "type": "url", "id": "link", "label": "Optional link" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "People & Property",
+      "category": "Custom",
+      "blocks": [
+        {
+          "type": "category",
+          "settings": {
+            "handle": "people",
+            "tab_label": "For People",
+            "heading": "For People",
+            "description": "Better water for everyday life."
+          }
+        },
+        {
+          "type": "category",
+          "settings": {
+            "handle": "property",
+            "tab_label": "For Property",
+            "heading": "For Property",
+            "description": "Protect the fixtures and water-using systems around your home."
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "category": "people",
+            "title": "Better Shower Experience",
+            "description": "Help reduce visible hard-water scale around everyday bathroom fixtures."
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "category": "people",
+            "title": "Softer-Feeling Laundry",
+            "description": "Better water for everyday washing and household laundry."
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "category": "people",
+            "title": "Cleaner-Looking Fixtures",
+            "description": "Help reduce visible mineral deposits around taps and showers."
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "category": "people",
+            "title": "Better Everyday Water Experience",
+            "description": "A simple salt-free approach to managing hard-water scale throughout the home."
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "category": "property",
+            "title": "Helps Reduce Scale Buildup",
+            "description": "Helps manage mineral scale buildup on water-contact surfaces."
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "category": "property",
+            "title": "Protect Water-Using Appliances",
+            "description": "Helps reduce the impact of scale buildup in appliances that use water."
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "category": "property",
+            "title": "Lower Maintenance Burden",
+            "description": "Less visible buildup can mean less frequent cleaning and maintenance."
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "category": "property",
+            "title": "Protect Everyday Fixtures",
+            "description": "Help keep taps, shower fittings and other water-contact fixtures looking cleaner."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1334,223 +1334,272 @@
         "accessibility_label": "Scale-O water softeners solution"
       }
     },
-    "rich_text_9UaYFN": {
-      "type": "rich-text",
+    "scale_o_video_home": {
+      "type": "scale-o-technology-video",
       "blocks": {
-        "subheading_JQDiX8": {
-          "type": "subheading",
+        "hl_install": {
+          "type": "highlight",
           "settings": {
-            "subheading": "TECHNOLOGY"
+            "theme_icon": "install",
+            "title": "Easy Installation",
+            "description": "Designed for simple installation without complicated plumbing."
           }
         },
-        "heading_MpzanU": {
-          "type": "heading",
+        "hl_salt": {
+          "type": "highlight",
           "settings": {
-            "heading": "Scale-O Video",
-            "heading_size": "h2"
+            "theme_icon": "salt",
+            "title": "Salt-Free",
+            "description": "No salt bags or traditional brine system."
+          }
+        },
+        "hl_power": {
+          "type": "highlight",
+          "settings": {
+            "theme_icon": "electricity",
+            "title": "Zero Electricity",
+            "description": "Works without electricity."
+          }
+        },
+        "hl_waste": {
+          "type": "highlight",
+          "settings": {
+            "theme_icon": "recycle",
+            "title": "Zero Water Waste",
+            "description": "No regeneration water wastage."
           }
         }
       },
       "block_order": [
-        "subheading_JQDiX8",
-        "heading_MpzanU"
-      ],
-      "custom_css": [
-        ".m-richtext__subtitle {color: #0c7fdf;}"
-      ],
-      "settings": {
-        "container": "container",
-        "color_scheme": "",
-        "content_alignment": "center",
-        "padding_top": 72,
-        "padding_bottom": 40,
-        "custom_class": "",
-        "animations": "inherit"
-      }
-    },
-    "video_nTNUNr": {
-      "type": "video",
-      "custom_css": [
-        ".scale-o-video .container {border: 2px solid #0c7fdf; border-radius: 20px;}"
+        "hl_install",
+        "hl_salt",
+        "hl_power",
+        "hl_waste"
       ],
       "settings": {
-        "container": "container",
-        "color_scheme": "",
-        "video_type": "external",
-        "video_link": "https://vimeo.com/999469587",
-        "ratio": "16:9",
-        "image": "shopify://shop_images/scale-o-video.png",
-        "video_title": "",
-        "text_size": "medium",
-        "text_color": "inherit",
-        "play_style": "solid",
-        "play_size": "large",
-        "width": "",
-        "autoplay": false,
-        "loop": false,
-        "muted": false,
-        "show_controls": false,
-        "padding_top": 0,
-        "padding_bottom": 0,
-        "custom_class": "scale-o-video",
-        "animations": "inherit"
-      }
-    },
-    "icon_box_iaQiym": {
-      "type": "icon-box",
-      "blocks": {
-        "iconbox_CJwKAy": {
-          "type": "iconbox",
-          "settings": {
-            "image": "shopify://shop_images/1_4.png",
-            "image_by_url": "",
-            "title": "",
-            "description": "",
-            "link": "",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "m-button--link",
-            "button_size": ""
-          }
-        },
-        "iconbox_8pN8PL": {
-          "type": "iconbox",
-          "settings": {
-            "image": "shopify://shop_images/2_2.png",
-            "image_by_url": "",
-            "title": "",
-            "description": "",
-            "link": "",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "m-button--link",
-            "button_size": ""
-          }
-        },
-        "iconbox_PzcinF": {
-          "type": "iconbox",
-          "settings": {
-            "image": "shopify://shop_images/Frame_1245_e93ecbf9-ae2d-4b63-b58d-4efbfea26eb2.png",
-            "image_by_url": "",
-            "title": "",
-            "description": "",
-            "link": "",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "m-button--link",
-            "button_size": ""
-          }
-        },
-        "iconbox_n6krQE": {
-          "type": "iconbox",
-          "settings": {
-            "image": "shopify://shop_images/Frame_1246_5a593388-52c2-4d58-a5f7-a1d0ff02c013.png",
-            "image_by_url": "",
-            "title": "",
-            "description": "",
-            "link": "",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "m-button--link",
-            "button_size": ""
-          }
-        },
-        "iconbox_M6GUUt": {
-          "type": "iconbox",
-          "settings": {
-            "image": "shopify://shop_images/Frame_1248_2e13f4a1-14e8-4b77-ae35-6a08a37038d3.png",
-            "image_by_url": "",
-            "title": "",
-            "description": "",
-            "link": "",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "m-button--link",
-            "button_size": ""
-          }
-        },
-        "iconbox_xit4pa": {
-          "type": "iconbox",
-          "settings": {
-            "image": "shopify://shop_images/Frame_1249_fcda097e-d75f-49d9-8b24-9a72c7eb5cc3.png",
-            "image_by_url": "",
-            "title": "",
-            "description": "",
-            "link": "",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "m-button--link",
-            "button_size": ""
-          }
-        },
-        "iconbox_XmcqXP": {
-          "type": "iconbox",
-          "settings": {
-            "image": "shopify://shop_images/3_2.png",
-            "image_by_url": "",
-            "title": "",
-            "description": "",
-            "link": "",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "m-button--link",
-            "button_size": ""
-          }
-        },
-        "iconbox_i9UMBA": {
-          "type": "iconbox",
-          "settings": {
-            "image": "shopify://shop_images/Frame_1251_8ba320d1-78fe-4d6a-aed8-649668519003.png",
-            "image_by_url": "",
-            "title": "",
-            "description": "",
-            "link": "",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "m-button--link",
-            "button_size": ""
-          }
-        }
-      },
-      "block_order": [
-        "iconbox_CJwKAy",
-        "iconbox_8pN8PL",
-        "iconbox_PzcinF",
-        "iconbox_n6krQE",
-        "iconbox_M6GUUt",
-        "iconbox_xit4pa",
-        "iconbox_XmcqXP",
-        "iconbox_i9UMBA"
-      ],
-      "custom_css": [
-        ".m-icon-box__icon {border-radius: 15px;}",
-        ".gp .m\\:grid {row-gap: 1px;}"
-      ],
-      "settings": {
-        "heading": "People & Property",
-        "heading_size": "h3",
-        "subheading": "ADVANTAGES",
-        "description": "",
+        "show_eyebrow": true,
+        "eyebrow": "TECHNOLOGY",
+        "heading": "See How Scale-O Works",
+        "show_description": true,
+        "description": "Understand how Scale-O protects your home from hard-water scale with a simple, salt-free solution.",
         "header_alignment": "center",
-        "container": "container",
-        "color_scheme": "default",
-        "item_per_row": 4,
-        "item_gap": 20,
-        "item_gap_mobile": 10,
-        "card_color_scheme": "default",
-        "card_style": "vertical",
-        "image_max_width": "",
-        "content_alignment": "center",
-        "hover_effect": "scaling-up",
-        "enable_slider": false,
-        "show_pagination": false,
-        "show_navigation": false,
-        "use_scroll_mobile": true,
-        "use_grid_column_mb": false,
-        "padding_top": 70,
-        "padding_bottom": 70,
-        "custom_class": "gp",
-        "animations": "inherit"
+        "video_type": "external",
+        "video_url": "https://vimeo.com/999469587",
+        "thumbnail": "shopify://shop_images/scale-o-video.png",
+        "thumbnail_alt": "Scale-O product demonstration video",
+        "video_label": "Scale-O product demonstration",
+        "video_ratio": "16 / 9",
+        "video_radius": 20,
+        "play_button_size": "large",
+        "show_badge": true,
+        "badge_text": "Real Product Demo",
+        "play_label": "Play video",
+        "autoplay": false,
+        "muted": true,
+        "loop": false,
+        "show_controls": true,
+        "playsinline": true,
+        "open_in_modal": false,
+        "show_cta": true,
+        "cta_text": "Explore Scale-O Products",
+        "cta_url": "",
+        "show_trust": true,
+        "trust_text": "Trusted by thousands of happy homes across India.",
+        "max_width": 1200,
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "padding_top_mobile": 48,
+        "padding_bottom_mobile": 48,
+        "padding_x": 20,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "header_gap": 28,
+        "eyebrow_size": 16,
+        "heading_size_desktop": 45,
+        "heading_size_mobile": 26,
+        "description_size": 16,
+        "background_color": "#f7fbff",
+        "heading_color": "#1a2b4a",
+        "text_color": "#5a6b85",
+        "accent_color": "#0c7fdf",
+        "accent_hover_color": "#0a6bc4",
+        "card_border_color": "#e8eef8",
+        "accessibility_label": "Scale-O video"
+      }
+    },
+    "people_property_home": {
+      "type": "people-property-advantages",
+      "blocks": {
+        "cat_people": {
+          "type": "category",
+          "settings": {
+            "handle": "people",
+            "tab_label": "For People",
+            "heading": "For People",
+            "description": "Better water for everyday life.",
+            "image_alt": "Everyday home water experience",
+            "show_cta": false,
+            "cta_text": "Learn more",
+            "cta_url": ""
+          }
+        },
+        "cat_property": {
+          "type": "category",
+          "settings": {
+            "handle": "property",
+            "tab_label": "For Property",
+            "heading": "For Property",
+            "description": "Protect the fixtures and water-using systems around your home.",
+            "image_alt": "Home fixtures and water-using appliances",
+            "show_cta": false,
+            "cta_text": "Learn more",
+            "cta_url": ""
+          }
+        },
+        "people_shower": {
+          "type": "benefit",
+          "settings": {
+            "category": "people",
+            "title": "Better Shower Experience",
+            "description": "Help reduce visible hard-water scale around everyday bathroom fixtures.",
+            "short_label": "",
+            "cta_text": "",
+            "link": ""
+          }
+        },
+        "people_laundry": {
+          "type": "benefit",
+          "settings": {
+            "category": "people",
+            "title": "Softer-Feeling Laundry",
+            "description": "Better water for everyday washing and household laundry.",
+            "short_label": "",
+            "cta_text": "",
+            "link": ""
+          }
+        },
+        "people_fixtures": {
+          "type": "benefit",
+          "settings": {
+            "category": "people",
+            "title": "Cleaner-Looking Fixtures",
+            "description": "Help reduce visible mineral deposits around taps and showers.",
+            "short_label": "",
+            "cta_text": "",
+            "link": ""
+          }
+        },
+        "people_everyday": {
+          "type": "benefit",
+          "settings": {
+            "category": "people",
+            "title": "Better Everyday Water Experience",
+            "description": "A simple salt-free approach to managing hard-water scale throughout the home.",
+            "short_label": "",
+            "cta_text": "",
+            "link": ""
+          }
+        },
+        "property_scale": {
+          "type": "benefit",
+          "settings": {
+            "category": "property",
+            "title": "Helps Reduce Scale Buildup",
+            "description": "Helps manage mineral scale buildup on water-contact surfaces.",
+            "short_label": "",
+            "cta_text": "",
+            "link": ""
+          }
+        },
+        "property_appliances": {
+          "type": "benefit",
+          "settings": {
+            "category": "property",
+            "title": "Protect Water-Using Appliances",
+            "description": "Helps reduce the impact of scale buildup in appliances that use water.",
+            "short_label": "",
+            "cta_text": "",
+            "link": ""
+          }
+        },
+        "property_maintenance": {
+          "type": "benefit",
+          "settings": {
+            "category": "property",
+            "title": "Lower Maintenance Burden",
+            "description": "Less visible buildup can mean less frequent cleaning and maintenance.",
+            "short_label": "",
+            "cta_text": "",
+            "link": ""
+          }
+        },
+        "property_fixtures": {
+          "type": "benefit",
+          "settings": {
+            "category": "property",
+            "title": "Protect Everyday Fixtures",
+            "description": "Help keep taps, shower fittings and other water-contact fixtures looking cleaner.",
+            "short_label": "",
+            "cta_text": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "cat_people",
+        "cat_property",
+        "people_shower",
+        "people_laundry",
+        "people_fixtures",
+        "people_everyday",
+        "property_scale",
+        "property_appliances",
+        "property_maintenance",
+        "property_fixtures"
+      ],
+      "settings": {
+        "show_eyebrow": true,
+        "eyebrow": "ADVANTAGES",
+        "heading": "People & Property",
+        "show_description": true,
+        "description": "Discover how Scale-O helps protect your everyday water experience and your home.",
+        "header_alignment": "center",
+        "max_width": 1200,
+        "desktop_columns": "2",
+        "hero_aspect_ratio": "3 / 4",
+        "card_aspect_ratio": "16 / 9",
+        "card_gap": 14,
+        "card_radius": 18,
+        "shadow_strength": 30,
+        "show_category_icon": true,
+        "show_card_index": false,
+        "enable_animations": true,
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "padding_top_mobile": 52,
+        "padding_bottom_mobile": 52,
+        "padding_x": 20,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "header_gap": 28,
+        "eyebrow_size": 16,
+        "heading_size_desktop": 45,
+        "heading_size_mobile": 26,
+        "description_size": 16,
+        "category_title_size": 22,
+        "card_title_size": 17,
+        "card_description_size": 14,
+        "background_color": "#ffffff",
+        "panel_background": "#f3f6fa",
+        "heading_color": "#1a2b4a",
+        "text_color": "#5a6b85",
+        "accent_color": "#0c7fdf",
+        "accent_hover_color": "#0a6bc4",
+        "card_background": "#ffffff",
+        "card_border_color": "#e8eef8",
+        "tab_active_background": "#0c7fdf",
+        "tab_active_text": "#ffffff",
+        "accessibility_label": "People and property advantages"
       }
     },
     "custom_content_hgEnhK": {
@@ -2191,9 +2240,8 @@
     "hard_water_problems_home",
     "watch_and_shop_home",
     "scale_o_solution_home",
-    "rich_text_9UaYFN",
-    "video_nTNUNr",
-    "icon_box_iaQiym",
+    "scale_o_video_home",
+    "people_property_home",
     "custom_content_hgEnhK",
     "custom_content_HgFVDW",
     "rich_text_PwY3ay",

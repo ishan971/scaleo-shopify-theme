@@ -1701,7 +1701,7 @@
         "description": "Compare the technologies that protect your home from hard-water scale and see why Scale-O is designed for simple, salt-free protection.",
         "header_alignment": "center",
         "show_features": true,
-        "show_card_icons": true,
+        "show_card_icons": false,
         "show_cta_banner": true,
         "banner_icon": "shield",
         "banner_heading": "Simple. Salt-Free. Designed for Modern Homes.",

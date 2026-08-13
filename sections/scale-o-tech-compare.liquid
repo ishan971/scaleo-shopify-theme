@@ -142,13 +142,15 @@
                   </div>
                 {%- endif -%}
 
-                <span class="scale-o-compare__card-icon" aria-hidden="true">
-                  {%- if block.settings.icon_image != blank -%}
-                    {{ block.settings.icon_image | image_url: width: 80 | image_tag: loading: 'lazy', alt: '' }}
-                  {%- else -%}
-                    {% render 'scale-o-compare-icon', icon: block.settings.theme_icon, class: 'scale-o-compare__icon-svg' %}
-                  {%- endif -%}
-                </span>
+                {%- if section.settings.show_card_icons and block.settings.show_icon -%}
+                  <span class="scale-o-compare__card-icon" aria-hidden="true">
+                    {%- if block.settings.icon_image != blank -%}
+                      {{ block.settings.icon_image | image_url: width: 80 | image_tag: loading: 'lazy', alt: '' }}
+                    {%- else -%}
+                      {% render 'scale-o-compare-icon', icon: block.settings.theme_icon, class: 'scale-o-compare__icon-svg' %}
+                    {%- endif -%}
+                  </span>
+                {%- endif -%}
               </div>
 
               <div class="scale-o-compare__body">
@@ -260,6 +262,7 @@
       ]
     },
     { "type": "checkbox", "id": "show_features", "label": "Show feature comparison", "default": true },
+    { "type": "checkbox", "id": "show_card_icons", "label": "Show card icons", "default": true, "info": "Turns all four technology card icons on or off." },
 
     { "type": "header", "content": "Conclusion banner" },
     { "type": "checkbox", "id": "show_cta_banner", "label": "Show conclusion banner", "default": true },
@@ -359,6 +362,7 @@
           ]
         },
         { "type": "image_picker", "id": "icon_image", "label": "Custom icon image" },
+        { "type": "checkbox", "id": "show_icon", "label": "Show icon on this card", "default": true },
         { "type": "checkbox", "id": "highlight", "label": "Highlight this technology", "default": false },
         { "type": "checkbox", "id": "show_badge", "label": "Show badge", "default": false },
         { "type": "text", "id": "badge_text", "label": "Badge text", "default": "RECOMMENDED" },

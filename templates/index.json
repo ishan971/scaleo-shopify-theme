@@ -1394,6 +1394,7 @@
         "show_badge": true,
         "badge_text": "Real Product Demo",
         "play_label": "Play video",
+        "play_pulse": true,
         "autoplay": false,
         "muted": true,
         "loop": false,
@@ -1608,6 +1609,315 @@
         "tab_active_background": "#0c7fdf",
         "tab_active_text": "#ffffff",
         "accessibility_label": "People and property advantages"
+      }
+    },
+    "before_after_home": {
+      "type": "before-after-results",
+      "blocks": {
+        "pt_b1": { "type": "point", "settings": { "side": "before", "title": "Scale buildup on fixtures & surfaces" } },
+        "pt_b2": { "type": "point", "settings": { "side": "before", "title": "Dull, stained bathrooms" } },
+        "pt_b3": { "type": "point", "settings": { "side": "before", "title": "Appliance efficiency may reduce" } },
+        "pt_b4": { "type": "point", "settings": { "side": "before", "title": "More cleaning, more hassle" } },
+        "pt_a1": { "type": "point", "settings": { "side": "after", "title": "Clean, scale-free fixtures" } },
+        "pt_a2": { "type": "point", "settings": { "side": "after", "title": "Bright, spotless bathrooms" } },
+        "pt_a3": { "type": "point", "settings": { "side": "after", "title": "Better appliance performance" } },
+        "pt_a4": { "type": "point", "settings": { "side": "after", "title": "Less cleaning, more convenience" } },
+        "bf_1": { "type": "benefit", "settings": { "theme_icon": "shield", "title": "Protects Your Home", "description": "Helps prevent scale buildup on water-contact surfaces." } },
+        "bf_2": { "type": "benefit", "settings": { "theme_icon": "home", "title": "Easier Everyday Life", "description": "Spend less time cleaning and more time enjoying life." } },
+        "bf_3": { "type": "benefit", "settings": { "theme_icon": "appliance", "title": "Longer Appliance Life", "description": "Helps protect appliances and fixtures from scale buildup." } },
+        "bf_4": { "type": "benefit", "settings": { "theme_icon": "droplet", "title": "Salt-Free Solution", "description": "A smart, salt-free approach for modern homes." } }
+      },
+      "block_order": ["pt_b1", "pt_b2", "pt_b3", "pt_b4", "pt_a1", "pt_a2", "pt_a3", "pt_a4", "bf_1", "bf_2", "bf_3", "bf_4"],
+      "settings": {
+        "show_eyebrow": true,
+        "eyebrow": "BEFORE & AFTER RESULTS",
+        "heading": "The Scale-O Difference You Can See Every Day",
+        "heading_one_line": true,
+        "show_description": true,
+        "description": "Hard water causes scale buildup that affects your home and lifestyle.",
+        "description_highlight": "Scale-O protects your home, so you can live better every day.",
+        "header_alignment": "center",
+        "before_label": "BEFORE",
+        "before_heading": "Without Scale-O",
+        "before_description": "",
+        "before_image_alt": "Hard-water scale on bathroom fixtures",
+        "after_label": "AFTER",
+        "after_heading": "With Scale-O",
+        "after_description": "",
+        "after_image_alt": "Clean bathroom fixtures with Scale-O",
+        "show_transition": true,
+        "transition_text": "Before to after",
+        "arrow_size": 72,
+        "show_detail_images": true,
+        "show_cta": true,
+        "cta_text": "Explore Scale-O Products",
+        "cta_url": "",
+        "max_width": 1200,
+        "image_aspect_ratio": "16 / 10",
+        "image_height": 340,
+        "image_height_mobile": 240,
+        "card_radius": 18,
+        "enable_animations": true,
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "padding_top_mobile": 48,
+        "padding_bottom_mobile": 48,
+        "padding_x": 20,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "header_gap": 28,
+        "eyebrow_size": 16,
+        "heading_size_desktop": 40,
+        "heading_size_mobile": 26,
+        "description_size": 16,
+        "background_color": "#ffffff",
+        "before_card_background": "#f6f1ec",
+        "after_card_background": "#f5faff",
+        "heading_color": "#12345b",
+        "text_color": "#5a6b85",
+        "accent_color": "#0c7fdf",
+        "accent_hover_color": "#0a6bc4",
+        "accessibility_label": "Before and after results"
+      }
+    },
+    "tech_compare_home": {
+      "type": "scale-o-tech-compare",
+      "blocks": {
+        "tech_salt": {
+          "type": "technology",
+          "settings": {
+            "title": "Salt-Based Water Softener",
+            "category_label": "",
+            "description": "Traditional ion-exchange softening using salt and regeneration.",
+            "image_alt": "Conventional salt-based water softener",
+            "theme_icon": "bucket",
+            "highlight": false,
+            "show_badge": false,
+            "badge_text": "",
+            "cta_text": "",
+            "cta_url": ""
+          }
+        },
+        "tech_em": {
+          "type": "technology",
+          "settings": {
+            "title": "Electro-Magnetic Water Softener",
+            "category_label": "",
+            "description": "Electronic or electromagnetic technology designed to reduce scale formation.",
+            "image_alt": "Electro-magnetic water softener",
+            "theme_icon": "pipe",
+            "highlight": false,
+            "show_badge": false,
+            "badge_text": "",
+            "cta_text": "",
+            "cta_url": ""
+          }
+        },
+        "tech_media": {
+          "type": "technology",
+          "settings": {
+            "title": "Multi-Media Water Softener",
+            "category_label": "",
+            "description": "Media-based treatment systems using multiple filtration materials.",
+            "image_alt": "Multi-media water treatment system",
+            "theme_icon": "gear",
+            "highlight": false,
+            "show_badge": false,
+            "badge_text": "",
+            "cta_text": "",
+            "cta_url": ""
+          }
+        },
+        "tech_scaleo": {
+          "type": "technology",
+          "settings": {
+            "title": "Scale-O Water Softener",
+            "category_label": "",
+            "description": "Salt-free scale protection designed for simple installation and zero operating requirements.",
+            "image_alt": "Scale-O salt-free water softener",
+            "theme_icon": "droplet",
+            "highlight": true,
+            "show_badge": true,
+            "badge_text": "RECOMMENDED",
+            "cta_text": "",
+            "cta_url": ""
+          }
+        },
+        "feat_install": {
+          "type": "feature",
+          "settings": {
+            "title": "Installation",
+            "theme_icon": "wrench",
+            "value_1": "Complex",
+            "status_1": "high",
+            "value_2": "Moderate",
+            "status_2": "medium",
+            "value_3": "Professional",
+            "status_3": "high",
+            "value_4": "Simple",
+            "status_4": "positive"
+          }
+        },
+        "feat_plumbing": {
+          "type": "feature",
+          "settings": {
+            "title": "Plumbing Requirement",
+            "theme_icon": "screen",
+            "value_1": "Required",
+            "status_1": "required",
+            "value_2": "Usually required",
+            "status_2": "required",
+            "value_3": "Required",
+            "status_3": "required",
+            "value_4": "Not required",
+            "status_4": "not_required"
+          }
+        },
+        "feat_salt": {
+          "type": "feature",
+          "settings": {
+            "title": "Salt Required",
+            "theme_icon": "shield",
+            "value_1": "Yes",
+            "status_1": "negative",
+            "value_2": "No",
+            "status_2": "positive",
+            "value_3": "Depends on system",
+            "status_3": "neutral",
+            "value_4": "No",
+            "status_4": "not_required"
+          }
+        },
+        "feat_power": {
+          "type": "feature",
+          "settings": {
+            "title": "Electricity",
+            "theme_icon": "bolt",
+            "value_1": "Required",
+            "status_1": "required",
+            "value_2": "Required",
+            "status_2": "required",
+            "value_3": "System dependent",
+            "status_3": "neutral",
+            "value_4": "No",
+            "status_4": "not_required"
+          }
+        },
+        "feat_regen": {
+          "type": "feature",
+          "settings": {
+            "title": "Water Regeneration",
+            "theme_icon": "gear",
+            "value_1": "Yes",
+            "status_1": "negative",
+            "value_2": "No",
+            "status_2": "positive",
+            "value_3": "System dependent",
+            "status_3": "neutral",
+            "value_4": "No",
+            "status_4": "not_required"
+          }
+        },
+        "feat_waste": {
+          "type": "feature",
+          "settings": {
+            "title": "Water Waste",
+            "theme_icon": "droplet",
+            "value_1": "Yes",
+            "status_1": "negative",
+            "value_2": "No",
+            "status_2": "positive",
+            "value_3": "System dependent",
+            "status_3": "neutral",
+            "value_4": "No",
+            "status_4": "not_required"
+          }
+        },
+        "feat_maint": {
+          "type": "feature",
+          "settings": {
+            "title": "Routine Maintenance",
+            "theme_icon": "settings",
+            "value_1": "High",
+            "status_1": "high",
+            "value_2": "Low",
+            "status_2": "low",
+            "value_3": "Medium–High",
+            "status_3": "medium",
+            "value_4": "Minimal",
+            "status_4": "positive"
+          }
+        },
+        "feat_cost": {
+          "type": "feature",
+          "settings": {
+            "title": "Operating Cost",
+            "theme_icon": "dollar",
+            "value_1": "Ongoing",
+            "status_1": "high",
+            "value_2": "Ongoing",
+            "status_2": "high",
+            "value_3": "Ongoing",
+            "status_3": "high",
+            "value_4": "Zero",
+            "status_4": "positive"
+          }
+        }
+      },
+      "block_order": [
+        "tech_salt",
+        "tech_em",
+        "tech_media",
+        "tech_scaleo",
+        "feat_install",
+        "feat_plumbing",
+        "feat_salt",
+        "feat_power",
+        "feat_regen",
+        "feat_waste",
+        "feat_maint",
+        "feat_cost"
+      ],
+      "settings": {
+        "show_eyebrow": true,
+        "eyebrow": "COMPARE THE TECHNOLOGIES",
+        "heading": "Why Scale-O Stands Apart",
+        "show_description": true,
+        "description": "Compare the technologies that protect your home from hard-water scale and see why Scale-O is designed for simple, salt-free protection.",
+        "header_alignment": "center",
+        "show_features": true,
+        "show_cta_banner": true,
+        "banner_icon": "shield",
+        "banner_heading": "Simple. Salt-Free. Designed for Modern Homes.",
+        "banner_text": "Scale-O helps protect your home from hard-water scale without the hassle of salt, electricity or regular maintenance.",
+        "cta_text": "Explore Scale-O Products",
+        "cta_url": "",
+        "max_width": 1280,
+        "image_aspect_ratio": "4 / 3",
+        "mobile_layout": "carousel",
+        "card_radius": 18,
+        "enable_animations": true,
+        "padding_top": 72,
+        "padding_bottom": 72,
+        "padding_top_mobile": 48,
+        "padding_bottom_mobile": 48,
+        "padding_x": 20,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "header_gap": 28,
+        "eyebrow_size": 16,
+        "heading_size_desktop": 40,
+        "heading_size_mobile": 26,
+        "description_size": 16,
+        "background_color": "#ffffff",
+        "matrix_background": "#f7fbff",
+        "card_background": "#ffffff",
+        "card_border_color": "#e8eef8",
+        "heading_color": "#12345b",
+        "text_color": "#5a6b85",
+        "accent_color": "#0c7fdf",
+        "accent_hover_color": "#0a6bc4",
+        "accessibility_label": "Technology comparison"
       }
     },
     "custom_content_hgEnhK": {
@@ -2250,7 +2560,8 @@
     "scale_o_solution_home",
     "scale_o_video_home",
     "people_property_home",
-    "custom_content_hgEnhK",
+    "before_after_home",
+    "tech_compare_home",
     "custom_content_HgFVDW",
     "rich_text_PwY3ay",
     "custom_liquid_etEAdK",

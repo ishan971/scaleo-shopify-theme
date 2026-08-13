@@ -337,6 +337,7 @@
     },
     "1743481580c800ca3c": {
       "type": "apps",
+      "disabled": true,
       "blocks": {
         "swipeup_reels_feed_Ez9Dwg": {
           "type": "shopify://apps/swipeup/blocks/reels-feed/7b6d7967-af4c-461a-9edb-73155220c3a4",
@@ -365,15 +366,143 @@
         "swipeup_reels_feed_Ez9Dwg"
       ],
       "settings": {
-        "heading": "",
+        "heading": "Product Videos",
         "heading_size": "h3",
         "subheading": "",
-        "header_alignment": "center",
-        "container": "container",
+        "header_alignment": "left",
+        "container": "container-fluid",
         "background_color": "",
-        "padding_top": 0,
-        "padding_bottom": 0,
-        "custom_class": ""
+        "padding_top": 8,
+        "padding_bottom": 28,
+        "custom_class": "product-videos"
+      }
+    },
+    "product_videos": {
+      "type": "product-videos",
+      "blocks": {
+        "video_1": {
+          "type": "video",
+          "settings": {
+            "video_url": "https://cdn.shopify.com/videos/c/vp/dfbd1f412f064dbabcae537279a31792/dfbd1f412f064dbabcae537279a31792.HD-720p-2.1Mbps-64461990.mp4",
+            "title": "Using Scale-O at home",
+            "show_title": true
+          }
+        },
+        "video_2": {
+          "type": "video",
+          "settings": {
+            "video_url": "https://cdn.shopify.com/videos/c/vp/dae6c2c7fd034119a35dc419ea8c3c67/dae6c2c7fd034119a35dc419ea8c3c67.HD-720p-1.6Mbps-64461810.mp4",
+            "title": "Real customer story",
+            "show_title": true
+          }
+        },
+        "video_3": {
+          "type": "video",
+          "settings": {
+            "video_url": "https://cdn.shopify.com/videos/c/vp/c9ea48c4bec84df2b85fde9ed9d6dadc/c9ea48c4bec84df2b85fde9ed9d6dadc.HD-720p-2.1Mbps-64459996.mp4",
+            "title": "Easy everyday use",
+            "show_title": true
+          }
+        },
+        "video_4": {
+          "type": "video",
+          "settings": {
+            "video_url": "https://cdn.shopify.com/videos/c/vp/f68bde362f58404f967af508b6f9b540/f68bde362f58404f967af508b6f9b540.HD-720p-1.6Mbps-64459336.mp4",
+            "title": "Honest customer review",
+            "show_title": true
+          }
+        },
+        "video_5": {
+          "type": "video",
+          "settings": {
+            "shopify_video": "shopify://files/videos/Scale-O Reel 4.mp4",
+            "video_url": "https://cdn.shopify.com/videos/c/vp/73eeac46df544cf29a04b4416c4c7a91/73eeac46df544cf29a04b4416c4c7a91.HD-720p-1.6Mbps-45257671.mp4",
+            "title": "See Scale-O in Action",
+            "show_title": true
+          }
+        },
+        "video_6": {
+          "type": "video",
+          "settings": {
+            "shopify_video": "shopify://files/videos/Scale-O Reel 3.mp4",
+            "video_url": "https://cdn.shopify.com/videos/c/vp/1c9140383f2745a0a49ae0243c1f118b/1c9140383f2745a0a49ae0243c1f118b.HD-720p-1.6Mbps-45257659.mp4",
+            "title": "How Easy Is Installation?",
+            "show_title": true
+          }
+        },
+        "video_7": {
+          "type": "video",
+          "settings": {
+            "shopify_video": "shopify://files/videos/scale-o-x-komal-s4-1_1FyBXXm5.mp4",
+            "video_url": "https://cdn.shopify.com/videos/c/vp/0ae53b2662d243a9a1eb31e1c38863d5/0ae53b2662d243a9a1eb31e1c38863d5.HD-720p-1.6Mbps-45233387.mp4",
+            "title": "How Scale-O Works",
+            "show_title": true
+          }
+        },
+        "video_8": {
+          "type": "video",
+          "settings": {
+            "shopify_video": "shopify://files/videos/Scale-O Reel 2 (1).mp4",
+            "video_url": "https://cdn.shopify.com/videos/c/vp/9b1c09500f224a4f851b11d57f7545da/9b1c09500f224a4f851b11d57f7545da.HD-720p-1.6Mbps-45233373.mp4",
+            "title": "Why Customers Choose Scale-O",
+            "show_title": true
+          }
+        },
+        "video_9": {
+          "type": "video",
+          "settings": {
+            "video_url": "https://cdn.shopify.com/videos/c/vp/f2d8144f300844be8f1d7c808ffe876c/f2d8144f300844be8f1d7c808ffe876c.HD-720p-1.6Mbps-45233368.mp4",
+            "title": "Soft water, real homes",
+            "show_title": true
+          }
+        },
+        "video_10": {
+          "type": "video",
+          "settings": {
+            "video_url": "https://cdn.shopify.com/videos/c/vp/7557f5dfd3cc499fb89b22a977d4ac57/7557f5dfd3cc499fb89b22a977d4ac57.HD-720p-2.1Mbps-45233354.mp4",
+            "title": "The Scale-O difference",
+            "show_title": true
+          }
+        }
+      },
+      "block_order": [
+        "video_1",
+        "video_2",
+        "video_3",
+        "video_4",
+        "video_5",
+        "video_6",
+        "video_7",
+        "video_8",
+        "video_9",
+        "video_10"
+      ],
+      "settings": {
+        "heading": "Product Videos",
+        "header_alignment": "left",
+        "autoplay_all": true,
+        "muted": true,
+        "loop": true,
+        "show_controls": false,
+        "show_play_button": true,
+        "show_titles": true,
+        "infinite_scroll": true,
+        "pause_on_hover": true,
+        "scroll_speed": 36,
+        "card_width": 188,
+        "card_height": 320,
+        "card_width_mobile": 148,
+        "card_height_mobile": 260,
+        "card_gap": 14,
+        "card_gap_mobile": 10,
+        "card_radius": 16,
+        "background_color": "#FFFFFF",
+        "heading_color": "#111111",
+        "title_color": "#1A2B4A",
+        "padding_top": 8,
+        "padding_bottom": 28,
+        "padding_top_mobile": 8,
+        "padding_bottom_mobile": 20
       }
     },
     "custom_liquid_yE4QRa": {
@@ -1026,6 +1155,7 @@
     "601852004584022571",
     "product-details-tabs",
     "brands_list_a7HM9d",
+    "product_videos",
     "1743481580c800ca3c",
     "custom_liquid_yE4QRa",
     "image_with_text_tBf6fR",

@@ -12,109 +12,106 @@
       <h5 class="specs-acc__heading">Specifications</h5>
 
       <div class="specs-acc__list-wrap">
-        <details class="specs-acc__item">
-          <summary class="specs-acc__summary">
+        <div class="specs-acc__item">
+          <button type="button" class="specs-acc__summary" aria-expanded="false">
             <span class="specs-acc__icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
-                <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
-                <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                <rect x="3" y="7" width="18" height="10" rx="1.5"></rect>
+                <path d="M7 7v4M11 7v3M15 7v4M19 7v3"></path>
               </svg>
             </span>
             <span class="specs-acc__title">Product Dimensions</span>
             <span class="specs-acc__chevron" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
             </span>
-          </summary>
-          <div class="specs-acc__body">
-            <div class="specs-acc__product-title">
-              <h4><b>{{ product.title }}</b></h4>
-              <div data-shop-id="{{ shop.id }}" product-id="{{ product.id }}" data-page="{{ request.page_type }}" class="ddreview-star"></div>
+          </button>
+          <div class="specs-acc__panel">
+            <div class="specs-acc__panel-inner">
+              <div class="specs-acc__body">
+                <div class="specs-acc__product-title">
+                  <h4><b>{{ product.title }}</b></h4>
+                  <div data-shop-id="{{ shop.id }}" product-id="{{ product.id }}" data-page="{{ request.page_type }}" class="ddreview-star"></div>
+                </div>
+                <div class="specs-acc__table" role="table">
+                  <div class="specs-acc__row specs-acc__row--head" role="row">
+                    <div role="columnheader"></div>
+                    <div role="columnheader">Inch</div>
+                    <div role="columnheader">C.M</div>
+                  </div>
+                  <div class="specs-acc__row" role="row">
+                    <div role="cell">Length</div>
+                    <div role="cell">{{ ps.product_dimension_length_inch }}</div>
+                    <div role="cell">{{ ps.product_dimension_length_cm }}</div>
+                  </div>
+                  <div class="specs-acc__row" role="row">
+                    <div role="cell">Width</div>
+                    <div role="cell">{{ ps.product_dimension_width_inch }}</div>
+                    <div role="cell">{{ ps.product_dimension_width_cm }}</div>
+                  </div>
+                  <div class="specs-acc__row" role="row">
+                    <div role="cell">Height</div>
+                    <div role="cell">{{ ps.product_dimension_height_inch }}</div>
+                    <div role="cell">{{ ps.product_dimension_height_cm }}</div>
+                  </div>
+                </div>
+                {% if ps.product_weight %}
+                  <p class="specs-acc__weight"><b>Weight</b> : {{ ps.product_weight }}</p>
+                {% endif %}
+              </div>
             </div>
-            {% if ps.product_dimension_image %}
-              <div class="specs-acc__image">
-                <img src="{{ ps.product_dimension_image | img_url: '800x' }}" alt="{{ product.title }} product dimensions" loading="lazy">
-              </div>
-            {% endif %}
-            <div class="specs-acc__table" role="table">
-              <div class="specs-acc__row specs-acc__row--head" role="row">
-                <div role="columnheader"></div>
-                <div role="columnheader">Inch</div>
-                <div role="columnheader">C.M</div>
-              </div>
-              <div class="specs-acc__row" role="row">
-                <div role="cell">Length</div>
-                <div role="cell">{{ ps.product_dimension_length_inch }}</div>
-                <div role="cell">{{ ps.product_dimension_length_cm }}</div>
-              </div>
-              <div class="specs-acc__row" role="row">
-                <div role="cell">Width</div>
-                <div role="cell">{{ ps.product_dimension_width_inch }}</div>
-                <div role="cell">{{ ps.product_dimension_width_cm }}</div>
-              </div>
-              <div class="specs-acc__row" role="row">
-                <div role="cell">Height</div>
-                <div role="cell">{{ ps.product_dimension_height_inch }}</div>
-                <div role="cell">{{ ps.product_dimension_height_cm }}</div>
-              </div>
-            </div>
-            {% if ps.product_weight %}
-              <p class="specs-acc__weight"><b>Weight</b> : {{ ps.product_weight }}</p>
-            {% endif %}
           </div>
-        </details>
+        </div>
 
-        <details class="specs-acc__item">
-          <summary class="specs-acc__summary">
+        <div class="specs-acc__item">
+          <button type="button" class="specs-acc__summary" aria-expanded="false">
             <span class="specs-acc__icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8z"></path>
-                <path d="M3.3 7L12 12l8.7-5"></path>
-                <path d="M12 22V12"></path>
+                <rect x="4" y="8" width="16" height="13" rx="1"></rect>
+                <path d="M4 13h16M12 8v13"></path>
+                <path d="M8 8V5l4 2 4-2v3"></path>
               </svg>
             </span>
             <span class="specs-acc__title">Package Dimensions</span>
             <span class="specs-acc__chevron" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
             </span>
-          </summary>
-          <div class="specs-acc__body">
-            {% if ps._package_dimensions_image %}
-              <div class="specs-acc__image">
-                <img src="{{ ps._package_dimensions_image | img_url: '800x' }}" alt="{{ product.title }} package dimensions" loading="lazy">
-              </div>
-            {% endif %}
-            <div class="specs-acc__table" role="table">
-              <div class="specs-acc__row specs-acc__row--head" role="row">
-                <div role="columnheader"></div>
-                <div role="columnheader">Inch</div>
-                <div role="columnheader">C.M</div>
-              </div>
-              <div class="specs-acc__row" role="row">
-                <div role="cell">Length</div>
-                <div role="cell">{{ ps.package_dimensions_length_inch }}</div>
-                <div role="cell">{{ ps.package_dimensions_length_cm }}</div>
-              </div>
-              <div class="specs-acc__row" role="row">
-                <div role="cell">Width</div>
-                <div role="cell">{{ ps.package_dimensions_width_inch }}</div>
-                <div role="cell">{{ ps.package_dimensions_width_cm }}</div>
-              </div>
-              <div class="specs-acc__row" role="row">
-                <div role="cell">Height</div>
-                <div role="cell">{{ ps.package_dimensions_height_inch }}</div>
-                <div role="cell">{{ ps.package_dimensions_height_cm }}</div>
+          </button>
+          <div class="specs-acc__panel">
+            <div class="specs-acc__panel-inner">
+              <div class="specs-acc__body">
+                <div class="specs-acc__table" role="table">
+                  <div class="specs-acc__row specs-acc__row--head" role="row">
+                    <div role="columnheader"></div>
+                    <div role="columnheader">Inch</div>
+                    <div role="columnheader">C.M</div>
+                  </div>
+                  <div class="specs-acc__row" role="row">
+                    <div role="cell">Length</div>
+                    <div role="cell">{{ ps.package_dimensions_length_inch }}</div>
+                    <div role="cell">{{ ps.package_dimensions_length_cm }}</div>
+                  </div>
+                  <div class="specs-acc__row" role="row">
+                    <div role="cell">Width</div>
+                    <div role="cell">{{ ps.package_dimensions_width_inch }}</div>
+                    <div role="cell">{{ ps.package_dimensions_width_cm }}</div>
+                  </div>
+                  <div class="specs-acc__row" role="row">
+                    <div role="cell">Height</div>
+                    <div role="cell">{{ ps.package_dimensions_height_inch }}</div>
+                    <div role="cell">{{ ps.package_dimensions_height_cm }}</div>
+                  </div>
+                </div>
+                {% if ps.package_weight %}
+                  <p class="specs-acc__weight"><b>Weight</b> : {{ ps.package_weight }}</p>
+                {% endif %}
               </div>
             </div>
-            {% if ps.package_weight %}
-              <p class="specs-acc__weight"><b>Weight</b> : {{ ps.package_weight }}</p>
-            {% endif %}
           </div>
-        </details>
+        </div>
 
         {% if has_filters %}
-          <details class="specs-acc__item">
-            <summary class="specs-acc__summary">
+          <div class="specs-acc__item">
+            <button type="button" class="specs-acc__summary" aria-expanded="false">
               <span class="specs-acc__icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                   <line x1="8" y1="6" x2="21" y2="6"></line>
@@ -129,30 +126,34 @@
               <span class="specs-acc__chevron" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
               </span>
-            </summary>
-            <div class="specs-acc__body">
-              <ul class="specs-acc__bullets">
-                {% for i in spec_filters %}
-                  {% assign dfl = forloop.index0 | modulo: 2 %}
-                  {% if dfl == 0 %}
-                    <li>
-                      <span class="specs-acc__pair-label">{{ i }}</span>
-                  {% else %}
-                      <span class="specs-acc__pair-value">{{ i }}</span>
-                    </li>
-                  {% endif %}
-                  {% if dfl == 0 and forloop.last %}
-                    </li>
-                  {% endif %}
-                {% endfor %}
-              </ul>
+            </button>
+            <div class="specs-acc__panel">
+              <div class="specs-acc__panel-inner">
+                <div class="specs-acc__body">
+                  <div class="specs-acc__pairs">
+                    {% for i in spec_filters %}
+                      {% assign dfl = forloop.index0 | modulo: 2 %}
+                      {% if dfl == 0 %}
+                        <div class="specs-acc__pair">
+                          <span class="specs-acc__pair-label">{{ i }}</span>
+                      {% else %}
+                          <span class="specs-acc__pair-value">{{ i }}</span>
+                        </div>
+                      {% endif %}
+                      {% if dfl == 0 and forloop.last %}
+                        </div>
+                      {% endif %}
+                    {% endfor %}
+                  </div>
+                </div>
+              </div>
             </div>
-          </details>
+          </div>
         {% endif %}
 
         {% if ps.specification_bottom_content %}
-          <details class="specs-acc__item">
-            <summary class="specs-acc__summary">
+          <div class="specs-acc__item">
+            <button type="button" class="specs-acc__summary" aria-expanded="false">
               <span class="specs-acc__icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
@@ -166,11 +167,15 @@
               <span class="specs-acc__chevron" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
               </span>
-            </summary>
-            <div class="specs-acc__body specs-acc__body--rte">
-              {{ ps.specification_bottom_content | metafield_tag }}
+            </button>
+            <div class="specs-acc__panel">
+              <div class="specs-acc__panel-inner">
+                <div class="specs-acc__body specs-acc__body--rte">
+                  {{ ps.specification_bottom_content | metafield_tag }}
+                </div>
+              </div>
             </div>
-          </details>
+          </div>
         {% endif %}
       </div>
     </div>

@@ -1328,20 +1328,109 @@
     "before_after_home": {
       "type": "before-after-results",
       "blocks": {
-        "pt_b1": { "type": "point", "settings": { "side": "before", "title": "Scale buildup on fixtures & surfaces" } },
-        "pt_b2": { "type": "point", "settings": { "side": "before", "title": "Dull, stained bathrooms" } },
-        "pt_b3": { "type": "point", "settings": { "side": "before", "title": "Appliance efficiency may reduce" } },
-        "pt_b4": { "type": "point", "settings": { "side": "before", "title": "More cleaning, more hassle" } },
-        "pt_a1": { "type": "point", "settings": { "side": "after", "title": "Clean, scale-free fixtures" } },
-        "pt_a2": { "type": "point", "settings": { "side": "after", "title": "Bright, spotless bathrooms" } },
-        "pt_a3": { "type": "point", "settings": { "side": "after", "title": "Better appliance performance" } },
-        "pt_a4": { "type": "point", "settings": { "side": "after", "title": "Less cleaning, more convenience" } },
-        "bf_1": { "type": "benefit", "settings": { "theme_icon": "shield", "title": "Protects Your Home", "description": "Helps prevent scale buildup on water-contact surfaces." } },
-        "bf_2": { "type": "benefit", "settings": { "theme_icon": "home", "title": "Easier Everyday Life", "description": "Spend less time cleaning and more time enjoying life." } },
-        "bf_3": { "type": "benefit", "settings": { "theme_icon": "appliance", "title": "Longer Appliance Life", "description": "Helps protect appliances and fixtures from scale buildup." } },
-        "bf_4": { "type": "benefit", "settings": { "theme_icon": "droplet", "title": "Salt-Free Solution", "description": "A smart, salt-free approach for modern homes." } }
+        "pt_b1": {
+          "type": "point",
+          "settings": {
+            "side": "before",
+            "title": "Scale buildup on fixtures & surfaces"
+          }
+        },
+        "pt_b2": {
+          "type": "point",
+          "settings": {
+            "side": "before",
+            "title": "Dull, stained bathrooms"
+          }
+        },
+        "pt_b3": {
+          "type": "point",
+          "settings": {
+            "side": "before",
+            "title": "Appliance efficiency may reduce"
+          }
+        },
+        "pt_b4": {
+          "type": "point",
+          "settings": {
+            "side": "before",
+            "title": "More cleaning, more hassle"
+          }
+        },
+        "pt_a1": {
+          "type": "point",
+          "settings": {
+            "side": "after",
+            "title": "Clean, scale-free fixtures"
+          }
+        },
+        "pt_a2": {
+          "type": "point",
+          "settings": {
+            "side": "after",
+            "title": "Bright, spotless bathrooms"
+          }
+        },
+        "pt_a3": {
+          "type": "point",
+          "settings": {
+            "side": "after",
+            "title": "Better appliance performance"
+          }
+        },
+        "pt_a4": {
+          "type": "point",
+          "settings": {
+            "side": "after",
+            "title": "Less cleaning, more convenience"
+          }
+        },
+        "bf_1": {
+          "type": "benefit",
+          "settings": {
+            "theme_icon": "shield",
+            "title": "Protects Your Home",
+            "description": "Helps prevent scale buildup on water-contact surfaces."
+          }
+        },
+        "bf_2": {
+          "type": "benefit",
+          "settings": {
+            "theme_icon": "home",
+            "title": "Easier Everyday Life",
+            "description": "Spend less time cleaning and more time enjoying life."
+          }
+        },
+        "bf_3": {
+          "type": "benefit",
+          "settings": {
+            "theme_icon": "appliance",
+            "title": "Longer Appliance Life",
+            "description": "Helps protect appliances and fixtures from scale buildup."
+          }
+        },
+        "bf_4": {
+          "type": "benefit",
+          "settings": {
+            "theme_icon": "droplet",
+            "title": "Salt-Free Solution",
+            "description": "A smart, salt-free approach for modern homes."
+          }
+        }
       },
-      "block_order": ["pt_b1", "pt_b2", "pt_b3", "pt_b4", "pt_a1", "pt_a2", "pt_a3", "pt_a4", "bf_1", "bf_2", "bf_3", "bf_4"],
+      "block_order": [
+        "pt_b1",
+        "pt_b2",
+        "pt_b3",
+        "pt_b4",
+        "pt_a1",
+        "pt_a2",
+        "pt_a3",
+        "pt_a4",
+        "bf_1",
+        "bf_2",
+        "bf_3",
+        "bf_4"
+      ],
       "settings": {
         "show_eyebrow": true,
         "eyebrow": "BEFORE & AFTER RESULTS",
@@ -1355,6 +1444,7 @@
         "before_heading": "Without Scale-O",
         "before_description": "",
         "before_image_alt": "Hard-water scale on bathroom fixtures",
+        "show_detail_images": true,
         "after_label": "AFTER",
         "after_heading": "With Scale-O",
         "after_description": "",
@@ -1362,7 +1452,6 @@
         "show_transition": true,
         "transition_text": "Before to after",
         "arrow_size": 72,
-        "show_detail_images": true,
         "show_cta": true,
         "cta_text": "Explore Scale-O Products",
         "cta_url": "",
@@ -1403,6 +1492,8 @@
             "title": "Salt-Based Water Softener",
             "category_label": "",
             "description": "Traditional ion-exchange softening using salt and regeneration.",
+            "product": "",
+            "image": "shopify://shop_images/ChatGPT_Image_Aug_13_2026_11_48_51_AM.png",
             "image_alt": "Conventional salt-based water softener",
             "theme_icon": "bucket",
             "highlight": false,
@@ -1418,6 +1509,8 @@
             "title": "Electro-Magnetic Water Softener",
             "category_label": "",
             "description": "Electronic or electromagnetic technology designed to reduce scale formation.",
+            "product": "",
+            "image": "shopify://shop_images/content.png",
             "image_alt": "Electro-magnetic water softener",
             "theme_icon": "pipe",
             "highlight": false,
@@ -1433,6 +1526,8 @@
             "title": "Multi-Media Water Softener",
             "category_label": "",
             "description": "Media-based treatment systems using multiple filtration materials.",
+            "product": "",
+            "image": "shopify://shop_images/ChatGPT_Image_Aug_13_2026_11_53_34_AM.png",
             "image_alt": "Multi-media water treatment system",
             "theme_icon": "gear",
             "highlight": false,
@@ -1448,6 +1543,8 @@
             "title": "Scale-O Water Softener",
             "category_label": "",
             "description": "Salt-free scale protection designed for simple installation and zero operating requirements.",
+            "product": "",
+            "image": "shopify://shop_images/ChatGPT_Image_Aug_13_2026_11_54_21_AM.png",
             "image_alt": "Scale-O salt-free water softener",
             "theme_icon": "droplet",
             "highlight": true,

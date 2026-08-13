@@ -1,0 +1,459 @@
+{%- comment -%}
+  Scale-O Hero — premium D2C homepage banner
+{%- endcomment -%}
+
+{{ 'scale-o-hero.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'scale-o-hero.js' | asset_url }}" defer="defer"></script>
+
+{%- liquid
+  assign height_mode = section.settings.height_mode | default: 'medium'
+  assign desktop_min = section.settings.desktop_height | default: 580
+  assign mobile_min = section.settings.mobile_height
+  if height_mode == 'auto'
+    assign desktop_min = 0
+    assign mobile_min = 0
+  endif
+
+  assign visible_count = 0
+  assign first_slide_id = ''
+  for block in section.blocks
+    if block.type == 'slide' and block.settings.enabled != false
+      assign visible_count = visible_count | plus: 1
+      if first_slide_id == blank
+        assign first_slide_id = block.id
+      endif
+    endif
+  endfor
+-%}
+
+<style>
+  #shopify-section-{{ section.id }} .scale-o-hero {
+    --soh-bg: {{ section.settings.background_color }};
+    --soh-heading: {{ section.settings.heading_color }};
+    --soh-text: {{ section.settings.text_color }};
+    --soh-accent: {{ section.settings.accent_color }};
+    --soh-accent-hover: {{ section.settings.accent_hover_color }};
+    --soh-max-width: {% if section.settings.max_width == 0 %}100%{% else %}{{ section.settings.max_width }}px{% endif %};
+    --soh-text-width: {{ section.settings.text_width }}px;
+    --soh-pad-x: {{ section.settings.padding_x }}px;
+    --soh-pad-left: {{ section.settings.content_left | default: 56 }}px;
+    --soh-usp-size: {{ section.settings.usp_size }}px;
+    --soh-heading-desktop: {{ section.settings.heading_size_desktop }}px;
+    --soh-heading-mobile: {{ section.settings.heading_size_mobile }}px;
+    --soh-desc-desktop: {{ section.settings.description_size_desktop }}px;
+    --soh-desc-mobile: {{ section.settings.description_size_mobile }}px;
+    --soh-min-desktop: {{ desktop_min }}px;
+    --soh-min-mobile: {% if mobile_min == 0 %}0px{% else %}{{ mobile_min }}px{% endif %};
+    --soh-img-desktop: {{ section.settings.image_max_desktop }}px;
+    --soh-img-mobile: {{ section.settings.image_max_mobile }}px;
+    --soh-overlay: {{ section.settings.overlay_opacity | times: 0.01 }};
+    --soh-align: {{ section.settings.content_alignment }};
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+</style>
+
+<section
+  class="scale-o-hero scale-o-hero--mobile-{{ section.settings.mobile_layout }}"
+  data-scale-o-hero
+  data-autoplay="{% if section.settings.enable_autoplay %}true{% else %}false{% endif %}"
+  data-interval="{{ section.settings.autoplay_speed | times: 1000 }}"
+  role="region"
+  aria-roledescription="carousel"
+  aria-label="{{ section.settings.accessibility_label | default: 'Featured banners' | escape }}"
+  tabindex="0"
+>
+  <p class="scale-o-hero__live" data-soh-live aria-live="polite"></p>
+
+  {%- if section.settings.show_arrows and visible_count > 1 -%}
+    <button type="button" class="scale-o-hero__nav scale-o-hero__nav--prev" data-soh-prev aria-label="Previous slide">
+      <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false">
+        <path d="M10 3.5 5.5 8 10 12.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+    <button type="button" class="scale-o-hero__nav scale-o-hero__nav--next" data-soh-next aria-label="Next slide">
+      <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false">
+        <path d="M6 3.5 10.5 8 6 12.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+  {%- endif -%}
+
+  <div class="scale-o-hero__viewport" data-soh-viewport>
+    <div class="scale-o-hero__track" data-soh-track>
+      {%- for block in section.blocks -%}
+        {%- if block.type != 'slide' or block.settings.enabled == false -%}{%- continue -%}{%- endif -%}
+        {%- liquid
+          assign desktop_image = block.settings.image
+          assign mobile_image = block.settings.image_mobile | default: desktop_image
+          assign banner_preset = block.settings.banner_preset | default: 'highlights'
+          assign fallback_file = 'scale-o-hero-highlights.jpg'
+          if banner_preset == 'family'
+            assign fallback_file = 'scale-o-hero-family.jpg'
+          elsif banner_preset == 'whole_house'
+            assign fallback_file = 'scale-o-hero-whole-house.jpg'
+          endif
+          assign image_pos = block.settings.image_position | default: section.settings.image_position
+          assign text_align = block.settings.text_alignment | default: section.settings.content_alignment
+          assign slide_bg = block.settings.background_color | default: section.settings.background_color
+          assign heading_html = block.settings.heading | escape | newline_to_br
+          assign accent_list = block.settings.accent_words | split: ','
+          for word in accent_list
+            assign w = word | strip | escape
+            if w != blank
+              assign marked = '<span class="scale-o-hero__em">' | append: w | append: '</span>'
+              assign heading_html = heading_html | replace: w, marked
+            endif
+          endfor
+          assign alt_text = block.settings.image_alt | default: block.settings.heading | default: 'Scale-O'
+          assign is_first = false
+          if block.id == first_slide_id
+            assign is_first = true
+          endif
+          assign heading_tag = 'h2'
+          if is_first
+            assign heading_tag = 'h1'
+          endif
+        -%}
+        <article
+          class="scale-o-hero__slide scale-o-hero__slide--image-{{ image_pos }}"
+          data-soh-slide
+          style="--soh-slide-bg: {{ slide_bg }};"
+          {{ block.shopify_attributes }}
+        >
+          <div class="scale-o-hero__media">
+            {%- if desktop_image != blank or mobile_image != blank -%}
+              {%- if mobile_image != blank and desktop_image != blank and mobile_image != desktop_image -%}
+                <picture>
+                  <source
+                    media="(max-width: 767px)"
+                    srcset="
+                      {{ mobile_image | image_url: width: 800 }} 800w,
+                      {{ mobile_image | image_url: width: 1200 }} 1200w
+                    "
+                  >
+                  {%- if is_first -%}
+                    {{
+                      desktop_image
+                      | image_url: width: 2400
+                      | image_tag:
+                        loading: 'eager',
+                        fetchpriority: 'high',
+                        widths: '1200,1600,2000,2400',
+                        sizes: '100vw',
+                        alt: alt_text
+                    }}
+                  {%- else -%}
+                    {{
+                      desktop_image
+                      | image_url: width: 2400
+                      | image_tag:
+                        loading: 'lazy',
+                        widths: '1200,1600,2000,2400',
+                        sizes: '100vw',
+                        alt: alt_text
+                    }}
+                  {%- endif -%}
+                </picture>
+              {%- else -%}
+                {%- assign hero_image = desktop_image | default: mobile_image -%}
+                {%- if is_first -%}
+                  {{
+                    hero_image
+                    | image_url: width: 2400
+                    | image_tag:
+                      loading: 'eager',
+                      fetchpriority: 'high',
+                      widths: '800,1200,1600,2000,2400',
+                      sizes: '100vw',
+                      alt: alt_text
+                  }}
+                {%- else -%}
+                  {{
+                    hero_image
+                    | image_url: width: 2400
+                    | image_tag:
+                      loading: 'lazy',
+                      widths: '800,1200,1600,2000,2400',
+                      sizes: '100vw',
+                      alt: alt_text
+                  }}
+                {%- endif -%}
+              {%- endif -%}
+            {%- else -%}
+              <img
+                src="{{ fallback_file | asset_url }}"
+                alt="{{ alt_text | escape }}"
+                width="1920"
+                height="1080"
+                {% if is_first %}loading="eager" fetchpriority="high"{% else %}loading="lazy"{% endif %}
+              >
+            {%- endif -%}
+            <span class="scale-o-hero__overlay{% if block.settings.show_overlay %} is-on{% endif %}" aria-hidden="true"></span>
+          </div>
+
+          <div class="scale-o-hero__inner{% if text_align == 'center' %} scale-o-hero__inner--center{% endif %}">
+            <div class="scale-o-hero__content{% if text_align == 'center' %} scale-o-hero__content--center{% endif %}">
+              {%- if block.settings.show_usp != false and block.settings.usp != blank -%}
+                <p class="scale-o-hero__usp">
+                  {%- if block.settings.usp_icon != blank and block.settings.usp_icon != 'none' -%}
+                    <span class="scale-o-hero__usp-icon" aria-hidden="true">
+                      {% render 'scale-o-solution-icon', icon: block.settings.usp_icon, class: 'scale-o-hero__usp-svg' %}
+                    </span>
+                  {%- endif -%}
+                  <span class="scale-o-hero__usp-text">{{ block.settings.usp | escape }}</span>
+                </p>
+              {%- endif -%}
+              {%- if block.settings.heading != blank -%}
+                <{{ heading_tag }} class="scale-o-hero__heading">{{ heading_html }}</{{ heading_tag }}>
+              {%- endif -%}
+              {%- if block.settings.description != blank -%}
+                <p class="scale-o-hero__description">{{ block.settings.description | escape }}</p>
+              {%- endif -%}
+              {%- if block.settings.show_cta and block.settings.button_label != blank and block.settings.button_url != blank -%}
+                <a class="scale-o-hero__cta" href="{{ block.settings.button_url }}">
+                  {{ block.settings.button_label | escape }}
+                  <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false">
+                    <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </a>
+              {%- endif -%}
+              {%- liquid
+                assign trust_style = block.settings.trust_style | default: 'stars'
+                assign show_trust_value = false
+                if block.settings.trust_value != blank and trust_style != 'stars'
+                  assign show_trust_value = true
+                endif
+                assign show_trust_stars = false
+                if block.settings.show_stars and trust_style != 'customers'
+                  assign show_trust_stars = true
+                endif
+              -%}
+              {%- if block.settings.show_trust -%}
+                {%- if show_trust_value or show_trust_stars or block.settings.trust_text != blank -%}
+                <div class="scale-o-hero__trust scale-o-hero__trust--{{ trust_style }}">
+                  {%- if trust_style == 'customers' -%}
+                    <span class="scale-o-hero__trust-mark" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                        <circle cx="9" cy="7" r="4"/>
+                        <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                      </svg>
+                    </span>
+                  {%- endif -%}
+                  {%- if show_trust_value -%}
+                    <span class="scale-o-hero__trust-value">{{ block.settings.trust_value | escape }}</span>
+                  {%- endif -%}
+                  {%- if show_trust_stars -%}
+                    <span class="scale-o-hero__stars" aria-hidden="true">
+                      {%- for i in (1..5) -%}
+                        <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1.6 9.9 5.7l4.5.5-3.3 3 1 4.4L8 11.8 3.9 13.6l1-4.4-3.3-3 4.5-.5z"/></svg>
+                      {%- endfor -%}
+                    </span>
+                  {%- endif -%}
+                  {%- if block.settings.trust_text != blank -%}
+                    <span class="scale-o-hero__trust-copy">{{ block.settings.trust_text | escape }}</span>
+                  {%- endif -%}
+                </div>
+                {%- endif -%}
+              {%- endif -%}
+            </div>
+          </div>
+        </article>
+      {%- endfor -%}
+    </div>
+  </div>
+
+  {%- if section.settings.show_pagination and visible_count > 1 -%}
+    <div class="scale-o-hero__dots" data-soh-dots></div>
+  {%- endif -%}
+</section>
+
+{% schema %}
+{
+  "name": "Scale-O Hero",
+  "class": "scale-o-hero-section",
+  "max_blocks": 8,
+  "settings": [
+    { "type": "paragraph", "content": "Add Hero Slide blocks. Recommended: 3 slides. Drag to reorder." },
+
+    { "type": "header", "content": "Layout" },
+    {
+      "type": "select",
+      "id": "height_mode",
+      "label": "Section height",
+      "default": "medium",
+      "options": [
+        { "value": "auto", "label": "Auto" },
+        { "value": "compact", "label": "Compact" },
+        { "value": "medium", "label": "Medium" },
+        { "value": "large", "label": "Large" }
+      ]
+    },
+    { "type": "range", "id": "desktop_height", "label": "Desktop height", "min": 400, "max": 720, "step": 20, "unit": "px", "default": 580, "info": "Used when section height is Compact, Medium, or Large." },
+    { "type": "range", "id": "mobile_height", "label": "Mobile min height", "min": 0, "max": 640, "step": 20, "unit": "px", "default": 0 },
+    { "type": "range", "id": "image_max_desktop", "label": "Desktop image max height", "min": 320, "max": 640, "step": 20, "unit": "px", "default": 480 },
+    { "type": "range", "id": "image_max_mobile", "label": "Mobile image max height", "min": 180, "max": 420, "step": 20, "unit": "px", "default": 260 },
+    {
+      "type": "select",
+      "id": "content_alignment",
+      "label": "Content alignment",
+      "default": "left",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "image_position",
+      "label": "Image position",
+      "default": "right",
+      "options": [
+        { "value": "right", "label": "Right" },
+        { "value": "left", "label": "Left" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "mobile_layout",
+      "label": "Mobile layout",
+      "default": "content",
+      "options": [
+        { "value": "content", "label": "Content then image" },
+        { "value": "image", "label": "Image then content" }
+      ]
+    },
+    { "type": "range", "id": "text_width", "label": "Text width", "min": 420, "max": 680, "step": 20, "unit": "px", "default": 560 },
+    { "type": "range", "id": "max_width", "label": "Content max width", "min": 1100, "max": 1600, "step": 20, "unit": "px", "default": 1400 },
+    { "type": "range", "id": "overlay_opacity", "label": "Overlay opacity", "min": 0, "max": 30, "step": 1, "unit": "%", "default": 0 },
+    { "type": "range", "id": "content_left", "label": "Content left inset", "min": 16, "max": 120, "step": 4, "unit": "px", "default": 56, "info": "Desktop only. Lower values move the text further left." },
+    { "type": "range", "id": "padding_x", "label": "Mobile horizontal padding", "min": 16, "max": 32, "step": 2, "unit": "px", "default": 20 },
+    { "type": "range", "id": "padding_top", "label": "Top spacing", "min": 0, "max": 40, "step": 4, "unit": "px", "default": 0 },
+    { "type": "range", "id": "padding_bottom", "label": "Bottom spacing", "min": 0, "max": 40, "step": 4, "unit": "px", "default": 0 },
+
+    { "type": "header", "content": "Slideshow" },
+    { "type": "checkbox", "id": "enable_autoplay", "label": "Auto-rotate slides", "default": true, "info": "Automatically move to the next slide." },
+    { "type": "range", "id": "autoplay_speed", "label": "Change slides every", "min": 3, "max": 10, "step": 1, "unit": "s", "default": 5, "info": "Works when auto-rotate is enabled." },
+    { "type": "checkbox", "id": "show_arrows", "label": "Show arrows", "default": true },
+    { "type": "checkbox", "id": "show_pagination", "label": "Show pagination", "default": true },
+
+    { "type": "header", "content": "Typography" },
+    { "type": "range", "id": "usp_size", "label": "USP size", "min": 11, "max": 14, "step": 1, "unit": "px", "default": 12 },
+    { "type": "range", "id": "heading_size_desktop", "label": "Heading size (desktop)", "min": 36, "max": 64, "step": 1, "unit": "px", "default": 52 },
+    { "type": "range", "id": "heading_size_mobile", "label": "Heading size (mobile)", "min": 26, "max": 40, "step": 1, "unit": "px", "default": 32 },
+    { "type": "range", "id": "description_size_desktop", "label": "Description size (desktop)", "min": 15, "max": 21, "step": 1, "unit": "px", "default": 18 },
+    { "type": "range", "id": "description_size_mobile", "label": "Description size (mobile)", "min": 14, "max": 18, "step": 1, "unit": "px", "default": 16 },
+
+    { "type": "header", "content": "Colors" },
+    { "type": "color", "id": "background_color", "label": "Background", "default": "#F7FBFF" },
+    { "type": "color", "id": "heading_color", "label": "Heading", "default": "#111111" },
+    { "type": "color", "id": "text_color", "label": "Text", "default": "#5A6B85" },
+    { "type": "color", "id": "accent_color", "label": "Accent", "default": "#0C7FDF" },
+    { "type": "color", "id": "accent_hover_color", "label": "Accent hover", "default": "#0A6BC4" },
+    { "type": "text", "id": "accessibility_label", "label": "Accessibility label", "default": "Featured banners" }
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Hero Slide",
+      "settings": [
+        { "type": "checkbox", "id": "enabled", "label": "Show this slide", "default": true },
+        { "type": "image_picker", "id": "image", "label": "Desktop image", "info": "Leave empty to use the default banner below." },
+        { "type": "image_picker", "id": "image_mobile", "label": "Mobile image" },
+        {
+          "type": "select",
+          "id": "banner_preset",
+          "label": "Default banner",
+          "info": "Shown when no custom image is uploaded. Products stay on the right so text stays readable.",
+          "default": "highlights",
+          "options": [
+            { "value": "highlights", "label": "Product Highlights" },
+            { "value": "family", "label": "Family Range" },
+            { "value": "whole_house", "label": "Whole House Solution" }
+          ]
+        },
+        { "type": "text", "id": "image_alt", "label": "Image alt text" },
+
+        { "type": "header", "content": "USP tag" },
+        { "type": "checkbox", "id": "show_usp", "label": "Show USP tag", "default": true },
+        { "type": "text", "id": "usp", "label": "USP tag text", "default": "ZERO ELECTRICITY" },
+        {
+          "type": "select",
+          "id": "usp_icon",
+          "label": "USP icon",
+          "default": "electricity",
+          "options": [
+            { "value": "none", "label": "None" },
+            { "value": "electricity", "label": "Electricity" },
+            { "value": "salt", "label": "Salt" },
+            { "value": "maintenance", "label": "Maintenance" },
+            { "value": "home", "label": "Home" },
+            { "value": "shield", "label": "Shield" },
+            { "value": "droplet", "label": "Water" }
+          ]
+        },
+
+        { "type": "header", "content": "Content" },
+        { "type": "textarea", "id": "heading", "label": "Heading", "default": "Smart Water Softening.\nWithout Salt or Electricity." },
+        { "type": "text", "id": "accent_words", "label": "Accent words", "info": "Comma-separated words to highlight in brand blue.", "default": "Salt, Electricity" },
+        { "type": "textarea", "id": "description", "label": "Description", "default": "Protect your home from hard-water scale with a simple, salt-free Scale-O solution." },
+        { "type": "checkbox", "id": "show_cta", "label": "Show button", "default": true },
+        { "type": "text", "id": "button_label", "label": "Button label", "default": "Shop Now" },
+        { "type": "url", "id": "button_url", "label": "Button URL" },
+
+        { "type": "header", "content": "Trust badge" },
+        { "type": "checkbox", "id": "show_trust", "label": "Show trust badge", "default": true },
+        {
+          "type": "select",
+          "id": "trust_style",
+          "label": "Trust badge style",
+          "default": "stars",
+          "options": [
+            { "value": "stars", "label": "Stars + text" },
+            { "value": "rating", "label": "Rating + text" },
+            { "value": "customers", "label": "Customer count + text" }
+          ]
+        },
+        { "type": "text", "id": "trust_value", "label": "Trust value", "default": "4.8/5", "info": "Used for Rating or Customer count. Example: 4.8/5 or 1000+." },
+        { "type": "checkbox", "id": "show_stars", "label": "Show stars", "default": true, "info": "Hidden when style is Customer count." },
+        { "type": "text", "id": "trust_text", "label": "Trust badge text", "default": "Trusted by happy Scale-O customers" },
+
+        { "type": "header", "content": "Slide layout" },
+        {
+          "type": "select",
+          "id": "image_position",
+          "label": "Image position",
+          "default": "right",
+          "options": [
+            { "value": "right", "label": "Right" },
+            { "value": "left", "label": "Left" }
+          ]
+        },
+        {
+          "type": "select",
+          "id": "text_alignment",
+          "label": "Text alignment",
+          "default": "left",
+          "options": [
+            { "value": "left", "label": "Left" },
+            { "value": "center", "label": "Center" }
+          ]
+        },
+        { "type": "checkbox", "id": "show_overlay", "label": "Show image overlay", "default": false },
+        { "type": "color", "id": "background_color", "label": "Slide background", "default": "#F7FBFF" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Scale-O Hero",
+      "blocks": [
+        { "type": "slide", "settings": { "banner_preset": "highlights", "usp": "ZERO ELECTRICITY", "usp_icon": "electricity", "heading": "Smart Water Softening.\nWithout Salt or Electricity.", "accent_words": "Salt, Electricity", "trust_style": "stars", "trust_text": "Trusted by happy Scale-O customers" } },
+        { "type": "slide", "settings": { "banner_preset": "family", "usp": "ZERO SALT • ZERO MAINTENANCE", "usp_icon": "droplet", "heading": "A Scale-O Solution\nFor Every Home.", "accent_words": "Every Home", "description": "From compact solutions to whole-house protection, choose the right Scale-O system for your family's needs.", "trust_style": "stars", "trust_text": "Trusted by happy Scale-O customers" } },
+        { "type": "slide", "settings": { "banner_preset": "whole_house", "usp": "WHOLE-HOUSE PROTECTION", "usp_icon": "shield", "heading": "Protect Your Home\nFrom Hard-Water Damage.", "accent_words": "Hard-Water Damage", "description": "Helps prevent scale buildup in bathrooms, appliances, pipes and fixtures across your entire home.", "trust_style": "stars", "trust_text": "Trusted by homeowners across India" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

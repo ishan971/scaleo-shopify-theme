@@ -1,0 +1,529 @@
+{%- comment -%}
+  Scale-O Video Testimonials — customer story carousel
+{%- endcomment -%}
+
+{{ 'scale-o-video-testimonials.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign story_blocks = section.blocks | where: 'type', 'testimonial'
+  assign trust_blocks = section.blocks | where: 'type', 'trust'
+  assign header_align = section.settings.header_alignment
+
+  assign show_header = false
+  if section.settings.heading != blank
+    assign show_header = true
+  endif
+  if section.settings.show_eyebrow and section.settings.eyebrow != blank
+    assign show_header = true
+  endif
+  if section.settings.show_description and section.settings.description != blank
+    assign show_header = true
+  endif
+
+  assign play_size = section.settings.play_button_size
+-%}
+
+<style>
+  #shopify-section-{{ section.id }} .scale-o-vt {
+    --svt-bg: {{ section.settings.background_color }};
+    --svt-heading: {{ section.settings.heading_color }};
+    --svt-text: {{ section.settings.text_color }};
+    --svt-accent: {{ section.settings.accent_color }};
+    --svt-accent-hover: {{ section.settings.accent_hover_color }};
+    --svt-card-bg: {{ section.settings.card_background }};
+    --svt-card-border: {{ section.settings.card_border_color }};
+    --svt-radius: {{ section.settings.card_radius }}px;
+    --svt-gap: {{ section.settings.card_spacing }}px;
+    --svt-play: {{ play_size }}px;
+    --svt-play-color: {{ section.settings.play_button_color }};
+    --svt-eyebrow-size: {{ section.settings.eyebrow_size }}px;
+    --svt-heading-size: {{ section.settings.heading_size_mobile }}px;
+    --svt-heading-size-desktop: {{ section.settings.heading_size_desktop }}px;
+    --svt-desc-size: {{ section.settings.description_size }}px;
+    --svt-pad-x: {{ section.settings.padding_x }}px;
+    --svt-header-gap: {{ section.settings.header_gap }}px;
+    --svt-header-align: {{ header_align }};
+    --svt-max-width: {% if section.settings.max_width == 0 %}100%{% else %}{{ section.settings.max_width }}px{% endif %};
+    --svt-desktop-cards: {{ section.settings.desktop_cards }};
+    --svt-tablet-cards: {{ section.settings.tablet_cards }};
+    --svt-ratio: {{ section.settings.thumb_ratio }};
+    --svt-shadow: {% if section.settings.show_card_shadow %}0 14px 36px rgba(20, 43, 74, 0.08){% else %}none{% endif %};
+    --svt-shadow-featured: {% if section.settings.show_card_shadow %}0 20px 44px rgba(12, 127, 223, 0.16){% else %}none{% endif %};
+    margin-top: {{ section.settings.margin_top }}px;
+    margin-bottom: {{ section.settings.margin_bottom }}px;
+    padding: {{ section.settings.padding_top_mobile }}px 0 {{ section.settings.padding_bottom_mobile }}px;
+    background: var(--svt-bg);
+  }
+  @media (min-width: 768px) {
+    #shopify-section-{{ section.id }} .scale-o-vt {
+      padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px;
+    }
+  }
+</style>
+
+<div
+  class="scale-o-vt"
+  data-section-id="{{ section.id }}"
+  data-autoplay="{% if section.settings.carousel_autoplay %}true{% else %}false{% endif %}"
+  data-interval="{{ section.settings.autoplay_speed }}"
+  data-pause-hover="{% if section.settings.pause_on_hover %}true{% else %}false{% endif %}"
+  data-pause-video="{% if section.settings.pause_when_playing %}true{% else %}false{% endif %}"
+  data-desktop-cards="{{ section.settings.desktop_cards }}"
+  data-tablet-cards="{{ section.settings.tablet_cards }}"
+  data-open-modal="{% if section.settings.enable_video_modal %}true{% else %}false{% endif %}"
+  data-video-autoplay="{% if section.settings.video_autoplay %}true{% else %}false{% endif %}"
+  data-video-muted="{% if section.settings.video_muted %}true{% else %}false{% endif %}"
+  data-show-controls="{% if section.settings.show_controls %}true{% else %}false{% endif %}"
+  data-animate="{% if section.settings.enable_animations %}true{% else %}false{% endif %}"
+  role="region"
+  aria-label="{{ section.settings.accessibility_label | default: 'Customer video stories' | escape }}"
+>
+  <div class="scale-o-vt__wash" aria-hidden="true"></div>
+
+  <div class="scale-o-vt__container">
+    {%- if show_header -%}
+      <header class="scale-o-vt__header scale-o-vt__header--{{ header_align }}" data-svt-animate>
+        {%- if section.settings.show_eyebrow and section.settings.eyebrow != blank -%}
+          <p class="scale-o-vt__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+        {%- endif -%}
+        {%- if section.settings.heading != blank -%}
+          <h2 class="scale-o-vt__heading">{{ section.settings.heading | escape }}</h2>
+        {%- endif -%}
+        {%- if section.settings.show_description and section.settings.description != blank -%}
+          <p class="scale-o-vt__description">{{ section.settings.description | escape }}</p>
+        {%- endif -%}
+      </header>
+    {%- endif -%}
+
+    {%- if story_blocks.size > 0 -%}
+      <div class="scale-o-vt__stage" data-svt-animate>
+        {%- if section.settings.show_arrows -%}
+          <button class="scale-o-vt__nav scale-o-vt__nav--prev" type="button" data-svt-prev aria-label="Previous customer story">
+            <svg width="18" height="18" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M10 3 5 8l5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        {%- endif -%}
+
+        <div class="scale-o-vt__viewport" data-svt-viewport>
+          <div class="scale-o-vt__track" data-svt-track>
+            {%- for block in story_blocks -%}
+              {%- if block.settings.enabled == false -%}{%- continue -%}{%- endif -%}
+              {%- liquid
+                assign video_obj = block.settings.shopify_video
+                assign video_link = block.settings.video_url
+                assign poster = block.settings.thumbnail
+                assign video_src = ''
+                if video_obj != blank
+                  for source in video_obj.sources
+                    if source.format == 'mp4' or source.mime_type == 'video/mp4'
+                      assign video_src = source.url
+                    endif
+                  endfor
+                  if video_src == blank and video_obj.sources.size > 0
+                    assign video_src = video_obj.sources.first.url
+                  endif
+                endif
+
+                assign media_kind = 'none'
+                assign media_src = ''
+                if block.settings.video_source == 'shopify' and video_src != blank
+                  assign media_kind = 'shopify'
+                  assign media_src = video_src
+                elsif video_link != blank and video_link.id != blank
+                  if video_link.type == 'youtube'
+                    assign media_kind = 'youtube'
+                    assign media_src = video_link.id
+                  elsif video_link.type == 'vimeo'
+                    assign media_kind = 'vimeo'
+                    assign media_src = video_link.id
+                  endif
+                elsif video_src != blank
+                  assign media_kind = 'shopify'
+                  assign media_src = video_src
+                endif
+
+                assign poster_img = poster
+                if poster_img == blank and video_obj != blank and video_obj.preview_image != blank
+                  assign poster_img = video_obj.preview_image
+                endif
+                assign poster_alt = block.settings.thumbnail_alt | default: block.settings.title | default: block.settings.customer_name | default: 'Customer story'
+                assign location_parts = ''
+                if block.settings.city != blank
+                  assign location_parts = block.settings.city
+                endif
+                if block.settings.state != blank
+                  if location_parts != blank
+                    assign location_parts = location_parts | append: ', ' | append: block.settings.state
+                  else
+                    assign location_parts = block.settings.state
+                  endif
+                endif
+                assign show_meta = false
+                if block.settings.show_customer_info
+                  if block.settings.customer_name != blank or location_parts != blank or block.settings.designation != blank or block.settings.avatar != blank
+                    assign show_meta = true
+                  endif
+                endif
+              -%}
+              <article
+                class="scale-o-vt__card{% if block.settings.highlight %} is-featured{% endif %}"
+                data-svt-card
+                data-media-kind="{{ media_kind }}"
+                data-media-src="{{ media_src | escape }}"
+                data-media-title="{{ block.settings.title | default: block.settings.customer_name | escape }}"
+                {{ block.shopify_attributes }}
+              >
+                {%- if block.settings.show_verified and block.settings.verified_text != blank -%}
+                  <p class="scale-o-vt__badge">
+                    <span aria-hidden="true">★</span>
+                    {{ block.settings.verified_text | escape }}
+                  </p>
+                {%- endif -%}
+
+                <button
+                  class="scale-o-vt__media"
+                  type="button"
+                  data-svt-play
+                  {% if media_kind == 'none' %}disabled{% endif %}
+                  aria-label="Play video{% if block.settings.customer_name != blank %} from {{ block.settings.customer_name | escape }}{% endif %}"
+                >
+                  {%- if poster_img != blank -%}
+                    {{
+                      poster_img
+                      | image_url: width: 900
+                      | image_tag:
+                        loading: 'lazy',
+                        widths: '400,640,900',
+                        sizes: '(max-width: 767px) 82vw, 32vw',
+                        alt: poster_alt
+                    }}
+                  {%- else -%}
+                    <span class="scale-o-vt__poster-fallback" aria-hidden="true"></span>
+                  {%- endif -%}
+
+                  <span class="scale-o-vt__play" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8.4 6.2v11.6L18.2 12z"/></svg>
+                  </span>
+
+                  {%- if block.settings.duration != blank -%}
+                    <span class="scale-o-vt__duration">{{ block.settings.duration | escape }}</span>
+                  {%- endif -%}
+                </button>
+
+                <div class="scale-o-vt__body">
+                  {%- if block.settings.show_rating and block.settings.rating > 0 -%}
+                    <p class="scale-o-vt__rating" aria-label="{{ block.settings.rating }} out of 5 stars">
+                      {%- for i in (1..5) -%}
+                        <span class="scale-o-vt__star{% if i <= block.settings.rating %} is-on{% endif %}" aria-hidden="true">★</span>
+                      {%- endfor -%}
+                    </p>
+                  {%- endif -%}
+
+                  {%- liquid
+                    assign has_quote_title = false
+                    if block.settings.title != blank
+                      assign has_quote_title = true
+                    endif
+                    assign has_quote_body = false
+                    if block.settings.show_description and block.settings.description != blank
+                      assign has_quote_body = true
+                    endif
+                  -%}
+                  {%- if has_quote_title or has_quote_body -%}
+                    <div class="scale-o-vt__quote-wrap">
+                      <span class="scale-o-vt__quote-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7.2 18c-2.4 0-4.2-1.9-4.2-4.4 0-3.4 2.5-6.5 6-7.6l.7 1.7C7.8 8.4 6.4 10 6.4 11.8c.5-.3 1.1-.4 1.8-.4 1.8 0 3.2 1.3 3.2 3.1S10 18 8.2 18H7.2zm9.6 0c-2.4 0-4.2-1.9-4.2-4.4 0-3.4 2.5-6.5 6-7.6l.7 1.7c-1.9.7-3.3 2.3-3.3 4.1.5-.3 1.1-.4 1.8-.4 1.8 0 3.2 1.3 3.2 3.1S19.6 18 17.8 18h-1z"/></svg>
+                      </span>
+                      {%- if block.settings.title != blank -%}
+                        <h3 class="scale-o-vt__quote">{{ block.settings.title | escape }}</h3>
+                      {%- endif -%}
+                      {%- if block.settings.show_description and block.settings.description != blank -%}
+                        <p class="scale-o-vt__excerpt">{{ block.settings.description | escape }}</p>
+                      {%- endif -%}
+                    </div>
+                  {%- endif -%}
+
+                  {%- if show_meta -%}
+                    <div class="scale-o-vt__person">
+                      {%- if block.settings.avatar != blank -%}
+                        {%- assign avatar_alt = block.settings.customer_name | default: 'Customer' -%}
+                        {{
+                          block.settings.avatar
+                          | image_url: width: 96
+                          | image_tag:
+                            loading: 'lazy',
+                            widths: '64,96',
+                            sizes: '48px',
+                            alt: avatar_alt,
+                            class: 'scale-o-vt__avatar'
+                        }}
+                      {%- else -%}
+                        <span class="scale-o-vt__avatar scale-o-vt__avatar--placeholder" aria-hidden="true"></span>
+                      {%- endif -%}
+                      <div class="scale-o-vt__person-copy">
+                        {%- if block.settings.customer_name != blank -%}
+                          <p class="scale-o-vt__name">{{ block.settings.customer_name | escape }}</p>
+                        {%- endif -%}
+                        {%- if location_parts != blank -%}
+                          <p class="scale-o-vt__location">{{ location_parts | escape }}</p>
+                        {%- endif -%}
+                        {%- if block.settings.designation != blank -%}
+                          <p class="scale-o-vt__role">{{ block.settings.designation | escape }}</p>
+                        {%- endif -%}
+                        {%- if block.settings.show_product and block.settings.product_name != blank -%}
+                          <p class="scale-o-vt__product">{{ block.settings.product_name | escape }}</p>
+                        {%- endif -%}
+                      </div>
+                    </div>
+                  {%- endif -%}
+                </div>
+              </article>
+            {%- endfor -%}
+          </div>
+        </div>
+
+        {%- if section.settings.show_arrows -%}
+          <button class="scale-o-vt__nav scale-o-vt__nav--next" type="button" data-svt-next aria-label="Next customer story">
+            <svg width="18" height="18" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        {%- endif -%}
+      </div>
+
+      {%- if section.settings.show_dots -%}
+        <div class="scale-o-vt__dots" data-svt-dots role="tablist" aria-label="Testimonial pagination"></div>
+      {%- endif -%}
+    {%- endif -%}
+
+    {%- if section.settings.show_trust and trust_blocks.size > 0 -%}
+      <ul class="scale-o-vt__trust" data-svt-animate>
+        {%- for block in trust_blocks -%}
+          <li class="scale-o-vt__trust-item" {{ block.shopify_attributes }}>
+            <span class="scale-o-vt__trust-icon" aria-hidden="true">
+              {% render 'scale-o-vt-icon', icon: block.settings.icon %}
+            </span>
+            <div>
+              {%- if block.settings.title != blank -%}
+                <p class="scale-o-vt__trust-title">{{ block.settings.title | escape }}</p>
+              {%- endif -%}
+              {%- if block.settings.text != blank -%}
+                <p class="scale-o-vt__trust-text">{{ block.settings.text | escape }}</p>
+              {%- endif -%}
+            </div>
+          </li>
+        {%- endfor -%}
+      </ul>
+    {%- endif -%}
+
+    {%- if section.settings.show_footer -%}
+      <div class="scale-o-vt__footer" data-svt-animate>
+        {%- if section.settings.trust_statement != blank -%}
+          <p class="scale-o-vt__statement">{{ section.settings.trust_statement | escape }}</p>
+        {%- endif -%}
+        {%- if section.settings.show_cta and section.settings.cta_text != blank -%}
+          <a class="scale-o-vt__cta" href="{{ section.settings.cta_url | default: '#' }}">
+            <span>{{ section.settings.cta_text | escape }}</span>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+  </div>
+
+  <div class="scale-o-vt__modal" data-svt-modal hidden>
+    <div class="scale-o-vt__modal-dialog" role="dialog" aria-modal="true" aria-label="Customer video">
+      <button class="scale-o-vt__modal-close" type="button" data-svt-modal-close aria-label="Close video">
+        <svg width="18" height="18" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 4l8 8M12 4 4 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </button>
+      <div class="scale-o-vt__modal-mount" data-svt-modal-mount></div>
+    </div>
+  </div>
+</div>
+
+<script src="{{ 'scale-o-video-testimonials.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "Video Testimonials",
+  "tag": "section",
+  "class": "scale-o-vt-section",
+  "max_blocks": 24,
+  "settings": [
+    { "type": "header", "content": "How to edit" },
+    { "type": "paragraph", "content": "Add Testimonial blocks for each customer video. Add Trust item blocks for the row under the carousel. Drag to reorder. Videos stay empty until you upload a Shopify video or paste a YouTube/Vimeo URL." },
+
+    { "type": "header", "content": "Heading" },
+    { "type": "checkbox", "id": "show_eyebrow", "label": "Show eyebrow", "default": true },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "CUSTOMER STORIES" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Real Customers. Real Results." },
+    { "type": "checkbox", "id": "show_description", "label": "Show description", "default": true },
+    { "type": "textarea", "id": "description", "label": "Description", "default": "Hear directly from Scale-O customers about their experience with hard water, installation and everyday use." },
+    {
+      "type": "select",
+      "id": "header_alignment",
+      "label": "Header alignment",
+      "default": "center",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ]
+    },
+
+    { "type": "header", "content": "Carousel" },
+    { "type": "range", "id": "desktop_cards", "label": "Cards on desktop", "min": 1, "max": 4, "step": 1, "default": 3 },
+    { "type": "range", "id": "tablet_cards", "label": "Cards on tablet", "min": 1, "max": 3, "step": 1, "default": 2 },
+    { "type": "checkbox", "id": "carousel_autoplay", "label": "Enable carousel autoplay", "default": true },
+    { "type": "range", "id": "autoplay_speed", "label": "Autoplay interval", "min": 3000, "max": 9000, "step": 500, "unit": "ms", "default": 5000 },
+    { "type": "checkbox", "id": "pause_on_hover", "label": "Pause carousel on hover", "default": true },
+    { "type": "checkbox", "id": "pause_when_playing", "label": "Pause carousel when a video is playing", "default": true },
+    { "type": "checkbox", "id": "show_arrows", "label": "Show navigation arrows", "default": true },
+    { "type": "checkbox", "id": "show_dots", "label": "Show pagination dots", "default": true },
+
+    { "type": "header", "content": "Video" },
+    { "type": "checkbox", "id": "enable_video_modal", "label": "Open videos in a modal", "default": true },
+    { "type": "checkbox", "id": "video_autoplay", "label": "Video autoplay", "default": false, "info": "Only the selected video plays. Muted autoplay is recommended by browsers." },
+    { "type": "checkbox", "id": "video_muted", "label": "Muted video autoplay", "default": false },
+    { "type": "checkbox", "id": "show_controls", "label": "Show player controls", "default": true },
+    {
+      "type": "select",
+      "id": "thumb_ratio",
+      "label": "Thumbnail ratio",
+      "default": "16 / 10",
+      "options": [
+        { "value": "16 / 9", "label": "16:9" },
+        { "value": "16 / 10", "label": "16:10" },
+        { "value": "4 / 3", "label": "4:3" }
+      ]
+    },
+    { "type": "range", "id": "play_button_size", "label": "Play button size", "min": 48, "max": 88, "step": 2, "unit": "px", "default": 64 },
+    { "type": "color", "id": "play_button_color", "label": "Play button color", "default": "#0C7FDF" },
+
+    { "type": "header", "content": "Trust row & CTA" },
+    { "type": "checkbox", "id": "show_trust", "label": "Show trust items", "default": true },
+    { "type": "checkbox", "id": "show_footer", "label": "Show footer", "default": true },
+    { "type": "text", "id": "trust_statement", "label": "Trust statement", "default": "Real experiences from Scale-O customers across India." },
+    { "type": "checkbox", "id": "show_cta", "label": "Show CTA button", "default": true },
+    { "type": "text", "id": "cta_text", "label": "CTA text", "default": "See More Customer Stories" },
+    { "type": "url", "id": "cta_url", "label": "CTA URL" },
+
+    { "type": "header", "content": "Layout" },
+    { "type": "range", "id": "max_width", "label": "Maximum width", "min": 0, "max": 1600, "step": 20, "unit": "px", "default": 1200 },
+    { "type": "range", "id": "card_radius", "label": "Card corner radius", "min": 8, "max": 28, "step": 1, "unit": "px", "default": 18 },
+    { "type": "range", "id": "card_spacing", "label": "Card spacing", "min": 8, "max": 32, "step": 2, "unit": "px", "default": 18 },
+    { "type": "checkbox", "id": "show_card_shadow", "label": "Show card shadow", "default": true },
+    { "type": "checkbox", "id": "enable_animations", "label": "Enable reveal animations", "default": true },
+    { "type": "range", "id": "padding_top", "label": "Top padding (desktop)", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 80 },
+    { "type": "range", "id": "padding_bottom", "label": "Bottom padding (desktop)", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 80 },
+    { "type": "range", "id": "padding_top_mobile", "label": "Top padding (mobile)", "min": 0, "max": 80, "step": 4, "unit": "px", "default": 48 },
+    { "type": "range", "id": "padding_bottom_mobile", "label": "Bottom padding (mobile)", "min": 0, "max": 80, "step": 4, "unit": "px", "default": 48 },
+    { "type": "range", "id": "padding_x", "label": "Horizontal padding", "min": 12, "max": 80, "step": 4, "unit": "px", "default": 20 },
+    { "type": "range", "id": "margin_top", "label": "Top spacing", "min": 0, "max": 80, "step": 4, "unit": "px", "default": 0 },
+    { "type": "range", "id": "margin_bottom", "label": "Bottom spacing", "min": 0, "max": 80, "step": 4, "unit": "px", "default": 0 },
+    { "type": "range", "id": "header_gap", "label": "Header bottom gap", "min": 16, "max": 64, "step": 4, "unit": "px", "default": 36 },
+
+    { "type": "header", "content": "Typography" },
+    { "type": "range", "id": "eyebrow_size", "label": "Eyebrow size", "min": 12, "max": 22, "step": 1, "unit": "px", "default": 13 },
+    { "type": "range", "id": "heading_size_desktop", "label": "Heading size (desktop)", "min": 24, "max": 56, "step": 1, "unit": "px", "default": 36 },
+    { "type": "range", "id": "heading_size_mobile", "label": "Heading size (mobile)", "min": 20, "max": 40, "step": 1, "unit": "px", "default": 26 },
+    { "type": "range", "id": "description_size", "label": "Description size", "min": 13, "max": 20, "step": 1, "unit": "px", "default": 16 },
+
+    { "type": "header", "content": "Colors" },
+    { "type": "color", "id": "background_color", "label": "Background", "default": "#F5FAFF" },
+    { "type": "color", "id": "card_background", "label": "Card background", "default": "#FFFFFF" },
+    { "type": "color", "id": "card_border_color", "label": "Card border", "default": "#E4ECF6" },
+    { "type": "color", "id": "heading_color", "label": "Heading", "default": "#142B4A" },
+    { "type": "color", "id": "text_color", "label": "Text", "default": "#5A6B85" },
+    { "type": "color", "id": "accent_color", "label": "Accent", "default": "#0C7FDF" },
+    { "type": "color", "id": "accent_hover_color", "label": "Accent hover", "default": "#0A6BC4" },
+    { "type": "text", "id": "accessibility_label", "label": "Accessibility label", "default": "Customer video stories" }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "limit": 20,
+      "settings": [
+        { "type": "paragraph", "content": "Upload a Video thumbnail for the card image, then a Profile image for the circular photo next to the name." },
+        { "type": "checkbox", "id": "enabled", "label": "Show this testimonial", "default": true },
+        { "type": "checkbox", "id": "highlight", "label": "Start as featured card", "default": false, "info": "Optional. The carousel still emphasizes the center card." },
+        {
+          "type": "select",
+          "id": "video_source",
+          "label": "Video source",
+          "default": "youtube_vimeo",
+          "options": [
+            { "value": "shopify", "label": "Shopify hosted video" },
+            { "value": "youtube_vimeo", "label": "YouTube or Vimeo" }
+          ]
+        },
+        { "type": "header", "content": "Video & thumbnail" },
+        { "type": "video", "id": "shopify_video", "label": "Shopify hosted video" },
+        {
+          "type": "video_url",
+          "id": "video_url",
+          "label": "YouTube or Vimeo URL",
+          "accept": ["youtube", "vimeo"]
+        },
+        { "type": "image_picker", "id": "thumbnail", "label": "Video thumbnail", "info": "Image shown on the card before play. Upload a real customer/product photo." },
+        { "type": "text", "id": "thumbnail_alt", "label": "Thumbnail alt text" },
+        { "type": "text", "id": "duration", "label": "Duration label", "info": "Example: 3:27" },
+        { "type": "header", "content": "Quote" },
+        { "type": "text", "id": "title", "label": "Short headline" },
+        { "type": "checkbox", "id": "show_description", "label": "Show full quote", "default": true },
+        { "type": "textarea", "id": "description", "label": "Customer quote", "info": "The original customer testimonial." },
+        { "type": "header", "content": "Customer profile" },
+        { "type": "checkbox", "id": "show_customer_info", "label": "Show customer profile", "default": true },
+        { "type": "image_picker", "id": "avatar", "label": "Profile image", "info": "Circular photo next to the name. Upload from Theme Editor." },
+        { "type": "text", "id": "customer_name", "label": "Customer name", "default": "Customer name" },
+        { "type": "text", "id": "city", "label": "City" },
+        { "type": "text", "id": "state", "label": "State" },
+        { "type": "text", "id": "designation", "label": "Title / label", "info": "Example: Homeowner" },
+        { "type": "checkbox", "id": "show_product", "label": "Show product used", "default": false },
+        { "type": "text", "id": "product_name", "label": "Product used" },
+        { "type": "checkbox", "id": "show_rating", "label": "Show rating", "default": false },
+        { "type": "range", "id": "rating", "label": "Rating", "min": 0, "max": 5, "step": 1, "default": 5 },
+        { "type": "checkbox", "id": "show_verified", "label": "Show verified badge", "default": false },
+        { "type": "text", "id": "verified_text", "label": "Badge text", "default": "VERIFIED CUSTOMER" }
+      ]
+    },
+    {
+      "type": "trust",
+      "name": "Trust item",
+      "limit": 4,
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title", "default": "Real Customers" },
+        { "type": "textarea", "id": "text", "label": "Text", "default": "Stories from Scale-O customers." },
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "default": "people",
+          "options": [
+            { "value": "people", "label": "People" },
+            { "value": "home", "label": "Home" },
+            { "value": "map", "label": "Map" },
+            { "value": "quality", "label": "Quality" }
+          ]
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Video Testimonials",
+      "category": "Custom",
+      "blocks": [
+        { "type": "testimonial", "settings": { "highlight": true, "show_description": true, "description": "Scale-O is a very innovative product. I'm very happy with the product, reason is it is very easy to install, no hassles. hard water is a big problem, we wanted a solution but not a salt based softener", "customer_name": "Mrs. Pragati Choksi" } },
+        { "type": "testimonial", "settings": { "show_description": true, "description": "We absolutely loved Scale-O. Very compact and easy to install design. We found it really effective and could avoid the hassle and cumbersome process of conventional plant installation.", "customer_name": "Dr. Gaurav Khurana" } },
+        { "type": "testimonial", "settings": { "show_description": true, "description": "The product is really good, and just one day post installation we can see the change in quality of water. good work!", "customer_name": "Ms. Avani Nathwani" } },
+        { "type": "testimonial", "settings": { "show_description": true, "description": "Good concept, as we are facing problems due to hard water. Easy installation and friendly customer service!", "customer_name": "Mrs. Prabha Harwani" } },
+        { "type": "trust", "settings": { "title": "Real Customers", "text": "Stories from Scale-O customers.", "icon": "people" } },
+        { "type": "trust", "settings": { "title": "Homes across India", "text": "Helping families enjoy better water every day.", "icon": "home" } },
+        { "type": "trust", "settings": { "title": "Nationwide", "text": "Loved by customers in cities across India.", "icon": "map" } },
+        { "type": "trust", "settings": { "title": "Built on Quality", "text": "Designed and manufactured in India.", "icon": "quality" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

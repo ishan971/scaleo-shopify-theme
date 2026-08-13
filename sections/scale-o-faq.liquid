@@ -1,0 +1,337 @@
+{%- comment -%}
+  Scale-O FAQ — Theme Editor accordion for homepage and reusable pages
+{%- endcomment -%}
+
+{{ 'scale-o-faq.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'scale-o-faq.js' | asset_url }}" defer="defer"></script>
+<noscript>
+  <style>
+    #shopify-section-{{ section.id }} [data-faq-extra] { display: block !important; }
+    #shopify-section-{{ section.id }} [data-faq-more] { display: none !important; }
+  </style>
+</noscript>
+
+{%- liquid
+  assign layout = section.settings.layout | default: 'two_columns'
+  assign show_cta = false
+  if section.settings.show_cta and section.settings.cta_button_text != blank and section.settings.cta_button_link != blank
+    assign show_cta = true
+  endif
+
+  assign visible_count = 0
+  assign first_visible_id = ''
+  for block in section.blocks
+    if block.type == 'faq' and block.settings.enabled != false and block.settings.question != blank
+      assign visible_count = visible_count | plus: 1
+      if first_visible_id == blank
+        assign first_visible_id = block.id
+      endif
+    endif
+  endfor
+
+  assign open_first = section.settings.open_first
+  assign initial_count = section.settings.initial_count | default: 6
+  assign show_load_more = false
+  if section.settings.show_load_more and visible_count > initial_count
+    assign show_load_more = true
+  endif
+-%}
+
+<style>
+  #shopify-section-{{ section.id }} .scale-o-faq {
+    --sof-bg: {{ section.settings.background_color }};
+    --sof-heading: {{ section.settings.heading_color }};
+    --sof-text: {{ section.settings.text_color }};
+    --sof-accent: {{ section.settings.accent_color }};
+    --sof-accent-hover: {{ section.settings.accent_hover_color }};
+    --sof-card-bg: {{ section.settings.card_background }};
+    --sof-border: {{ section.settings.border_color }};
+    --sof-radius: {{ section.settings.border_radius }}px;
+    --sof-item-gap: {{ section.settings.item_gap }}px;
+    --sof-col-gap: {{ section.settings.column_gap }}px;
+    --sof-faq-col: {{ section.settings.faq_column_width }}%;
+    --sof-pad-x: {{ section.settings.padding_x }}px;
+    --sof-max-width: {% if section.settings.max_width == 0 %}100%{% else %}{{ section.settings.max_width }}px{% endif %};
+    --sof-eyebrow-size: {{ section.settings.eyebrow_size }}px;
+    --sof-heading-size: {{ section.settings.heading_size_mobile }}px;
+    --sof-heading-size-desktop: {{ section.settings.heading_size_desktop }}px;
+    --sof-desc-size: {{ section.settings.description_size }}px;
+    --sof-q-size: {{ section.settings.question_size }}px;
+    --sof-a-size: {{ section.settings.answer_size }}px;
+    --sof-shadow: {% if section.settings.show_card_shadow %}0 4px 16px rgba(16, 42, 67, 0.04){% else %}none{% endif %};
+    padding: {{ section.settings.padding_top_mobile }}px 0 {{ section.settings.padding_bottom_mobile }}px;
+    background: var(--sof-bg);
+  }
+  @media (min-width: 768px) {
+    #shopify-section-{{ section.id }} .scale-o-faq {
+      padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px;
+    }
+  }
+</style>
+
+<section
+  class="scale-o-faq"
+  data-scale-o-faq
+  data-behavior="{{ section.settings.accordion_behavior }}"
+  data-speed="{{ section.settings.animation_speed }}"
+  role="region"
+  aria-label="{{ section.settings.accessibility_label | default: 'Frequently asked questions' | escape }}"
+>
+  <div class="scale-o-faq__container">
+    <div class="scale-o-faq__layout scale-o-faq__layout--{% if layout == 'centered' %}center{% else %}two{% endif %}">
+      <div class="scale-o-faq__intro">
+        {%- if section.settings.eyebrow != blank -%}
+          <p class="scale-o-faq__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+        {%- endif -%}
+        {%- if section.settings.heading != blank -%}
+          <h2 class="scale-o-faq__heading">{{ section.settings.heading | escape }}</h2>
+        {%- endif -%}
+        {%- if section.settings.description != blank -%}
+          <p class="scale-o-faq__description">{{ section.settings.description | escape }}</p>
+        {%- endif -%}
+
+        {%- if show_cta or section.settings.cta_heading != blank or section.settings.cta_text != blank -%}
+          {%- if section.settings.show_cta -%}
+            <div class="scale-o-faq__cta">
+              {%- if section.settings.show_cta_icon -%}
+                <span class="scale-o-faq__cta-icon" aria-hidden="true">
+                  {% render 'scale-o-faq-icon', icon: 'headset' %}
+                </span>
+              {%- endif -%}
+              <div class="scale-o-faq__cta-copy">
+                {%- if section.settings.cta_heading != blank -%}
+                  <p class="scale-o-faq__cta-heading">{{ section.settings.cta_heading | escape }}</p>
+                {%- endif -%}
+                {%- if section.settings.cta_text != blank -%}
+                  <p class="scale-o-faq__cta-text">{{ section.settings.cta_text | escape }}</p>
+                {%- endif -%}
+                {%- if show_cta -%}
+                  <a href="{{ section.settings.cta_button_link }}" class="scale-o-faq__cta-btn">
+                    {{ section.settings.cta_button_text | escape }}
+                    <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false">
+                      <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </a>
+                {%- endif -%}
+              </div>
+            </div>
+          {%- endif -%}
+        {%- endif -%}
+      </div>
+
+      {%- if visible_count > 0 -%}
+        <div class="scale-o-faq__list-wrap">
+          <div class="scale-o-faq__list">
+            {%- assign faq_index = 0 -%}
+            {%- for block in section.blocks -%}
+              {%- if block.type != 'faq' or block.settings.enabled == false or block.settings.question == blank -%}
+                {%- continue -%}
+              {%- endif -%}
+              {%- liquid
+                assign faq_index = faq_index | plus: 1
+                assign is_open = false
+                if open_first and block.id == first_visible_id
+                  assign is_open = true
+                endif
+                assign is_extra = false
+                if show_load_more and faq_index > initial_count
+                  assign is_extra = true
+                endif
+                if faq_index < 10
+                  assign faq_num = faq_index | prepend: '0'
+                else
+                  assign faq_num = faq_index
+                endif
+              -%}
+              <details
+                class="scale-o-faq__item"
+                data-faq-item
+                {% if is_extra %}hidden data-faq-extra{% endif %}
+                {% if is_open %}open{% endif %}
+                {{ block.shopify_attributes }}
+              >
+                <summary class="scale-o-faq__summary" data-faq-summary>
+                  <span class="scale-o-faq__num" aria-hidden="true">{{ faq_num }}</span>
+                  <span class="scale-o-faq__qwrap">
+                    {%- if block.settings.category != blank -%}
+                      <span class="scale-o-faq__category">{{ block.settings.category | escape }}</span>
+                    {%- endif -%}
+                    <span class="scale-o-faq__question">{{ block.settings.question | escape }}</span>
+                  </span>
+                  <span class="scale-o-faq__toggle" aria-hidden="true">
+                    <span class="scale-o-faq__toggle-h"></span>
+                    <span class="scale-o-faq__toggle-v"></span>
+                  </span>
+                </summary>
+                <div class="scale-o-faq__panel" data-faq-panel>
+                  {%- if block.settings.answer != blank -%}
+                    <div class="scale-o-faq__answer rte">{{ block.settings.answer }}</div>
+                  {%- endif -%}
+                </div>
+              </details>
+            {%- endfor -%}
+          </div>
+          {%- if show_load_more -%}
+            <button type="button" class="scale-o-faq__more" data-faq-more>
+              {{ section.settings.load_more_text | default: 'Load more' | escape }}
+              <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false">
+                <path d="M4 6.5 8 10.5 12 6.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Scale-O FAQ",
+  "class": "scale-o-faq-section",
+  "max_blocks": 50,
+  "settings": [
+    { "type": "paragraph", "content": "Add FAQ blocks for each question. Drag to reorder. Content and design are fully editable from Theme Editor." },
+
+    { "type": "header", "content": "Content" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "FAQ" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Frequently Asked Questions" },
+    { "type": "textarea", "id": "description", "label": "Description", "default": "Everything you need to know about Scale-O, installation, maintenance and protecting your home from hard-water scale." },
+
+    { "type": "header", "content": "CTA" },
+    { "type": "checkbox", "id": "show_cta", "label": "Show CTA", "default": true },
+    { "type": "checkbox", "id": "show_cta_icon", "label": "Show headset icon", "default": true },
+    { "type": "text", "id": "cta_heading", "label": "CTA heading", "default": "Still have questions?" },
+    { "type": "textarea", "id": "cta_text", "label": "CTA text", "default": "Our experts are here to help you choose the right solution." },
+    { "type": "text", "id": "cta_button_text", "label": "CTA button text", "default": "Talk to a Scale-O Expert" },
+    { "type": "url", "id": "cta_button_link", "label": "CTA button link" },
+
+    { "type": "header", "content": "Layout" },
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Desktop layout",
+      "default": "two_columns",
+      "options": [
+        { "value": "two_columns", "label": "Two columns" },
+        { "value": "centered", "label": "Centered accordion" }
+      ]
+    },
+    { "type": "range", "id": "max_width", "label": "Content width", "min": 900, "max": 1400, "step": 20, "unit": "px", "default": 1180 },
+    { "type": "range", "id": "faq_column_width", "label": "FAQ column width", "min": 50, "max": 70, "step": 1, "unit": "%", "default": 58, "info": "Desktop two-column layout only" },
+    { "type": "range", "id": "column_gap", "label": "Column gap", "min": 24, "max": 80, "step": 4, "unit": "px", "default": 56 },
+    { "type": "range", "id": "padding_x", "label": "Horizontal padding", "min": 12, "max": 40, "step": 4, "unit": "px", "default": 20 },
+
+    { "type": "header", "content": "Accordion" },
+    {
+      "type": "select",
+      "id": "accordion_behavior",
+      "label": "Accordion behavior",
+      "default": "single",
+      "options": [
+        { "value": "single", "label": "Only one open at a time" },
+        { "value": "multiple", "label": "Allow multiple open" }
+      ]
+    },
+    { "type": "checkbox", "id": "open_first", "label": "Show first FAQ open by default", "default": true },
+    { "type": "range", "id": "animation_speed", "label": "Animation speed", "min": 150, "max": 600, "step": 10, "unit": "ms", "default": 320 },
+    { "type": "range", "id": "item_gap", "label": "Gap between FAQ items", "min": 8, "max": 24, "step": 1, "unit": "px", "default": 12 },
+    { "type": "checkbox", "id": "show_load_more", "label": "Show Load more button", "default": true },
+    { "type": "range", "id": "initial_count", "label": "FAQs shown before Load more", "min": 4, "max": 20, "step": 1, "default": 6 },
+    { "type": "text", "id": "load_more_text", "label": "Load more button text", "default": "Load more" },
+
+    { "type": "header", "content": "Spacing" },
+    { "type": "range", "id": "padding_top", "label": "Top padding (desktop)", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 80 },
+    { "type": "range", "id": "padding_bottom", "label": "Bottom padding (desktop)", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 80 },
+    { "type": "range", "id": "padding_top_mobile", "label": "Top padding (mobile)", "min": 24, "max": 80, "step": 4, "unit": "px", "default": 48 },
+    { "type": "range", "id": "padding_bottom_mobile", "label": "Bottom padding (mobile)", "min": 24, "max": 80, "step": 4, "unit": "px", "default": 48 },
+
+    { "type": "header", "content": "Typography" },
+    { "type": "range", "id": "eyebrow_size", "label": "Eyebrow size", "min": 11, "max": 16, "step": 1, "unit": "px", "default": 13 },
+    { "type": "range", "id": "heading_size_desktop", "label": "Heading size (desktop)", "min": 28, "max": 52, "step": 1, "unit": "px", "default": 40 },
+    { "type": "range", "id": "heading_size_mobile", "label": "Heading size (mobile)", "min": 22, "max": 36, "step": 1, "unit": "px", "default": 28 },
+    { "type": "range", "id": "description_size", "label": "Description size", "min": 13, "max": 18, "step": 1, "unit": "px", "default": 15 },
+    { "type": "range", "id": "question_size", "label": "Question size", "min": 14, "max": 20, "step": 1, "unit": "px", "default": 16 },
+    { "type": "range", "id": "answer_size", "label": "Answer size", "min": 13, "max": 18, "step": 1, "unit": "px", "default": 15 },
+
+    { "type": "header", "content": "Design" },
+    { "type": "color", "id": "background_color", "label": "Background", "default": "#F7FBFF" },
+    { "type": "color", "id": "heading_color", "label": "Heading", "default": "#102A43" },
+    { "type": "color", "id": "text_color", "label": "Text", "default": "#5A6B85" },
+    { "type": "color", "id": "accent_color", "label": "Accent", "default": "#0C7FDF" },
+    { "type": "color", "id": "accent_hover_color", "label": "Accent hover", "default": "#0A6BC4" },
+    { "type": "color", "id": "card_background", "label": "FAQ card background", "default": "#FFFFFF" },
+    { "type": "color", "id": "border_color", "label": "Border", "default": "#DCEAF5" },
+    { "type": "range", "id": "border_radius", "label": "Border radius", "min": 8, "max": 20, "step": 1, "unit": "px", "default": 14 },
+    { "type": "checkbox", "id": "show_card_shadow", "label": "Show subtle card shadow", "default": true },
+    { "type": "text", "id": "accessibility_label", "label": "Accessibility label", "default": "Frequently asked questions" }
+  ],
+  "blocks": [
+    {
+      "type": "faq",
+      "name": "FAQ",
+      "settings": [
+        { "type": "checkbox", "id": "enabled", "label": "Show this FAQ", "default": true },
+        { "type": "text", "id": "question", "label": "Question", "default": "How does Scale-O work?" },
+        { "type": "richtext", "id": "answer", "label": "Answer", "default": "<p>Scale-O is a salt-free water conditioner placed in your overhead tank. As water flows through your home, it helps reduce hard-water scale on pipes, fittings and household appliances.</p>" },
+        { "type": "text", "id": "category", "label": "Category (optional)", "info": "Shown as a small label above the question. Leave blank to hide." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Scale-O FAQ",
+      "blocks": [
+        {
+          "type": "faq",
+          "settings": {
+            "enabled": true,
+            "question": "What is Scale-O and how does it work?",
+            "answer": "<p>Scale-O is a salt-free water conditioner designed for homes with overhead tanks. Place the compact unit inside your tank. As water flows through the home, Scale-O helps reduce hard-water scale on pipes, fittings and household appliances, without salt, electricity or plumbing changes.</p>"
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "enabled": true,
+            "question": "Does Scale-O require electricity?",
+            "answer": "<p>No. Scale-O does not need electricity, wiring or a power connection. Once placed in the tank, it works as water flows through your home.</p>"
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "enabled": true,
+            "question": "Does Scale-O use salt?",
+            "answer": "<p>No. Scale-O is a salt-free water conditioner. There are no salt bags to buy, store or refill.</p>"
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "enabled": true,
+            "question": "Does Scale-O waste water?",
+            "answer": "<p>No. Scale-O does not require backwashing, regeneration or water discharge. You get conditioned water without the water wastage typical of many salt-based softeners.</p>"
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "enabled": true,
+            "question": "How is Scale-O installed?",
+            "answer": "<p>Installation is designed to be simple: choose the right model for your tank, open the overhead tank, place Scale-O inside, close the tank and use water as usual. No plumber or wiring is typically needed.</p>"
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "enabled": true,
+            "question": "Does Scale-O require regular maintenance?",
+            "answer": "<p>Day-to-day use does not require salt refills, electricity or regular servicing. When it is time, the unit is replaced through a straightforward exchange process.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

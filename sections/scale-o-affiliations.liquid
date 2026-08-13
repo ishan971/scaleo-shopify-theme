@@ -1,0 +1,217 @@
+{%- comment -%}
+  Scale-O Affiliations — static Supported By logo showcase
+{%- endcomment -%}
+
+{{ 'scale-o-affiliations.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign header_align = section.settings.header_alignment | default: 'center'
+  assign visible_count = 0
+  for block in section.blocks
+    if block.type == 'logo' and block.settings.enabled != false
+      if block.settings.image != blank or block.settings.image_by_url != blank or block.settings.title != blank
+        assign visible_count = visible_count | plus: 1
+      endif
+    endif
+  endfor
+  assign cols = visible_count
+  if cols < 1
+    assign cols = 1
+  endif
+  if cols > 6
+    assign cols = 6
+  endif
+
+  assign show_header = false
+  if section.settings.heading != blank or section.settings.eyebrow != blank or section.settings.description != blank
+    assign show_header = true
+  endif
+-%}
+
+<style>
+  #shopify-section-{{ section.id }} .scale-o-aff {
+    --soa-bg: {{ section.settings.background_color }};
+    --soa-heading: {{ section.settings.heading_color }};
+    --soa-text: {{ section.settings.text_color }};
+    --soa-accent: {{ section.settings.accent_color }};
+    --soa-card-bg: {{ section.settings.card_background }};
+    --soa-card-border: {{ section.settings.card_border_color }};
+    --soa-radius: {{ section.settings.card_radius }}px;
+    --soa-gap: {{ section.settings.desktop_gap }}px;
+    --soa-gap-mobile: {{ section.settings.mobile_gap }}px;
+    --soa-pad-x: {{ section.settings.padding_x }}px;
+    --soa-header-gap: {{ section.settings.header_gap }}px;
+    --soa-max-width: {% if section.settings.max_width == 0 %}100%{% else %}{{ section.settings.max_width }}px{% endif %};
+    --soa-cols: {{ cols }};
+    --soa-card-height: {{ section.settings.card_height }}px;
+    --soa-eyebrow-size: {{ section.settings.eyebrow_size }}px;
+    --soa-heading-size: {{ section.settings.heading_size_mobile }}px;
+    --soa-heading-size-desktop: {{ section.settings.heading_size_desktop }}px;
+    --soa-desc-size: {{ section.settings.description_size }}px;
+    --soa-shadow: {% if section.settings.show_card_shadow %}0 8px 20px rgba(20, 43, 74, 0.06){% else %}none{% endif %};
+    padding: {{ section.settings.padding_top_mobile }}px 0 {{ section.settings.padding_bottom_mobile }}px;
+    background: var(--soa-bg);
+  }
+  @media (min-width: 768px) {
+    #shopify-section-{{ section.id }} .scale-o-aff {
+      padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px;
+    }
+  }
+</style>
+
+<section
+  class="scale-o-aff"
+  aria-label="{{ section.settings.heading | default: 'Supported By' | escape }}"
+>
+  <div class="scale-o-aff__container">
+    {%- if show_header -%}
+      <header class="scale-o-aff__header">
+        {%- if section.settings.eyebrow != blank -%}
+          <p class="scale-o-aff__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+        {%- endif -%}
+        {%- if section.settings.heading != blank -%}
+          <h2 class="scale-o-aff__heading">{{ section.settings.heading | escape }}</h2>
+        {%- endif -%}
+        {%- if section.settings.description != blank -%}
+          <p class="scale-o-aff__description">{{ section.settings.description | escape }}</p>
+        {%- endif -%}
+      </header>
+    {%- endif -%}
+
+    {%- if visible_count > 0 -%}
+      <div class="scale-o-aff__grid">
+        {%- for block in section.blocks -%}
+          {%- if block.type != 'logo' or block.settings.enabled == false -%}{%- continue -%}{%- endif -%}
+          {%- liquid
+            assign logo_image = block.settings.image
+            assign logo_url = block.settings.image_by_url
+            assign has_logo = false
+            if logo_image != blank or logo_url != blank
+              assign has_logo = true
+            endif
+            if has_logo == false and block.settings.title == blank
+              continue
+            endif
+            assign logo_alt = block.settings.image_alt | default: block.settings.title | default: 'Affiliation logo'
+            assign tag = 'div'
+            assign tag_class = 'scale-o-aff__card'
+            if block.settings.link != blank
+              assign tag = 'a'
+              assign tag_class = 'scale-o-aff__card scale-o-aff__card-link'
+            endif
+          -%}
+          <{{ tag }}
+            class="{{ tag_class }}"
+            {% if tag == 'a' %}href="{{ block.settings.link }}"{% endif %}
+            {{ block.shopify_attributes }}
+          >
+            {%- if has_logo -%}
+              <span class="scale-o-aff__logo">
+                {%- if logo_image != blank -%}
+                  {{
+                    logo_image
+                    | image_url: width: 360
+                    | image_tag:
+                      loading: 'lazy',
+                      widths: '160,240,360',
+                      sizes: '160px',
+                      alt: logo_alt
+                  }}
+                {%- elsif logo_url != blank -%}
+                  <img src="{{ logo_url | escape }}" alt="{{ logo_alt | escape }}" width="160" height="64" loading="lazy">
+                {%- endif -%}
+              </span>
+            {%- endif -%}
+            {%- if block.settings.title != blank -%}
+              <span class="scale-o-aff__name">{{ block.settings.title | escape }}</span>
+            {%- endif -%}
+            {%- if block.settings.description != blank -%}
+              <span class="scale-o-aff__note">{{ block.settings.description | escape }}</span>
+            {%- endif -%}
+          </{{ tag }}>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Supported By",
+  "class": "scale-o-aff-section",
+  "max_blocks": 12,
+  "settings": [
+    { "type": "paragraph", "content": "Add Logo blocks for each affiliation. Drag to reorder. No slider — all logos show in a static grid." },
+
+    { "type": "header", "content": "Heading" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "AFFILIATION" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Supported By" },
+    { "type": "textarea", "id": "description", "label": "Description", "default": "Proudly supported by leading government bodies and organizations that share our vision." },
+    {
+      "type": "select",
+      "id": "header_alignment",
+      "label": "Header alignment",
+      "default": "center",
+      "options": [
+        { "value": "center", "label": "Center" }
+      ]
+    },
+
+    { "type": "header", "content": "Layout" },
+    { "type": "range", "id": "max_width", "label": "Maximum width", "min": 900, "max": 1400, "step": 20, "unit": "px", "default": 1200 },
+    { "type": "range", "id": "desktop_gap", "label": "Desktop card gap", "min": 8, "max": 32, "step": 2, "unit": "px", "default": 16 },
+    { "type": "range", "id": "mobile_gap", "label": "Mobile card gap", "min": 8, "max": 24, "step": 2, "unit": "px", "default": 12 },
+    { "type": "range", "id": "card_radius", "label": "Card corner radius", "min": 8, "max": 24, "step": 1, "unit": "px", "default": 14 },
+    { "type": "range", "id": "card_height", "label": "Card min height", "min": 120, "max": 180, "step": 2, "unit": "px", "default": 140 },
+    { "type": "checkbox", "id": "show_card_shadow", "label": "Show card shadow", "default": true },
+    { "type": "range", "id": "padding_x", "label": "Horizontal padding", "min": 12, "max": 40, "step": 4, "unit": "px", "default": 20 },
+    { "type": "range", "id": "header_gap", "label": "Header bottom gap", "min": 20, "max": 56, "step": 4, "unit": "px", "default": 36 },
+    { "type": "range", "id": "padding_top", "label": "Top padding (desktop)", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 72 },
+    { "type": "range", "id": "padding_bottom", "label": "Bottom padding (desktop)", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 72 },
+    { "type": "range", "id": "padding_top_mobile", "label": "Top padding (mobile)", "min": 24, "max": 80, "step": 4, "unit": "px", "default": 48 },
+    { "type": "range", "id": "padding_bottom_mobile", "label": "Bottom padding (mobile)", "min": 24, "max": 80, "step": 4, "unit": "px", "default": 48 },
+
+    { "type": "header", "content": "Typography" },
+    { "type": "range", "id": "eyebrow_size", "label": "Eyebrow size", "min": 11, "max": 16, "step": 1, "unit": "px", "default": 13 },
+    { "type": "range", "id": "heading_size_desktop", "label": "Heading size (desktop)", "min": 28, "max": 52, "step": 1, "unit": "px", "default": 44 },
+    { "type": "range", "id": "heading_size_mobile", "label": "Heading size (mobile)", "min": 22, "max": 36, "step": 1, "unit": "px", "default": 28 },
+    { "type": "range", "id": "description_size", "label": "Description size", "min": 13, "max": 18, "step": 1, "unit": "px", "default": 15 },
+
+    { "type": "header", "content": "Colors" },
+    { "type": "color", "id": "background_color", "label": "Background", "default": "#F3FAFF" },
+    { "type": "color", "id": "card_background", "label": "Card background", "default": "#FFFFFF" },
+    { "type": "color", "id": "card_border_color", "label": "Card border", "default": "#DCEAF5" },
+    { "type": "color", "id": "heading_color", "label": "Heading", "default": "#142B4A" },
+    { "type": "color", "id": "text_color", "label": "Text", "default": "#5A6B85" },
+    { "type": "color", "id": "accent_color", "label": "Accent", "default": "#0C7FDF" }
+  ],
+  "blocks": [
+    {
+      "type": "logo",
+      "name": "Logo",
+      "settings": [
+        { "type": "checkbox", "id": "enabled", "label": "Show this affiliation", "default": true },
+        { "type": "image_picker", "id": "image", "label": "Logo image" },
+        { "type": "text", "id": "image_by_url", "label": "Logo from URL", "info": "Optional fallback if no image is uploaded." },
+        { "type": "text", "id": "image_alt", "label": "Logo alt text" },
+        { "type": "text", "id": "title", "label": "Organization name" },
+        { "type": "text", "id": "description", "label": "Short description" },
+        { "type": "url", "id": "link", "label": "Optional link" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Supported By",
+      "category": "Custom",
+      "blocks": [
+        { "type": "logo", "settings": { "title": "Department of Science & Technology" } },
+        { "type": "logo", "settings": { "title": "Startup India" } },
+        { "type": "logo", "settings": { "title": "MSME" } },
+        { "type": "logo", "settings": { "title": "Ahmedabad Municipal Corporation – AMC" } },
+        { "type": "logo", "settings": { "title": "Government of Gujarat – GOG" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

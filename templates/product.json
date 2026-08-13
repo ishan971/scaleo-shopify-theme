@@ -478,7 +478,7 @@
         "video_10"
       ],
       "settings": {
-        "heading": "Product Videos",
+        "heading": "Why Customers Choose Scale-O",
         "header_alignment": "left",
         "autoplay_all": true,
         "muted": true,
@@ -507,6 +507,7 @@
     },
     "custom_liquid_yE4QRa": {
       "type": "custom-liquid",
+      "disabled": true,
       "custom_css": [
         ".cus {margin-bottom: 0px;}",
         ".container {background-color: white; padding-right: 70px; padding-left: 70px; border-radius: 20px;}",
@@ -517,6 +518,83 @@
       "settings": {
         "custom_liquid": "<div\n  id=\"shopify-section-template--15914741989478__image_with_text_Y3JMfg-2\"\n  class=\"shopify-section\"\n>\n  <link\n    href=\"//scale-o.com/cdn/shop/t/2/assets/image-with-text.css?v=147296142482609620351720499195\"\n    rel=\"stylesheet\"\n    type=\"text/css\"\n    media=\"all\"\n  />\n\n  <script\n    src=\"//scale-o.com/cdn/shop/t/2/assets/image-layer.js?v=65467045674204492761720499196\"\n    defer=\"defer\"\n  ></script>\n\n  <style data-shopify=\"\">\n    .m-section-template--15914741989478__image_with_text_Y3JMfg {\n      --section-padding-top: 60px;\n      --section-padding-bottom: 60px;\n      --column-gap: 100px;\n      --row-gap: 50px;\n      --column-gap-mobile: 30px;\n      --row-gap-mobile: 30px;\n\n      background-color: ;\n    }\n  </style>\n  <section\n    id=\"m-section-template--15914741989478__image_with_text_Y3JMfg\"\n    class=\"m-section m-image-with-text cus m-section-template--15914741989478__image_with_text_Y3JMfg m-gradient m-color-scheme-cee058e4-58e3-46aa-9af9-219dadc79066\"\n  >\n    <div class=\"container m-section-my m-section-py\">\n      <div\n        class=\"m-image-with-text__inner m:flex m:flex-wrap m:flex-row-reverse\"\n      >\n        <div\n          class=\"m-image-with-text__image m:column m:w-full md:m:w-1/2 lg:m:w-6/12\"\n          data-cascade=\"\"\n          style=\"--animation-order: 1\"\n        >\n          <m-image-layer\n            class=\"m-image-with-text__image-wrapper m-image-with-text--right\"\n            style=\"--offset-top: 10%\"\n          >\n            <div class=\"m-image-with-text__image-first\">\n              <responsive-image\n                class=\"m-image m-image-loaded\"\n                style=\"--aspect-ratio: 1.1773122125702606\"\n                intersecting=\"true\"\n              >\n                <img\n                  srcset=\"\n                  {{ product.metafields.custom.ofactor.value }}&amp;width=165   165w,\n                  {{ product.metafields.custom.ofactor.value }}&amp;width=360   360w,\n                  {{ product.metafields.custom.ofactor.value }}&amp;width=533   533w,\n                  {{ product.metafields.custom.ofactor.value }}&amp;width=720   720w,\n                  {{ product.metafields.custom.ofactor.value }}&amp;width=940   940w,\n                  {{ product.metafields.custom.ofactor.value }}&amp;width=1066 1066w,\n                  {{ product.metafields.custom.ofactor.value }}&amp;width=1500 1500w,\n                  {{ product.metafields.custom.ofactor.value }}&amp;width=1780 1780w,\n                  {{ product.metafields.custom.ofactor.value }}&amp;width=2000 2000w,\n                  {{ product.metafields.custom.ofactor.value }}                2304w\n                \"\n                  src=\"{{ product.metafields.custom.ofactor.value }}&amp;width=360\"\n                  sizes=\"590px\"\n                  alt=\"\"\n                  loading=\"lazy\"\n                  class=\"m:w-full m:h-full\"\n                  width=\"590\"\n                  height=\"501\"\n                />\n\n                <noscript>\n                  <img\n                    class=\"m:w-full m:h-full\"\n                    loading=\"lazy\"\n                    width=\"\"\n                    height=\"\"\n                    src=\"{{ product.metafields.custom.ofactor.value }}?crop=center&height=2048&width=2048\"\n                    alt=\"\"\n                  />\n                </noscript>\n              </responsive-image>\n            </div>\n          </m-image-layer>\n        </div>\n        <div\n          class=\"m-image-with-text__content m:column m:w-full md:m:w-1/2 lg:m:w-6/12 m-scroll-trigger animate--fade-in-up\"\n          data-cascade=\"\"\n          style=\"--animation-order: 0\"\n        >\n          <div\n            class=\"m-content-box m-richtext m-richtext--large m:w-full m:text-left\"\n          >\n            <p class=\"m-richtext__subtitle m-content-box__subheading h5\">\n              SCALE-O USP\n            </p>\n\n            <h3 class=\"m-richtext__title m-content-box__heading h1\">\n              Scale-O : 0 Factor\n            </h3>\n\n            <div\n              class=\"m-richtext__description rte m-content-box__description h5\"\n            >\n              <p>\n                Scale-O chemically alters the structure and forms a coating on\n                Ca<sup style=\"color: #000\">+2</sup> &amp; Mg<sup\n                  style=\"color: #000\"\n                  >+2</sup\n                >\n                ions present in hard water such that they do not react with\n                negative ions like Cl<sup style=\"color: #000\">-1</sup> or SO<sub\n                  >4</sub\n                ><sup style=\"color: #000\">-2</sup> and prevents the formation\n                insoluble salts or scale in common language.<br />\n              </p>\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n  </section>\n\n  <style>\n    #shopify-section-template--15914741989478__image_with_text_Y3JMfg .cus {\n      margin-bottom: 50px;\n    }\n    #shopify-section-template--15914741989478__image_with_text_Y3JMfg\n      .container {\n      background-color: white;\n      padding-right: 70px;\n      padding-left: 70px;\n      border-radius: 20px;\n    }\n  </style>\n</div>",
         "custom_class": ""
+      }
+    },
+    "scale_o_usp": {
+      "type": "scale-o-usp",
+      "blocks": {
+        "usp_cost": {
+          "type": "usp_card",
+          "settings": {
+            "icon": "rupee",
+            "title": "Zero Operating Cost"
+          }
+        },
+        "usp_power": {
+          "type": "usp_card",
+          "settings": {
+            "icon": "electricity",
+            "title": "Zero Electricity"
+          }
+        },
+        "usp_salt": {
+          "type": "usp_card",
+          "settings": {
+            "icon": "salt",
+            "title": "Zero Salt"
+          }
+        },
+        "usp_water": {
+          "type": "usp_card",
+          "settings": {
+            "icon": "water",
+            "title": "Zero Water Wastage"
+          }
+        },
+        "usp_maint": {
+          "type": "usp_card",
+          "settings": {
+            "icon": "maintenance",
+            "title": "Zero Maintenance"
+          }
+        },
+        "usp_man": {
+          "type": "usp_card",
+          "settings": {
+            "icon": "manpower",
+            "title": "Zero Manpower"
+          }
+        },
+        "usp_plumb": {
+          "type": "usp_card",
+          "settings": {
+            "icon": "plumbing",
+            "title": "Zero Plumbing"
+          }
+        }
+      },
+      "block_order": [
+        "usp_cost",
+        "usp_power",
+        "usp_salt",
+        "usp_water",
+        "usp_maint",
+        "usp_man",
+        "usp_plumb"
+      ],
+      "settings": {
+        "eyebrow": "SCALE-O USP",
+        "heading": "Scale-O: 0 Factor",
+        "description": "<p>Scale-O chemically alters the structure and forms a coating on Ca²⁺ &amp; Mg²⁺ ions present in hard water such that they do not react with negative ions like Cl⁻ or SO₄²⁻ and prevents the formation of insoluble salts or scale in common language.</p>",
+        "heading_color": "#0C7FDF",
+        "text_color": "#374151",
+        "accent_color": "#0C7FDF",
+        "card_background": "#FFFFFF",
+        "card_radius": 16,
+        "padding_top": 48,
+        "padding_bottom": 56,
+        "padding_top_mobile": 32,
+        "padding_bottom_mobile": 36
       }
     },
     "image_with_text_tBf6fR": {
@@ -1158,6 +1236,7 @@
     "product_videos",
     "1743481580c800ca3c",
     "custom_liquid_yE4QRa",
+    "scale_o_usp",
     "image_with_text_tBf6fR",
     "image_with_text_YtH9He",
     "image_with_text_xHa9fb",

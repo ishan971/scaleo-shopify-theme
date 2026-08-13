@@ -606,292 +606,6 @@
         "accessibility_label": "Shop by products"
       }
     },
-    "icon_box_aXcwE8": {
-      "type": "icon-box",
-      "blocks": {
-        "iconbox_33aVH9": {
-          "type": "iconbox",
-          "settings": {
-            "image": "shopify://shop_images/Frame_1360.png",
-            "image_by_url": "",
-            "title": "Residential 1",
-            "description": "<p>Bungalows & Houses</p>",
-            "link": "https://scale-o.com/pages/shop-by-purpose",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "m-button--link",
-            "button_size": ""
-          }
-        },
-        "iconbox_fPiwnG": {
-          "type": "iconbox",
-          "settings": {
-            "image": "shopify://shop_images/Frame_1360_eb196bb5-96f6-4c5f-9143-5e554a252261.png",
-            "image_by_url": "",
-            "title": "Residential 2",
-            "description": "<p>Societies & Apartments</p>",
-            "link": "https://scale-o.com/pages/shop-by-purpose",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "m-button--secondary",
-            "button_size": ""
-          }
-        },
-        "iconbox_7yF6Bx": {
-          "type": "iconbox",
-          "settings": {
-            "image": "shopify://shop_images/svsv.png",
-            "image_by_url": "",
-            "title": "Commercial",
-            "description": "<p>Offices, Corporates, Hotels & Hospitals</p>",
-            "link": "https://scale-o.com/pages/commercial",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "m-button--link",
-            "button_size": ""
-          }
-        },
-        "iconbox_fmRw3k": {
-          "type": "iconbox",
-          "settings": {
-            "image": "shopify://shop_images/Frame_1360_1d4e85ed-2f83-45c6-b166-52e9133bde60.png",
-            "image_by_url": "",
-            "title": "Institutional",
-            "description": "<p>Schools, Universities & Public Buildings</p>",
-            "link": "https://scale-o.com/pages/institutional",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "m-button--link",
-            "button_size": ""
-          }
-        },
-        "iconbox_CcbCbH": {
-          "type": "iconbox",
-          "settings": {
-            "image": "shopify://shop_images/safsdfs.png",
-            "image_by_url": "",
-            "title": "Industrial",
-            "description": "<p>Factories, Warehouses & Workshops</p>",
-            "link": "https://scale-o.com/pages/industrial",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "m-button--link",
-            "button_size": ""
-          }
-        },
-        "iconbox_iPM3zk": {
-          "type": "iconbox",
-          "settings": {
-            "image": "shopify://shop_images/svffsfs.png",
-            "image_by_url": "",
-            "title": "Agricultural",
-            "description": "<p>Farms, Tube-wells & Villages</p>",
-            "link": "https://scale-o.com/pages/agricultural",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "m-button--link",
-            "button_size": ""
-          }
-        },
-        "iconbox_cTwGcM": {
-          "type": "iconbox",
-          "settings": {
-            "image": "shopify://shop_images/Frame_1360_009f98a9-038b-46f7-9c58-ef95d3db05bf.png",
-            "image_by_url": "",
-            "title": "Custom",
-            "description": "<p>Construction & Government Projects</p>",
-            "link": "https://scale-o.com/pages/others-form",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "m-button--link",
-            "button_size": ""
-          }
-        }
-      },
-      "block_order": [
-        "iconbox_33aVH9",
-        "iconbox_fPiwnG",
-        "iconbox_7yF6Bx",
-        "iconbox_fmRw3k",
-        "iconbox_CcbCbH",
-        "iconbox_iPM3zk",
-        "iconbox_cTwGcM"
-      ],
-      "disabled": true,
-      "custom_css": [
-        ".m-section__subheading {color: #0c7fdf;}",
-        ".br {border-radius: 0px 0px 20px 20px;}"
-      ],
-      "settings": {
-        "heading": "Shop by Purpose",
-        "heading_size": "h3",
-        "subheading": "CATEGORIES",
-        "description": "",
-        "header_alignment": "center",
-        "container": "container",
-        "color_scheme": "default",
-        "item_per_row": 5,
-        "item_gap": 30,
-        "item_gap_mobile": 10,
-        "card_color_scheme": "default",
-        "card_style": "vertical",
-        "image_max_width": "",
-        "content_alignment": "center",
-        "hover_effect": "scaling-up",
-        "enable_slider": true,
-        "show_pagination": true,
-        "show_navigation": true,
-        "use_scroll_mobile": true,
-        "use_grid_column_mb": false,
-        "padding_top": 30,
-        "padding_bottom": 0,
-        "custom_class": "br",
-        "animations": "inherit"
-      }
-    },
-    "icon_box_Twp6KE": {
-      "type": "icon-box",
-      "blocks": {
-        "iconbox_ffPfm6": {
-          "type": "iconbox",
-          "settings": {
-            "image": "shopify://shop_images/Frame_1360.png",
-            "image_by_url": "",
-            "title": "Residential 1",
-            "description": "<p>Bungalows & Houses</p>",
-            "link": "https://scale-o.com/pages/shop-by-purpose",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "m-button--link",
-            "button_size": ""
-          }
-        },
-        "iconbox_G4KkJT": {
-          "type": "iconbox",
-          "settings": {
-            "image": "shopify://shop_images/Frame_1360_eb196bb5-96f6-4c5f-9143-5e554a252261.png",
-            "image_by_url": "",
-            "title": "Residential 2",
-            "description": "<p>Societies & Apartments</p>",
-            "link": "https://scale-o.com/pages/shop-by-purpose",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "m-button--link",
-            "button_size": ""
-          }
-        },
-        "iconbox_XxCKWU": {
-          "type": "iconbox",
-          "settings": {
-            "image": "shopify://shop_images/svsv.png",
-            "image_by_url": "",
-            "title": "Commercial",
-            "description": "<p>Offices, Corporates, Hotels & Hospitals</p>",
-            "link": "https://scale-o.com/pages/commercial",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "m-button--link",
-            "button_size": ""
-          }
-        },
-        "iconbox_pyFgLd": {
-          "type": "iconbox",
-          "settings": {
-            "image": "shopify://shop_images/Frame_1360_1d4e85ed-2f83-45c6-b166-52e9133bde60.png",
-            "image_by_url": "",
-            "title": "Institutional",
-            "description": "<p>Schools, Universities & Public Buildings</p>",
-            "link": "https://scale-o.com/pages/institutional",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "m-button--link",
-            "button_size": ""
-          }
-        },
-        "iconbox_8LJmwE": {
-          "type": "iconbox",
-          "settings": {
-            "image": "shopify://shop_images/safsdfs.png",
-            "image_by_url": "",
-            "title": "Industrial",
-            "description": "<p>Factories, Warehouses & Workshops</p>",
-            "link": "https://scale-o.com/pages/industrial",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "m-button--link",
-            "button_size": ""
-          }
-        },
-        "iconbox_qLQDyX": {
-          "type": "iconbox",
-          "settings": {
-            "image": "shopify://shop_images/Frame_1360_009f98a9-038b-46f7-9c58-ef95d3db05bf.png",
-            "image_by_url": "",
-            "title": "Custom",
-            "description": "<p>Construction & Government Projects</p>",
-            "link": "https://scale-o.com/pages/others-form",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "m-button--link",
-            "button_size": ""
-          }
-        },
-        "iconbox_qWbmnY": {
-          "type": "iconbox",
-          "settings": {
-            "image": "shopify://shop_images/svffsfs.png",
-            "image_by_url": "",
-            "title": "Agricultural",
-            "description": "<p>Farms, Tube-wells & Villages</p>",
-            "link": "https://scale-o.com/pages/agricultural",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "m-button--link",
-            "button_size": ""
-          }
-        }
-      },
-      "block_order": [
-        "iconbox_ffPfm6",
-        "iconbox_G4KkJT",
-        "iconbox_XxCKWU",
-        "iconbox_pyFgLd",
-        "iconbox_8LJmwE",
-        "iconbox_qLQDyX",
-        "iconbox_qWbmnY"
-      ],
-      "disabled": true,
-      "custom_css": [
-        ".m-section__subheading {color: #0c7fdf;}",
-        ".br {border-radius: 0px 0px 20px 20px;}"
-      ],
-      "settings": {
-        "heading": "Shop by Purpose",
-        "heading_size": "h3",
-        "subheading": "CATEGORIES",
-        "description": "",
-        "header_alignment": "center",
-        "container": "container",
-        "color_scheme": "default",
-        "item_per_row": 5,
-        "item_gap": 30,
-        "item_gap_mobile": 10,
-        "card_color_scheme": "default",
-        "card_style": "vertical",
-        "image_max_width": "",
-        "content_alignment": "center",
-        "hover_effect": "scaling-up",
-        "enable_slider": true,
-        "show_pagination": true,
-        "show_navigation": true,
-        "use_scroll_mobile": true,
-        "use_grid_column_mb": false,
-        "padding_top": 0,
-        "padding_bottom": 0,
-        "custom_class": "br",
-        "animations": "inherit"
-      }
-    },
     "hard_water_problems_home": {
       "type": "hard-water-problems",
       "blocks": {
@@ -1699,42 +1413,6 @@
         "custom_class": ""
       }
     },
-    "custom_content_HgFVDW": {
-      "type": "custom-content",
-      "blocks": {
-        "liquid_mHALk3": {
-          "type": "liquid",
-          "settings": {
-            "custom_liquid": "<div>\n  <a\n    data-fancybox=\"gallery3\"\n    href=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_1289.svg?v=1724392935\"\n  >\n    <img\n      src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_1289.svg?v=1724392935\"\n      alt=\"Thumbnail\"\n    />\n  </a>\n</div>",
-            "width": "100%",
-            "block_custom_class": "",
-            "animations": "inherit"
-          }
-        }
-      },
-      "block_order": [
-        "liquid_mHALk3"
-      ],
-      "disabled": true,
-      "settings": {
-        "heading": "Technology Comparison Matrix",
-        "heading_size": "h3",
-        "subheading": "COMPETITOR ANALYSIS",
-        "description": "",
-        "header_alignment": "center",
-        "container": "container-fluid",
-        "color_scheme": "",
-        "content_color_scheme": "",
-        "enable_parallax": false,
-        "parallax_direction": "vertical",
-        "gap": 0,
-        "gap_mobile": 0,
-        "use_scroll_mobile": true,
-        "padding_top": 40,
-        "padding_bottom": 38,
-        "custom_class": ""
-      }
-    },
     "rich_text_PwY3ay": {
       "type": "rich-text",
       "blocks": {
@@ -2157,7 +1835,6 @@
     },
     "553051375185654411": {
       "type": "apps",
-      "disabled": true,
       "settings": {
         "heading": "",
         "heading_size": "h3",
@@ -2184,57 +1861,6 @@
         "padding_bottom": 0,
         "custom_class": ""
       }
-    },
-    "collection_banner_eHRCAd": {
-      "type": "collection-banner",
-      "blocks": {
-        "slide_tDqfkJ": {
-          "type": "slide",
-          "settings": {
-            "desktop_banner": "shopify://shop_images/banner-3_8afb6499-7f5d-4998-b8be-7a4dc15ca6fe.jpg",
-            "mobile_banner": "shopify://shop_images/1_56b6adee-a1d2-4b37-8c86-80b8f503370e.jpg",
-            "heading": "<p>Indias best <br/>Selling purifier</p>",
-            "subtext": "Scale-O Centi Water Softener",
-            "subtext_2": "Starting at 4500*",
-            "info": "<p>10% instant bank discount</p>",
-            "btn_label": "Shop now",
-            "btn_link": "shopify://collections",
-            "specification_image_1": "shopify://shop_images/mini-centi-2_18d57853-eaa8-4a3c-be4f-7b8dd0ee6708.jpg",
-            "specification_heading_1": "specification 1",
-            "specification_content_1": "<p>specification content 1</p>",
-            "specification_image_2": "shopify://shop_images/mini-combo-1_92e9b3ef-462c-49fe-b657-8ad6dbfaba0f.jpg",
-            "specification_heading_2": "specification 2",
-            "specification_content_2": "<p>specification content 2</p>",
-            "specification_image_3": "shopify://shop_images/mini-centi-04_1.jpg",
-            "specification_heading_3": "specification 3",
-            "specification_content_3": "<p>specification content 3</p>"
-          }
-        },
-        "slide_mfhB8E": {
-          "type": "slide",
-          "settings": {
-            "desktop_banner": "shopify://shop_images/banner-4_06fefd66-f0b8-4ff1-bd88-f6816a0223d8.jpg",
-            "heading": "",
-            "subtext": "",
-            "subtext_2": "",
-            "info": "",
-            "btn_label": "",
-            "btn_link": "",
-            "specification_heading_1": "",
-            "specification_content_1": "",
-            "specification_heading_2": "",
-            "specification_content_2": "",
-            "specification_heading_3": "",
-            "specification_content_3": ""
-          }
-        }
-      },
-      "block_order": [
-        "slide_tDqfkJ",
-        "slide_mfhB8E"
-      ],
-      "disabled": true,
-      "settings": {}
     }
   },
   "order": [
@@ -2243,15 +1869,12 @@
     "stats_trust_home",
     "how_it_works_home",
     "featured_collection_hJqRXq",
-    "icon_box_aXcwE8",
-    "icon_box_Twp6KE",
     "hard_water_problems_home",
     "watch_and_shop_home",
     "scale_o_solution_home",
     "scale_o_video_home",
     "people_property_home",
     "custom_content_hgEnhK",
-    "custom_content_HgFVDW",
     "rich_text_PwY3ay",
     "custom_liquid_etEAdK",
     "custom_content_jPga7b",
@@ -2260,7 +1883,6 @@
     "icon_box_XWCp6B",
     "custom_content_EwkEYn",
     "553051375185654411",
-    "211940625599402079",
-    "collection_banner_eHRCAd"
+    "211940625599402079"
   ]
 }

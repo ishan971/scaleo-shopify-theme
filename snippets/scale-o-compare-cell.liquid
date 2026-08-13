@@ -9,23 +9,27 @@
   if featured == true or featured == 'true'
     assign is_featured = true
   endif
+  assign mark_type = 'dash'
+  if cell_status == 'positive' or cell_status == 'not_required' or cell_status == 'low'
+    assign mark_type = 'check'
+  elsif cell_status == 'negative' or cell_status == 'required' or cell_status == 'high'
+    assign mark_type = 'cross'
+  endif
 -%}
-  <span class="scale-o-compare__cell scale-o-compare__cell--{{ cell_status }}{% if is_featured %} scale-o-compare__cell--featured{% endif %}">
-    <span class="scale-o-compare__mark" aria-hidden="true">
-      {%- if is_featured -%}
-        <svg viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.2 3.2L13 4.8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      {%- elsif cell_status == 'positive' or cell_status == 'not_required' -%}
-        <svg viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.2 3.2L13 4.8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      {%- elsif cell_status == 'negative' -%}
-        <svg viewBox="0 0 16 16" fill="none"><path d="M4 4l8 8M12 4 4 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-      {%- else -%}
-        <span class="scale-o-compare__dot"></span>
-      {%- endif -%}
-    </span>
-    {%- if short_label != blank -%}
-      <span class="scale-o-compare__cell-label">{{ short_label | escape }}</span>
-    {%- endif -%}
-    {%- if cell_value != blank -%}
-      <span class="scale-o-compare__value">{{ cell_value | escape }}</span>
+<span class="scale-o-compare__cell scale-o-compare__cell--{{ cell_status }} scale-o-compare__cell--{{ mark_type }}{% if is_featured %} scale-o-compare__cell--featured{% endif %}">
+  {%- if short_label != blank -%}
+    <span class="scale-o-compare__sr-only">{{ short_label | escape }}: </span>
+  {%- endif -%}
+  <span class="scale-o-compare__mark" aria-hidden="true">
+    {%- if mark_type == 'check' -%}
+      <svg viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.2 3.2L13 4.8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    {%- elsif mark_type == 'cross' -%}
+      <svg viewBox="0 0 16 16" fill="none"><path d="M4 4l8 8M12 4 4 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+    {%- else -%}
+      <span class="scale-o-compare__dash">—</span>
     {%- endif -%}
   </span>
+  {%- if cell_value != blank -%}
+    <span class="scale-o-compare__value">{{ cell_value | escape }}</span>
+  {%- endif -%}
+</span>

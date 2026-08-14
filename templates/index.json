@@ -17,6 +17,7 @@
           "settings": {
             "enabled": true,
             "image": "shopify://shop_images/Hero_3.png",
+            "image_mobile": "shopify://shop_images/Product_Mobile_Hero.png",
             "banner_preset": "highlights",
             "image_alt": "Scale-O product highlights",
             "show_usp": true,
@@ -44,6 +45,7 @@
           "settings": {
             "enabled": true,
             "image": "shopify://shop_images/Hero_1.png",
+            "image_mobile": "shopify://shop_images/Family_Mobile_Hero.png",
             "banner_preset": "family",
             "image_alt": "Scale-O product family range",
             "show_usp": true,
@@ -71,6 +73,7 @@
           "settings": {
             "enabled": true,
             "image": "shopify://shop_images/ChatGPT_Image_Aug_14_2026_02_34_40_PM.png",
+            "image_mobile": "shopify://shop_images/House_Mobile_Hero.png",
             "banner_preset": "whole_house",
             "image_alt": "Scale-O whole-house protection",
             "show_usp": true,

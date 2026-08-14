@@ -359,6 +359,7 @@
       "block_order": [
         "subheading_Tw9RDc"
       ],
+      "disabled": true,
       "settings": {
         "container": "container",
         "color_scheme": "scheme-cee058e4-58e3-46aa-9af9-219dadc79066",
@@ -367,8 +368,7 @@
         "padding_bottom": 52,
         "custom_class": "",
         "animations": "inherit"
-      },
-      "disabled": true
+      }
     },
     "custom_liquid_qR7BgT": {
       "type": "people-property-advantages",
@@ -687,6 +687,7 @@
         "subheading_xD3gr9",
         "heading_n4MYCk"
       ],
+      "disabled": true,
       "custom_css": [
         ".sec {border-radius: 20px 20px 0px 0px;}"
       ],
@@ -698,13 +699,10 @@
         "padding_bottom": 92,
         "custom_class": "sec",
         "animations": "inherit"
-      },
-      "disabled": true
+      }
     },
     "968209871838256835": {
       "type": "scale-o-reviews",
-      "blocks": {},
-      "block_order": [],
       "settings": {
         "show_eyebrow": true,
         "eyebrow": "REVIEWS",

@@ -648,18 +648,19 @@
         "tech_criteria_heading": "Comparison criteria",
         "show_recommended_badge": true,
         "recommended_label": "Recommended",
+        "show_column_images": true,
+        "show_column_descriptions": false,
+        "show_card_icons": false,
+        "mobile_layout": "scroll",
         "show_competitors": true,
         "show_eyebrow": true,
         "eyebrow": "COMPETITOR COMPARISON",
         "heading": "Scale-O vs Similar Solutions",
         "show_description": true,
         "description": "See how Scale-O compares with other solutions designed to tackle hard-water scaling.",
-        "header_alignment": "center",
         "criteria_heading": "Criteria",
         "competitor_note": "Comparisons describe typical household scale-control approaches.",
-        "show_column_images": true,
-        "show_column_descriptions": false,
-        "show_card_icons": false,
+        "header_alignment": "center",
         "highlight_color": "#0c7fdf",
         "highlight_background": "#e8f3fc",
         "show_cta_banner": true,
@@ -670,7 +671,6 @@
         "cta_url": "",
         "max_width": 1200,
         "image_aspect_ratio": "4 / 3",
-        "mobile_layout": "scroll",
         "card_radius": 16,
         "enable_animations": true,
         "padding_top": 36,
@@ -717,6 +717,7 @@
         "subheading_Tw9RDc",
         "heading_XzNiDL"
       ],
+      "disabled": true,
       "settings": {
         "container": "container",
         "color_scheme": "scheme-cee058e4-58e3-46aa-9af9-219dadc79066",
@@ -725,8 +726,7 @@
         "padding_bottom": 52,
         "custom_class": "",
         "animations": "inherit"
-      },
-      "disabled": true
+      }
     },
     "custom_liquid_qR7BgT": {
       "type": "people-property-advantages",
@@ -1023,6 +1023,7 @@
         "subheading_xD3gr9",
         "heading_n4MYCk"
       ],
+      "disabled": true,
       "custom_css": [
         ".sec {border-radius: 20px 20px 0px 0px;}"
       ],
@@ -1034,13 +1035,10 @@
         "padding_bottom": 92,
         "custom_class": "sec",
         "animations": "inherit"
-      },
-      "disabled": true
+      }
     },
     "968209871838256835": {
       "type": "scale-o-reviews",
-      "blocks": {},
-      "block_order": [],
       "settings": {
         "show_eyebrow": true,
         "eyebrow": "REVIEWS",
@@ -1119,8 +1117,7 @@
             "enabled": true,
             "question": "What is Scale-O and how does it work?",
             "answer": "<p>Scale-O is a salt-free water conditioner designed for homes with overhead tanks. Place the compact unit inside your tank. As water flows through the home, Scale-O helps reduce hard-water scale on pipes, fittings and household appliances, without salt, electricity or plumbing changes.</p>",
-            "category": "",
-            "icon": "droplet"
+            "category": ""
           }
         },
         "faq_2": {
@@ -1129,8 +1126,7 @@
             "enabled": true,
             "question": "Does Scale-O require electricity?",
             "answer": "<p>No. Scale-O does not need electricity, wiring or a power connection. Once placed in the tank, it works as water flows through your home.</p>",
-            "category": "",
-            "icon": "bolt"
+            "category": ""
           }
         },
         "faq_3": {
@@ -1139,8 +1135,7 @@
             "enabled": true,
             "question": "Does Scale-O use salt?",
             "answer": "<p>No. Scale-O is a salt-free water conditioner. There are no salt bags to buy, store or refill.</p>",
-            "category": "",
-            "icon": "salt"
+            "category": ""
           }
         },
         "faq_4": {
@@ -1149,8 +1144,7 @@
             "enabled": true,
             "question": "Does Scale-O waste water?",
             "answer": "<p>No. Scale-O does not require backwashing, regeneration or water discharge. You get conditioned water without the water wastage typical of many salt-based softeners.</p>",
-            "category": "",
-            "icon": "droplet"
+            "category": ""
           }
         },
         "faq_5": {
@@ -1159,8 +1153,7 @@
             "enabled": true,
             "question": "How is Scale-O installed?",
             "answer": "<p>Installation is designed to be simple: choose the right model for your tank, open the overhead tank, place Scale-O inside, close the tank and use water as usual. No plumber or wiring is typically needed.</p>",
-            "category": "",
-            "icon": "wrench"
+            "category": ""
           }
         },
         "faq_6": {
@@ -1169,8 +1162,7 @@
             "enabled": true,
             "question": "Where should Scale-O be installed?",
             "answer": "<p>Scale-O is designed for overhead and storage water tanks used in Indian homes, so conditioned water can reach bathrooms, kitchen, laundry and appliances.</p>",
-            "category": "",
-            "icon": "home"
+            "category": ""
           }
         },
         "faq_7": {
@@ -1179,8 +1171,7 @@
             "enabled": true,
             "question": "Can Scale-O be installed in an existing water tank?",
             "answer": "<p>Yes. Scale-O is placed inside an existing overhead tank. You do not need to replace the tank or install a separate treatment plant.</p>",
-            "category": "",
-            "icon": "tank"
+            "category": ""
           }
         },
         "faq_8": {
@@ -1189,8 +1180,7 @@
             "enabled": true,
             "question": "How does Scale-O help prevent hard-water scale?",
             "answer": "<p>Scale-O is a salt-free conditioner that helps reduce visible hard-water scale buildup on pipes, taps, geysers and other household fittings as water flows through the home.</p>",
-            "category": "",
-            "icon": "shield"
+            "category": ""
           }
         },
         "faq_9": {
@@ -1199,8 +1189,7 @@
             "enabled": true,
             "question": "Does Scale-O require regular maintenance?",
             "answer": "<p>Day-to-day use does not require salt refills, electricity or regular servicing. When it is time, the unit is replaced through a straightforward exchange process.</p>",
-            "category": "",
-            "icon": "wrench"
+            "category": ""
           }
         },
         "faq_10": {
@@ -1209,8 +1198,7 @@
             "enabled": true,
             "question": "How long does a Scale-O unit last?",
             "answer": "<p>Household units are typically exchanged on a regular cycle so protection stays consistent, often around every 6 months, depending on the product and usage. Check your product details and exchange policy for the recommended interval.</p>",
-            "category": "",
-            "icon": "clock"
+            "category": ""
           }
         },
         "faq_11": {
@@ -1219,8 +1207,7 @@
             "enabled": true,
             "question": "Which Scale-O model is right for my home?",
             "answer": "<p>Choose a Scale-O size that matches your tank capacity and household water usage. If you are unsure, talk to a Scale-O expert. They can help you pick the right model.</p>",
-            "category": "",
-            "icon": "home"
+            "category": ""
           }
         },
         "faq_12": {
@@ -1229,8 +1216,7 @@
             "enabled": true,
             "question": "Can Scale-O be used with geysers, washing machines and other appliances?",
             "answer": "<p>Yes. Once installed in the overhead tank, Scale-O conditions the water that flows to bathrooms, kitchen, laundry and household appliances such as geysers and washing machines.</p>",
-            "category": "",
-            "icon": "gear"
+            "category": ""
           }
         },
         "faq_13": {
@@ -1239,8 +1225,7 @@
             "enabled": true,
             "question": "How do I choose the correct Scale-O size?",
             "answer": "<p>Match the unit to your overhead tank capacity and how much water your household uses. Larger tanks or higher usage generally need a larger model. Use the product size guide or speak with our team if you need help choosing.</p>",
-            "category": "",
-            "icon": "size"
+            "category": ""
           }
         },
         "faq_14": {
@@ -1249,8 +1234,7 @@
             "enabled": true,
             "question": "What is included with my Scale-O purchase?",
             "answer": "<p>Your Scale-O unit is ready to place in the tank. Specific inclusions can vary by model. Check the product page for what ships with your chosen size.</p>",
-            "category": "",
-            "icon": "box"
+            "category": ""
           }
         },
         "faq_15": {
@@ -1259,8 +1243,7 @@
             "enabled": true,
             "question": "How does the trial / guarantee work?",
             "answer": "<p>Scale-O offers a 7-day risk-free trial so you can try it in your home with confidence. Guarantee activation is confirmed with your invoice as part of the purchase process. See the product page or talk to our team for current trial terms.</p>",
-            "category": "",
-            "icon": "shield"
+            "category": ""
           }
         }
       },
@@ -1298,11 +1281,11 @@
         "padding_x": 20,
         "accordion_behavior": "single",
         "open_first": true,
+        "animation_speed": 320,
+        "item_gap": 12,
         "show_load_more": true,
         "initial_count": 6,
         "load_more_text": "Load more",
-        "animation_speed": 320,
-        "item_gap": 12,
         "padding_top": 36,
         "padding_bottom": 36,
         "padding_top_mobile": 28,

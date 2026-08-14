@@ -620,6 +620,7 @@
     },
     "custom_liquid_MTFkLe": {
       "type": "custom-liquid",
+      "disabled": true,
       "custom_css": [
         "@media (min-width: 769px) {.m-custom-content__wrapper {justify-content: center; } #m-custom__block--image_epEW38 {width: 21%; }}",
         "@media screen and (max-width: 767px) {.m-mixed-layout--mobile-scroll .m-mixed-layout__inner > * {flex: none; width: 50% !important; } #m-custom__block--image_epEW38 {width: 63% !important; }}",
@@ -628,8 +629,7 @@
       "settings": {
         "custom_liquid": "<div id=\"shopify-section-template--15914742120550__custom_content_hgEnhK\" class=\"shopify-section shopify-section-custom-content\"><link href=\"//scale-o.com/cdn/shop/t/2/assets/custom-content.css?v=143733402900438853091720499194\" rel=\"stylesheet\" type=\"text/css\" media=\"all\">\n\n<style>\n  #m-custom-template--15914742120550__custom_content_hgEnhK {\n    --column-gap: 0px;\n    --column-gap-mobile: 0px;\n    --section-padding-top: 40px;\n    --section-padding-bottom: 38px;\n  }\n</style>\n\n<div id=\"m-custom-template--15914742120550__custom_content_hgEnhK\" class=\"m-section m-custom-content m-gradient m-color-default\" data-section-type=\"custom-content\" data-section-id=\"template--15914742120550__custom_content_hgEnhK\">\n  \n  <div class=\"container-fluid m-section-my m-section-py\">\n    <div class=\"m-gradient m-color-default\">\n\n\n\n\n  <div class=\"m-section__header m:text-center \">\n    \n    \n      <p class=\"m-section__subheading m-scroll-trigger animate--fade-in-up\">\n        COMPETITOR ANALYSIS\n      </p>\n    \n    \n      <h2 class=\"m-section__heading h3 m-scroll-trigger animate--fade-in-up\">\n        </h2><h2>Technology Comparison Matrix</h2>\n      \n    \n    \n    \n    \n  </div>\n\n\n      \n        <div class=\"m-mixed-layout m-mixed-layout--mobile-scroll\">\n        <div class=\"m-custom-content__wrapper m:flex m-mixed-layout__inner md:m:flex-wrap\">\n          \n            \n            <div id=\"m-custom__block--image_epEW38\" class=\"m:column m:display-flex m-custom-content__block m-custom-content__block-image lg:m:w-1/4 md:m:w-1/2 m:w-full m:items-center\">\n              <div class=\"m-custom-content__block-inner m:w-full\">\n                \n                    <div class=\"m:w-full m:block m-scroll-trigger animate--fade-in-up\" data-cascade=\"\" style=\"--animation-order: 69;\">\n                      \n<div>\n                          <responsive-image class=\"m-image m-image-loaded\" style=\"--aspect-ratio: 0.4720496894409938;\" intersecting=\"true\">\n  \n  <img srcset=\"//scale-o.com/cdn/shop/files/vg1.svg?v=1724152199&amp;width=165 165w,//scale-o.com/cdn/shop/files/vg1.svg?v=1724152199&amp;width=360 360w,//scale-o.com/cdn/shop/files/vg1.svg?v=1724152199 380w\" src=\"https://scale-o.com/cdn/shop/files/vg1.svg?v=1724152199&amp;width=360\" sizes=\"298px\" alt=\"\" loading=\"lazy\" class=\"\" width=\"298\" height=\"632\">\n  \n  <noscript>\n    <img class=\"\" loading=\"lazy\" width=\"\" height=\"\" src=\"//scale-o.com/cdn/shop/files/vg1.svg?crop=center&height=2048&v=1724152199&width=2048\" alt=\"\">\n  </noscript>\n</responsive-image>\n\n                        </div>\n                      \n                    </div>\n                  \n              </div>\n            </div>\n          \n            \n            <div id=\"m-custom__block--image_Vp8Qxc\" class=\"m:column m:display-flex m-custom-content__block m-custom-content__block-image lg:m:w-2/12 md:w-1/2 m:w-full m:items-center\">\n              <div class=\"m-custom-content__block-inner m:w-full\">\n                \n                    <div class=\"m:w-full m:block m-scroll-trigger animate--fade-in-up\" data-cascade=\"\" style=\"--animation-order: 70;\">\n                      \n<div>\n                          <responsive-image class=\"m-image m-image-loaded\" style=\"--aspect-ratio: 0.37267080745341613;\" intersecting=\"true\">\n  \n  <img srcset=\"//scale-o.com/cdn/shop/files/vgvgvg.svg?v=1724152224&amp;width=165 165w,//scale-o.com/cdn/shop/files/vgvgvg.svg?v=1724152224 300w\" src=\"https://scale-o.com/cdn/shop/files/vgvgvg.svg?v=1724152224&amp;width=360\" sizes=\"237px\" alt=\"\" loading=\"lazy\" class=\"\" width=\"237\" height=\"635\">\n  \n  <noscript>\n    <img class=\"\" loading=\"lazy\" width=\"\" height=\"\" src=\"//scale-o.com/cdn/shop/files/vgvgvg.svg?crop=center&height=2048&v=1724152224&width=2048\" alt=\"\">\n  </noscript>\n</responsive-image>\n\n                        </div>\n                      \n                    </div>\n                  \n              </div>\n            </div>\n          \n            \n            <div id=\"m-custom__block--image_enFTpH\" class=\"m:column m:display-flex m-custom-content__block m-custom-content__block-image lg:m:w-2/12 md:w-1/2 m:w-full m:items-center\">\n              <div class=\"m-custom-content__block-inner m:w-full\">\n                \n                    <div class=\"m:w-full m:block m-scroll-trigger animate--fade-in-up\" data-cascade=\"\" style=\"--animation-order: 71;\">\n                      \n<div>\n                          <responsive-image class=\"m-image m-image-loaded\" style=\"--aspect-ratio: 0.37267080745341613;\" intersecting=\"true\">\n  \n  <img srcset=\"//scale-o.com/cdn/shop/files/vg2.svg?v=1724152224&amp;width=165 165w,//scale-o.com/cdn/shop/files/vg2.svg?v=1724152224 300w\" src=\"https://scale-o.com/cdn/shop/files/vg2.svg?v=1724152224&amp;width=360\" sizes=\"237px\" alt=\"\" loading=\"lazy\" class=\"\" width=\"237\" height=\"635\">\n  \n  <noscript>\n    <img class=\"\" loading=\"lazy\" width=\"\" height=\"\" src=\"//scale-o.com/cdn/shop/files/vg2.svg?crop=center&height=2048&v=1724152224&width=2048\" alt=\"\">\n  </noscript>\n</responsive-image>\n\n                        </div>\n                      \n                    </div>\n                  \n              </div>\n            </div>\n          \n            \n            <div id=\"m-custom__block--image_QJymax\" class=\"m:column m:display-flex m-custom-content__block m-custom-content__block-image lg:m:w-2/12 md:w-1/2 m:w-full m:items-center\">\n              <div class=\"m-custom-content__block-inner m:w-full\">\n                \n                    <div class=\"m:w-full m:block m-scroll-trigger animate--fade-in-up\" data-cascade=\"\" style=\"--animation-order: 72;\">\n                      \n<div>\n                          <responsive-image class=\"m-image m-image-loaded\" style=\"--aspect-ratio: 0.37267080745341613;\" intersecting=\"true\">\n  \n  <img srcset=\"//scale-o.com/cdn/shop/files/vg3.svg?v=1724152224&amp;width=165 165w,//scale-o.com/cdn/shop/files/vg3.svg?v=1724152224 300w\" src=\"https://scale-o.com/cdn/shop/files/vg3.svg?v=1724152224&amp;width=360\" sizes=\"237px\" alt=\"\" loading=\"lazy\" class=\"\" width=\"237\" height=\"635\">\n  \n  <noscript>\n    <img class=\"\" loading=\"lazy\" width=\"\" height=\"\" src=\"//scale-o.com/cdn/shop/files/vg3.svg?crop=center&height=2048&v=1724152224&width=2048\" alt=\"\">\n  </noscript>\n</responsive-image>\n\n                        </div>\n                      \n                    </div>\n                  \n              </div>\n            </div>\n          \n            \n            <div id=\"m-custom__block--image_C3KFRL\" class=\"m:column m:display-flex m-custom-content__block m-custom-content__block-image lg:m:w-2/12 md:w-1/2 m:w-full m:items-center\">\n              <div class=\"m-custom-content__block-inner m:w-full\">\n                \n                    <div class=\"m:w-full m:block m-scroll-trigger animate--fade-in-up\" data-cascade=\"\" style=\"--animation-order: 73;\">\n                      \n<div>\n                          <responsive-image class=\"m-image m-image-loaded\" style=\"--aspect-ratio: 0.37267080745341613;\" intersecting=\"true\">\n  \n  <img srcset=\"//scale-o.com/cdn/shop/files/vg4.svg?v=1724152113&amp;width=165 165w,//scale-o.com/cdn/shop/files/vg4.svg?v=1724152113 300w\" src=\"https://scale-o.com/cdn/shop/files/vg4.svg?v=1724152113&amp;width=360\" sizes=\"237px\" alt=\"\" loading=\"lazy\" class=\"\" width=\"237\" height=\"635\">\n  \n  <noscript>\n    <img class=\"\" loading=\"lazy\" width=\"\" height=\"\" src=\"//scale-o.com/cdn/shop/files/vg4.svg?crop=center&height=2048&v=1724152113&width=2048\" alt=\"\">\n  </noscript>\n</responsive-image>\n\n                        </div>\n                      \n                    </div>\n                  \n              </div>\n            </div>\n          \n        </div>\n        </div>\n      \n    </div>\n  </div>\n</div>\n\n\n<style> @media (min-width: 800px) {#shopify-section-template--15914742120550__custom_content_hgEnhK .m-custom-content__wrapper {justify-content: center; } #shopify-section-template--15914742120550__custom_content_hgEnhK #m-custom__block--image_epEW38 {width: 21%; }} @media screen and (max-width: 795px) {#shopify-section-template--15914742120550__custom_content_hgEnhK .m-mixed-layout--mobile-scroll .m-mixed-layout__inner > * {flex: none; width: 50% !important; } #shopify-section-template--15914742120550__custom_content_hgEnhK #m-custom__block--image_epEW38 {width: 63% !important; }} </style></div>",
         "custom_class": "sec"
-      },
-      "disabled": true
+      }
     },
     "custom_liquid_T4RdYX": {
       "type": "scale-o-tech-compare",
@@ -953,18 +953,19 @@
         "tech_criteria_heading": "Comparison criteria",
         "show_recommended_badge": true,
         "recommended_label": "Recommended",
+        "show_column_images": true,
+        "show_column_descriptions": false,
+        "show_card_icons": false,
+        "mobile_layout": "scroll",
         "show_competitors": true,
         "show_eyebrow": true,
         "eyebrow": "COMPETITOR COMPARISON",
         "heading": "Scale-O vs Similar Solutions",
         "show_description": true,
         "description": "See how Scale-O compares with other solutions designed to tackle hard-water scaling.",
-        "header_alignment": "center",
         "criteria_heading": "Criteria",
         "competitor_note": "Comparisons describe typical household scale-control approaches.",
-        "show_column_images": true,
-        "show_column_descriptions": false,
-        "show_card_icons": false,
+        "header_alignment": "center",
         "highlight_color": "#0c7fdf",
         "highlight_background": "#e8f3fc",
         "show_cta_banner": true,
@@ -975,7 +976,6 @@
         "cta_url": "",
         "max_width": 1200,
         "image_aspect_ratio": "4 / 3",
-        "mobile_layout": "scroll",
         "card_radius": 16,
         "enable_animations": true,
         "padding_top": 36,
@@ -1014,6 +1014,7 @@
       "block_order": [
         "subheading_Tw9RDc"
       ],
+      "disabled": true,
       "custom_css": [
         ".rich_text_features {margin-bottom: 0px; padding-bottom: 20px; padding-top: 30px; background-color: #f5f7ff;}"
       ],
@@ -1025,8 +1026,7 @@
         "padding_bottom": 0,
         "custom_class": "container rich_text_features",
         "animations": "inherit"
-      },
-      "disabled": true
+      }
     },
     "custom_liquid_qR7BgT": {
       "type": "people-property-advantages",
@@ -1383,8 +1383,7 @@
             "enabled": true,
             "question": "What is Scale-O and how does it work?",
             "answer": "<p>Scale-O is a salt-free water conditioner designed for homes with overhead tanks. Place the compact unit inside your tank. As water flows through the home, Scale-O helps reduce hard-water scale on pipes, fittings and household appliances, without salt, electricity or plumbing changes.</p>",
-            "category": "",
-            "icon": "droplet"
+            "category": ""
           }
         },
         "faq_2": {
@@ -1393,8 +1392,7 @@
             "enabled": true,
             "question": "Does Scale-O require electricity?",
             "answer": "<p>No. Scale-O does not need electricity, wiring or a power connection. Once placed in the tank, it works as water flows through your home.</p>",
-            "category": "",
-            "icon": "bolt"
+            "category": ""
           }
         },
         "faq_3": {
@@ -1403,8 +1401,7 @@
             "enabled": true,
             "question": "Does Scale-O use salt?",
             "answer": "<p>No. Scale-O is a salt-free water conditioner. There are no salt bags to buy, store or refill.</p>",
-            "category": "",
-            "icon": "salt"
+            "category": ""
           }
         },
         "faq_4": {
@@ -1413,8 +1410,7 @@
             "enabled": true,
             "question": "Does Scale-O waste water?",
             "answer": "<p>No. Scale-O does not require backwashing, regeneration or water discharge. You get conditioned water without the water wastage typical of many salt-based softeners.</p>",
-            "category": "",
-            "icon": "droplet"
+            "category": ""
           }
         },
         "faq_5": {
@@ -1423,8 +1419,7 @@
             "enabled": true,
             "question": "How is Scale-O installed?",
             "answer": "<p>Installation is designed to be simple: choose the right model for your tank, open the overhead tank, place Scale-O inside, close the tank and use water as usual. No plumber or wiring is typically needed.</p>",
-            "category": "",
-            "icon": "wrench"
+            "category": ""
           }
         },
         "faq_6": {
@@ -1433,8 +1428,7 @@
             "enabled": true,
             "question": "Where should Scale-O be installed?",
             "answer": "<p>Scale-O is designed for overhead and storage water tanks used in Indian homes, so conditioned water can reach bathrooms, kitchen, laundry and appliances.</p>",
-            "category": "",
-            "icon": "home"
+            "category": ""
           }
         },
         "faq_7": {
@@ -1443,8 +1437,7 @@
             "enabled": true,
             "question": "Can Scale-O be installed in an existing water tank?",
             "answer": "<p>Yes. Scale-O is placed inside an existing overhead tank. You do not need to replace the tank or install a separate treatment plant.</p>",
-            "category": "",
-            "icon": "tank"
+            "category": ""
           }
         },
         "faq_8": {
@@ -1453,8 +1446,7 @@
             "enabled": true,
             "question": "How does Scale-O help prevent hard-water scale?",
             "answer": "<p>Scale-O is a salt-free conditioner that helps reduce visible hard-water scale buildup on pipes, taps, geysers and other household fittings as water flows through the home.</p>",
-            "category": "",
-            "icon": "shield"
+            "category": ""
           }
         },
         "faq_9": {
@@ -1463,8 +1455,7 @@
             "enabled": true,
             "question": "Does Scale-O require regular maintenance?",
             "answer": "<p>Day-to-day use does not require salt refills, electricity or regular servicing. When it is time, the unit is replaced through a straightforward exchange process.</p>",
-            "category": "",
-            "icon": "wrench"
+            "category": ""
           }
         },
         "faq_10": {
@@ -1473,8 +1464,7 @@
             "enabled": true,
             "question": "How long does a Scale-O unit last?",
             "answer": "<p>Household units are typically exchanged on a regular cycle so protection stays consistent, often around every 6 months, depending on the product and usage. Check your product details and exchange policy for the recommended interval.</p>",
-            "category": "",
-            "icon": "clock"
+            "category": ""
           }
         },
         "faq_11": {
@@ -1483,8 +1473,7 @@
             "enabled": true,
             "question": "Which Scale-O model is right for my home?",
             "answer": "<p>Choose a Scale-O size that matches your tank capacity and household water usage. If you are unsure, talk to a Scale-O expert. They can help you pick the right model.</p>",
-            "category": "",
-            "icon": "home"
+            "category": ""
           }
         },
         "faq_12": {
@@ -1493,8 +1482,7 @@
             "enabled": true,
             "question": "Can Scale-O be used with geysers, washing machines and other appliances?",
             "answer": "<p>Yes. Once installed in the overhead tank, Scale-O conditions the water that flows to bathrooms, kitchen, laundry and household appliances such as geysers and washing machines.</p>",
-            "category": "",
-            "icon": "gear"
+            "category": ""
           }
         },
         "faq_13": {
@@ -1503,8 +1491,7 @@
             "enabled": true,
             "question": "How do I choose the correct Scale-O size?",
             "answer": "<p>Match the unit to your overhead tank capacity and how much water your household uses. Larger tanks or higher usage generally need a larger model. Use the product size guide or speak with our team if you need help choosing.</p>",
-            "category": "",
-            "icon": "size"
+            "category": ""
           }
         },
         "faq_14": {
@@ -1513,8 +1500,7 @@
             "enabled": true,
             "question": "What is included with my Scale-O purchase?",
             "answer": "<p>Your Scale-O unit is ready to place in the tank. Specific inclusions can vary by model. Check the product page for what ships with your chosen size.</p>",
-            "category": "",
-            "icon": "box"
+            "category": ""
           }
         },
         "faq_15": {
@@ -1523,8 +1509,7 @@
             "enabled": true,
             "question": "How does the trial / guarantee work?",
             "answer": "<p>Scale-O offers a 7-day risk-free trial so you can try it in your home with confidence. Guarantee activation is confirmed with your invoice as part of the purchase process. See the product page or talk to our team for current trial terms.</p>",
-            "category": "",
-            "icon": "shield"
+            "category": ""
           }
         }
       },
@@ -1562,11 +1547,11 @@
         "padding_x": 20,
         "accordion_behavior": "single",
         "open_first": true,
+        "animation_speed": 320,
+        "item_gap": 12,
         "show_load_more": true,
         "initial_count": 6,
         "load_more_text": "Load more",
-        "animation_speed": 320,
-        "item_gap": 12,
         "padding_top": 36,
         "padding_bottom": 36,
         "padding_top_mobile": 28,

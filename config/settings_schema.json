@@ -2343,6 +2343,13 @@
         "default": "Proceed to Checkout"
       },
       {
+        "type": "checkbox",
+        "id": "cart_drawer_show_view_cart",
+        "label": "Show View Cart button",
+        "default": false,
+        "info": "Shows the secondary View Cart button under Proceed to Checkout."
+      },
+      {
         "type": "text",
         "id": "cart_drawer_view_cart_label",
         "label": "View cart text",

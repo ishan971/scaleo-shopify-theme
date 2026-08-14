@@ -273,6 +273,230 @@
         "color_swatches_design": "list"
       }
     },
+    "how_it_works_collection": {
+      "type": "how-it-works",
+      "blocks": {
+        "journey_1": {
+          "type": "journey_step",
+          "settings": {
+            "step_number": "1",
+            "icon": "choose",
+            "title": "Choose Your Scale-O",
+            "description": "Select the right model based on your overhead tank size and daily water usage.",
+            "link": "",
+            "button_text": ""
+          }
+        },
+        "journey_2": {
+          "type": "journey_step",
+          "settings": {
+            "step_number": "2",
+            "icon": "install",
+            "title": "Install in Your Overhead Tank",
+            "description": "Place Scale-O inside your overhead water tank. No plumbing changes or electricity required.",
+            "link": "",
+            "button_text": ""
+          }
+        },
+        "journey_3": {
+          "type": "journey_step",
+          "settings": {
+            "step_number": "3",
+            "icon": "use",
+            "title": "Enjoy Better Water Flow",
+            "description": "Scale-O works continuously as water flows to your bathroom, kitchen, laundry and appliances.",
+            "link": "",
+            "button_text": ""
+          }
+        },
+        "journey_4": {
+          "type": "journey_step",
+          "settings": {
+            "step_number": "4",
+            "icon": "exchange",
+            "title": "Easy Exchange",
+            "description": "When it's time, simply replace the unit with a straightforward exchange process.",
+            "link": "",
+            "button_text": ""
+          }
+        },
+        "journey_5": {
+          "type": "journey_step",
+          "settings": {
+            "step_number": "5",
+            "icon": "check",
+            "title": "Zero Hassle Upkeep",
+            "description": "No salt refills, no electricity and no regular servicing — Scale-O keeps protecting your home quietly.",
+            "link": "",
+            "button_text": ""
+          }
+        },
+        "install_1": {
+          "type": "install_step",
+          "settings": {
+            "step_number": "1",
+            "icon": "check",
+            "title": "Choose the Right Model",
+            "description": "Pick a Scale-O size that matches your tank capacity and household usage."
+          }
+        },
+        "install_2": {
+          "type": "install_step",
+          "settings": {
+            "step_number": "2",
+            "icon": "tank",
+            "title": "Open the Overhead Tank",
+            "description": "Access your overhead water tank safely before placing the unit."
+          }
+        },
+        "install_3": {
+          "type": "install_step",
+          "settings": {
+            "step_number": "3",
+            "icon": "install",
+            "title": "Place Scale-O Inside the Tank",
+            "description": "Drop the compact Scale-O unit into the tank. No plumber or wiring needed."
+          }
+        },
+        "install_4": {
+          "type": "install_step",
+          "settings": {
+            "step_number": "4",
+            "icon": "check",
+            "title": "Close and Secure the Tank",
+            "description": "Seal the tank properly so water flows normally through your home."
+          }
+        },
+        "install_5": {
+          "type": "install_step",
+          "settings": {
+            "step_number": "5",
+            "icon": "home",
+            "title": "Start Using Scale-O",
+            "description": "Use water as usual while Scale-O helps reduce hard-water scale buildup."
+          }
+        },
+        "exchange_1": {
+          "type": "exchange_step",
+          "settings": {
+            "step_number": "1",
+            "icon": "exchange",
+            "title": "Identify Your Scale-O Unit",
+            "description": "Check when your current unit needs replacement based on usage and product life."
+          }
+        },
+        "exchange_2": {
+          "type": "exchange_step",
+          "settings": {
+            "step_number": "2",
+            "icon": "power",
+            "title": "Turn Off the Water Supply",
+            "description": "Stop water flow to the overhead tank before removing the used unit."
+          }
+        },
+        "exchange_3": {
+          "type": "exchange_step",
+          "settings": {
+            "step_number": "3",
+            "icon": "install",
+            "title": "Remove the Existing Unit",
+            "description": "Take out the used Scale-O unit from the tank."
+          }
+        },
+        "exchange_4": {
+          "type": "exchange_step",
+          "settings": {
+            "step_number": "4",
+            "icon": "exchange",
+            "title": "Install the Replacement",
+            "description": "Place the new Scale-O unit inside the tank in the same simple way."
+          }
+        },
+        "exchange_5": {
+          "type": "exchange_step",
+          "settings": {
+            "step_number": "5",
+            "icon": "check",
+            "title": "Restart the Water Supply",
+            "description": "Restore water flow and continue enjoying scale-protected water at home."
+          }
+        }
+      },
+      "block_order": [
+        "journey_1",
+        "journey_2",
+        "journey_3",
+        "journey_4",
+        "journey_5",
+        "install_1",
+        "install_2",
+        "install_3",
+        "install_4",
+        "install_5",
+        "exchange_1",
+        "exchange_2",
+        "exchange_3",
+        "exchange_4",
+        "exchange_5"
+      ],
+      "settings": {
+        "eyebrow": "HOW IT WORKS",
+        "heading": "Simple Setup. Simple Protection.",
+        "description": "See how Scale-O works, how to install it, and how easy it is to maintain and exchange.",
+        "header_alignment": "center",
+        "installation_diagram": "shopify://shop_images/ChatGPT_Image_Aug_12_2026_12_23_48_PM.png",
+        "installation_diagram_mobile": "shopify://shop_images/ChatGPT_Image_Aug_12_2026_12_35_16_PM.png",
+        "diagram_alt": "Scale-O installation flow from overhead tank to home",
+        "installation_video_url": "",
+        "video_button_text": "Watch Installation Video",
+        "treatment_before_label": "Hard Water",
+        "treatment_before_text": "Minerals that cause scale buildup",
+        "treatment_core_label": "Scale-O",
+        "treatment_core_text": "Chelation inside your tank",
+        "treatment_after_label": "Scale Protection",
+        "treatment_after_text": "Reduced scale impact across home",
+        "treatment_aria_label": "How Scale-O treats hard water",
+        "install_tab_label": "How to Install",
+        "exchange_tab_label": "How to Exchange",
+        "tabs_alignment": "center",
+        "detail_card_gap": 12,
+        "detail_mobile_layout": "vertical",
+        "detail_card_min_width": 160,
+        "detail_card_min_height": 168,
+        "card_shadow_strength": 70,
+        "show_help_cta": true,
+        "help_heading": "Need Help With Installation?",
+        "help_button_text": "Talk to an Expert",
+        "help_button_link": "shopify://pages/consult-now",
+        "help_cta_max_width": 560,
+        "help_cta_alignment": "center",
+        "help_cta_background": "#eef6ff",
+        "help_cta_border_color": "#c5dffa",
+        "help_cta_heading_color": "#1a2b4a",
+        "background_color": "#ffffff",
+        "use_gradient": false,
+        "gradient_end_color": "#f5f7ff",
+        "card_background": "#ffffff",
+        "heading_color": "#1a2b4a",
+        "text_color": "#5a6b85",
+        "accent_color": "#0c7fdf",
+        "step_number_color": "#0c7fdf",
+        "divider_color": "#d6e2fa",
+        "eyebrow_size": 16,
+        "heading_size_desktop": 45,
+        "heading_size_mobile": 28,
+        "description_size": 16,
+        "step_title_size": 17,
+        "step_description_size": 14,
+        "max_width": 1200,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "content_gap": 32,
+        "accessibility_label": "How Scale-O works"
+      }
+    },
     "rich_text_9dCnXV": {
       "type": "rich-text",
       "blocks": {
@@ -306,6 +530,7 @@
         "text_KwH7D7",
         "button_At96BC"
       ],
+      "disabled": true,
       "name": "Rich text",
       "settings": {
         "container": "container",
@@ -338,6 +563,7 @@
         "heading_9wFnih",
         "text_dLy3EN"
       ],
+      "disabled": true,
       "name": "Rich text",
       "settings": {
         "container": "container",
@@ -351,6 +577,7 @@
     },
     "image_with_text_8ddqLE": {
       "type": "image-with-text",
+      "disabled": true,
       "name": "Image with text",
       "settings": {
         "heading": "",
@@ -387,6 +614,7 @@
     },
     "image_with_text_ajUA9Q": {
       "type": "image-with-text",
+      "disabled": true,
       "custom_css": [],
       "name": "Image with text",
       "settings": {
@@ -424,6 +652,7 @@
     },
     "image_with_text_jKTDq9": {
       "type": "image-with-text",
+      "disabled": true,
       "name": "Image with text",
       "settings": {
         "heading": "",
@@ -460,6 +689,7 @@
     },
     "image_with_text_xq8rzc": {
       "type": "image-with-text",
+      "disabled": true,
       "name": "Image with text",
       "settings": {
         "heading": "",
@@ -496,6 +726,7 @@
     },
     "image_with_text_Bq3ECK": {
       "type": "image-with-text",
+      "disabled": true,
       "name": "Image with text",
       "settings": {
         "heading": "",
@@ -532,6 +763,7 @@
     },
     "rich_text_wKgGYJ": {
       "type": "rich-text",
+      "disabled": true,
       "blocks": {
         "text_EyjGVb": {
           "type": "text",
@@ -556,6 +788,7 @@
     },
     "custom_content_yeeqiU": {
       "type": "custom-content",
+      "disabled": true,
       "blocks": {
         "html_cdJTUh": {
           "type": "html",
@@ -603,6 +836,7 @@
     },
     "custom_content_r7N7UH": {
       "type": "custom-content",
+      "disabled": true,
       "blocks": {
         "image_M6xN6H": {
           "type": "image",
@@ -650,6 +884,7 @@
     },
     "custom_content_BNAFT4": {
       "type": "custom-content",
+      "disabled": true,
       "blocks": {
         "html_dDLhEg": {
           "type": "html",
@@ -697,6 +932,7 @@
     },
     "rich_text_iB8afp": {
       "type": "rich-text",
+      "disabled": true,
       "blocks": {
         "text_pqW8nJ": {
           "type": "text",
@@ -721,6 +957,7 @@
     },
     "custom_content_7pKptK": {
       "type": "custom-content",
+      "disabled": true,
       "blocks": {
         "html_jcXBE8": {
           "type": "html",
@@ -756,6 +993,7 @@
     },
     "custom_content_mDBmjW": {
       "type": "custom-content",
+      "disabled": true,
       "blocks": {
         "html_DYjkRi": {
           "type": "html",
@@ -789,6 +1027,83 @@
         "padding_bottom": 30,
         "custom_class": ""
       }
+    },
+    "scale_o_faq_collection": {
+      "type": "scale-o-faq",
+      "blocks": {
+        "faq_1": {
+          "type": "faq",
+          "settings": {
+            "enabled": true,
+            "question": "Is Scale-O suitable for apartments?",
+            "answer": "<p>No. Scale-O is designed specifically for houses, villas, and bungalows with overhead water tanks.</p>",
+            "category": ""
+          }
+        },
+        "faq_2": {
+          "type": "faq",
+          "settings": {
+            "enabled": true,
+            "question": "Does Scale-O require installation?",
+            "answer": "<p>No. Scale-O is a DIY water softener and can be placed directly inside the overhead tank. It can be used for underground installation as well.</p>",
+            "category": ""
+          }
+        },
+        "faq_3": {
+          "type": "faq",
+          "settings": {
+            "enabled": true,
+            "question": "Does Scale-O use salt?",
+            "answer": "<p>No. Scale-O is a salt-free water softener and does not require salt refilling.</p>",
+            "category": ""
+          }
+        },
+        "faq_4": {
+          "type": "faq",
+          "settings": {
+            "enabled": true,
+            "question": "Is Scale-O suitable for whole house water supply?",
+            "answer": "<p>Yes. Since it works inside the overhead tank, it supports water supply across the entire house.</p>",
+            "category": ""
+          }
+        },
+        "faq_5": {
+          "type": "faq",
+          "settings": {
+            "enabled": true,
+            "question": "Does Scale-O require electricity?",
+            "answer": "<p>No. Scale-O works without electricity or external power.</p>",
+            "category": ""
+          }
+        },
+        "faq_6": {
+          "type": "faq",
+          "settings": {
+            "enabled": true,
+            "question": "Which Scale-O model should I choose?",
+            "answer": "<p>Choose based on your overhead tank size, family size, and daily water consumption. Product cards on this page show storage, usage and family fit for each model.</p>",
+            "category": ""
+          }
+        }
+      },
+      "block_order": ["faq_1", "faq_2", "faq_3", "faq_4", "faq_5", "faq_6"],
+      "settings": {
+        "eyebrow": "FAQ",
+        "heading": "Frequently Asked Questions",
+        "description": "Answers for homeowners choosing a Scale-O water softener for overhead tanks.",
+        "layout": "two_columns",
+        "open_first": false,
+        "show_load_more": false,
+        "initial_count": 6,
+        "show_cta": false,
+        "background_color": "#F7FBFF",
+        "heading_color": "#102A43",
+        "text_color": "#5A6B85",
+        "accent_color": "#0C7FDF",
+        "card_background": "#FFFFFF",
+        "border_color": "#DCEAF5",
+        "accessibility_label": "Frequently asked questions"
+      }
     }
   },
   "order": [
@@ -798,6 +1113,8 @@
     "slider_Q6ATqq",
     "rich_text_wehJU4",
     "main",
+    "how_it_works_collection",
+    "scale_o_faq_collection",
     "rich_text_9dCnXV",
     "rich_text_ndLen8",
     "image_with_text_8ddqLE",

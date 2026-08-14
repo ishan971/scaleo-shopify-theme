@@ -315,9 +315,11 @@
               {{ content_for_additional_checkout_buttons }}
             </div>
           {%- endif -%}
-          <a class="m-cart-drawer__link-to-cart scale-o-cart-drawer__view-cart" href="{{ routes.cart_url }}">
-            {{ view_cart_label | escape }}
-          </a>
+          {%- if settings.cart_drawer_show_view_cart -%}
+            <a class="m-cart-drawer__link-to-cart scale-o-cart-drawer__view-cart" href="{{ routes.cart_url }}">
+              {{ view_cart_label | escape }}
+            </a>
+          {%- endif -%}
         </div>
 
         {%- if settings.cart_drawer_show_trust != false -%}

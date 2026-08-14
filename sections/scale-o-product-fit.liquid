@@ -1,0 +1,446 @@
+{%- comment -%}
+  Product fit — storage, usage, who this model is for, and recommended product.
+  Spec values can come from custom.product_detail_usp; blocks still supply icons, supporting text, and links.
+{%- endcomment -%}
+
+{{ 'scale-o-pdp-story.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign specs = product.metafields.custom.product_detail_usp.value
+  assign use_metafields = false
+  if section.settings.use_product_metafields and specs != blank
+    assign use_metafields = true
+  endif
+
+  assign rec_product = section.settings.recommended_product
+  if rec_product == blank and product != blank
+    assign rec_product = product
+  endif
+
+  assign rec_title = ''
+  if section.settings.use_custom_title and section.settings.custom_title != blank
+    assign rec_title = section.settings.custom_title
+  elsif rec_product != blank
+    assign rec_title = rec_product.title
+  endif
+
+  assign rec_image = blank
+  if section.settings.use_custom_image and section.settings.custom_image != blank
+    assign rec_image = section.settings.custom_image
+  elsif rec_product.featured_media
+    assign rec_image = rec_product.featured_media.preview_image
+  elsif rec_product.featured_image
+    assign rec_image = rec_product.featured_image
+  endif
+
+  assign rec_url = rec_product.url
+  if section.settings.primary_button_link != blank
+    assign rec_url = section.settings.primary_button_link
+  endif
+
+  assign rec_alt = rec_title
+  if rec_image.alt != blank
+    assign rec_alt = rec_image.alt
+  endif
+
+  assign desc_html = section.settings.description | escape
+  if section.settings.highlight_1 != blank
+    assign h1 = section.settings.highlight_1 | escape
+    assign h1w = '<span class="scale-o-pdp-fit__hl">' | append: h1 | append: '</span>'
+    assign desc_html = desc_html | replace: h1, h1w
+  endif
+  if section.settings.highlight_2 != blank
+    assign h2 = section.settings.highlight_2 | escape
+    assign h2w = '<span class="scale-o-pdp-fit__hl">' | append: h2 | append: '</span>'
+    assign desc_html = desc_html | replace: h2, h2w
+  endif
+  if section.settings.highlight_3 != blank
+    assign h3 = section.settings.highlight_3 | escape
+    assign h3w = '<span class="scale-o-pdp-fit__hl">' | append: h3 | append: '</span>'
+    assign desc_html = desc_html | replace: h3, h3w
+  endif
+-%}
+
+<style>
+  #shopify-section-{{ section.id }} .scale-o-pdp-fit {
+    --spf-bg: {{ section.settings.background_color }};
+    --spf-heading: {{ section.settings.heading_color }};
+    --spf-text: {{ section.settings.text_color }};
+    --spf-accent: {{ section.settings.accent_color }};
+    --spf-card: {{ section.settings.card_background }};
+    --spf-border: {{ section.settings.card_border }};
+    --spf-chip: {{ section.settings.chip_background }};
+    --spf-rec-bg: {{ section.settings.rec_background }};
+    --spf-badge-bg: {{ section.settings.badge_background }};
+    --spf-badge-text: {{ section.settings.badge_text_color }};
+    --spf-radius: {{ section.settings.card_radius }}px;
+    --spf-max: {% if section.settings.max_width == 0 %}100%{% else %}{{ section.settings.max_width }}px{% endif %};
+    --spf-eyebrow-size: {{ section.settings.eyebrow_size }}px;
+    --spf-heading-size: {{ section.settings.heading_size_mobile }}px;
+    --spf-desc-size: {{ section.settings.description_size }}px;
+    --spf-fit: {{ section.settings.image_fit }};
+    padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px;
+    background: var(--spf-bg);
+  }
+  @media (min-width: 768px) {
+    #shopify-section-{{ section.id }} .scale-o-pdp-fit {
+      --spf-heading-size: {{ section.settings.heading_size_desktop }}px;
+    }
+  }
+</style>
+
+<section class="scale-o-pdp-fit" aria-labelledby="ScaleOFitHeading-{{ section.id }}">
+  <div class="scale-o-pdp-fit__inner">
+    <header class="scale-o-pdp-fit__header scale-o-pdp-fit__header--{{ section.settings.text_alignment }}">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="scale-o-pdp-fit__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+      {%- endif -%}
+      {%- if section.settings.heading != blank -%}
+        <h2 class="scale-o-pdp-fit__heading" id="ScaleOFitHeading-{{ section.id }}">{{ section.settings.heading | escape }}</h2>
+      {%- endif -%}
+      {%- if section.settings.description != blank -%}
+        <p class="scale-o-pdp-fit__desc">{{ desc_html }}</p>
+      {%- endif -%}
+    </header>
+
+    <div class="scale-o-pdp-fit__specs">
+      {%- if use_metafields -%}
+        {%- assign spec_index = 0 -%}
+        {%- for spec in specs limit: 4 -%}
+          {%- assign spec_index = spec_index | plus: 1 -%}
+          {%- assign spec_text = spec.detail_name.value -%}
+          {%- assign spec_parts = spec_text | split: ':' -%}
+          {%- if spec_parts.size > 1 -%}
+            {%- assign spec_label = spec_parts[0] | strip -%}
+            {%- assign spec_value = spec_parts[1] | strip -%}
+          {%- else -%}
+            {%- assign spec_label = spec_text -%}
+            {%- assign spec_value = '' -%}
+          {%- endif -%}
+          {%- assign match_icon = 'auto' -%}
+          {%- assign match_image = blank -%}
+          {%- assign match_support = '' -%}
+          {%- assign match_link = blank -%}
+          {%- assign match_enabled = true -%}
+          {%- assign match_size = section.settings.icon_size -%}
+          {%- assign match_align = 'left' -%}
+          {%- assign match_bg = blank -%}
+          {%- assign match_block = blank -%}
+          {%- assign block_i = 0 -%}
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'spec' -%}
+              {%- assign block_i = block_i | plus: 1 -%}
+              {%- if block_i == spec_index -%}
+                {%- assign match_icon = block.settings.icon -%}
+                {%- assign match_image = block.settings.icon_image -%}
+                {%- assign match_support = block.settings.supporting_text -%}
+                {%- assign match_link = block.settings.link -%}
+                {%- assign match_enabled = block.settings.enabled -%}
+                {%- assign match_size = block.settings.icon_size -%}
+                {%- assign match_align = block.settings.text_alignment -%}
+                {%- assign match_bg = block.settings.card_background -%}
+                {%- assign match_block = block -%}
+              {%- endif -%}
+            {%- endif -%}
+          {%- endfor -%}
+          {%- if match_enabled != false -%}
+            {% render 'scale-o-fit-spec-card',
+              block: match_block,
+              label: spec_label,
+              value: spec_value,
+              supporting: match_support,
+              icon: match_icon,
+              icon_image: match_image,
+              link: match_link,
+              icon_size: match_size,
+              align: match_align,
+              card_bg: match_bg
+            %}
+          {%- endif -%}
+        {%- endfor -%}
+      {%- else -%}
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'spec' and block.settings.enabled != false -%}
+            {% render 'scale-o-fit-spec-card',
+              block: block,
+              label: block.settings.label,
+              value: block.settings.value,
+              supporting: block.settings.supporting_text,
+              icon: block.settings.icon,
+              icon_image: block.settings.icon_image,
+              link: block.settings.link,
+              icon_size: block.settings.icon_size,
+              align: block.settings.text_alignment,
+              card_bg: block.settings.card_background
+            %}
+          {%- endif -%}
+        {%- endfor -%}
+      {%- endif -%}
+    </div>
+
+    {%- assign has_audience = false -%}
+    {%- for block in section.blocks -%}
+      {%- if block.type == 'audience' and block.settings.enabled != false and block.settings.label != blank -%}
+        {%- assign has_audience = true -%}
+      {%- endif -%}
+    {%- endfor -%}
+    {%- if has_audience -%}
+      <div class="scale-o-pdp-fit__audience">
+        {%- if section.settings.audience_heading != blank -%}
+          <p class="scale-o-pdp-fit__audience-heading">{{ section.settings.audience_heading | escape }}</p>
+        {%- endif -%}
+        <ul class="scale-o-pdp-fit__chips" role="list">
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'audience' and block.settings.enabled != false and block.settings.label != blank -%}
+              <li {{ block.shopify_attributes }}>
+                {%- if block.settings.link != blank -%}
+                  <a class="scale-o-pdp-fit__chip" href="{{ block.settings.link }}">
+                    <span class="scale-o-pdp-fit__chip-icon" aria-hidden="true">
+                      {%- if block.settings.icon_image != blank -%}
+                        {{ block.settings.icon_image | image_url: width: 48 | image_tag: loading: 'lazy', alt: '' }}
+                      {%- else -%}
+                        {% render 'scale-o-fit-icon', icon: 'check' %}
+                      {%- endif -%}
+                    </span>
+                    {{ block.settings.label | escape }}
+                  </a>
+                {%- else -%}
+                  <span class="scale-o-pdp-fit__chip">
+                    <span class="scale-o-pdp-fit__chip-icon" aria-hidden="true">
+                      {%- if block.settings.icon_image != blank -%}
+                        {{ block.settings.icon_image | image_url: width: 48 | image_tag: loading: 'lazy', alt: '' }}
+                      {%- else -%}
+                        {% render 'scale-o-fit-icon', icon: 'check' %}
+                      {%- endif -%}
+                    </span>
+                    {{ block.settings.label | escape }}
+                  </span>
+                {%- endif -%}
+              </li>
+            {%- endif -%}
+          {%- endfor -%}
+        </ul>
+      </div>
+    {%- endif -%}
+
+    {%- if section.settings.show_recommended and rec_product != blank -%}
+      <article class="scale-o-pdp-fit__rec">
+        <div class="scale-o-pdp-fit__rec-media">
+          <span class="scale-o-pdp-fit__wave" aria-hidden="true"></span>
+          {%- if rec_image != blank -%}
+            {{ rec_image | image_url: width: 1200 | image_tag: loading: 'lazy', widths: '400, 600, 800, 1000, 1200', sizes: '(min-width: 990px) 42vw, 92vw', alt: rec_alt, class: 'scale-o-pdp-fit__rec-image' }}
+          {%- endif -%}
+        </div>
+        <div class="scale-o-pdp-fit__rec-body">
+          {%- if section.settings.show_badge and section.settings.badge_text != blank -%}
+            <p class="scale-o-pdp-fit__badge">
+              <span aria-hidden="true">★</span>
+              {{ section.settings.badge_text | escape }}
+            </p>
+          {%- endif -%}
+          {%- if rec_title != blank -%}
+            <h3 class="scale-o-pdp-fit__rec-title">{{ rec_title | escape }}</h3>
+          {%- endif -%}
+          {%- if rec_product.available == false -%}
+            <p class="scale-o-pdp-fit__rec-stock">Sold out</p>
+          {%- endif -%}
+          {%- if section.settings.show_price and rec_product.price -%}
+            <p class="scale-o-pdp-fit__rec-price">
+              <span>{{ rec_product.price | money }}</span>
+              {%- if rec_product.compare_at_price > rec_product.price -%}
+                <s>{{ rec_product.compare_at_price | money }}</s>
+              {%- endif -%}
+            </p>
+          {%- endif -%}
+          {%- if section.settings.show_rec_description and section.settings.rec_description != blank -%}
+            <p class="scale-o-pdp-fit__rec-desc">{{ section.settings.rec_description | escape }}</p>
+          {%- endif -%}
+
+          {%- assign has_rec_benefits = false -%}
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'rec_benefit' and block.settings.enabled != false and block.settings.title != blank -%}
+              {%- assign has_rec_benefits = true -%}
+            {%- endif -%}
+          {%- endfor -%}
+          {%- if has_rec_benefits -%}
+            <ul class="scale-o-pdp-fit__rec-benefits" role="list">
+              {%- for block in section.blocks -%}
+                {%- if block.type == 'rec_benefit' and block.settings.enabled != false and block.settings.title != blank -%}
+                  <li class="scale-o-pdp-fit__mini" {{ block.shopify_attributes }}>
+                    <span class="scale-o-pdp-fit__mini-icon" aria-hidden="true">
+                      {%- if block.settings.icon_image != blank -%}
+                        {{ block.settings.icon_image | image_url: width: 64 | image_tag: loading: 'lazy', alt: '' }}
+                      {%- else -%}
+                        {% render 'scale-o-fit-icon', icon: block.settings.icon %}
+                      {%- endif -%}
+                    </span>
+                    <span class="scale-o-pdp-fit__mini-copy">
+                      <span class="scale-o-pdp-fit__mini-title">{{ block.settings.title | escape }}</span>
+                      {%- if block.settings.text != blank -%}
+                        <span class="scale-o-pdp-fit__mini-text">{{ block.settings.text | escape }}</span>
+                      {%- endif -%}
+                    </span>
+                  </li>
+                {%- endif -%}
+              {%- endfor -%}
+            </ul>
+          {%- endif -%}
+
+          <div class="scale-o-pdp-fit__actions">
+            {%- if rec_url != blank and section.settings.primary_button_text != blank -%}
+              <a class="scale-o-pdp-fit__btn scale-o-pdp-fit__btn--primary" href="{{ rec_url }}">
+                {{ section.settings.primary_button_text | escape }}
+              </a>
+            {%- endif -%}
+            {%- if section.settings.show_secondary_button and section.settings.secondary_button_text != blank and section.settings.secondary_button_link != blank -%}
+              <a class="scale-o-pdp-fit__btn scale-o-pdp-fit__btn--secondary" href="{{ section.settings.secondary_button_link }}">
+                <span class="scale-o-pdp-fit__btn-icon" aria-hidden="true">{% render 'scale-o-fit-icon', icon: 'chart' %}</span>
+                {{ section.settings.secondary_button_text | escape }}
+              </a>
+            {%- endif -%}
+          </div>
+        </div>
+      </article>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Scale-O product fit",
+  "tag": "section",
+  "class": "scale-o-product-fit-section",
+  "max_blocks": 20,
+  "settings": [
+    { "type": "header", "content": "Header" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "THE MODEL" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Choose Scale-O by Storage & Usage" },
+    { "type": "textarea", "id": "description", "label": "Description", "default": "Select the perfect water softener for your home based on your overhead tank capacity, daily water usage, and family size." },
+    { "type": "text", "id": "highlight_1", "label": "Highlight phrase 1", "default": "overhead tank capacity" },
+    { "type": "text", "id": "highlight_2", "label": "Highlight phrase 2", "default": "daily water usage" },
+    { "type": "text", "id": "highlight_3", "label": "Highlight phrase 3", "default": "family size" },
+    { "type": "select", "id": "text_alignment", "label": "Text alignment", "default": "center", "options": [
+      { "value": "left", "label": "Left" },
+      { "value": "center", "label": "Center" }
+    ]},
+    { "type": "checkbox", "id": "use_product_metafields", "label": "Use this product’s specification metafields when available", "default": true, "info": "Uses custom.product_detail_usp for labels and values. Spec blocks still control icons, supporting text, links, and order mapping." },
+    { "type": "text", "id": "audience_heading", "label": "Perfect for heading", "default": "Perfect for" },
+    { "type": "header", "content": "Recommended product" },
+    { "type": "checkbox", "id": "show_recommended", "label": "Show recommended product", "default": true },
+    { "type": "product", "id": "recommended_product", "label": "Recommended product", "info": "Leave empty on product pages to use the current product." },
+    { "type": "checkbox", "id": "show_badge", "label": "Show badge", "default": true },
+    { "type": "text", "id": "badge_text", "label": "Badge text", "default": "RECOMMENDED MODEL" },
+    { "type": "color", "id": "badge_background", "label": "Badge background", "default": "#0C7FDF" },
+    { "type": "color", "id": "badge_text_color", "label": "Badge text", "default": "#FFFFFF" },
+    { "type": "checkbox", "id": "use_custom_title", "label": "Use custom title", "default": false },
+    { "type": "text", "id": "custom_title", "label": "Custom title" },
+    { "type": "checkbox", "id": "show_rec_description", "label": "Show description", "default": true },
+    { "type": "textarea", "id": "rec_description", "label": "Product description", "default": "Ideal for Indian homes with hard water conditions." },
+    { "type": "checkbox", "id": "show_price", "label": "Show price", "default": false },
+    { "type": "checkbox", "id": "use_custom_image", "label": "Use custom image", "default": false },
+    { "type": "image_picker", "id": "custom_image", "label": "Custom image" },
+    { "type": "select", "id": "image_fit", "label": "Image fit", "default": "contain", "options": [
+      { "value": "contain", "label": "Contain" },
+      { "value": "cover", "label": "Cover" }
+    ]},
+    { "type": "text", "id": "primary_button_text", "label": "Primary button text", "default": "View Details →" },
+    { "type": "url", "id": "primary_button_link", "label": "Primary button link", "info": "Leave empty to use the selected product URL." },
+    { "type": "checkbox", "id": "show_secondary_button", "label": "Show secondary button", "default": true },
+    { "type": "text", "id": "secondary_button_text", "label": "Secondary button text", "default": "Compare Models" },
+    { "type": "url", "id": "secondary_button_link", "label": "Secondary button link" },
+    { "type": "header", "content": "Layout" },
+    { "type": "range", "id": "max_width", "label": "Maximum width", "min": 0, "max": 1400, "step": 20, "unit": "px", "default": 1200 },
+    { "type": "range", "id": "padding_top", "label": "Top padding", "min": 0, "max": 100, "step": 4, "unit": "px", "default": 48 },
+    { "type": "range", "id": "padding_bottom", "label": "Bottom padding", "min": 0, "max": 100, "step": 4, "unit": "px", "default": 40 },
+    { "type": "range", "id": "card_radius", "label": "Card radius", "min": 8, "max": 24, "step": 1, "unit": "px", "default": 16 },
+    { "type": "range", "id": "icon_size", "label": "Default icon size", "min": 18, "max": 32, "step": 1, "unit": "px", "default": 22 },
+    { "type": "header", "content": "Typography" },
+    { "type": "range", "id": "eyebrow_size", "label": "Eyebrow size", "min": 11, "max": 16, "step": 1, "unit": "px", "default": 13 },
+    { "type": "range", "id": "heading_size_desktop", "label": "Heading size (desktop)", "min": 28, "max": 48, "step": 1, "unit": "px", "default": 40 },
+    { "type": "range", "id": "heading_size_mobile", "label": "Heading size (mobile)", "min": 22, "max": 36, "step": 1, "unit": "px", "default": 28 },
+    { "type": "range", "id": "description_size", "label": "Description size", "min": 13, "max": 18, "step": 1, "unit": "px", "default": 16 },
+    { "type": "header", "content": "Colors" },
+    { "type": "color", "id": "background_color", "label": "Background", "default": "#FFFFFF" },
+    { "type": "color", "id": "heading_color", "label": "Heading", "default": "#1A2B4A" },
+    { "type": "color", "id": "text_color", "label": "Text", "default": "#5A6B85" },
+    { "type": "color", "id": "accent_color", "label": "Accent", "default": "#0C7FDF" },
+    { "type": "color", "id": "card_background", "label": "Spec card background", "default": "#FFFFFF" },
+    { "type": "color", "id": "card_border", "label": "Card border", "default": "#E4EBF5" },
+    { "type": "color", "id": "chip_background", "label": "Chip background", "default": "#F4F9FF" },
+    { "type": "color", "id": "rec_background", "label": "Recommendation background", "default": "#F4F9FF" }
+  ],
+  "blocks": [
+    {
+      "type": "spec",
+      "name": "Specification",
+      "settings": [
+        { "type": "checkbox", "id": "enabled", "label": "Enable card", "default": true },
+        { "type": "select", "id": "icon", "label": "Icon", "default": "droplet", "options": [
+          { "value": "auto", "label": "Auto from label" },
+          { "value": "droplet", "label": "Water drop" },
+          { "value": "chart", "label": "Usage / chart" },
+          { "value": "family", "label": "Family" },
+          { "value": "target", "label": "Water type / target" }
+        ]},
+        { "type": "image_picker", "id": "icon_image", "label": "Custom icon" },
+        { "type": "range", "id": "icon_size", "label": "Icon size", "min": 18, "max": 32, "step": 1, "unit": "px", "default": 22 },
+        { "type": "text", "id": "label", "label": "Label", "default": "Storage" },
+        { "type": "text", "id": "value", "label": "Value", "default": "1000 L – 1500 L" },
+        { "type": "text", "id": "supporting_text", "label": "Supporting text", "default": "Overhead Tank Capacity" },
+        { "type": "url", "id": "link", "label": "Optional link" },
+        { "type": "select", "id": "text_alignment", "label": "Text alignment", "default": "left", "options": [
+          { "value": "left", "label": "Left" },
+          { "value": "center", "label": "Center" }
+        ]},
+        { "type": "color", "id": "card_background", "label": "Card background", "default": "#FFFFFF" }
+      ]
+    },
+    {
+      "type": "audience",
+      "name": "Perfect for",
+      "settings": [
+        { "type": "checkbox", "id": "enabled", "label": "Enable chip", "default": true },
+        { "type": "text", "id": "label", "label": "Text", "default": "Washing Machines" },
+        { "type": "image_picker", "id": "icon_image", "label": "Custom icon" },
+        { "type": "url", "id": "link", "label": "Optional link" }
+      ]
+    },
+    {
+      "type": "rec_benefit",
+      "name": "Recommended benefit",
+      "settings": [
+        { "type": "checkbox", "id": "enabled", "label": "Enable benefit", "default": true },
+        { "type": "select", "id": "icon", "label": "Icon", "default": "shield", "options": [
+          { "value": "shield", "label": "Shield" },
+          { "value": "wrench", "label": "Installation" },
+          { "value": "home", "label": "Home" },
+          { "value": "rupee", "label": "Maintenance / rupee" }
+        ]},
+        { "type": "image_picker", "id": "icon_image", "label": "Custom icon" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Salt-Free Technology" },
+        { "type": "text", "id": "text", "label": "Second line" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Scale-O product fit",
+      "blocks": [
+        { "type": "spec", "settings": { "icon": "droplet", "label": "Storage", "value": "1000 L – 1500 L", "supporting_text": "Overhead Tank Capacity" } },
+        { "type": "spec", "settings": { "icon": "chart", "label": "Daily Usage", "value": "1500 L/day", "supporting_text": "Total Water Consumption" } },
+        { "type": "spec", "settings": { "icon": "family", "label": "Family", "value": "4 to 6 Members", "supporting_text": "People in Your Home" } },
+        { "type": "spec", "settings": { "icon": "target", "label": "Water Type", "value": "Hard Water", "supporting_text": "Input Water Condition" } },
+        { "type": "audience", "settings": { "label": "Washing Machines" } },
+        { "type": "audience", "settings": { "label": "Geysers" } },
+        { "type": "audience", "settings": { "label": "Taps & Showers" } },
+        { "type": "audience", "settings": { "label": "Bathrooms" } },
+        { "type": "audience", "settings": { "label": "Pipelines" } },
+        { "type": "rec_benefit", "settings": { "icon": "shield", "title": "Salt-Free", "text": "Technology" } },
+        { "type": "rec_benefit", "settings": { "icon": "wrench", "title": "DIY", "text": "Installation" } },
+        { "type": "rec_benefit", "settings": { "icon": "home", "title": "Whole House", "text": "Protection" } },
+        { "type": "rec_benefit", "settings": { "icon": "rupee", "title": "Zero", "text": "Maintenance" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

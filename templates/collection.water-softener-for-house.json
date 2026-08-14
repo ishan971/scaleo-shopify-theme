@@ -49,6 +49,7 @@
         "show_heading_underline": false,
         "description": "Salt-free water softening solutions designed for Indian homes and hard-water conditions.",
         "image": "shopify://shop_images/Collection_Hero.png",
+        "mobile_image": "shopify://shop_images/Product_Mobile_Hero.png",
         "enable_autoplay": true,
         "autoplay_speed": 5,
         "show_dots": true,

@@ -569,6 +569,7 @@
     },
     "scale_o_product_fit": {
       "type": "scale-o-product-fit",
+      "disabled": true,
       "blocks": {
         "spec_1": {
           "type": "spec",
@@ -1469,7 +1470,7 @@
       ],
       "settings": {
         "show_eyebrow": true,
-        "eyebrow": "ADVANTAGES",
+        "eyebrow": "WHY SCALE-O",
         "heading": "People & Property",
         "show_description": true,
         "description": "Discover how Scale-O helps protect your everyday water experience and your home.",

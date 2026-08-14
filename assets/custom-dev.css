@@ -1733,9 +1733,9 @@
    ========================================== */
 .specs-acc {
   width: 100%;
-  max-width: 860px;
+  max-width: 100%;
   margin: 4px 0 32px;
-  padding: 4px 12px 8px;
+  padding: 4px 0 8px;
   box-sizing: border-box;
 }
 .specs-acc__heading {
@@ -1824,7 +1824,7 @@
   transform: rotate(180deg);
 }
 .specs-acc__body {
-  padding: 0 2px 16px 34px;
+  padding: 0 0 20px;
   color: #6b7280;
   font-size: 14px;
   line-height: 1.55;
@@ -1849,7 +1849,14 @@
 }
 .specs-acc__table {
   width: 100%;
-  max-width: 420px;
+  max-width: 100%;
+  border: 1px solid #e8eef5;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fff;
+}
+.specs-acc__table .specs-acc__row {
+  padding: 10px 16px;
 }
 .specs-acc__row {
   display: grid;
@@ -1883,34 +1890,81 @@
   font-size: 14px;
   color: #1a2b4a;
 }
-.specs-acc__pairs {
-  margin: 0;
-  padding: 0;
+.specs-acc__kv-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  border: 1px solid #e8eef5;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fff;
 }
-.specs-acc__pair {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px 8px;
-  margin: 0 0 8px;
-  padding: 0 0 8px;
-  border-bottom: 1px solid #f3f4f6;
-  color: #6b7280;
-  font-size: 14px;
-  line-height: 1.5;
+.specs-acc__kv-row {
+  border-bottom: 1px solid #eef2f6;
 }
-.specs-acc__pair:last-child {
-  margin-bottom: 0;
-  padding-bottom: 0;
+.specs-acc__kv-row:last-child {
   border-bottom: 0;
 }
-.specs-acc__pair-label {
+.specs-acc__kv-row:nth-child(odd) {
+  background: #f8fbfe;
+}
+.specs-acc__kv-label,
+.specs-acc__kv-value {
+  padding: 12px 16px;
+  vertical-align: top;
+  text-align: left;
+  font-size: 14px;
+  line-height: 1.55;
+  font-family: var(--font-stack-header);
+}
+.specs-acc__kv-label {
+  width: 34%;
   font-weight: 700;
   color: #1a2b4a;
-  margin-right: 6px;
+  border-right: 1px solid #eef2f6;
 }
-.specs-acc__pair-value {
+.specs-acc__kv-value {
+  width: 66%;
   font-weight: 400;
-  color: #6b7280;
+  color: #5a6b85;
+}
+.specs-acc__kv-value ul,
+.specs-acc__kv-value ol {
+  margin: 0;
+  padding-left: 1.15em;
+}
+.specs-acc__kv-value p {
+  margin: 0 0 8px;
+}
+.specs-acc__kv-value p:last-child {
+  margin-bottom: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .specs-acc__kv-table {
+    display: block;
+  }
+  .specs-acc__kv-table tbody {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+  }
+  .specs-acc__kv-row {
+    display: grid;
+    grid-template-columns: minmax(120px, 38%) 1fr;
+    border-right: 1px solid #eef2f6;
+  }
+  .specs-acc__kv-row:nth-child(even) {
+    border-right: 0;
+  }
+  .specs-acc__kv-row--wide {
+    grid-column: 1 / -1;
+    grid-template-columns: minmax(140px, 19%) 1fr;
+  }
+  .specs-acc__kv-label,
+  .specs-acc__kv-value {
+    width: auto;
+  }
 }
 .specs-acc__body--rte,
 .specs-acc__body--rte p {
@@ -1950,14 +2004,21 @@
     height: 20px;
   }
   .specs-acc__body {
-    padding: 0 0 14px 30px;
+    padding: 0 0 14px;
     font-size: 13px;
   }
   .specs-acc__row {
     font-size: 13px;
-    padding: 6px 0;
+    padding: 8px 12px;
   }
-  .specs-acc__pair,
+  .specs-acc__kv-label,
+  .specs-acc__kv-value {
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+  .specs-acc__kv-label {
+    width: 40%;
+  }
   .specs-acc__weight,
   .specs-acc__body--rte,
   .specs-acc__body--rte p {
@@ -2015,6 +2076,30 @@
   .product-videos .m-app-section__content::after {
     width: 24px;
     bottom: 12px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .template-product .m-main-product:not([data-layout="layout-7"]) .m-main-product--wrapper {
+    align-items: flex-start;
+    overflow: visible;
+  }
+
+  .template-product .m-main-product:not([data-layout="layout-7"]) .m-main-product--info .m-product-info--wrapper {
+    position: static;
+    top: auto;
+  }
+
+  .template-product .m-main-product:not([data-layout="layout-7"]) .m-product-media--wrapper {
+    position: static;
+    top: auto;
+  }
+
+  .template-product .m-main-product:not([data-layout="layout-7"]) .m-main-product--media {
+    position: sticky;
+    top: calc(var(--m-header-height, 80px) + 12px);
+    align-self: flex-start;
+    z-index: 3;
   }
 }
 

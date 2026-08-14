@@ -130,21 +130,32 @@
             <div class="specs-acc__panel">
               <div class="specs-acc__panel-inner">
                 <div class="specs-acc__body">
-                  <div class="specs-acc__pairs">
-                    {% for i in spec_filters %}
-                      {% assign dfl = forloop.index0 | modulo: 2 %}
-                      {% if dfl == 0 %}
-                        <div class="specs-acc__pair">
-                          <span class="specs-acc__pair-label">{{ i }}</span>
-                      {% else %}
-                          <span class="specs-acc__pair-value">{{ i }}</span>
-                        </div>
-                      {% endif %}
-                      {% if dfl == 0 and forloop.last %}
-                        </div>
-                      {% endif %}
-                    {% endfor %}
-                  </div>
+                  <table class="specs-acc__kv-table">
+                    <tbody>
+                      {% for i in spec_filters %}
+                        {% assign dfl = forloop.index0 | modulo: 2 %}
+                        {% if dfl == 0 %}
+                          {% assign spec_label = i %}
+                        {% else %}
+                          {% assign val_plain = i | strip_html | strip %}
+                          {% assign pair_wide = false %}
+                          {% if val_plain.size > 70 or i contains '<ul' or i contains '<br' or i contains '<p' %}
+                            {% assign pair_wide = true %}
+                          {% endif %}
+                          <tr class="specs-acc__kv-row{% if pair_wide %} specs-acc__kv-row--wide{% endif %}">
+                            <th scope="row" class="specs-acc__kv-label">{{ spec_label }}</th>
+                            <td class="specs-acc__kv-value">{{ i }}</td>
+                          </tr>
+                        {% endif %}
+                        {% if dfl == 0 and forloop.last %}
+                          <tr class="specs-acc__kv-row">
+                            <th scope="row" class="specs-acc__kv-label">{{ spec_label }}</th>
+                            <td class="specs-acc__kv-value"></td>
+                          </tr>
+                        {% endif %}
+                      {% endfor %}
+                    </tbody>
+                  </table>
                 </div>
               </div>
             </div>

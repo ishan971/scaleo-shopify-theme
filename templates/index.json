@@ -16,6 +16,7 @@
           "type": "slide",
           "settings": {
             "enabled": true,
+            "image": "shopify://shop_images/Hero_3.png",
             "banner_preset": "highlights",
             "image_alt": "Scale-O product highlights",
             "show_usp": true,

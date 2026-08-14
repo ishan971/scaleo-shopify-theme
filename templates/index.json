@@ -12,40 +12,12 @@
     "1621243260e1af0c20": {
       "type": "scale-o-hero",
       "blocks": {
-        "hero_1": {
-          "type": "slide",
-          "settings": {
-            "enabled": true,
-            "image": "shopify://shop_images/Hero_3.png",
-            "image_mobile": "shopify://shop_images/Product_Mobile_Hero.png",
-            "banner_preset": "highlights",
-            "image_alt": "Scale-O product highlights",
-            "show_usp": true,
-            "usp": "ZERO ELECTRICITY",
-            "usp_icon": "electricity",
-            "heading": "Smart Water Softening.\nWithout Salt or Electricity.",
-            "accent_words": "Salt, Electricity",
-            "description": "Scale-O protects your home from hard-water scale, keeping your appliances efficient and your life effortless.",
-            "show_cta": true,
-            "button_label": "Shop Now",
-            "button_url": "shopify://collections/water-softeners",
-            "show_trust": true,
-            "trust_style": "stars",
-            "trust_value": "4.8/5",
-            "show_stars": true,
-            "trust_text": "Trusted by homeowners across India",
-            "image_position": "right",
-            "text_alignment": "left",
-            "show_overlay": false,
-            "background_color": "#f7fbff"
-          }
-        },
         "hero_2": {
           "type": "slide",
           "settings": {
             "enabled": true,
             "image": "shopify://shop_images/Hero_1.png",
-            "image_mobile": "shopify://shop_images/Family_Mobile_Hero.png",
+            "image_mobile": "shopify://shop_images/1st.png",
             "banner_preset": "family",
             "image_alt": "Scale-O product family range",
             "show_usp": true,
@@ -95,12 +67,40 @@
             "show_overlay": false,
             "background_color": "#f7f4ee"
           }
+        },
+        "hero_1": {
+          "type": "slide",
+          "settings": {
+            "enabled": true,
+            "image": "shopify://shop_images/Hero_3.png",
+            "image_mobile": "shopify://shop_images/Product_Mobile_Hero.png",
+            "banner_preset": "highlights",
+            "image_alt": "Scale-O product highlights",
+            "show_usp": true,
+            "usp": "ZERO ELECTRICITY",
+            "usp_icon": "electricity",
+            "heading": "Smart Water Softening.\nWithout Salt or Electricity.",
+            "accent_words": "Salt, Electricity",
+            "description": "Scale-O protects your home from hard-water scale, keeping your appliances efficient and your life effortless.",
+            "show_cta": true,
+            "button_label": "Shop Now",
+            "button_url": "shopify://collections/water-softeners",
+            "show_trust": true,
+            "trust_style": "stars",
+            "trust_value": "4.8/5",
+            "show_stars": true,
+            "trust_text": "Trusted by homeowners across India",
+            "image_position": "right",
+            "text_alignment": "left",
+            "show_overlay": false,
+            "background_color": "#f7fbff"
+          }
         }
       },
       "block_order": [
-        "hero_1",
         "hero_2",
-        "hero_3"
+        "hero_3",
+        "hero_1"
       ],
       "settings": {
         "height_mode": "medium",

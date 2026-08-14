@@ -48,7 +48,7 @@
         "heading_line_2": "Water Softeners",
         "show_heading_underline": false,
         "description": "Salt-free water softening solutions designed for Indian homes and hard-water conditions.",
-        "image": "shopify://shop_images/ChatGPT_Image_Aug_14_2026_11_27_33_AM.png",
+        "image": "shopify://shop_images/Collection_Hero.png",
         "enable_autoplay": true,
         "autoplay_speed": 5,
         "show_dots": true,
@@ -497,6 +497,116 @@
         "accessibility_label": "How Scale-O works"
       }
     },
+    "scale_o_faq_collection": {
+      "type": "scale-o-faq",
+      "blocks": {
+        "faq_1": {
+          "type": "faq",
+          "settings": {
+            "enabled": true,
+            "question": "Is Scale-O suitable for apartments?",
+            "answer": "<p>No. Scale-O is designed specifically for houses, villas, and bungalows with overhead water tanks.</p>",
+            "category": ""
+          }
+        },
+        "faq_2": {
+          "type": "faq",
+          "settings": {
+            "enabled": true,
+            "question": "Does Scale-O require installation?",
+            "answer": "<p>No. Scale-O is a DIY water softener and can be placed directly inside the overhead tank. It can be used for underground installation as well.</p>",
+            "category": ""
+          }
+        },
+        "faq_3": {
+          "type": "faq",
+          "settings": {
+            "enabled": true,
+            "question": "Does Scale-O use salt?",
+            "answer": "<p>No. Scale-O is a salt-free water softener and does not require salt refilling.</p>",
+            "category": ""
+          }
+        },
+        "faq_4": {
+          "type": "faq",
+          "settings": {
+            "enabled": true,
+            "question": "Is Scale-O suitable for whole house water supply?",
+            "answer": "<p>Yes. Since it works inside the overhead tank, it supports water supply across the entire house.</p>",
+            "category": ""
+          }
+        },
+        "faq_5": {
+          "type": "faq",
+          "settings": {
+            "enabled": true,
+            "question": "Does Scale-O require electricity?",
+            "answer": "<p>No. Scale-O works without electricity or external power.</p>",
+            "category": ""
+          }
+        },
+        "faq_6": {
+          "type": "faq",
+          "settings": {
+            "enabled": true,
+            "question": "Which Scale-O model should I choose?",
+            "answer": "<p>Choose based on your overhead tank size, family size, and daily water consumption. Product cards on this page show storage, usage and family fit for each model.</p>",
+            "category": ""
+          }
+        }
+      },
+      "block_order": [
+        "faq_1",
+        "faq_2",
+        "faq_3",
+        "faq_4",
+        "faq_5",
+        "faq_6"
+      ],
+      "settings": {
+        "eyebrow": "FAQ",
+        "heading": "Frequently Asked Questions",
+        "description": "Answers for homeowners choosing a Scale-O water softener for overhead tanks.",
+        "show_cta": false,
+        "show_cta_icon": true,
+        "cta_heading": "Still have questions?",
+        "cta_text": "Our experts are here to help you choose the right solution.",
+        "cta_button_text": "Talk to a Scale-O Expert",
+        "cta_button_link": "",
+        "layout": "two_columns",
+        "max_width": 1180,
+        "faq_column_width": 58,
+        "column_gap": 56,
+        "padding_x": 20,
+        "accordion_behavior": "single",
+        "open_first": false,
+        "animation_speed": 320,
+        "item_gap": 12,
+        "show_load_more": false,
+        "initial_count": 6,
+        "load_more_text": "Load more",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "padding_top_mobile": 48,
+        "padding_bottom_mobile": 48,
+        "eyebrow_size": 13,
+        "heading_size_desktop": 40,
+        "heading_size_mobile": 28,
+        "description_size": 15,
+        "question_size": 16,
+        "answer_size": 15,
+        "background_color": "#f7fbff",
+        "heading_color": "#102a43",
+        "text_color": "#5a6b85",
+        "accent_color": "#0c7fdf",
+        "accent_hover_color": "#0a6bc4",
+        "card_background": "#ffffff",
+        "border_color": "#dceaf5",
+        "border_radius": 14,
+        "show_card_shadow": true,
+        "accessibility_label": "Frequently asked questions"
+      }
+    },
     "rich_text_9dCnXV": {
       "type": "rich-text",
       "blocks": {
@@ -763,7 +873,6 @@
     },
     "rich_text_wKgGYJ": {
       "type": "rich-text",
-      "disabled": true,
       "blocks": {
         "text_EyjGVb": {
           "type": "text",
@@ -775,6 +884,7 @@
       "block_order": [
         "text_EyjGVb"
       ],
+      "disabled": true,
       "name": "Rich text",
       "settings": {
         "container": "container",
@@ -788,7 +898,6 @@
     },
     "custom_content_yeeqiU": {
       "type": "custom-content",
-      "disabled": true,
       "blocks": {
         "html_cdJTUh": {
           "type": "html",
@@ -815,6 +924,7 @@
         "html_cdJTUh",
         "image_UyW4rf"
       ],
+      "disabled": true,
       "settings": {
         "heading": "",
         "heading_size": "h3",
@@ -836,7 +946,6 @@
     },
     "custom_content_r7N7UH": {
       "type": "custom-content",
-      "disabled": true,
       "blocks": {
         "image_M6xN6H": {
           "type": "image",
@@ -863,6 +972,7 @@
         "image_M6xN6H",
         "liquid_h6QYGb"
       ],
+      "disabled": true,
       "settings": {
         "heading": "",
         "heading_size": "h3",
@@ -884,7 +994,6 @@
     },
     "custom_content_BNAFT4": {
       "type": "custom-content",
-      "disabled": true,
       "blocks": {
         "html_dDLhEg": {
           "type": "html",
@@ -911,6 +1020,7 @@
         "html_dDLhEg",
         "image_7RnAC7"
       ],
+      "disabled": true,
       "settings": {
         "heading": "",
         "heading_size": "h3",
@@ -932,7 +1042,6 @@
     },
     "rich_text_iB8afp": {
       "type": "rich-text",
-      "disabled": true,
       "blocks": {
         "text_pqW8nJ": {
           "type": "text",
@@ -944,6 +1053,7 @@
       "block_order": [
         "text_pqW8nJ"
       ],
+      "disabled": true,
       "name": "Rich text",
       "settings": {
         "container": "container",
@@ -957,7 +1067,6 @@
     },
     "custom_content_7pKptK": {
       "type": "custom-content",
-      "disabled": true,
       "blocks": {
         "html_jcXBE8": {
           "type": "html",
@@ -972,6 +1081,7 @@
       "block_order": [
         "html_jcXBE8"
       ],
+      "disabled": true,
       "settings": {
         "heading": "",
         "heading_size": "h3",
@@ -993,7 +1103,6 @@
     },
     "custom_content_mDBmjW": {
       "type": "custom-content",
-      "disabled": true,
       "blocks": {
         "html_DYjkRi": {
           "type": "html",
@@ -1008,6 +1117,7 @@
       "block_order": [
         "html_DYjkRi"
       ],
+      "disabled": true,
       "name": "Custom content",
       "settings": {
         "heading": "Frequently Asked Questions",
@@ -1026,83 +1136,6 @@
         "padding_top": 36,
         "padding_bottom": 30,
         "custom_class": ""
-      }
-    },
-    "scale_o_faq_collection": {
-      "type": "scale-o-faq",
-      "blocks": {
-        "faq_1": {
-          "type": "faq",
-          "settings": {
-            "enabled": true,
-            "question": "Is Scale-O suitable for apartments?",
-            "answer": "<p>No. Scale-O is designed specifically for houses, villas, and bungalows with overhead water tanks.</p>",
-            "category": ""
-          }
-        },
-        "faq_2": {
-          "type": "faq",
-          "settings": {
-            "enabled": true,
-            "question": "Does Scale-O require installation?",
-            "answer": "<p>No. Scale-O is a DIY water softener and can be placed directly inside the overhead tank. It can be used for underground installation as well.</p>",
-            "category": ""
-          }
-        },
-        "faq_3": {
-          "type": "faq",
-          "settings": {
-            "enabled": true,
-            "question": "Does Scale-O use salt?",
-            "answer": "<p>No. Scale-O is a salt-free water softener and does not require salt refilling.</p>",
-            "category": ""
-          }
-        },
-        "faq_4": {
-          "type": "faq",
-          "settings": {
-            "enabled": true,
-            "question": "Is Scale-O suitable for whole house water supply?",
-            "answer": "<p>Yes. Since it works inside the overhead tank, it supports water supply across the entire house.</p>",
-            "category": ""
-          }
-        },
-        "faq_5": {
-          "type": "faq",
-          "settings": {
-            "enabled": true,
-            "question": "Does Scale-O require electricity?",
-            "answer": "<p>No. Scale-O works without electricity or external power.</p>",
-            "category": ""
-          }
-        },
-        "faq_6": {
-          "type": "faq",
-          "settings": {
-            "enabled": true,
-            "question": "Which Scale-O model should I choose?",
-            "answer": "<p>Choose based on your overhead tank size, family size, and daily water consumption. Product cards on this page show storage, usage and family fit for each model.</p>",
-            "category": ""
-          }
-        }
-      },
-      "block_order": ["faq_1", "faq_2", "faq_3", "faq_4", "faq_5", "faq_6"],
-      "settings": {
-        "eyebrow": "FAQ",
-        "heading": "Frequently Asked Questions",
-        "description": "Answers for homeowners choosing a Scale-O water softener for overhead tanks.",
-        "layout": "two_columns",
-        "open_first": false,
-        "show_load_more": false,
-        "initial_count": 6,
-        "show_cta": false,
-        "background_color": "#F7FBFF",
-        "heading_color": "#102A43",
-        "text_color": "#5A6B85",
-        "accent_color": "#0C7FDF",
-        "card_background": "#FFFFFF",
-        "border_color": "#DCEAF5",
-        "accessibility_label": "Frequently asked questions"
       }
     }
   },

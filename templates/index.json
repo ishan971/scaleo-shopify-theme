@@ -791,7 +791,7 @@
             "icon": "floor",
             "image": "shopify://shop_images/problem2.png",
             "title": "White Stains on Surfaces",
-            "description": "Hard-water minerals can leave visible marks on tiles, glass and bathroom surfaces.",
+            "description": "Hard-water minerals can leave visible marks on tiles, glass & bathroom surfaces.",
             "cta_text": "",
             "cta_url": ""
           }
@@ -803,7 +803,7 @@
             "number": "03",
             "icon": "heater",
             "image": "shopify://shop_images/problem4.png",
-            "title": "Water Heater Buildup",
+            "title": "Water Heater Scale Buildup",
             "description": "Scale can accumulate inside water-heating equipment over time.",
             "cta_text": "",
             "cta_url": ""
@@ -816,7 +816,7 @@
             "number": "04",
             "icon": "pipe",
             "image": "shopify://shop_images/problem5.png",
-            "title": "Pipe Buildup & Reduced Flow",
+            "title": "Pipe Scale & Low Flow",
             "description": "Mineral deposits can build up inside plumbing and affect water flow.",
             "cta_text": "",
             "cta_url": ""
@@ -829,7 +829,7 @@
             "number": "05",
             "icon": "hair",
             "image": "shopify://shop_images/problem6.png",
-            "title": "Dry Skin & Hair",
+            "title": "Dry Skin & Hair Concerns",
             "description": "Hard water can leave mineral residue that makes skin and hair feel dry.",
             "cta_text": "",
             "cta_url": ""

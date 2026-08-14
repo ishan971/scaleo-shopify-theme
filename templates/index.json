@@ -29,6 +29,7 @@
             "button_url": "shopify://collections/water-softeners",
             "show_trust": true,
             "trust_style": "stars",
+            "trust_value": "4.8/5",
             "show_stars": true,
             "trust_text": "Trusted by homeowners across India",
             "image_position": "right",
@@ -41,6 +42,7 @@
           "type": "slide",
           "settings": {
             "enabled": true,
+            "image": "shopify://shop_images/Hero_1.png",
             "banner_preset": "family",
             "image_alt": "Scale-O product family range",
             "show_usp": true,
@@ -584,131 +586,6 @@
         "accessibility_label": "Shop by products"
       }
     },
-    "hard_water_problems_home": {
-      "type": "hard-water-problems",
-      "blocks": {
-        "problem_scale": {
-          "type": "problem",
-          "settings": {
-            "featured": true,
-            "number": "01",
-            "icon": "faucet",
-            "image": "shopify://shop_images/problem1.png",
-            "title": "Scale on Taps & Showers",
-            "description": "Mineral buildup can leave bathroom fixtures looking dull and make them harder to clean.",
-            "cta_text": "",
-            "cta_url": ""
-          }
-        },
-        "problem_stains": {
-          "type": "problem",
-          "settings": {
-            "featured": false,
-            "number": "02",
-            "icon": "floor",
-            "image": "shopify://shop_images/problem2.png",
-            "title": "White Stains on Surfaces",
-            "description": "Hard-water minerals can leave visible marks on tiles, glass and bathroom surfaces.",
-            "cta_text": "",
-            "cta_url": ""
-          }
-        },
-        "problem_heater": {
-          "type": "problem",
-          "settings": {
-            "featured": false,
-            "number": "03",
-            "icon": "heater",
-            "image": "shopify://shop_images/problem4.png",
-            "title": "Water Heater Buildup",
-            "description": "Scale can accumulate inside water-heating equipment over time.",
-            "cta_text": "",
-            "cta_url": ""
-          }
-        },
-        "problem_pipe": {
-          "type": "problem",
-          "settings": {
-            "featured": false,
-            "number": "04",
-            "icon": "pipe",
-            "image": "shopify://shop_images/problem5.png",
-            "title": "Pipe Buildup & Reduced Flow",
-            "description": "Mineral deposits can build up inside plumbing and affect water flow.",
-            "cta_text": "",
-            "cta_url": ""
-          }
-        },
-        "problem_skin": {
-          "type": "problem",
-          "settings": {
-            "featured": false,
-            "number": "05",
-            "icon": "hair",
-            "image": "shopify://shop_images/problem6.png",
-            "title": "Dry Skin & Hair",
-            "description": "Hard water can leave mineral residue that makes skin and hair feel dry.",
-            "cta_text": "",
-            "cta_url": ""
-          }
-        }
-      },
-      "block_order": [
-        "problem_scale",
-        "problem_stains",
-        "problem_heater",
-        "problem_pipe",
-        "problem_skin"
-      ],
-      "settings": {
-        "eyebrow": "THE PROBLEM",
-        "heading": "Hard Water Doesn't Just Affect Your Water",
-        "description": "Hard water can leave visible scale, affect everyday cleaning, and contribute to buildup across the fixtures and appliances in your home.",
-        "header_alignment": "center",
-        "show_flow": true,
-        "flow_step_1": "Hard Water",
-        "flow_step_2": "Mineral Buildup",
-        "flow_step_3": "Everyday Household Problems",
-        "featured_layout": "split",
-        "secondary_cards": 4,
-        "desktop_columns": "4",
-        "tablet_columns": "2",
-        "image_aspect_ratio": "4 / 3",
-        "max_width": 1200,
-        "card_gap": 16,
-        "padding_top": 36,
-        "padding_bottom": 36,
-        "padding_x": 20,
-        "margin_top": 0,
-        "margin_bottom": 0,
-        "header_gap": 24,
-        "show_view_all": true,
-        "view_all_text": "View all problems",
-        "view_all_hide_text": "Show fewer problems",
-        "show_solution": false,
-        "solution_eyebrow": "THE SOLUTION",
-        "solution_heading": "There's a Better Way to Manage Hard Water",
-        "solution_description": "Scale-O is designed to help reduce scale-forming impact throughout your home's water system.",
-        "solution_button_text": "See How Scale-O Works",
-        "solution_button_url": "",
-        "eyebrow_size": 16,
-        "heading_size_desktop": 45,
-        "heading_size_mobile": 26,
-        "description_size": 16,
-        "problem_title_size": 22,
-        "card_description_size": 14,
-        "background_color": "#f7fbff",
-        "heading_color": "#1a2b4a",
-        "text_color": "#5a6b85",
-        "accent_color": "#0c7fdf",
-        "accent_hover_color": "#0a6bc4",
-        "card_background": "#ffffff",
-        "card_border_color": "#e8eef8",
-        "card_radius": 18,
-        "shadow_strength": 50,
-        "accessibility_label": "Hard water problems"
-      }
-    },
     "watch_and_shop_home": {
       "type": "watch-and-shop",
       "blocks": {
@@ -885,6 +762,131 @@
         "accessibility_label": "Watch and shop"
       }
     },
+    "hard_water_problems_home": {
+      "type": "hard-water-problems",
+      "blocks": {
+        "problem_scale": {
+          "type": "problem",
+          "settings": {
+            "featured": true,
+            "number": "01",
+            "icon": "faucet",
+            "image": "shopify://shop_images/problem1.png",
+            "title": "Scale on Taps & Showers",
+            "description": "Mineral buildup can leave bathroom fixtures looking dull and make them harder to clean.",
+            "cta_text": "",
+            "cta_url": ""
+          }
+        },
+        "problem_stains": {
+          "type": "problem",
+          "settings": {
+            "featured": false,
+            "number": "02",
+            "icon": "floor",
+            "image": "shopify://shop_images/problem2.png",
+            "title": "White Stains on Surfaces",
+            "description": "Hard-water minerals can leave visible marks on tiles, glass and bathroom surfaces.",
+            "cta_text": "",
+            "cta_url": ""
+          }
+        },
+        "problem_heater": {
+          "type": "problem",
+          "settings": {
+            "featured": false,
+            "number": "03",
+            "icon": "heater",
+            "image": "shopify://shop_images/problem4.png",
+            "title": "Water Heater Buildup",
+            "description": "Scale can accumulate inside water-heating equipment over time.",
+            "cta_text": "",
+            "cta_url": ""
+          }
+        },
+        "problem_pipe": {
+          "type": "problem",
+          "settings": {
+            "featured": false,
+            "number": "04",
+            "icon": "pipe",
+            "image": "shopify://shop_images/problem5.png",
+            "title": "Pipe Buildup & Reduced Flow",
+            "description": "Mineral deposits can build up inside plumbing and affect water flow.",
+            "cta_text": "",
+            "cta_url": ""
+          }
+        },
+        "problem_skin": {
+          "type": "problem",
+          "settings": {
+            "featured": false,
+            "number": "05",
+            "icon": "hair",
+            "image": "shopify://shop_images/problem6.png",
+            "title": "Dry Skin & Hair",
+            "description": "Hard water can leave mineral residue that makes skin and hair feel dry.",
+            "cta_text": "",
+            "cta_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "problem_scale",
+        "problem_stains",
+        "problem_heater",
+        "problem_pipe",
+        "problem_skin"
+      ],
+      "settings": {
+        "eyebrow": "THE PROBLEM",
+        "heading": "Hard Water Doesn't Just Affect Your Water",
+        "description": "Hard water can leave visible scale, affect everyday cleaning, and contribute to buildup across the fixtures and appliances in your home.",
+        "header_alignment": "center",
+        "show_flow": true,
+        "flow_step_1": "Hard Water",
+        "flow_step_2": "Mineral Buildup",
+        "flow_step_3": "Everyday Household Problems",
+        "featured_layout": "split",
+        "secondary_cards": 4,
+        "desktop_columns": "4",
+        "tablet_columns": "2",
+        "image_aspect_ratio": "4 / 3",
+        "max_width": 1200,
+        "card_gap": 16,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_x": 20,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "header_gap": 24,
+        "show_view_all": true,
+        "view_all_text": "View all problems",
+        "view_all_hide_text": "Show fewer problems",
+        "show_solution": false,
+        "solution_eyebrow": "THE SOLUTION",
+        "solution_heading": "There's a Better Way to Manage Hard Water",
+        "solution_description": "Scale-O is designed to help reduce scale-forming impact throughout your home's water system.",
+        "solution_button_text": "See How Scale-O Works",
+        "solution_button_url": "",
+        "eyebrow_size": 16,
+        "heading_size_desktop": 45,
+        "heading_size_mobile": 26,
+        "description_size": 16,
+        "problem_title_size": 22,
+        "card_description_size": 14,
+        "background_color": "#f7fbff",
+        "heading_color": "#1a2b4a",
+        "text_color": "#5a6b85",
+        "accent_color": "#0c7fdf",
+        "accent_hover_color": "#0a6bc4",
+        "card_background": "#ffffff",
+        "card_border_color": "#e8eef8",
+        "card_radius": 18,
+        "shadow_strength": 50,
+        "accessibility_label": "Hard water problems"
+      }
+    },
     "scale_o_solution_home": {
       "type": "scale-o-solution",
       "blocks": {
@@ -1024,100 +1026,6 @@
         "card_background": "#ffffff",
         "card_border_color": "#e8eef8",
         "accessibility_label": "Scale-O water softeners solution"
-      }
-    },
-    "scale_o_video_home": {
-      "type": "scale-o-technology-video",
-      "blocks": {
-        "hl_install": {
-          "type": "highlight",
-          "settings": {
-            "theme_icon": "install",
-            "title": "Easy Installation",
-            "description": "Designed for simple installation without complicated plumbing."
-          }
-        },
-        "hl_salt": {
-          "type": "highlight",
-          "settings": {
-            "theme_icon": "salt",
-            "title": "Salt-Free",
-            "description": "No salt bags or traditional brine system."
-          }
-        },
-        "hl_power": {
-          "type": "highlight",
-          "settings": {
-            "theme_icon": "electricity",
-            "title": "Zero Electricity",
-            "description": "Works without electricity."
-          }
-        },
-        "hl_waste": {
-          "type": "highlight",
-          "settings": {
-            "theme_icon": "recycle",
-            "title": "Zero Water Waste",
-            "description": "No regeneration water wastage."
-          }
-        }
-      },
-      "block_order": [
-        "hl_install",
-        "hl_salt",
-        "hl_power",
-        "hl_waste"
-      ],
-      "settings": {
-        "show_eyebrow": true,
-        "eyebrow": "TECHNOLOGY",
-        "heading": "See How Scale-O Works",
-        "show_description": true,
-        "description": "Understand how Scale-O protects your home from hard-water scale with a simple, salt-free solution.",
-        "header_alignment": "center",
-        "video_type": "external",
-        "video_url": "https://vimeo.com/999469587",
-        "thumbnail": "shopify://shop_images/ChatGPT_Image_Aug_13_2026_10_39_03_AM.png",
-        "thumbnail_alt": "Scale-O product demonstration video",
-        "video_label": "Scale-O product demonstration",
-        "video_ratio": "16 / 9",
-        "video_radius": 20,
-        "play_button_size": "large",
-        "show_badge": true,
-        "badge_text": "Real Product Demo",
-        "play_label": "Play video",
-        "play_pulse": true,
-        "autoplay": false,
-        "muted": true,
-        "loop": false,
-        "show_controls": true,
-        "playsinline": true,
-        "open_in_modal": false,
-        "show_cta": true,
-        "cta_text": "Explore Scale-O Products",
-        "cta_url": "",
-        "show_trust": true,
-        "trust_text": "Trusted by thousands of happy homes across India.",
-        "max_width": 1200,
-        "padding_top": 36,
-        "padding_bottom": 36,
-        "padding_top_mobile": 28,
-        "padding_bottom_mobile": 28,
-        "padding_x": 20,
-        "margin_top": 0,
-        "margin_bottom": 0,
-        "header_gap": 28,
-        "eyebrow_size": 16,
-        "heading_size_desktop": 45,
-        "heading_size_mobile": 26,
-        "description_size": 16,
-        "background_color": "#f7fbff",
-        "heading_color": "#1a2b4a",
-        "text_color": "#5a6b85",
-        "accent_color": "#0c7fdf",
-        "accent_hover_color": "#0a6bc4",
-        "card_border_color": "#e8eef8",
-        "accessibility_label": "Scale-O video"
       }
     },
     "people_property_home": {
@@ -1301,6 +1209,100 @@
         "tab_active_background": "#0c7fdf",
         "tab_active_text": "#ffffff",
         "accessibility_label": "People and property advantages"
+      }
+    },
+    "scale_o_video_home": {
+      "type": "scale-o-technology-video",
+      "blocks": {
+        "hl_install": {
+          "type": "highlight",
+          "settings": {
+            "theme_icon": "install",
+            "title": "Easy Installation",
+            "description": "Designed for simple installation without complicated plumbing."
+          }
+        },
+        "hl_salt": {
+          "type": "highlight",
+          "settings": {
+            "theme_icon": "salt",
+            "title": "Salt-Free",
+            "description": "No salt bags or traditional brine system."
+          }
+        },
+        "hl_power": {
+          "type": "highlight",
+          "settings": {
+            "theme_icon": "electricity",
+            "title": "Zero Electricity",
+            "description": "Works without electricity."
+          }
+        },
+        "hl_waste": {
+          "type": "highlight",
+          "settings": {
+            "theme_icon": "recycle",
+            "title": "Zero Water Waste",
+            "description": "No regeneration water wastage."
+          }
+        }
+      },
+      "block_order": [
+        "hl_install",
+        "hl_salt",
+        "hl_power",
+        "hl_waste"
+      ],
+      "settings": {
+        "show_eyebrow": true,
+        "eyebrow": "TECHNOLOGY",
+        "heading": "See How Scale-O Works",
+        "show_description": true,
+        "description": "Understand how Scale-O protects your home from hard-water scale with a simple, salt-free solution.",
+        "header_alignment": "center",
+        "video_type": "external",
+        "video_url": "https://vimeo.com/999469587",
+        "thumbnail": "shopify://shop_images/ChatGPT_Image_Aug_13_2026_10_39_03_AM.png",
+        "thumbnail_alt": "Scale-O product demonstration video",
+        "video_label": "Scale-O product demonstration",
+        "video_ratio": "16 / 9",
+        "video_radius": 20,
+        "play_button_size": "large",
+        "show_badge": true,
+        "badge_text": "Real Product Demo",
+        "play_label": "Play video",
+        "play_pulse": true,
+        "autoplay": false,
+        "muted": true,
+        "loop": false,
+        "show_controls": true,
+        "playsinline": true,
+        "open_in_modal": false,
+        "show_cta": true,
+        "cta_text": "Explore Scale-O Products",
+        "cta_url": "",
+        "show_trust": true,
+        "trust_text": "Trusted by thousands of happy homes across India.",
+        "max_width": 1200,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_top_mobile": 28,
+        "padding_bottom_mobile": 28,
+        "padding_x": 20,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "header_gap": 28,
+        "eyebrow_size": 16,
+        "heading_size_desktop": 45,
+        "heading_size_mobile": 26,
+        "description_size": 16,
+        "background_color": "#f7fbff",
+        "heading_color": "#1a2b4a",
+        "text_color": "#5a6b85",
+        "accent_color": "#0c7fdf",
+        "accent_hover_color": "#0a6bc4",
+        "card_border_color": "#e8eef8",
+        "accessibility_label": "Scale-O video"
       }
     },
     "before_after_home": {
@@ -1543,6 +1545,7 @@
         "feat_salt": {
           "type": "feature",
           "settings": {
+            "enabled": true,
             "title": "Salt Required",
             "theme_icon": "bucket",
             "value_1": "Yes",
@@ -1558,6 +1561,7 @@
         "feat_power": {
           "type": "feature",
           "settings": {
+            "enabled": true,
             "title": "Electricity Required",
             "theme_icon": "bolt",
             "value_1": "Yes",
@@ -1573,6 +1577,7 @@
         "feat_waste": {
           "type": "feature",
           "settings": {
+            "enabled": true,
             "title": "Water Wastage",
             "theme_icon": "droplet",
             "value_1": "Yes",
@@ -1588,6 +1593,7 @@
         "feat_plumbing": {
           "type": "feature",
           "settings": {
+            "enabled": true,
             "title": "Plumbing Changes",
             "theme_icon": "pipe",
             "value_1": "Required",
@@ -1603,6 +1609,7 @@
         "feat_install": {
           "type": "feature",
           "settings": {
+            "enabled": true,
             "title": "Installation Complexity",
             "theme_icon": "wrench",
             "value_1": "Complex",
@@ -1618,6 +1625,7 @@
         "feat_maint": {
           "type": "feature",
           "settings": {
+            "enabled": true,
             "title": "Regular Maintenance",
             "theme_icon": "settings",
             "value_1": "Ongoing",
@@ -1633,6 +1641,7 @@
         "feat_cost": {
           "type": "feature",
           "settings": {
+            "enabled": true,
             "title": "Operating Cost",
             "theme_icon": "dollar",
             "value_1": "Ongoing",
@@ -1648,6 +1657,7 @@
         "feat_regen": {
           "type": "feature",
           "settings": {
+            "enabled": true,
             "title": "Suitable for Whole-Home Scale Protection",
             "theme_icon": "shield",
             "value_1": "Yes",
@@ -1694,7 +1704,9 @@
             "value_2": "Usually no",
             "status_2": "positive",
             "value_3": "No",
-            "status_3": "positive"
+            "status_3": "positive",
+            "value_4": "",
+            "status_4": "positive"
           }
         },
         "crow_power": {
@@ -1707,7 +1719,9 @@
             "value_2": "No",
             "status_2": "positive",
             "value_3": "Yes",
-            "status_3": "required"
+            "status_3": "required",
+            "value_4": "",
+            "status_4": "positive"
           }
         },
         "crow_maint": {
@@ -1720,7 +1734,9 @@
             "value_2": "Varies",
             "status_2": "neutral",
             "value_3": "Low",
-            "status_3": "low"
+            "status_3": "low",
+            "value_4": "",
+            "status_4": "positive"
           }
         },
         "crow_cost": {
@@ -1733,7 +1749,9 @@
             "value_2": "Varies",
             "status_2": "neutral",
             "value_3": "Ongoing",
-            "status_3": "high"
+            "status_3": "high",
+            "value_4": "",
+            "status_4": "positive"
           }
         },
         "crow_home": {
@@ -1746,7 +1764,9 @@
             "value_2": "Limited",
             "status_2": "neutral",
             "value_3": "Limited",
-            "status_3": "neutral"
+            "status_3": "neutral",
+            "value_4": "",
+            "status_4": "positive"
           }
         }
       },
@@ -1831,6 +1851,207 @@
         "accessibility_label": "Competitor comparison"
       }
     },
+    "video_testimonials_home": {
+      "type": "scale-o-video-testimonials",
+      "blocks": {
+        "story_1": {
+          "type": "testimonial",
+          "settings": {
+            "enabled": true,
+            "highlight": true,
+            "video_source": "youtube_vimeo",
+            "video_url": "",
+            "thumbnail_alt": "",
+            "duration": "",
+            "title": "",
+            "show_description": true,
+            "description": "Scale-O is a very innovative product. I'm very happy with the product, reason is it is very easy to install, no hassles. hard water is a big problem, we wanted a solution but not a salt based softener",
+            "show_customer_info": true,
+            "customer_name": "Mrs. Pragati Choksi",
+            "city": "",
+            "state": "",
+            "designation": "",
+            "show_product": false,
+            "product_name": "",
+            "show_rating": false,
+            "rating": 5,
+            "show_verified": false,
+            "verified_text": "VERIFIED CUSTOMER"
+          }
+        },
+        "story_2": {
+          "type": "testimonial",
+          "settings": {
+            "enabled": true,
+            "highlight": false,
+            "video_source": "youtube_vimeo",
+            "video_url": "",
+            "thumbnail_alt": "",
+            "duration": "",
+            "title": "",
+            "show_description": true,
+            "description": "We absolutely loved Scale-O. Very compact and easy to install design. We found it really effective and could avoid the hassle and cumbersome process of conventional plant installation.",
+            "show_customer_info": true,
+            "customer_name": "Dr. Gaurav Khurana",
+            "city": "",
+            "state": "",
+            "designation": "",
+            "show_product": false,
+            "product_name": "",
+            "show_rating": false,
+            "rating": 5,
+            "show_verified": false,
+            "verified_text": "VERIFIED CUSTOMER"
+          }
+        },
+        "story_3": {
+          "type": "testimonial",
+          "settings": {
+            "enabled": true,
+            "highlight": false,
+            "video_source": "youtube_vimeo",
+            "video_url": "",
+            "thumbnail_alt": "",
+            "duration": "",
+            "title": "",
+            "show_description": true,
+            "description": "The product is really good, and just one day post installation we can see the change in quality of water. good work!",
+            "show_customer_info": true,
+            "customer_name": "Ms. Avani Nathwani",
+            "city": "",
+            "state": "",
+            "designation": "",
+            "show_product": false,
+            "product_name": "",
+            "show_rating": false,
+            "rating": 5,
+            "show_verified": false,
+            "verified_text": "VERIFIED CUSTOMER"
+          }
+        },
+        "story_4": {
+          "type": "testimonial",
+          "settings": {
+            "enabled": true,
+            "highlight": false,
+            "video_source": "youtube_vimeo",
+            "video_url": "",
+            "thumbnail_alt": "",
+            "duration": "",
+            "title": "",
+            "show_description": true,
+            "description": "Good concept, as we are facing problems due to hard water. Easy installation and friendly customer service!",
+            "show_customer_info": true,
+            "customer_name": "Mrs. Prabha Harwani",
+            "city": "",
+            "state": "",
+            "designation": "",
+            "show_product": false,
+            "product_name": "",
+            "show_rating": false,
+            "rating": 5,
+            "show_verified": false,
+            "verified_text": "VERIFIED CUSTOMER"
+          }
+        },
+        "trust_1": {
+          "type": "trust",
+          "settings": {
+            "title": "Real Customers",
+            "text": "Stories from Scale-O customers.",
+            "icon": "people"
+          }
+        },
+        "trust_2": {
+          "type": "trust",
+          "settings": {
+            "title": "Homes across India",
+            "text": "Helping families enjoy better water every day.",
+            "icon": "home"
+          }
+        },
+        "trust_3": {
+          "type": "trust",
+          "settings": {
+            "title": "Nationwide",
+            "text": "Loved by customers in cities across India.",
+            "icon": "map"
+          }
+        },
+        "trust_4": {
+          "type": "trust",
+          "settings": {
+            "title": "Built on Quality",
+            "text": "Designed and manufactured in India.",
+            "icon": "quality"
+          }
+        }
+      },
+      "block_order": [
+        "story_1",
+        "story_2",
+        "story_3",
+        "story_4",
+        "trust_1",
+        "trust_2",
+        "trust_3",
+        "trust_4"
+      ],
+      "settings": {
+        "show_eyebrow": true,
+        "eyebrow": "CUSTOMER STORIES",
+        "heading": "Real Customers. Real Results.",
+        "show_description": true,
+        "description": "Hear directly from Scale-O customers about their experience with hard water, installation and everyday use.",
+        "header_alignment": "center",
+        "desktop_cards": 3,
+        "tablet_cards": 2,
+        "carousel_autoplay": true,
+        "autoplay_speed": 5000,
+        "pause_on_hover": true,
+        "pause_when_playing": true,
+        "show_arrows": true,
+        "show_dots": true,
+        "enable_video_modal": true,
+        "video_autoplay": false,
+        "video_muted": false,
+        "show_controls": true,
+        "thumb_ratio": "16 / 10",
+        "play_button_size": 64,
+        "play_button_color": "#0c7fdf",
+        "show_trust": true,
+        "show_footer": true,
+        "trust_statement": "Real experiences from Scale-O customers across India.",
+        "show_cta": true,
+        "cta_text": "See More Customer Stories",
+        "cta_url": "",
+        "max_width": 1200,
+        "card_radius": 18,
+        "card_spacing": 18,
+        "show_card_shadow": true,
+        "enable_animations": true,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_top_mobile": 28,
+        "padding_bottom_mobile": 28,
+        "padding_x": 20,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "header_gap": 36,
+        "eyebrow_size": 13,
+        "heading_size_desktop": 36,
+        "heading_size_mobile": 26,
+        "description_size": 16,
+        "background_color": "#f5faff",
+        "card_background": "#ffffff",
+        "card_border_color": "#e4ecf6",
+        "heading_color": "#142b4a",
+        "text_color": "#5a6b85",
+        "accent_color": "#0c7fdf",
+        "accent_hover_color": "#0a6bc4",
+        "accessibility_label": "Customer video stories"
+      }
+    },
     "certificates_home": {
       "type": "scale-o-certificates",
       "blocks": {
@@ -1840,10 +2061,12 @@
             "enabled": true,
             "image": "shopify://shop_images/1_1fab6577-7a28-415e-9544-f0e2b240e5cc.jpg",
             "image_url": "https://cdn.shopify.com/s/files/1/0592/6508/9638/files/1_1fab6577-7a28-415e-9544-f0e2b240e5cc.jpg?v=1722329025",
+            "image_alt": "",
             "title": "Intellectual Property Certificate",
             "description": "",
             "icon": "none",
-            "button_text": "View Certificate"
+            "button_text": "View Certificate",
+            "button_url": ""
           }
         },
         "cert_2": {
@@ -1852,22 +2075,25 @@
             "enabled": true,
             "image": "shopify://shop_images/2.jpg",
             "image_url": "https://cdn.shopify.com/s/files/1/0592/6508/9638/files/2.jpg?v=1722329026",
+            "image_alt": "",
             "title": "Trademark Registration Certificate",
             "description": "",
             "icon": "none",
-            "button_text": "View Certificate"
+            "button_text": "View Certificate",
+            "button_url": ""
           }
         },
         "cert_3": {
           "type": "certificate",
           "settings": {
             "enabled": true,
-            "image": "shopify://shop_images/certifacate_430x.jpg",
             "image_url": "https://cdn.shopify.com/s/files/1/0592/6508/9638/files/certifacate_430x.jpg?v=1724232526",
+            "image_alt": "",
             "title": "Patent Certificate",
             "description": "",
             "icon": "none",
-            "button_text": "View Certificate"
+            "button_text": "View Certificate",
+            "button_url": ""
           }
         },
         "cert_4": {
@@ -1876,10 +2102,12 @@
             "enabled": true,
             "image": "shopify://shop_images/certificate-1.jpg",
             "image_url": "https://cdn.shopify.com/s/files/1/0592/6508/9638/files/certificate-1.jpg?v=1723541003",
+            "image_alt": "",
             "title": "Water Quality Test Report",
             "description": "",
             "icon": "none",
-            "button_text": "View Certificate"
+            "button_text": "View Certificate",
+            "button_url": ""
           }
         },
         "cert_5": {
@@ -1888,10 +2116,12 @@
             "enabled": true,
             "image": "shopify://shop_images/certificate-2_1.jpg",
             "image_url": "https://cdn.shopify.com/s/files/1/0592/6508/9638/files/certificate-2_1.jpg?v=1723541047",
+            "image_alt": "",
             "title": "Quality Assurance Certificate",
             "description": "",
             "icon": "none",
-            "button_text": "View Certificate"
+            "button_text": "View Certificate",
+            "button_url": ""
           }
         }
       },
@@ -2014,8 +2244,11 @@
           "settings": {
             "enabled": true,
             "image": "shopify://shop_images/sp-1.png",
+            "image_by_url": "",
             "image_alt": "Department of Science & Technology",
-            "title": "Department of Science & Technology"
+            "title": "Department of Science & Technology",
+            "description": "",
+            "link": ""
           }
         },
         "logo_2": {
@@ -2023,8 +2256,11 @@
           "settings": {
             "enabled": true,
             "image": "shopify://shop_images/sp-2.png",
+            "image_by_url": "",
             "image_alt": "Startup India",
-            "title": "Startup India"
+            "title": "Startup India",
+            "description": "",
+            "link": ""
           }
         },
         "logo_3": {
@@ -2032,8 +2268,11 @@
           "settings": {
             "enabled": true,
             "image": "shopify://shop_images/Frame_1312.png",
+            "image_by_url": "",
             "image_alt": "MSME",
-            "title": "MSME"
+            "title": "MSME",
+            "description": "",
+            "link": ""
           }
         },
         "logo_4": {
@@ -2041,8 +2280,11 @@
           "settings": {
             "enabled": true,
             "image": "shopify://shop_images/Frame_1310_6eed278e-7133-4307-bdf6-9a7dff5c9fed.png",
+            "image_by_url": "",
             "image_alt": "Ahmedabad Municipal Corporation",
-            "title": "Ahmedabad Municipal Corporation – AMC"
+            "title": "Ahmedabad Municipal Corporation – AMC",
+            "description": "",
+            "link": ""
           }
         },
         "logo_5": {
@@ -2050,8 +2292,11 @@
           "settings": {
             "enabled": true,
             "image": "shopify://shop_images/sp-3.png",
+            "image_by_url": "",
             "image_alt": "Government of Gujarat",
-            "title": "Government of Gujarat – GOG"
+            "title": "Government of Gujarat – GOG",
+            "description": "",
+            "link": ""
           }
         },
         "logo_6": {
@@ -2059,8 +2304,11 @@
           "settings": {
             "enabled": true,
             "image": "shopify://shop_images/Frame_1313.png",
+            "image_by_url": "",
             "image_alt": "Affiliation logo",
-            "title": ""
+            "title": "",
+            "description": "",
+            "link": ""
           }
         }
       },
@@ -2099,6 +2347,160 @@
         "heading_color": "#142b4a",
         "text_color": "#5a6b85",
         "accent_color": "#0c7fdf"
+      }
+    },
+    "icon_box_XWCp6B": {
+      "type": "scale-o-news-media",
+      "blocks": {
+        "iconbox_ttpLpX": {
+          "type": "item",
+          "settings": {
+            "enabled": true,
+            "image": "shopify://shop_images/Rectangle_17858.jpg",
+            "image_by_url": "",
+            "image_alt": "",
+            "tag": "",
+            "title": "Innovation Coverage",
+            "publication": "Divya Bhaskar",
+            "date": "",
+            "link": "https://www.divyabhaskar.co.in/local/gujarat/ahmedabad/news/this-cheap-device-will-make-1-lakh-liters-of-water-salt-less-130302889.html",
+            "cta_text": "",
+            "open_new_tab": true
+          }
+        },
+        "iconbox_tP7dpC": {
+          "type": "item",
+          "settings": {
+            "enabled": true,
+            "image": "shopify://shop_images/vvfsvasf.png",
+            "image_by_url": "",
+            "image_alt": "",
+            "tag": "",
+            "title": "Founder with CM of Gujarat",
+            "publication": "News 18",
+            "date": "",
+            "link": "https://gujarati.news18.com/news/ahmedabad/ahmedabad-student-make-device-for-pure-water-kp-1252526.html",
+            "cta_text": "",
+            "open_new_tab": true
+          }
+        },
+        "iconbox_FHqgJj": {
+          "type": "item",
+          "settings": {
+            "enabled": true,
+            "image": "shopify://shop_images/Rectangle_17858.png",
+            "image_by_url": "",
+            "image_alt": "",
+            "tag": "",
+            "title": "Business Coverage",
+            "publication": "Ahmedabad Mirror",
+            "date": "",
+            "link": "https://x.com/kuldeep_2105/status/1798197609057919273?t=j-Qm6Q-rhyoeLGNkS2-FrQ&s=08",
+            "cta_text": "",
+            "open_new_tab": true
+          }
+        },
+        "iconbox_TnCkrp": {
+          "type": "item",
+          "settings": {
+            "enabled": true,
+            "image": "shopify://shop_images/image.png",
+            "image_by_url": "",
+            "image_alt": "",
+            "tag": "",
+            "title": "Innovation Showcase",
+            "publication": "Book of Innovations, GOI",
+            "date": "",
+            "link": "https://drive.google.com/file/d/1aL92QXJ3c6KWcYwp1iX2MUM7mVn_ujJX/view?usp=sharing",
+            "cta_text": "",
+            "open_new_tab": true
+          }
+        },
+        "iconbox_DEXn8i": {
+          "type": "item",
+          "settings": {
+            "enabled": true,
+            "image": "shopify://shop_images/Rectangle_17856.png",
+            "image_by_url": "",
+            "image_alt": "",
+            "tag": "",
+            "title": "Product Footage",
+            "publication": "ABP TV",
+            "date": "",
+            "link": "https://drive.google.com/file/d/1MBQKO1pXFFjj-QUsexCY2aHWe_LNqt8o/view?usp=sharing",
+            "cta_text": "",
+            "open_new_tab": true
+          }
+        },
+        "iconbox_UfXtic": {
+          "type": "item",
+          "settings": {
+            "enabled": true,
+            "image": "shopify://shop_images/Rectangle_17857_4d8df349-c855-4d7d-95b2-8f84c9bc0065.png",
+            "image_by_url": "",
+            "image_alt": "",
+            "tag": "",
+            "title": "Founder’s Pitch",
+            "publication": "Zee Business OTT",
+            "date": "",
+            "link": "https://www.youtube.com/watch?v=kWfxUZZRbRE",
+            "cta_text": "",
+            "open_new_tab": true
+          }
+        }
+      },
+      "block_order": [
+        "iconbox_ttpLpX",
+        "iconbox_tP7dpC",
+        "iconbox_FHqgJj",
+        "iconbox_TnCkrp",
+        "iconbox_DEXn8i",
+        "iconbox_UfXtic"
+      ],
+      "settings": {
+        "eyebrow": "RECOGNITIONS",
+        "heading": "News & Media",
+        "description": "Features, recognitions and media coverage that highlight Scale-O's innovation, impact and journey.",
+        "desktop_cards": 4,
+        "tablet_cards": 2,
+        "mobile_cards": "1",
+        "card_gap": 20,
+        "image_ratio": "landscape",
+        "show_arrows": true,
+        "show_dots": true,
+        "enable_autoplay": false,
+        "autoplay_speed": 5000,
+        "enable_loop": false,
+        "enable_swipe": true,
+        "show_cta": true,
+        "cta_text": "View Coverage",
+        "show_inquiry": false,
+        "show_inquiry_icon": true,
+        "inquiry_text": "Want to feature Scale-O in your publication? We work with media houses, digital platforms and industry publications.",
+        "inquiry_button_text": "Media & Press Inquiries",
+        "inquiry_button_link": "shopify://pages/consult-now",
+        "max_width": 1200,
+        "padding_x": 20,
+        "header_gap": 36,
+        "card_radius": 16,
+        "show_card_shadow": true,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_top_mobile": 28,
+        "padding_bottom_mobile": 28,
+        "eyebrow_size": 13,
+        "heading_size_desktop": 36,
+        "heading_size_mobile": 26,
+        "description_size": 15,
+        "title_size": 16,
+        "background_color": "#ffffff",
+        "card_background": "#ffffff",
+        "card_border_color": "#dceaf5",
+        "heading_color": "#142b4a",
+        "text_color": "#5a6b85",
+        "accent_color": "#0c7fdf",
+        "accent_hover_color": "#0a6bc4",
+        "accessibility_label": "News and media"
       }
     },
     "faq_home": {
@@ -2301,130 +2703,6 @@
         "accessibility_label": "Frequently asked questions"
       }
     },
-    "icon_box_XWCp6B": {
-      "type": "scale-o-news-media",
-      "blocks": {
-        "iconbox_ttpLpX": {
-          "type": "item",
-          "settings": {
-            "enabled": true,
-            "image": "shopify://shop_images/Rectangle_17858.jpg",
-            "title": "Innovation Coverage",
-            "publication": "Divya Bhaskar",
-            "link": "https://www.divyabhaskar.co.in/local/gujarat/ahmedabad/news/this-cheap-device-will-make-1-lakh-liters-of-water-salt-less-130302889.html",
-            "open_new_tab": true
-          }
-        },
-        "iconbox_tP7dpC": {
-          "type": "item",
-          "settings": {
-            "enabled": true,
-            "image": "shopify://shop_images/vvfsvasf.png",
-            "title": "Founder with CM of Gujarat",
-            "publication": "News 18",
-            "link": "https://gujarati.news18.com/news/ahmedabad/ahmedabad-student-make-device-for-pure-water-kp-1252526.html",
-            "open_new_tab": true
-          }
-        },
-        "iconbox_FHqgJj": {
-          "type": "item",
-          "settings": {
-            "enabled": true,
-            "image": "shopify://shop_images/Rectangle_17858.png",
-            "title": "Business Coverage",
-            "publication": "Ahmedabad Mirror",
-            "link": "https://x.com/kuldeep_2105/status/1798197609057919273?t=j-Qm6Q-rhyoeLGNkS2-FrQ&s=08",
-            "open_new_tab": true
-          }
-        },
-        "iconbox_TnCkrp": {
-          "type": "item",
-          "settings": {
-            "enabled": true,
-            "image": "shopify://shop_images/image.png",
-            "title": "Innovation Showcase",
-            "publication": "Book of Innovations, GOI",
-            "link": "https://drive.google.com/file/d/1aL92QXJ3c6KWcYwp1iX2MUM7mVn_ujJX/view?usp=sharing",
-            "open_new_tab": true
-          }
-        },
-        "iconbox_DEXn8i": {
-          "type": "item",
-          "settings": {
-            "enabled": true,
-            "image": "shopify://shop_images/Rectangle_17856.png",
-            "title": "Product Footage",
-            "publication": "ABP TV",
-            "link": "https://drive.google.com/file/d/1MBQKO1pXFFjj-QUsexCY2aHWe_LNqt8o/view?usp=sharing",
-            "open_new_tab": true
-          }
-        },
-        "iconbox_UfXtic": {
-          "type": "item",
-          "settings": {
-            "enabled": true,
-            "image": "shopify://shop_images/Rectangle_17857_4d8df349-c855-4d7d-95b2-8f84c9bc0065.png",
-            "title": "Founder’s Pitch",
-            "publication": "Zee Business OTT",
-            "link": "https://www.youtube.com/watch?v=kWfxUZZRbRE",
-            "open_new_tab": true
-          }
-        }
-      },
-      "block_order": [
-        "iconbox_ttpLpX",
-        "iconbox_tP7dpC",
-        "iconbox_FHqgJj",
-        "iconbox_TnCkrp",
-        "iconbox_DEXn8i",
-        "iconbox_UfXtic"
-      ],
-      "settings": {
-        "eyebrow": "RECOGNITIONS",
-        "heading": "News & Media",
-        "description": "Features, recognitions and media coverage that highlight Scale-O's innovation, impact and journey.",
-        "desktop_cards": 4,
-        "tablet_cards": 2,
-        "mobile_cards": "1",
-        "card_gap": 20,
-        "image_ratio": "landscape",
-        "show_arrows": true,
-        "show_dots": true,
-        "enable_autoplay": false,
-        "autoplay_speed": 5000,
-        "enable_loop": false,
-        "enable_swipe": true,
-        "show_cta": true,
-        "cta_text": "View Coverage",
-        "show_inquiry": false,
-        "show_inquiry_icon": true,
-        "inquiry_text": "Want to feature Scale-O in your publication? We work with media houses, digital platforms and industry publications.",
-        "inquiry_button_text": "Media & Press Inquiries",
-        "inquiry_button_link": "shopify://pages/consult-now",
-        "max_width": 1200,
-        "padding_x": 20,
-        "header_gap": 36,
-        "card_radius": 16,
-        "show_card_shadow": true,
-        "padding_top": 36,
-        "padding_bottom": 36,
-        "padding_top_mobile": 28,
-        "padding_bottom_mobile": 28,
-        "eyebrow_size": 13,
-        "heading_size_desktop": 36,
-        "heading_size_mobile": 26,
-        "description_size": 15,
-        "title_size": 16,
-        "background_color": "#ffffff",
-        "card_background": "#ffffff",
-        "card_border_color": "#dceaf5",
-        "heading_color": "#142b4a",
-        "text_color": "#5a6b85",
-        "accent_color": "#0c7fdf",
-        "accent_hover_color": "#0a6bc4",
-        "accessibility_label": "News and media"
-      }
-    },
     "custom_content_EwkEYn": {
       "type": "custom-content",
       "blocks": {
@@ -2489,175 +2767,6 @@
         "padding_top": 0,
         "padding_bottom": 0,
         "custom_class": ""
-      }
-    },
-    "video_testimonials_home": {
-      "type": "scale-o-video-testimonials",
-      "blocks": {
-        "story_1": {
-          "type": "testimonial",
-          "settings": {
-            "enabled": true,
-            "highlight": true,
-            "video_source": "youtube_vimeo",
-            "show_description": true,
-            "description": "Scale-O is a very innovative product. I'm very happy with the product, reason is it is very easy to install, no hassles. hard water is a big problem, we wanted a solution but not a salt based softener",
-            "show_customer_info": true,
-            "customer_name": "Mrs. Pragati Choksi",
-            "show_product": false,
-            "show_rating": false,
-            "rating": 5,
-            "show_verified": false,
-            "verified_text": "VERIFIED CUSTOMER"
-          }
-        },
-        "story_2": {
-          "type": "testimonial",
-          "settings": {
-            "enabled": true,
-            "highlight": false,
-            "video_source": "youtube_vimeo",
-            "show_description": true,
-            "description": "We absolutely loved Scale-O. Very compact and easy to install design. We found it really effective and could avoid the hassle and cumbersome process of conventional plant installation.",
-            "show_customer_info": true,
-            "customer_name": "Dr. Gaurav Khurana",
-            "show_product": false,
-            "show_rating": false,
-            "rating": 5,
-            "show_verified": false,
-            "verified_text": "VERIFIED CUSTOMER"
-          }
-        },
-        "story_3": {
-          "type": "testimonial",
-          "settings": {
-            "enabled": true,
-            "highlight": false,
-            "video_source": "youtube_vimeo",
-            "show_description": true,
-            "description": "The product is really good, and just one day post installation we can see the change in quality of water. good work!",
-            "show_customer_info": true,
-            "customer_name": "Ms. Avani Nathwani",
-            "show_product": false,
-            "show_rating": false,
-            "rating": 5,
-            "show_verified": false,
-            "verified_text": "VERIFIED CUSTOMER"
-          }
-        },
-        "story_4": {
-          "type": "testimonial",
-          "settings": {
-            "enabled": true,
-            "highlight": false,
-            "video_source": "youtube_vimeo",
-            "show_description": true,
-            "description": "Good concept, as we are facing problems due to hard water. Easy installation and friendly customer service!",
-            "show_customer_info": true,
-            "customer_name": "Mrs. Prabha Harwani",
-            "show_product": false,
-            "show_rating": false,
-            "rating": 5,
-            "show_verified": false,
-            "verified_text": "VERIFIED CUSTOMER"
-          }
-        },
-        "trust_1": {
-          "type": "trust",
-          "settings": {
-            "title": "Real Customers",
-            "text": "Stories from Scale-O customers.",
-            "icon": "people"
-          }
-        },
-        "trust_2": {
-          "type": "trust",
-          "settings": {
-            "title": "Homes across India",
-            "text": "Helping families enjoy better water every day.",
-            "icon": "home"
-          }
-        },
-        "trust_3": {
-          "type": "trust",
-          "settings": {
-            "title": "Nationwide",
-            "text": "Loved by customers in cities across India.",
-            "icon": "map"
-          }
-        },
-        "trust_4": {
-          "type": "trust",
-          "settings": {
-            "title": "Built on Quality",
-            "text": "Designed and manufactured in India.",
-            "icon": "quality"
-          }
-        }
-      },
-      "block_order": [
-        "story_1",
-        "story_2",
-        "story_3",
-        "story_4",
-        "trust_1",
-        "trust_2",
-        "trust_3",
-        "trust_4"
-      ],
-      "settings": {
-        "show_eyebrow": true,
-        "eyebrow": "CUSTOMER STORIES",
-        "heading": "Real Customers. Real Results.",
-        "show_description": true,
-        "description": "Hear directly from Scale-O customers about their experience with hard water, installation and everyday use.",
-        "header_alignment": "center",
-        "desktop_cards": 3,
-        "tablet_cards": 2,
-        "carousel_autoplay": true,
-        "autoplay_speed": 5000,
-        "pause_on_hover": true,
-        "pause_when_playing": true,
-        "show_arrows": true,
-        "show_dots": true,
-        "enable_video_modal": true,
-        "video_autoplay": false,
-        "video_muted": false,
-        "show_controls": true,
-        "thumb_ratio": "16 / 10",
-        "play_button_size": 64,
-        "play_button_color": "#0c7fdf",
-        "show_trust": true,
-        "show_footer": true,
-        "trust_statement": "Real experiences from Scale-O customers across India.",
-        "show_cta": true,
-        "cta_text": "See More Customer Stories",
-        "cta_url": "",
-        "max_width": 1200,
-        "card_radius": 18,
-        "card_spacing": 18,
-        "show_card_shadow": true,
-        "enable_animations": true,
-        "padding_top": 36,
-        "padding_bottom": 36,
-        "padding_top_mobile": 28,
-        "padding_bottom_mobile": 28,
-        "padding_x": 20,
-        "margin_top": 0,
-        "margin_bottom": 0,
-        "header_gap": 36,
-        "eyebrow_size": 13,
-        "heading_size_desktop": 36,
-        "heading_size_mobile": 26,
-        "description_size": 16,
-        "background_color": "#f5faff",
-        "card_background": "#ffffff",
-        "card_border_color": "#e4ecf6",
-        "heading_color": "#142b4a",
-        "text_color": "#5a6b85",
-        "accent_color": "#0c7fdf",
-        "accent_hover_color": "#0a6bc4",
-        "accessibility_label": "Customer video stories"
       }
     }
   },

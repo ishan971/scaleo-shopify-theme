@@ -1,0 +1,237 @@
+{%- comment -%}
+  Scale-O Before & After Results — all images visible, no slider
+{%- endcomment -%}
+
+{{ 'scale-o-results-gallery.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign header_align = section.settings.header_alignment
+  assign show_header = false
+  if section.settings.heading != blank
+    assign show_header = true
+  endif
+  if section.settings.show_eyebrow and section.settings.eyebrow != blank
+    assign show_header = true
+  endif
+  if section.settings.show_description and section.settings.description != blank
+    assign show_header = true
+  endif
+
+  assign result_count = 0
+  for block in section.blocks
+    if block.type == 'result' and block.settings.enabled != false
+      if block.settings.image != blank or block.settings.image_url != blank
+        assign result_count = result_count | plus: 1
+      endif
+    endif
+  endfor
+-%}
+
+<style>
+  #shopify-section-{{ section.id }} .scale-o-results {
+    --srg-bg: {{ section.settings.background_color }};
+    --srg-heading: {{ section.settings.heading_color }};
+    --srg-text: {{ section.settings.text_color }};
+    --srg-accent: {{ section.settings.accent_color }};
+    --srg-accent-hover: {{ section.settings.accent_hover_color }};
+    --srg-card-bg: {{ section.settings.card_background }};
+    --srg-border: {{ section.settings.card_border_color }};
+    --srg-radius: {{ section.settings.card_radius }}px;
+    --srg-gap: {{ section.settings.card_spacing }}px;
+    --srg-cols: {{ section.settings.desktop_columns }};
+    --srg-cols-tablet: {{ section.settings.tablet_columns }};
+    --srg-media-h: {{ section.settings.image_height_mobile }}px;
+    --srg-eyebrow-size: {{ section.settings.eyebrow_size }}px;
+    --srg-heading-size: {{ section.settings.heading_size_mobile }}px;
+    --srg-heading-size-desktop: {{ section.settings.heading_size_desktop }}px;
+    --srg-desc-size: {{ section.settings.description_size }}px;
+    --srg-pad-x: {{ section.settings.padding_x }}px;
+    --srg-header-gap: {{ section.settings.header_gap }}px;
+    --srg-header-align: {{ header_align }};
+    --srg-max-width: {% if section.settings.max_width == 0 %}100%{% else %}{{ section.settings.max_width }}px{% endif %};
+    --srg-shadow: {% if section.settings.show_card_shadow %}0 10px 28px rgba(20, 43, 74, 0.08){% else %}none{% endif %};
+    margin-top: {{ section.settings.margin_top }}px;
+    margin-bottom: {{ section.settings.margin_bottom }}px;
+    padding: {{ section.settings.padding_top_mobile }}px 0 {{ section.settings.padding_bottom_mobile }}px;
+    background: var(--srg-bg);
+  }
+  @media (min-width: 768px) {
+    #shopify-section-{{ section.id }} .scale-o-results {
+      --srg-media-h: {{ section.settings.image_height }}px;
+      padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px;
+    }
+  }
+</style>
+
+<div
+  class="scale-o-results"
+  data-section-id="{{ section.id }}"
+  data-animate="{% if section.settings.enable_animations %}true{% else %}false{% endif %}"
+  role="region"
+  aria-label="{{ section.settings.accessibility_label | default: 'Before and after results' | escape }}"
+>
+  <div class="scale-o-results__container">
+    {%- if show_header -%}
+      <header class="scale-o-results__header scale-o-results__header--{{ header_align }}" data-srg-animate>
+        {%- if section.settings.show_eyebrow and section.settings.eyebrow != blank -%}
+          <p class="scale-o-results__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+        {%- endif -%}
+        {%- if section.settings.heading != blank -%}
+          <h2 class="scale-o-results__heading">{{ section.settings.heading | escape }}</h2>
+        {%- endif -%}
+        {%- if section.settings.show_description and section.settings.description != blank -%}
+          <p class="scale-o-results__description">{{ section.settings.description | escape }}</p>
+        {%- endif -%}
+        {%- if section.settings.show_legend -%}
+          <p class="scale-o-results__legend" aria-hidden="true">
+            <span class="scale-o-results__pill scale-o-results__pill--before">{{ section.settings.before_label | default: 'Before' | escape }}</span>
+            <span class="scale-o-results__legend-arrow">
+              <svg viewBox="0 0 24 12" fill="none" aria-hidden="true">
+                <path d="M1 6h20M16 1.5 22 6l-6 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+            <span class="scale-o-results__pill scale-o-results__pill--after">{{ section.settings.after_label | default: 'After' | escape }}</span>
+          </p>
+        {%- endif -%}
+      </header>
+    {%- endif -%}
+
+    {%- if result_count > 0 -%}
+      <ul class="scale-o-results__grid" role="list">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'result' and block.settings.enabled != false -%}
+            {%- if block.settings.image != blank or block.settings.image_url != blank -%}
+              {%- assign result_alt = block.settings.title | default: section.settings.heading | default: 'Before and after result' -%}
+              <li class="scale-o-results__card" data-srg-animate {{ block.shopify_attributes }}>
+                <figure class="scale-o-results__figure">
+                  <div class="scale-o-results__media">
+                    {%- if block.settings.image != blank -%}
+                      {{
+                        block.settings.image
+                        | image_url: width: 900
+                        | image_tag:
+                          loading: 'lazy',
+                          widths: '320,480,720,900',
+                          sizes: '(max-width: 767px) 48vw, (max-width: 1024px) 32vw, 360px',
+                          alt: result_alt
+                      }}
+                    {%- else -%}
+                      <img src="{{ block.settings.image_url | escape }}" alt="{{ result_alt | escape }}" loading="lazy" width="720" height="540">
+                    {%- endif -%}
+                  </div>
+                  {%- if block.settings.label != blank or block.settings.title != blank -%}
+                    <figcaption class="scale-o-results__caption">
+                      {%- if block.settings.label != blank -%}
+                        <span class="scale-o-results__tag">{{ block.settings.label | escape }}</span>
+                      {%- endif -%}
+                      {%- if block.settings.title != blank -%}
+                        <span class="scale-o-results__title">{{ block.settings.title | escape }}</span>
+                      {%- endif -%}
+                    </figcaption>
+                  {%- endif -%}
+                </figure>
+              </li>
+            {%- endif -%}
+          {%- endif -%}
+        {%- endfor -%}
+      </ul>
+    {%- endif -%}
+  </div>
+</div>
+
+{%- if section.settings.enable_animations -%}
+  <script src="{{ 'scale-o-results-gallery.js' | asset_url }}" defer></script>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Before & After Gallery",
+  "tag": "section",
+  "class": "scale-o-results-section",
+  "max_blocks": 12,
+  "settings": [
+    { "type": "header", "content": "Header" },
+    { "type": "checkbox", "id": "show_eyebrow", "label": "Show eyebrow", "default": true },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "ADVANTAGES" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Before & After Results" },
+    { "type": "checkbox", "id": "show_description", "label": "Show description", "default": false },
+    { "type": "textarea", "id": "description", "label": "Description" },
+    {
+      "type": "select",
+      "id": "header_alignment",
+      "label": "Header alignment",
+      "default": "center",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ]
+    },
+    { "type": "checkbox", "id": "show_legend", "label": "Show Before / After legend", "default": true },
+    { "type": "text", "id": "before_label", "label": "Before label", "default": "Before" },
+    { "type": "text", "id": "after_label", "label": "After label", "default": "After" },
+
+    { "type": "header", "content": "Layout" },
+    { "type": "range", "id": "desktop_columns", "label": "Desktop columns", "min": 2, "max": 4, "step": 1, "default": 3 },
+    { "type": "range", "id": "tablet_columns", "label": "Tablet columns", "min": 1, "max": 3, "step": 1, "default": 3 },
+    { "type": "range", "id": "image_height", "label": "Image height (desktop)", "min": 180, "max": 360, "step": 10, "unit": "px", "default": 250 },
+    { "type": "range", "id": "image_height_mobile", "label": "Image height (mobile)", "min": 140, "max": 280, "step": 10, "unit": "px", "default": 180 },
+    { "type": "range", "id": "max_width", "label": "Max width", "min": 960, "max": 1400, "step": 20, "unit": "px", "default": 1200 },
+    { "type": "range", "id": "card_spacing", "label": "Card spacing", "min": 8, "max": 28, "step": 2, "unit": "px", "default": 14 },
+    { "type": "range", "id": "card_radius", "label": "Card radius", "min": 8, "max": 24, "step": 2, "unit": "px", "default": 16 },
+    { "type": "checkbox", "id": "show_card_shadow", "label": "Show card shadow", "default": true },
+    { "type": "checkbox", "id": "enable_animations", "label": "Enable animations", "default": true },
+
+    { "type": "header", "content": "Spacing" },
+    { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 80, "step": 4, "unit": "px", "default": 36 },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 0, "max": 80, "step": 4, "unit": "px", "default": 36 },
+    { "type": "range", "id": "padding_top_mobile", "label": "Padding top (mobile)", "min": 0, "max": 64, "step": 4, "unit": "px", "default": 28 },
+    { "type": "range", "id": "padding_bottom_mobile", "label": "Padding bottom (mobile)", "min": 0, "max": 64, "step": 4, "unit": "px", "default": 28 },
+    { "type": "range", "id": "padding_x", "label": "Side padding", "min": 12, "max": 40, "step": 2, "unit": "px", "default": 20 },
+    { "type": "range", "id": "margin_top", "label": "Margin top", "min": 0, "max": 80, "step": 4, "unit": "px", "default": 0 },
+    { "type": "range", "id": "margin_bottom", "label": "Margin bottom", "min": 0, "max": 80, "step": 4, "unit": "px", "default": 0 },
+    { "type": "range", "id": "header_gap", "label": "Header gap", "min": 12, "max": 48, "step": 2, "unit": "px", "default": 24 },
+    { "type": "range", "id": "eyebrow_size", "label": "Eyebrow size", "min": 11, "max": 18, "step": 1, "unit": "px", "default": 13 },
+    { "type": "range", "id": "heading_size_desktop", "label": "Heading size (desktop)", "min": 28, "max": 52, "step": 1, "unit": "px", "default": 36 },
+    { "type": "range", "id": "heading_size_mobile", "label": "Heading size (mobile)", "min": 22, "max": 36, "step": 1, "unit": "px", "default": 26 },
+    { "type": "range", "id": "description_size", "label": "Description size", "min": 13, "max": 18, "step": 1, "unit": "px", "default": 15 },
+
+    { "type": "header", "content": "Colors" },
+    { "type": "color", "id": "background_color", "label": "Background", "default": "#F7FBFF" },
+    { "type": "color", "id": "card_background", "label": "Card background", "default": "#FFFFFF" },
+    { "type": "color", "id": "card_border_color", "label": "Card border", "default": "#D7E4F2" },
+    { "type": "color", "id": "heading_color", "label": "Heading", "default": "#1A2B4A" },
+    { "type": "color", "id": "text_color", "label": "Text", "default": "#5A6B85" },
+    { "type": "color", "id": "accent_color", "label": "Accent", "default": "#0C7FDF" },
+    { "type": "color", "id": "accent_hover_color", "label": "Accent hover", "default": "#0A6BC4" },
+    { "type": "text", "id": "accessibility_label", "label": "Accessibility label", "default": "Before and after results" }
+  ],
+  "blocks": [
+    {
+      "type": "result",
+      "name": "Result image",
+      "settings": [
+        { "type": "checkbox", "id": "enabled", "label": "Show this image", "default": true },
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "url", "id": "image_url", "label": "Image URL (optional fallback)" },
+        { "type": "text", "id": "label", "label": "Small label" },
+        { "type": "text", "id": "title", "label": "Caption" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Before & After Gallery",
+      "category": "Custom",
+      "blocks": [
+        { "type": "result" },
+        { "type": "result" },
+        { "type": "result" },
+        { "type": "result" },
+        { "type": "result" },
+        { "type": "result" }
+      ]
+    }
+  ]
+}
+{% endschema %}

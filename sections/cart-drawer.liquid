@@ -1,1 +1,35 @@
 {% render 'cart-drawer' %}
+
+{% schema %}
+{
+  "name": "Cart drawer",
+  "tag": "section",
+  "class": "scale-o-cart-drawer-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Free delivery bar"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_free_delivery_bar",
+      "label": "Show free delivery bar",
+      "default": true,
+      "info": "Turn off to hide the free delivery progress banner in the cart drawer."
+    },
+    {
+      "type": "number",
+      "id": "free_delivery_threshold",
+      "label": "Free delivery threshold",
+      "default": 2000,
+      "info": "Amount in your store currency, without the symbol. Example: 2000 for ₹2,000."
+    },
+    {
+      "type": "text",
+      "id": "free_delivery_unlocked_text",
+      "label": "Unlocked message",
+      "default": "You’ve unlocked free delivery!"
+    }
+  ]
+}
+{% endschema %}

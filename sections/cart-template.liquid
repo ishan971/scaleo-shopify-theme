@@ -42,7 +42,7 @@
             <div class="m-cart__empty">
               <h3 class="m:text-center m:text-xl">
                 {{ 'cart.general.empty' | t }}
-                <a href="{{ routes.all_products_collection_url }}" class="m-text-link">
+                <a href="{% render 'scale-o-shop-url' %}" class="m-text-link">
                   {{ 'layout.back_to_shopping' | t }}
                 </a>
               </h3>

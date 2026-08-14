@@ -232,7 +232,7 @@
           "type": "button",
           "settings": {
             "button_label": "Get Scale-O",
-            "button_link": "shopify://collections/all",
+            "button_link": "shopify://collections/water-softeners",
             "button_style": "m-button--secondary",
             "button_size": "m-button--small"
           }

@@ -367,73 +367,253 @@
         "padding_bottom": 52,
         "custom_class": "",
         "animations": "inherit"
-      }
+      },
+      "disabled": true
     },
     "custom_liquid_qR7BgT": {
-      "type": "custom-liquid",
-      "custom_css": [
-        ".sec {background-color: #f5f7ff;}"
+      "type": "people-property-advantages",
+      "blocks": {
+        "cat_people": {
+          "type": "category",
+          "settings": {
+            "handle": "people",
+            "tab_label": "For People",
+            "heading": "For People",
+            "description": "Better water for everyday life.",
+            "image_alt": "Everyday home water experience",
+            "show_cta": false,
+            "cta_text": "Learn more",
+            "cta_url": ""
+          }
+        },
+        "cat_property": {
+          "type": "category",
+          "settings": {
+            "handle": "property",
+            "tab_label": "For Property",
+            "heading": "For Property",
+            "description": "Protect the fixtures and water-using systems around your home.",
+            "image_alt": "Home fixtures and water-using appliances",
+            "show_cta": false,
+            "cta_text": "Learn more",
+            "cta_url": ""
+          }
+        },
+        "people_shower": {
+          "type": "benefit",
+          "settings": {
+            "category": "people",
+            "image_alt": "",
+            "short_label": "",
+            "title": "Better Shower Experience",
+            "description": "Help reduce visible hard-water scale around everyday bathroom fixtures.",
+            "cta_text": "",
+            "link": ""
+          }
+        },
+        "people_laundry": {
+          "type": "benefit",
+          "settings": {
+            "category": "people",
+            "image_alt": "",
+            "short_label": "",
+            "title": "Softer-Feeling Laundry",
+            "description": "Better water for everyday washing and household laundry.",
+            "cta_text": "",
+            "link": ""
+          }
+        },
+        "people_fixtures": {
+          "type": "benefit",
+          "settings": {
+            "category": "people",
+            "image_alt": "",
+            "short_label": "",
+            "title": "Cleaner-Looking Fixtures",
+            "description": "Help reduce visible mineral deposits around taps and showers.",
+            "cta_text": "",
+            "link": ""
+          }
+        },
+        "people_everyday": {
+          "type": "benefit",
+          "settings": {
+            "category": "people",
+            "image_alt": "",
+            "short_label": "",
+            "title": "Better Everyday Water Experience",
+            "description": "A simple salt-free approach to managing hard-water scale throughout the home.",
+            "cta_text": "",
+            "link": ""
+          }
+        },
+        "property_scale": {
+          "type": "benefit",
+          "settings": {
+            "category": "property",
+            "image_alt": "",
+            "short_label": "",
+            "title": "Helps Reduce Scale Buildup",
+            "description": "Helps manage mineral scale buildup on water-contact surfaces.",
+            "cta_text": "",
+            "link": ""
+          }
+        },
+        "property_appliances": {
+          "type": "benefit",
+          "settings": {
+            "category": "property",
+            "image_alt": "",
+            "short_label": "",
+            "title": "Protect Water-Using Appliances",
+            "description": "Helps reduce the impact of scale buildup in appliances that use water.",
+            "cta_text": "",
+            "link": ""
+          }
+        },
+        "property_maintenance": {
+          "type": "benefit",
+          "settings": {
+            "category": "property",
+            "image_alt": "",
+            "short_label": "",
+            "title": "Lower Maintenance Burden",
+            "description": "Less visible buildup can mean less frequent cleaning and maintenance.",
+            "cta_text": "",
+            "link": ""
+          }
+        },
+        "property_fixtures": {
+          "type": "benefit",
+          "settings": {
+            "category": "property",
+            "image_alt": "",
+            "short_label": "",
+            "title": "Protect Everyday Fixtures",
+            "description": "Help keep taps, shower fittings and other water-contact fixtures looking cleaner.",
+            "cta_text": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "cat_people",
+        "cat_property",
+        "people_shower",
+        "people_laundry",
+        "people_fixtures",
+        "people_everyday",
+        "property_scale",
+        "property_appliances",
+        "property_maintenance",
+        "property_fixtures"
       ],
       "settings": {
-        "custom_liquid": "<style>\n  .image-container {\n    display: none;\n    margin-top: 10px;\n  }\n  #section1 {\n    display: block; /* Display the first image by default */\n  }\n  .button {\n    padding: 10px 20px;\n    cursor: pointer;\n    margin-right: 10px;\n    border-radius: 5px;\n    border: 2px solid #333333;\n  }\n  .button1 {\n    background-color: #333333;\n    color: white;\n  }\n  .button1:hover {\n    background-color: transparent;\n    color: #333333;\n  }\n  .button2 {\n    background-color: transparent;\n    color: #333333;\n  }\n  .button2:hover {\n    background-color: #333333;\n    color: white;\n  }\n  .button.active {\n    background-color: #333333;\n    color: white;\n  }\n  .button-container {\n    margin-bottom: 20px;\n    text-align: center;\n  }\n</style>\n\n<div class=\"button-container\">\n  <button class=\"button button1 active\" onclick=\"showImage('section1', this)\">\n    For People\n  </button>\n  <button class=\"button button2\" onclick=\"showImage('section2', this)\">\n    For Property\n  </button>\n</div>\n\n<div id=\"section1\" class=\"image-container\">\n  <a\n    data-fancybox=\"gallery\"\n    href=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/for-people.png?v=1726896899\"\n  >\n    <img\n      src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/for-people.png?v=1726896899\"\n      alt=\"Thumbnail\"\n    />\n  </a>\n</div>\n\n<div id=\"section2\" class=\"image-container\">\n  <a\n    data-fancybox=\"gallery\"\n    href=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/for_property.png?v=1724149776\"\n  >\n    <img\n      src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/for_property.png?v=1724149776\"\n      alt=\"Thumbnail\"\n    />\n  </a>\n</div>\n\n<script>\n  function showImage(sectionId, button) {\n    var sections = document.querySelectorAll(\".image-container\");\n    sections.forEach((section) => {\n      section.style.display = \"none\";\n    });\n    document.getElementById(sectionId).style.display = \"block\";\n\n    var buttons = document.querySelectorAll(\".button\");\n    buttons.forEach((btn) => {\n      btn.classList.remove(\"active\");\n      if (btn !== button) {\n        btn.classList.add(\"button2\"); // Make inactive button white\n        btn.classList.remove(\"button1\");\n      } else {\n        btn.classList.add(\"button1\"); // Make active button colored\n        btn.classList.remove(\"button2\");\n      }\n    });\n    button.classList.add(\"active\");\n  }\n</script>",
-        "custom_class": "container m-section-my m-section-py sec"
+        "show_eyebrow": true,
+        "eyebrow": "ADVANTAGES",
+        "heading": "People & Property",
+        "show_description": true,
+        "description": "Discover how Scale-O helps protect your everyday water experience and your home.",
+        "header_alignment": "center",
+        "max_width": 1200,
+        "desktop_columns": "2",
+        "hero_aspect_ratio": "3 / 4",
+        "card_aspect_ratio": "16 / 9",
+        "card_gap": 14,
+        "card_radius": 18,
+        "shadow_strength": 30,
+        "show_category_icon": true,
+        "show_card_index": false,
+        "enable_animations": true,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_top_mobile": 28,
+        "padding_bottom_mobile": 28,
+        "padding_x": 20,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "header_gap": 28,
+        "eyebrow_size": 16,
+        "heading_size_desktop": 45,
+        "heading_size_mobile": 26,
+        "description_size": 16,
+        "category_title_size": 22,
+        "card_title_size": 17,
+        "card_description_size": 14,
+        "background_color": "#ffffff",
+        "panel_background": "#f3f6fa",
+        "heading_color": "#1a2b4a",
+        "text_color": "#5a6b85",
+        "accent_color": "#0c7fdf",
+        "accent_hover_color": "#0a6bc4",
+        "card_background": "#ffffff",
+        "card_border_color": "#e8eef8",
+        "tab_active_background": "#0c7fdf",
+        "tab_active_text": "#ffffff",
+        "accessibility_label": "People and property advantages"
       }
     },
     "brands_list_fkAJzd": {
-      "type": "brands-list",
+      "type": "scale-o-results-gallery",
       "blocks": {
         "image_XcTgtY": {
-          "type": "image",
+          "type": "result",
           "settings": {
+            "enabled": true,
             "image": "shopify://shop_images/Frame_427319350_a3f5ce84-cccd-4c10-afb4-5012dd7363e2.png",
-            "image_by_url": "",
-            "image_link": "",
-            "max_width": ""
+            "image_url": "",
+            "label": "",
+            "title": ""
           }
         },
         "image_YQUdfR": {
-          "type": "image",
+          "type": "result",
           "settings": {
+            "enabled": true,
             "image": "shopify://shop_images/Frame_427319359_c5d43ec2-7057-4665-aa3d-c482022779dc.png",
-            "image_by_url": "",
-            "image_link": "",
-            "max_width": ""
+            "image_url": "",
+            "label": "",
+            "title": ""
           }
         },
         "image_rCTFHB": {
-          "type": "image",
+          "type": "result",
           "settings": {
+            "enabled": true,
             "image": "shopify://shop_images/Frame_427319361_337c0762-9714-4dc2-8ea1-d937ed026347.png",
-            "image_by_url": "",
-            "image_link": "",
-            "max_width": ""
+            "image_url": "",
+            "label": "",
+            "title": ""
           }
         },
         "image_WGQeQJ": {
-          "type": "image",
+          "type": "result",
           "settings": {
+            "enabled": true,
             "image": "shopify://shop_images/skin.png",
-            "image_by_url": "",
-            "image_link": "",
-            "max_width": ""
+            "image_url": "",
+            "label": "",
+            "title": ""
           }
         },
         "image_6tGxQ7": {
-          "type": "image",
+          "type": "result",
           "settings": {
+            "enabled": true,
             "image": "shopify://shop_images/Frame_427319358_51f3533f-0692-46cd-919b-6080fde751c9.png",
-            "image_by_url": "",
-            "image_link": "",
-            "max_width": ""
+            "image_url": "",
+            "label": "",
+            "title": ""
           }
         },
         "image_QJdiq6": {
-          "type": "image",
+          "type": "result",
           "settings": {
+            "enabled": true,
             "image": "shopify://shop_images/Frame_427319360_46031da2-81d7-40ac-be39-835ade189d0b.png",
-            "image_by_url": "",
-            "image_link": "",
-            "max_width": ""
+            "image_url": "",
+            "label": "",
+            "title": ""
           }
         }
       },
@@ -446,26 +626,44 @@
         "image_QJdiq6"
       ],
       "settings": {
-        "heading": "<h2>Before & After Results</h2>",
-        "heading_size": "h3",
-        "subheading": "ADVANTAGES",
+        "show_eyebrow": true,
+        "eyebrow": "ADVANTAGES",
+        "heading": "Before & After Results",
+        "show_description": false,
+        "description": "",
         "header_alignment": "center",
-        "container": "container",
-        "color_scheme": "scheme-cee058e4-58e3-46aa-9af9-219dadc79066",
-        "item_per_row": 3,
-        "column_gap": 30,
-        "row_gap": 30,
-        "column_gap_mobile": 10,
-        "row_gap_mobile": 10,
-        "enable_slider": true,
-        "show_nav": true,
-        "show_pagination": false,
-        "autorotate": false,
-        "autorotate_speed": 3,
-        "padding_top": 90,
-        "padding_bottom": 90,
-        "custom_class": "",
-        "animations": "inherit"
+        "show_legend": true,
+        "before_label": "Before",
+        "after_label": "After",
+        "desktop_columns": 3,
+        "tablet_columns": 3,
+        "image_height": 250,
+        "image_height_mobile": 180,
+        "max_width": 1200,
+        "card_spacing": 14,
+        "card_radius": 16,
+        "show_card_shadow": true,
+        "enable_animations": true,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_top_mobile": 28,
+        "padding_bottom_mobile": 28,
+        "padding_x": 20,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "header_gap": 24,
+        "eyebrow_size": 13,
+        "heading_size_desktop": 36,
+        "heading_size_mobile": 26,
+        "description_size": 15,
+        "background_color": "#f7fbff",
+        "card_background": "#ffffff",
+        "card_border_color": "#d7e4f2",
+        "heading_color": "#1a2b4a",
+        "text_color": "#5a6b85",
+        "accent_color": "#0c7fdf",
+        "accent_hover_color": "#0a6bc4",
+        "accessibility_label": "Before and after results"
       }
     },
     "rich_text_gYypF4": {
@@ -500,24 +698,45 @@
         "padding_bottom": 92,
         "custom_class": "sec",
         "animations": "inherit"
-      }
+      },
+      "disabled": true
     },
     "968209871838256835": {
-      "type": "apps",
-      "custom_css": [
-        ".sec2 {border-radius: 0px 0px 20px 20px;}",
-        ".CommonWidget_likecon__7P2RN {display: none;}"
-      ],
+      "type": "scale-o-reviews",
+      "blocks": {},
+      "block_order": [],
       "settings": {
-        "heading": "",
-        "heading_size": "h3",
-        "subheading": "",
+        "show_eyebrow": true,
+        "eyebrow": "REVIEWS",
+        "heading": "Customer Reviews",
+        "show_description": false,
+        "description": "",
         "header_alignment": "center",
-        "container": "container",
-        "background_color": "#f5f7ff",
-        "padding_top": 0,
-        "padding_bottom": 90,
-        "custom_class": "sec2"
+        "hide_native_heading": true,
+        "max_width": 1200,
+        "card_radius": 16,
+        "show_card_shadow": true,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_top_mobile": 28,
+        "padding_bottom_mobile": 28,
+        "padding_x": 20,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "header_gap": 24,
+        "eyebrow_size": 13,
+        "heading_size_desktop": 36,
+        "heading_size_mobile": 26,
+        "description_size": 15,
+        "background_color": "#f7fbff",
+        "card_background": "#ffffff",
+        "card_border_color": "#d7e4f2",
+        "heading_color": "#1a2b4a",
+        "text_color": "#5a6b85",
+        "accent_color": "#0c7fdf",
+        "accent_hover_color": "#0a6bc4",
+        "star_color": "#f5b301",
+        "accessibility_label": "Customer reviews"
       }
     },
     "custom_code_XRU3nW": {

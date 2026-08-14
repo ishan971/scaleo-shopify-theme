@@ -49,9 +49,13 @@
       "taxes_included_but_shipping_at_checkout": "Tax included and shipping calculated at checkout",
       "taxes_included_and_shipping_policy_html": "Tax included. <a href=\"{{ link }}\">Shipping</a> calculated at checkout.",
       "enter_discount_code": "Enter discount code here",
-      "checkout": "Check out",
+      "checkout": "Proceed to Checkout",
       "viewcart": "View Cart",
       "empty": "Your cart is currently empty.",
+      "empty_title": "Your Cart is Empty",
+      "empty_message": "Add your Scale-O solution to protect your home from hard-water scale.",
+      "item_count_one": "{{ count }} item in cart",
+      "item_count_other": "{{ count }} items in cart",
       "coupon_title": "Add a discount code",
       "estimate_shipping_title": "Estimate shipping rates",
       "estimate_shipping_button": "Calculate",
@@ -89,7 +93,12 @@
   "collections": {
     "general": {
       "no_matches": "Sorry, there are no products in this collection",
-      "collection_items": "{{ title }} items"
+      "collection_items": "{{ title }} items",
+      "items_count": {
+        "one": "{{ count }} product",
+        "other": "{{ count }} products"
+      },
+      "apply_filters": "Apply filters"
     },
     "sidebar": {
       "clear_all": "Clear all"
@@ -357,7 +366,7 @@
       "options": "Payment options"
     },
     "notifications": {
-      "item_added": "Product added to cart successfully",
+      "item_added": "Added to your cart",
       "required_field": "Please fill all the required fields(*) before Add To Cart!"
     },
     "foxkit": {

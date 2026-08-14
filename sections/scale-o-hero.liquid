@@ -209,14 +209,6 @@
               {%- if block.settings.description != blank -%}
                 <p class="scale-o-hero__description">{{ block.settings.description | escape }}</p>
               {%- endif -%}
-              {%- if block.settings.show_cta and block.settings.button_label != blank and block.settings.button_url != blank -%}
-                <a class="scale-o-hero__cta" href="{{ block.settings.button_url }}">
-                  {{ block.settings.button_label | escape }}
-                  <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false">
-                    <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </a>
-              {%- endif -%}
               {%- liquid
                 assign trust_style = block.settings.trust_style | default: 'stars'
                 assign show_trust_value = false
@@ -227,35 +219,55 @@
                 if block.settings.show_stars and trust_style != 'customers'
                   assign show_trust_stars = true
                 endif
+                assign show_cta = false
+                if block.settings.show_cta and block.settings.button_label != blank and block.settings.button_url != blank
+                  assign show_cta = true
+                endif
+                assign show_trust_row = false
+                if block.settings.show_trust
+                  if show_trust_value or show_trust_stars or block.settings.trust_text != blank
+                    assign show_trust_row = true
+                  endif
+                endif
               -%}
-              {%- if block.settings.show_trust -%}
-                {%- if show_trust_value or show_trust_stars or block.settings.trust_text != blank -%}
-                <div class="scale-o-hero__trust scale-o-hero__trust--{{ trust_style }}">
-                  {%- if trust_style == 'customers' -%}
-                    <span class="scale-o-hero__trust-mark" aria-hidden="true">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
-                        <circle cx="9" cy="7" r="4"/>
-                        <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
-                        <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+              {%- if show_cta or show_trust_row -%}
+                <div class="scale-o-hero__actions">
+                  {%- if show_cta -%}
+                    <a class="scale-o-hero__cta" href="{{ block.settings.button_url }}">
+                      {{ block.settings.button_label | escape }}
+                      <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false">
+                        <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
                       </svg>
-                    </span>
+                    </a>
                   {%- endif -%}
-                  {%- if show_trust_value -%}
-                    <span class="scale-o-hero__trust-value">{{ block.settings.trust_value | escape }}</span>
-                  {%- endif -%}
-                  {%- if show_trust_stars -%}
-                    <span class="scale-o-hero__stars" aria-hidden="true">
-                      {%- for i in (1..5) -%}
-                        <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1.6 9.9 5.7l4.5.5-3.3 3 1 4.4L8 11.8 3.9 13.6l1-4.4-3.3-3 4.5-.5z"/></svg>
-                      {%- endfor -%}
-                    </span>
-                  {%- endif -%}
-                  {%- if block.settings.trust_text != blank -%}
-                    <span class="scale-o-hero__trust-copy">{{ block.settings.trust_text | escape }}</span>
+                  {%- if show_trust_row -%}
+                    <div class="scale-o-hero__trust scale-o-hero__trust--{{ trust_style }}">
+                      {%- if trust_style == 'customers' -%}
+                        <span class="scale-o-hero__trust-mark" aria-hidden="true">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                          </svg>
+                        </span>
+                      {%- endif -%}
+                      {%- if show_trust_value -%}
+                        <span class="scale-o-hero__trust-value">{{ block.settings.trust_value | escape }}</span>
+                      {%- endif -%}
+                      {%- if show_trust_stars -%}
+                        <span class="scale-o-hero__stars" aria-hidden="true">
+                          {%- for i in (1..5) -%}
+                            <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1.6 9.9 5.7l4.5.5-3.3 3 1 4.4L8 11.8 3.9 13.6l1-4.4-3.3-3 4.5-.5z"/></svg>
+                          {%- endfor -%}
+                        </span>
+                      {%- endif -%}
+                      {%- if block.settings.trust_text != blank -%}
+                        <span class="scale-o-hero__trust-copy">{{ block.settings.trust_text | escape }}</span>
+                      {%- endif -%}
+                    </div>
                   {%- endif -%}
                 </div>
-                {%- endif -%}
               {%- endif -%}
             </div>
           </div>
@@ -417,7 +429,7 @@
         },
         { "type": "text", "id": "trust_value", "label": "Trust value", "default": "4.8/5", "info": "Used for Rating or Customer count. Example: 4.8/5 or 1000+." },
         { "type": "checkbox", "id": "show_stars", "label": "Show stars", "default": true, "info": "Hidden when style is Customer count." },
-        { "type": "text", "id": "trust_text", "label": "Trust badge text", "default": "Trusted by happy Scale-O customers" },
+        { "type": "text", "id": "trust_text", "label": "Trust badge text", "default": "Trusted by homeowners across India" },
 
         { "type": "header", "content": "Slide layout" },
         {
@@ -449,8 +461,8 @@
     {
       "name": "Scale-O Hero",
       "blocks": [
-        { "type": "slide", "settings": { "banner_preset": "highlights", "usp": "ZERO ELECTRICITY", "usp_icon": "electricity", "heading": "Smart Water Softening.\nWithout Salt or Electricity.", "accent_words": "Salt, Electricity", "trust_style": "stars", "trust_text": "Trusted by happy Scale-O customers" } },
-        { "type": "slide", "settings": { "banner_preset": "family", "usp": "ZERO SALT • ZERO MAINTENANCE", "usp_icon": "droplet", "heading": "A Scale-O Solution\nFor Every Home.", "accent_words": "Every Home", "description": "From compact solutions to whole-house protection, choose the right Scale-O system for your family's needs.", "trust_style": "stars", "trust_text": "Trusted by happy Scale-O customers" } },
+        { "type": "slide", "settings": { "banner_preset": "highlights", "usp": "ZERO ELECTRICITY", "usp_icon": "electricity", "heading": "Smart Water Softening.\nWithout Salt or Electricity.", "accent_words": "Salt, Electricity", "trust_style": "stars", "trust_text": "Trusted by homeowners across India" } },
+        { "type": "slide", "settings": { "banner_preset": "family", "usp": "ZERO SALT • ZERO MAINTENANCE", "usp_icon": "droplet", "heading": "A Scale-O Solution\nFor Every Home.", "accent_words": "Every Home", "description": "From compact solutions to whole-house protection, choose the right Scale-O system for your family's needs.", "trust_style": "stars", "trust_text": "Trusted by homeowners across India" } },
         { "type": "slide", "settings": { "banner_preset": "whole_house", "usp": "WHOLE-HOUSE PROTECTION", "usp_icon": "shield", "heading": "Protect Your Home\nFrom Hard-Water Damage.", "accent_words": "Hard-Water Damage", "description": "Helps prevent scale buildup in bathrooms, appliances, pipes and fixtures across your entire home.", "trust_style": "stars", "trust_text": "Trusted by homeowners across India" } }
       ]
     }

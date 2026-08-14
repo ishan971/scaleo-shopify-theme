@@ -1,5 +1,5 @@
 {%- comment -%}
-  Scale-O Core Competitor Comparison — compact 5-column decision matrix
+  Scale-O comparison: photo technology cards + compact similar-product table
 {%- endcomment -%}
 
 {{ 'scale-o-tech-compare.css' | asset_url | stylesheet_tag }}
@@ -7,7 +7,12 @@
 {%- liquid
   assign tech_blocks = section.blocks | where: 'type', 'technology'
   assign feature_blocks = section.blocks | where: 'type', 'feature'
+  assign competitor_blocks = section.blocks | where: 'type', 'competitor'
+  assign competitor_rows = section.blocks | where: 'type', 'competitor_row'
   assign header_align = section.settings.header_alignment
+  assign highlight_color = section.settings.highlight_color | default: section.settings.accent_color
+  assign highlight_bg = section.settings.highlight_background | default: '#E8F3FC'
+
   assign tech_count = 0
   for block in tech_blocks
     if block.settings.enabled == false
@@ -19,15 +24,29 @@
     endif
   endfor
 
-  assign show_header = false
-  if section.settings.heading != blank
-    assign show_header = true
+  assign competitor_count = 0
+  for block in competitor_blocks
+    if block.settings.enabled == false
+      continue
+    endif
+    assign competitor_count = competitor_count | plus: 1
+    if competitor_count >= 4
+      break
+    endif
+  endfor
+
+  assign show_tech_header = false
+  if section.settings.show_tech
+    if section.settings.tech_heading != blank or section.settings.show_tech_eyebrow and section.settings.tech_eyebrow != blank or section.settings.show_tech_description and section.settings.tech_description != blank
+      assign show_tech_header = true
+    endif
   endif
-  if section.settings.show_eyebrow and section.settings.eyebrow != blank
-    assign show_header = true
-  endif
-  if section.settings.show_description and section.settings.description != blank
-    assign show_header = true
+
+  assign show_comp_header = false
+  if section.settings.show_competitors
+    if section.settings.heading != blank or section.settings.show_eyebrow and section.settings.eyebrow != blank or section.settings.show_description and section.settings.description != blank
+      assign show_comp_header = true
+    endif
   endif
 
   assign show_banner = false
@@ -36,9 +55,6 @@
       assign show_banner = true
     endif
   endif
-
-  assign highlight_color = section.settings.highlight_color | default: section.settings.accent_color
-  assign highlight_bg = section.settings.highlight_background | default: '#E8F3FC'
 -%}
 
 <style>
@@ -55,6 +71,7 @@
     --stc-highlight-bg: {{ highlight_bg }};
     --stc-radius: {{ section.settings.card_radius }}px;
     --stc-cols: {{ tech_count }};
+    --stc-comp-cols: {{ competitor_count }};
     --stc-eyebrow-size: {{ section.settings.eyebrow_size }}px;
     --stc-heading-size: {{ section.settings.heading_size_mobile }}px;
     --stc-heading-size-desktop: {{ section.settings.heading_size_desktop }}px;
@@ -79,148 +96,133 @@
 <div
   class="scale-o-compare"
   data-section-id="{{ section.id }}"
-  data-mobile-layout="{{ section.settings.mobile_layout }}"
   data-animate="{% if section.settings.enable_animations %}true{% else %}false{% endif %}"
   role="region"
-  aria-label="{{ section.settings.accessibility_label | default: 'Competitor comparison' | escape }}"
+  aria-label="{{ section.settings.accessibility_label | default: 'Scale-O comparison' | escape }}"
 >
   <div class="scale-o-compare__container">
-    {%- if show_header -%}
-      <header class="scale-o-compare__header scale-o-compare__header--{{ header_align }}" data-stc-animate>
-        {%- if section.settings.show_eyebrow and section.settings.eyebrow != blank -%}
-          <p class="scale-o-compare__eyebrow">{{ section.settings.eyebrow | escape }}</p>
-        {%- endif -%}
-        {%- if section.settings.heading != blank -%}
-          <h2 class="scale-o-compare__heading">{{ section.settings.heading | escape }}</h2>
-        {%- endif -%}
-        {%- if section.settings.show_description and section.settings.description != blank -%}
-          <p class="scale-o-compare__description">{{ section.settings.description | escape }}</p>
-        {%- endif -%}
-      </header>
-    {%- endif -%}
+    {%- if section.settings.show_tech and tech_count > 0 -%}
+      {%- if show_tech_header -%}
+        <header class="scale-o-compare__header scale-o-compare__header--{{ header_align }}" data-stc-animate>
+          {%- if section.settings.show_tech_eyebrow and section.settings.tech_eyebrow != blank -%}
+            <p class="scale-o-compare__eyebrow">{{ section.settings.tech_eyebrow | escape }}</p>
+          {%- endif -%}
+          {%- if section.settings.tech_heading != blank -%}
+            <h2 class="scale-o-compare__heading">{{ section.settings.tech_heading | escape }}</h2>
+          {%- endif -%}
+          {%- if section.settings.show_tech_description and section.settings.tech_description != blank -%}
+            <p class="scale-o-compare__description">{{ section.settings.tech_description | escape }}</p>
+          {%- endif -%}
+        </header>
+      {%- endif -%}
 
-    {%- if tech_count > 0 -%}
       <div class="scale-o-compare__board" data-stc-animate>
-        <div class="scale-o-compare__scroll" tabindex="0" role="region" aria-label="{{ section.settings.heading | default: 'Competitor comparison' | escape }} table">
-          <table class="scale-o-compare__table">
-            <caption class="scale-o-compare__sr-only">{{ section.settings.heading | default: 'Competitor comparison' | escape }}</caption>
+        <div class="scale-o-compare__board-wrap" tabindex="0" role="region" aria-label="{{ section.settings.tech_heading | default: 'Technology comparison' | escape }}">
+          <table class="scale-o-compare__board-table">
+            <caption class="scale-o-compare__sr-only">{{ section.settings.tech_heading | default: 'Technology comparison' | escape }}</caption>
             <colgroup>
               {%- if section.settings.show_features -%}
                 <col class="scale-o-compare__col scale-o-compare__col--criteria">
               {%- endif -%}
               {%- assign visible = 0 -%}
-              {%- for block in tech_blocks -%}
-                {%- if block.settings.enabled == false -%}{%- continue -%}{%- endif -%}
+              {%- for tech in tech_blocks -%}
+                {%- if tech.settings.enabled == false -%}{%- continue -%}{%- endif -%}
                 {%- assign visible = visible | plus: 1 -%}
                 {%- if visible > 4 -%}{%- break -%}{%- endif -%}
-                <col class="scale-o-compare__col{% if block.settings.highlight %} scale-o-compare__col--featured{% endif %}">
+                <col class="scale-o-compare__col{% if tech.settings.highlight %} scale-o-compare__col--featured{% endif %}">
               {%- endfor -%}
             </colgroup>
             <thead>
               <tr>
                 {%- if section.settings.show_features -%}
-                  <th class="scale-o-compare__th scale-o-compare__th--criteria" scope="col">
-                    <span class="scale-o-compare__criteria-label">{{ section.settings.criteria_heading | default: 'Comparison Criteria' | escape }}</span>
+                  <th class="scale-o-compare__corner" scope="col">
+                    <span>{{ section.settings.tech_criteria_heading | default: 'Comparison criteria' | escape }}</span>
                   </th>
                 {%- endif -%}
                 {%- assign visible = 0 -%}
-                {%- for block in tech_blocks -%}
-                  {%- if block.settings.enabled == false -%}{%- continue -%}{%- endif -%}
+                {%- for tech in tech_blocks -%}
+                  {%- if tech.settings.enabled == false -%}{%- continue -%}{%- endif -%}
                   {%- assign visible = visible | plus: 1 -%}
                   {%- if visible > 4 -%}{%- break -%}{%- endif -%}
                   {%- liquid
-                    assign card_image = block.settings.image
-                    if card_image == blank and block.settings.product != blank
-                      assign card_image = block.settings.product.featured_image
+                    assign card_image = tech.settings.image
+                    if card_image == blank and tech.settings.product != blank
+                      assign card_image = tech.settings.product.featured_image
                     endif
-                    assign card_mobile = block.settings.image_mobile | default: card_image
-                    assign card_alt = block.settings.image_alt | default: block.settings.title | default: 'Competitor'
-                    assign is_highlight = block.settings.highlight
-                    assign use_fallback = false
-                    if card_image == blank and is_highlight
-                      assign use_fallback = true
-                    endif
+                    assign card_mobile = tech.settings.image_mobile | default: card_image
+                    assign card_alt = tech.settings.image_alt | default: tech.settings.title | default: 'Water treatment system'
+                    assign is_highlight = tech.settings.highlight
                   -%}
                   <th
-                    class="scale-o-compare__th scale-o-compare__th--product{% if is_highlight %} scale-o-compare__th--featured{% endif %}"
+                    class="scale-o-compare__head{% if is_highlight %} scale-o-compare__head--featured{% endif %}"
                     scope="col"
-                    {{ block.shopify_attributes }}
+                    {{ tech.shopify_attributes }}
                   >
-                    {%- if block.settings.show_badge and block.settings.badge_text != blank -%}
-                      <span class="scale-o-compare__badge">
-                        <span aria-hidden="true">★</span>
-                        {{ block.settings.badge_text | escape }}
-                      </span>
-                    {%- endif -%}
-                    {%- if section.settings.show_column_images -%}
-                      <div class="scale-o-compare__media{% if is_highlight %} scale-o-compare__media--featured{% endif %}">
+                    <div class="scale-o-compare__card{% if is_highlight %} scale-o-compare__card--featured{% endif %}">
+                      {%- if is_highlight and section.settings.show_recommended_badge -%}
+                        <p class="scale-o-compare__recommend">
+                          <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" focusable="false">
+                            <path d="M8 1.6 9.9 5.7l4.5.5-3.3 3 1 4.4L8 11.8 3.9 13.6l1-4.4-3.3-3 4.5-.5z"/>
+                          </svg>
+                          <span>{{ section.settings.recommended_label | default: 'Recommended' | escape }}</span>
+                        </p>
+                      {%- elsif tech.settings.show_badge and tech.settings.badge_text != blank -%}
+                        <p class="scale-o-compare__badge">{{ tech.settings.badge_text | escape }}</p>
+                      {%- endif -%}
+                      <div class="scale-o-compare__photo">
                         {%- if card_image != blank -%}
                           <picture>
-                            {%- if block.settings.image_mobile != blank -%}
-                              <source media="(max-width: 767px)" srcset="{{ card_mobile | image_url: width: 480 }}">
+                            {%- if tech.settings.image_mobile != blank -%}
+                              <source media="(max-width: 767px)" srcset="{{ card_mobile | image_url: width: 640 }}">
                             {%- endif -%}
                             {{
                               card_image
-                              | image_url: width: 480
+                              | image_url: width: 720
                               | image_tag:
                                 loading: 'lazy',
-                                widths: '240,360,480',
-                                sizes: '(max-width: 767px) 42vw, 180px',
+                                widths: '240,360,480,720',
+                                sizes: '(max-width: 767px) 46vw, 220px',
                                 alt: card_alt
                             }}
                           </picture>
-                        {%- elsif use_fallback -%}
-                          <img src="{{ 'scale-o-solution-product.png' | asset_url }}" alt="{{ card_alt | escape }}" width="480" height="360" loading="lazy">
+                        {%- elsif is_highlight -%}
+                          <img src="{{ 'scale-o-solution-product.png' | asset_url }}" alt="{{ card_alt | escape }}" width="640" height="480" loading="lazy">
                         {%- else -%}
                           <div class="scale-o-compare__placeholder" aria-hidden="true">
-                            {% render 'scale-o-compare-icon', icon: block.settings.theme_icon, class: 'scale-o-compare__placeholder-svg' %}
+                            {% render 'scale-o-compare-icon', icon: tech.settings.theme_icon, class: 'scale-o-compare__placeholder-svg' %}
                           </div>
                         {%- endif -%}
                       </div>
-                    {%- endif -%}
-                    {%- if block.settings.title != blank -%}
-                      <span class="scale-o-compare__name">{{ block.settings.title | escape }}</span>
-                    {%- endif -%}
-                    {%- if section.settings.show_column_descriptions and block.settings.description != blank -%}
-                      <span class="scale-o-compare__col-text">{{ block.settings.description | escape }}</span>
-                    {%- endif -%}
+                      <div class="scale-o-compare__card-body">
+                        <h3 class="scale-o-compare__card-title">{{ tech.settings.title | escape }}</h3>
+                        <p class="scale-o-compare__card-text">{{ tech.settings.description | escape }}</p>
+                      </div>
+                    </div>
                   </th>
                 {%- endfor -%}
               </tr>
             </thead>
             {%- if section.settings.show_features and feature_blocks.size > 0 -%}
               <tbody>
-                {%- for block in feature_blocks -%}
-                  {%- if block.settings.enabled == false -%}{%- continue -%}{%- endif -%}
-                  <tr class="scale-o-compare__row" {{ block.shopify_attributes }}>
-                    <th class="scale-o-compare__feature" scope="row">
-                      <span class="scale-o-compare__feature-icon" aria-hidden="true">
-                        {%- if block.settings.icon_image != blank -%}
-                          {{ block.settings.icon_image | image_url: width: 64 | image_tag: loading: 'lazy', alt: '' }}
-                        {%- else -%}
-                          {% render 'scale-o-compare-icon', icon: block.settings.theme_icon, class: 'scale-o-compare__icon-svg' %}
-                        {%- endif -%}
-                      </span>
-                      {%- if block.settings.title != blank -%}
-                        <span class="scale-o-compare__feature-title">{{ block.settings.title | escape }}</span>
-                      {%- endif -%}
-                    </th>
+                {%- for feature in feature_blocks -%}
+                  {%- if feature.settings.enabled == false -%}{%- continue -%}{%- endif -%}
+                  <tr class="scale-o-compare__mini-row" {{ feature.shopify_attributes }}>
+                    <th class="scale-o-compare__mini-feature" scope="row">{{ feature.settings.title | escape }}</th>
                     {%- assign visible = 0 -%}
                     {%- for tech in tech_blocks -%}
                       {%- if tech.settings.enabled == false -%}{%- continue -%}{%- endif -%}
                       {%- assign visible = visible | plus: 1 -%}
                       {%- if visible > 4 -%}{%- break -%}{%- endif -%}
-                      {%- assign col_index = forloop.index -%}
-                      <td class="scale-o-compare__td{% if tech.settings.highlight %} scale-o-compare__td--featured{% endif %}">
-                        {%- case col_index -%}
+                      <td class="scale-o-compare__mini-td{% if tech.settings.highlight %} scale-o-compare__mini-td--featured{% endif %}">
+                        {%- case visible -%}
                           {%- when 1 -%}
-                            {% render 'scale-o-compare-cell', value: block.settings.value_1, status: block.settings.status_1, featured: tech.settings.highlight, short_label: tech.settings.title %}
+                            {% render 'scale-o-compare-cell', value: feature.settings.value_1, status: feature.settings.status_1, featured: tech.settings.highlight, short_label: tech.settings.title %}
                           {%- when 2 -%}
-                            {% render 'scale-o-compare-cell', value: block.settings.value_2, status: block.settings.status_2, featured: tech.settings.highlight, short_label: tech.settings.title %}
+                            {% render 'scale-o-compare-cell', value: feature.settings.value_2, status: feature.settings.status_2, featured: tech.settings.highlight, short_label: tech.settings.title %}
                           {%- when 3 -%}
-                            {% render 'scale-o-compare-cell', value: block.settings.value_3, status: block.settings.status_3, featured: tech.settings.highlight, short_label: tech.settings.title %}
+                            {% render 'scale-o-compare-cell', value: feature.settings.value_3, status: feature.settings.status_3, featured: tech.settings.highlight, short_label: tech.settings.title %}
                           {%- when 4 -%}
-                            {% render 'scale-o-compare-cell', value: block.settings.value_4, status: block.settings.status_4, featured: tech.settings.highlight, short_label: tech.settings.title %}
+                            {% render 'scale-o-compare-cell', value: feature.settings.value_4, status: feature.settings.status_4, featured: tech.settings.highlight, short_label: tech.settings.title %}
                         {%- endcase -%}
                       </td>
                     {%- endfor -%}
@@ -231,70 +233,79 @@
           </table>
         </div>
       </div>
+    {%- endif -%}
 
-      {%- if section.settings.mobile_layout == 'stack' -%}
-        <div class="scale-o-compare__stack" data-stc-animate>
-          {%- assign visible = 0 -%}
-          {%- for tech in tech_blocks -%}
-            {%- if tech.settings.enabled == false -%}{%- continue -%}{%- endif -%}
-            {%- assign visible = visible | plus: 1 -%}
-            {%- if visible > 4 -%}{%- break -%}{%- endif -%}
-            {%- liquid
-              assign col_index = forloop.index
-              assign card_image = tech.settings.image
-              if card_image == blank and tech.settings.product != blank
-                assign card_image = tech.settings.product.featured_image
-              endif
-              assign card_alt = tech.settings.image_alt | default: tech.settings.title | default: 'Competitor'
-              assign is_highlight = tech.settings.highlight
-            -%}
-            <article class="scale-o-compare__stack-card{% if is_highlight %} scale-o-compare__stack-card--featured{% endif %}" {{ tech.shopify_attributes }}>
-              {%- if tech.settings.show_badge and tech.settings.badge_text != blank -%}
-                <p class="scale-o-compare__badge">
-                  <span aria-hidden="true">★</span>
-                  {{ tech.settings.badge_text | escape }}
-                </p>
-              {%- endif -%}
-              {%- if section.settings.show_column_images -%}
-                <div class="scale-o-compare__media{% if is_highlight %} scale-o-compare__media--featured{% endif %}">
-                  {%- if card_image != blank -%}
-                    {{
-                      card_image
-                      | image_url: width: 640
-                      | image_tag:
-                        loading: 'lazy',
-                        widths: '320,480,640',
-                        sizes: '86vw',
-                        alt: card_alt
-                    }}
-                  {%- elsif is_highlight -%}
-                    <img src="{{ 'scale-o-solution-product.png' | asset_url }}" alt="{{ card_alt | escape }}" width="640" height="480" loading="lazy">
-                  {%- endif -%}
-                </div>
-              {%- endif -%}
-              {%- if tech.settings.title != blank -%}
-                <h3 class="scale-o-compare__name">{{ tech.settings.title | escape }}</h3>
-              {%- endif -%}
-              {%- for feature in feature_blocks -%}
-                {%- if feature.settings.enabled == false -%}{%- continue -%}{%- endif -%}
-                <div class="scale-o-compare__stack-row">
-                  <span class="scale-o-compare__stack-label">{{ feature.settings.title | escape }}</span>
-                  {%- case col_index -%}
-                    {%- when 1 -%}
-                      {% render 'scale-o-compare-cell', value: feature.settings.value_1, status: feature.settings.status_1, featured: is_highlight %}
-                    {%- when 2 -%}
-                      {% render 'scale-o-compare-cell', value: feature.settings.value_2, status: feature.settings.status_2, featured: is_highlight %}
-                    {%- when 3 -%}
-                      {% render 'scale-o-compare-cell', value: feature.settings.value_3, status: feature.settings.status_3, featured: is_highlight %}
-                    {%- when 4 -%}
-                      {% render 'scale-o-compare-cell', value: feature.settings.value_4, status: feature.settings.status_4, featured: is_highlight %}
-                  {%- endcase -%}
-                </div>
-              {%- endfor -%}
-            </article>
-          {%- endfor -%}
+    {%- if section.settings.show_competitors and competitor_count > 0 -%}
+      <div class="scale-o-compare__mini" data-stc-animate>
+        {%- if show_comp_header -%}
+          <header class="scale-o-compare__header scale-o-compare__header--{{ header_align }} scale-o-compare__header--mini">
+            {%- if section.settings.show_eyebrow and section.settings.eyebrow != blank -%}
+              <p class="scale-o-compare__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+            {%- endif -%}
+            {%- if section.settings.heading != blank -%}
+              <h2 class="scale-o-compare__heading">{{ section.settings.heading | escape }}</h2>
+            {%- endif -%}
+            {%- if section.settings.show_description and section.settings.description != blank -%}
+              <p class="scale-o-compare__description">{{ section.settings.description | escape }}</p>
+            {%- endif -%}
+          </header>
+        {%- endif -%}
+
+        <div class="scale-o-compare__mini-wrap" tabindex="0" role="region" aria-label="{{ section.settings.heading | default: 'Competitor comparison' | escape }}">
+          <table class="scale-o-compare__mini-table">
+            <caption class="scale-o-compare__sr-only">{{ section.settings.heading | default: 'Competitor comparison' | escape }}</caption>
+            <thead>
+              <tr>
+                <th class="scale-o-compare__mini-th scale-o-compare__mini-th--criteria" scope="col">{{ section.settings.criteria_heading | default: 'Criteria' | escape }}</th>
+                {%- assign visible = 0 -%}
+                {%- for brand in competitor_blocks -%}
+                  {%- if brand.settings.enabled == false -%}{%- continue -%}{%- endif -%}
+                  {%- assign visible = visible | plus: 1 -%}
+                  {%- if visible > 4 -%}{%- break -%}{%- endif -%}
+                  <th
+                    class="scale-o-compare__mini-th{% if brand.settings.highlight %} scale-o-compare__mini-th--featured{% endif %}"
+                    scope="col"
+                    {{ brand.shopify_attributes }}
+                  >
+                    {{ brand.settings.title | escape }}
+                  </th>
+                {%- endfor -%}
+              </tr>
+            </thead>
+            {%- if competitor_rows.size > 0 -%}
+              <tbody>
+                {%- for row in competitor_rows -%}
+                  {%- if row.settings.enabled == false -%}{%- continue -%}{%- endif -%}
+                  <tr class="scale-o-compare__mini-row" {{ row.shopify_attributes }}>
+                    <th class="scale-o-compare__mini-feature" scope="row">{{ row.settings.title | escape }}</th>
+                    {%- assign visible = 0 -%}
+                    {%- for brand in competitor_blocks -%}
+                      {%- if brand.settings.enabled == false -%}{%- continue -%}{%- endif -%}
+                      {%- assign visible = visible | plus: 1 -%}
+                      {%- if visible > 4 -%}{%- break -%}{%- endif -%}
+                      <td class="scale-o-compare__mini-td{% if brand.settings.highlight %} scale-o-compare__mini-td--featured{% endif %}">
+                        {%- case visible -%}
+                          {%- when 1 -%}
+                            {% render 'scale-o-compare-cell', value: row.settings.value_1, status: row.settings.status_1, featured: brand.settings.highlight, short_label: brand.settings.title %}
+                          {%- when 2 -%}
+                            {% render 'scale-o-compare-cell', value: row.settings.value_2, status: row.settings.status_2, featured: brand.settings.highlight, short_label: brand.settings.title %}
+                          {%- when 3 -%}
+                            {% render 'scale-o-compare-cell', value: row.settings.value_3, status: row.settings.status_3, featured: brand.settings.highlight, short_label: brand.settings.title %}
+                          {%- when 4 -%}
+                            {% render 'scale-o-compare-cell', value: row.settings.value_4, status: row.settings.status_4, featured: brand.settings.highlight, short_label: brand.settings.title %}
+                        {%- endcase -%}
+                      </td>
+                    {%- endfor -%}
+                  </tr>
+                {%- endfor -%}
+              </tbody>
+            {%- endif -%}
+          </table>
         </div>
-      {%- endif -%}
+        {%- if section.settings.competitor_note != blank -%}
+          <p class="scale-o-compare__note">{{ section.settings.competitor_note | escape }}</p>
+        {%- endif -%}
+      </div>
     {%- endif -%}
 
     {%- if show_banner -%}
@@ -329,19 +340,48 @@
 
 {% schema %}
 {
-  "name": "Competitor Comparison",
+  "name": "Scale-O Comparison",
   "tag": "section",
   "class": "scale-o-compare-section",
   "max_blocks": 24,
   "settings": [
-    { "type": "header", "content": "How to edit" },
-    { "type": "paragraph", "content": "Use Competitor column blocks for the 4 product columns (name, image, badge). Use Comparison row blocks for each criterion. Add, remove, or drag blocks to reorder. Column 1–4 values in each row follow the Competitor block order." },
-    { "type": "header", "content": "Heading" },
-    { "type": "checkbox", "id": "show_eyebrow", "label": "Show eyebrow", "default": true },
-    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "COMPETITOR COMPARISON", "info": "Small label above the heading." },
-    { "type": "text", "id": "heading", "label": "Heading", "default": "Scale-O vs Similar Solutions" },
-    { "type": "checkbox", "id": "show_description", "label": "Show description", "default": true },
-    { "type": "textarea", "id": "description", "label": "Description", "default": "See how Scale-O compares with other solutions designed to tackle hard-water scaling." },
+    { "type": "paragraph", "content": "Photo cards compare Scale-O with other technologies. The small table compares Scale-O with similar products. Rename competitor columns in Theme Editor." },
+
+    { "type": "header", "content": "Technology cards" },
+    { "type": "checkbox", "id": "show_tech", "label": "Show technology cards", "default": true },
+    { "type": "checkbox", "id": "show_tech_eyebrow", "label": "Show technology eyebrow", "default": true },
+    { "type": "text", "id": "tech_eyebrow", "label": "Technology eyebrow", "default": "TECHNOLOGY COMPARISON" },
+    { "type": "text", "id": "tech_heading", "label": "Technology heading", "default": "Scale-O vs Other Water Treatment" },
+    { "type": "checkbox", "id": "show_tech_description", "label": "Show technology description", "default": true },
+    { "type": "textarea", "id": "tech_description", "label": "Technology description", "default": "See how Scale-O compares with salt-based, electromagnetic and multi-media systems for household scale protection." },
+    { "type": "checkbox", "id": "show_features", "label": "Show comparison table", "default": true },
+    { "type": "text", "id": "tech_criteria_heading", "label": "Table first column heading", "default": "Comparison criteria" },
+    { "type": "checkbox", "id": "show_recommended_badge", "label": "Show Recommended badge on Scale-O", "default": true },
+    { "type": "text", "id": "recommended_label", "label": "Recommended badge text", "default": "Recommended" },
+    { "type": "checkbox", "id": "show_column_images", "label": "Show column images", "default": true },
+    { "type": "checkbox", "id": "show_column_descriptions", "label": "Show column descriptions", "default": false },
+    { "type": "checkbox", "id": "show_card_icons", "label": "Show card icons", "default": false },
+    {
+      "type": "select",
+      "id": "mobile_layout",
+      "label": "Mobile card layout",
+      "default": "scroll",
+      "options": [
+        { "value": "scroll", "label": "Horizontal scroll" },
+        { "value": "stack", "label": "Stacked cards" }
+      ]
+    },
+
+    { "type": "header", "content": "Competitor table" },
+    { "type": "checkbox", "id": "show_competitors", "label": "Show competitor table", "default": true },
+    { "type": "checkbox", "id": "show_eyebrow", "label": "Show competitor eyebrow", "default": true },
+    { "type": "text", "id": "eyebrow", "label": "Competitor eyebrow", "default": "COMPETITOR COMPARISON" },
+    { "type": "text", "id": "heading", "label": "Competitor heading", "default": "Scale-O vs Similar Solutions" },
+    { "type": "checkbox", "id": "show_description", "label": "Show competitor description", "default": true },
+    { "type": "textarea", "id": "description", "label": "Competitor description", "default": "See how Scale-O compares with other solutions designed to tackle hard-water scaling." },
+    { "type": "text", "id": "criteria_heading", "label": "First column heading", "default": "Criteria" },
+    { "type": "text", "id": "competitor_note", "label": "Table note", "default": "Comparisons describe typical household scale-control approaches." },
+
     {
       "type": "select",
       "id": "header_alignment",
@@ -353,13 +393,8 @@
         { "value": "right", "label": "Right" }
       ]
     },
-    { "type": "text", "id": "criteria_heading", "label": "First column heading", "default": "COMPARISON CRITERIA" },
-    { "type": "checkbox", "id": "show_features", "label": "Show comparison rows", "default": true },
-    { "type": "checkbox", "id": "show_column_images", "label": "Show column images", "default": true },
-    { "type": "checkbox", "id": "show_column_descriptions", "label": "Show column descriptions", "default": false },
-    { "type": "checkbox", "id": "show_card_icons", "label": "Show card icons", "default": false },
 
-    { "type": "header", "content": "Scale-O column" },
+    { "type": "header", "content": "Scale-O highlight" },
     { "type": "color", "id": "highlight_color", "label": "Highlight color", "default": "#0C7FDF" },
     { "type": "color", "id": "highlight_background", "label": "Highlight background", "default": "#E8F3FC" },
 
@@ -377,8 +412,8 @@
         { "value": "none", "label": "None" }
       ]
     },
-    { "type": "text", "id": "banner_heading", "label": "Banner heading" },
-    { "type": "textarea", "id": "banner_text", "label": "Banner text", "default": "Scale-O delivers salt-free, maintenance-free protection that’s simple, efficient and built for modern homes." },
+    { "type": "text", "id": "banner_heading", "label": "Banner heading", "default": "Simple household scale protection" },
+    { "type": "textarea", "id": "banner_text", "label": "Banner text", "default": "Scale-O is a salt-free, maintenance-light option designed for simple installation in modern homes." },
     { "type": "text", "id": "cta_text", "label": "CTA text", "default": "Explore Scale-O Products" },
     { "type": "url", "id": "cta_url", "label": "CTA URL" },
 
@@ -387,7 +422,7 @@
     {
       "type": "select",
       "id": "image_aspect_ratio",
-      "label": "Column image ratio",
+      "label": "Card image ratio",
       "default": "4 / 3",
       "options": [
         { "value": "4 / 3", "label": "4:3" },
@@ -395,22 +430,12 @@
         { "value": "16 / 10", "label": "16:10" }
       ]
     },
-    {
-      "type": "select",
-      "id": "mobile_layout",
-      "label": "Mobile layout",
-      "default": "scroll",
-      "options": [
-        { "value": "scroll", "label": "Horizontal scroll" },
-        { "value": "stack", "label": "Stacked cards" }
-      ]
-    },
     { "type": "range", "id": "card_radius", "label": "Corner radius", "min": 8, "max": 28, "step": 1, "unit": "px", "default": 16 },
     { "type": "checkbox", "id": "enable_animations", "label": "Enable reveal animations", "default": true },
-    { "type": "range", "id": "padding_top", "label": "Top padding (desktop)", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 72 },
-    { "type": "range", "id": "padding_bottom", "label": "Bottom padding (desktop)", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 72 },
-    { "type": "range", "id": "padding_top_mobile", "label": "Top padding (mobile)", "min": 0, "max": 80, "step": 4, "unit": "px", "default": 48 },
-    { "type": "range", "id": "padding_bottom_mobile", "label": "Bottom padding (mobile)", "min": 0, "max": 80, "step": 4, "unit": "px", "default": 48 },
+    { "type": "range", "id": "padding_top", "label": "Top padding (desktop)", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 36 },
+    { "type": "range", "id": "padding_bottom", "label": "Bottom padding (desktop)", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 36 },
+    { "type": "range", "id": "padding_top_mobile", "label": "Top padding (mobile)", "min": 0, "max": 80, "step": 4, "unit": "px", "default": 28 },
+    { "type": "range", "id": "padding_bottom_mobile", "label": "Bottom padding (mobile)", "min": 0, "max": 80, "step": 4, "unit": "px", "default": 28 },
     { "type": "range", "id": "padding_x", "label": "Horizontal padding", "min": 12, "max": 80, "step": 4, "unit": "px", "default": 20 },
     { "type": "range", "id": "margin_top", "label": "Top spacing", "min": 0, "max": 80, "step": 4, "unit": "px", "default": 0 },
     { "type": "range", "id": "margin_bottom", "label": "Bottom spacing", "min": 0, "max": 80, "step": 4, "unit": "px", "default": 0 },
@@ -425,27 +450,27 @@
     { "type": "header", "content": "Colors" },
     { "type": "color", "id": "background_color", "label": "Background", "default": "#FFFFFF" },
     { "type": "color", "id": "matrix_background", "label": "Banner background", "default": "#EEF6FF" },
-    { "type": "color", "id": "card_background", "label": "Board background", "default": "#FFFFFF" },
-    { "type": "color", "id": "card_border_color", "label": "Board border", "default": "#E4ECF6" },
+    { "type": "color", "id": "card_background", "label": "Card background", "default": "#FFFFFF" },
+    { "type": "color", "id": "card_border_color", "label": "Card border", "default": "#E4ECF6" },
     { "type": "color", "id": "heading_color", "label": "Heading", "default": "#12345B" },
     { "type": "color", "id": "text_color", "label": "Text", "default": "#5A6B85" },
     { "type": "color", "id": "accent_color", "label": "Accent", "default": "#0C7FDF" },
     { "type": "color", "id": "accent_hover_color", "label": "Accent hover", "default": "#0A6BC4" },
-    { "type": "text", "id": "accessibility_label", "label": "Accessibility label", "default": "Competitor comparison" }
+    { "type": "text", "id": "accessibility_label", "label": "Accessibility label", "default": "Scale-O comparison" }
   ],
   "blocks": [
     {
       "type": "technology",
-      "name": "Competitor column",
+      "name": "Technology card",
       "limit": 4,
       "settings": [
-        { "type": "checkbox", "id": "enabled", "label": "Show this column", "default": true },
-        { "type": "text", "id": "title", "label": "Column title", "default": "Scale-O Water Softener" },
+        { "type": "checkbox", "id": "enabled", "label": "Show this card", "default": true },
+        { "type": "text", "id": "title", "label": "Title", "default": "Scale-O Water Softener" },
         { "type": "text", "id": "category_label", "label": "Category label" },
-        { "type": "textarea", "id": "description", "label": "Short description", "default": "Salt-free scale protection designed for simple installation and zero operating requirements." },
-        { "type": "product", "id": "product", "label": "Shopify product", "info": "Uses the product image if no custom image is uploaded." },
-        { "type": "image_picker", "id": "image", "label": "Column image" },
-        { "type": "image_picker", "id": "image_mobile", "label": "Column image (mobile)" },
+        { "type": "textarea", "id": "description", "label": "Short description", "default": "Salt-free scale protection designed for simple installation." },
+        { "type": "product", "id": "product", "label": "Shopify product" },
+        { "type": "image_picker", "id": "image", "label": "Photo" },
+        { "type": "image_picker", "id": "image_mobile", "label": "Photo (mobile)" },
         { "type": "text", "id": "image_alt", "label": "Image alt text" },
         {
           "type": "select",
@@ -463,7 +488,7 @@
         },
         { "type": "image_picker", "id": "icon_image", "label": "Custom icon image" },
         { "type": "checkbox", "id": "show_icon", "label": "Show icon on this card", "default": false },
-        { "type": "checkbox", "id": "highlight", "label": "Highlight as Scale-O column", "default": false },
+        { "type": "checkbox", "id": "highlight", "label": "Highlight as Scale-O", "default": false },
         { "type": "checkbox", "id": "show_badge", "label": "Show badge", "default": false },
         { "type": "text", "id": "badge_text", "label": "Badge text", "default": "SCALE-O" },
         { "type": "text", "id": "cta_text", "label": "Card CTA text" },
@@ -472,11 +497,11 @@
     },
     {
       "type": "feature",
-      "name": "Comparison row",
-      "limit": 16,
+      "name": "Technology feature",
+      "limit": 8,
       "settings": [
-        { "type": "checkbox", "id": "enabled", "label": "Show this row", "default": true },
-        { "type": "text", "id": "title", "label": "Row title", "default": "Installation", "info": "Example: Salt Required, Operating Cost." },
+        { "type": "checkbox", "id": "enabled", "label": "Show this feature", "default": true },
+        { "type": "text", "id": "title", "label": "Feature name", "default": "Salt Required" },
         {
           "type": "select",
           "id": "theme_icon",
@@ -497,26 +522,25 @@
           ]
         },
         { "type": "image_picker", "id": "icon_image", "label": "Custom icon image" },
-        { "type": "header", "content": "Column 1 (1st competitor)" },
-        { "type": "paragraph", "content": "Matches the first Competitor column block." },
-        { "type": "text", "id": "value_1", "label": "Value text", "info": "Example: Yes, No, Simple." },
+        { "type": "header", "content": "Card 1" },
+        { "type": "text", "id": "value_1", "label": "Value text" },
         {
           "type": "select",
           "id": "status_1",
           "label": "Indicator",
           "default": "neutral",
           "options": [
-            { "value": "positive", "label": "Check (advantage)" },
-            { "value": "negative", "label": "Cross (not included)" },
-            { "value": "neutral", "label": "Dash (not applicable)" },
-            { "value": "required", "label": "Required (cross)" },
-            { "value": "not_required", "label": "Not required (check)" },
-            { "value": "low", "label": "Low (check)" },
-            { "value": "medium", "label": "Medium (dash)" },
-            { "value": "high", "label": "High (cross)" }
+            { "value": "positive", "label": "Check" },
+            { "value": "negative", "label": "Cross" },
+            { "value": "neutral", "label": "Dash" },
+            { "value": "required", "label": "Required" },
+            { "value": "not_required", "label": "Not required" },
+            { "value": "low", "label": "Low" },
+            { "value": "medium", "label": "Medium" },
+            { "value": "high", "label": "High" }
           ]
         },
-        { "type": "header", "content": "Column 2 (2nd competitor)" },
+        { "type": "header", "content": "Card 2" },
         { "type": "text", "id": "value_2", "label": "Value text" },
         {
           "type": "select",
@@ -524,17 +548,17 @@
           "label": "Indicator",
           "default": "neutral",
           "options": [
-            { "value": "positive", "label": "Check (advantage)" },
-            { "value": "negative", "label": "Cross (not included)" },
-            { "value": "neutral", "label": "Dash (not applicable)" },
-            { "value": "required", "label": "Required (cross)" },
-            { "value": "not_required", "label": "Not required (check)" },
-            { "value": "low", "label": "Low (check)" },
-            { "value": "medium", "label": "Medium (dash)" },
-            { "value": "high", "label": "High (cross)" }
+            { "value": "positive", "label": "Check" },
+            { "value": "negative", "label": "Cross" },
+            { "value": "neutral", "label": "Dash" },
+            { "value": "required", "label": "Required" },
+            { "value": "not_required", "label": "Not required" },
+            { "value": "low", "label": "Low" },
+            { "value": "medium", "label": "Medium" },
+            { "value": "high", "label": "High" }
           ]
         },
-        { "type": "header", "content": "Column 3 (3rd competitor)" },
+        { "type": "header", "content": "Card 3" },
         { "type": "text", "id": "value_3", "label": "Value text" },
         {
           "type": "select",
@@ -542,17 +566,17 @@
           "label": "Indicator",
           "default": "neutral",
           "options": [
-            { "value": "positive", "label": "Check (advantage)" },
-            { "value": "negative", "label": "Cross (not included)" },
-            { "value": "neutral", "label": "Dash (not applicable)" },
-            { "value": "required", "label": "Required (cross)" },
-            { "value": "not_required", "label": "Not required (check)" },
-            { "value": "low", "label": "Low (check)" },
-            { "value": "medium", "label": "Medium (dash)" },
-            { "value": "high", "label": "High (cross)" }
+            { "value": "positive", "label": "Check" },
+            { "value": "negative", "label": "Cross" },
+            { "value": "neutral", "label": "Dash" },
+            { "value": "required", "label": "Required" },
+            { "value": "not_required", "label": "Not required" },
+            { "value": "low", "label": "Low" },
+            { "value": "medium", "label": "Medium" },
+            { "value": "high", "label": "High" }
           ]
         },
-        { "type": "header", "content": "Column 4 (usually Scale-O)" },
+        { "type": "header", "content": "Card 4 (usually Scale-O)" },
         { "type": "text", "id": "value_4", "label": "Value text" },
         {
           "type": "select",
@@ -560,14 +584,105 @@
           "label": "Indicator",
           "default": "positive",
           "options": [
-            { "value": "positive", "label": "Check (advantage)" },
-            { "value": "negative", "label": "Cross (not included)" },
-            { "value": "neutral", "label": "Dash (not applicable)" },
-            { "value": "required", "label": "Required (cross)" },
-            { "value": "not_required", "label": "Not required (check)" },
-            { "value": "low", "label": "Low (check)" },
-            { "value": "medium", "label": "Medium (dash)" },
-            { "value": "high", "label": "High (cross)" }
+            { "value": "positive", "label": "Check" },
+            { "value": "negative", "label": "Cross" },
+            { "value": "neutral", "label": "Dash" },
+            { "value": "required", "label": "Required" },
+            { "value": "not_required", "label": "Not required" },
+            { "value": "low", "label": "Low" },
+            { "value": "medium", "label": "Medium" },
+            { "value": "high", "label": "High" }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "competitor",
+      "name": "Competitor column",
+      "limit": 4,
+      "settings": [
+        { "type": "checkbox", "id": "enabled", "label": "Show this column", "default": true },
+        { "type": "text", "id": "title", "label": "Column title", "default": "Scale-O" },
+        { "type": "checkbox", "id": "highlight", "label": "Highlight as Scale-O", "default": false }
+      ]
+    },
+    {
+      "type": "competitor_row",
+      "name": "Competitor row",
+      "limit": 8,
+      "settings": [
+        { "type": "checkbox", "id": "enabled", "label": "Show this row", "default": true },
+        { "type": "text", "id": "title", "label": "Row title", "default": "Salt required" },
+        { "type": "header", "content": "Column 1" },
+        { "type": "text", "id": "value_1", "label": "Value text" },
+        {
+          "type": "select",
+          "id": "status_1",
+          "label": "Indicator",
+          "default": "neutral",
+          "options": [
+            { "value": "positive", "label": "Check" },
+            { "value": "negative", "label": "Cross" },
+            { "value": "neutral", "label": "Dash" },
+            { "value": "required", "label": "Required" },
+            { "value": "not_required", "label": "Not required" },
+            { "value": "low", "label": "Low" },
+            { "value": "medium", "label": "Medium" },
+            { "value": "high", "label": "High" }
+          ]
+        },
+        { "type": "header", "content": "Column 2" },
+        { "type": "text", "id": "value_2", "label": "Value text" },
+        {
+          "type": "select",
+          "id": "status_2",
+          "label": "Indicator",
+          "default": "neutral",
+          "options": [
+            { "value": "positive", "label": "Check" },
+            { "value": "negative", "label": "Cross" },
+            { "value": "neutral", "label": "Dash" },
+            { "value": "required", "label": "Required" },
+            { "value": "not_required", "label": "Not required" },
+            { "value": "low", "label": "Low" },
+            { "value": "medium", "label": "Medium" },
+            { "value": "high", "label": "High" }
+          ]
+        },
+        { "type": "header", "content": "Column 3" },
+        { "type": "text", "id": "value_3", "label": "Value text" },
+        {
+          "type": "select",
+          "id": "status_3",
+          "label": "Indicator",
+          "default": "neutral",
+          "options": [
+            { "value": "positive", "label": "Check" },
+            { "value": "negative", "label": "Cross" },
+            { "value": "neutral", "label": "Dash" },
+            { "value": "required", "label": "Required" },
+            { "value": "not_required", "label": "Not required" },
+            { "value": "low", "label": "Low" },
+            { "value": "medium", "label": "Medium" },
+            { "value": "high", "label": "High" }
+          ]
+        },
+        { "type": "header", "content": "Column 4" },
+        { "type": "text", "id": "value_4", "label": "Value text" },
+        {
+          "type": "select",
+          "id": "status_4",
+          "label": "Indicator",
+          "default": "positive",
+          "options": [
+            { "value": "positive", "label": "Check" },
+            { "value": "negative", "label": "Cross" },
+            { "value": "neutral", "label": "Dash" },
+            { "value": "required", "label": "Required" },
+            { "value": "not_required", "label": "Not required" },
+            { "value": "low", "label": "Low" },
+            { "value": "medium", "label": "Medium" },
+            { "value": "high", "label": "High" }
           ]
         }
       ]
@@ -575,21 +690,19 @@
   ],
   "presets": [
     {
-      "name": "Competitor Comparison",
+      "name": "Scale-O Comparison",
       "category": "Custom",
       "blocks": [
-        { "type": "technology", "settings": { "enabled": true, "title": "Salt-Based Water Softener", "description": "Traditional ion-exchange softening using salt and regeneration.", "theme_icon": "bucket", "highlight": false } },
-        { "type": "technology", "settings": { "enabled": true, "title": "Electromagnetic / Electronic Scale Control", "description": "Electronic or electromagnetic technology designed to reduce scale formation.", "theme_icon": "pipe", "highlight": false } },
-        { "type": "technology", "settings": { "enabled": true, "title": "Multi-Media Water Treatment", "description": "Media-based treatment systems using multiple filtration materials.", "theme_icon": "gear", "highlight": false } },
-        { "type": "technology", "settings": { "enabled": true, "title": "Scale-O Water Softener", "description": "Salt-free scale protection designed for simple installation and zero operating requirements.", "theme_icon": "droplet", "highlight": true, "show_badge": true, "badge_text": "SCALE-O" } },
-        { "type": "feature", "settings": { "title": "Salt Required", "theme_icon": "bucket", "value_1": "Yes", "status_1": "negative", "value_2": "No", "status_2": "positive", "value_3": "Depends", "status_3": "neutral", "value_4": "No", "status_4": "not_required" } },
-        { "type": "feature", "settings": { "title": "Electricity Required", "theme_icon": "bolt", "value_1": "Yes", "status_1": "required", "value_2": "Yes", "status_2": "required", "value_3": "Depends", "status_3": "neutral", "value_4": "No", "status_4": "not_required" } },
-        { "type": "feature", "settings": { "title": "Water Wastage", "theme_icon": "droplet", "value_1": "Yes", "status_1": "negative", "value_2": "No", "status_2": "positive", "value_3": "Depends", "status_3": "neutral", "value_4": "No", "status_4": "not_required" } },
-        { "type": "feature", "settings": { "title": "Plumbing Changes", "theme_icon": "pipe", "value_1": "Required", "status_1": "required", "value_2": "Usually required", "status_2": "required", "value_3": "Required", "status_3": "required", "value_4": "Not required", "status_4": "not_required" } },
-        { "type": "feature", "settings": { "title": "Installation Complexity", "theme_icon": "wrench", "value_1": "Complex", "status_1": "high", "value_2": "Moderate", "status_2": "medium", "value_3": "Professional", "status_3": "high", "value_4": "Simple", "status_4": "positive" } },
-        { "type": "feature", "settings": { "title": "Regular Maintenance", "theme_icon": "settings", "value_1": "Ongoing", "status_1": "high", "value_2": "Low", "status_2": "low", "value_3": "Ongoing", "status_3": "high", "value_4": "Minimal", "status_4": "positive" } },
-        { "type": "feature", "settings": { "title": "Operating Cost", "theme_icon": "dollar", "value_1": "Ongoing", "status_1": "high", "value_2": "Ongoing", "status_2": "high", "value_3": "Ongoing", "status_3": "high", "value_4": "Zero", "status_4": "positive" } },
-        { "type": "feature", "settings": { "title": "Suitable for Whole-Home Scale Protection", "theme_icon": "shield", "value_1": "Yes", "status_1": "positive", "value_2": "Limited", "status_2": "neutral", "value_3": "Partial", "status_3": "neutral", "value_4": "Yes", "status_4": "positive" } }
+        { "type": "technology", "settings": { "title": "Salt-Based Water Softener", "description": "Traditional ion-exchange softening using salt and regeneration.", "theme_icon": "bucket" } },
+        { "type": "technology", "settings": { "title": "Electromagnetic Scale Control", "description": "Electronic technology designed to reduce scale formation.", "theme_icon": "pipe" } },
+        { "type": "technology", "settings": { "title": "Multi-Media Water Treatment", "description": "Media-based systems using multiple filtration materials.", "theme_icon": "gear" } },
+        { "type": "technology", "settings": { "title": "Scale-O Water Softener", "description": "Salt-free scale protection designed for simple installation.", "theme_icon": "droplet", "highlight": true, "show_badge": true, "badge_text": "SCALE-O" } },
+        { "type": "feature", "settings": { "title": "Salt required", "value_1": "Yes", "status_1": "negative", "value_2": "No", "status_2": "positive", "value_3": "Depends", "status_3": "neutral", "value_4": "No", "status_4": "not_required" } },
+        { "type": "feature", "settings": { "title": "Electricity required", "value_1": "Yes", "status_1": "required", "value_2": "Yes", "status_2": "required", "value_3": "Depends", "status_3": "neutral", "value_4": "No", "status_4": "not_required" } },
+        { "type": "competitor", "settings": { "title": "Scale-O", "highlight": true } },
+        { "type": "competitor", "settings": { "title": "Other salt-free systems" } },
+        { "type": "competitor", "settings": { "title": "Other electronic devices" } },
+        { "type": "competitor_row", "settings": { "title": "Salt required", "value_1": "No", "status_1": "not_required", "value_2": "Usually no", "status_2": "positive", "value_3": "No", "status_3": "positive" } }
       ]
     }
   ]

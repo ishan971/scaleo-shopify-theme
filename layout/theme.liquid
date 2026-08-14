@@ -30,6 +30,15 @@
   {% endif %}
 >
   <head>
+{%- if collection.handle == 'all' or collection.handle == 'all-products' -%}
+  {%- capture scale_o_shop_url -%}{% render 'scale-o-shop-url' %}{%- endcapture -%}
+  <link rel="canonical" href="{{ request.origin }}{{ scale_o_shop_url }}">
+  <meta name="robots" content="noindex, follow">
+  <meta http-equiv="refresh" content="0;url={{ scale_o_shop_url }}">
+  <script>
+    window.location.replace({{ scale_o_shop_url | json }});
+  </script>
+{%- endif -%}
 <link rel="icon" href="{{ 'favicon.png' | asset_url }}?v=5">
   
 {% include 'wp-page-speed-optimization-header' %}
@@ -251,9 +260,7 @@ button.gI3IJqrf7p{
       <script src="{{ 'product-card-swatch.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
 
-    {%- if settings.enable_cart_drawer and template != 'cart' -%}
-      {% render 'cart-drawer' %}
-    {%- endif -%}
+    {% section 'cart-drawer' %}
   {%- render "ecom_footer"-%}
 <script>
 document.addEventListener("DOMContentLoaded", function() {

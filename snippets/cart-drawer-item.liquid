@@ -1,6 +1,17 @@
+{%- liquid
+  assign compare_at = item.variant.compare_at_price
+  assign sale_price = item.final_price
+  assign show_compare = false
+  assign savings_percent = 0
+  if settings.cart_drawer_show_compare_at != false and compare_at > sale_price
+    assign show_compare = true
+    assign savings_percent = compare_at | minus: sale_price | times: 100.0 | divided_by: compare_at | round
+  endif
+  assign qty_min = item.variant.quantity_rule.min | default: 1
+-%}
 <div
   id="MinimogCartDrawer-Item-{{ item.index | plus: 1 }}"
-  class="m-cart-item m-cart-drawer-item"
+  class="m-cart-item m-cart-drawer-item scale-o-cart-item"
   data-cart-item
   data-product-id="{{- item.product_id -}}"
   data-index="{{- forloop.index -}}"
@@ -17,19 +28,20 @@
     </div>
     <div class="m-cart-item__info m-cart-drawer-item__info">
       <a href="{{- item.url -}}" class="m-cart-item__title">
-                {{- item.product.title -}}
+        {{- item.product.title -}}
       </a>
-<div data-shop-id="{{shop.id}}" product-id="{{item.product.id }}" data-page="cart" class="ddreview-star"></div>
+      <div data-shop-id="{{ shop.id }}" product-id="{{ item.product.id }}" data-page="cart" class="ddreview-star"></div>
 
-      <div class="m-cart-drawer-item__variant m:text-color-subtext">
+      {%- if item.selling_plan_allocation.selling_plan.name != blank -%}
+        <p class="scale-o-cart-item__plan">Plan: <span>{{ item.selling_plan_allocation.selling_plan.name | escape }}</span></p>
+      {%- endif -%}
+
+      <div class="m-cart-drawer-item__variant">
         {%- unless item.product.has_only_default_variant -%}
           {%- for option in item.options_with_values -%}
             <p class="m-cart-item__option m:text-sm">
-              <span class="m:font-medium">
-                {{- option.name -}}
-                :
-              </span>
-              {{- option.value -}}
+              <span class="m:font-medium">{{ option.name }}: </span>
+              <span class="scale-o-cart-item__option-value">{{ option.value | escape }}</span>
             </p>
           {%- endfor -%}
         {%- endunless -%}
@@ -63,15 +75,28 @@
       </div>
 
       <div class="m-cart-item__price">
-        {%- if item.original_price != item.final_price -%}
-          <div class="m-cart-item__price-discounted">
+        {%- if show_compare -%}
+          <div class="m-cart-item__price-discounted scale-o-cart-item__price-row">
+            <span class="m-cart-item__price--final">
+              {% if settings.currency_code_enabled %}
+                {{- sale_price | money_with_currency -}}
+              {% else %}
+                {{- sale_price | money -}}
+              {% endif %}
+            </span>
             <del class="m-cart-item__price--regular">
               {% if settings.currency_code_enabled %}
-                {{- item.original_price | money_with_currency -}}
+                {{- compare_at | money_with_currency -}}
               {% else %}
-                {{- item.original_price | money -}}
+                {{- compare_at | money -}}
               {% endif %}
             </del>
+            {%- if settings.cart_drawer_show_savings != false and savings_percent > 0 -%}
+              <span class="scale-o-cart-item__save">{{ savings_percent }}% OFF</span>
+            {%- endif -%}
+          </div>
+        {%- elsif item.original_price != item.final_price -%}
+          <div class="m-cart-item__price-discounted scale-o-cart-item__price-row">
             <span class="m-cart-item__price--final">
               {% if settings.currency_code_enabled %}
                 {{- item.final_price | money_with_currency -}}
@@ -79,9 +104,16 @@
                 {{- item.final_price | money -}}
               {% endif %}
             </span>
+            <del class="m-cart-item__price--regular">
+              {% if settings.currency_code_enabled %}
+                {{- item.original_price | money_with_currency -}}
+              {% else %}
+                {{- item.original_price | money -}}
+              {% endif %}
+            </del>
           </div>
         {%- else -%}
-          <span class="m-cart-item__price--regular">
+          <span class="m-cart-item__price--regular m-cart-item__price--final">
             {% if settings.currency_code_enabled %}
               {{- item.original_price | money_with_currency -}}
             {% else %}
@@ -131,7 +163,8 @@
               class="m-quantity__button"
               name="minus"
               type="button"
-              aria-label="{{ 'products.product.decrease_quantity' | t: title: item.product.title }}"
+              {% if item.quantity <= qty_min %}disabled{% endif %}
+              aria-label="Decrease quantity"
             >
               <svg
                 fill="currentColor"
@@ -163,7 +196,7 @@
               class="m-quantity__button"
               name="plus"
               type="button"
-              aria-label="{{ 'products.product.increase_quantity' | t: title: item.product.title }}"
+              aria-label="Increase quantity"
             >
               <svg
                 fill="currentColor"
@@ -239,9 +272,13 @@
           id="MinimogCartDrawer-Remove-{{ item.index | plus: 1 }}"
           data-index="{{ item.index | plus: 1 }}"
         >
-          <span class="m-cart-item__remove m-button--link{% unless gift_wrap_id == nil or item.id != gift_wrap_id %} m:hidden{% endunless %}">
+          <button
+            type="button"
+            class="m-cart-item__remove m-button--link scale-o-cart-item__remove{% unless gift_wrap_id == nil or item.id != gift_wrap_id %} m:hidden{% endunless %}"
+            aria-label="Remove {{ item.product.title | escape }}"
+          >
             {{- 'cart.general.remove' | t -}}
-          </span>
+          </button>
         </m-cart-remove-button>
       </div>
     </div>

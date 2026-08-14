@@ -17,7 +17,7 @@
   assign featured_media = product.featured_media
   assign hover_media = product.media[1]
   assign has_hover_image = false
-  if section.settings.enable_image_hover and hover_media != blank and hover_media != featured_media
+  if section.settings.enable_image_hover != false and hover_media != blank and hover_media != featured_media
     if hover_media.media_type == 'image'
       assign has_hover_image = true
     endif
@@ -25,21 +25,54 @@
 
   assign spec_limit = 4
   assign specs = product.metafields.custom.product_detail_usp.value
+  assign spec_count = 0
+  if specs != blank
+    assign spec_count = specs.size
+    if spec_count > spec_limit
+      assign spec_count = spec_limit
+    endif
+  endif
+  assign empty_specs = spec_limit | minus: spec_count
 
-  assign show_badges = section.settings.show_badges
-  assign show_specs = section.settings.show_specifications
-  assign show_compare = section.settings.show_compare_at_price
-  assign show_discount = section.settings.show_discount
-  assign show_ratings = section.settings.show_ratings
-  assign show_cta = section.settings.show_shop_now_button
+  assign show_badges = true
+  if section.settings.show_badges == false
+    assign show_badges = false
+  endif
+  assign show_specs = true
+  if section.settings.show_specifications == false
+    assign show_specs = false
+  endif
+  assign show_compare = true
+  if section.settings.show_compare_at_price == false
+    assign show_compare = false
+  endif
+  assign show_discount = true
+  if section.settings.show_discount == false
+    assign show_discount = false
+  endif
+  assign show_ratings = true
+  if section.settings.show_ratings == false
+    assign show_ratings = false
+  endif
+  assign show_cta = true
+  if section.settings.show_shop_now_button == false
+    assign show_cta = false
+  endif
   assign cta_text = section.settings.button_text | default: 'Shop Now'
-  assign show_spec_icons = section.settings.show_spec_icons
-  assign use_rupee = section.settings.use_rupee_symbol
+  assign show_spec_icons = true
+  if section.settings.show_spec_icons == false
+    assign show_spec_icons = false
+  endif
+  assign use_rupee = true
+  if section.settings.use_rupee_symbol == false
+    assign use_rupee = false
+  endif
   assign price_amount = product.price | money_without_currency | strip
   assign compare_amount = product.compare_at_price | money_without_currency | strip
 
+  assign cols_eager = section.settings.desktop_columns | default: section.settings.grid_columns | default: 4
   assign loading_mode = 'lazy'
-  if card_index <= section.settings.desktop_columns
+  if card_index <= cols_eager
     assign loading_mode = 'eager'
   endif
 -%}
@@ -81,6 +114,9 @@
             {%- endif -%}
           {%- endfor -%}
         {%- endif -%}
+        {%- unless product.available -%}
+          <span class="scale-o-product-card__badge scale-o-product-card__badge--sold-out">Sold out</span>
+        {%- endunless -%}
       </div>
     </div>
   {%- endif -%}
@@ -127,7 +163,7 @@
         <a href="{{ product_url }}">{{ product.title | escape }}</a>
       </h3>
 
-      {%- if show_specs and specs != blank -%}
+      {%- if show_specs -%}
         <div class="scale-o-product-card__specs">
           {%- for spec in specs limit: spec_limit -%}
             {%- assign spec_text = spec.detail_name.value -%}
@@ -140,43 +176,36 @@
               {%- assign spec_value = '' -%}
             {%- endif -%}
             <div
-              class="scale-o-product-card__spec{% unless section.settings.use_metafield_spec_colors %} scale-o-product-card__spec--theme{% endunless %}"
+              class="scale-o-product-card__spec scale-o-product-card__spec--theme"
               title="{{ spec_text | escape }}"
             >
-              {%- if section.settings.use_metafield_spec_colors -%}
-                <span
-                  class="scale-o-product-card__spec-inner"
-                  style="color:{{ spec.text_color | default: section.settings.spec_text_color }};background:{{ spec.background_color | default: section.settings.spec_background }};border-color:{{ spec.text_color | default: section.settings.spec_border_color }};"
-                >
-                  {%- if show_spec_icons -%}
-                    {% render 'scale-o-spec-icon', label: spec_label %}
+              <span class="scale-o-product-card__spec-inner">
+                {%- if show_spec_icons -%}
+                  {% render 'scale-o-spec-icon', label: spec_label %}
+                {%- endif -%}
+                <span class="scale-o-product-card__spec-text">
+                  {%- if spec_value != blank -%}
+                    <span class="scale-o-product-card__spec-label">{{ spec_label | escape }}</span>
+                    <span class="scale-o-product-card__spec-value">{{ spec_value | escape }}</span>
+                  {%- else -%}
+                    <span class="scale-o-product-card__spec-value scale-o-product-card__spec-value--solo">{{ spec_label | escape }}</span>
                   {%- endif -%}
-                  <span class="scale-o-product-card__spec-text">
-                    {%- if spec_value != blank -%}
-                      <span class="scale-o-product-card__spec-label">{{ spec_label | escape }}</span>
-                      <span class="scale-o-product-card__spec-value">{{ spec_value | escape }}</span>
-                    {%- else -%}
-                      <span class="scale-o-product-card__spec-value scale-o-product-card__spec-value--solo">{{ spec_label | escape }}</span>
-                    {%- endif -%}
-                  </span>
                 </span>
-              {%- else -%}
-                <span class="scale-o-product-card__spec-inner">
-                  {%- if show_spec_icons -%}
-                    {% render 'scale-o-spec-icon', label: spec_label %}
-                  {%- endif -%}
-                  <span class="scale-o-product-card__spec-text">
-                    {%- if spec_value != blank -%}
-                      <span class="scale-o-product-card__spec-label">{{ spec_label | escape }}</span>
-                      <span class="scale-o-product-card__spec-value">{{ spec_value | escape }}</span>
-                    {%- else -%}
-                      <span class="scale-o-product-card__spec-value scale-o-product-card__spec-value--solo">{{ spec_label | escape }}</span>
-                    {%- endif -%}
-                  </span>
-                </span>
-              {%- endif -%}
+              </span>
             </div>
           {%- endfor -%}
+          {%- if empty_specs > 0 -%}
+            {%- for i in (1..empty_specs) -%}
+              <div class="scale-o-product-card__spec scale-o-product-card__spec--empty" aria-hidden="true">
+                <span class="scale-o-product-card__spec-inner">
+                  <span class="scale-o-product-card__spec-text">
+                    <span class="scale-o-product-card__spec-label">&nbsp;</span>
+                    <span class="scale-o-product-card__spec-value">&nbsp;</span>
+                  </span>
+                </span>
+              </div>
+            {%- endfor -%}
+          {%- endif -%}
         </div>
       {%- endif -%}
 
@@ -205,9 +234,12 @@
     </div>
 
     {%- if show_cta -%}
-      <a href="{{ product_url }}" class="scale-o-product-card__cta m-button m-button--primary">
+      <a
+        href="{{ product_url }}"
+        class="scale-o-product-card__cta m-button m-button--primary{% unless product.available %} scale-o-product-card__cta--sold-out{% endunless %}"
+      >
         <svg class="scale-o-product-card__cta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
-        <span>{{ cta_text | escape }}</span>
+        <span>{% if product.available %}{{ cta_text | escape }}{% else %}Sold out{% endif %}</span>
       </a>
     {%- endif -%}
   </div>

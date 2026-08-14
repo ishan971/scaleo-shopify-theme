@@ -1,0 +1,7 @@
+{%- liquid
+  assign scale_o_shop_url = collections['water-softeners'].url
+  if scale_o_shop_url == blank
+    assign scale_o_shop_url = '/collections/water-softeners'
+  endif
+-%}
+{{- scale_o_shop_url -}}

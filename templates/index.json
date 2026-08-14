@@ -26,11 +26,11 @@
             "description": "Scale-O protects your home from hard-water scale, keeping your appliances efficient and your life effortless.",
             "show_cta": true,
             "button_label": "Shop Now",
-            "button_url": "shopify://collections/all",
+            "button_url": "shopify://collections/water-softeners",
             "show_trust": true,
             "trust_style": "stars",
             "show_stars": true,
-            "trust_text": "Trusted by happy Scale-O customers",
+            "trust_text": "Trusted by homeowners across India",
             "image_position": "right",
             "text_alignment": "left",
             "show_overlay": false,
@@ -51,12 +51,12 @@
             "description": "From compact solutions to whole-house protection, choose the right Scale-O system for your family's needs.",
             "show_cta": true,
             "button_label": "Shop Now",
-            "button_url": "shopify://collections/all",
+            "button_url": "shopify://collections/water-softeners",
             "show_trust": true,
             "trust_style": "stars",
             "trust_value": "4.8/5",
             "show_stars": true,
-            "trust_text": "Trusted by happy Scale-O customers",
+            "trust_text": "Trusted by homeowners across India",
             "image_position": "right",
             "text_alignment": "left",
             "show_overlay": false,
@@ -77,7 +77,7 @@
             "description": "Helps prevent scale buildup in bathrooms, appliances, pipes and fixtures across your entire home.",
             "show_cta": true,
             "button_label": "Shop Now",
-            "button_url": "shopify://collections/all",
+            "button_url": "shopify://collections/water-softeners",
             "show_trust": true,
             "trust_style": "stars",
             "trust_value": "1000+",
@@ -355,7 +355,7 @@
         },
         "install_3": {
           "type": "install_step",
-          "settings": {
+      "settings": {
             "step_number": "3",
             "icon": "install",
             "title": "Place Scale-O Inside the Tank",
@@ -523,7 +523,7 @@
         "button_text": "Shop Now",
         "show_view_all": true,
         "view_all_text": "View all products",
-        "view_all_url": "",
+        "view_all_url": "shopify://collections/water-softeners",
         "enable_image_hover": true,
         "badge_best_seller_text": "Best Seller",
         "badge_most_affordable_text": "Most Affordable",
@@ -1055,7 +1055,7 @@
         },
         "hl_waste": {
           "type": "highlight",
-          "settings": {
+      "settings": {
             "theme_icon": "recycle",
             "title": "Zero Water Waste",
             "description": "No regeneration water wastage."
@@ -1350,7 +1350,7 @@
         },
         "pt_a3": {
           "type": "point",
-          "settings": {
+      "settings": {
             "side": "after",
             "title": "Better appliance performance"
           }
@@ -1523,7 +1523,7 @@
         },
         "tech_scaleo": {
           "type": "technology",
-          "settings": {
+      "settings": {
             "enabled": true,
             "title": "Scale-O Water Softener",
             "category_label": "",
@@ -1542,7 +1542,7 @@
         },
         "feat_salt": {
           "type": "feature",
-          "settings": {
+      "settings": {
             "title": "Salt Required",
             "theme_icon": "bucket",
             "value_1": "Yes",
@@ -1659,6 +1659,95 @@
             "value_4": "Yes",
             "status_4": "positive"
           }
+        },
+        "comp_scaleo": {
+          "type": "competitor",
+          "settings": {
+            "enabled": true,
+            "title": "Scale-O",
+            "highlight": true
+          }
+        },
+        "comp_saltfree": {
+          "type": "competitor",
+          "settings": {
+            "enabled": true,
+            "title": "Other salt-free systems",
+            "highlight": false
+          }
+        },
+        "comp_electronic": {
+          "type": "competitor",
+          "settings": {
+            "enabled": true,
+            "title": "Other electronic devices",
+            "highlight": false
+          }
+        },
+        "crow_salt": {
+          "type": "competitor_row",
+          "settings": {
+            "enabled": true,
+            "title": "Salt required",
+            "value_1": "No",
+            "status_1": "not_required",
+            "value_2": "Usually no",
+            "status_2": "positive",
+            "value_3": "No",
+            "status_3": "positive"
+          }
+        },
+        "crow_power": {
+          "type": "competitor_row",
+          "settings": {
+            "enabled": true,
+            "title": "Electricity required",
+            "value_1": "No",
+            "status_1": "not_required",
+            "value_2": "No",
+            "status_2": "positive",
+            "value_3": "Yes",
+            "status_3": "required"
+          }
+        },
+        "crow_maint": {
+          "type": "competitor_row",
+          "settings": {
+            "enabled": true,
+            "title": "Regular maintenance",
+            "value_1": "Minimal",
+            "status_1": "positive",
+            "value_2": "Varies",
+            "status_2": "neutral",
+            "value_3": "Low",
+            "status_3": "low"
+          }
+        },
+        "crow_cost": {
+          "type": "competitor_row",
+          "settings": {
+            "enabled": true,
+            "title": "Operating cost",
+            "value_1": "Zero",
+            "status_1": "positive",
+            "value_2": "Varies",
+            "status_2": "neutral",
+            "value_3": "Ongoing",
+            "status_3": "high"
+          }
+        },
+        "crow_home": {
+          "type": "competitor_row",
+          "settings": {
+            "enabled": true,
+            "title": "Whole-home scale protection",
+            "value_1": "Yes",
+            "status_1": "positive",
+            "value_2": "Limited",
+            "status_2": "neutral",
+            "value_3": "Limited",
+            "status_3": "neutral"
+          }
         }
       },
       "block_order": [
@@ -1673,17 +1762,36 @@
         "feat_install",
         "feat_maint",
         "feat_cost",
-        "feat_regen"
+        "feat_regen",
+        "comp_scaleo",
+        "comp_saltfree",
+        "comp_electronic",
+        "crow_salt",
+        "crow_power",
+        "crow_maint",
+        "crow_cost",
+        "crow_home"
       ],
       "settings": {
+        "show_tech": true,
+        "show_tech_eyebrow": true,
+        "tech_eyebrow": "TECHNOLOGY COMPARISON",
+        "tech_heading": "Scale-O vs Other Water Treatment",
+        "show_tech_description": true,
+        "tech_description": "See how Scale-O compares with salt-based, electromagnetic and multi-media systems for household scale protection.",
+        "show_features": true,
+        "tech_criteria_heading": "Comparison criteria",
+        "show_recommended_badge": true,
+        "recommended_label": "Recommended",
+        "show_competitors": true,
         "show_eyebrow": true,
         "eyebrow": "COMPETITOR COMPARISON",
         "heading": "Scale-O vs Similar Solutions",
         "show_description": true,
         "description": "See how Scale-O compares with other solutions designed to tackle hard-water scaling.",
         "header_alignment": "center",
-        "criteria_heading": "COMPARISON CRITERIA",
-        "show_features": true,
+        "criteria_heading": "Criteria",
+        "competitor_note": "Comparisons describe typical household scale-control approaches.",
         "show_column_images": true,
         "show_column_descriptions": false,
         "show_card_icons": false,
@@ -1733,7 +1841,7 @@
             "image": "shopify://shop_images/1_1fab6577-7a28-415e-9544-f0e2b240e5cc.jpg",
             "image_url": "https://cdn.shopify.com/s/files/1/0592/6508/9638/files/1_1fab6577-7a28-415e-9544-f0e2b240e5cc.jpg?v=1722329025",
             "title": "Intellectual Property Certificate",
-            "description": "",
+        "description": "",
             "icon": "none",
             "button_text": "View Certificate"
           }

@@ -319,7 +319,7 @@
     { "type": "text", "id": "problem_heading", "label": "Problem heading", "default": "The Hard Water Problem" },
     { "type": "text", "id": "solution_label", "label": "Solution label", "default": "Scale-O 0 Factor" },
     { "type": "textarea", "id": "solution_description", "label": "Solution description", "default": "Scale-O changes how hard-water minerals behave, helping reduce scale formation without salt, electricity or water wastage." },
-    { "type": "text", "id": "benefits_heading", "label": "Benefits heading", "default": "The Scale-O Difference" },
+    { "type": "text", "id": "benefits_heading", "label": "Benefits heading", "default": "Solutions" },
 
     { "type": "header", "content": "Story flow" },
     { "type": "checkbox", "id": "show_flow", "label": "Show story flow", "default": true },
@@ -333,7 +333,7 @@
     { "type": "image_picker", "id": "product_image", "label": "Product image (desktop)" },
     { "type": "image_picker", "id": "product_image_mobile", "label": "Product image (mobile)", "info": "Optional. Falls back to desktop image." },
     { "type": "text", "id": "product_image_alt", "label": "Product image alt text", "default": "Scale-O water softener" },
-    { "type": "range", "id": "product_image_width", "label": "Product image width", "min": 220, "max": 520, "step": 10, "unit": "px", "default": 360 },
+    { "type": "range", "id": "product_image_width", "label": "Product image width", "min": 220, "max": 720, "step": 10, "unit": "px", "default": 560 },
     { "type": "checkbox", "id": "show_product_label", "label": "Show product label", "default": true },
     { "type": "checkbox", "id": "show_product_glow", "label": "Show soft blue glow behind product", "default": true },
 
@@ -419,7 +419,7 @@
     },
     {
       "type": "benefit",
-      "name": "Zero Factor Benefit",
+      "name": "Solution",
       "limit": 8,
       "settings": [
         {
@@ -450,8 +450,8 @@
         },
         { "type": "image_picker", "id": "icon_image", "label": "Custom icon image" },
         { "type": "text", "id": "short_label", "label": "Optional short label" },
-        { "type": "text", "id": "title", "label": "Title", "default": "ZERO ELECTRICITY" },
-        { "type": "textarea", "id": "description", "label": "Description", "default": "No electricity required." }
+        { "type": "text", "id": "title", "label": "Title", "default": "Protects Appliances" },
+        { "type": "textarea", "id": "description", "label": "Description", "default": "Helps reduce scale buildup in geysers, washing machines, dishwashers, and pipelines." }
       ]
     }
   ],
@@ -488,21 +488,30 @@
           }
         },
         {
-          "type": "benefit",
+          "type": "problem",
           "settings": {
             "icon_style": "theme",
-            "theme_icon": "electricity",
-            "title": "ZERO ELECTRICITY",
-            "description": "No electricity required."
+            "theme_icon": "home",
+            "title": "Pipe Scale & Reduced Pressure",
+            "description": "Mineral buildup inside pipes can affect water flow across the home."
           }
         },
         {
           "type": "benefit",
           "settings": {
             "icon_style": "theme",
-            "theme_icon": "salt",
-            "title": "ZERO SALT",
-            "description": "Salt-free scale protection."
+            "theme_icon": "shield",
+            "title": "Protects Appliances",
+            "description": "Helps reduce scale buildup in geysers, washing machines, dishwashers, and pipelines."
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "icon_style": "theme",
+            "theme_icon": "droplet",
+            "title": "Cleaner Bathrooms",
+            "description": "Reduces white stains and scaling on taps, showers, and tiles."
           }
         },
         {
@@ -510,17 +519,17 @@
           "settings": {
             "icon_style": "theme",
             "theme_icon": "water",
-            "title": "ZERO WATER WASTAGE",
-            "description": "No regeneration water waste."
+            "title": "Better Water Flow",
+            "description": "Helps reduce mineral buildup inside plumbing systems."
           }
         },
         {
           "type": "benefit",
           "settings": {
             "icon_style": "theme",
-            "theme_icon": "maintenance",
-            "title": "ZERO MAINTENANCE",
-            "description": "Minimal ongoing maintenance."
+            "theme_icon": "home",
+            "title": "Whole House Protection",
+            "description": "Treats water at the overhead tank to help protect the entire home."
           }
         }
       ]

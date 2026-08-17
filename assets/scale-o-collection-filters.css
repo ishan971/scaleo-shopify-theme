@@ -568,3 +568,25 @@
     transition: none !important;
   }
 }
+
+.scale-o-filters .m-facet--checkbox {
+  position: relative;
+}
+
+.scale-o-filters .m-facet--tag-link {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  white-space: nowrap;
+  text-indent: 120%;
+}
+
+.scale-o-filters .m-facet--item.active .m-facet--checkbox svg rect {
+  fill: var(--sof-accent, #0c7fdf);
+  stroke: var(--sof-accent, #0c7fdf);
+}
+
+.scale-o-filters .m-facet--item.active .m-facet--checkbox svg path {
+  stroke: #fff;
+}

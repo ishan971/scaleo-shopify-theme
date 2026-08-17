@@ -21,7 +21,9 @@
 
   assign show_filter = section.settings.show_filter
   if section.settings.filters_type == 'storefront_filters' and collection.filters.size == 0
-    assign show_filter = false
+    if section.settings.show_daily_usage_filter != true and section.settings.show_people_family_filter != true
+      assign show_filter = false
+    endif
   endif
   if section.settings.filters_type == 'tags_filter' and section.blocks.size == 0
     assign show_filter = false
@@ -132,7 +134,7 @@
               {%- assign so_filter_count = 0 -%}
               {%- for filter in collection.filters -%}
                 {%- assign so_filter_count = so_filter_count | plus: filter.active_values.size -%}
-                {%- if filter.type == 'price_range' -%}
+                {%- if filter.type == 'price_range' and section.settings.show_price_filter -%}
                   {%- if filter.min_value.value != nil or filter.max_value.value != nil -%}
                     {%- assign so_filter_count = so_filter_count | plus: 1 -%}
                   {%- endif -%}
@@ -574,6 +576,64 @@
       "label": "Filters title",
       "default": "Filters",
       "info": "Leave blank to hide"
+    },
+    {
+      "type": "header",
+      "content": "Filter groups"
+    },
+    {
+      "type": "paragraph",
+      "content": "Turn each filter on or off. Price, Storage, Daily Usage, and People in Family use Shopify storefront filters when they are enabled in Search & Discovery. Daily Usage and People in Family fall back to matching product tags if those storefront filters are not set up."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_price_filter",
+      "label": "Show Price filter",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_storage_filter",
+      "label": "Show Storage Tanks filter",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_daily_usage_filter",
+      "label": "Show Daily Usage filter",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "daily_usage_label",
+      "label": "Daily Usage heading",
+      "default": "Daily Usage"
+    },
+    {
+      "type": "textarea",
+      "id": "daily_usage_options",
+      "label": "Daily Usage options",
+      "default": "500 L/d\n1000 L/d\n1500 L/d\n2000 L/d\n5000 L/d\n10,000 L/d\n20,000 L/d",
+      "info": "One option per line. Used when a storefront filter is not set up. Match product tags exactly."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_people_family_filter",
+      "label": "Show People in Family filter",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "people_family_label",
+      "label": "People in Family heading",
+      "default": "People in Family"
+    },
+    {
+      "type": "textarea",
+      "id": "people_family_options",
+      "label": "People in Family options",
+      "default": "Upto 3 Members\n4 - 6 Members\n7 to 10 Members\n11 to 15 Members",
+      "info": "One option per line. Used when a storefront filter is not set up. Match product tags exactly."
     },
     {
       "type": "header",

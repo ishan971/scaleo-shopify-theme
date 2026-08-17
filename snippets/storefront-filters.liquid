@@ -31,24 +31,72 @@
         </select>
       </div>
     {%- endif -%}
+    {%- liquid
+      assign has_daily_usage_sf = false
+      assign has_people_family_sf = false
+      for filter in results.filters
+        assign scan_label = filter.label | downcase
+        if scan_label contains 'daily' or scan_label contains 'usage'
+          assign has_daily_usage_sf = true
+        endif
+        if scan_label contains 'people' or scan_label contains 'family' or scan_label contains 'member'
+          assign has_people_family_sf = true
+        endif
+      endfor
+    -%}
     {%- for filter in results.filters -%}
       {% liquid
         assign filter_label = filter.label | downcase
         assign show_bar_filter = true
         assign bar_label = filter.label
+        assign is_price_filter = false
+        assign is_storage_filter = false
+        assign is_daily_usage_filter = false
+        assign is_people_family_filter = false
 
-        if section.settings.enable_horizontal_filter_bar
-          assign show_bar_filter = false
-          if filter.type == 'price_range' or filter_label contains 'price'
-            assign show_bar_filter = true
-          endif
-          if filter_label contains 'storage' or filter_label contains 'tank'
-            assign show_bar_filter = true
+        if filter.type == 'price_range' or filter_label contains 'price'
+          assign is_price_filter = true
+        endif
+        if filter_label contains 'storage' or filter_label contains 'tank'
+          assign is_storage_filter = true
+        endif
+        if filter_label contains 'daily' or filter_label contains 'usage'
+          assign is_daily_usage_filter = true
+        endif
+        if filter_label contains 'people' or filter_label contains 'family' or filter_label contains 'member'
+          assign is_people_family_filter = true
+        endif
+
+        if is_price_filter
+          assign show_bar_filter = section.settings.show_price_filter
+        endif
+        if is_storage_filter
+          assign show_bar_filter = section.settings.show_storage_filter
+          if show_bar_filter
             assign bar_label = 'Storage Tanks'
           endif
-          if filter_label contains 'availab'
-            assign show_bar_filter = false
+        endif
+        if is_daily_usage_filter
+          assign show_bar_filter = section.settings.show_daily_usage_filter
+          if show_bar_filter and section.settings.daily_usage_label != blank
+            assign bar_label = section.settings.daily_usage_label
           endif
+        endif
+        if is_people_family_filter
+          assign show_bar_filter = section.settings.show_people_family_filter
+          if show_bar_filter and section.settings.people_family_label != blank
+            assign bar_label = section.settings.people_family_label
+          endif
+        endif
+
+        if filter_label contains 'availab'
+          assign show_bar_filter = false
+        endif
+
+        if section.settings.enable_horizontal_filter_bar
+          unless is_price_filter or is_storage_filter or is_daily_usage_filter or is_people_family_filter
+            assign show_bar_filter = false
+          endunless
         endif
       %}
       {%- unless show_bar_filter -%}
@@ -287,4 +335,18 @@
       <input type="hidden" name="q" value="{{ results.current_vendor }}{{ results.current_type }}">
     {%- endif -%}
   </form>
+  {%- if section.settings.show_daily_usage_filter and has_daily_usage_sf == false -%}
+    {% render 'scale-o-tag-filter',
+      title: section.settings.daily_usage_label,
+      options_text: section.settings.daily_usage_options,
+      group_id: 'daily-usage'
+    %}
+  {%- endif -%}
+  {%- if section.settings.show_people_family_filter and has_people_family_sf == false -%}
+    {% render 'scale-o-tag-filter',
+      title: section.settings.people_family_label,
+      options_text: section.settings.people_family_options,
+      group_id: 'people-family'
+    %}
+  {%- endif -%}
 </collection-filters-form>

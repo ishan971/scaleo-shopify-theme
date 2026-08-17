@@ -2193,3 +2193,10 @@
   }
 }
 
+/* Hide removed footer Quick Links (FAQ, Account, Manage Subscriptions) */
+#ecom-6690cb6b6b84be4b910e5968 .ecom-shopify__menu-item:has(a[title="FAQ"]),
+#ecom-6690cb6b6b84be4b910e5968 .ecom-shopify__menu-item:has(a[href*="/pages/rzp-account"]),
+#ecom-6690cb6b6b84be4b910e5968 .ecom-shopify__menu-item:has(a[href*="/pages/spurit-subscriptions"]) {
+  display: none !important;
+}
+

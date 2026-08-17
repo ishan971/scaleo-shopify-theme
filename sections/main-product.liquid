@@ -135,7 +135,7 @@
           {%- endif -%}
         </div>
       </div>
-      <div class="m-main-product--info m:column {{ info_class }}{% if animated %} m-scroll-trigger animate--{{ animation_effect }}{% endif %}">
+      <div class="m-main-product--info m:column {{ info_class }}">
         <div class="m-product-info--wrapper m:text-color-body">
           {% render 'main-product-blocks', section: section, product: product %}
         </div>
@@ -474,6 +474,13 @@
           "id": "show_quantity_selector",
           "default": true,
           "label": "Show quantity selector"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_secure_checkout",
+          "default": true,
+          "label": "Show Secure Checkout",
+          "info": "Shows payment icons under the buy buttons immediately (no scroll effect)."
         },
         {
           "type": "checkbox",

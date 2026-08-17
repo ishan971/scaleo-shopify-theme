@@ -2350,6 +2350,13 @@
         "info": "Shows the secondary View Cart button under Proceed to Checkout."
       },
       {
+        "type": "checkbox",
+        "id": "cart_drawer_show_quantity",
+        "label": "Show quantity +/- buttons",
+        "default": true,
+        "info": "Hide to remove increment and decrement controls on cart drawer line items. Quantity still shows as text."
+      },
+      {
         "type": "text",
         "id": "cart_drawer_view_cart_label",
         "label": "View cart text",

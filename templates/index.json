@@ -251,7 +251,7 @@
         "stat_customers",
         "stat_trial"
       ],
-      "settings": {
+          "settings": {
         "background_color": "#f5f7ff",
         "use_gradient": true,
         "gradient_end_color": "#eef6ff",
@@ -709,7 +709,7 @@
         "video_how",
         "video_customer"
       ],
-      "settings": {
+          "settings": {
         "show_eyebrow": true,
         "eyebrow": "WATCH & SHOP",
         "heading": "See Scale-O in Action",
@@ -1085,7 +1085,7 @@
         },
         "people_laundry": {
           "type": "benefit",
-          "settings": {
+      "settings": {
             "category": "people",
             "image_alt": "",
             "short_label": "",
@@ -1121,7 +1121,7 @@
         },
         "property_scale": {
           "type": "benefit",
-          "settings": {
+      "settings": {
             "category": "property",
             "image_alt": "",
             "short_label": "",
@@ -1254,7 +1254,7 @@
         },
         "hl_waste": {
           "type": "highlight",
-          "settings": {
+      "settings": {
             "theme_icon": "recycle",
             "title": "Zero Water Waste",
             "description": "No regeneration water wastage."
@@ -1590,7 +1590,7 @@
         },
         "feat_waste": {
           "type": "feature",
-          "settings": {
+      "settings": {
             "enabled": true,
             "title": "Water Wastage",
             "theme_icon": "droplet",
@@ -1945,7 +1945,7 @@
         },
         "story_4": {
           "type": "testimonial",
-          "settings": {
+      "settings": {
             "enabled": true,
             "highlight": false,
             "video_source": "youtube_vimeo",
@@ -1970,7 +1970,7 @@
         },
         "trust_1": {
           "type": "trust",
-          "settings": {
+      "settings": {
             "title": "Real Customers",
             "text": "Stories from Scale-O customers.",
             "icon": "people"
@@ -2011,7 +2011,7 @@
         "trust_3",
         "trust_4"
       ],
-      "settings": {
+          "settings": {
         "show_eyebrow": true,
         "eyebrow": "CUSTOMER STORIES",
         "heading": "Real Customers. Real Results.",

@@ -158,6 +158,7 @@
       {%- endif -%}
       <div class="m-cart-drawer-item__quantity m:flex m:items-center">
         {%- if gift_wrap_id == null or item.id != gift_wrap_id -%}
+          {%- if settings.cart_drawer_show_quantity != false -%}
           <m-quantity-input class="m-quantity">
             <button
               class="m-quantity__button"
@@ -208,6 +209,13 @@
               </svg>
             </button>
           </m-quantity-input>
+          {%- else -%}
+            <div class="m-quantity scale-o-cart-qty-static" aria-label="Quantity {{ item.quantity }}">
+              <span class="scale-o-cart-qty-static__label">Qty</span>
+              <span class="scale-o-cart-qty-static__value">{{ item.quantity }}</span>
+              <input type="hidden" name="updates[]" value="{{ item.quantity }}" data-index="{{ item.index | plus: 1 }}">
+            </div>
+          {%- endif -%}
         {%- else -%}
           <m-gift-wrapping-input
             class="m-quantity"

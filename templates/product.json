@@ -71,6 +71,7 @@
           "type": "buy_buttons",
           "settings": {
             "show_quantity_selector": true,
+            "show_secure_checkout": true,
             "show_atc_button": true,
             "show_dynamic_checkout": true,
             "show_gift_card_recipient": true
@@ -160,8 +161,7 @@
         ".sls-widget-branding,.ddreview-star {display: none;}",
         ".sls-price {margin-top: 15px;}",
         ".sls-option-container.seal-table {display: none;}",
-        ".sls-option-container.seal-table.sls-active {display: block;}",
-        "@media only screen and (min-width: 768px) {.m-product-form--input {width: 100px; } .m-product-form .m-add-to-cart {width: 36%; position: relative; flex-grow: 1; } .main-product__block-buy_buttons:not(.product-plan-buy-buttons) .m-product-dynamic-checkout.show-add-to-cart {width: 36%; margin-top: 20px; margin-left: 20px; }}"
+        ".sls-option-container.seal-table.sls-active {display: block;}"
       ],
       "settings": {
         "container": "container-fluid",

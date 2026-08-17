@@ -1,0 +1,15 @@
+{%- comment -%}
+  Secure checkout payment icons — shown immediately (no scroll animation)
+{%- endcomment -%}
+{%- if shop.enabled_payment_types.size > 0 -%}
+  <div class="product-secure-checkout" aria-label="Secure checkout">
+    <p class="product-secure-checkout__title">Secure Checkout</p>
+    <ul class="product-secure-checkout__list" role="list">
+      {%- for type in shop.enabled_payment_types -%}
+        <li class="product-secure-checkout__item">
+          {{ type | payment_type_svg_tag: class: 'product-secure-checkout__icon' }}
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+{%- endif -%}

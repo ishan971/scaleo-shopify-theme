@@ -1,53 +1,95 @@
 {%- comment -%}
-  Secondary hard-water problem card. Accepts: block, section, loading
+  Bento problem card — image + title badge
+  Accepts: block, section, loading, grid_style
 {%- endcomment -%}
 {%- liquid
   assign item = block.settings
+  assign load_mode = loading | default: 'lazy'
+  assign grid_style = grid_style | default: ''
+  assign theme_asset = blank
+
+  case item.icon
+    when 'skin'
+      assign theme_asset = 'scale-o-problem-skin.jpg'
+    when 'droplet'
+      assign theme_asset = 'scale-o-problem-water.jpg'
+    when 'floor'
+      assign theme_asset = 'scale-o-problem-stains.jpg'
+    when 'appliance'
+      assign theme_asset = 'scale-o-problem-appliance.jpg'
+    when 'none'
+      if item.title contains 'Kidney'
+        assign theme_asset = 'scale-o-problem-kidney.jpg'
+      endif
+  endcase
+
   assign card_image = item.image
   assign card_mobile = item.image_mobile | default: item.image
-  assign load_mode = loading | default: 'lazy'
+  assign use_theme_asset = false
+  if theme_asset != blank
+    assign use_theme_asset = true
+  endif
 -%}
-<article class="scale-o-problems__card" {{ block.shopify_attributes }}>
-  <div class="scale-o-problems__card-media">
-    {%- if card_image != blank -%}
-      {%- if item.cta_url != blank -%}
-        <a href="{{ item.cta_url }}" aria-label="{{ item.title | escape }}">
-      {%- endif -%}
-      <picture>
-        {%- if item.image_mobile != blank -%}
-          <source media="(max-width: 767px)" srcset="{{ card_mobile | image_url: width: 700 }}">
+<article
+  class="scale-o-problems__bento"
+  style="{{ grid_style }}"
+  tabindex="0"
+  {{ block.shopify_attributes }}
+>
+  <div class="scale-o-problems__bento-inner">
+    <div class="scale-o-problems__bento-media">
+      {%- if use_theme_asset or card_image != blank -%}
+        {%- if item.cta_url != blank -%}
+          <a href="{{ item.cta_url }}" class="scale-o-problems__bento-media-link" aria-label="{{ item.title | escape }}">
         {%- endif -%}
-        {{
-          card_image
-          | image_url: width: 800
-          | image_tag:
-            loading: load_mode,
-            widths: '280,400,600,800',
-            sizes: '(min-width: 1024px) 25vw, (min-width: 768px) 45vw, 100vw',
-            alt: item.title | escape
-        }}
-      </picture>
-      {%- if item.cta_url != blank -%}
-        </a>
-      {%- endif -%}
-    {%- else -%}
-      {{ 'lifestyle-2' | placeholder_svg_tag: 'scale-o-problems__card-placeholder' }}
-    {%- endif -%}
-  </div>
-  <div class="scale-o-problems__card-body">
-    <div class="scale-o-problems__meta">
-      {%- if item.number != blank -%}
-        <span class="scale-o-problems__number">{{ item.number | escape }}</span>
-      {%- endif -%}
-      {%- if item.title != blank -%}
-        <h3 class="scale-o-problems__title">{{ item.title | escape }}</h3>
+        {%- if use_theme_asset -%}
+          <img
+            src="{{ theme_asset | asset_url }}"
+            class="scale-o-problems__bento-img"
+            loading="{{ load_mode }}"
+            width="1200"
+            height="900"
+            alt="{{ item.title | escape }}"
+          >
+        {%- else -%}
+          <picture>
+            {%- if item.image_mobile != blank -%}
+              <source media="(max-width: 767px)" srcset="{{ card_mobile | image_url: width: 900 }}">
+            {%- endif -%}
+            {{
+              card_image
+              | image_url: width: 1200
+              | image_tag:
+                class: 'scale-o-problems__bento-img',
+                loading: load_mode,
+                widths: '400,600,900,1200',
+                sizes: '(min-width: 1024px) 30vw, 100vw',
+                alt: item.title | escape
+            }}
+          </picture>
+        {%- endif -%}
+        {%- if item.cta_url != blank -%}
+          </a>
+        {%- endif -%}
+      {%- else -%}
+        {{ 'lifestyle-2' | placeholder_svg_tag: 'scale-o-problems__bento-placeholder' }}
       {%- endif -%}
     </div>
-    {%- if item.description != blank -%}
-      <p class="scale-o-problems__text">{{ item.description | escape }}</p>
-    {%- endif -%}
-    {%- if item.cta_text != blank and item.cta_url != blank -%}
-      <a class="scale-o-problems__link" href="{{ item.cta_url }}">{{ item.cta_text | escape }}</a>
+
+    {%- if item.title != blank -%}
+      <div class="scale-o-problems__bento-badge-wrap">
+        {%- if item.cta_url != blank -%}
+          <a href="{{ item.cta_url }}" class="scale-o-problems__bento-badge-link" aria-label="{{ item.title | escape }}">
+            <span class="scale-o-problems__bento-badge">{{ item.title | escape }}</span>
+          </a>
+        {%- else -%}
+          <span class="scale-o-problems__bento-badge">{{ item.title | escape }}</span>
+        {%- endif -%}
+      </div>
     {%- endif -%}
   </div>
+
+  {%- if item.title != blank -%}
+    <span class="visually-hidden">{{ item.title | escape }}{% if item.description != blank %} — {{ item.description | escape }}{% endif %}</span>
+  {%- endif -%}
 </article>

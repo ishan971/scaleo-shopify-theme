@@ -133,11 +133,12 @@
 -%}
 
 <article
-  class="scale-o-watch-shop__card"
+  class="scale-o-watch-shop__card{% if do_muted %} is-muted{% endif %}"
   {{ block.shopify_attributes }}
   data-was-card
   data-autoplay="{% if do_autoplay %}true{% else %}false{% endif %}"
   data-controls="{% if do_controls %}true{% else %}false{% endif %}"
+  data-was-muted="{% if do_muted %}true{% else %}false{% endif %}"
 >
   <div class="scale-o-watch-shop__media" data-was-media>
     {%- if media_kind == 'shopify' -%}
@@ -197,6 +198,26 @@
 
   {%- if block.settings.show_badge and block.settings.badge != blank -%}
     <p class="scale-o-watch-shop__badge">{{ block.settings.badge | escape }}</p>
+  {%- endif -%}
+
+  {%- if media_kind != 'none' -%}
+    <button
+      type="button"
+      class="scale-o-watch-shop__mute"
+      data-was-mute
+      aria-label="{% if do_muted %}Unmute video{% else %}Mute video{% endif %}"
+      aria-pressed="{% if do_muted %}true{% else %}false{% endif %}"
+    >
+      <svg class="scale-o-watch-shop__mute-icon scale-o-watch-shop__mute-icon--on" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M11 5L6 9H3v6h3l5 4V5z" fill="currentColor"/>
+        <path d="M16 9l6 6M22 9l-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      </svg>
+      <svg class="scale-o-watch-shop__mute-icon scale-o-watch-shop__mute-icon--off" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M11 5L6 9H3v6h3l5 4V5z" fill="currentColor"/>
+        <path d="M15.5 8.5a5 5 0 010 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        <path d="M18 6a8.5 8.5 0 010 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      </svg>
+    </button>
   {%- endif -%}
 
   {%- if block.settings.show_video_title and overlay_title != blank -%}

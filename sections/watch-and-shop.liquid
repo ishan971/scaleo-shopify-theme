@@ -57,6 +57,7 @@
     --was-cols-desktop: {{ section.settings.desktop_cards }};
     --was-cols-tablet: {{ section.settings.tablet_cards }};
     --was-cols-mobile: {{ section.settings.mobile_cards }};
+    --was-mobile-card-width: 90%;
     --was-grid-desktop: {{ grid_desktop }};
     --was-grid-tablet: {{ grid_tablet }};
     --was-pad-x: {{ section.settings.padding_x }}px;
@@ -196,8 +197,9 @@
       "type": "select",
       "id": "mobile_cards",
       "label": "Mobile cards visible",
-      "default": "1.5",
+      "default": "1",
       "options": [
+        { "value": "1", "label": "1" },
         { "value": "1.25", "label": "1.25" },
         { "value": "1.5", "label": "1.5" },
         { "value": "2", "label": "2" }

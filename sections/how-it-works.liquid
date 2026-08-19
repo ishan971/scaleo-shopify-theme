@@ -51,6 +51,8 @@
     --hiw-help-bg: {{ section.settings.help_cta_background }};
     --hiw-help-border: {{ section.settings.help_cta_border_color }};
     --hiw-help-heading: {{ section.settings.help_cta_heading_color }};
+    --hiw-step-glow: {{ section.settings.step_active_glow | default: section.settings.accent_color }};
+    --hiw-journey-fade: {{ section.settings.journey_image_fade_ms | default: 600 }}ms;
   }
 
   #shopify-section-{{ section.id }} .scale-o-how-it-works {
@@ -135,6 +137,39 @@
   #shopify-section-{{ section.id }} .scale-o-how-it-works__diagram-wrap {
     width: 100%;
     margin-bottom: 16px;
+    position: relative;
+    min-height: 220px;
+    aspect-ratio: 6 / 5;
+  }
+
+  #shopify-section-{{ section.id }} .scale-o-how-it-works__journey-slide .scale-o-how-it-works__diagram-img,
+  #shopify-section-{{ section.id }} .scale-o-how-it-works__journey-slide .scale-o-how-it-works__diagram-svg {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  #shopify-section-{{ section.id }} .scale-o-how-it-works__journey-slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--hiw-journey-fade) ease, visibility var(--hiw-journey-fade) ease;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  #shopify-section-{{ section.id }} .scale-o-how-it-works__journey-slide.is-active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    z-index: 1;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #shopify-section-{{ section.id }} .scale-o-how-it-works__journey-slide {
+      transition: none;
+    }
   }
 
   #shopify-section-{{ section.id }} .scale-o-how-it-works__diagram-img {
@@ -220,20 +255,36 @@
     background: var(--hiw-card-bg);
     border: 1px solid color-mix(in srgb, var(--hiw-divider) 30%, transparent);
     box-shadow: var(--hiw-card-shadow);
-    transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
-    cursor: default;
+    transition: border-color 0.35s ease, box-shadow 0.35s ease, transform 0.35s ease, background 0.35s ease;
+    cursor: pointer;
   }
 
   @media (prefers-reduced-motion: no-preference) {
     #shopify-section-{{ section.id }} .scale-o-how-it-works__step.is-active {
-      border-color: color-mix(in srgb, var(--hiw-accent) 45%, transparent);
-      box-shadow: var(--hiw-card-shadow-hover);
-      transform: translateY(-1px);
+      border-color: color-mix(in srgb, var(--hiw-step-glow) 55%, transparent);
+      background: color-mix(in srgb, var(--hiw-step-glow) 4%, var(--hiw-card-bg));
+      box-shadow:
+        0 0 0 1px color-mix(in srgb, var(--hiw-step-glow) 35%, transparent),
+        0 10px 28px color-mix(in srgb, var(--hiw-step-glow) 22%, transparent),
+        0 2px 8px rgba(26, 43, 74, 0.06);
+      transform: translateY(-2px);
     }
 
-    #shopify-section-{{ section.id }} .scale-o-how-it-works__step:hover {
-      box-shadow: var(--hiw-card-shadow-hover);
+    #shopify-section-{{ section.id }} .scale-o-how-it-works__step.is-active .scale-o-how-it-works__step-num {
+      background: var(--hiw-step-glow);
+      color: #fff;
+      box-shadow: 0 4px 12px color-mix(in srgb, var(--hiw-step-glow) 35%, transparent);
     }
+
+    #shopify-section-{{ section.id }} .scale-o-how-it-works__step:hover:not(.is-active) {
+      box-shadow: var(--hiw-card-shadow-hover);
+      border-color: color-mix(in srgb, var(--hiw-step-glow) 25%, transparent);
+    }
+  }
+
+  #shopify-section-{{ section.id }} .scale-o-how-it-works__step:focus-visible {
+    outline: 2px solid var(--hiw-step-glow);
+    outline-offset: 2px;
   }
 
   #shopify-section-{{ section.id }} .scale-o-how-it-works__step-num {
@@ -248,6 +299,7 @@
     color: var(--hiw-step-num);
     font-size: 13px;
     font-weight: 700;
+    transition: background 0.35s ease, color 0.35s ease, box-shadow 0.35s ease;
     border: 1.5px solid color-mix(in srgb, var(--hiw-accent) 25%, transparent);
   }
 
@@ -619,6 +671,9 @@
   class="scale-o-how-it-works scale-o-how-it-works--mobile-{{ section.settings.detail_mobile_layout }}"
   data-section-id="{{ section.id }}"
   {% if video_url != blank %}data-video-url="{{ video_url | escape }}"{% endif %}
+  data-journey-autoplay="{{ section.settings.enable_journey_autoplay }}"
+  data-journey-hover="{{ section.settings.enable_journey_hover }}"
+  data-journey-interval="{{ section.settings.journey_autoplay_seconds | times: 1000 }}"
   role="region"
   aria-label="{{ section.settings.accessibility_label | default: 'How Scale-O works' | escape }}"
 >
@@ -637,34 +692,85 @@
 
     <div class="scale-o-how-it-works__main">
       <div class="scale-o-how-it-works__visual">
-        <div class="scale-o-how-it-works__diagram-wrap">
-          {%- if diagram_desktop != blank or diagram_mobile != blank -%}
-            <picture>
-              {%- if diagram_mobile != blank -%}
-                <source
-                  media="(max-width: 767px)"
-                  srcset="
-                    {{ diagram_mobile | image_url: width: 600 }} 600w,
-                    {{ diagram_mobile | image_url: width: 800 }} 800w,
-                    {{ diagram_mobile | image_url: width: 1000 }} 1000w
-                  "
-                  sizes="100vw"
-                >
-              {%- endif -%}
-              {%- assign diagram_fallback = diagram_desktop | default: diagram_mobile -%}
-              {{
-                diagram_fallback
-                | image_url: width: 1200
-                | image_tag:
-                  class: 'scale-o-how-it-works__diagram-img',
-                  loading: 'lazy',
-                  widths: '600,800,1000,1200',
-                  sizes: '(min-width: 992px) 52vw, 100vw',
-                  alt: section.settings.diagram_alt | default: 'Scale-O installation diagram' | escape
-              }}
-            </picture>
+        <div class="scale-o-how-it-works__diagram-wrap" data-hiw-journey-visual>
+          {%- if journey_blocks.size > 0 -%}
+            {%- for block in journey_blocks -%}
+              {%- liquid
+                assign slide_image = block.settings.image
+                assign slide_image_mobile = block.settings.image_mobile
+                if slide_image == blank
+                  assign slide_image = diagram_desktop
+                endif
+                if slide_image_mobile == blank
+                  assign slide_image_mobile = diagram_mobile | default: slide_image
+                endif
+                assign slide_alt = block.settings.image_alt | default: block.settings.title | default: section.settings.diagram_alt
+              -%}
+              <div
+                class="scale-o-how-it-works__journey-slide{% if forloop.first %} is-active{% endif %}"
+                data-journey-slide="{{ forloop.index0 }}"
+              >
+                {%- if slide_image != blank or slide_image_mobile != blank -%}
+                  <picture>
+                    {%- if slide_image_mobile != blank -%}
+                      <source
+                        media="(max-width: 767px)"
+                        srcset="
+                          {{ slide_image_mobile | image_url: width: 600 }} 600w,
+                          {{ slide_image_mobile | image_url: width: 800 }} 800w,
+                          {{ slide_image_mobile | image_url: width: 1000 }} 1000w
+                        "
+                        sizes="100vw"
+                      >
+                    {%- endif -%}
+                    {%- assign slide_fallback = slide_image | default: slide_image_mobile -%}
+                    {{
+                      slide_fallback
+                      | image_url: width: 1200
+                      | image_tag:
+                        class: 'scale-o-how-it-works__diagram-img',
+                        loading: 'lazy',
+                        widths: '600,800,1000,1200',
+                        sizes: '(min-width: 992px) 52vw, 100vw',
+                        alt: slide_alt | escape
+                    }}
+                  </picture>
+                {%- else -%}
+                  {%- render 'how-it-works-diagram' -%}
+                {%- endif -%}
+              </div>
+            {%- endfor -%}
+          {%- elsif diagram_desktop != blank or diagram_mobile != blank -%}
+            <div class="scale-o-how-it-works__journey-slide is-active" data-journey-slide="0">
+              <picture>
+                {%- if diagram_mobile != blank -%}
+                  <source
+                    media="(max-width: 767px)"
+                    srcset="
+                      {{ diagram_mobile | image_url: width: 600 }} 600w,
+                      {{ diagram_mobile | image_url: width: 800 }} 800w,
+                      {{ diagram_mobile | image_url: width: 1000 }} 1000w
+                    "
+                    sizes="100vw"
+                  >
+                {%- endif -%}
+                {%- assign diagram_fallback = diagram_desktop | default: diagram_mobile -%}
+                {{
+                  diagram_fallback
+                  | image_url: width: 1200
+                  | image_tag:
+                    class: 'scale-o-how-it-works__diagram-img',
+                    loading: 'lazy',
+                    widths: '600,800,1000,1200',
+                    sizes: '(min-width: 992px) 52vw, 100vw',
+                    alt: section.settings.diagram_alt | default: 'Scale-O installation diagram' | escape
+                }}
+              </picture>
+            </div>
           {%- else -%}
-            {%- render 'how-it-works-diagram' -%}
+            <div class="scale-o-how-it-works__journey-slide is-active" data-journey-slide="0">
+              {%- render 'how-it-works-diagram' -%}
+            </div>
           {%- endif -%}
         </div>
 
@@ -698,6 +804,10 @@
             <li
               class="scale-o-how-it-works__step{% if forloop.first %} is-active{% endif %}"
               data-journey-step
+              data-journey-index="{{ forloop.index0 }}"
+              tabindex="0"
+              role="button"
+              aria-pressed="{% if forloop.first %}true{% else %}false{% endif %}"
               {{ block.shopify_attributes }}
             >
               {%- if block.settings.step_number != blank -%}
@@ -886,6 +996,47 @@
       "info": "Recommended size: 800 × 900 px (portrait). Optional."
     },
     { "type": "text", "id": "diagram_alt", "label": "Diagram alt text", "default": "Scale-O installation flow from overhead tank to home" },
+    { "type": "header", "content": "Step carousel (left image + right steps)" },
+    {
+      "type": "checkbox",
+      "id": "enable_journey_autoplay",
+      "label": "Auto-rotate steps",
+      "default": true,
+      "info": "Highlights each step card in order and fades the matching left image."
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_journey_hover",
+      "label": "Activate step on hover",
+      "default": false,
+      "info": "When enabled, hovering a step card switches the active image and highlight."
+    },
+    {
+      "type": "range",
+      "id": "journey_autoplay_seconds",
+      "label": "Seconds per step",
+      "min": 3,
+      "max": 10,
+      "step": 1,
+      "unit": "s",
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "journey_image_fade_ms",
+      "label": "Image fade duration",
+      "min": 200,
+      "max": 1000,
+      "step": 50,
+      "unit": "ms",
+      "default": 600
+    },
+    {
+      "type": "color",
+      "id": "step_active_glow",
+      "label": "Active step glow color",
+      "default": "#0C7FDF"
+    },
     { "type": "text", "id": "installation_video_url", "label": "Installation video URL (YouTube)" },
     { "type": "text", "id": "video_button_text", "label": "Video button text", "default": "Watch Installation Video" },
     { "type": "header", "content": "Treatment flow labels" },
@@ -995,7 +1146,9 @@
             { "value": "none", "label": "None" }
           ]
         },
-        { "type": "image_picker", "id": "image", "label": "Optional image" },
+        { "type": "image_picker", "id": "image", "label": "Step image (left panel)", "info": "Shown when this step is active. Falls back to the section desktop diagram if empty." },
+        { "type": "image_picker", "id": "image_mobile", "label": "Step image — mobile (optional)", "info": "Optional mobile override for this step's left image." },
+        { "type": "text", "id": "image_alt", "label": "Step image alt text" },
         { "type": "text", "id": "title", "label": "Title", "default": "Choose Your Scale-O" },
         { "type": "textarea", "id": "description", "label": "Description", "default": "Select the right model for your home's water usage." },
         { "type": "url", "id": "link", "label": "Optional link" },

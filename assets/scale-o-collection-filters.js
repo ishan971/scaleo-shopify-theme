@@ -15,11 +15,38 @@
   const closePopovers = (root) => {
     root.querySelectorAll('.m-filter--widget.is-popover-open').forEach((el) => {
       el.classList.remove('is-popover-open');
+      const title = el.querySelector('.m-filter--widget-title');
+      if (title) title.setAttribute('aria-expanded', 'false');
+      const content = el.querySelector('.m-filter--widget-content, .m-accordion--item-content');
+      if (!content) return;
+      content.style.left = '';
+      content.style.right = '';
     });
   };
 
   const closeDesktopDrawer = (section) => {
     section.classList.remove('scale-o-desktop-drawer');
+  };
+
+  const inDrawer = (section) =>
+    section.classList.contains('scale-o-desktop-drawer') || section.classList.contains('sidebar-open');
+
+  const keepPopoverInView = (widget) => {
+    const content = widget.querySelector('.m-filter--widget-content, .m-accordion--item-content');
+    if (!content) return;
+    content.style.left = '0px';
+    content.style.right = 'auto';
+    const rect = content.getBoundingClientRect();
+    const pad = 12;
+    if (rect.right > window.innerWidth - pad) {
+      content.style.left = 'auto';
+      content.style.right = '0px';
+    }
+    const next = content.getBoundingClientRect();
+    if (next.left < pad) {
+      content.style.left = Math.max(pad - widget.getBoundingClientRect().left, 0) + 'px';
+      content.style.right = 'auto';
+    }
   };
 
   const onDocClick = (event) => {
@@ -53,15 +80,22 @@
       closeDesktopDrawer(section);
     }
 
-    if (title && desktop && !section.classList.contains('scale-o-desktop-drawer')) {
+    if (title && !inDrawer(section)) {
       event.preventDefault();
+      event.stopPropagation();
       event.stopImmediatePropagation();
       const widget = title.closest('.m-filter--widget.m-accordion--item') || title.closest('.m-filter--widget');
       if (!widget || widget.classList.contains('m-collection-filters-form')) return;
       const wasOpen = widget.classList.contains('is-popover-open');
       closePopovers(section);
       collapseAccordions(section);
-      if (!wasOpen) widget.classList.add('is-popover-open');
+      if (!wasOpen) {
+        widget.classList.add('is-popover-open');
+        title.setAttribute('aria-expanded', 'true');
+        keepPopoverInView(widget);
+      } else {
+        title.setAttribute('aria-expanded', 'false');
+      }
       return;
     }
 

@@ -1,34 +1,46 @@
 {%- comment -%}
-  Scale-O collection hero — full-width background, static copy, optional image carousel
+  Scale-O collection hero — homepage-style auto slider.
+  Each Theme Editor slide has its own image + left-side text.
+  Height, overlay, and panel size stay the same.
 {%- endcomment -%}
 
 {{ 'scale-o-collection-hero.css' | asset_url | stylesheet_tag }}
 <script src="{{ 'scale-o-collection-hero.js' | asset_url }}" defer></script>
 
 {%- liquid
-  assign line1 = section.settings.heading_line_1
-  assign line2 = section.settings.heading_line_2
-  if line1 == blank
-    assign line1 = 'Scale-O'
-  endif
-  if line2 == blank
-    assign line2 = 'Water Softeners'
-  endif
-
-  assign cta_url = section.settings.cta_url
-  if cta_url == blank
-    assign cta_url = '#CollectionProductGrid'
-  endif
-
-  assign bg_count = 0
-  if section.settings.image != blank
-    assign bg_count = 1
-  endif
+  assign visible_slides = 0
+  assign first_slide_id = ''
   for block in section.blocks
-    if block.type == 'slide' and block.settings.image != blank
-      assign bg_count = bg_count | plus: 1
+    if block.type == 'slide' and block.settings.enabled != false
+      assign visible_slides = visible_slides | plus: 1
+      if first_slide_id == blank
+        assign first_slide_id = block.id
+      endif
     endif
   endfor
+
+  assign use_fallback = false
+  if visible_slides < 2
+    assign use_fallback = true
+    assign visible_slides = 3
+  endif
+
+  assign default_cta = section.settings.cta_url
+  if default_cta == blank
+    assign default_cta = '#CollectionProductGrid'
+  endif
+
+  assign trust_count = 0
+  for block in section.blocks
+    if block.type == 'trust_item'
+      assign trust_count = trust_count | plus: 1
+    endif
+  endfor
+  assign use_trust_fallback = false
+  if trust_count == 0
+    assign use_trust_fallback = true
+    assign trust_count = 3
+  endif
 -%}
 
 <style>
@@ -41,6 +53,12 @@
     --soch-max: {% if section.settings.content_width == 0 %}100%{% else %}{{ section.settings.content_width }}px{% endif %};
     --soch-height: {{ section.settings.desktop_height }}px;
     --soch-media-mobile: {{ section.settings.mobile_height }}px;
+    --soch-trust-bg: {{ section.settings.trust_background | default: '#f5f7ff' }};
+    --soch-trust-bg-end: {{ section.settings.trust_background_end | default: '#eef6ff' }};
+    --soch-trust-value: {{ section.settings.trust_value_color | default: '#1a2b4a' }};
+    --soch-trust-label: {{ section.settings.trust_label_color | default: '#2a6ab2' }};
+    --soch-trust-desc: {{ section.settings.trust_description_color | default: '#5a6b85' }};
+    --soch-trust-count: {{ trust_count | at_least: 1 }};
     padding-bottom: {{ section.settings.padding_bottom }}px;
   }
   @media screen and (max-width: 767px) {
@@ -59,104 +77,222 @@
 <section
   class="scale-o-collection-hero"
   data-soch-hero
-  data-autoplay="{% if section.settings.enable_autoplay and bg_count > 1 %}true{% else %}false{% endif %}"
+  data-autoplay="{% if section.settings.enable_autoplay and visible_slides > 1 %}true{% else %}false{% endif %}"
   data-interval="{{ section.settings.autoplay_speed | times: 1000 }}"
-  aria-label="{{ line1 | append: ' ' | append: line2 | escape }}"
+  role="region"
+  aria-roledescription="carousel"
+  aria-label="{{ section.settings.accessibility_label | default: 'Collection banners' | escape }}"
 >
+  <p class="scale-o-collection-hero__live" data-soch-live aria-live="polite"></p>
+
   <div class="scale-o-collection-hero__inner">
     <div class="scale-o-collection-hero__panel">
-      <div class="scale-o-collection-hero__bgs">
-        {%- assign first_active = true -%}
-        {%- if section.settings.image != blank -%}
-          {%- assign hero_alt = section.settings.image.alt | default: line2 -%}
-          <div class="scale-o-collection-hero__bg is-active" data-soch-bg>
-            {%- if section.settings.mobile_image != blank -%}
-              <picture>
-                <source media="(max-width: 767px)" srcset="{{ section.settings.mobile_image | image_url: width: 1000 }}">
-                {{ section.settings.image | image_url: width: 1800 | image_tag: loading: 'eager', widths: '800, 1200, 1600, 1800', alt: hero_alt }}
-              </picture>
-            {%- else -%}
-              {{ section.settings.image | image_url: width: 1800 | image_tag: loading: 'eager', widths: '800, 1200, 1600, 1800', alt: hero_alt }}
-            {%- endif -%}
-          </div>
-          {%- assign first_active = false -%}
-        {%- endif -%}
+      {%- if section.settings.show_arrows and visible_slides > 1 -%}
+        <button type="button" class="scale-o-collection-hero__nav scale-o-collection-hero__nav--prev" data-soch-prev aria-label="Previous slide">
+          <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false">
+            <path d="M10 3.5 5.5 8 10 12.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <button type="button" class="scale-o-collection-hero__nav scale-o-collection-hero__nav--next" data-soch-next aria-label="Next slide">
+          <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false">
+            <path d="M6 3.5 10.5 8 6 12.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      {%- endif -%}
 
-        {%- for block in section.blocks -%}
-          {%- if block.type == 'slide' and block.settings.image != blank -%}
-            {%- assign slide_alt = block.settings.alt | default: block.settings.image.alt | default: line2 -%}
-            <div
-              class="scale-o-collection-hero__bg{% if first_active %} is-active{% endif %}"
-              data-soch-bg
-              {{ block.shopify_attributes }}
-            >
-              {%- if block.settings.mobile_image != blank -%}
-                <picture>
-                  <source media="(max-width: 767px)" srcset="{{ block.settings.mobile_image | image_url: width: 1000 }}">
-                  {{ block.settings.image | image_url: width: 1800 | image_tag: loading: 'lazy', widths: '800, 1200, 1600, 1800', alt: slide_alt }}
-                </picture>
-              {%- else -%}
-                {{ block.settings.image | image_url: width: 1800 | image_tag: loading: 'lazy', widths: '800, 1200, 1600, 1800', alt: slide_alt }}
-              {%- endif -%}
-            </div>
+      <div class="scale-o-collection-hero__slides">
+        {%- if use_fallback -%}
+          {%- liquid
+            assign fallback_secondary_url = section.settings.secondary_cta_url | default: default_cta
+          -%}
+          {%- render 'scale-o-collection-hero-slide',
+            is_first: true,
+            is_active: true,
+            image: section.settings.image,
+            mobile_image: section.settings.mobile_image,
+            eyebrow: section.settings.eyebrow,
+            line1: section.settings.heading_line_1,
+            line2: section.settings.heading_line_2,
+            show_underline: section.settings.show_heading_underline,
+            description: section.settings.description,
+            show_cta: section.settings.show_cta,
+            cta_label: section.settings.cta_label,
+            cta_url: default_cta,
+            show_secondary: section.settings.show_secondary_cta,
+            secondary_label: section.settings.secondary_cta_label,
+            secondary_url: fallback_secondary_url,
+            text_alignment: section.settings.text_alignment,
+            alt: section.settings.heading_line_2,
+            banner_preset: 'highlights'
+          -%}
+          {%- render 'scale-o-collection-hero-slide',
+            is_first: false,
+            is_active: false,
+            eyebrow: 'SCALE-O 0 FACTOR',
+            line1: 'Zero Salt. Zero Power.',
+            line2: 'Zero Hassle.',
+            show_underline: false,
+            description: 'No salt, no electricity, no plumber, no maintenance. Drop Scale-O in your overhead tank and protect the whole house.',
+            show_cta: false,
+            cta_label: section.settings.cta_label,
+            cta_url: default_cta,
+            show_secondary: false,
+            secondary_label: section.settings.secondary_cta_label,
+            secondary_url: fallback_secondary_url,
+            text_alignment: section.settings.text_alignment,
+            alt: 'Scale-O 0 Factor salt-free water softener',
+            banner_preset: 'family'
+          -%}
+          {%- render 'scale-o-collection-hero-slide',
+            is_first: false,
+            is_active: false,
+            eyebrow: 'PRODUCT HIGHLIGHTS',
+            line1: 'Smart Water Softening.',
+            line2: 'Without Salt or Electricity.',
+            show_underline: false,
+            description: 'Mini, Semi and Centi for 500L to 2500L tanks. Choose by family size and daily use — salt-free, built for Indian homes.',
+            show_cta: false,
+            cta_label: section.settings.cta_label,
+            cta_url: default_cta,
+            show_secondary: false,
+            secondary_label: section.settings.secondary_cta_label,
+            secondary_url: fallback_secondary_url,
+            text_alignment: section.settings.text_alignment,
+            alt: 'Scale-O Mini Semi Centi product highlights',
+            banner_preset: 'highlights'
+          -%}
+        {%- else -%}
+          {%- assign first_active = true -%}
+          {%- for block in section.blocks -%}
+            {%- if block.type != 'slide' or block.settings.enabled == false -%}{%- continue -%}{%- endif -%}
+            {%- liquid
+              assign is_first = false
+              if block.id == first_slide_id
+                assign is_first = true
+              endif
+              assign slide_image = block.settings.image
+              assign slide_mobile = block.settings.mobile_image | default: block.settings.image_mobile
+              assign slide_eyebrow = block.settings.eyebrow | default: section.settings.eyebrow
+              assign slide_line1 = block.settings.heading_line_1
+              if slide_line1 == blank
+                assign slide_line1 = section.settings.heading_line_1
+              endif
+              assign slide_line2 = block.settings.heading_line_2
+              if slide_line2 == blank
+                assign slide_line2 = section.settings.heading_line_2
+              endif
+              assign slide_desc = block.settings.description
+              if slide_desc == blank
+                assign slide_desc = section.settings.description
+              endif
+              assign slide_cta_url = block.settings.cta_url | default: default_cta
+              assign slide_secondary_url = block.settings.secondary_cta_url | default: slide_cta_url
+              assign slide_alt = block.settings.alt | default: block.settings.image_alt | default: slide_line2
+              assign slide_show_cta = block.settings.show_cta
+              if slide_show_cta == nil
+                assign slide_show_cta = section.settings.show_cta
+              endif
+              assign slide_show_secondary = block.settings.show_secondary_cta
+              if slide_show_secondary == nil
+                assign slide_show_secondary = section.settings.show_secondary_cta
+              endif
+              assign slide_cta_label = block.settings.cta_label | default: section.settings.cta_label
+              assign slide_secondary_label = block.settings.secondary_cta_label | default: section.settings.secondary_cta_label
+              assign slide_align = block.settings.text_alignment | default: section.settings.text_alignment
+              assign slide_preset = block.settings.banner_preset | default: 'highlights'
+            -%}
+            {%- render 'scale-o-collection-hero-slide',
+              block: block,
+              is_first: is_first,
+              is_active: first_active,
+              image: slide_image,
+              mobile_image: slide_mobile,
+              eyebrow: slide_eyebrow,
+              line1: slide_line1,
+              line2: slide_line2,
+              show_underline: block.settings.show_heading_underline,
+              description: slide_desc,
+              show_cta: slide_show_cta,
+              cta_label: slide_cta_label,
+              cta_url: slide_cta_url,
+              show_secondary: slide_show_secondary,
+              secondary_label: slide_secondary_label,
+              secondary_url: slide_secondary_url,
+              text_alignment: slide_align,
+              alt: slide_alt,
+              banner_preset: slide_preset
+            -%}
             {%- assign first_active = false -%}
-          {%- endif -%}
-        {%- endfor -%}
-
-        {%- if first_active -%}
-          <div class="scale-o-collection-hero__bg is-active" data-soch-bg>
-            <div class="scale-o-collection-hero__placeholder">{{ 'collection-1' | placeholder_svg_tag }}</div>
-          </div>
+          {%- endfor -%}
         {%- endif -%}
       </div>
 
-      <div class="scale-o-collection-hero__veil" aria-hidden="true"></div>
-
-      <div class="scale-o-collection-hero__copy{% if section.settings.text_alignment == 'center' %} scale-o-collection-hero__copy--center{% endif %}">
-        {%- if section.settings.eyebrow != blank -%}
-          <p class="scale-o-collection-hero__eyebrow">{{ section.settings.eyebrow | escape }}</p>
-        {%- endif -%}
-        <h1 class="scale-o-collection-hero__heading">
-          <span class="scale-o-collection-hero__heading-line">{{ line1 | escape }}</span>
-          <span class="scale-o-collection-hero__heading-line{% if section.settings.show_heading_underline %} scale-o-collection-hero__heading-line--accent{% endif %}">{{ line2 | escape }}</span>
-        </h1>
-        {%- if section.settings.description != blank -%}
-          <p class="scale-o-collection-hero__text">{{ section.settings.description | escape }}</p>
-        {%- endif -%}
-        {%- liquid
-          assign show_hero_primary = false
-          assign show_hero_secondary = false
-          if section.settings.show_cta and section.settings.cta_label != blank
-            assign show_hero_primary = true
-          endif
-          if section.settings.show_secondary_cta and section.settings.secondary_cta_label != blank
-            assign show_hero_secondary = true
-          endif
-        -%}
-        {%- if show_hero_primary or show_hero_secondary -%}
-          <div class="scale-o-collection-hero__actions">
-            {%- if show_hero_primary -%}
-              <a class="scale-o-collection-hero__cta" href="{{ cta_url }}">
-                {{ section.settings.cta_label | escape }}
-                {%- unless section.settings.cta_label contains '→' -%}
-                  <span aria-hidden="true">→</span>
-                {%- endunless -%}
-              </a>
-            {%- endif -%}
-            {%- if show_hero_secondary -%}
-              <a class="scale-o-collection-hero__link" href="{{ section.settings.secondary_cta_url | default: cta_url }}">
-                {{ section.settings.secondary_cta_label | replace: '→', '' | strip | escape }}
-                <span aria-hidden="true">→</span>
-              </a>
-            {%- endif -%}
-          </div>
-        {%- endif -%}
-      </div>
-
-      {%- if bg_count > 1 and section.settings.show_dots -%}
+      {%- if visible_slides > 1 and section.settings.show_dots -%}
         <div class="scale-o-collection-hero__dots" data-soch-dots></div>
       {%- endif -%}
     </div>
+
+    {%- if section.settings.show_trust_strip != false -%}
+      <div class="scale-o-collection-hero__trust" role="region" aria-label="{{ section.settings.trust_accessibility_label | default: 'Customer statistics' | escape }}">
+        <div class="scale-o-collection-hero__trust-inner">
+          <ul class="scale-o-collection-hero__trust-list" role="list">
+            {%- if use_trust_fallback -%}
+              <li class="scale-o-collection-hero__trust-item">
+                <span class="scale-o-collection-hero__trust-icon" aria-hidden="true">{%- render 'stats-trust-icon', icon: 'star', class: 'scale-o-collection-hero__trust-svg' -%}</span>
+                <span class="scale-o-collection-hero__trust-text">
+                  <span class="scale-o-collection-hero__trust-value">4.8/5</span>
+                  <span class="scale-o-collection-hero__trust-label">Overall Customer Rating</span>
+                  <span class="scale-o-collection-hero__trust-desc">Rated by our customers</span>
+                </span>
+              </li>
+              <li class="scale-o-collection-hero__trust-item">
+                <span class="scale-o-collection-hero__trust-icon" aria-hidden="true">{%- render 'stats-trust-icon', icon: 'users', class: 'scale-o-collection-hero__trust-svg' -%}</span>
+                <span class="scale-o-collection-hero__trust-text">
+                  <span class="scale-o-collection-hero__trust-value">1000+</span>
+                  <span class="scale-o-collection-hero__trust-label">Happy Customers</span>
+                  <span class="scale-o-collection-hero__trust-desc">Homes choosing Scale-O</span>
+                </span>
+              </li>
+              <li class="scale-o-collection-hero__trust-item">
+                <span class="scale-o-collection-hero__trust-icon" aria-hidden="true">{%- render 'stats-trust-icon', icon: 'shield', class: 'scale-o-collection-hero__trust-svg' -%}</span>
+                <span class="scale-o-collection-hero__trust-text">
+                  <span class="scale-o-collection-hero__trust-value">7-Day</span>
+                  <span class="scale-o-collection-hero__trust-label">Risk-Free Trial</span>
+                  <span class="scale-o-collection-hero__trust-desc">Try Scale-O with confidence</span>
+                </span>
+              </li>
+            {%- else -%}
+              {%- for block in section.blocks -%}
+                {%- if block.type == 'trust_item' -%}
+                  <li class="scale-o-collection-hero__trust-item" {{ block.shopify_attributes }}>
+                    {%- if block.settings.link != blank -%}
+                      <a class="scale-o-collection-hero__trust-link" href="{{ block.settings.link }}">
+                    {%- endif -%}
+                    {%- unless block.settings.icon == 'none' -%}
+                      <span class="scale-o-collection-hero__trust-icon" aria-hidden="true">{%- render 'stats-trust-icon', icon: block.settings.icon, class: 'scale-o-collection-hero__trust-svg' -%}</span>
+                    {%- endunless -%}
+                    <span class="scale-o-collection-hero__trust-text">
+                      {%- if block.settings.value != blank -%}
+                        <span class="scale-o-collection-hero__trust-value">{{ block.settings.value | escape }}</span>
+                      {%- endif -%}
+                      {%- if block.settings.label != blank -%}
+                        <span class="scale-o-collection-hero__trust-label">{{ block.settings.label | escape }}</span>
+                      {%- endif -%}
+                      {%- if block.settings.description != blank -%}
+                        <span class="scale-o-collection-hero__trust-desc">{{ block.settings.description | escape }}</span>
+                      {%- endif -%}
+                    </span>
+                    {%- if block.settings.link != blank -%}
+                      </a>
+                    {%- endif -%}
+                  </li>
+                {%- endif -%}
+              {%- endfor -%}
+            {%- endif -%}
+          </ul>
+        </div>
+      </div>
+    {%- endif -%}
   </div>
 </section>
 
@@ -165,34 +301,38 @@
   "name": "Scale-O collection hero",
   "tag": "section",
   "class": "scale-o-collection-hero-section",
-  "max_blocks": 8,
+  "max_blocks": 12,
   "settings": [
-    { "type": "header", "content": "Content" },
+    { "type": "paragraph", "content": "Add Hero slide blocks. Each slide has its own image and left-side text, like the homepage. Hero height stays the same." },
+    { "type": "header", "content": "Slideshow" },
+    { "type": "checkbox", "id": "enable_autoplay", "label": "Auto-rotate slides", "default": true, "info": "Image and left-side text both change." },
+    { "type": "range", "id": "autoplay_speed", "label": "Change every", "min": 3, "max": 10, "step": 1, "unit": "s", "default": 5 },
+    { "type": "checkbox", "id": "show_dots", "label": "Show dots", "default": true },
+    { "type": "checkbox", "id": "show_arrows", "label": "Show arrows", "default": false, "info": "Keep off to use bottom dots only." },
+    { "type": "text", "id": "accessibility_label", "label": "Accessibility label", "default": "Collection banners" },
+
+    { "type": "header", "content": "Fallback content" },
+    { "type": "paragraph", "content": "Used only if no Hero slide blocks are added." },
     { "type": "text", "id": "eyebrow", "label": "Tag", "default": "WHOLE HOUSE WATER SOLUTION" },
     { "type": "text", "id": "heading_line_1", "label": "Heading line 1", "default": "Scale-O" },
     { "type": "text", "id": "heading_line_2", "label": "Heading line 2", "default": "Water Softeners" },
     { "type": "checkbox", "id": "show_heading_underline", "label": "Show line under heading", "default": false },
     { "type": "textarea", "id": "description", "label": "Description", "default": "Salt-free water softening solutions designed for Indian homes and hard-water conditions." },
-    { "type": "header", "content": "Background image" },
-    { "type": "image_picker", "id": "image", "label": "Main background image", "info": "Fills the full hero. Add more images as Background slide blocks for a carousel." },
-    { "type": "image_picker", "id": "mobile_image", "label": "Mobile background image" },
-    { "type": "header", "content": "Carousel" },
-    { "type": "checkbox", "id": "enable_autoplay", "label": "Auto-rotate background images", "default": true, "info": "Only the background image changes. Text stays still." },
-    { "type": "range", "id": "autoplay_speed", "label": "Change every", "min": 3, "max": 10, "step": 1, "unit": "s", "default": 5 },
-    { "type": "checkbox", "id": "show_dots", "label": "Show dots when multiple images", "default": true },
-    { "type": "header", "content": "Buttons" },
+    { "type": "image_picker", "id": "image", "label": "Fallback background image" },
+    { "type": "image_picker", "id": "mobile_image", "label": "Fallback mobile image" },
     { "type": "checkbox", "id": "show_cta", "label": "Show primary button", "default": false },
     { "type": "text", "id": "cta_label", "label": "Primary button label", "default": "Shop Water Softeners" },
     { "type": "url", "id": "cta_url", "label": "Primary button link", "info": "Leave blank to scroll to the product grid." },
     { "type": "checkbox", "id": "show_secondary_cta", "label": "Show secondary link", "default": false },
     { "type": "text", "id": "secondary_cta_label", "label": "Secondary link label", "default": "Find the right solution" },
     { "type": "url", "id": "secondary_cta_url", "label": "Secondary link URL" },
+
     { "type": "header", "content": "Layout" },
-    { "type": "select", "id": "text_alignment", "label": "Text alignment", "default": "left", "options": [
+    { "type": "select", "id": "text_alignment", "label": "Default text alignment", "default": "left", "options": [
       { "value": "left", "label": "Left" },
       { "value": "center", "label": "Center" }
     ] },
-    { "type": "range", "id": "desktop_height", "label": "Hero height", "min": 280, "max": 680, "step": 10, "unit": "px", "default": 420, "info": "Banner height on desktop. Drag to make it shorter or taller." },
+    { "type": "range", "id": "desktop_height", "label": "Hero height", "min": 280, "max": 680, "step": 10, "unit": "px", "default": 420, "info": "Keep this unless you want a taller or shorter banner." },
     { "type": "range", "id": "mobile_height", "label": "Mobile height", "min": 280, "max": 560, "step": 10, "unit": "px", "default": 380 },
     { "type": "range", "id": "content_width", "label": "Content width", "min": 0, "max": 1600, "step": 20, "unit": "px", "default": 0, "info": "0 = full page width inside the side padding" },
     { "type": "range", "id": "border_radius", "label": "Corner radius", "min": 0, "max": 28, "step": 2, "unit": "px", "default": 12 },
@@ -206,22 +346,103 @@
     { "type": "range", "id": "padding_top", "label": "Desktop top spacing", "min": 0, "max": 48, "step": 4, "unit": "px", "default": 12 },
     { "type": "range", "id": "padding_bottom", "label": "Desktop bottom spacing", "min": 0, "max": 48, "step": 4, "unit": "px", "default": 16 },
     { "type": "range", "id": "padding_top_mobile", "label": "Mobile top spacing", "min": 0, "max": 32, "step": 4, "unit": "px", "default": 0 },
-    { "type": "range", "id": "padding_bottom_mobile", "label": "Mobile bottom spacing", "min": 0, "max": 32, "step": 4, "unit": "px", "default": 0 }
+    { "type": "range", "id": "padding_bottom_mobile", "label": "Mobile bottom spacing", "min": 0, "max": 32, "step": 4, "unit": "px", "default": 0 },
+
+    { "type": "header", "content": "Trust strip" },
+    { "type": "checkbox", "id": "show_trust_strip", "label": "Show trust strip", "default": true, "info": "Shows rating, customers, and trial under the banners. Add Trust item blocks to edit the numbers." },
+    { "type": "text", "id": "trust_accessibility_label", "label": "Trust strip accessibility label", "default": "Customer statistics" },
+    { "type": "color", "id": "trust_background", "label": "Trust background", "default": "#f5f7ff" },
+    { "type": "color", "id": "trust_background_end", "label": "Trust background end", "default": "#eef6ff" },
+    { "type": "color", "id": "trust_value_color", "label": "Number color", "default": "#1a2b4a" },
+    { "type": "color", "id": "trust_label_color", "label": "Label color", "default": "#2a6ab2" },
+    { "type": "color", "id": "trust_description_color", "label": "Description color", "default": "#5a6b85" }
   ],
   "blocks": [
     {
       "type": "slide",
-      "name": "Background slide",
+      "name": "Hero slide",
       "settings": [
-        { "type": "image_picker", "id": "image", "label": "Background image" },
+        { "type": "checkbox", "id": "enabled", "label": "Show this slide", "default": true },
+        { "type": "image_picker", "id": "image", "label": "Desktop image" },
         { "type": "image_picker", "id": "mobile_image", "label": "Mobile image" },
-        { "type": "text", "id": "alt", "label": "Image alt text" }
+        {
+          "type": "select",
+          "id": "banner_preset",
+          "label": "Default banner if no image",
+          "default": "highlights",
+          "options": [
+            { "value": "highlights", "label": "Product Highlights" },
+            { "value": "family", "label": "Family Range" },
+            { "value": "whole_house", "label": "Whole House Solution" }
+          ]
+        },
+        { "type": "text", "id": "alt", "label": "Image alt text" },
+
+        { "type": "header", "content": "Left-side text" },
+        { "type": "text", "id": "eyebrow", "label": "Tag", "default": "WHOLE HOUSE WATER SOLUTION" },
+        { "type": "text", "id": "heading_line_1", "label": "Heading line 1", "default": "Scale-O" },
+        { "type": "text", "id": "heading_line_2", "label": "Heading line 2", "default": "Water Softeners" },
+        { "type": "checkbox", "id": "show_heading_underline", "label": "Show line under heading", "default": false },
+        { "type": "textarea", "id": "description", "label": "Description", "default": "Salt-free water softening solutions designed for Indian homes and hard-water conditions." },
+        {
+          "type": "select",
+          "id": "text_alignment",
+          "label": "Text alignment",
+          "options": [
+            { "value": "left", "label": "Left" },
+            { "value": "center", "label": "Center" }
+          ],
+          "default": "left"
+        },
+
+        { "type": "header", "content": "Buttons" },
+        { "type": "checkbox", "id": "show_cta", "label": "Show primary button", "default": false },
+        { "type": "text", "id": "cta_label", "label": "Primary button label", "default": "Shop Water Softeners" },
+        { "type": "url", "id": "cta_url", "label": "Primary button link" },
+        { "type": "checkbox", "id": "show_secondary_cta", "label": "Show secondary link", "default": false },
+        { "type": "text", "id": "secondary_cta_label", "label": "Secondary link label", "default": "Find the right solution" },
+        { "type": "url", "id": "secondary_cta_url", "label": "Secondary link URL" }
+      ]
+    },
+    {
+      "type": "trust_item",
+      "name": "Trust item",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "default": "star",
+          "options": [
+            { "value": "star", "label": "Star" },
+            { "value": "users", "label": "Users" },
+            { "value": "customer", "label": "Customer" },
+            { "value": "shield", "label": "Shield" },
+            { "value": "home", "label": "Home" },
+            { "value": "check", "label": "Check" },
+            { "value": "award", "label": "Award" },
+            { "value": "water", "label": "Water" },
+            { "value": "none", "label": "None" }
+          ]
+        },
+        { "type": "text", "id": "value", "label": "Number", "default": "4.8/5" },
+        { "type": "text", "id": "label", "label": "Label", "default": "Overall Customer Rating" },
+        { "type": "text", "id": "description", "label": "Description", "default": "Rated by our customers" },
+        { "type": "url", "id": "link", "label": "Optional link" }
       ]
     }
   ],
   "presets": [
     {
-      "name": "Scale-O collection hero"
+      "name": "Scale-O collection hero",
+      "blocks": [
+        { "type": "slide" },
+        { "type": "slide", "settings": { "banner_preset": "family", "eyebrow": "SCALE-O 0 FACTOR", "heading_line_1": "Zero Salt. Zero Power.", "heading_line_2": "Zero Hassle.", "description": "No salt, no electricity, no plumber, no maintenance. Drop Scale-O in your overhead tank and protect the whole house." } },
+        { "type": "slide", "settings": { "banner_preset": "highlights", "eyebrow": "PRODUCT HIGHLIGHTS", "heading_line_1": "Smart Water Softening.", "heading_line_2": "Without Salt or Electricity.", "description": "Mini, Semi and Centi for 500L to 2500L tanks. Choose by family size and daily use — salt-free, built for Indian homes." } },
+        { "type": "trust_item", "settings": { "icon": "star", "value": "4.8/5", "label": "Overall Customer Rating", "description": "Rated by our customers" } },
+        { "type": "trust_item", "settings": { "icon": "users", "value": "1000+", "label": "Happy Customers", "description": "Homes choosing Scale-O" } },
+        { "type": "trust_item", "settings": { "icon": "shield", "value": "7-Day", "label": "Risk-Free Trial", "description": "Try Scale-O with confidence" } }
+      ]
     }
   ]
 }

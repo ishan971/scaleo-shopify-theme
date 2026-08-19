@@ -475,7 +475,7 @@
         "detail_card_min_width": 160,
         "detail_card_min_height": 168,
         "card_shadow_strength": 70,
-        "show_help_cta": true,
+        "show_help_cta": false,
         "help_heading": "Need Help With Installation?",
         "help_button_text": "Talk to an Expert",
         "help_button_link": "shopify://pages/consult-now",

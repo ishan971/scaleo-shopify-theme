@@ -39,6 +39,39 @@
   if container == 'w-full'
     assign container = 'container-full'
   endif
+
+  assign product_col_class = 'm:w-6/12 md:m:w-4/12'
+  case section.settings.grid_columns
+    when '2'
+      assign product_col_class = 'm:w-6/12 lg:m:w-6/12'
+    when '3'
+      assign product_col_class = 'm:w-6/12 lg:m:w-4/12'
+    when '4'
+      assign product_col_class = 'm:w-6/12 lg:m:w-3/12'
+    when '5'
+      assign product_col_class = 'm:w-6/12 lg:m:w-1/5'
+  endcase
+
+  assign cols_desktop = section.settings.grid_columns | default: '3'
+  assign cols_tablet = cols_desktop
+  assign cols_mobile = cols_desktop
+  if section.settings.use_scale_o_cards
+    assign cols_mobile = '1'
+    case cols_desktop
+      when '5', '4'
+        assign cols_tablet = '3'
+      when '3'
+        assign cols_tablet = '3'
+      when '2'
+        assign cols_tablet = '2'
+    endcase
+    assign product_col_class = ''
+  endif
+
+  assign collection_products_class = 'm-collection-products m:flex m:flex-wrap m-cols-' | append: initial_column
+  if section.settings.use_scale_o_cards and section.settings.grid_layout != 'list'
+    assign collection_products_class = 'm-collection-products m-cols-' | append: initial_column | append: ' scale-o-collection-products'
+  endif
 -%}
 
 <section
@@ -54,38 +87,39 @@
   data-product-count="{{ collection.products.size }}"
   data-initial-column="{{ initial_column }}"
   data-view="{{ template.name }}"
+  {% if section.settings.use_scale_o_cards %}data-scale-o-grid="true"{% endif %}
   style="
     --sof-bg: {{ section.settings.filter_bar_background | default: '#ffffff' }};
     --sof-text: {{ section.settings.filter_bar_text | default: '#0b1b2e' }};
     --sof-accent: {{ section.settings.filter_bar_accent | default: '#0C7FDF' }};
     --sof-border: {{ section.settings.filter_bar_border | default: '#e6edf4' }};
     --sof-radius: {{ section.settings.filter_bar_radius | default: 12 }}px;
-    --spg-cols-desktop: {{ section.settings.grid_columns | default: 4 }};
-    --spg-cols-tablet: 2;
-    --spg-cols-mobile: 1;
+    --spg-cols-desktop: {{ cols_desktop }};
+    --spg-cols-tablet: {{ cols_tablet }};
+    --spg-cols-mobile: {{ cols_mobile }};
     --spg-gap: {{ section.settings.card_gap | default: 20 }}px;
     --spg-gap-mobile: {{ section.settings.card_gap_mobile | default: 12 }}px;
     --spg-accent: #0C7FDF;
     --spg-title-color: #1A2B4A;
-    --spg-title-size: 14px;
+    --spg-title-size: 15px;
     --spg-price-color: #0C7FDF;
-    --spg-price-size: 18px;
+    --spg-price-size: 20px;
     --spg-compare-color: #8A97AB;
     --spg-discount-color: #22A06B;
     --spg-spec-background: #EEF6FF;
     --spg-spec-text-color: #1A2B4A;
     --spg-spec-border-color: #C5DFFA;
     --spg-spec-icon-color: #0C7FDF;
-    --spg-spec-size: 11px;
+    --spg-spec-size: 12px;
     --spg-card-bg: #ffffff;
     --spg-card-border: #E8EEF8;
     --spg-image-bg: #F5F7FF;
     --spg-button-bg: #0C7FDF;
     --spg-button-bg-hover: #0A6BC4;
     --spg-button-text: #ffffff;
-    --spg-button-size: 14px;
+    --spg-button-size: 15px;
     --spg-image-ratio: 4 / 3;
-    --spg-image-padding: 8px;
+    --spg-image-padding: 10px;
     --spg-card-radius: 16px;
     --spg-card-shadow: 0 4px 16px rgba(26, 43, 74, 0.06);
     --spg-card-shadow-hover: 0 8px 24px rgba(26, 43, 74, 0.1);
@@ -219,12 +253,12 @@
             </div>
           {%- else -%}
             <div
-              class="m-collection-products m:flex m:flex-wrap m-cols-{{ initial_column }}{% if section.settings.use_scale_o_cards %} scale-o-collection-products{% endif %}"
+              class="{{ collection_products_class }}"
               data-total-pages="{{ paginate.pages }}"
               data-product-container
             >
               {%- for product in collection.products -%}
-                <div class="m-product-item m:w-6/12 md:m:w-4/12">
+                <div class="m-product-item {{ product_col_class }}">
                   {% liquid
                     if section.settings.use_scale_o_cards and section.settings.grid_layout != 'list'
                       render 'scale-o-product-card', product: product, section: section, card_index: forloop.index

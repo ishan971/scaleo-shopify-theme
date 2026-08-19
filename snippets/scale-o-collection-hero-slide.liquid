@@ -1,0 +1,107 @@
+{%- comment -%}
+  One collection-hero slide: background image + left copy.
+{%- endcomment -%}
+{%- liquid
+  assign heading_tag = 'h2'
+  if is_first
+    assign heading_tag = 'h1'
+  endif
+  if line1 == blank
+    assign line1 = 'Scale-O'
+  endif
+  if line2 == blank
+    assign line2 = 'Water Softeners'
+  endif
+
+  assign fallback_file = 'scale-o-collection-hero-1.jpg'
+  if banner_preset == 'family'
+    assign fallback_file = 'scale-o-collection-hero-2.jpg'
+  elsif banner_preset == 'whole_house'
+    assign fallback_file = 'scale-o-collection-hero-3.jpg'
+  endif
+
+  assign hero_alt = alt | default: line2
+  assign copy_class = 'scale-o-collection-hero__copy'
+  if text_alignment == 'center'
+    assign copy_class = copy_class | append: ' scale-o-collection-hero__copy--center'
+  endif
+-%}
+
+<article
+  class="scale-o-collection-hero__slide{% if is_active %} is-active{% endif %}"
+  data-soch-slide
+  {% if block %}{{ block.shopify_attributes }}{% endif %}
+  {% unless is_active %}aria-hidden="true"{% endunless %}
+>
+  <div class="scale-o-collection-hero__bg is-active" data-soch-bg>
+    {%- if image != blank -%}
+      {%- if mobile_image != blank -%}
+        <picture>
+          <source media="(max-width: 767px)" srcset="{{ mobile_image | image_url: width: 1000 }}">
+          {%- if is_first -%}
+            {{ image | image_url: width: 1800 | image_tag: loading: 'eager', fetchpriority: 'high', widths: '800, 1200, 1600, 1800', alt: hero_alt }}
+          {%- else -%}
+            {{ image | image_url: width: 1800 | image_tag: loading: 'lazy', widths: '800, 1200, 1600, 1800', alt: hero_alt }}
+          {%- endif -%}
+        </picture>
+      {%- else -%}
+        {%- if is_first -%}
+          {{ image | image_url: width: 1800 | image_tag: loading: 'eager', fetchpriority: 'high', widths: '800, 1200, 1600, 1800', alt: hero_alt }}
+        {%- else -%}
+          {{ image | image_url: width: 1800 | image_tag: loading: 'lazy', widths: '800, 1200, 1600, 1800', alt: hero_alt }}
+        {%- endif -%}
+      {%- endif -%}
+    {%- else -%}
+      <img
+        src="{{ fallback_file | asset_url }}"
+        alt="{{ hero_alt | escape }}"
+        width="1920"
+        height="1080"
+        {% if is_first %}loading="eager" fetchpriority="high"{% else %}loading="lazy"{% endif %}
+      >
+    {%- endif -%}
+  </div>
+
+  <div class="scale-o-collection-hero__veil" aria-hidden="true"></div>
+
+  <div class="{{ copy_class }}">
+    {%- if eyebrow != blank -%}
+      <p class="scale-o-collection-hero__eyebrow">{{ eyebrow | escape }}</p>
+    {%- endif -%}
+    <{{ heading_tag }} class="scale-o-collection-hero__heading">
+      <span class="scale-o-collection-hero__heading-line">{{ line1 | escape }}</span>
+      <span class="scale-o-collection-hero__heading-line{% if show_underline %} scale-o-collection-hero__heading-line--accent{% endif %}">{{ line2 | escape }}</span>
+    </{{ heading_tag }}>
+    {%- if description != blank -%}
+      <p class="scale-o-collection-hero__text">{{ description | escape }}</p>
+    {%- endif -%}
+    {%- liquid
+      assign show_primary = false
+      assign show_second = false
+      if show_cta and cta_label != blank
+        assign show_primary = true
+      endif
+      if show_secondary and secondary_label != blank
+        assign show_second = true
+      endif
+    -%}
+    {%- if show_primary or show_second -%}
+      <div class="scale-o-collection-hero__actions">
+        {%- if show_primary -%}
+          <a class="scale-o-collection-hero__cta" href="{{ cta_url }}">
+            {{ cta_label | escape }}
+            {%- unless cta_label contains '→' -%}
+              <span aria-hidden="true">→</span>
+            {%- endunless -%}
+          </a>
+        {%- endif -%}
+        {%- if show_second -%}
+          <a class="scale-o-collection-hero__link" href="{{ secondary_url | default: cta_url }}">
+            {{ secondary_label | replace: '→', '' | strip | escape }}
+            <span aria-hidden="true">→</span>
+          </a>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+  </div>
+</article>

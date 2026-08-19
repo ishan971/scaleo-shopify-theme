@@ -99,7 +99,80 @@
     },
     "scale_o_collection_hero": {
       "type": "scale-o-collection-hero",
+      "blocks": {
+        "slide_whole_house": {
+          "type": "slide",
+          "settings": {
+            "enabled": true,
+            "image": "shopify://shop_images/Frame_1166_8007e267-2d52-4229-9441-96f286bd0110.png",
+            "banner_preset": "highlights",
+            "alt": "Scale-O water softeners for the whole house",
+            "eyebrow": "WHOLE HOUSE WATER SOLUTION",
+            "heading_line_1": "Scale-O",
+            "heading_line_2": "Water Softeners",
+            "show_heading_underline": false,
+            "description": "Salt-free water softening solutions designed for Indian homes and hard-water conditions.",
+            "text_alignment": "left",
+            "show_cta": false,
+            "cta_label": "Shop Water Softeners",
+            "cta_url": "",
+            "show_secondary_cta": false,
+            "secondary_cta_label": "Find the right solution",
+            "secondary_cta_url": ""
+          }
+        },
+        "slide_salt_free": {
+          "type": "slide",
+          "settings": {
+            "enabled": true,
+            "banner_preset": "family",
+            "alt": "Scale-O 0 Factor salt-free water softener",
+            "eyebrow": "SCALE-O 0 FACTOR",
+            "heading_line_1": "Zero Salt. Zero Power.",
+            "heading_line_2": "Zero Hassle.",
+            "show_heading_underline": false,
+            "description": "No salt, no electricity, no plumber, no maintenance. Drop Scale-O in your overhead tank and protect the whole house.",
+            "text_alignment": "left",
+            "show_cta": false,
+            "cta_label": "Shop Water Softeners",
+            "cta_url": "",
+            "show_secondary_cta": false,
+            "secondary_cta_label": "Find the right solution",
+            "secondary_cta_url": ""
+          }
+        },
+        "slide_hard_water": {
+          "type": "slide",
+          "settings": {
+            "enabled": true,
+            "banner_preset": "highlights",
+            "alt": "Scale-O Mini Semi Centi product highlights",
+            "eyebrow": "PRODUCT HIGHLIGHTS",
+            "heading_line_1": "Smart Water Softening.",
+            "heading_line_2": "Without Salt or Electricity.",
+            "show_heading_underline": false,
+            "description": "Mini, Semi and Centi for 500L to 2500L tanks. Choose by family size and daily use — salt-free, built for Indian homes.",
+            "text_alignment": "left",
+            "show_cta": false,
+            "cta_label": "Shop Water Softeners",
+            "cta_url": "",
+            "show_secondary_cta": false,
+            "secondary_cta_label": "Find the right solution",
+            "secondary_cta_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "slide_whole_house",
+        "slide_salt_free",
+        "slide_hard_water"
+      ],
       "settings": {
+        "enable_autoplay": true,
+        "autoplay_speed": 5,
+        "show_dots": true,
+        "show_arrows": false,
+        "accessibility_label": "Collection banners",
         "eyebrow": "WHOLE HOUSE WATER SOLUTION",
         "heading_line_1": "Scale-O",
         "heading_line_2": "Water Softeners",
@@ -125,7 +198,8 @@
         "padding_top": 12,
         "padding_bottom": 16,
         "padding_top_mobile": 8,
-        "padding_bottom_mobile": 12
+        "padding_bottom_mobile": 12,
+        "show_trust_strip": true
       }
     },
     "main": {
@@ -143,7 +217,7 @@
       "settings": {
         "container": "container-fluid",
         "grid_layout": "grid",
-        "grid_columns": "4",
+        "grid_columns": "3",
         "use_scale_o_cards": true,
         "show_grid_heading": false,
         "grid_eyebrow": "PRODUCTS",
@@ -158,7 +232,7 @@
         "show_discount": true,
         "show_ratings": false,
         "use_rupee_symbol": true,
-        "card_gap": 20,
+        "card_gap": 24,
         "card_gap_mobile": 12,
         "show_columns_switcher": false,
         "pagination_limit": 12,

@@ -148,14 +148,10 @@
   overflow: hidden;
   aspect-ratio: var(--svt-ratio);
   background: #e7eef7;
-  cursor: pointer;
-}
-
-.scale-o-vt__media:disabled {
-  cursor: default;
 }
 
 .scale-o-vt__media img,
+.scale-o-vt__media-img,
 .scale-o-vt__poster-fallback {
   width: 100%;
   height: 100%;
@@ -168,42 +164,9 @@
     linear-gradient(160deg, #d7e8f8 0%, #eef5fb 55%, #dceaf6 100%);
 }
 
-.scale-o-vt__play {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: var(--svt-play);
-  height: var(--svt-play);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transform: translate(-50%, -50%);
-  background: var(--svt-play-color);
-  color: #fff;
-  box-shadow: 0 10px 24px rgba(12, 127, 223, 0.32);
-}
-
-.scale-o-vt__card.is-featured .scale-o-vt__play {
-  transform: translate(-50%, -50%) scale(1.08);
-}
-
-.scale-o-vt__play svg {
-  width: 42%;
-  height: 42%;
-  margin-left: 2px;
-}
-
+.scale-o-vt__play,
 .scale-o-vt__duration {
-  position: absolute;
-  right: 10px;
-  bottom: 10px;
-  padding: 3px 8px;
-  border-radius: 999px;
-  background: rgba(20, 28, 40, 0.72);
-  color: #fff;
-  font-size: 11px;
-  line-height: 1.3;
+  display: none !important;
 }
 
 .scale-o-vt__body {

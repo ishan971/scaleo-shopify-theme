@@ -236,6 +236,62 @@
   text-transform: uppercase;
 }
 
+.scale-o-watch-shop__mute {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 7;
+  width: 36px;
+  height: 36px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.94);
+  color: var(--was-heading-color);
+  box-shadow: 0 4px 14px rgba(12, 28, 48, 0.18);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.scale-o-watch-shop__mute:hover {
+  transform: scale(1.05);
+  background: #fff;
+  box-shadow: 0 6px 18px rgba(12, 28, 48, 0.22);
+}
+
+.scale-o-watch-shop__mute:focus-visible {
+  outline: 2px solid var(--was-accent);
+  outline-offset: 2px;
+}
+
+.scale-o-watch-shop__mute-icon {
+  display: block;
+}
+
+.scale-o-watch-shop__mute-icon--off {
+  display: none;
+}
+
+.scale-o-watch-shop__card.is-muted .scale-o-watch-shop__mute-icon--on {
+  display: block;
+}
+
+.scale-o-watch-shop__card.is-muted .scale-o-watch-shop__mute-icon--off {
+  display: none;
+}
+
+.scale-o-watch-shop__card:not(.is-muted) .scale-o-watch-shop__mute-icon--on {
+  display: none;
+}
+
+.scale-o-watch-shop__card:not(.is-muted) .scale-o-watch-shop__mute-icon--off {
+  display: block;
+}
+
 .scale-o-watch-shop__video-title {
   position: absolute;
   left: 14px;
@@ -520,6 +576,45 @@
 }
 
 @media (max-width: 767px) {
+  .scale-o-watch-shop--carousel .scale-o-watch-shop__container {
+    padding-inline: 0;
+  }
+
+  .scale-o-watch-shop--carousel .scale-o-watch-shop__header {
+    padding-inline: var(--was-pad-x);
+  }
+
+  .scale-o-watch-shop--carousel .scale-o-watch-shop__track {
+    gap: 0;
+  }
+
+  .scale-o-watch-shop--carousel .scale-o-watch-shop__slide {
+    flex: 0 0 100%;
+    width: 100%;
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+  }
+
+  .scale-o-watch-shop--carousel .scale-o-watch-shop__card {
+    width: var(--was-mobile-card-width, 90%);
+    max-width: 420px;
+    margin-inline: auto;
+  }
+
+  .scale-o-watch-shop--carousel .scale-o-watch-shop__card:hover {
+    transform: none;
+  }
+
+  .scale-o-watch-shop--carousel .scale-o-watch-shop__viewport {
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .scale-o-watch-shop--carousel .scale-o-watch-shop__dots {
+    margin-top: 16px;
+  }
+
   .scale-o-watch-shop--arrows .scale-o-watch-shop__carousel-wrap {
     grid-template-columns: minmax(0, 1fr);
   }

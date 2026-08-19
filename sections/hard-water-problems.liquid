@@ -1,30 +1,17 @@
 {%- comment -%}
-  Scale-O Hard Water Problems — educational problem section
+  Scale-O Hard Water Problems — bento grid section
 {%- endcomment -%}
 
 {{ 'scale-o-problems.css' | asset_url | stylesheet_tag }}
 
 {%- liquid
-  assign featured_block = nil
   assign problem_blocks = section.blocks | where: 'type', 'problem'
-
-  for block in problem_blocks
-    if block.settings.featured
-      assign featured_block = block
-      break
-    endif
-  endfor
-
-  if featured_block == nil and problem_blocks.size > 0
-    assign featured_block = problem_blocks.first
-  endif
-
-  assign visible_secondary = section.settings.secondary_cards | plus: 0
+  assign visible_count = section.settings.visible_cards | plus: 0
   unless section.settings.show_view_all
-    assign visible_secondary = 8
+    assign visible_count = problem_blocks.size
   endunless
   assign extra_count = 0
-  assign shown_secondary = 0
+  assign shown_count = 0
 -%}
 
 <style>
@@ -34,11 +21,11 @@
     --sop-text: {{ section.settings.text_color }};
     --sop-accent: {{ section.settings.accent_color }};
     --sop-accent-hover: {{ section.settings.accent_hover_color }};
-    --sop-card-bg: {{ section.settings.card_background }};
     --sop-card-border: {{ section.settings.card_border_color }};
+    --sop-overlay: {{ section.settings.overlay_color }};
     --sop-radius: {{ section.settings.card_radius }}px;
     --sop-shadow: 0 4px {{ section.settings.shadow_strength | divided_by: 4 | plus: 10 }}px rgba(26, 43, 74, {{ section.settings.shadow_strength | times: 0.0012 }});
-    --sop-shadow-hover: 0 10px {{ section.settings.shadow_strength | divided_by: 3 | plus: 14 }}px rgba(26, 43, 74, {{ section.settings.shadow_strength | times: 0.0018 }});
+    --sop-shadow-hover: 0 12px {{ section.settings.shadow_strength | divided_by: 3 | plus: 16 }}px rgba(26, 43, 74, {{ section.settings.shadow_strength | times: 0.0018 }});
     --sop-eyebrow-size: {{ section.settings.eyebrow_size }}px;
     --sop-heading-size: {{ section.settings.heading_size_mobile }}px;
     --sop-heading-size-desktop: {{ section.settings.heading_size_desktop }}px;
@@ -50,9 +37,9 @@
     --sop-header-gap: {{ section.settings.header_gap }}px;
     --sop-header-align: {{ section.settings.header_alignment }};
     --sop-max-width: {% if section.settings.max_width == 0 %}100%{% else %}{{ section.settings.max_width }}px{% endif %};
-    --sop-cols-desktop: {{ section.settings.desktop_columns }};
-    --sop-cols-tablet: {{ section.settings.tablet_columns }};
-    --sop-image-ratio: {{ section.settings.image_aspect_ratio }};
+    --sop-bento-row-height: {{ section.settings.bento_row_height }}px;
+    --sop-bento-min-height: {{ section.settings.bento_min_height_mobile }}px;
+    --sop-overlay-transition: {{ section.settings.overlay_transition_ms }}ms;
     margin-top: {{ section.settings.margin_top }}px;
     margin-bottom: {{ section.settings.margin_bottom }}px;
     padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px;
@@ -96,88 +83,27 @@
       </div>
     {%- endif -%}
 
-    {%- if featured_block -%}
-      {%- liquid
-        assign feat = featured_block.settings
-        assign feat_image = feat.image
-        assign feat_mobile = feat.image_mobile | default: feat.image
-      -%}
-      <article class="scale-o-problems__featured scale-o-problems__featured--{{ section.settings.featured_layout }}" {{ featured_block.shopify_attributes }}>
-        <div class="scale-o-problems__featured-media">
-          {%- if feat_image != blank -%}
-            {%- if feat.cta_url != blank -%}
-              <a href="{{ feat.cta_url }}" aria-label="{{ feat.title | default: 'Featured problem' | escape }}">
-            {%- endif -%}
-            <picture>
-              {%- if feat.image_mobile != blank -%}
-                <source media="(max-width: 767px)" srcset="{{ feat_mobile | image_url: width: 800 }}">
-              {%- endif -%}
-              {{
-                feat_image
-                | image_url: width: 1400
-                | image_tag:
-                  loading: 'lazy',
-                  widths: '400,700,1000,1400',
-                  sizes: '(min-width: 1024px) 60vw, 100vw',
-                  alt: feat.title | default: section.settings.heading | escape
-              }}
-            </picture>
-            {%- if feat.cta_url != blank -%}
-              </a>
-            {%- endif -%}
-          {%- else -%}
-            {{ 'lifestyle-1' | placeholder_svg_tag: 'scale-o-problems__featured-placeholder' }}
-          {%- endif -%}
-        </div>
-        <div class="scale-o-problems__featured-body">
-          <div class="scale-o-problems__meta">
-            {%- if feat.number != blank -%}
-              <span class="scale-o-problems__number">{{ feat.number | escape }}</span>
-            {%- endif -%}
-            {%- if feat.title != blank -%}
-              <h3 class="scale-o-problems__title">{{ feat.title | escape }}</h3>
-            {%- endif -%}
-          </div>
-          {%- if feat.description != blank -%}
-            <p class="scale-o-problems__text">{{ feat.description | escape }}</p>
-          {%- endif -%}
-          {%- if feat.cta_text != blank and feat.cta_url != blank -%}
-            <a class="scale-o-problems__link" href="{{ feat.cta_url }}">
-              {{ feat.cta_text | escape }}
-              <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
-          {%- endif -%}
-        </div>
-      </article>
-    {%- endif -%}
-
-    {%- if problem_blocks.size > 1 -%}
-      <div class="scale-o-problems__grid">
+    {%- if problem_blocks.size > 0 -%}
+      <div class="scale-o-problems__bento-grid" data-bento-count="{{ visible_count }}">
         {%- for block in problem_blocks -%}
-          {%- if featured_block and block.id == featured_block.id -%}
-            {%- continue -%}
-          {%- endif -%}
-          {%- assign shown_secondary = shown_secondary | plus: 1 -%}
-          {%- if shown_secondary > visible_secondary -%}
+          {%- assign shown_count = shown_count | plus: 1 -%}
+          {%- if shown_count > visible_count -%}
             {%- assign extra_count = extra_count | plus: 1 -%}
             {%- continue -%}
           {%- endif -%}
-          {%- render 'scale-o-problem-card', block: block, section: section, loading: 'lazy' -%}
+          {%- render 'scale-o-problem-card', block: block, section: section, loading: 'lazy', grid_style: '' -%}
         {%- endfor -%}
       </div>
 
       {%- if extra_count > 0 -%}
-        <div class="scale-o-problems__grid" data-problems-extra hidden>
-          {%- assign shown_secondary = 0 -%}
+        <div class="scale-o-problems__bento-grid" data-problems-extra hidden>
+          {%- assign shown_count = 0 -%}
           {%- for block in problem_blocks -%}
-            {%- if featured_block and block.id == featured_block.id -%}
+            {%- assign shown_count = shown_count | plus: 1 -%}
+            {%- if shown_count <= visible_count -%}
               {%- continue -%}
             {%- endif -%}
-            {%- assign shown_secondary = shown_secondary | plus: 1 -%}
-            {%- if shown_secondary <= visible_secondary -%}
-              {%- continue -%}
-            {%- endif -%}
-            {%- render 'scale-o-problem-card', block: block, section: section, loading: 'lazy' -%}
+            {%- render 'scale-o-problem-card', block: block, section: section, loading: 'lazy', grid_style: '' -%}
           {%- endfor -%}
         </div>
         {%- if section.settings.show_view_all -%}
@@ -228,7 +154,7 @@
   "name": "Hard Water Problems",
   "tag": "section",
   "class": "scale-o-problems-section",
-  "max_blocks": 8,
+  "max_blocks": 9,
   "settings": [
     { "type": "header", "content": "Header" },
     { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "THE PROBLEM" },
@@ -250,52 +176,14 @@
     { "type": "text", "id": "flow_step_1", "label": "Flow step 1", "default": "Hard Water" },
     { "type": "text", "id": "flow_step_2", "label": "Flow step 2", "default": "Mineral Buildup" },
     { "type": "text", "id": "flow_step_3", "label": "Flow step 3", "default": "Everyday Household Problems" },
-    { "type": "header", "content": "Layout" },
-    {
-      "type": "select",
-      "id": "featured_layout",
-      "label": "Featured card layout",
-      "default": "split",
-      "options": [
-        { "value": "split", "label": "Split image + content" },
-        { "value": "stack", "label": "Stacked" }
-      ]
-    },
-    { "type": "range", "id": "secondary_cards", "label": "Secondary cards to show", "min": 2, "max": 6, "step": 1, "default": 4, "info": "Additional problems appear behind View all" },
-    {
-      "type": "select",
-      "id": "desktop_columns",
-      "label": "Desktop columns",
-      "default": "4",
-      "options": [
-        { "value": "2", "label": "2" },
-        { "value": "3", "label": "3" },
-        { "value": "4", "label": "4" }
-      ]
-    },
-    {
-      "type": "select",
-      "id": "tablet_columns",
-      "label": "Tablet columns",
-      "default": "2",
-      "options": [
-        { "value": "2", "label": "2" },
-        { "value": "3", "label": "3" }
-      ]
-    },
-    {
-      "type": "select",
-      "id": "image_aspect_ratio",
-      "label": "Secondary image ratio",
-      "default": "4 / 3",
-      "options": [
-        { "value": "4 / 3", "label": "Landscape (4:3)" },
-        { "value": "1 / 1", "label": "Square (1:1)" },
-        { "value": "16 / 10", "label": "Wide (16:10)" }
-      ]
-    },
+    { "type": "header", "content": "Bento grid" },
+    { "type": "range", "id": "visible_cards", "label": "Cards to show initially", "min": 2, "max": 9, "step": 1, "default": 9 },
+    { "type": "range", "id": "bento_row_height", "label": "Desktop row height", "min": 160, "max": 280, "step": 10, "unit": "px", "default": 210 },
+    { "type": "range", "id": "bento_min_height_mobile", "label": "Mobile card height", "min": 220, "max": 360, "step": 10, "unit": "px", "default": 260 },
+    { "type": "range", "id": "overlay_transition_ms", "label": "Hover transition", "min": 200, "max": 800, "step": 50, "unit": "ms", "default": 450 },
+    { "type": "checkbox", "id": "show_card_description", "label": "Show card description on overlay", "default": false, "info": "Title always shows. Enable to also show the description text on hover/mobile." },
     { "type": "range", "id": "max_width", "label": "Maximum width", "min": 0, "max": 1600, "step": 20, "unit": "px", "default": 1200 },
-    { "type": "range", "id": "card_gap", "label": "Card gap", "min": 12, "max": 32, "step": 2, "unit": "px", "default": 16 },
+    { "type": "range", "id": "card_gap", "label": "Card gap", "min": 8, "max": 24, "step": 2, "unit": "px", "default": 12 },
     { "type": "range", "id": "padding_top", "label": "Top padding", "min": 0, "max": 100, "step": 4, "unit": "px", "default": 40 },
     { "type": "range", "id": "padding_bottom", "label": "Bottom padding", "min": 0, "max": 100, "step": 4, "unit": "px", "default": 48 },
     { "type": "range", "id": "padding_x", "label": "Horizontal padding", "min": 12, "max": 80, "step": 4, "unit": "px", "default": 20 },
@@ -303,7 +191,7 @@
     { "type": "range", "id": "margin_bottom", "label": "Bottom spacing", "min": 0, "max": 80, "step": 4, "unit": "px", "default": 0 },
     { "type": "range", "id": "header_gap", "label": "Header bottom gap", "min": 16, "max": 48, "step": 4, "unit": "px", "default": 24 },
     { "type": "header", "content": "View all" },
-    { "type": "checkbox", "id": "show_view_all", "label": "Show View all problems", "default": true },
+    { "type": "checkbox", "id": "show_view_all", "label": "Show View all problems", "default": false },
     { "type": "text", "id": "view_all_text", "label": "View all text", "default": "View all problems" },
     { "type": "text", "id": "view_all_hide_text", "label": "Show fewer text", "default": "Show fewer problems" },
     { "type": "header", "content": "Solution transition" },
@@ -318,7 +206,7 @@
     { "type": "range", "id": "heading_size_desktop", "label": "Heading size (desktop)", "min": 24, "max": 48, "step": 1, "unit": "px", "default": 45 },
     { "type": "range", "id": "heading_size_mobile", "label": "Heading size (mobile)", "min": 20, "max": 36, "step": 1, "unit": "px", "default": 26 },
     { "type": "range", "id": "description_size", "label": "Description size", "min": 13, "max": 20, "step": 1, "unit": "px", "default": 16 },
-    { "type": "range", "id": "problem_title_size", "label": "Problem title size", "min": 16, "max": 28, "step": 1, "unit": "px", "default": 22 },
+    { "type": "range", "id": "problem_title_size", "label": "Card title size", "min": 16, "max": 28, "step": 1, "unit": "px", "default": 20 },
     { "type": "range", "id": "card_description_size", "label": "Card description size", "min": 12, "max": 18, "step": 1, "unit": "px", "default": 14 },
     { "type": "header", "content": "Colors" },
     { "type": "color", "id": "background_color", "label": "Background", "default": "#F7FBFF" },
@@ -326,9 +214,9 @@
     { "type": "color", "id": "text_color", "label": "Text", "default": "#5A6B85" },
     { "type": "color", "id": "accent_color", "label": "Accent", "default": "#0C7FDF" },
     { "type": "color", "id": "accent_hover_color", "label": "Accent hover", "default": "#0A6BC4" },
-    { "type": "color", "id": "card_background", "label": "Card background", "default": "#FFFFFF" },
+    { "type": "color", "id": "overlay_color", "label": "Card overlay color", "default": "#0C7FDF" },
     { "type": "color", "id": "card_border_color", "label": "Card border", "default": "#E8EEF8" },
-    { "type": "range", "id": "card_radius", "label": "Card radius", "min": 8, "max": 28, "step": 2, "unit": "px", "default": 18 },
+    { "type": "range", "id": "card_radius", "label": "Card radius", "min": 8, "max": 28, "step": 2, "unit": "px", "default": 16 },
     { "type": "range", "id": "shadow_strength", "label": "Shadow intensity", "min": 0, "max": 100, "step": 5, "default": 50 },
     { "type": "text", "id": "accessibility_label", "label": "Accessibility label", "default": "Hard water problems" }
   ],
@@ -337,8 +225,20 @@
       "type": "problem",
       "name": "Problem",
       "settings": [
-        { "type": "checkbox", "id": "featured", "label": "Featured problem", "info": "Only one featured card is used. If none is selected, the first problem is featured." },
-        { "type": "text", "id": "number", "label": "Number", "default": "01" },
+        {
+          "type": "select",
+          "id": "bento_size",
+          "label": "Bento size",
+          "default": "auto",
+          "info": "Auto uses a balanced layout based on total cards.",
+          "options": [
+            { "value": "auto", "label": "Auto" },
+            { "value": "standard", "label": "Standard" },
+            { "value": "wide", "label": "Wide" },
+            { "value": "tall", "label": "Tall" },
+            { "value": "large", "label": "Large" }
+          ]
+        },
         {
           "type": "select",
           "id": "icon",
@@ -372,56 +272,14 @@
       "name": "Hard Water Problems",
       "category": "Custom",
       "blocks": [
-        {
-          "type": "problem",
-          "settings": {
-            "featured": true,
-            "number": "01",
-            "icon": "faucet",
-            "title": "Scale on Taps & Showers",
-            "description": "Mineral buildup can leave bathroom fixtures looking dull and make them harder to clean."
-          }
-        },
-        {
-          "type": "problem",
-          "settings": {
-            "featured": false,
-            "number": "02",
-            "icon": "floor",
-            "title": "White Stains on Surfaces",
-            "description": "Hard-water minerals can leave visible marks on tiles, glass and bathroom surfaces."
-          }
-        },
-        {
-          "type": "problem",
-          "settings": {
-            "featured": false,
-            "number": "03",
-            "icon": "heater",
-            "title": "Water Heater Buildup",
-            "description": "Scale can accumulate inside water-heating equipment over time."
-          }
-        },
-        {
-          "type": "problem",
-          "settings": {
-            "featured": false,
-            "number": "04",
-            "icon": "pipe",
-            "title": "Pipe Buildup & Reduced Flow",
-            "description": "Mineral deposits can build up inside plumbing and affect water flow."
-          }
-        },
-        {
-          "type": "problem",
-          "settings": {
-            "featured": false,
-            "number": "05",
-            "icon": "hair",
-            "title": "Dry Skin & Hair",
-            "description": "Hard water can leave mineral residue that makes skin and hair feel dry."
-          }
-        }
+        { "type": "problem", "settings": { "icon": "hair", "title": "Hair Fall & Balding", "description": "Hard water can weaken hair and increase breakage over time." } },
+        { "type": "problem", "settings": { "icon": "skin", "title": "Dry & Itchy Skin", "description": "Mineral residue can leave skin feeling dry and irritated." } },
+        { "type": "problem", "settings": { "icon": "faucet", "title": "Scaling on Taps & Showers", "description": "White scale buildup makes fixtures harder to clean." } },
+        { "type": "problem", "settings": { "icon": "droplet", "title": "Impure Water", "description": "Hard water can look cloudy and affect everyday use." } },
+        { "type": "problem", "settings": { "icon": "floor", "title": "White Stains on Floors & Utensils", "description": "Minerals leave visible marks on tiles, glass and surfaces." } },
+        { "type": "problem", "settings": { "icon": "pipe", "title": "Pipe Blockage & Reduced Waterflow", "description": "Scale buildup can restrict water flow inside plumbing." } },
+        { "type": "problem", "settings": { "icon": "heater", "title": "Damage inside Water Heaters", "description": "Scale can reduce heater efficiency and lifespan." } },
+        { "type": "problem", "settings": { "icon": "appliance", "title": "Damage in Washing Machines", "description": "Hard water can affect appliances and everyday cleaning." } }
       ]
     }
   ]

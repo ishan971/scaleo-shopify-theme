@@ -1,5 +1,5 @@
 /**
- * Scale-O Video Testimonials — carousel + modal playback
+ * Scale-O Customer Stories — image testimonial carousel
  */
 (function () {
   var REDUCE = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -17,37 +17,6 @@
     return card.getBoundingClientRect().width + gap;
   }
 
-  function mediaHtml(root, card) {
-    var kind = card.dataset.mediaKind;
-    var src = card.dataset.mediaSrc;
-    var title = (card.dataset.mediaTitle || 'Customer story').replace(/"/g, '');
-    var muted = root.dataset.videoMuted === 'true' || root.dataset.videoAutoplay === 'true';
-    var controls = root.dataset.showControls !== 'false';
-    if (!src || kind === 'none') return '';
-
-    if (kind === 'shopify') {
-      return '<video src="' + src + '" ' +
-        (controls ? 'controls ' : '') +
-        (muted ? 'muted ' : '') +
-        'playsinline autoplay></video>';
-    }
-
-    if (kind === 'youtube') {
-      var yt = 'https://www.youtube.com/embed/' + src + '?rel=0&modestbranding=1&playsinline=1&autoplay=1';
-      if (muted) yt += '&mute=1';
-      if (controls === false) yt += '&controls=0';
-      return '<iframe src="' + yt + '" title="' + title + '" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>';
-    }
-
-    if (kind === 'vimeo') {
-      var vm = 'https://player.vimeo.com/video/' + src + '?title=0&byline=0&portrait=0&dnt=1&autoplay=1';
-      if (muted) vm += '&muted=1';
-      return '<iframe src="' + vm + '" title="' + title + '" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>';
-    }
-
-    return '';
-  }
-
   function init(root) {
     if (!root || root.dataset.svtInit === 'true') return;
     root.dataset.svtInit = 'true';
@@ -57,12 +26,8 @@
     var prev = root.querySelector('[data-svt-prev]');
     var next = root.querySelector('[data-svt-next]');
     var dotsWrap = root.querySelector('[data-svt-dots]');
-    var modal = root.querySelector('[data-svt-modal]');
-    var modalMount = root.querySelector('[data-svt-modal-mount]');
-    var modalClose = root.querySelectorAll('[data-svt-modal-close]');
     var index = 0;
     var timer = null;
-    var videoOpen = false;
     var hovered = false;
 
     var animItems = root.querySelectorAll('[data-svt-animate]');
@@ -127,7 +92,7 @@
       stopTimer();
       if (root.dataset.autoplay !== 'true' || REDUCE.matches || cards.length <= visibleCount(root)) return;
       timer = window.setInterval(function () {
-        if (hovered || videoOpen) return;
+        if (hovered) return;
         go(index >= maxIndex() ? 0 : index + 1);
       }, parseInt(root.dataset.interval, 10) || 5000);
     }
@@ -138,49 +103,6 @@
         timer = null;
       }
     }
-
-    function closeModal() {
-      if (!modal || !modalMount) return;
-      modal.hidden = true;
-      modalMount.innerHTML = '';
-      document.body.style.overflow = '';
-      videoOpen = false;
-      startTimer();
-    }
-
-    function openModal(card) {
-      if (!modal || !modalMount) return;
-      var html = mediaHtml(root, card);
-      if (!html) return;
-      modalMount.innerHTML = html;
-      modal.hidden = false;
-      document.body.style.overflow = 'hidden';
-      videoOpen = true;
-      if (root.dataset.pauseVideo === 'true') stopTimer();
-      var close = modal.querySelector('[data-svt-modal-close]');
-      if (close) close.focus();
-    }
-
-    function playInline(card) {
-      var media = card.querySelector('[data-svt-play]');
-      if (!media) return;
-      var html = mediaHtml(root, card);
-      if (!html) return;
-      media.outerHTML = '<div class="scale-o-vt__media is-playing">' + html + '</div>';
-      var video = card.querySelector('video');
-      if (video && video.play) video.play().catch(function () {});
-      videoOpen = true;
-      if (root.dataset.pauseVideo === 'true') stopTimer();
-    }
-
-    cards.forEach(function (card) {
-      var play = card.querySelector('[data-svt-play]');
-      if (!play) return;
-      play.addEventListener('click', function () {
-        if (root.dataset.openModal === 'true') openModal(card);
-        else playInline(card);
-      });
-    });
 
     if (prev) prev.addEventListener('click', function () { go(index - 1); startTimer(); });
     if (next) next.addEventListener('click', function () { go(index + 1); startTimer(); });
@@ -209,18 +131,6 @@
       root.addEventListener('mouseenter', function () { hovered = true; });
       root.addEventListener('mouseleave', function () { hovered = false; });
     }
-
-    modalClose.forEach(function (btn) {
-      btn.addEventListener('click', closeModal);
-    });
-    if (modal) {
-      modal.addEventListener('click', function (event) {
-        if (event.target === modal) closeModal();
-      });
-    }
-    document.addEventListener('keydown', function (event) {
-      if (event.key === 'Escape' && modal && !modal.hidden) closeModal();
-    });
 
     window.addEventListener('resize', function () {
       go(index);

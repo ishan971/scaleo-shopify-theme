@@ -1,5 +1,5 @@
 /**
- * Scale-O How It Works — tabs, step focus, video modal
+ * Scale-O How It Works — journey carousel, tabs, step focus, video modal
  */
 (function () {
   function prefersReducedMotion() {
@@ -14,18 +14,141 @@
     return match ? 'https://www.youtube.com/embed/' + match[1] + '?autoplay=1&rel=0' : null;
   }
 
+  function initJourneyCarousel(root) {
+    var steps = root.querySelectorAll('[data-journey-step]');
+    var slides = root.querySelectorAll('[data-journey-slide]');
+    var stepsList = root.querySelector('.scale-o-how-it-works__steps');
+    if (!steps.length) return null;
+
+    var autoplayEnabled = root.getAttribute('data-journey-autoplay') === 'true';
+    var hoverEnabled = root.getAttribute('data-journey-hover') !== 'false';
+    var intervalMs = parseInt(root.getAttribute('data-journey-interval'), 10) || 4000;
+    var activeIndex = 0;
+    var timer = null;
+    var paused = false;
+
+    function activateStep(index, fromUser) {
+      if (!steps.length) return;
+
+      if (index < 0) index = steps.length - 1;
+      if (index >= steps.length) index = 0;
+
+      activeIndex = index;
+
+      steps.forEach(function (step, i) {
+        var isActive = i === index;
+        step.classList.toggle('is-active', isActive);
+        step.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+      });
+
+      slides.forEach(function (slide, i) {
+        slide.classList.toggle('is-active', i === index);
+      });
+
+      if (fromUser) {
+        restartAutoplay();
+      }
+    }
+
+    function nextStep() {
+      activateStep(activeIndex + 1, false);
+    }
+
+    function stopAutoplay() {
+      if (timer) {
+        clearInterval(timer);
+        timer = null;
+      }
+    }
+
+    function startAutoplay() {
+      stopAutoplay();
+      if (!autoplayEnabled || prefersReducedMotion() || steps.length < 2 || paused) return;
+      timer = setInterval(nextStep, intervalMs);
+    }
+
+    function restartAutoplay() {
+      stopAutoplay();
+      startAutoplay();
+    }
+
+    steps.forEach(function (step, index) {
+      step.addEventListener('click', function () {
+        activateStep(index, true);
+      });
+
+      step.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          activateStep(index, true);
+        }
+      });
+
+      if (hoverEnabled) {
+        step.addEventListener('mouseenter', function () {
+          activateStep(index, false);
+        });
+      }
+
+      step.addEventListener('focusin', function () {
+        activateStep(index, false);
+      });
+    });
+
+    if (stepsList) {
+      stepsList.addEventListener('mouseenter', function () {
+        paused = true;
+        stopAutoplay();
+      });
+
+      stepsList.addEventListener('mouseleave', function () {
+        paused = false;
+        startAutoplay();
+      });
+
+      stepsList.addEventListener('focusin', function () {
+        paused = true;
+        stopAutoplay();
+      });
+
+      stepsList.addEventListener('focusout', function (e) {
+        if (!stepsList.contains(e.relatedTarget)) {
+          paused = false;
+          startAutoplay();
+        }
+      });
+    }
+
+    document.addEventListener('visibilitychange', function () {
+      if (document.hidden) {
+        stopAutoplay();
+      } else if (!paused) {
+        startAutoplay();
+      }
+    });
+
+    activateStep(0, false);
+    startAutoplay();
+
+    return {
+      destroy: stopAutoplay,
+      activate: activateStep
+    };
+  }
+
   function initSection(root) {
     if (!root || root.dataset.hiwInit === 'true') return;
     root.dataset.hiwInit = 'true';
 
     var tabs = root.querySelectorAll('[data-hiw-tab]');
     var panels = root.querySelectorAll('[data-hiw-panel]');
-    var journeySteps = root.querySelectorAll('[data-journey-step]');
     var videoBtn = root.querySelector('[data-hiw-video-open]');
     var modal = root.querySelector('[data-hiw-modal]');
     var modalClose = root.querySelectorAll('[data-hiw-modal-close]');
     var modalFrame = root.querySelector('[data-hiw-modal-frame]');
     var videoUrl = root.getAttribute('data-video-url');
+
+    var journey = initJourneyCarousel(root);
 
     function syncPanelHeights(root) {
       var panelsWrap = root.querySelector('[data-hiw-panels]');
@@ -75,18 +198,6 @@
       });
     });
 
-    journeySteps.forEach(function (step, index) {
-      function activate() {
-        journeySteps.forEach(function (s) {
-          s.classList.remove('is-active');
-        });
-        step.classList.add('is-active');
-      }
-      step.addEventListener('mouseenter', activate);
-      step.addEventListener('focusin', activate);
-      if (index === 0) step.classList.add('is-active');
-    });
-
     function openModal() {
       var embed = getYouTubeEmbed(videoUrl);
       if (!modal || !embed || !modalFrame) return;
@@ -131,6 +242,8 @@
         syncPanelHeights(root);
       }, 150);
     });
+
+    root._hiwJourney = journey;
   }
 
   function boot() {
@@ -148,6 +261,9 @@
     if (!section) return;
     var root = section.querySelector('.scale-o-how-it-works');
     if (root) {
+      if (root._hiwJourney && root._hiwJourney.destroy) {
+        root._hiwJourney.destroy();
+      }
       root.dataset.hiwInit = 'false';
       initSection(root);
     }

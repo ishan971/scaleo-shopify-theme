@@ -1,6 +1,13 @@
 {{ 'component-product-card.css' | asset_url | stylesheet_tag }}
 {{ 'component-product-inventory.css' | asset_url | stylesheet_tag }}
 {{ 'collection.css' | asset_url | stylesheet_tag }}
+{%- if section.settings.enable_horizontal_filter_bar -%}
+  {{ 'scale-o-collection-filters.css' | asset_url | stylesheet_tag }}
+  <script src="{{ 'scale-o-collection-filters.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}
+{%- if section.settings.use_scale_o_cards -%}
+  {{ 'scale-o-product-grid.css' | asset_url | stylesheet_tag }}
+{%- endif -%}
 <script src="{{ 'collection.js' | asset_url }}" defer="defer"></script>
 {%- if template.suffix == 'flash-sale' -%}
   <script src="{{ 'foxkit-flashsale-countdown.js' | asset_url }}" defer="defer"></script>
@@ -14,7 +21,9 @@
 
   assign show_filter = section.settings.show_filter
   if section.settings.filters_type == 'storefront_filters' and collection.filters.size == 0
-    assign show_filter = false
+    if section.settings.show_daily_usage_filter != true and section.settings.show_people_family_filter != true
+      assign show_filter = false
+    endif
   endif
   if section.settings.filters_type == 'tags_filter' and section.blocks.size == 0
     assign show_filter = false
@@ -33,7 +42,7 @@
 -%}
 
 <section
-  class="facest-filters-section"
+  class="facest-filters-section{% if section.settings.enable_horizontal_filter_bar %} scale-o-filters{% endif %}"
   data-section-type="collection-template"
   data-section-id="{{ section.id }}"
   data-filters-type="{{ section.settings.filters_type }}"
@@ -45,21 +54,154 @@
   data-product-count="{{ collection.products.size }}"
   data-initial-column="{{ initial_column }}"
   data-view="{{ template.name }}"
+  style="
+    --sof-bg: {{ section.settings.filter_bar_background | default: '#ffffff' }};
+    --sof-text: {{ section.settings.filter_bar_text | default: '#0b1b2e' }};
+    --sof-accent: {{ section.settings.filter_bar_accent | default: '#0C7FDF' }};
+    --sof-border: {{ section.settings.filter_bar_border | default: '#e6edf4' }};
+    --sof-radius: {{ section.settings.filter_bar_radius | default: 12 }}px;
+    --spg-cols-desktop: {{ section.settings.grid_columns | default: 4 }};
+    --spg-cols-tablet: 2;
+    --spg-cols-mobile: 1;
+    --spg-gap: {{ section.settings.card_gap | default: 20 }}px;
+    --spg-gap-mobile: {{ section.settings.card_gap_mobile | default: 12 }}px;
+    --spg-accent: #0C7FDF;
+    --spg-title-color: #1A2B4A;
+    --spg-title-size: 14px;
+    --spg-price-color: #0C7FDF;
+    --spg-price-size: 18px;
+    --spg-compare-color: #8A97AB;
+    --spg-discount-color: #22A06B;
+    --spg-spec-background: #EEF6FF;
+    --spg-spec-text-color: #1A2B4A;
+    --spg-spec-border-color: #C5DFFA;
+    --spg-spec-icon-color: #0C7FDF;
+    --spg-spec-size: 11px;
+    --spg-card-bg: #ffffff;
+    --spg-card-border: #E8EEF8;
+    --spg-image-bg: #F5F7FF;
+    --spg-button-bg: #0C7FDF;
+    --spg-button-bg-hover: #0A6BC4;
+    --spg-button-text: #ffffff;
+    --spg-button-size: 14px;
+    --spg-image-ratio: 4 / 3;
+    --spg-image-padding: 8px;
+    --spg-card-radius: 16px;
+    --spg-card-shadow: 0 4px 16px rgba(26, 43, 74, 0.06);
+    --spg-card-shadow-hover: 0 8px 24px rgba(26, 43, 74, 0.1);
+    --spg-badge-sale-bg: #1A2B4A;
+    --spg-badge-sale-text: #ffffff;
+    --spg-badge-best-bg: #22A06B;
+    --spg-badge-best-text: #ffffff;
+    --spg-badge-affordable-bg: #F5B800;
+    --spg-badge-affordable-text: #1A2B4A;
+    --spg-badge-popular-bg: #0C7FDF;
+    --spg-badge-popular-text: #ffffff;
+    --spg-badge-new-bg: #0C7FDF;
+    --spg-badge-new-text: #ffffff;
+  "
 >
   <div class="{{ container }}">
     <div class="m-collection--wrapper {% if section.settings.show_filter %}m-sidebar--{{ section.settings.sidebar }}{% endif %}">
-      {%- render 'collection-sidebar',
-        show_filter: show_filter,
-        animated: animated,
-        animation_effect: animation_effect
-      -%}
-      <div id="CollectionProductGrid" class="m:flex-1" data-collection-id="{{ collection.id }}">
-        {%- render 'collection-page-toolbar',
-          section: section,
-          results: collection,
+      {%- if section.settings.enable_horizontal_filter_bar -%}
+        <div class="scale-o-filter-bar">
+          {%- if section.settings.show_collection_count -%}
+            <p class="scale-o-filter-bar__results">
+              <span class="scale-o-filter-bar__results-icon" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <rect x="1.5" y="1.5" width="5.5" height="5.5" rx="1.2" stroke="currentColor" stroke-width="1.5"/>
+                  <rect x="9" y="1.5" width="5.5" height="5.5" rx="1.2" stroke="currentColor" stroke-width="1.5"/>
+                  <rect x="1.5" y="9" width="5.5" height="5.5" rx="1.2" stroke="currentColor" stroke-width="1.5"/>
+                  <rect x="9" y="9" width="5.5" height="5.5" rx="1.2" stroke="currentColor" stroke-width="1.5"/>
+                </svg>
+              </span>
+              <span class="scale-o-filter-bar__results-text">
+                {{ 'collections.general.items_count' | t: count: collection.products_count }}
+              </span>
+            </p>
+          {%- endif -%}
+          {%- if section.settings.show_filter -%}
+            <button
+              class="m-sidebar--open scale-o-filter-bar__open"
+              type="button"
+            >
+              {%- if section.settings.show_filter_icon -%}
+                <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <path d="M2 4h12M4 8h8M6 12h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                </svg>
+              {%- endif -%}
+              <span>Filter</span>
+              {%- assign so_filter_count = 0 -%}
+              {%- for filter in collection.filters -%}
+                {%- assign so_filter_count = so_filter_count | plus: filter.active_values.size -%}
+                {%- if filter.type == 'price_range' and section.settings.show_price_filter -%}
+                  {%- if filter.min_value.value != nil or filter.max_value.value != nil -%}
+                    {%- assign so_filter_count = so_filter_count | plus: 1 -%}
+                  {%- endif -%}
+                {%- endif -%}
+              {%- endfor -%}
+              {%- if section.settings.show_active_filter_count and so_filter_count > 0 -%}
+                <span class="scale-o-filter-bar__count">{{ so_filter_count }}</span>
+              {%- endif -%}
+            </button>
+          {%- endif -%}
+          {%- render 'collection-sidebar',
+            show_filter: show_filter,
+            animated: animated,
+            animation_effect: animation_effect
+          -%}
+          {%- if section.settings.show_filter and section.settings.show_clear_all -%}
+            {%- assign so_has_filter = false -%}
+            {%- for filter in collection.filters -%}
+              {%- if filter.active_values.size > 0 -%}
+                {%- assign so_has_filter = true -%}
+              {%- endif -%}
+              {%- if filter.type == 'price_range' -%}
+                {%- if filter.min_value.value != nil or filter.max_value.value != nil -%}
+                  {%- assign so_has_filter = true -%}
+                {%- endif -%}
+              {%- endif -%}
+            {%- endfor -%}
+            {%- if so_has_filter -%}
+              <a class="scale-o-filter-bar__clear" href="{{ collection.url }}">{{ 'collections.sidebar.clear_all' | t }}</a>
+            {%- endif -%}
+          {%- endif -%}
+          {%- render 'collection-page-toolbar',
+            section: section,
+            results: collection,
+            animated: animated,
+            animation_effect: animation_effect
+          -%}
+        </div>
+      {%- else -%}
+        {%- render 'collection-sidebar',
+          show_filter: show_filter,
           animated: animated,
           animation_effect: animation_effect
         -%}
+      {%- endif -%}
+      <div id="CollectionProductGrid" class="m:flex-1" data-collection-id="{{ collection.id }}">
+        {%- if section.settings.use_scale_o_cards and section.settings.show_grid_heading -%}
+          <header class="scale-o-collection-header">
+            {%- if section.settings.grid_eyebrow != blank -%}
+              <p class="scale-o-product-grid__eyebrow">{{ section.settings.grid_eyebrow | escape }}</p>
+            {%- endif -%}
+            {%- if section.settings.grid_heading != blank -%}
+              <h2 class="scale-o-product-grid__heading">{{ section.settings.grid_heading | escape }}</h2>
+            {%- endif -%}
+            {%- if section.settings.grid_description != blank -%}
+              <p class="scale-o-product-grid__description">{{ section.settings.grid_description | escape }}</p>
+            {%- endif -%}
+          </header>
+        {%- endif -%}
+        {%- unless section.settings.enable_horizontal_filter_bar -%}
+          {%- render 'collection-page-toolbar',
+            section: section,
+            results: collection,
+            animated: animated,
+            animation_effect: animation_effect
+          -%}
+        {%- endunless -%}
         {%- liquid
           if section.settings.show_filter
             if section.settings.filters_type == 'storefront_filters'
@@ -77,25 +219,29 @@
             </div>
           {%- else -%}
             <div
-              class="m-collection-products m:flex m:flex-wrap m-cols-{{ initial_column }}"
+              class="m-collection-products m:flex m:flex-wrap m-cols-{{ initial_column }}{% if section.settings.use_scale_o_cards %} scale-o-collection-products{% endif %}"
               data-total-pages="{{ paginate.pages }}"
               data-product-container
             >
               {%- for product in collection.products -%}
                 <div class="m-product-item m:w-6/12 md:m:w-4/12">
                   {% liquid
-                    case settings.pcard_layout
-                      when '1'
-                        render 'product-card-1', product: product, section: section, index: forloop.index, animated: animated, animation_effect: animation_effect
-                      when '2'
-                        render 'product-card-2', product: product, section: section, index: forloop.index, animated: animated, animation_effect: animation_effect
-                      when '3'
-                        render 'product-card-3', product: product, section: section, index: forloop.index, animated: animated, animation_effect: animation_effect
-                      when '4'
-                        render 'product-card-4', product: product, section: section, index: forloop.index, animated: animated, animation_effect: animation_effect
-                      when '5'
-                        render 'product-card-5', product: product, section: section, index: forloop.index, animated: animated, animation_effect: animation_effect
-                    endcase
+                    if section.settings.use_scale_o_cards and section.settings.grid_layout != 'list'
+                      render 'scale-o-product-card', product: product, section: section, card_index: forloop.index
+                    else
+                      case settings.pcard_layout
+                        when '1'
+                          render 'product-card-1', product: product, section: section, index: forloop.index, animated: animated, animation_effect: animation_effect
+                        when '2'
+                          render 'product-card-2', product: product, section: section, index: forloop.index, animated: animated, animation_effect: animation_effect
+                        when '3'
+                          render 'product-card-3', product: product, section: section, index: forloop.index, animated: animated, animation_effect: animation_effect
+                        when '4'
+                          render 'product-card-4', product: product, section: section, index: forloop.index, animated: animated, animation_effect: animation_effect
+                        when '5'
+                          render 'product-card-5', product: product, section: section, index: forloop.index, animated: animated, animation_effect: animation_effect
+                      endcase
+                    endif
                   %}
                 </div>
               {%- endfor -%}
@@ -224,6 +370,115 @@
       "default": "3"
     },
     {
+      "type": "header",
+      "content": "Scale-O product cards"
+    },
+    {
+      "type": "checkbox",
+      "id": "use_scale_o_cards",
+      "label": "Use homepage Shop by Products cards",
+      "default": true,
+      "info": "Makes every card the same size with specs, price, and Shop Now."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_grid_heading",
+      "label": "Show products heading",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "grid_eyebrow",
+      "label": "Eyebrow",
+      "default": "PRODUCTS"
+    },
+    {
+      "type": "text",
+      "id": "grid_heading",
+      "label": "Heading",
+      "default": "Shop by Products"
+    },
+    {
+      "type": "textarea",
+      "id": "grid_description",
+      "label": "Description",
+      "default": "Choose the perfect Scale-O Water Softener for your home."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_shop_now_button",
+      "label": "Show Shop Now button",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Shop Now button text",
+      "default": "Shop Now"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_specifications",
+      "label": "Show specification pills",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_spec_icons",
+      "label": "Show specification icons",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_badges",
+      "label": "Show sale and product badges",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_compare_at_price",
+      "label": "Show compare-at price",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_discount",
+      "label": "Show save badge",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_ratings",
+      "label": "Show product reviews",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "use_rupee_symbol",
+      "label": "Show Indian rupee symbol (₹)",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "card_gap",
+      "label": "Card gap (desktop)",
+      "min": 12,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "card_gap_mobile",
+      "label": "Card gap (mobile)",
+      "min": 8,
+      "max": 24,
+      "step": 2,
+      "unit": "px",
+      "default": 12
+    },
+    {
       "type": "checkbox",
       "id": "show_columns_switcher",
       "label": "Show columns switcher",
@@ -321,6 +576,133 @@
       "label": "Filters title",
       "default": "Filters",
       "info": "Leave blank to hide"
+    },
+    {
+      "type": "header",
+      "content": "Filter groups"
+    },
+    {
+      "type": "paragraph",
+      "content": "Turn each filter on or off. Price, Storage, Daily Usage, and People in Family use Shopify storefront filters when they are enabled in Search & Discovery. Daily Usage and People in Family fall back to matching product tags if those storefront filters are not set up."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_price_filter",
+      "label": "Show Price filter",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_storage_filter",
+      "label": "Show Storage Tanks filter",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_daily_usage_filter",
+      "label": "Show Daily Usage filter",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "daily_usage_label",
+      "label": "Daily Usage heading",
+      "default": "Daily Usage"
+    },
+    {
+      "type": "textarea",
+      "id": "daily_usage_options",
+      "label": "Daily Usage options",
+      "default": "500 L/d\n1000 L/d\n1500 L/d\n2000 L/d\n5000 L/d\n10,000 L/d\n20,000 L/d",
+      "info": "One option per line. Used when a storefront filter is not set up. Match product tags exactly."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_people_family_filter",
+      "label": "Show People in Family filter",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "people_family_label",
+      "label": "People in Family heading",
+      "default": "People in Family"
+    },
+    {
+      "type": "textarea",
+      "id": "people_family_options",
+      "label": "People in Family options",
+      "default": "Upto 3 Members\n4 - 6 Members\n7 to 10 Members\n11 to 15 Members",
+      "info": "One option per line. Used when a storefront filter is not set up. Match product tags exactly."
+    },
+    {
+      "type": "header",
+      "content": "Horizontal filter bar"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_horizontal_filter_bar",
+      "label": "Use horizontal filter bar",
+      "default": true,
+      "info": "Keeps existing Shopify filters. Only changes layout."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_filter_icon",
+      "label": "Show filter icon",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_collection_count",
+      "label": "Show product count",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_clear_all",
+      "label": "Show clear all",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_active_filter_count",
+      "label": "Show active filter count",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "filter_bar_radius",
+      "label": "Filter bar radius",
+      "min": 0,
+      "max": 24,
+      "step": 2,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "color",
+      "id": "filter_bar_background",
+      "label": "Filter bar background",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "filter_bar_border",
+      "label": "Filter bar border",
+      "default": "#E6EDF4"
+    },
+    {
+      "type": "color",
+      "id": "filter_bar_text",
+      "label": "Filter bar text",
+      "default": "#0B1B2E"
+    },
+    {
+      "type": "color",
+      "id": "filter_bar_accent",
+      "label": "Filter bar accent",
+      "default": "#0C7FDF"
     },
     {
       "type": "checkbox",

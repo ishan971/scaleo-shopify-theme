@@ -1,5 +1,7 @@
+{{ 'scale-o-cart-drawer.css' | asset_url | stylesheet_tag }}
 <script src="{{ 'cart.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
+{%- if settings.enable_cart_drawer and template.name != 'cart' -%}
 {% liquid
   if linklists['gift-wrapping'].links != blank and linklists['gift-wrapping'].links.first.type == 'product_link'
     assign gift_wrapping = linklists['gift-wrapping'].links.first
@@ -14,35 +16,85 @@
     endfor
     assign items_in_cart = cart.item_count | minus: gift_wraps_in_cart
   endif
-%}
-<m-cart-drawer id="MinimogCartDrawer" class="m-cart-drawer{% if cart == empty %} m-cart--empty{% endif %}">
-  <div class="m-cart-drawer__inner m:h-full m-gradient m-color-{{ settings.drawer_popup_color_scheme }}">
-    <button class="m-cart-drawer__close" aria-label="Close">
-      <svg
-        class="m-svg-icon--large"
-        fill="currentColor"
-        stroke="currentColor"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 320 512"
-      >
-        <path d="M193.94 256L296.5 153.44l21.15-21.15c3.12-3.12 3.12-8.19 0-11.31l-22.63-22.63c-3.12-3.12-8.19-3.12-11.31 0L160 222.06 36.29 98.34c-3.12-3.12-8.19-3.12-11.31 0L2.34 120.97c-3.12 3.12-3.12 8.19 0 11.31L126.06 256 2.34 379.71c-3.12 3.12-3.12 8.19 0 11.31l22.63 22.63c3.12 3.12 8.19 3.12 11.31 0L160 289.94 262.56 392.5l21.15 21.15c3.12 3.12 8.19 3.12 11.31 0l22.63-22.63c3.12-3.12 3.12-8.19 0-11.31L193.94 256z"/>
-      </svg>
-    </button>
-    <div class="m:flex m:flex-col m:h-full">
-      <div class="m-cart-drawer__header">
-        <h3 class="m-cart-drawer__title m:text-xl md:m:text-2xl m:font-medium">{{ 'cart.general.title' | t }}</h3>
+
+  assign drawer_heading = 'cart.general.title' | t
+  if settings.cart_drawer_heading != blank
+    assign drawer_heading = settings.cart_drawer_heading
+  endif
+
+  assign checkout_label = settings.cart_drawer_checkout_label
+  if checkout_label == blank
+    assign checkout_label = 'cart.general.checkout' | t
+  endif
+
+  assign view_cart_label = settings.cart_drawer_view_cart_label
+  if view_cart_label == blank
+    assign view_cart_label = 'cart.general.viewcart' | t
+  endif
+
+  assign empty_cta_label = settings.cart_drawer_empty_button_label | default: 'Explore Products'
+  assign empty_cta_url = settings.cart_drawer_empty_button_url
+  if empty_cta_url == blank or empty_cta_url contains '/collections/all'
+    assign empty_cta_url = collections['water-softeners'].url | default: '/collections/water-softeners'
+  endif
+
+  assign drawer_width = settings.cart_drawer_width | default: 460
+  assign drawer_radius = settings.cart_drawer_radius | default: 0
+  assign button_radius = settings.cart_drawer_button_radius | default: 10
+-%}
+
+<style>
+  #MinimogCartDrawer.scale-o-cart-drawer {
+    --socd-accent: {{ settings.cart_drawer_accent_color | default: '#0C7FDF' }};
+    --socd-accent-hover: {{ settings.cart_drawer_accent_hover_color | default: '#0A6BC4' }};
+    --socd-bg: {{ settings.cart_drawer_background | default: '#FFFFFF' }};
+    --socd-text: {{ settings.cart_drawer_text_color | default: '#111111' }};
+    --socd-muted: {{ settings.cart_drawer_muted_color | default: '#64748B' }};
+    --socd-width: {{ drawer_width }}px;
+    --socd-radius: {{ drawer_radius }}px;
+    --socd-btn-radius: {{ button_radius }}px;
+  }
+</style>
+
+<m-cart-drawer
+  id="MinimogCartDrawer"
+  class="m-cart-drawer scale-o-cart-drawer{% if cart == empty %} m-cart--empty{% endif %}"
+>
+  <div class="m-cart-drawer__inner scale-o-cart-drawer__panel m:h-full m-gradient m-color-{{ settings.drawer_popup_color_scheme }}">
+    <div class="scale-o-cart-drawer__layout m:flex m:flex-col m:h-full">
+      <div class="m-cart-drawer__header scale-o-cart-drawer__header">
+        <div class="scale-o-cart-drawer__heading-wrap">
+          <h2 class="m-cart-drawer__title scale-o-cart-drawer__title">{{ drawer_heading | escape }}</h2>
+          <p class="scale-o-cart-drawer__count{% if settings.cart_drawer_show_item_count == false %} m:hidden{% endif %}" data-cart-item-count>
+            {%- if cart.item_count == 1 -%}
+              {{ 'cart.general.item_count_one' | t: count: cart.item_count }}
+            {%- else -%}
+              {{ 'cart.general.item_count_other' | t: count: cart.item_count }}
+            {%- endif -%}
+          </p>
+        </div>
+        <button
+          class="m-cart-drawer__close scale-o-cart-drawer__close"
+          type="button"
+          aria-label="Close shopping cart"
+        >
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+            <path d="M4 4l10 10M14 4 4 14" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+          </svg>
+        </button>
         {% if template.name != 'cart' %}
           <foxkit-cart-countdown></foxkit-cart-countdown>
         {% endif %}
         <foxkit-cart-goal></foxkit-cart-goal>
       </div>
+
       <m-cart-drawer-items
         data-minimog-cart-items
-        class="m-cart-drawer__body m-scrollbar--vertical m:flex m:flex-col m:flex-1"
+        class="m-cart-drawer__body scale-o-cart-drawer__body m-scrollbar--vertical m:flex m:flex-col m:flex-1"
       >
         <form action="{{ routes.cart_url }}" method="post" id="cart-drawer-form" class="m:w-full" novalidate>
           {%- if cart.items.size > 0 -%}
-            <div class="m-cart-drawer__items">
+            <div class="m-cart-drawer__items scale-o-cart-drawer__items">
               {% for item in cart.items %}
                 {% render 'cart-drawer-item',
                   item: item,
@@ -51,33 +103,18 @@
                   items_in_cart: items_in_cart
                 %}
               {% endfor %}
-<div>
-  <p class="cart-attribute__field text-right">
-<b>Enter Details for B2B Invoice.</b>
-</p>
-<p class="cart-attribute__field text-right">
-<label for="company_name"> Company Name: </label>
-<input id="company_name"  type="text" name="attributes[company_name]" value="">
-</p>
-<p class="cart-attribute__field text-right">
-<label for="gstin_number"> GSTIN Number: </label>
-<input id="gstin_number" onchange="validateGSTNumber()" type="text" name="attributes[gstin_number]" value="">
-</p>
-<script type="text/javascript">
-function validateGSTNumber(){var e=document.getElementById("gstin_number").value;if(new RegExp("^[0-9]{2}[A-Z]{5}[0-9]{4}[A-Z]{1}[1-9A-Z]{1}Z[0-9A-Z]{1}$").test(e))return!0;alert("Please Enter Valid GSTIN Number"),document.getElementById("gstin_number").value="",setTimeout(function(){document.getElementById("gstin_number").focus()},500)}
-</script>
-</div>
-              
             </div>
           {%- else -%}
-            <div class="m-cart-drawer__empty">
-              {{ 'cart.general.empty' | t }}
+            <div class="m-cart-drawer__empty scale-o-cart-drawer__empty">
+              <p class="scale-o-cart-drawer__empty-title">{{ 'cart.general.empty_title' | t }}</p>
+              <p class="scale-o-cart-drawer__empty-text">{{ 'cart.general.empty_message' | t }}</p>
+              <a class="scale-o-cart-drawer__empty-cta" href="{{ empty_cta_url }}">{{ empty_cta_label | escape }}</a>
             </div>
           {%- endif -%}
-          
         </form>
       </m-cart-drawer-items>
-      <div class="m-cart-drawer__footer" id="MinimogCartDrawerFooter">
+
+      <div class="m-cart-drawer__footer scale-o-cart-drawer__footer" id="MinimogCartDrawerFooter">
         {% render 'cart-addons', form_id: 'cart-drawer-form' %}
         <div class="m-cart-drawer__gift-wrapping" data-minimog-gift-wrapping>
           {%- if gift_wrapping != null -%}
@@ -113,7 +150,7 @@ function validateGSTNumber(){var e=document.getElementById("gstin_number").value
                 <svg
                   class="m-gift-wrapping--icon"
                   viewBox="0 0 14 14"
-                  with="16"
+                  width="16"
                   height="16"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
@@ -134,32 +171,87 @@ function validateGSTNumber(){var e=document.getElementById("gstin_number").value
             </m-gift-wrapping-component>
           {%- endif -%}
         </div>
-        <div class="m-cart__summary m-cart-drawer__summary">
+
+        <div class="m-cart__summary m-cart-drawer__summary scale-o-cart-drawer__summary">
           <div data-foxkit-cart-summary></div>
           <div data-minimog-cart-discounts>
             {%- if cart.cart_level_discount_applications.size > 0 -%}
               <ul class="m-cart__discount" role="list">
                 {%- for discount in cart.cart_level_discount_applications -%}
                   <li class="m-cart__discount--item m:justify-end m:items-center">
-                    <svg
-                      aria-hidden="true"
-                      width="20"
-                      height="20"
-                      focusable="false"
-                      role="presentation"
-                      viewBox="0 0 12 13"
-                    >
-                      <path fill-rule="evenodd" clip-rule="evenodd" d="M7 .5h3a2 2 0 0 1 2 2v3a.995.995 0 0 1-.293.707l-6 6a1 1 0 0 1-1.414 0l-4-4a1 1 0 0 1 0-1.414l6-6A.995.995 0 0 1 7 .5zm2 2a1 1 0 1 0 2 0 1 1 0 0 0-2 0z" fill="currentColor"></path>
-                    </svg>
                     <span>{{ discount.title | upcase }}&nbsp;(-{{ discount.total_allocated_amount | money }})</span>
                   </li>
                 {%- endfor -%}
               </ul>
             {%- endif -%}
           </div>
+
+          <div data-cart-free-shipping>
+            {%- liquid
+              assign show_shipping_bar = false
+              if section.settings.show_free_delivery_bar
+                assign show_shipping_bar = true
+              endif
+
+              assign shipping_threshold = section.settings.free_delivery_threshold | default: settings.cart_drawer_free_shipping_threshold | plus: 0
+              if shipping_threshold <= 0
+                assign show_shipping_bar = false
+              endif
+
+              assign shipping_unlocked_text = section.settings.free_delivery_unlocked_text | default: settings.cart_drawer_shipping_unlocked_text
+              if shipping_unlocked_text == blank
+                assign shipping_unlocked_text = 'You’ve unlocked free delivery!'
+              endif
+            -%}
+            {%- if show_shipping_bar -%}
+              {%- liquid
+                assign threshold_cents = shipping_threshold | times: 100
+                assign remaining_cents = threshold_cents | minus: cart.total_price
+                if remaining_cents < 0
+                  assign remaining_cents = 0
+                endif
+                assign shipping_percent = 0
+                if threshold_cents > 0
+                  assign shipping_percent = cart.total_price | times: 100.0 | divided_by: threshold_cents
+                endif
+                if shipping_percent > 100
+                  assign shipping_percent = 100
+                endif
+                assign shipping_unlocked = false
+                if cart.total_price >= threshold_cents
+                  assign shipping_unlocked = true
+                endif
+              -%}
+              <div class="scale-o-cart-drawer__shipping{% if shipping_unlocked %} is-complete{% endif %}">
+                <div class="scale-o-cart-drawer__shipping-top">
+                  <span class="scale-o-cart-drawer__shipping-badge" aria-hidden="true">
+                    <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                      <path d="M8 1.4 9.3 5H13l-3 2.3L11.3 11 8 8.8 4.7 11 6 7.3 3 5h3.7L8 1.4Z" fill="#fff"/>
+                    </svg>
+                  </span>
+                  {%- if shipping_unlocked -%}
+                    <p class="scale-o-cart-drawer__shipping-text">{{ shipping_unlocked_text | escape }}</p>
+                  {%- else -%}
+                    <p class="scale-o-cart-drawer__shipping-text">You’re {{ remaining_cents | money }} away from free delivery!</p>
+                  {%- endif -%}
+                </div>
+                <div class="scale-o-cart-drawer__shipping-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="{{ shipping_percent | round }}">
+                  <span class="scale-o-cart-drawer__shipping-fill" style="width: {{ shipping_percent }}%;"></span>
+                  <span class="scale-o-cart-drawer__shipping-truck" aria-hidden="true">
+                    <svg width="18" height="14" viewBox="0 0 18 14" fill="none">
+                      <path d="M1 3.5h9.5V10H4.2M10.5 5.5H14l2.5 2.6V10h-2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                      <circle cx="5.2" cy="11.2" r="1.3" stroke="currentColor" stroke-width="1.3"/>
+                      <circle cx="13.5" cy="11.2" r="1.3" stroke="currentColor" stroke-width="1.3"/>
+                    </svg>
+                  </span>
+                </div>
+              </div>
+            {%- endif -%}
+          </div>
+
           <div class="m-cart__subtotal m:flex m:justify-between" data-cart-subtotal>
-            <span class="m-cart__subtotal--label m:font-medium">{{ 'cart.general.subtotal' | t }}</span>
-            <span class="m-cart__subtotal--price m:font-medium" data-cart-subtotal-price>
+            <span class="m-cart__subtotal--label">{{ 'cart.general.subtotal' | t }}</span>
+            <span class="m-cart__subtotal--price" data-cart-subtotal-price>
               {% if settings.currency_code_enabled %}
                 {{ cart.total_price | money_with_currency }}
               {% else %}
@@ -167,8 +259,21 @@ function validateGSTNumber(){var e=document.getElementById("gstin_number").value
               {% endif %}
             </span>
           </div>
+          {%- capture taxes_shipping_checkout -%}
+            {%- if cart.taxes_included and shop.shipping_policy.body != blank -%}
+              {{ 'cart.general.taxes_included_and_shipping_policy_html' | t: link: shop.shipping_policy.url }}
+            {%- elsif cart.taxes_included -%}
+              {{ 'cart.general.taxes_included_but_shipping_at_checkout' | t }}
+            {%- elsif shop.shipping_policy.body != blank -%}
+              {{ 'cart.general.taxes_and_shipping_policy_at_checkout_html' | t: link: shop.shipping_policy.url }}
+            {%- else -%}
+              {{ 'cart.general.taxes_and_shipping_at_checkout' | t }}
+            {%- endif -%}
+          {%- endcapture -%}
+          <p class="scale-o-cart-drawer__tax-note">{{ taxes_shipping_checkout }}</p>
         </div>
-        <div class="m:flex m:flex-col m:items-center">
+
+        <div class="scale-o-cart-drawer__actions m:flex m:flex-col m:items-center">
           {% assign show_terms = false %}
           {% if settings.agree_text != blank and settings.show_agree_on_cart %}
             <div class="m-terms-conditons">
@@ -176,14 +281,7 @@ function validateGSTNumber(){var e=document.getElementById("gstin_number").value
                 <input type="checkbox" name="agree_terms" value="yes" required>
                 <span class="form-field--checkbox__label">{{ settings.agree_text }}</span>
                 <span class="form-field--checkbox__icon">
-                  <svg
-                    class="m-svg-icon--medium"
-                    xmlns="http://www.w3.org/2000/svg"
-                    aria-hidden="true"
-                    focusable="false"
-                    fill="none"
-                    viewBox="0 0 20 20"
-                  >
+                  <svg class="m-svg-icon--medium" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" fill="none" viewBox="0 0 20 20">
                     <path d="M18.5 1.5H1.5L1.5 18.5H18.5V1.5ZM1.5 0.5C0.947715 0.5 0.5 0.947715 0.5 1.5V18.5C0.5 19.0523 0.947715 19.5 1.5 19.5H18.5C19.0523 19.5 19.5 19.0523 19.5 18.5V1.5C19.5 0.947715 19.0523 0.5 18.5 0.5H1.5Z" fill-rule="evenodd" fill="currentColor"/>
                     <path d="M14.9975 6.09084C15.201 6.27746 15.2147 6.59375 15.0281 6.79728L8.91631 13.4627C8.82231 13.5652 8.68987 13.6239 8.55079 13.6247C8.41172 13.6256 8.27857 13.5684 8.18335 13.4671L4.99513 10.0731C4.80606 9.87179 4.81596 9.55536 5.01723 9.3663C5.21849 9.17723 5.53492 9.18713 5.72399 9.3884L8.54335 12.3897L14.291 6.12145C14.4776 5.91791 14.7939 5.90421 14.9975 6.09084Z" fill="currentColor"/>
                   </svg>
@@ -195,23 +293,65 @@ function validateGSTNumber(){var e=document.getElementById("gstin_number").value
           <button
             type="submit"
             form="cart-drawer-form"
-            class="m-button m-button--primary m:w-full"
+            class="m-button m-button--primary m:w-full scale-o-cart-drawer__checkout"
             name="checkout"
             {% if show_terms %}
               data-terms-action disabled
             {% endif %}
           >
-            <span>{{ 'cart.general.checkout' | t }}</span>
+            <span class="scale-o-cart-drawer__checkout-inner">
+              <svg class="scale-o-cart-drawer__checkout-lock" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <rect x="3.2" y="7.2" width="9.6" height="6.6" rx="1.4" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M5.2 7.2V5.4a2.8 2.8 0 0 1 5.6 0v1.8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+              <span>{{ checkout_label | escape }}</span>
+              <svg class="scale-o-cart-drawer__checkout-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
           </button>
           {%- if settings.cart_drawer_show_accelerated_button and additional_checkout_buttons -%}
             <div class="additional-checkout-buttons m:w-full">
               {{ content_for_additional_checkout_buttons }}
             </div>
           {%- endif -%}
-          <a class="m-cart-drawer__link-to-cart m-button m-button--link" href="{{ routes.cart_url }}">
-            {{ 'cart.general.viewcart' | t }}
-          </a>
+          {%- if settings.cart_drawer_show_view_cart -%}
+            <a class="m-cart-drawer__link-to-cart scale-o-cart-drawer__view-cart" href="{{ routes.cart_url }}">
+              {{ view_cart_label | escape }}
+            </a>
+          {%- endif -%}
         </div>
+
+        {%- if settings.cart_drawer_show_trust != false -%}
+          <ul class="scale-o-cart-drawer__trust" role="list">
+            <li>
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <rect x="3.25" y="7.1" width="9.5" height="6.5" rx="1.4" stroke="currentColor" stroke-width="1.35"/>
+                <path d="M5.2 7.1V5.35a2.8 2.8 0 0 1 5.6 0V7.1" stroke="currentColor" stroke-width="1.35" stroke-linecap="round"/>
+                <path d="M6.4 10.35 7.55 11.4 9.7 9.2" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span>{{ settings.cart_drawer_trust_1 | default: 'Secure Checkout' | escape }}</span>
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M3.2 8A4.8 4.8 0 0 1 8 3.2h1.1" stroke="currentColor" stroke-width="1.35" stroke-linecap="round"/>
+                <path d="M12.8 8A4.8 4.8 0 0 1 8 12.8H6.9" stroke="currentColor" stroke-width="1.35" stroke-linecap="round"/>
+                <path d="M7.6 1.8 9.4 3.4 7.7 5" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M8.4 14.2 6.6 12.6 8.3 11" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M6.35 8.15 7.5 9.2 9.7 7.1" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span>{{ settings.cart_drawer_trust_2 | default: 'Easy Returns' | escape }}</span>
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M8 2.2 13.2 4.2v3.3c0 3.15-2.15 5.3-5.2 6.3-3.05-1-5.2-3.15-5.2-6.3V4.2L8 2.2Z" stroke="currentColor" stroke-width="1.35" stroke-linejoin="round"/>
+                <path d="M5.9 8.05 7.3 9.4 10.2 6.5" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span>{{ settings.cart_drawer_trust_3 | default: 'Safe Payments' | escape }}</span>
+            </li>
+          </ul>
+        {%- endif -%}
+
         {% if settings.cart_drawer_trust_badge %}
           <div class="m-cart__trust-badge">
             <img
@@ -219,7 +359,7 @@ function validateGSTNumber(){var e=document.getElementById("gstin_number").value
               loading="lazy"
               width="400"
               height="100"
-              alt="Trust secure badge"
+              alt=""
             >
           </div>
         {% endif %}
@@ -228,3 +368,4 @@ function validateGSTNumber(){var e=document.getElementById("gstin_number").value
     </div>
   </div>
 </m-cart-drawer>
+{%- endif -%}

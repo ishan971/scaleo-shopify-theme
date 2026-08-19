@@ -1,119 +1,178 @@
-{{ 'component-article-card.css' | asset_url | stylesheet_tag }}
-{{ 'blog-post.css' | asset_url | stylesheet_tag }}
-{% liquid
-  assign blog_to_show = section.settings.limit | default: 3
-  assign use_scroll_mobile = section.settings.use_scroll_mobile
+{%- comment -%}
+  Scale-O Blog Posts — homepage editorial grid
+  Preserves Shopify blog picker, article URLs, images, dates and excerpts.
+{%- endcomment -%}
 
-  assign animation_effect = settings.animations
-  assign animated = false
-  if animation_effect != 'none'
-    assign animated = true
-    if section.settings.animations != 'inherit'
-      assign animation_effect = section.settings.animations
-    endif
-  endif
+{{ 'scale-o-blog-posts.css' | asset_url | stylesheet_tag }}
 
-  assign container = section.settings.container
-  if container == 'w-full'
-    assign container = 'container-full'
-  endif
-
+{%- liquid
   assign blog = blogs[section.settings.blog]
-  assign classes = 'm-section m-blog-grid'
-  if section.settings.custom_class != blank
-    assign classes = classes | append: ' ' | append: section.settings.custom_class
+  assign post_limit = section.settings.limit | default: 3
+  if post_limit > 4
+    assign post_limit = 4
   endif
-  assign classes = classes | append: ' m-gradient' | append: ' m-color-' | append: section.settings.color_scheme
+  assign header_align = section.settings.header_alignment | default: 'center'
+  assign cols = section.settings.column | default: 3
+  if cols < 2
+    assign cols = 3
+  endif
 
-  assign show_button_on_header = section.settings.show_button_on_header
-%}
+  assign selected_count = 0
+  for block in section.blocks
+    if block.type == 'article' and block.settings.article != blank
+      assign selected_count = selected_count | plus: 1
+    endif
+  endfor
+  if selected_count > 4
+    assign selected_count = 4
+  endif
+  if selected_count > 0
+    assign cols = selected_count
+  endif
+
+  assign ratio = section.settings.article_image_aspect_ratio | default: '16/9'
+  if ratio == 'original'
+    assign ratio = '16 / 9'
+  else
+    assign ratio = ratio | replace: '/', ' / '
+  endif
+
+  assign view_url = section.settings.button_link
+  if view_url == blank and blog != blank
+    assign view_url = blog.url
+  endif
+
+  assign read_label = section.settings.read_more_text | default: 'Read article'
+  assign excerpt_words = section.settings.excerpt_words | default: 18
+  assign title_lines = section.settings.title_lines | default: 3
+
+  assign show_header = false
+  if section.settings.heading != blank or section.settings.subheading != blank or section.settings.description != blank
+    assign show_header = true
+  endif
+-%}
+
 <style>
-  #m-blog-grid-{{ section.id }} {
-    --section-padding-top: {{ section.settings.padding_top }}px;
-    --section-padding-bottom: {{ section.settings.padding_bottom }}px;
-    --column-gap: {{ section.settings.column_gap }}px;
-    --column-gap-mobile: {{ section.settings.mobile_gap }}px;
-    --row-gap: {{ section.settings.column_gap | plus: 10 }}px;
+  #shopify-section-{{ section.id }} .scale-o-blog {
+    --sob-bg: {{ section.settings.background_color | default: '#F7FBFF' }};
+    --sob-heading: {{ section.settings.heading_color | default: '#142B4A' }};
+    --sob-text: {{ section.settings.text_color | default: '#5A6B85' }};
+    --sob-accent: {{ section.settings.accent_color | default: '#0C7FDF' }};
+    --sob-accent-hover: {{ section.settings.accent_hover_color | default: '#0A6BC4' }};
+    --sob-card-bg: {{ section.settings.card_background | default: '#FFFFFF' }};
+    --sob-card-border: {{ section.settings.card_border_color | default: '#E4ECF6' }};
+    --sob-radius: {{ section.settings.card_radius | default: 16 }}px;
+    --sob-gap: {{ section.settings.column_gap | default: 28 }}px;
+    --sob-pad-x: {{ section.settings.padding_x | default: 20 }}px;
+    --sob-header-gap: {{ section.settings.header_gap | default: 40 }}px;
+    --sob-max-width: {% if section.settings.max_width == 0 %}100%{% else %}{{ section.settings.max_width | default: 1200 }}px{% endif %};
+    --sob-cols: {{ cols }};
+    --sob-ratio: {{ ratio }};
+    --sob-title-lines: {{ title_lines }};
+    --sob-excerpt-lines: 3;
+    --sob-eyebrow-size: {{ section.settings.eyebrow_size | default: 13 }}px;
+    --sob-heading-size: {{ section.settings.heading_size_mobile | default: 26 }}px;
+    --sob-heading-size-desktop: {{ section.settings.heading_size_desktop | default: 36 }}px;
+    --sob-desc-size: {{ section.settings.description_size | default: 16 }}px;
+    --sob-shadow: {% if section.settings.show_card_shadow %}0 10px 28px rgba(20, 43, 74, 0.08){% else %}none{% endif %};
+    padding: {{ section.settings.padding_top_mobile | default: 48 }}px 0 {{ section.settings.padding_bottom_mobile | default: 48 }}px;
+    background: var(--sob-bg);
+  }
+  @media (min-width: 768px) {
+    #shopify-section-{{ section.id }} .scale-o-blog {
+      padding: {{ section.settings.padding_top | default: 80 }}px 0 {{ section.settings.padding_bottom | default: 80 }}px;
+    }
   }
 </style>
+
 <section
   id="m-blog-grid-{{ section.id }}"
-  class="{{ classes }}"
+  class="scale-o-blog m-blog-grid{% if section.settings.custom_class != blank %} {{ section.settings.custom_class }}{% endif %}"
   data-section-id="{{ section.id }}"
+  aria-label="{{ section.settings.heading | default: 'Blog posts' | escape }}"
 >
-  <div
-    class="{{ container }} m-section-my m-section-py"
-  >
-    {% render 'index-section-header',
-      section_settings: section.settings,
-      show_button_on_header: show_button_on_header,
-      button_style: section.settings.button_style,
-      button_link: section.settings.button_link,
-      button_size: section.settings.button_size,
-      button_label: section.settings.button_text
-    %}
-    <div class="m-blog-grid__wrapper">
-      <div class="m-mixed-layout{% if use_scroll_mobile %} m-mixed-layout--mobile-scroll{% endif %}">
-        <div class="m-mixed-layout__inner m:grid md:m:grid-{{ section.settings.column | minus: 1 }}-cols lg:m:grid-{{ section.settings.column }}-cols">
-          {% if blog.articles.size > 0 %}
-            {% for article in blog.articles limit: section.settings.limit %}
-              <div class="m:column">
-                {% render 'article-card',
-                  article: article,
-                  view: 'grid',
-                  settings: section.settings,
-                  index: forloop.index,
-                  animated: animated,
-                  animation_effect: animation_effect
-                %}
-              </div>
-            {% endfor %}
-          {% else %}
-            {% for i in (1..blog_to_show) %}
-              <div class="m:column">
-                {% render 'article-card-placeholder',
-                  index: forloop.index,
-                  animated: animated,
-                  animation_effect: animation_effect
-                %}
-              </div>
-            {% endfor %}
-          {% endif %}
-        </div>
-      </div>
+  <div class="scale-o-blog__container">
+    {%- if show_header -%}
+      <header class="scale-o-blog__header scale-o-blog__header--{{ header_align }}">
+        {%- if section.settings.subheading != blank -%}
+          <p class="scale-o-blog__eyebrow">{{ section.settings.subheading | escape }}</p>
+        {%- endif -%}
+        {%- if section.settings.heading != blank -%}
+          <h2 class="scale-o-blog__heading">{{ section.settings.heading | escape }}</h2>
+        {%- endif -%}
+        {%- if section.settings.description != blank -%}
+          <p class="scale-o-blog__description">{{ section.settings.description | escape }}</p>
+        {%- endif -%}
+      </header>
+    {%- endif -%}
+
+    <div class="scale-o-blog__grid">
+      {%- if selected_count > 0 -%}
+        {%- assign shown = 0 -%}
+        {%- for block in section.blocks -%}
+          {%- if shown >= 4 -%}{%- break -%}{%- endif -%}
+          {%- if block.type != 'article' or block.settings.article == blank -%}{%- continue -%}{%- endif -%}
+          {%- assign shown = shown | plus: 1 -%}
+          {% render 'scale-o-blog-card',
+            article: block.settings.article,
+            block: block,
+            show_date: section.settings.article_show_date,
+            show_excerpt: section.settings.article_show_excerpt,
+            show_button: section.settings.article_show_button,
+            read_label: read_label,
+            excerpt_words: excerpt_words
+          %}
+        {%- endfor -%}
+      {%- elsif blog != blank and blog.articles.size > 0 -%}
+        {%- for article in blog.articles limit: post_limit -%}
+          {% render 'scale-o-blog-card',
+            article: article,
+            show_date: section.settings.article_show_date,
+            show_excerpt: section.settings.article_show_excerpt,
+            show_button: section.settings.article_show_button,
+            read_label: read_label,
+            excerpt_words: excerpt_words
+          %}
+        {%- endfor -%}
+      {%- else -%}
+        {%- for i in (1..post_limit) -%}
+          <div class="scale-o-blog__card" aria-hidden="true">
+            <span class="scale-o-blog__media">
+              <span class="scale-o-blog__media-fallback"></span>
+            </span>
+            <span class="scale-o-blog__body">
+              <span class="scale-o-blog__date">Article date</span>
+              <span class="scale-o-blog__title">Your blog article title</span>
+              <span class="scale-o-blog__excerpt">Add Article blocks in Theme Editor to choose which posts appear here.</span>
+            </span>
+          </div>
+        {%- endfor -%}
+      {%- endif -%}
     </div>
-    {% if section.settings.button_text != blank and show_button_on_header == false %}
-      {% capture arrow %}<svg class="m-rlt-reverse-x" width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M7.03062 2.4694L12.0306 7.4694C12.1005 7.53908 12.156 7.62187 12.1939 7.71304C12.2317 7.8042 12.2512 7.90194 12.2512 8.00065C12.2512 8.09936 12.2317 8.1971 12.1939 8.28827C12.156 8.37943 12.1005 8.46222 12.0306 8.5319L7.03062 13.5319C6.88973 13.6728 6.69863 13.752 6.49937 13.752C6.30012 13.752 6.10902 13.6728 5.96812 13.5319C5.82723 13.391 5.74807 13.1999 5.74807 13.0007C5.74807 12.8014 5.82723 12.6103 5.96812 12.4694L10.4375 8.00003L5.9675 3.53065C5.8266 3.38976 5.74745 3.19866 5.74745 2.9994C5.74745 2.80015 5.8266 2.60905 5.9675 2.46815C6.10839 2.32726 6.29949 2.2481 6.49875 2.2481C6.69801 2.2481 6.8891 2.32726 7.03 2.46815L7.03062 2.4694Z" fill="currentColor"/>
-        </svg>{% endcapture %}
-      {% liquid
-        assign is_button_icon = false
-        if section.settings.button_text contains '[arrow]'
-          assign is_button_icon = true
-        endif
-      %}
-      <div class="m-blog-grid__button{% if animated %} m-scroll-trigger animate--{{ animation_effect }}{% endif %}">
-        <a
-          class="m-button{% if is_button_icon %} m-button--text-with-icon{% endif %} {{ section.settings.button_style | replace: 'sf__btn-primary', 'm-button--primary' | replace: 'sf__btn-secondary', 'm-button--secondary' | replace: 'sf__btn-link', 'm-button--link' | replace: 'sf__btn-white', 'm-button--white' }} {{ section.settings.button_size }}"
-          href="{{ section.settings.button_link | default: '#' }}"
-        >
-          {{- section.settings.button_text | replace: '[arrow]', arrow -}}
+
+    {%- if section.settings.button_text != blank and section.settings.show_button_on_header == false -%}
+      <div class="scale-o-blog__cta">
+        <a class="scale-o-blog__cta-btn" href="{{ view_url | default: '#' }}">
+          <span>{{ section.settings.button_text | replace: '[arrow]', '' | strip | escape }}</span>
+          <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
       </div>
-    {% endif %}
+    {%- endif -%}
   </div>
 </section>
 
 {% schema %}
 {
   "name": "Blog posts",
+  "class": "scale-o-blog-section",
+  "max_blocks": 4,
   "disabled_on": {
     "groups": ["header", "footer"]
   },
   "settings": [
     {
       "type": "paragraph",
-      "content": "[Watch tutorial](https://foxecom.link/4jFUGB)"
+      "content": "Add up to 4 Article blocks and pick existing blog posts. Only those selected articles appear in this section. If no Article blocks are added, the Blog picker below is used."
     },
     {
       "type": "header",
@@ -123,33 +182,29 @@
       "type": "text",
       "id": "heading",
       "label": "Heading",
-      "default": "Blog posts"
+      "default": "Learn More About Hard Water"
     },
     {
       "type": "select",
       "id": "heading_size",
       "label": "Heading size",
-      "default": "h3",
+      "default": "h2",
       "options": [
-        {
-          "label": "Medium",
-          "value": "h3"
-        },
-        {
-          "label": "Large",
-          "value": "h2"
-        }
+        { "label": "Medium", "value": "h3" },
+        { "label": "Large", "value": "h2" }
       ]
     },
     {
       "type": "text",
       "id": "subheading",
-      "label": "Subheading"
+      "label": "Eyebrow",
+      "default": "BLOG / INSIGHTS"
     },
     {
       "type": "textarea",
       "id": "description",
-      "label": "Description"
+      "label": "Description",
+      "default": "Helpful guides, insights and practical information about hard water, water softening and protecting your home."
     },
     {
       "type": "select",
@@ -157,14 +212,8 @@
       "label": "Text alignment",
       "default": "center",
       "options": [
-        {
-          "value": "left",
-          "label": "Left"
-        },
-        {
-          "value": "center",
-          "label": "Center"
-        }
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" }
       ]
     },
     {
@@ -175,20 +224,11 @@
       "type": "select",
       "id": "container",
       "label": "Container type",
-      "default": "container-fluid",
+      "default": "container",
       "options": [
-        {
-          "value": "container-fluid",
-          "label": "Default"
-        },
-        {
-          "value": "w-full",
-          "label": "Full width"
-        },
-        {
-          "value": "container",
-          "label": "Use container box"
-        }
+        { "value": "container-fluid", "label": "Default" },
+        { "value": "w-full", "label": "Full width" },
+        { "value": "container", "label": "Use container box" }
       ]
     },
     {
@@ -203,34 +243,36 @@
     {
       "id": "blog",
       "type": "blog",
-      "label": "Blog"
+      "label": "Blog",
+      "info": "Used only when no Article blocks are added."
     },
     {
       "type": "range",
       "id": "limit",
       "label": "Posts to show",
       "min": 2,
-      "max": 12,
+      "max": 4,
       "step": 1,
-      "default": 4
+      "default": 3,
+      "info": "Used only when no Article blocks are added. Maximum 4."
     },
     {
       "type": "range",
       "id": "column",
       "label": "Posts per row",
       "min": 2,
-      "max": 6,
+      "max": 4,
       "step": 1,
-      "default": 4
+      "default": 3
     },
     {
       "type": "range",
       "id": "column_gap",
       "label": "Column gap",
-      "min": 0,
-      "max": 50,
+      "min": 12,
+      "max": 40,
       "step": 2,
-      "default": 30,
+      "default": 28,
       "unit": "px"
     },
     {
@@ -240,7 +282,7 @@
       "min": 0,
       "max": 30,
       "step": 2,
-      "default": 10,
+      "default": 16,
       "unit": "px"
     },
     {
@@ -253,26 +295,11 @@
       "label": "Image aspect ratio",
       "default": "16/9",
       "options": [
-        {
-          "value": "original",
-          "label": "Original aspect ratio"
-        },
-        {
-          "value": "1/1",
-          "label": "1:1"
-        },
-        {
-          "value": "3/4",
-          "label": "3:4"
-        },
-        {
-          "value": "4/3",
-          "label": "4:3"
-        },
-        {
-          "value": "16/9",
-          "label": "16:9"
-        }
+        { "value": "original", "label": "Original aspect ratio" },
+        { "value": "1/1", "label": "1:1" },
+        { "value": "3/4", "label": "3:4" },
+        { "value": "4/3", "label": "4:3" },
+        { "value": "16/9", "label": "16:9" }
       ]
     },
     {
@@ -281,30 +308,21 @@
       "label": "Content alignment",
       "default": "text-left",
       "options": [
-        {
-          "label": "Left",
-          "value": "text-left"
-        },
-        {
-          "label": "Center",
-          "value": "text-center"
-        },
-        {
-          "label": "Right",
-          "value": "text-right"
-        }
+        { "label": "Left", "value": "text-left" },
+        { "label": "Center", "value": "text-center" },
+        { "label": "Right", "value": "text-right" }
       ]
     },
     {
       "type": "checkbox",
       "id": "article_show_tags",
       "label": "Show tags",
-      "default": true
+      "default": false
     },
     {
       "type": "checkbox",
       "id": "article_show_date",
-      "label": "Show publised date",
+      "label": "Show published date",
       "default": true
     },
     {
@@ -314,10 +332,34 @@
       "default": true
     },
     {
+      "type": "range",
+      "id": "excerpt_words",
+      "label": "Excerpt word count",
+      "min": 10,
+      "max": 30,
+      "step": 1,
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "title_lines",
+      "label": "Title lines",
+      "min": 2,
+      "max": 4,
+      "step": 1,
+      "default": 3
+    },
+    {
       "type": "checkbox",
       "id": "article_show_button",
       "label": "Show read more link",
       "default": true
+    },
+    {
+      "type": "text",
+      "id": "read_more_text",
+      "label": "Read more text",
+      "default": "Read article"
     },
     {
       "type": "header",
@@ -337,7 +379,7 @@
       "type": "text",
       "id": "button_text",
       "label": "Button label",
-      "default": "View More",
+      "default": "View All Articles",
       "info": "Leave it blank to hide"
     },
     {
@@ -345,26 +387,11 @@
       "id": "button_style",
       "label": "Button style",
       "options": [
-        {
-          "value": "m-button--primary",
-          "label": "Primary button"
-        },
-        {
-          "value": "m-button--secondary",
-          "label": "Secondary button"
-        },
-        {
-          "value": "m-button--white",
-          "label": "White button"
-        },
-        {
-          "value": "m-button--link",
-          "label": "Underline button"
-        },
-        {
-          "value": "m-button--plain",
-          "label": "Plain button"
-        }
+        { "value": "m-button--primary", "label": "Primary button" },
+        { "value": "m-button--secondary", "label": "Secondary button" },
+        { "value": "m-button--white", "label": "White button" },
+        { "value": "m-button--link", "label": "Underline button" },
+        { "value": "m-button--plain", "label": "Plain button" }
       ],
       "default": "m-button--primary"
     },
@@ -373,18 +400,9 @@
       "id": "button_size",
       "label": "Button size",
       "options": [
-        {
-          "value": "m-button--small",
-          "label": "Button small"
-        },
-        {
-          "value": "",
-          "label": "Button medium"
-        },
-        {
-          "value": "m-button--large",
-          "label": "Button large"
-        }
+        { "value": "m-button--small", "label": "Button small" },
+        { "value": "", "label": "Button medium" },
+        { "value": "m-button--large", "label": "Button large" }
       ],
       "default": ""
     },
@@ -396,7 +414,57 @@
       "type": "checkbox",
       "id": "use_scroll_mobile",
       "label": "Enable horizontal scroll",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "label": "Maximum width",
+      "min": 900,
+      "max": 1400,
+      "step": 20,
+      "unit": "px",
+      "default": 1200
+    },
+    {
+      "type": "range",
+      "id": "card_radius",
+      "label": "Card corner radius",
+      "min": 8,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "checkbox",
+      "id": "show_card_shadow",
+      "label": "Show card shadow",
       "default": true
+    },
+    {
+      "type": "range",
+      "id": "padding_x",
+      "label": "Horizontal padding",
+      "min": 12,
+      "max": 40,
+      "step": 4,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "header_gap",
+      "label": "Header bottom gap",
+      "min": 20,
+      "max": 56,
+      "step": 4,
+      "unit": "px",
+      "default": 40
     },
     {
       "type": "header",
@@ -406,7 +474,7 @@
       "type": "range",
       "id": "padding_top",
       "label": "Padding Top",
-      "default": 0,
+      "default": 80,
       "min": 0,
       "max": 100,
       "step": 2,
@@ -416,11 +484,121 @@
       "type": "range",
       "id": "padding_bottom",
       "label": "Padding Bottom",
-      "default": 0,
+      "default": 80,
       "min": 0,
       "max": 100,
       "step": 2,
       "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Top padding (mobile)",
+      "min": 24,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Bottom padding (mobile)",
+      "min": 24,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "range",
+      "id": "eyebrow_size",
+      "label": "Eyebrow size",
+      "min": 11,
+      "max": 16,
+      "step": 1,
+      "unit": "px",
+      "default": 13
+    },
+    {
+      "type": "range",
+      "id": "heading_size_desktop",
+      "label": "Heading size (desktop)",
+      "min": 24,
+      "max": 48,
+      "step": 1,
+      "unit": "px",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "heading_size_mobile",
+      "label": "Heading size (mobile)",
+      "min": 20,
+      "max": 36,
+      "step": 1,
+      "unit": "px",
+      "default": 26
+    },
+    {
+      "type": "range",
+      "id": "description_size",
+      "label": "Description size",
+      "min": 13,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background",
+      "default": "#F7FBFF"
+    },
+    {
+      "type": "color",
+      "id": "card_background",
+      "label": "Card background",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "card_border_color",
+      "label": "Card border",
+      "default": "#E4ECF6"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading",
+      "default": "#142B4A"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text",
+      "default": "#5A6B85"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent",
+      "default": "#0C7FDF"
+    },
+    {
+      "type": "color",
+      "id": "accent_hover_color",
+      "label": "Accent hover",
+      "default": "#0A6BC4"
     },
     {
       "type": "header",
@@ -441,25 +619,28 @@
       "label": "Visible in the view animation",
       "default": "inherit",
       "options": [
+        { "value": "inherit", "label": "Inherit global setting" },
+        { "value": "fade-in", "label": "Fade in" },
+        { "value": "fade-in-up", "label": "Fade in up" },
+        { "value": "fade-in-left", "label": "Fade in left" },
+        { "value": "fade-in-right", "label": "Fade in right" }
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "type": "article",
+      "name": "Article",
+      "limit": 4,
+      "settings": [
         {
-          "value": "inherit",
-          "label": "Inherit global setting"
+          "type": "paragraph",
+          "content": "Pick an existing blog article. Only selected articles show in this homepage section."
         },
         {
-          "value": "fade-in",
-          "label": "Fade in"
-        },
-        {
-          "value": "fade-in-up",
-          "label": "Fade in up"
-        },
-        {
-          "value": "fade-in-left",
-          "label": "Fade in left"
-        },
-        {
-          "value": "fade-in-right",
-          "label": "Fade in right"
+          "type": "article",
+          "id": "article",
+          "label": "Select article"
         }
       ]
     }

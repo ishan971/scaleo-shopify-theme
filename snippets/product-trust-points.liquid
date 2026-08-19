@@ -1,0 +1,76 @@
+{%- liquid
+  assign fsr_block = nil
+  assign icon_block = nil
+  for block in section.blocks
+    if block.type == 'free_shipping_return'
+      assign fsr_block = block
+    endif
+    if block.type == 'icon_text' and block.settings.logo_1 != blank
+      assign icon_block = block
+    endif
+  endfor
+-%}
+{%- if fsr_block != nil or icon_block != nil -%}
+  <div class="product-trust-points">
+    {%- if fsr_block != nil and fsr_block.settings.shippng_title != blank -%}
+      <div class="product-trust-points__item">
+        {%- if fsr_block.settings.shipping_icon != blank -%}
+          {% render 'product-trust-icon', image: fsr_block.settings.shipping_icon %}
+        {%- endif -%}
+        <span class="product-trust-points__text">
+          {{ fsr_block.settings.shippng_title }}
+          {%- if fsr_block.settings.shipping_tooltip != blank -%}
+            <span class="tooltip-icon">
+              <img src="https://cdn.shopify.com/s/files/1/0592/6508/9638/files/icons8-info_1.svg?v=1740225280" alt="" width="12" height="12">
+              <span class="tooltip-content">{{ fsr_block.settings.shipping_tooltip }}</span>
+            </span>
+          {%- endif -%}
+        </span>
+      </div>
+    {%- endif -%}
+
+    {%- if icon_block != nil -%}
+      {%- if icon_block.settings.logo_1 != blank -%}
+        <div class="product-trust-points__item">
+          {% render 'product-trust-icon', image: icon_block.settings.logo_1 %}
+          <span class="product-trust-points__text">{{ icon_block.settings.heading_1 }}</span>
+        </div>
+      {%- endif -%}
+      {%- if icon_block.settings.logo_2 != blank -%}
+        <div class="product-trust-points__item">
+          {% render 'product-trust-icon', image: icon_block.settings.logo_2 %}
+          <span class="product-trust-points__text">{{ icon_block.settings.heading_2 }}</span>
+        </div>
+      {%- endif -%}
+      {%- if icon_block.settings.logo_3 != blank -%}
+        <div class="product-trust-points__item">
+          {% render 'product-trust-icon', image: icon_block.settings.logo_3 %}
+          <span class="product-trust-points__text">{{ icon_block.settings.heading_3 }}</span>
+        </div>
+      {%- endif -%}
+      {%- if icon_block.settings.logo_4 != blank -%}
+        <div class="product-trust-points__item">
+          {% render 'product-trust-icon', image: icon_block.settings.logo_4 %}
+          <span class="product-trust-points__text">{{ icon_block.settings.heading_4 }}</span>
+        </div>
+      {%- endif -%}
+    {%- endif -%}
+
+    {%- if fsr_block != nil and fsr_block.settings.return_title != blank -%}
+      <div class="product-trust-points__item product-trust-points__item--last">
+        {%- if fsr_block.settings.return_replacement_icon != blank -%}
+          {% render 'product-trust-icon', image: fsr_block.settings.return_replacement_icon %}
+        {%- endif -%}
+        <span class="product-trust-points__text product-trust-points__text--two">
+          180 Day<br>Replacement Guarantee
+          {%- if fsr_block.settings.return_tooltip != blank -%}
+            <span class="tooltip-icon">
+              <img src="https://cdn.shopify.com/s/files/1/0592/6508/9638/files/icons8-info_1.svg?v=1740225280" alt="" width="12" height="12">
+              <span class="tooltip-content">{{ fsr_block.settings.return_tooltip }}</span>
+            </span>
+          {%- endif -%}
+        </span>
+      </div>
+    {%- endif -%}
+  </div>
+{%- endif -%}

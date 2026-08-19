@@ -2331,6 +2331,178 @@
         "default": false
       },
       {
+        "type": "text",
+        "id": "cart_drawer_heading",
+        "label": "Cart heading",
+        "default": "Shopping Cart"
+      },
+      {
+        "type": "text",
+        "id": "cart_drawer_checkout_label",
+        "label": "Checkout button text",
+        "default": "Proceed to Checkout"
+      },
+      {
+        "type": "checkbox",
+        "id": "cart_drawer_show_view_cart",
+        "label": "Show View Cart button",
+        "default": false,
+        "info": "Shows the secondary View Cart button under Proceed to Checkout."
+      },
+      {
+        "type": "checkbox",
+        "id": "cart_drawer_show_quantity",
+        "label": "Show quantity +/- buttons",
+        "default": true,
+        "info": "Hide to remove increment and decrement controls on cart drawer line items. Quantity still shows as text."
+      },
+      {
+        "type": "text",
+        "id": "cart_drawer_view_cart_label",
+        "label": "View cart text",
+        "default": "View Cart"
+      },
+      {
+        "type": "checkbox",
+        "id": "cart_drawer_show_item_count",
+        "label": "Show item count",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "cart_drawer_show_compare_at",
+        "label": "Show compare-at price",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "cart_drawer_show_savings",
+        "label": "Show savings percent",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "cart_drawer_show_trust",
+        "label": "Show trust badges",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "cart_drawer_trust_1",
+        "label": "Trust badge 1",
+        "default": "Secure Checkout"
+      },
+      {
+        "type": "text",
+        "id": "cart_drawer_trust_2",
+        "label": "Trust badge 2",
+        "default": "Easy Returns"
+      },
+      {
+        "type": "text",
+        "id": "cart_drawer_trust_3",
+        "label": "Trust badge 3",
+        "default": "Safe Payments"
+      },
+      {
+        "type": "header",
+        "content": "Free delivery bar"
+      },
+      {
+        "type": "paragraph",
+        "content": "You can also turn this on or off from Theme Editor → Cart drawer → Show free delivery bar."
+      },
+      {
+        "type": "checkbox",
+        "id": "cart_drawer_show_shipping_bar",
+        "label": "Show free delivery progress bar",
+        "default": true
+      },
+      {
+        "type": "number",
+        "id": "cart_drawer_free_shipping_threshold",
+        "label": "Free delivery threshold",
+        "default": 2000,
+        "info": "Amount in your store currency, without the symbol. Example: 2000 for ₹2,000. Set 0 to hide the bar. Remaining amount updates from the live cart total."
+      },
+      {
+        "type": "text",
+        "id": "cart_drawer_shipping_unlocked_text",
+        "label": "Free delivery unlocked text",
+        "default": "You’ve unlocked free delivery!"
+      },
+      {
+        "type": "text",
+        "id": "cart_drawer_empty_button_label",
+        "label": "Empty cart button label",
+        "default": "Explore Products"
+      },
+      {
+        "type": "url",
+        "id": "cart_drawer_empty_button_url",
+        "label": "Empty cart button link"
+      },
+      {
+        "type": "range",
+        "id": "cart_drawer_width",
+        "label": "Drawer width (desktop)",
+        "min": 380,
+        "max": 520,
+        "step": 10,
+        "unit": "px",
+        "default": 460
+      },
+      {
+        "type": "range",
+        "id": "cart_drawer_radius",
+        "label": "Drawer corner radius",
+        "min": 0,
+        "max": 24,
+        "step": 2,
+        "unit": "px",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "cart_drawer_button_radius",
+        "label": "Button radius",
+        "min": 6,
+        "max": 20,
+        "step": 1,
+        "unit": "px",
+        "default": 10
+      },
+      {
+        "type": "color",
+        "id": "cart_drawer_accent_color",
+        "label": "Accent color",
+        "default": "#0C7FDF"
+      },
+      {
+        "type": "color",
+        "id": "cart_drawer_accent_hover_color",
+        "label": "Accent hover",
+        "default": "#0A6BC4"
+      },
+      {
+        "type": "color",
+        "id": "cart_drawer_background",
+        "label": "Drawer background",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "color",
+        "id": "cart_drawer_text_color",
+        "label": "Text color",
+        "default": "#111111"
+      },
+      {
+        "type": "color",
+        "id": "cart_drawer_muted_color",
+        "label": "Muted text",
+        "default": "#64748B"
+      },
+      {
         "type": "header",
         "content": "Cart addons"
       },

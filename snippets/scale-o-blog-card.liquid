@@ -1,0 +1,57 @@
+{%- comment -%}
+  Homepage blog card. Accepts: article, show_date, show_excerpt, show_button, read_label, excerpt_words
+{%- endcomment -%}
+{%- liquid
+  if article.excerpt != blank
+    assign article_excerpt = article.excerpt
+  else
+    assign article_excerpt = article.content
+  endif
+  assign article_excerpt = article_excerpt | strip_html | truncatewords: excerpt_words
+  assign image_alt = article.title
+  if article.image.alt != blank
+    assign image_alt = article.image.alt
+  endif
+-%}
+<a
+  class="scale-o-blog__card"
+  href="{{ article.url }}"
+  aria-label="{{ article.title | escape }}"
+  {% if block %}{{ block.shopify_attributes }}{% endif %}
+>
+  <span class="scale-o-blog__media">
+    {%- if article.image != blank -%}
+      {{
+        article.image
+        | image_url: width: 900
+        | image_tag:
+          loading: 'lazy',
+          widths: '400,640,900',
+          sizes: '(max-width: 767px) 92vw, (max-width: 1023px) 46vw, 32vw',
+          alt: image_alt
+      }}
+    {%- else -%}
+      <span class="scale-o-blog__media-fallback" aria-hidden="true"></span>
+    {%- endif -%}
+  </span>
+  <span class="scale-o-blog__body">
+    {%- if show_date -%}
+      <span class="scale-o-blog__date">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="4" y="5" width="16" height="16" rx="2"/><path d="M8 3v4M16 3v4M4 10h16"/>
+        </svg>
+        {{ article.published_at | date: '%B %d, %Y' | upcase }}
+      </span>
+    {%- endif -%}
+    <h3 class="scale-o-blog__title">{{ article.title | escape }}</h3>
+    {%- if show_excerpt and article_excerpt != blank -%}
+      <span class="scale-o-blog__excerpt">{{ article_excerpt | escape }}</span>
+    {%- endif -%}
+    {%- if show_button -%}
+      <span class="scale-o-blog__read">
+        <span>{{ read_label | escape }}</span>
+        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+    {%- endif -%}
+  </span>
+</a>

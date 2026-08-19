@@ -31,7 +31,77 @@
         </select>
       </div>
     {%- endif -%}
+    {%- liquid
+      assign has_daily_usage_sf = false
+      assign has_people_family_sf = false
+      for filter in results.filters
+        assign scan_label = filter.label | downcase
+        if scan_label contains 'daily' or scan_label contains 'usage'
+          assign has_daily_usage_sf = true
+        endif
+        if scan_label contains 'people' or scan_label contains 'family' or scan_label contains 'member'
+          assign has_people_family_sf = true
+        endif
+      endfor
+    -%}
     {%- for filter in results.filters -%}
+      {% liquid
+        assign filter_label = filter.label | downcase
+        assign show_bar_filter = true
+        assign bar_label = filter.label
+        assign is_price_filter = false
+        assign is_storage_filter = false
+        assign is_daily_usage_filter = false
+        assign is_people_family_filter = false
+
+        if filter.type == 'price_range' or filter_label contains 'price'
+          assign is_price_filter = true
+        endif
+        if filter_label contains 'storage' or filter_label contains 'tank'
+          assign is_storage_filter = true
+        endif
+        if filter_label contains 'daily' or filter_label contains 'usage'
+          assign is_daily_usage_filter = true
+        endif
+        if filter_label contains 'people' or filter_label contains 'family' or filter_label contains 'member'
+          assign is_people_family_filter = true
+        endif
+
+        if is_price_filter
+          assign show_bar_filter = section.settings.show_price_filter
+        endif
+        if is_storage_filter
+          assign show_bar_filter = section.settings.show_storage_filter
+          if show_bar_filter
+            assign bar_label = 'Storage Tanks'
+          endif
+        endif
+        if is_daily_usage_filter
+          assign show_bar_filter = section.settings.show_daily_usage_filter
+          if show_bar_filter and section.settings.daily_usage_label != blank
+            assign bar_label = section.settings.daily_usage_label
+          endif
+        endif
+        if is_people_family_filter
+          assign show_bar_filter = section.settings.show_people_family_filter
+          if show_bar_filter and section.settings.people_family_label != blank
+            assign bar_label = section.settings.people_family_label
+          endif
+        endif
+
+        if filter_label contains 'availab'
+          assign show_bar_filter = false
+        endif
+
+        if section.settings.enable_horizontal_filter_bar
+          unless is_price_filter or is_storage_filter or is_daily_usage_filter or is_people_family_filter
+            assign show_bar_filter = false
+          endunless
+        endif
+      %}
+      {%- unless show_bar_filter -%}
+        {%- continue -%}
+      {%- endunless -%}
       {% liquid
         assign total_active_values = total_active_values | plus: filter.active_values.size
         assign acc_open_class = 'open'
@@ -42,7 +112,6 @@
           assign acc_content_style = ''
         endif
 
-        assign filter_label = filter.label | downcase
         assign color_swatches = section.settings.color_swatches | downcase | split: ','
         assign has_color = color_swatches | where: filter_label | first
         assign is_color = false
@@ -54,9 +123,12 @@
 
       {% case filter.type %}
         {% when 'list' %}
-          <div class="m-filter--widget m-accordion--item {{ acc_open_class }}" data-index="{{ forloop.index }}">
+          <div class="m-filter--widget m-accordion--item {{ acc_open_class }}{% if filter.active_values.size > 0 %} has-active{% endif %}" data-index="{{ forloop.index }}">
             <div class="m-filter--widget-title h5 m-accordion--item-button ">
-              <span>{{ filter.label | escape }}</span>
+              <span>{{ bar_label | escape }}</span>
+              {%- if filter.active_values.size > 0 -%}
+                <span class="scale-o-filter-pill-count">{{ filter.active_values.size }}</span>
+              {%- endif -%}
               <span class="m-accordion--item-icon">
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M13.5306 6.53073L8.5306 11.5307C8.46092 11.6007 8.37813 11.6561 8.28696 11.694C8.1958 11.7318 8.09806 11.7513 7.99935 11.7513C7.90064 11.7513 7.8029 11.7318 7.71173 11.694C7.62057 11.6561 7.53778 11.6007 7.4681 11.5307L2.4681 6.53073C2.3272 6.38984 2.24805 6.19874 2.24805 5.99948C2.24805 5.80023 2.3272 5.60913 2.4681 5.46823C2.60899 5.32734 2.80009 5.24818 2.99935 5.24818C3.19861 5.24818 3.3897 5.32734 3.5306 5.46823L7.99997 9.93761L12.4693 5.46761C12.6102 5.32671 12.8013 5.24756 13.0006 5.24756C13.1999 5.24756 13.391 5.32671 13.5318 5.46761C13.6727 5.60851 13.7519 5.7996 13.7519 5.99886C13.7519 6.19812 13.6727 6.38921 13.5318 6.53011L13.5306 6.53073Z" fill="currentColor"/>
@@ -187,9 +259,9 @@
               assign total_active_values = total_active_values | plus: 1
             endif
           -%}
-          <div class="m-filter--widget m-accordion--item {{ acc_open_class }}" data-index="{{ forloop.index }}">
+          <div class="m-filter--widget m-accordion--item {{ acc_open_class }}{% if filter.min_value.value != blank or filter.max_value.value != blank %} has-active{% endif %}" data-index="{{ forloop.index }}">
             <div class="m-filter--widget-title h5 m-accordion--item-button">
-              {{ filter.label | escape }}
+              <span>{{ bar_label | escape }}</span>
               <span class="m-accordion--item-icon">
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M13.5306 6.53073L8.5306 11.5307C8.46092 11.6007 8.37813 11.6561 8.28696 11.694C8.1958 11.7318 8.09806 11.7513 7.99935 11.7513C7.90064 11.7513 7.8029 11.7318 7.71173 11.694C7.62057 11.6561 7.53778 11.6007 7.4681 11.5307L2.4681 6.53073C2.3272 6.38984 2.24805 6.19874 2.24805 5.99948C2.24805 5.80023 2.3272 5.60913 2.4681 5.46823C2.60899 5.32734 2.80009 5.24818 2.99935 5.24818C3.19861 5.24818 3.3897 5.32734 3.5306 5.46823L7.99997 9.93761L12.4693 5.46761C12.6102 5.32671 12.8013 5.24756 13.0006 5.24756C13.1999 5.24756 13.391 5.32671 13.5318 5.46761C13.6727 5.60851 13.7519 5.7996 13.7519 5.99886C13.7519 6.19812 13.6727 6.38921 13.5318 6.53011L13.5306 6.53073Z" fill="currentColor"/>
@@ -263,4 +335,18 @@
       <input type="hidden" name="q" value="{{ results.current_vendor }}{{ results.current_type }}">
     {%- endif -%}
   </form>
+  {%- if section.settings.show_daily_usage_filter and has_daily_usage_sf == false -%}
+    {% render 'scale-o-tag-filter',
+      title: section.settings.daily_usage_label,
+      options_text: section.settings.daily_usage_options,
+      group_id: 'daily-usage'
+    %}
+  {%- endif -%}
+  {%- if section.settings.show_people_family_filter and has_people_family_sf == false -%}
+    {% render 'scale-o-tag-filter',
+      title: section.settings.people_family_label,
+      options_text: section.settings.people_family_options,
+      group_id: 'people-family'
+    %}
+  {%- endif -%}
 </collection-filters-form>

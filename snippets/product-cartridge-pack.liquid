@@ -1,0 +1,236 @@
+{%- comment -%}
+  Cartridge pack visual. Pack qty is parsed from Plan Features metafields.
+  Prices come from the live variant. Copy and image are theme-editor settings.
+{%- endcomment -%}
+{{ 'cartridge-pack.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'cartridge-pack.js' | asset_url }}" defer="defer"></script>
+
+{%- liquid
+  assign show_pack = section.settings.show_cartridge_pack
+  if show_pack == nil
+    assign show_pack = true
+  endif
+
+  assign has_pack = false
+  if show_pack
+    for variant in product.variants
+      if variant.metafields.custom.variant_information != blank
+        for item in variant.metafields.custom.variant_information.value
+          assign blob = item.liner | append: ' ' | append: item.title | append: ' ' | append: item.heading | append: ' ' | append: item.description | append: ' ' | append: item.text | append: ' ' | append: item.details | append: ' ' | append: item.subtext | downcase
+          if blob contains 'cartridge' and blob contains 'included'
+            assign has_pack = true
+            break
+          endif
+        endfor
+      endif
+      if has_pack
+        break
+      endif
+    endfor
+  endif
+
+  assign heading = section.settings.cartridge_pack_heading | default: 'Bundle of Cartridges'
+  assign hint = section.settings.cartridge_pack_hint | default: 'Tap a cartridge to see when it arrives'
+  assign per_label = section.settings.cartridge_pack_per_label | default: 'per cartridge'
+  assign terms_heading = section.settings.cartridge_pack_terms_heading | default: 'Terms & Conditions'
+  assign terms = section.settings.cartridge_pack_terms
+  assign cartridge_image = section.settings.cartridge_pack_image
+  assign card_bg = section.settings.cartridge_pack_bg
+  if card_bg == blank
+    assign card_bg = 'cartridge-pack-bg.jpg' | asset_url
+  else
+    assign card_bg = card_bg | image_url: width: 1400
+  endif
+
+  assign benefit_icons = 'calendar,droplet,savings,shield' | split: ','
+  assign benefit_defaults = 'Hassle-Free|Auto Replenishment,Consistent|Soft Water Quality,Saves Time|& Extra Cost,Peace of Mind|for Years' | split: ','
+-%}
+
+{%- if has_pack -%}
+  <div class="variant-metafields cpk" data-cartridge-pack>
+    {%- if heading != blank -%}
+      <h5 class="cpk__heading">{{ heading | escape }}</h5>
+    {%- endif -%}
+
+    {%- for variant in product.variants -%}
+      {%- liquid
+        assign pack_qty = 0
+        assign pack_line = ''
+        if variant.metafields.custom.variant_information != blank
+          for item in variant.metafields.custom.variant_information.value
+            assign raw_line = item.liner | default: item.description | default: item.text | default: item.details | default: item.subtext | default: item.title | default: item.heading
+            assign blob = item.liner | append: ' ' | append: item.title | append: ' ' | append: item.heading | append: ' ' | append: item.description | append: ' ' | append: item.text | append: ' ' | append: item.details | append: ' ' | append: item.subtext
+            assign blob_down = blob | downcase
+            if blob_down contains 'cartridge' and blob_down contains 'included'
+              assign pack_line = raw_line | strip
+              for n in (1..12)
+                assign needle = n | append: ' cartridge'
+                if blob_down contains needle
+                  assign pack_qty = n
+                endif
+              endfor
+            endif
+          endfor
+        endif
+        assign is_current = false
+        if variant.id == product.selected_or_first_available_variant.id
+          assign is_current = true
+        endif
+        assign per_rupees = 0
+        if pack_qty > 0
+          assign per_rupees = variant.price | divided_by: pack_qty | divided_by: 100 | round
+        endif
+        assign total_rupees = variant.price | divided_by: 100 | round
+      -%}
+      {%- if pack_qty > 0 -%}
+        <div
+          class="selected-variant-metafield cpk__panel{% if is_current %} is-active{% endif %}"
+          data-variant-name="{{ variant.title }}"
+          data-available="yes"
+          data-pack-qty="{{ pack_qty }}"
+        >
+          <div class="cpk__card" style="--cpk-bg: url('{{ card_bg }}');">
+            <div class="cpk__card-body">
+              <div class="cpk__head">
+                <span class="cpk__badge">Pack of {{ pack_qty }}</span>
+                {%- if pack_line != blank -%}
+                  <p class="cpk__line">{{ pack_line | escape }}</p>
+                {%- endif -%}
+              </div>
+
+              <div class="cpk__pipeline-wrap" style="--cpk-count: {{ pack_qty }};">
+                <div class="cpk__pipeline">
+                  <span class="cpk__track-line" aria-hidden="true"></span>
+                  {%- for i in (1..pack_qty) -%}
+                    {%- liquid
+                      assign month = i | minus: 1 | times: 6
+                      assign gradient_id = 'cpk-g-' | append: variant.id | append: '-' | append: i
+                      if month == 0
+                        assign when_label = 'Now'
+                        assign when_copy = 'Cartridge 1 ships with your order'
+                      else
+                        assign when_label = 'Month ' | append: month
+                        assign when_copy = 'Cartridge ' | append: i | append: ' lands around month ' | append: month
+                      endif
+                    -%}
+                    <div class="cpk__pipeline-col">
+                      <button
+                        type="button"
+                        class="cpk__stage{% if forloop.first %} is-active{% endif %}"
+                        role="listitem"
+                        data-cpk-stage
+                        data-index="{{ i }}"
+                        data-label="{{ when_label | escape }}"
+                        data-copy="{{ when_copy | escape }}"
+                        aria-pressed="{% if forloop.first %}true{% else %}false{% endif %}"
+                        aria-label="{{ when_label | escape }}"
+                      >
+                        <span class="cpk__stage-body">
+                          <span class="cpk__stage-art">
+                            {%- if cartridge_image != blank -%}
+                              <img
+                                src="{{ cartridge_image | image_url: width: 220 }}"
+                                alt=""
+                                width="88"
+                                height="110"
+                                loading="lazy"
+                              >
+                            {%- else -%}
+                              {% render 'cartridge-pack-icon', class: 'cpk__stage-svg', gradient_id: gradient_id %}
+                            {%- endif -%}
+                          </span>
+                        </span>
+                        <span class="cpk__stage-label">{{ when_label }}</span>
+                      </button>
+                      <span class="cpk__node{% if forloop.first %} is-active{% endif %}"></span>
+                    </div>
+                  {%- endfor -%}
+                </div>
+              </div>
+
+              <div class="cpk__status-bar">
+                <span class="cpk__status-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" focusable="false">
+                    <path d="M3 7.5h11v8H3v-8Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+                    <path d="M14 10.5h3.2L20 14v4.5h-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="7" cy="17" r="1.6" fill="currentColor"/>
+                    <circle cx="17" cy="17" r="1.6" fill="currentColor"/>
+                    <path d="M3 11.5h11" stroke="currentColor" stroke-width="1.6"/>
+                  </svg>
+                </span>
+                <p class="cpk__status">
+                  <strong data-cpk-status>Cartridge 1 ships with your order</strong>
+                  {%- if hint != blank -%}
+                    <span class="cpk__status-sep" aria-hidden="true">|</span>
+                    <span class="cpk__status-hint">{{ hint | escape }}</span>
+                  {%- endif -%}
+                </p>
+              </div>
+
+              <div class="cpk__bottom">
+              <div class="cpk__benefits">
+                {%- for i in (1..4) -%}
+                  {%- liquid
+                    assign benefit_index = forloop.index0
+                    case i
+                      when 1
+                        assign benefit_raw = section.settings.cartridge_pack_benefit_1
+                      when 2
+                        assign benefit_raw = section.settings.cartridge_pack_benefit_2
+                      when 3
+                        assign benefit_raw = section.settings.cartridge_pack_benefit_3
+                      when 4
+                        assign benefit_raw = section.settings.cartridge_pack_benefit_4
+                    endcase
+                    if benefit_raw == blank
+                      assign benefit_raw = benefit_defaults[benefit_index]
+                    endif
+                    assign benefit_parts = benefit_raw | split: '|'
+                    assign benefit_line1 = benefit_parts[0] | strip
+                    assign benefit_line2 = benefit_parts[1] | strip
+                    assign benefit_text = benefit_line1
+                    if benefit_line2 != blank
+                      assign benefit_text = benefit_text | append: ' ' | append: benefit_line2
+                    endif
+                  -%}
+                  {%- if benefit_text != blank -%}
+                    <div class="cpk__benefit">
+                      <span class="cpk__benefit-icon">
+                        {% render 'cartridge-pack-benefit-icon', icon: benefit_icons[benefit_index] %}
+                      </span>
+                      <span class="cpk__benefit-text">{{ benefit_text | escape }}</span>
+                    </div>
+                  {%- endif -%}
+                {%- endfor -%}
+              </div>
+
+              <div class="cpk__footer">
+                <div class="cpk__footer-left">
+                  <span class="cpk__footer-value">₹{{ per_rupees | number_with_delimiter }} /-</span>
+                  <span class="cpk__footer-label">{{ per_label | escape }}</span>
+                </div>
+                <span class="cpk__footer-divider" aria-hidden="true"></span>
+                <div class="cpk__footer-right">
+                  <span class="cpk__footer-total">
+                    Plan total ₹{{ total_rupees | number_with_delimiter }} /- for {{ pack_qty }} cartridge{% if pack_qty > 1 %}s{% endif %}
+                  </span>
+                </div>
+              </div>
+              </div>
+            </div>
+
+            {%- if terms != blank -%}
+              <details class="cpk__terms">
+                <summary class="cpk__terms-btn">
+                  <span>{{ terms_heading | escape }}</span>
+                  <span class="cpk__terms-plus" aria-hidden="true"></span>
+                </summary>
+                <div class="cpk__terms-body rte">{{ terms }}</div>
+              </details>
+            {%- endif -%}
+          </div>
+        </div>
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+{%- endif -%}

@@ -1,0 +1,24 @@
+{%- comment -%}
+  Secure checkout payment icons — shown below buy buttons
+{%- endcomment -%}
+<div class="product-secure-checkout" aria-label="Secure checkout">
+  <p class="product-secure-checkout__title">Secure Checkout</p>
+  {%- if shop.enabled_payment_types.size > 0 -%}
+    <ul class="product-secure-checkout__list" role="list">
+      {%- for type in shop.enabled_payment_types -%}
+        <li class="product-secure-checkout__item">
+          {{ type | payment_type_svg_tag: class: 'product-secure-checkout__icon' }}
+        </li>
+      {%- endfor -%}
+    </ul>
+  {%- else -%}
+    <img
+      class="product-secure-checkout__fallback"
+      src="https://cdn.shopify.com/s/files/1/0592/6508/9638/files/payment-icons_2.svg?v=1783505375"
+      alt="Visa, Mastercard, UPI, Paytm, PhonePe"
+      width="300"
+      height="32"
+      loading="lazy"
+    >
+  {%- endif -%}
+</div>

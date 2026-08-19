@@ -1,0 +1,407 @@
+{%- comment -%}
+  Scale-O Watch & Shop — shoppable short-form video section
+{%- endcomment -%}
+
+{{ 'scale-o-watch-shop.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign video_blocks = section.blocks | where: 'type', 'watch_shop_video'
+  assign header_align = section.settings.header_alignment
+  assign enable_carousel = section.settings.enable_carousel
+  assign show_arrows = false
+  if enable_carousel and section.settings.show_arrows
+    assign show_arrows = true
+  endif
+  assign overlay_radius = 999
+  if section.settings.overlay_style == 'card'
+    assign overlay_radius = 14
+  endif
+  assign show_header = false
+  if section.settings.heading != blank
+    assign show_header = true
+  endif
+  if section.settings.show_eyebrow and section.settings.eyebrow != blank
+    assign show_header = true
+  endif
+  if section.settings.show_description and section.settings.description != blank
+    assign show_header = true
+  endif
+  assign grid_desktop = section.settings.desktop_cards | plus: 0 | round
+  assign grid_tablet = section.settings.tablet_cards | plus: 0 | round
+-%}
+
+<style>
+  #shopify-section-{{ section.id }} .scale-o-watch-shop {
+    --was-bg: {{ section.settings.background_color }};
+    --was-heading-color: {{ section.settings.heading_color }};
+    --was-text-color: {{ section.settings.text_color }};
+    --was-eyebrow-color: {{ section.settings.eyebrow_color }};
+    --was-accent: {{ section.settings.accent_color }};
+    --was-arrow-bg: {{ section.settings.arrow_background }};
+    --was-arrow-icon: {{ section.settings.arrow_icon_color }};
+    --was-arrow-hover: {{ section.settings.arrow_hover_background }};
+    --was-card-bg: {{ section.settings.card_background }};
+    --was-card-border: {{ section.settings.card_border_color }};
+    --was-product-bg: {{ section.settings.product_card_background }};
+    --was-product-title: {{ section.settings.product_title_color }};
+    --was-price-color: {{ section.settings.price_color }};
+    --was-badge-bg: {{ section.settings.badge_background }};
+    --was-badge-text: {{ section.settings.badge_text_color }};
+    --was-radius: {{ section.settings.card_radius }}px;
+    --was-overlay-radius: {{ overlay_radius }}px;
+    --was-overlay-offset: {{ section.settings.product_overlay_offset }}px;
+    --was-product-image: {{ section.settings.product_image_size }}px;
+    --was-ratio: {{ section.settings.card_ratio }};
+    --was-gap: {{ section.settings.card_gap }}px;
+    --was-gap-mobile: {{ section.settings.card_gap_mobile }}px;
+    --was-cols-desktop: {{ section.settings.desktop_cards }};
+    --was-cols-tablet: {{ section.settings.tablet_cards }};
+    --was-cols-mobile: {{ section.settings.mobile_cards }};
+    --was-grid-desktop: {{ grid_desktop }};
+    --was-grid-tablet: {{ grid_tablet }};
+    --was-pad-x: {{ section.settings.padding_x }}px;
+    --was-header-gap: {{ section.settings.header_gap }}px;
+    --was-header-align: {{ header_align }};
+    --was-max-width: {% if section.settings.max_width == 0 %}100%{% else %}{{ section.settings.max_width }}px{% endif %};
+    --was-eyebrow-size: {{ section.settings.eyebrow_size }}px;
+    --was-heading-size: {{ section.settings.heading_size_mobile }}px;
+    --was-heading-size-desktop: {{ section.settings.heading_size_desktop }}px;
+    --was-desc-size: {{ section.settings.description_size }}px;
+    --was-shadow: 0 4px 16px rgba(26, 43, 74, 0.08);
+    --was-shadow-hover: 0 10px 28px rgba(26, 43, 74, 0.14);
+    margin-top: {{ section.settings.margin_top }}px;
+    margin-bottom: {{ section.settings.margin_bottom }}px;
+    padding: {{ section.settings.padding_top_mobile }}px 0 {{ section.settings.padding_bottom_mobile }}px;
+    background: var(--was-bg);
+  }
+  @media (min-width: 768px) {
+    #shopify-section-{{ section.id }} .scale-o-watch-shop {
+      padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px;
+    }
+  }
+</style>
+
+<div
+  class="scale-o-watch-shop{% if enable_carousel %} scale-o-watch-shop--carousel{% else %} scale-o-watch-shop--grid{% endif %}{% if show_arrows %} scale-o-watch-shop--arrows{% endif %}{% if section.settings.show_dots %} scale-o-watch-shop--dots{% endif %}{% if enable_carousel and section.settings.enable_touch_swipe %} scale-o-watch-shop--swipe{% endif %}"
+  data-section-id="{{ section.id }}"
+  data-carousel="{% if enable_carousel %}true{% else %}false{% endif %}"
+  data-autoplay="{% if section.settings.autoplay %}true{% else %}false{% endif %}"
+  data-pause-outside="{% if section.settings.pause_outside_viewport %}true{% else %}false{% endif %}"
+  data-cols-desktop="{{ section.settings.desktop_cards }}"
+  data-cols-tablet="{{ section.settings.tablet_cards }}"
+  data-cols-mobile="{{ section.settings.mobile_cards }}"
+  role="region"
+  aria-label="{{ section.settings.accessibility_label | default: 'Watch and shop' | escape }}"
+>
+  <div class="scale-o-watch-shop__container">
+    {%- if show_header -%}
+      <header class="scale-o-watch-shop__header scale-o-watch-shop__header--{{ header_align }}">
+        {%- if section.settings.show_eyebrow and section.settings.eyebrow != blank -%}
+          <p class="scale-o-watch-shop__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+        {%- endif -%}
+        {%- if section.settings.heading != blank -%}
+          <h2 class="scale-o-watch-shop__heading">{{ section.settings.heading | escape }}</h2>
+        {%- endif -%}
+        {%- if section.settings.show_description and section.settings.description != blank -%}
+          <p class="scale-o-watch-shop__description">{{ section.settings.description | escape }}</p>
+        {%- endif -%}
+      </header>
+    {%- endif -%}
+
+    {%- if video_blocks.size > 0 -%}
+      <div class="scale-o-watch-shop__carousel-wrap">
+        {%- if show_arrows -%}
+          <button type="button" class="scale-o-watch-shop__nav scale-o-watch-shop__nav--prev" data-was-prev aria-label="Previous videos">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M10 3L5 8L10 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        {%- endif -%}
+
+        <div class="scale-o-watch-shop__viewport" data-was-viewport>
+          <ul class="scale-o-watch-shop__track" data-was-track role="list">
+            {%- for block in video_blocks -%}
+              <li class="scale-o-watch-shop__slide" data-was-slide>
+                {% render 'scale-o-watch-shop-card', block: block, section: section %}
+              </li>
+            {%- endfor -%}
+          </ul>
+        </div>
+
+        {%- if show_arrows -%}
+          <button type="button" class="scale-o-watch-shop__nav scale-o-watch-shop__nav--next" data-was-next aria-label="Next videos">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        {%- endif -%}
+
+        {%- if enable_carousel and section.settings.show_dots -%}
+          <div class="scale-o-watch-shop__dots" data-was-dots role="tablist" aria-label="Watch and shop pages"></div>
+        {%- endif -%}
+      </div>
+    {%- else -%}
+      <p class="scale-o-watch-shop__empty">Add Watch & Shop videos in the theme editor.</p>
+    {%- endif -%}
+  </div>
+</div>
+
+<script src="{{ 'scale-o-watch-shop.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "Watch & Shop",
+  "tag": "section",
+  "class": "scale-o-watch-shop-section",
+  "max_blocks": 12,
+  "settings": [
+    { "type": "header", "content": "Content" },
+    { "type": "checkbox", "id": "show_eyebrow", "label": "Show eyebrow", "default": true },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "WATCH & SHOP" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "See Scale-O in Action" },
+    { "type": "checkbox", "id": "show_description", "label": "Show description", "default": true },
+    { "type": "textarea", "id": "description", "label": "Description", "default": "Watch real product demonstrations, installation guides and customer experiences." },
+    {
+      "type": "select",
+      "id": "header_alignment",
+      "label": "Header alignment",
+      "default": "center",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ]
+    },
+    { "type": "header", "content": "Layout" },
+    { "type": "range", "id": "max_width", "label": "Maximum width", "min": 0, "max": 1600, "step": 20, "unit": "px", "default": 1200 },
+    {
+      "type": "select",
+      "id": "desktop_cards",
+      "label": "Desktop cards visible",
+      "default": "4",
+      "options": [
+        { "value": "3", "label": "3" },
+        { "value": "4", "label": "4" },
+        { "value": "5", "label": "5" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "tablet_cards",
+      "label": "Tablet cards visible",
+      "default": "2.5",
+      "options": [
+        { "value": "2", "label": "2" },
+        { "value": "2.5", "label": "2.5" },
+        { "value": "3", "label": "3" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "mobile_cards",
+      "label": "Mobile cards visible",
+      "default": "1.5",
+      "options": [
+        { "value": "1.25", "label": "1.25" },
+        { "value": "1.5", "label": "1.5" },
+        { "value": "2", "label": "2" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "card_ratio",
+      "label": "Card ratio",
+      "default": "9 / 16",
+      "options": [
+        { "value": "9 / 16", "label": "9:16" },
+        { "value": "4 / 5", "label": "4:5" },
+        { "value": "3 / 4", "label": "3:4" }
+      ]
+    },
+    { "type": "range", "id": "card_gap", "label": "Card gap (desktop)", "min": 8, "max": 32, "step": 2, "unit": "px", "default": 16 },
+    { "type": "range", "id": "card_gap_mobile", "label": "Card gap (mobile)", "min": 8, "max": 24, "step": 2, "unit": "px", "default": 12 },
+    { "type": "range", "id": "card_radius", "label": "Card corner radius", "min": 8, "max": 32, "step": 1, "unit": "px", "default": 18 },
+    { "type": "range", "id": "padding_top", "label": "Top padding (desktop)", "min": 0, "max": 100, "step": 4, "unit": "px", "default": 80 },
+    { "type": "range", "id": "padding_bottom", "label": "Bottom padding (desktop)", "min": 0, "max": 100, "step": 4, "unit": "px", "default": 80 },
+    { "type": "range", "id": "padding_top_mobile", "label": "Top padding (mobile)", "min": 0, "max": 80, "step": 4, "unit": "px", "default": 52 },
+    { "type": "range", "id": "padding_bottom_mobile", "label": "Bottom padding (mobile)", "min": 0, "max": 80, "step": 4, "unit": "px", "default": 52 },
+    { "type": "range", "id": "padding_x", "label": "Horizontal padding", "min": 12, "max": 80, "step": 4, "unit": "px", "default": 20 },
+    { "type": "range", "id": "margin_top", "label": "Top spacing", "min": 0, "max": 80, "step": 4, "unit": "px", "default": 0 },
+    { "type": "range", "id": "margin_bottom", "label": "Bottom spacing", "min": 0, "max": 80, "step": 4, "unit": "px", "default": 0 },
+    { "type": "range", "id": "header_gap", "label": "Header bottom gap", "min": 16, "max": 64, "step": 4, "unit": "px", "default": 32 },
+    { "type": "header", "content": "Video" },
+    { "type": "checkbox", "id": "autoplay", "label": "Autoplay videos", "default": true, "info": "Autoplay is always muted for browser compatibility." },
+    { "type": "checkbox", "id": "muted", "label": "Muted", "default": true },
+    { "type": "checkbox", "id": "loop", "label": "Loop video", "default": true },
+    { "type": "checkbox", "id": "show_controls", "label": "Show video controls", "default": false },
+    { "type": "checkbox", "id": "pause_outside_viewport", "label": "Pause videos outside the viewport", "default": true },
+    { "type": "header", "content": "Carousel" },
+    { "type": "checkbox", "id": "enable_carousel", "label": "Enable carousel", "default": true },
+    { "type": "checkbox", "id": "show_arrows", "label": "Show arrows", "default": true },
+    { "type": "checkbox", "id": "show_dots", "label": "Show navigation dots", "default": true },
+    { "type": "checkbox", "id": "enable_touch_swipe", "label": "Enable touch swipe", "default": true },
+    { "type": "header", "content": "Product overlay" },
+    {
+      "type": "select",
+      "id": "overlay_style",
+      "label": "Product overlay style",
+      "default": "pill",
+      "options": [
+        { "value": "pill", "label": "Pill" },
+        { "value": "card", "label": "Rounded card" }
+      ]
+    },
+    { "type": "range", "id": "product_image_size", "label": "Product image size", "min": 28, "max": 56, "step": 2, "unit": "px", "default": 40 },
+    { "type": "range", "id": "product_overlay_offset", "label": "Product overlay offset", "min": 8, "max": 24, "step": 1, "unit": "px", "default": 12 },
+    { "type": "checkbox", "id": "use_rupee_symbol", "label": "Show Indian rupee symbol (₹)", "default": true },
+    { "type": "header", "content": "Typography" },
+    { "type": "range", "id": "eyebrow_size", "label": "Eyebrow size", "min": 12, "max": 22, "step": 1, "unit": "px", "default": 16 },
+    { "type": "range", "id": "heading_size_desktop", "label": "Heading size (desktop)", "min": 24, "max": 56, "step": 1, "unit": "px", "default": 45 },
+    { "type": "range", "id": "heading_size_mobile", "label": "Heading size (mobile)", "min": 20, "max": 40, "step": 1, "unit": "px", "default": 26 },
+    { "type": "range", "id": "description_size", "label": "Description size", "min": 13, "max": 20, "step": 1, "unit": "px", "default": 16 },
+    { "type": "header", "content": "Colors" },
+    { "type": "color", "id": "background_color", "label": "Background", "default": "#FFFFFF" },
+    { "type": "color", "id": "heading_color", "label": "Heading", "default": "#1A2B4A" },
+    { "type": "color", "id": "text_color", "label": "Text", "default": "#5A6B85" },
+    { "type": "color", "id": "eyebrow_color", "label": "Eyebrow", "default": "#0C7FDF" },
+    { "type": "color", "id": "accent_color", "label": "Accent", "default": "#0C7FDF" },
+    { "type": "color", "id": "arrow_background", "label": "Arrow background", "default": "#0C7FDF" },
+    { "type": "color", "id": "arrow_icon_color", "label": "Arrow icon", "default": "#FFFFFF" },
+    { "type": "color", "id": "arrow_hover_background", "label": "Arrow hover background", "default": "#0A6BC4" },
+    { "type": "color", "id": "card_background", "label": "Card background", "default": "#FFFFFF" },
+    { "type": "color", "id": "card_border_color", "label": "Card border", "default": "#E8EEF8" },
+    { "type": "color", "id": "product_card_background", "label": "Product card background", "default": "#FFFFFF" },
+    { "type": "color", "id": "product_title_color", "label": "Product title", "default": "#1A2B4A" },
+    { "type": "color", "id": "price_color", "label": "Price", "default": "#0C7FDF" },
+    { "type": "color", "id": "badge_background", "label": "Badge background", "default": "#0C7FDF" },
+    { "type": "color", "id": "badge_text_color", "label": "Badge text", "default": "#FFFFFF" },
+    { "type": "text", "id": "accessibility_label", "label": "Accessibility label", "default": "Watch and shop" }
+  ],
+  "blocks": [
+    {
+      "type": "watch_shop_video",
+      "name": "Watch & Shop Video",
+      "settings": [
+        { "type": "header", "content": "Video" },
+        {
+          "type": "select",
+          "id": "video_type",
+          "label": "Video source",
+          "default": "shopify",
+          "options": [
+            { "value": "shopify", "label": "Shopify hosted" },
+            { "value": "external", "label": "YouTube or Vimeo" }
+          ]
+        },
+        { "type": "video", "id": "shopify_video", "label": "Shopify hosted video" },
+        {
+          "type": "video_url",
+          "id": "video_url",
+          "label": "External video URL",
+          "accept": ["youtube", "vimeo"],
+          "info": "Used when video source is YouTube or Vimeo"
+        },
+        { "type": "image_picker", "id": "poster", "label": "Poster image" },
+        { "type": "header", "content": "Product" },
+        { "type": "product", "id": "product", "label": "Product" },
+        { "type": "text", "id": "custom_title", "label": "Custom display title", "info": "Leave empty to use the product title" },
+        { "type": "text", "id": "custom_price", "label": "Custom display price", "info": "Display only. Leave empty to use the product price." },
+        { "type": "text", "id": "video_title", "label": "Video title", "info": "Optional overlay title, for example How Scale-O Works" },
+        { "type": "text", "id": "subtitle", "label": "Subtitle" },
+        { "type": "text", "id": "badge", "label": "Badge", "info": "Leave empty to hide" },
+        { "type": "text", "id": "cta_text", "label": "CTA text", "default": "Shop Now" },
+        { "type": "url", "id": "cta_url", "label": "CTA URL", "info": "Used when no product is selected" },
+        { "type": "header", "content": "Display" },
+        { "type": "checkbox", "id": "show_product", "label": "Show product information", "default": true },
+        { "type": "checkbox", "id": "show_product_image", "label": "Show product image", "default": true },
+        { "type": "checkbox", "id": "show_product_price", "label": "Show product price", "default": true },
+        { "type": "checkbox", "id": "show_cta", "label": "Show CTA", "default": true },
+        { "type": "checkbox", "id": "show_badge", "label": "Show badge", "default": true },
+        { "type": "checkbox", "id": "show_video_title", "label": "Show video title", "default": false },
+        { "type": "checkbox", "id": "show_play_button", "label": "Show play button", "default": true },
+        { "type": "checkbox", "id": "show_controls", "label": "Show video controls", "default": false },
+        { "type": "header", "content": "Playback" },
+        { "type": "checkbox", "id": "autoplay", "label": "Autoplay this video", "default": true },
+        { "type": "checkbox", "id": "muted", "label": "Muted", "default": true },
+        { "type": "checkbox", "id": "loop", "label": "Loop", "default": true }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Watch & Shop",
+      "category": "Custom",
+      "blocks": [
+        {
+          "type": "watch_shop_video",
+          "settings": {
+            "video_title": "See Scale-O in Action",
+            "custom_title": "Scale-O Semi Water Softener",
+            "badge": "PRODUCT DEMO",
+            "cta_text": "Shop Now",
+            "show_product": true,
+            "show_product_image": true,
+            "show_product_price": true,
+            "show_cta": true,
+            "show_badge": true,
+            "show_play_button": true,
+            "autoplay": true,
+            "muted": true,
+            "loop": true
+          }
+        },
+        {
+          "type": "watch_shop_video",
+          "settings": {
+            "video_title": "How Easy Is Installation?",
+            "custom_title": "Scale-O Semi Water Softener",
+            "badge": "INSTALLATION",
+            "cta_text": "Shop Now",
+            "show_product": true,
+            "show_product_image": true,
+            "show_product_price": true,
+            "show_cta": true,
+            "show_badge": true,
+            "show_play_button": true,
+            "autoplay": true,
+            "muted": true,
+            "loop": true
+          }
+        },
+        {
+          "type": "watch_shop_video",
+          "settings": {
+            "video_title": "How Scale-O Works",
+            "custom_title": "Scale-O Centi Water Softener",
+            "badge": "HOW IT WORKS",
+            "cta_text": "Shop Now",
+            "show_product": true,
+            "show_product_image": true,
+            "show_product_price": true,
+            "show_cta": true,
+            "show_badge": true,
+            "show_play_button": true,
+            "autoplay": true,
+            "muted": true,
+            "loop": true
+          }
+        },
+        {
+          "type": "watch_shop_video",
+          "settings": {
+            "video_title": "Why Customers Choose Scale-O",
+            "custom_title": "Scale-O Mini Water Softener",
+            "badge": "CUSTOMER REVIEW",
+            "cta_text": "Shop Now",
+            "show_product": true,
+            "show_product_image": true,
+            "show_product_price": true,
+            "show_cta": true,
+            "show_badge": true,
+            "show_play_button": true,
+            "autoplay": true,
+            "muted": true,
+            "loop": true
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

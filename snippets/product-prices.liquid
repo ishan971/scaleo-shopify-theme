@@ -19,8 +19,11 @@
   assign available = target.available | default: false
 
   if card_price_format
-    assign money_price = price | divided_by: 100 | number_with_delimiter | append: ' ₹/-'
-    assign money_compare_price = compare_at_price | divided_by: 100 | number_with_delimiter | append: ' ₹/-'
+    assign money_price_number = price | divided_by: 100 | number_with_delimiter
+    assign money_price = '₹' | append: money_price_number | append: ' /-'
+
+    assign money_compare_price_number = compare_at_price | divided_by: 100 | number_with_delimiter
+    assign money_compare_price = '₹' | append: money_compare_price_number | append: ' /-'
   else
     assign money_price = price | money
 

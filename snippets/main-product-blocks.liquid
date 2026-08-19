@@ -49,6 +49,18 @@
 <input type="hidden" name="id" value="{{ variant_id }}" data-selected-variant="{{ selected_variant_id }}" disabled>
 {% comment %} End comment {% endcomment %}
 {%- for block in section.blocks -%}
+  {%- liquid
+    assign skip_block = false
+    if block.type == 'free_shipping_return' or block.type == 'icon_text'
+      assign skip_block = true
+    endif
+    if product_has_plan_option
+      if block.type == 'cod_checker' or block.type == 'expected_delivery_time'
+        assign skip_block = true
+      endif
+    endif
+  -%}
+  {%- unless skip_block -%}
   <div
     class="main-product__block main-product__block-{{ block.type }}"
     {{ block.shopify_attributes }}
@@ -160,7 +172,9 @@
           {{ product.description }}
         </div>
       {% when 'cod_checker' %}
-      {% render 'cod-checker' %}
+      {% unless product_has_plan_option %}
+        {% render 'product-post-buy-info' %}
+      {% endunless %}
 
       {% when 'expert_advice' %}
       {% if block.settings.heading != blank or block.settings.title_1 != blank or block.settings.content_1 != blank or block.settings.title_2 != blank or block.settings.content_2 != blank %}
@@ -240,50 +254,13 @@
             </div>
             {% endif %}
       
-          {% when 'expected_delivery_time' %} 
-        <div class="delivery-time-show" style="display:none">
-      <div class="order-status">
-   <div class="asf-order order-placed-content">
-     <div class="displace-image">
-   <img alt="Icon of a shopping bag representing order placed" height="40" src="https://cdn.shopify.com/s/files/1/0592/6508/9638/files/BN_ordered_delivered_delivery_icon_59dc6cd4-fd94-4fa8-b10f-fc78cc520c11.svg?v=1739987662" width="40"/>
-     </div>
-    <span>
-     Order Placed
-    </span>
-    <span class="date">      
-    </span>
-   </div>
-   <div class="asf-order order-dispatched-content">
-     <div class="displace-image">
-    <img alt="Icon of a package representing order dispatched" height="40" src="https://cdn.shopify.com/s/files/1/0592/6508/9638/files/BN_Order_packed_delivery_icon_77c9747d-80f2-481c-9117-f555092b90fb.svg?v=1739987662" width="40"/>
-    </div>
-      <div class="dispatched">
-     Order Dispatched
-    </div>
-    <span class="date">      
-    </span>   
-   </div>
-   <div class="asf-order order-delivered-content">
-     <div class="displace-image">
-    <img alt="Icon of a location pin representing order delivered" height="40" src="https://cdn.shopify.com/s/files/1/0592/6508/9638/files/BN_Order_shipped_delivery_icon_5c92abc7-f33c-4f78-9b80-070536c78ed4.svg?v=1739987661" width="40"/>
-    </div>
-    <span>
-     Delivered
-    </span>
-    <span class="date">    
-    </span>
-   </div>
-  </div>
-        </div>    
+          {% when 'expected_delivery_time' %}
+        {% comment %} Rendered with cod_checker in product-post-buy-info {% endcomment %}
       
       {%- when 'rating' -%}
         {% render 'product-reviews-app__badge', product: product %}
       {% when 'specification' %}
-      {% if product.metafields.custom.specification != blank %}
-        <div class="specification-block"><span>Specifications</span>
-        <svg class="svg-inline--fa fa-caret-right text-primary text-xs" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="caret-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512" data-fa-i2svg=""><path fill="currentColor" d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z"></path></svg>
-        </div>
-      {% endif %}
+        {% comment %} Specifications accordion is rendered after Plan Features {% endcomment %}
       {%- when 'meta' -%}
         <ul class="m-product-meta">
           {% if block.settings.show_vendor and product.vendor != blank %}
@@ -494,6 +471,10 @@
               image_field: image_field
             %}
           </div>
+          {%- if block.settings.show_secure_checkout != false -%}
+            {% render 'product-secure-checkout' %}
+          {%- endif -%}
+          {% render 'product-trust-points', section: section %}
         {% endunless %}
       {%- when 'collapsible_tab' -%}
         {% if block.settings.heading != blank %}
@@ -973,6 +954,7 @@
        {% endif %}
     {%- endcase -%}
   </div>
+  {%- endunless -%}
 {%- endfor -%}
 
 

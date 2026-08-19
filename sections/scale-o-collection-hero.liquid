@@ -1,0 +1,228 @@
+{%- comment -%}
+  Scale-O collection hero — full-width background, static copy, optional image carousel
+{%- endcomment -%}
+
+{{ 'scale-o-collection-hero.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'scale-o-collection-hero.js' | asset_url }}" defer></script>
+
+{%- liquid
+  assign line1 = section.settings.heading_line_1
+  assign line2 = section.settings.heading_line_2
+  if line1 == blank
+    assign line1 = 'Scale-O'
+  endif
+  if line2 == blank
+    assign line2 = 'Water Softeners'
+  endif
+
+  assign cta_url = section.settings.cta_url
+  if cta_url == blank
+    assign cta_url = '#CollectionProductGrid'
+  endif
+
+  assign bg_count = 0
+  if section.settings.image != blank
+    assign bg_count = 1
+  endif
+  for block in section.blocks
+    if block.type == 'slide' and block.settings.image != blank
+      assign bg_count = bg_count | plus: 1
+    endif
+  endfor
+-%}
+
+<style>
+  #shopify-section-{{ section.id }} .scale-o-collection-hero {
+    --soch-bg: {{ section.settings.background_color }};
+    --soch-heading: {{ section.settings.heading_color }};
+    --soch-text: {{ section.settings.text_color }};
+    --soch-accent: {{ section.settings.accent_color }};
+    --soch-radius: {{ section.settings.border_radius }}px;
+    --soch-max: {% if section.settings.content_width == 0 %}100%{% else %}{{ section.settings.content_width }}px{% endif %};
+    --soch-height: {{ section.settings.desktop_height }}px;
+    --soch-media-mobile: {{ section.settings.mobile_height }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+  @media screen and (max-width: 767px) {
+    #shopify-section-{{ section.id }} .scale-o-collection-hero {
+      --soch-pad-y: {{ section.settings.padding_top_mobile }}px;
+      padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+    }
+  }
+  #shopify-section-{{ section.id }} .scale-o-collection-hero__inner {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-left: {{ section.settings.padding_x }}px;
+    padding-right: {{ section.settings.padding_x }}px;
+  }
+</style>
+
+<section
+  class="scale-o-collection-hero"
+  data-soch-hero
+  data-autoplay="{% if section.settings.enable_autoplay and bg_count > 1 %}true{% else %}false{% endif %}"
+  data-interval="{{ section.settings.autoplay_speed | times: 1000 }}"
+  aria-label="{{ line1 | append: ' ' | append: line2 | escape }}"
+>
+  <div class="scale-o-collection-hero__inner">
+    <div class="scale-o-collection-hero__panel">
+      <div class="scale-o-collection-hero__bgs">
+        {%- assign first_active = true -%}
+        {%- if section.settings.image != blank -%}
+          {%- assign hero_alt = section.settings.image.alt | default: line2 -%}
+          <div class="scale-o-collection-hero__bg is-active" data-soch-bg>
+            {%- if section.settings.mobile_image != blank -%}
+              <picture>
+                <source media="(max-width: 767px)" srcset="{{ section.settings.mobile_image | image_url: width: 1000 }}">
+                {{ section.settings.image | image_url: width: 1800 | image_tag: loading: 'eager', widths: '800, 1200, 1600, 1800', alt: hero_alt }}
+              </picture>
+            {%- else -%}
+              {{ section.settings.image | image_url: width: 1800 | image_tag: loading: 'eager', widths: '800, 1200, 1600, 1800', alt: hero_alt }}
+            {%- endif -%}
+          </div>
+          {%- assign first_active = false -%}
+        {%- endif -%}
+
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'slide' and block.settings.image != blank -%}
+            {%- assign slide_alt = block.settings.alt | default: block.settings.image.alt | default: line2 -%}
+            <div
+              class="scale-o-collection-hero__bg{% if first_active %} is-active{% endif %}"
+              data-soch-bg
+              {{ block.shopify_attributes }}
+            >
+              {%- if block.settings.mobile_image != blank -%}
+                <picture>
+                  <source media="(max-width: 767px)" srcset="{{ block.settings.mobile_image | image_url: width: 1000 }}">
+                  {{ block.settings.image | image_url: width: 1800 | image_tag: loading: 'lazy', widths: '800, 1200, 1600, 1800', alt: slide_alt }}
+                </picture>
+              {%- else -%}
+                {{ block.settings.image | image_url: width: 1800 | image_tag: loading: 'lazy', widths: '800, 1200, 1600, 1800', alt: slide_alt }}
+              {%- endif -%}
+            </div>
+            {%- assign first_active = false -%}
+          {%- endif -%}
+        {%- endfor -%}
+
+        {%- if first_active -%}
+          <div class="scale-o-collection-hero__bg is-active" data-soch-bg>
+            <div class="scale-o-collection-hero__placeholder">{{ 'collection-1' | placeholder_svg_tag }}</div>
+          </div>
+        {%- endif -%}
+      </div>
+
+      <div class="scale-o-collection-hero__veil" aria-hidden="true"></div>
+
+      <div class="scale-o-collection-hero__copy{% if section.settings.text_alignment == 'center' %} scale-o-collection-hero__copy--center{% endif %}">
+        {%- if section.settings.eyebrow != blank -%}
+          <p class="scale-o-collection-hero__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+        {%- endif -%}
+        <h1 class="scale-o-collection-hero__heading">
+          <span class="scale-o-collection-hero__heading-line">{{ line1 | escape }}</span>
+          <span class="scale-o-collection-hero__heading-line{% if section.settings.show_heading_underline %} scale-o-collection-hero__heading-line--accent{% endif %}">{{ line2 | escape }}</span>
+        </h1>
+        {%- if section.settings.description != blank -%}
+          <p class="scale-o-collection-hero__text">{{ section.settings.description | escape }}</p>
+        {%- endif -%}
+        {%- liquid
+          assign show_hero_primary = false
+          assign show_hero_secondary = false
+          if section.settings.show_cta and section.settings.cta_label != blank
+            assign show_hero_primary = true
+          endif
+          if section.settings.show_secondary_cta and section.settings.secondary_cta_label != blank
+            assign show_hero_secondary = true
+          endif
+        -%}
+        {%- if show_hero_primary or show_hero_secondary -%}
+          <div class="scale-o-collection-hero__actions">
+            {%- if show_hero_primary -%}
+              <a class="scale-o-collection-hero__cta" href="{{ cta_url }}">
+                {{ section.settings.cta_label | escape }}
+                {%- unless section.settings.cta_label contains '→' -%}
+                  <span aria-hidden="true">→</span>
+                {%- endunless -%}
+              </a>
+            {%- endif -%}
+            {%- if show_hero_secondary -%}
+              <a class="scale-o-collection-hero__link" href="{{ section.settings.secondary_cta_url | default: cta_url }}">
+                {{ section.settings.secondary_cta_label | replace: '→', '' | strip | escape }}
+                <span aria-hidden="true">→</span>
+              </a>
+            {%- endif -%}
+          </div>
+        {%- endif -%}
+      </div>
+
+      {%- if bg_count > 1 and section.settings.show_dots -%}
+        <div class="scale-o-collection-hero__dots" data-soch-dots></div>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Scale-O collection hero",
+  "tag": "section",
+  "class": "scale-o-collection-hero-section",
+  "max_blocks": 8,
+  "settings": [
+    { "type": "header", "content": "Content" },
+    { "type": "text", "id": "eyebrow", "label": "Tag", "default": "WHOLE HOUSE WATER SOLUTION" },
+    { "type": "text", "id": "heading_line_1", "label": "Heading line 1", "default": "Scale-O" },
+    { "type": "text", "id": "heading_line_2", "label": "Heading line 2", "default": "Water Softeners" },
+    { "type": "checkbox", "id": "show_heading_underline", "label": "Show line under heading", "default": false },
+    { "type": "textarea", "id": "description", "label": "Description", "default": "Salt-free water softening solutions designed for Indian homes and hard-water conditions." },
+    { "type": "header", "content": "Background image" },
+    { "type": "image_picker", "id": "image", "label": "Main background image", "info": "Fills the full hero. Add more images as Background slide blocks for a carousel." },
+    { "type": "image_picker", "id": "mobile_image", "label": "Mobile background image" },
+    { "type": "header", "content": "Carousel" },
+    { "type": "checkbox", "id": "enable_autoplay", "label": "Auto-rotate background images", "default": true, "info": "Only the background image changes. Text stays still." },
+    { "type": "range", "id": "autoplay_speed", "label": "Change every", "min": 3, "max": 10, "step": 1, "unit": "s", "default": 5 },
+    { "type": "checkbox", "id": "show_dots", "label": "Show dots when multiple images", "default": true },
+    { "type": "header", "content": "Buttons" },
+    { "type": "checkbox", "id": "show_cta", "label": "Show primary button", "default": false },
+    { "type": "text", "id": "cta_label", "label": "Primary button label", "default": "Shop Water Softeners" },
+    { "type": "url", "id": "cta_url", "label": "Primary button link", "info": "Leave blank to scroll to the product grid." },
+    { "type": "checkbox", "id": "show_secondary_cta", "label": "Show secondary link", "default": false },
+    { "type": "text", "id": "secondary_cta_label", "label": "Secondary link label", "default": "Find the right solution" },
+    { "type": "url", "id": "secondary_cta_url", "label": "Secondary link URL" },
+    { "type": "header", "content": "Layout" },
+    { "type": "select", "id": "text_alignment", "label": "Text alignment", "default": "left", "options": [
+      { "value": "left", "label": "Left" },
+      { "value": "center", "label": "Center" }
+    ] },
+    { "type": "range", "id": "desktop_height", "label": "Hero height", "min": 280, "max": 680, "step": 10, "unit": "px", "default": 420, "info": "Banner height on desktop. Drag to make it shorter or taller." },
+    { "type": "range", "id": "mobile_height", "label": "Mobile height", "min": 280, "max": 560, "step": 10, "unit": "px", "default": 380 },
+    { "type": "range", "id": "content_width", "label": "Content width", "min": 0, "max": 1600, "step": 20, "unit": "px", "default": 0, "info": "0 = full page width inside the side padding" },
+    { "type": "range", "id": "border_radius", "label": "Corner radius", "min": 0, "max": 28, "step": 2, "unit": "px", "default": 12 },
+    { "type": "header", "content": "Colors" },
+    { "type": "color", "id": "background_color", "label": "Fallback color", "default": "#ffffff" },
+    { "type": "color", "id": "heading_color", "label": "Heading color", "default": "#0b1b2e" },
+    { "type": "color", "id": "text_color", "label": "Description color", "default": "#5b6b7c" },
+    { "type": "color", "id": "accent_color", "label": "Accent color", "default": "#0C7FDF" },
+    { "type": "header", "content": "Spacing" },
+    { "type": "range", "id": "padding_x", "label": "Side padding", "min": 0, "max": 80, "step": 2, "unit": "px", "default": 32 },
+    { "type": "range", "id": "padding_top", "label": "Desktop top spacing", "min": 0, "max": 48, "step": 4, "unit": "px", "default": 12 },
+    { "type": "range", "id": "padding_bottom", "label": "Desktop bottom spacing", "min": 0, "max": 48, "step": 4, "unit": "px", "default": 16 },
+    { "type": "range", "id": "padding_top_mobile", "label": "Mobile top spacing", "min": 0, "max": 32, "step": 4, "unit": "px", "default": 0 },
+    { "type": "range", "id": "padding_bottom_mobile", "label": "Mobile bottom spacing", "min": 0, "max": 32, "step": 4, "unit": "px", "default": 0 }
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Background slide",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Background image" },
+        { "type": "image_picker", "id": "mobile_image", "label": "Mobile image" },
+        { "type": "text", "id": "alt", "label": "Image alt text" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Scale-O collection hero"
+    }
+  ]
+}
+{% endschema %}

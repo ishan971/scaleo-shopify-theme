@@ -1,0 +1,1151 @@
+{%- comment -%}
+  Scale-O How It Works — educational conversion section
+{%- endcomment -%}
+
+{%- liquid
+  assign use_gradient = section.settings.use_gradient
+  assign header_align = section.settings.header_alignment
+  assign max_width = section.settings.max_width
+  assign show_help = section.settings.show_help_cta
+  assign video_url = section.settings.installation_video_url
+  assign diagram_desktop = section.settings.installation_diagram
+  assign diagram_mobile = section.settings.installation_diagram_mobile
+  assign journey_blocks = section.blocks | where: 'type', 'journey_step'
+  assign install_blocks = section.blocks | where: 'type', 'install_step'
+  assign exchange_blocks = section.blocks | where: 'type', 'exchange_step'
+  assign detail_cols = install_blocks.size
+  if exchange_blocks.size > detail_cols
+    assign detail_cols = exchange_blocks.size
+  endif
+-%}
+
+<style>
+  #shopify-section-{{ section.id }} .scale-o-how-it-works {
+    --hiw-bg: {{ section.settings.background_color }};
+    --hiw-bg-end: {{ section.settings.gradient_end_color }};
+    --hiw-heading: {{ section.settings.heading_color }};
+    --hiw-text: {{ section.settings.text_color }};
+    --hiw-accent: {{ section.settings.accent_color }};
+    --hiw-step-num: {{ section.settings.step_number_color }};
+    --hiw-divider: {{ section.settings.divider_color }};
+    --hiw-card-bg: {{ section.settings.card_background }};
+    --hiw-eyebrow-size: {{ section.settings.eyebrow_size }}px;
+    --hiw-heading-size: {{ section.settings.heading_size_desktop }}px;
+    --hiw-heading-size-mobile: {{ section.settings.heading_size_mobile }}px;
+    --hiw-desc-size: {{ section.settings.description_size }}px;
+    --hiw-step-title-size: {{ section.settings.step_title_size }}px;
+    --hiw-step-desc-size: {{ section.settings.step_description_size }}px;
+    --hiw-gap: {{ section.settings.content_gap }}px;
+    --hiw-max-width: {% if max_width == 0 %}100%{% else %}{{ max_width }}px{% endif %};
+    --hiw-mt: {{ section.settings.margin_top }}px;
+    --hiw-mb: {{ section.settings.margin_bottom }}px;
+    --hiw-pt: {{ section.settings.padding_top }}px;
+    --hiw-pb: {{ section.settings.padding_bottom }}px;
+    --hiw-detail-gap: {{ section.settings.detail_card_gap }}px;
+    --hiw-detail-min: {{ section.settings.detail_card_min_width }}px;
+    --hiw-detail-cols: {{ detail_cols | default: 5 }};
+    --hiw-detail-min-height: {{ section.settings.detail_card_min_height }}px;
+    --hiw-card-shadow: 0 4px {{ section.settings.card_shadow_strength | divided_by: 4 | plus: 10 }}px rgba(26, 43, 74, {{ section.settings.card_shadow_strength | times: 0.0012 }}), 0 1px 3px rgba(12, 127, 223, {{ section.settings.card_shadow_strength | times: 0.0008 }});
+    --hiw-card-shadow-hover: 0 8px {{ section.settings.card_shadow_strength | divided_by: 3 | plus: 14 }}px rgba(26, 43, 74, {{ section.settings.card_shadow_strength | times: 0.0016 }}), 0 2px 6px rgba(12, 127, 223, {{ section.settings.card_shadow_strength | times: 0.001 }});
+    --hiw-help-max-width: {{ section.settings.help_cta_max_width }}px;
+    --hiw-help-bg: {{ section.settings.help_cta_background }};
+    --hiw-help-border: {{ section.settings.help_cta_border_color }};
+    --hiw-help-heading: {{ section.settings.help_cta_heading_color }};
+  }
+
+  #shopify-section-{{ section.id }} .scale-o-how-it-works {
+    margin-top: var(--hiw-mt);
+    margin-bottom: var(--hiw-mb);
+    padding: var(--hiw-pt) 0 var(--hiw-pb);
+    background: var(--hiw-bg);
+    {% if use_gradient %}
+    background: linear-gradient(180deg, var(--hiw-bg) 0%, var(--hiw-bg-end) 100%);
+    {% endif %}
+    overflow: hidden;
+    font-family: var(--font-stack-header);
+    font-style: var(--font-style-header);
+  }
+
+  #shopify-section-{{ section.id }} .scale-o-how-it-works *:not(svg):not(path):not(circle):not(line):not(polyline):not(rect) {
+    font-family: inherit !important;
+  }
+
+  #shopify-section-{{ section.id }} .scale-o-how-it-works__container {
+    width: 100%;
+    max-width: var(--hiw-max-width);
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  #shopify-section-{{ section.id }} .scale-o-how-it-works__header {
+    text-align: {{ header_align }};
+    max-width: 720px;
+    margin: 0 auto var(--hiw-gap);
+  }
+
+  #shopify-section-{{ section.id }} .scale-o-how-it-works__header--left { margin-left: 0; margin-right: auto; text-align: left; }
+  #shopify-section-{{ section.id }} .scale-o-how-it-works__header--right { margin-left: auto; margin-right: 0; text-align: right; }
+
+  #shopify-section-{{ section.id }} .scale-o-how-it-works__eyebrow {
+    margin: 0 0 8px;
+    color: var(--hiw-accent);
+    font-family: var(--font-stack-header);
+    font-style: var(--font-style-header);
+    font-size: var(--hiw-eyebrow-size);
+    font-weight: var(--font-weight-header);
+    letter-spacing: var(--heading-letter-spacing);
+    text-transform: uppercase;
+  }
+
+  #shopify-section-{{ section.id }} .scale-o-how-it-works__heading {
+    margin: 0 0 12px;
+    color: var(--hiw-heading);
+    font-family: var(--font-stack-header);
+    font-style: var(--font-style-header);
+    font-size: var(--hiw-heading-size);
+    font-weight: var(--font-weight-header);
+    line-height: 1.235;
+    letter-spacing: var(--heading-letter-spacing);
+  }
+
+  #shopify-section-{{ section.id }} .scale-o-how-it-works__desc {
+    margin: 0;
+    color: var(--hiw-text);
+    font-size: var(--hiw-desc-size);
+    line-height: 1.6;
+    opacity: 0.9;
+  }
+
+  #shopify-section-{{ section.id }} .scale-o-how-it-works__main {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: calc(var(--hiw-gap) + 8px);
+    align-items: start;
+    margin-bottom: calc(var(--hiw-gap) + 8px);
+  }
+
+  #shopify-section-{{ section.id }} .scale-o-how-it-works__visual {
+    background: var(--hiw-card-bg);
+    border: 1px solid color-mix(in srgb, var(--hiw-divider) 35%, transparent);
+    border-radius: 18px;
+    padding: 20px;
+    box-shadow: var(--hiw-card-shadow);
+  }
+
+  #shopify-section-{{ section.id }} .scale-o-how-it-works__diagram-wrap {
+    width: 100%;
+    margin-bottom: 16px;
+  }
+
+  #shopify-section-{{ section.id }} .scale-o-how-it-works__diagram-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 12px;
+  }
+
+  #shopify-section-{{ section.id }} .scale-o-how-it-works__diagram-svg {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  #shopify-section-{{ section.id }} .scale-o-how-it-works__treatment {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr auto 1fr;
+    gap: 8px;
+    align-items: center;
+    padding: 14px 12px;
+    border-radius: 12px;
+    background: color-mix(in srgb, var(--hiw-accent) 6%, white);
+    border: 1px solid color-mix(in srgb, var(--hiw-accent) 15%, transparent);
+  }
+
+  #shopify-section-{{ section.id }} .scale-o-how-it-works__treatment-item {
+    text-align: center;
+    min-width: 0;
+  }
+
+  #shopify-section-{{ section.id }} .scale-o-how-it-works__treatment-label {
+    margin: 0 0 4px;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--hiw-heading);
+    line-height: 1.3;
+  }
+
+  #shopify-section-{{ section.id }} .scale-o-how-it-works__treatment-sub {
+    margin: 0;
+    font-size: 10px;
+    color: var(--hiw-text);
+    opacity: 0.75;
+    line-height: 1.3;
+  }
+
+  #shopify-section-{{ section.id }} .scale-o-how-it-works__treatment-arrow {
+    color: var(--hiw-accent);
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  #shopify-section-{{ section.id }} .scale-o-how-it-works__treatment-core {
+    padding: 8px 10px;
+    border-radius: 8px;
+    background: color-mix(in srgb, var(--hiw-accent) 12%, white);
+    border: 1px solid color-mix(in srgb, var(--hiw-accent) 25%, transparent);
+  }
+
+  #shopify-section-{{ section.id }} .scale-o-how-it-works__video-btn {
+    margin-top: 14px;
+    width: 100%;
+    justify-content: center;
+  }
+
+  #shopify-section-{{ section.id }} .scale-o-how-it-works__steps {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  #shopify-section-{{ section.id }} .scale-o-how-it-works__step {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    padding: 14px 16px;
+    border-radius: 14px;
+    background: var(--hiw-card-bg);
+    border: 1px solid color-mix(in srgb, var(--hiw-divider) 30%, transparent);
+    box-shadow: var(--hiw-card-shadow);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+    cursor: default;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    #shopify-section-{{ section.id }} .scale-o-how-it-works__step.is-active {
+      border-color: color-mix(in srgb, var(--hiw-accent) 45%, transparent);
+      box-shadow: var(--hiw-card-shadow-hover);
+      transform: translateY(-1px);
+    }
+
+    #shopify-section-{{ section.id }} .scale-o-how-it-works__step:hover {
+      box-shadow: var(--hiw-card-shadow-hover);
+    }
+  }
+
+  #shopify-section-{{ section.id }} .scale-o-how-it-works__step-num {
+    flex-shrink: 0;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: color-mix(in srgb, var(--hiw-accent) 12%, white);
+    color: var(--hiw-step-num);
+    font-size: 13px;
+    font-weight: 700;
+    border: 1.5px solid color-mix(in srgb, var(--hiw-accent) 25%, transparent);
+  }
+
+  #shopify-section-{{ section.id }} .scale-o-how-it-works__step-icon {
+    flex-shrink: 0;
+    width: 34px;
+    height: 34px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--hiw-accent);
+  }
+
+  #shopify-section-{{ section.id }} .scale-o-how-it-works__svg {
+    width: 20px;
+    height: 20px;
+    display: block;
+  }
+
+  #shopify-section-{{ section.id }} .scale-o-how-it-works__step-body { min-width: 0; flex: 1; }
+
+  #shopify-section-{{ section.id }} .scale-o-how-it-works__step-title {
+    margin: 0 0 4px;
+    color: var(--hiw-heading);
+    font-size: var(--hiw-step-title-size);
+    font-weight: 700;
+    line-height: 1.25;
+  }
+
+  #shopify-section-{{ section.id }} .scale-o-how-it-works__step-text {
+    margin: 0;
+    color: var(--hiw-text);
+    font-size: var(--hiw-step-desc-size);
+    line-height: 1.5;
+    opacity: 0.88;
+  }
+
+  #shopify-section-{{ section.id }} .scale-o-how-it-works__step-link {
+    display: inline-flex;
+    margin-top: 8px;
+    color: var(--hiw-accent);
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  #shopify-section-{{ section.id }} .scale-o-how-it-works__step-link:focus-visible {
+    outline: 2px solid var(--hiw-accent);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  #shopify-section-{{ section.id }} .scale-o-how-it-works__tabs-wrap {
+    background: var(--hiw-card-bg);
+    border: 1px solid color-mix(in srgb, var(--hiw-divider) 35%, transparent);
+    border-radius: 18px;
+    padding: 20px;
+    box-shadow: 0 8px 28px rgba(12, 127, 223, 0.05);
+  }
+
+  #shopify-section-{{ section.id }} .scale-o-how-it-works__tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 22px;
+    flex-wrap: wrap;
+    justify-content: {% if section.settings.tabs_alignment == 'left' %}flex-start{% else %}center{% endif %};
+  }
+
+  #shopify-section-{{ section.id }} .scale-o-how-it-works__tab {
+    appearance: none;
+    border: 1.5px solid color-mix(in srgb, var(--hiw-divider) 40%, transparent);
+    background: white;
+    color: var(--hiw-heading);
+    border-radius: 999px;
+    padding: 10px 18px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  }
+
+  #shopify-section-{{ section.id }} .scale-o-how-it-works__tab.is-active {
+    background: var(--hiw-accent);
+    border-color: var(--hiw-accent);
+    color: #fff;
+  }
+
+  #shopify-section-{{ section.id }} .scale-o-how-it-works__tab:focus-visible {
+    outline: 2px solid var(--hiw-accent);
+    outline-offset: 2px;
+  }
+
+  #shopify-section-{{ section.id }} .scale-o-how-it-works__panels {
+    position: relative;
+    min-height: var(--hiw-panels-min-height, auto);
+  }
+
+  #shopify-section-{{ section.id }} .scale-o-how-it-works__panel-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(var(--hiw-detail-cols), minmax(0, 1fr));
+    gap: var(--hiw-detail-gap);
+    align-items: stretch;
+    width: 100%;
+  }
+
+  #shopify-section-{{ section.id }} .scale-o-how-it-works__detail-step {
+    min-width: 0;
+    min-height: var(--hiw-detail-min-height);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 12px 10px 10px;
+    border-radius: 14px;
+    background: var(--hiw-card-bg);
+    border: 1px solid color-mix(in srgb, var(--hiw-divider) 35%, transparent);
+    box-shadow: var(--hiw-card-shadow);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+  }
+
+  #shopify-section-{{ section.id }} .scale-o-how-it-works__detail-step:hover {
+    border-color: color-mix(in srgb, var(--hiw-accent) 35%, transparent);
+    box-shadow: var(--hiw-card-shadow-hover);
+    transform: translateY(-1px);
+  }
+
+  #shopify-section-{{ section.id }} .scale-o-how-it-works__detail-body {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 0;
+    width: 100%;
+    flex: 1;
+  }
+
+  #shopify-section-{{ section.id }} .scale-o-how-it-works__detail-title {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    color: var(--hiw-accent);
+    font-size: calc(var(--hiw-step-title-size) - 1px);
+    font-weight: 700;
+    line-height: 1.25;
+    min-height: calc(2 * 1.25 * (var(--hiw-step-title-size) - 1px));
+    box-sizing: border-box;
+  }
+
+  #shopify-section-{{ section.id }} .scale-o-how-it-works__detail-step .scale-o-how-it-works__step-text {
+    font-size: calc(var(--hiw-step-desc-size) - 1px);
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    flex: 1;
+    margin: 0;
+  }
+
+  #shopify-section-{{ section.id }} .scale-o-how-it-works__detail-num {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    color: var(--hiw-step-num);
+    font-size: 13px;
+    font-weight: 700;
+    border: 1.5px solid color-mix(in srgb, var(--hiw-accent) 25%, transparent);
+  }
+
+  #shopify-section-{{ section.id }} .scale-o-how-it-works__detail-img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    max-height: 56px;
+    object-fit: contain;
+    border-radius: 8px;
+    display: block;
+    margin-bottom: 2px;
+  }
+
+  #shopify-section-{{ section.id }} .scale-o-how-it-works__help-wrap {
+    margin-top: calc(var(--hiw-gap) + 4px);
+    display: flex;
+    justify-content: {% if section.settings.help_cta_alignment == 'left' %}flex-start{% else %}center{% endif %};
+  }
+
+  #shopify-section-{{ section.id }} .scale-o-how-it-works__help {
+    width: 100%;
+    max-width: var(--hiw-help-max-width);
+    padding: 16px 20px;
+    border-radius: 14px;
+    background: var(--hiw-help-bg);
+    border: 1px solid var(--hiw-help-border);
+    box-shadow: var(--hiw-card-shadow);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  #shopify-section-{{ section.id }} .scale-o-how-it-works__help-title {
+    margin: 0;
+    color: var(--hiw-help-heading);
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.35;
+  }
+
+  #shopify-section-{{ section.id }} .scale-o-how-it-works__help-btn {
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+
+  #shopify-section-{{ section.id }} .scale-o-how-it-works__modal {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.72);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+
+  #shopify-section-{{ section.id }} .scale-o-how-it-works__modal[hidden] { display: none; }
+
+  #shopify-section-{{ section.id }} .scale-o-how-it-works__modal-inner {
+    position: relative;
+    width: min(960px, 100%);
+    aspect-ratio: 16 / 9;
+    background: #000;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  #shopify-section-{{ section.id }} .scale-o-how-it-works__modal-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 2;
+    width: 36px;
+    height: 36px;
+    border: 0;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.92);
+    color: #111;
+    font-size: 22px;
+    line-height: 1;
+    cursor: pointer;
+  }
+
+  #shopify-section-{{ section.id }} .scale-o-how-it-works__modal-frame {
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+
+  @media (min-width: 768px) {
+    #shopify-section-{{ section.id }} .scale-o-how-it-works__panel-scroll {
+      overflow: visible;
+    }
+  }
+
+  @media (max-width: 991px) {
+    #shopify-section-{{ section.id }} .scale-o-how-it-works__main {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 767px) {
+    #shopify-section-{{ section.id }} .scale-o-how-it-works__heading {
+      font-size: var(--hiw-heading-size-mobile);
+    }
+
+    #shopify-section-{{ section.id }} .scale-o-how-it-works--mobile-horizontal .scale-o-how-it-works__panel-scroll {
+      overflow-x: auto;
+      overflow-y: hidden;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      margin: 0 -4px;
+      padding: 0 4px 4px;
+    }
+
+    #shopify-section-{{ section.id }} .scale-o-how-it-works--mobile-horizontal .scale-o-how-it-works__panel-scroll::-webkit-scrollbar {
+      display: none;
+    }
+
+    #shopify-section-{{ section.id }} .scale-o-how-it-works--mobile-horizontal .scale-o-how-it-works__panel-list {
+      display: flex;
+      flex-wrap: nowrap;
+      width: max-content;
+      min-width: 100%;
+    }
+
+    #shopify-section-{{ section.id }} .scale-o-how-it-works--mobile-horizontal .scale-o-how-it-works__detail-step {
+      flex: 0 0 min(72vw, var(--hiw-detail-min));
+      min-width: min(72vw, var(--hiw-detail-min));
+      min-height: var(--hiw-detail-min-height);
+    }
+
+    #shopify-section-{{ section.id }} .scale-o-how-it-works--mobile-vertical .scale-o-how-it-works__panel-scroll {
+      overflow: visible;
+      margin: 0;
+      padding: 0;
+    }
+
+    #shopify-section-{{ section.id }} .scale-o-how-it-works--mobile-vertical .scale-o-how-it-works__panel-list {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      min-width: 0;
+      gap: var(--hiw-detail-gap);
+    }
+
+    #shopify-section-{{ section.id }} .scale-o-how-it-works--mobile-vertical .scale-o-how-it-works__detail-step {
+      flex: 1 1 auto;
+      width: 100%;
+      min-width: 0;
+      min-height: auto;
+      height: auto;
+    }
+
+    #shopify-section-{{ section.id }} .scale-o-how-it-works__help-wrap {
+      justify-content: center;
+    }
+
+    #shopify-section-{{ section.id }} .scale-o-how-it-works__help {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      justify-content: center;
+      max-width: min(var(--hiw-help-max-width), 100%);
+      padding: 16px 18px;
+    }
+
+    #shopify-section-{{ section.id }} .scale-o-how-it-works__help-title {
+      text-align: center;
+    }
+
+    #shopify-section-{{ section.id }} .scale-o-how-it-works__help-btn {
+      width: 100%;
+      max-width: 280px;
+      justify-content: center;
+    }
+
+    #shopify-section-{{ section.id }} .scale-o-how-it-works__treatment {
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+
+    #shopify-section-{{ section.id }} .scale-o-how-it-works__treatment-arrow { display: none; }
+  }
+</style>
+
+<div
+  class="scale-o-how-it-works scale-o-how-it-works--mobile-{{ section.settings.detail_mobile_layout }}"
+  data-section-id="{{ section.id }}"
+  {% if video_url != blank %}data-video-url="{{ video_url | escape }}"{% endif %}
+  role="region"
+  aria-label="{{ section.settings.accessibility_label | default: 'How Scale-O works' | escape }}"
+>
+  <div class="scale-o-how-it-works__container">
+    <header class="scale-o-how-it-works__header scale-o-how-it-works__header--{{ header_align }}">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="scale-o-how-it-works__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+      {%- endif -%}
+      {%- if section.settings.heading != blank -%}
+        <h2 class="scale-o-how-it-works__heading">{{ section.settings.heading | escape }}</h2>
+      {%- endif -%}
+      {%- if section.settings.description != blank -%}
+        <p class="scale-o-how-it-works__desc">{{ section.settings.description | escape }}</p>
+      {%- endif -%}
+    </header>
+
+    <div class="scale-o-how-it-works__main">
+      <div class="scale-o-how-it-works__visual">
+        <div class="scale-o-how-it-works__diagram-wrap">
+          {%- if diagram_desktop != blank or diagram_mobile != blank -%}
+            <picture>
+              {%- if diagram_mobile != blank -%}
+                <source
+                  media="(max-width: 767px)"
+                  srcset="
+                    {{ diagram_mobile | image_url: width: 600 }} 600w,
+                    {{ diagram_mobile | image_url: width: 800 }} 800w,
+                    {{ diagram_mobile | image_url: width: 1000 }} 1000w
+                  "
+                  sizes="100vw"
+                >
+              {%- endif -%}
+              {%- assign diagram_fallback = diagram_desktop | default: diagram_mobile -%}
+              {{
+                diagram_fallback
+                | image_url: width: 1200
+                | image_tag:
+                  class: 'scale-o-how-it-works__diagram-img',
+                  loading: 'lazy',
+                  widths: '600,800,1000,1200',
+                  sizes: '(min-width: 992px) 52vw, 100vw',
+                  alt: section.settings.diagram_alt | default: 'Scale-O installation diagram' | escape
+              }}
+            </picture>
+          {%- else -%}
+            {%- render 'how-it-works-diagram' -%}
+          {%- endif -%}
+        </div>
+
+        <div class="scale-o-how-it-works__treatment" aria-label="{{ section.settings.treatment_aria_label | default: 'How Scale-O treats hard water' | escape }}">
+          <div class="scale-o-how-it-works__treatment-item">
+            <p class="scale-o-how-it-works__treatment-label">{{ section.settings.treatment_before_label | escape }}</p>
+            <p class="scale-o-how-it-works__treatment-sub">{{ section.settings.treatment_before_text | escape }}</p>
+          </div>
+          <span class="scale-o-how-it-works__treatment-arrow" aria-hidden="true">→</span>
+          <div class="scale-o-how-it-works__treatment-item scale-o-how-it-works__treatment-core">
+            <p class="scale-o-how-it-works__treatment-label">{{ section.settings.treatment_core_label | escape }}</p>
+            <p class="scale-o-how-it-works__treatment-sub">{{ section.settings.treatment_core_text | escape }}</p>
+          </div>
+          <span class="scale-o-how-it-works__treatment-arrow" aria-hidden="true">→</span>
+          <div class="scale-o-how-it-works__treatment-item">
+            <p class="scale-o-how-it-works__treatment-label">{{ section.settings.treatment_after_label | escape }}</p>
+            <p class="scale-o-how-it-works__treatment-sub">{{ section.settings.treatment_after_text | escape }}</p>
+          </div>
+        </div>
+
+        {%- if video_url != blank -%}
+          <button type="button" class="m-button m-button--secondary scale-o-how-it-works__video-btn" data-hiw-video-open>
+            {{ section.settings.video_button_text | escape }}
+          </button>
+        {%- endif -%}
+      </div>
+
+      {%- if journey_blocks.size > 0 -%}
+        <ol class="scale-o-how-it-works__steps" role="list">
+          {%- for block in journey_blocks -%}
+            <li
+              class="scale-o-how-it-works__step{% if forloop.first %} is-active{% endif %}"
+              data-journey-step
+              {{ block.shopify_attributes }}
+            >
+              {%- if block.settings.step_number != blank -%}
+                <span class="scale-o-how-it-works__step-num">{{ block.settings.step_number | escape }}</span>
+              {%- elsif block.settings.icon != 'none' -%}
+                <span class="scale-o-how-it-works__step-icon" aria-hidden="true">
+                  {%- render 'how-it-works-icon', icon: block.settings.icon -%}
+                </span>
+              {%- endif -%}
+              <div class="scale-o-how-it-works__step-body">
+                {%- if block.settings.title != blank -%}
+                  <h3 class="scale-o-how-it-works__step-title">{{ block.settings.title | escape }}</h3>
+                {%- endif -%}
+                {%- if block.settings.description != blank -%}
+                  <p class="scale-o-how-it-works__step-text">{{ block.settings.description | escape }}</p>
+                {%- endif -%}
+                {%- if block.settings.link != blank and block.settings.button_text != blank -%}
+                  <a class="scale-o-how-it-works__step-link" href="{{ block.settings.link }}">{{ block.settings.button_text | escape }}</a>
+                {%- endif -%}
+              </div>
+            </li>
+          {%- endfor -%}
+        </ol>
+      {%- endif -%}
+    </div>
+
+    {%- if install_blocks.size > 0 or exchange_blocks.size > 0 -%}
+      <div class="scale-o-how-it-works__tabs-wrap">
+        <div class="scale-o-how-it-works__tabs" role="tablist" aria-label="Installation and exchange instructions">
+          {%- if install_blocks.size > 0 -%}
+            <button type="button" class="scale-o-how-it-works__tab is-active" role="tab" aria-selected="true" data-hiw-tab="install">
+              {{ section.settings.install_tab_label | escape }}
+            </button>
+          {%- endif -%}
+          {%- if exchange_blocks.size > 0 -%}
+            <button
+              type="button"
+              class="scale-o-how-it-works__tab{% if install_blocks.size == 0 %} is-active{% endif %}"
+              role="tab"
+              aria-selected="{% if install_blocks.size == 0 %}true{% else %}false{% endif %}"
+              data-hiw-tab="exchange"
+            >
+              {{ section.settings.exchange_tab_label | escape }}
+            </button>
+          {%- endif -%}
+        </div>
+
+        {%- if install_blocks.size > 0 or exchange_blocks.size > 0 -%}
+          <div class="scale-o-how-it-works__panels" data-hiw-panels>
+        {%- endif -%}
+
+        {%- if install_blocks.size > 0 -%}
+          <div class="scale-o-how-it-works__panel is-active" role="tabpanel" data-hiw-panel="install" {% unless install_blocks.size > 0 %}hidden{% endunless %}>
+            <div class="scale-o-how-it-works__panel-scroll">
+              <ol class="scale-o-how-it-works__panel-list" role="list">
+                {%- for block in install_blocks -%}
+                  <li class="scale-o-how-it-works__detail-step" {{ block.shopify_attributes }}>
+                    <span class="scale-o-how-it-works__detail-num">{{ block.settings.step_number | default: forloop.index | escape }}</span>
+                    <div class="scale-o-how-it-works__detail-body">
+                      {%- if block.settings.image != blank -%}
+                        {{
+                          block.settings.image
+                          | image_url: width: 200
+                          | image_tag: class: 'scale-o-how-it-works__detail-img', loading: 'lazy', alt: block.settings.title | escape
+                        }}
+                      {%- endif -%}
+                      {%- if block.settings.title != blank -%}
+                        <h4 class="scale-o-how-it-works__detail-title">{{ block.settings.title | escape }}</h4>
+                      {%- endif -%}
+                      {%- if block.settings.description != blank -%}
+                        <p class="scale-o-how-it-works__step-text">{{ block.settings.description | escape }}</p>
+                      {%- endif -%}
+                    </div>
+                  </li>
+                {%- endfor -%}
+              </ol>
+            </div>
+          </div>
+        {%- endif -%}
+
+        {%- if exchange_blocks.size > 0 -%}
+          <div
+            class="scale-o-how-it-works__panel{% if install_blocks.size == 0 %} is-active{% endif %}"
+            role="tabpanel"
+            data-hiw-panel="exchange"
+            {% if install_blocks.size > 0 %}hidden{% endif %}
+          >
+            <div class="scale-o-how-it-works__panel-scroll">
+              <ol class="scale-o-how-it-works__panel-list" role="list">
+                {%- for block in exchange_blocks -%}
+                  <li class="scale-o-how-it-works__detail-step" {{ block.shopify_attributes }}>
+                    <span class="scale-o-how-it-works__detail-num">{{ block.settings.step_number | default: forloop.index | escape }}</span>
+                    <div class="scale-o-how-it-works__detail-body">
+                      {%- if block.settings.image != blank -%}
+                        {{
+                          block.settings.image
+                          | image_url: width: 200
+                          | image_tag: class: 'scale-o-how-it-works__detail-img', loading: 'lazy', alt: block.settings.title | escape
+                        }}
+                      {%- endif -%}
+                      {%- if block.settings.title != blank -%}
+                        <h4 class="scale-o-how-it-works__detail-title">{{ block.settings.title | escape }}</h4>
+                      {%- endif -%}
+                      {%- if block.settings.description != blank -%}
+                        <p class="scale-o-how-it-works__step-text">{{ block.settings.description | escape }}</p>
+                      {%- endif -%}
+                    </div>
+                  </li>
+                {%- endfor -%}
+              </ol>
+            </div>
+          </div>
+        {%- endif -%}
+
+        {%- if install_blocks.size > 0 or exchange_blocks.size > 0 -%}
+          </div>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    {%- if show_help -%}
+      <div class="scale-o-how-it-works__help-wrap">
+        <div class="scale-o-how-it-works__help">
+          {%- if section.settings.help_heading != blank -%}
+            <p class="scale-o-how-it-works__help-title">{{ section.settings.help_heading | escape }}</p>
+          {%- endif -%}
+          {%- if section.settings.help_button_text != blank and section.settings.help_button_link != blank -%}
+            <a href="{{ section.settings.help_button_link }}" class="m-button m-button--primary scale-o-how-it-works__help-btn">
+              {{ section.settings.help_button_text | escape }}
+            </a>
+          {%- endif -%}
+        </div>
+      </div>
+    {%- endif -%}
+  </div>
+
+  {%- if video_url != blank -%}
+    <div class="scale-o-how-it-works__modal" data-hiw-modal hidden>
+      <div class="scale-o-how-it-works__modal-inner">
+        <button type="button" class="scale-o-how-it-works__modal-close" data-hiw-modal-close aria-label="Close video">×</button>
+        <iframe class="scale-o-how-it-works__modal-frame" data-hiw-modal-frame title="Installation video" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+  {%- endif -%}
+</div>
+
+<script src="{{ 'how-it-works.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "How It Works",
+  "tag": "section",
+  "class": "scale-o-how-it-works-section",
+  "max_blocks": 18,
+  "settings": [
+    { "type": "header", "content": "Header" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "HOW IT WORKS" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Simple Setup. Simple Protection." },
+    { "type": "textarea", "id": "description", "label": "Description", "default": "See how Scale-O works, how to install it, and how easy it is to maintain and exchange." },
+    {
+      "type": "select",
+      "id": "header_alignment",
+      "label": "Header alignment",
+      "default": "center",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ]
+    },
+    { "type": "header", "content": "Left diagram image" },
+    {
+      "type": "paragraph",
+      "content": "Upload 2 separate images for best results: one for desktop (left column) and one for mobile (stacked layout). If mobile is empty, desktop image is used on all screens."
+    },
+    {
+      "type": "image_picker",
+      "id": "installation_diagram",
+      "label": "Desktop diagram image",
+      "info": "Recommended size: 1200 × 1000 px (landscape)"
+    },
+    {
+      "type": "image_picker",
+      "id": "installation_diagram_mobile",
+      "label": "Mobile diagram image",
+      "info": "Recommended size: 800 × 900 px (portrait). Optional."
+    },
+    { "type": "text", "id": "diagram_alt", "label": "Diagram alt text", "default": "Scale-O installation flow from overhead tank to home" },
+    { "type": "text", "id": "installation_video_url", "label": "Installation video URL (YouTube)" },
+    { "type": "text", "id": "video_button_text", "label": "Video button text", "default": "Watch Installation Video" },
+    { "type": "header", "content": "Treatment flow labels" },
+    { "type": "text", "id": "treatment_before_label", "label": "Before label", "default": "Hard Water" },
+    { "type": "text", "id": "treatment_before_text", "label": "Before text", "default": "Minerals that cause scale buildup" },
+    { "type": "text", "id": "treatment_core_label", "label": "Scale-O label", "default": "Scale-O" },
+    { "type": "text", "id": "treatment_core_text", "label": "Scale-O text", "default": "Chelation inside your tank" },
+    { "type": "text", "id": "treatment_after_label", "label": "After label", "default": "Scale Protection" },
+    { "type": "text", "id": "treatment_after_text", "label": "After text", "default": "Reduced scale impact across home" },
+    { "type": "text", "id": "treatment_aria_label", "label": "Treatment flow accessibility label", "default": "How Scale-O treats hard water" },
+    { "type": "header", "content": "Tabs" },
+    { "type": "text", "id": "install_tab_label", "label": "Install tab label", "default": "How to Install" },
+    { "type": "text", "id": "exchange_tab_label", "label": "Exchange tab label", "default": "How to Exchange" },
+    {
+      "type": "select",
+      "id": "tabs_alignment",
+      "label": "Tabs alignment",
+      "default": "center",
+      "options": [
+        { "value": "center", "label": "Center" },
+        { "value": "left", "label": "Left" }
+      ]
+    },
+    { "type": "range", "id": "detail_card_gap", "label": "Detail step card gap", "min": 8, "max": 24, "step": 2, "unit": "px", "default": 12 },
+    {
+      "type": "select",
+      "id": "detail_mobile_layout",
+      "label": "Mobile step cards layout",
+      "default": "vertical",
+      "options": [
+        { "value": "vertical", "label": "Vertical stack" },
+        { "value": "horizontal", "label": "Horizontal scroll" }
+      ],
+      "info": "How the 5 install/exchange cards display on screens under 768px"
+    },
+    { "type": "range", "id": "detail_card_min_width", "label": "Mobile card width (horizontal scroll)", "min": 120, "max": 220, "step": 10, "unit": "px", "default": 160, "info": "Only applies when mobile layout is Horizontal scroll" },
+    { "type": "range", "id": "detail_card_min_height", "label": "Detail step card height", "min": 120, "max": 260, "step": 4, "unit": "px", "default": 168, "info": "Keeps install and exchange cards the same size when switching tabs" },
+    { "type": "range", "id": "card_shadow_strength", "label": "Card shadow strength", "min": 0, "max": 100, "step": 5, "default": 70 },
+    { "type": "header", "content": "Help CTA" },
+    { "type": "checkbox", "id": "show_help_cta", "label": "Show help CTA", "default": true },
+    { "type": "text", "id": "help_heading", "label": "CTA heading", "default": "Need Help With Installation?" },
+    { "type": "text", "id": "help_button_text", "label": "CTA button text", "default": "Talk to an Expert" },
+    { "type": "url", "id": "help_button_link", "label": "CTA button link" },
+    { "type": "range", "id": "help_cta_max_width", "label": "CTA max width", "min": 320, "max": 900, "step": 20, "unit": "px", "default": 560, "info": "Limits how wide the CTA bar stretches on desktop" },
+    {
+      "type": "select",
+      "id": "help_cta_alignment",
+      "label": "CTA alignment (desktop)",
+      "default": "center",
+      "options": [
+        { "value": "center", "label": "Center" },
+        { "value": "left", "label": "Left" }
+      ],
+      "info": "On mobile, CTA is always centered and stacked"
+    },
+    { "type": "color", "id": "help_cta_background", "label": "CTA background", "default": "#EEF6FF" },
+    { "type": "color", "id": "help_cta_border_color", "label": "CTA border color", "default": "#C5DFFA" },
+    { "type": "color", "id": "help_cta_heading_color", "label": "CTA heading color", "default": "#1A2B4A" },
+    { "type": "header", "content": "Background" },
+    { "type": "color", "id": "background_color", "label": "Background color", "default": "#FFFFFF" },
+    { "type": "checkbox", "id": "use_gradient", "label": "Enable gradient", "default": false },
+    { "type": "color", "id": "gradient_end_color", "label": "Gradient end color", "default": "#F5F7FF" },
+    { "type": "color", "id": "card_background", "label": "Card background", "default": "#FFFFFF" },
+    { "type": "header", "content": "Colors" },
+    { "type": "color", "id": "heading_color", "label": "Heading color", "default": "#1A2B4A" },
+    { "type": "color", "id": "text_color", "label": "Text color", "default": "#5A6B85" },
+    { "type": "color", "id": "accent_color", "label": "Accent color", "default": "#0C7FDF" },
+    { "type": "color", "id": "step_number_color", "label": "Step number color", "default": "#0C7FDF" },
+    { "type": "color", "id": "divider_color", "label": "Divider color", "default": "#D6E2FA" },
+    { "type": "header", "content": "Typography" },
+    { "type": "range", "id": "eyebrow_size", "label": "Eyebrow size", "min": 10, "max": 16, "step": 1, "unit": "px", "default": 16 },
+    { "type": "range", "id": "heading_size_desktop", "label": "Heading size (desktop)", "min": 24, "max": 48, "step": 1, "unit": "px", "default": 45 },
+    { "type": "range", "id": "heading_size_mobile", "label": "Heading size (mobile)", "min": 20, "max": 36, "step": 1, "unit": "px", "default": 28 },
+    { "type": "range", "id": "description_size", "label": "Description size", "min": 13, "max": 20, "step": 1, "unit": "px", "default": 16 },
+    { "type": "range", "id": "step_title_size", "label": "Step title size", "min": 14, "max": 22, "step": 1, "unit": "px", "default": 17 },
+    { "type": "range", "id": "step_description_size", "label": "Step description size", "min": 12, "max": 18, "step": 1, "unit": "px", "default": 14 },
+    { "type": "header", "content": "Layout" },
+    { "type": "range", "id": "max_width", "label": "Maximum width", "min": 0, "max": 1600, "step": 20, "unit": "px", "default": 1200 },
+    { "type": "range", "id": "padding_top", "label": "Top padding", "min": 0, "max": 100, "step": 4, "unit": "px", "default": 48 },
+    { "type": "range", "id": "padding_bottom", "label": "Bottom padding", "min": 0, "max": 100, "step": 4, "unit": "px", "default": 48 },
+    { "type": "range", "id": "margin_top", "label": "Top spacing", "min": 0, "max": 80, "step": 4, "unit": "px", "default": 8 },
+    { "type": "range", "id": "margin_bottom", "label": "Bottom spacing", "min": 0, "max": 80, "step": 4, "unit": "px", "default": 24 },
+    { "type": "range", "id": "content_gap", "label": "Content gap", "min": 16, "max": 64, "step": 4, "unit": "px", "default": 32 },
+    { "type": "text", "id": "accessibility_label", "label": "Accessibility label", "default": "How Scale-O works" }
+  ],
+  "blocks": [
+    {
+      "type": "journey_step",
+      "name": "How It Works Step",
+      "limit": 6,
+      "settings": [
+        { "type": "text", "id": "step_number", "label": "Step number", "default": "1" },
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "default": "choose",
+          "options": [
+            { "value": "choose", "label": "Choose" },
+            { "value": "install", "label": "Install" },
+            { "value": "use", "label": "Use / Water" },
+            { "value": "exchange", "label": "Exchange" },
+            { "value": "tank", "label": "Tank" },
+            { "value": "home", "label": "Home" },
+            { "value": "check", "label": "Check" },
+            { "value": "water", "label": "Water drop" },
+            { "value": "none", "label": "None" }
+          ]
+        },
+        { "type": "image_picker", "id": "image", "label": "Optional image" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Choose Your Scale-O" },
+        { "type": "textarea", "id": "description", "label": "Description", "default": "Select the right model for your home's water usage." },
+        { "type": "url", "id": "link", "label": "Optional link" },
+        { "type": "text", "id": "button_text", "label": "Optional button text" }
+      ]
+    },
+    {
+      "type": "install_step",
+      "name": "Installation Step",
+      "limit": 6,
+      "settings": [
+        { "type": "text", "id": "step_number", "label": "Step number", "default": "1" },
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "default": "check",
+          "options": [
+            { "value": "choose", "label": "Choose" },
+            { "value": "install", "label": "Install" },
+            { "value": "tank", "label": "Tank" },
+            { "value": "home", "label": "Home" },
+            { "value": "check", "label": "Check" },
+            { "value": "power", "label": "Power off/on" },
+            { "value": "none", "label": "None" }
+          ]
+        },
+        { "type": "image_picker", "id": "image", "label": "Optional image" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Turn Off Water Supply" },
+        { "type": "textarea", "id": "description", "label": "Description" }
+      ]
+    },
+    {
+      "type": "exchange_step",
+      "name": "Exchange Step",
+      "limit": 6,
+      "settings": [
+        { "type": "text", "id": "step_number", "label": "Step number", "default": "1" },
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "default": "exchange",
+          "options": [
+            { "value": "exchange", "label": "Exchange" },
+            { "value": "install", "label": "Install" },
+            { "value": "tank", "label": "Tank" },
+            { "value": "check", "label": "Check" },
+            { "value": "power", "label": "Power off/on" },
+            { "value": "none", "label": "None" }
+          ]
+        },
+        { "type": "image_picker", "id": "image", "label": "Optional image" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Identify Your Scale-O Unit" },
+        { "type": "textarea", "id": "description", "label": "Description" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "How It Works",
+      "category": "Custom",
+      "blocks": [
+        {
+          "type": "journey_step",
+          "settings": {
+            "step_number": "1",
+            "icon": "choose",
+            "title": "Choose Your Scale-O",
+            "description": "Select the right model based on your overhead tank size and daily water usage."
+          }
+        },
+        {
+          "type": "journey_step",
+          "settings": {
+            "step_number": "2",
+            "icon": "install",
+            "title": "Install in Your Overhead Tank",
+            "description": "Place Scale-O inside your overhead water tank. No plumbing changes or electricity required."
+          }
+        },
+        {
+          "type": "journey_step",
+          "settings": {
+            "step_number": "3",
+            "icon": "use",
+            "title": "Enjoy Better Water Flow",
+            "description": "Scale-O works continuously as water flows to your bathroom, kitchen, laundry and appliances."
+          }
+        },
+        {
+          "type": "journey_step",
+          "settings": {
+            "step_number": "4",
+            "icon": "exchange",
+            "title": "Easy Exchange",
+            "description": "When it's time, simply replace the unit with a straightforward exchange process."
+          }
+        },
+        {
+          "type": "journey_step",
+          "settings": {
+            "step_number": "5",
+            "icon": "check",
+            "title": "Zero Hassle Upkeep",
+            "description": "No salt refills, no electricity and no regular servicing — Scale-O keeps protecting your home quietly."
+          }
+        },
+        {
+          "type": "install_step",
+          "settings": { "step_number": "1", "title": "Choose the Right Model", "description": "Pick a Scale-O size that matches your tank capacity and household usage." }
+        },
+        {
+          "type": "install_step",
+          "settings": { "step_number": "2", "title": "Open the Overhead Tank", "description": "Access your overhead water tank safely before placing the unit." }
+        },
+        {
+          "type": "install_step",
+          "settings": { "step_number": "3", "title": "Place Scale-O Inside the Tank", "description": "Drop the compact Scale-O unit into the tank. No plumber or wiring needed." }
+        },
+        {
+          "type": "install_step",
+          "settings": { "step_number": "4", "title": "Close and Secure the Tank", "description": "Seal the tank properly so water flows normally through your home." }
+        },
+        {
+          "type": "install_step",
+          "settings": { "step_number": "5", "title": "Start Using Scale-O", "description": "Use water as usual while Scale-O helps reduce hard-water scale buildup." }
+        },
+        {
+          "type": "exchange_step",
+          "settings": { "step_number": "1", "title": "Identify Your Scale-O Unit", "description": "Check when your current unit needs replacement based on usage and product life." }
+        },
+        {
+          "type": "exchange_step",
+          "settings": { "step_number": "2", "title": "Turn Off the Water Supply", "description": "Stop water flow to the overhead tank before removing the used unit." }
+        },
+        {
+          "type": "exchange_step",
+          "settings": { "step_number": "3", "title": "Remove the Existing Unit", "description": "Take out the used Scale-O unit from the tank." }
+        },
+        {
+          "type": "exchange_step",
+          "settings": { "step_number": "4", "title": "Install the Replacement", "description": "Place the new Scale-O unit inside the tank in the same simple way." }
+        },
+        {
+          "type": "exchange_step",
+          "settings": { "step_number": "5", "title": "Restart the Water Supply", "description": "Restore water flow and continue enjoying scale-protected water at home." }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

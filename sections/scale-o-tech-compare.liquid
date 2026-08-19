@@ -1,0 +1,710 @@
+{%- comment -%}
+  Scale-O comparison: photo technology cards + compact similar-product table
+{%- endcomment -%}
+
+{{ 'scale-o-tech-compare.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign tech_blocks = section.blocks | where: 'type', 'technology'
+  assign feature_blocks = section.blocks | where: 'type', 'feature'
+  assign competitor_blocks = section.blocks | where: 'type', 'competitor'
+  assign competitor_rows = section.blocks | where: 'type', 'competitor_row'
+  assign header_align = section.settings.header_alignment
+  assign highlight_color = section.settings.highlight_color | default: section.settings.accent_color
+  assign highlight_bg = section.settings.highlight_background | default: '#E8F3FC'
+
+  assign tech_count = 0
+  for block in tech_blocks
+    if block.settings.enabled == false
+      continue
+    endif
+    assign tech_count = tech_count | plus: 1
+    if tech_count >= 4
+      break
+    endif
+  endfor
+
+  assign competitor_count = 0
+  for block in competitor_blocks
+    if block.settings.enabled == false
+      continue
+    endif
+    assign competitor_count = competitor_count | plus: 1
+    if competitor_count >= 4
+      break
+    endif
+  endfor
+
+  assign show_tech_header = false
+  if section.settings.show_tech
+    if section.settings.tech_heading != blank or section.settings.show_tech_eyebrow and section.settings.tech_eyebrow != blank or section.settings.show_tech_description and section.settings.tech_description != blank
+      assign show_tech_header = true
+    endif
+  endif
+
+  assign show_comp_header = false
+  if section.settings.show_competitors
+    if section.settings.heading != blank or section.settings.show_eyebrow and section.settings.eyebrow != blank or section.settings.show_description and section.settings.description != blank
+      assign show_comp_header = true
+    endif
+  endif
+
+  assign show_banner = false
+  if section.settings.show_cta_banner
+    if section.settings.banner_heading != blank or section.settings.banner_text != blank or section.settings.cta_text != blank
+      assign show_banner = true
+    endif
+  endif
+-%}
+
+<style>
+  #shopify-section-{{ section.id }} .scale-o-compare {
+    --stc-bg: {{ section.settings.background_color }};
+    --stc-heading: {{ section.settings.heading_color }};
+    --stc-text: {{ section.settings.text_color }};
+    --stc-accent: {{ section.settings.accent_color }};
+    --stc-accent-hover: {{ section.settings.accent_hover_color }};
+    --stc-card-bg: {{ section.settings.card_background }};
+    --stc-card-border: {{ section.settings.card_border_color }};
+    --stc-matrix-bg: {{ section.settings.matrix_background }};
+    --stc-highlight: {{ highlight_color }};
+    --stc-highlight-bg: {{ highlight_bg }};
+    --stc-radius: {{ section.settings.card_radius }}px;
+    --stc-cols: {{ tech_count }};
+    --stc-comp-cols: {{ competitor_count }};
+    --stc-eyebrow-size: {{ section.settings.eyebrow_size }}px;
+    --stc-heading-size: {{ section.settings.heading_size_mobile }}px;
+    --stc-heading-size-desktop: {{ section.settings.heading_size_desktop }}px;
+    --stc-desc-size: {{ section.settings.description_size }}px;
+    --stc-pad-x: {{ section.settings.padding_x }}px;
+    --stc-header-gap: {{ section.settings.header_gap }}px;
+    --stc-header-align: {{ header_align }};
+    --stc-max-width: {% if section.settings.max_width == 0 %}100%{% else %}{{ section.settings.max_width }}px{% endif %};
+    --stc-image-ratio: {{ section.settings.image_aspect_ratio }};
+    margin-top: {{ section.settings.margin_top }}px;
+    margin-bottom: {{ section.settings.margin_bottom }}px;
+    padding: {{ section.settings.padding_top_mobile }}px 0 {{ section.settings.padding_bottom_mobile }}px;
+    background: var(--stc-bg);
+  }
+  @media (min-width: 768px) {
+    #shopify-section-{{ section.id }} .scale-o-compare {
+      padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px;
+    }
+  }
+</style>
+
+<div
+  class="scale-o-compare"
+  data-section-id="{{ section.id }}"
+  data-animate="{% if section.settings.enable_animations %}true{% else %}false{% endif %}"
+  role="region"
+  aria-label="{{ section.settings.accessibility_label | default: 'Scale-O comparison' | escape }}"
+>
+  <div class="scale-o-compare__container">
+    {%- if section.settings.show_tech and tech_count > 0 -%}
+      {%- if show_tech_header -%}
+        <header class="scale-o-compare__header scale-o-compare__header--{{ header_align }}" data-stc-animate>
+          {%- if section.settings.show_tech_eyebrow and section.settings.tech_eyebrow != blank -%}
+            <p class="scale-o-compare__eyebrow">{{ section.settings.tech_eyebrow | escape }}</p>
+          {%- endif -%}
+          {%- if section.settings.tech_heading != blank -%}
+            <h2 class="scale-o-compare__heading">{{ section.settings.tech_heading | escape }}</h2>
+          {%- endif -%}
+          {%- if section.settings.show_tech_description and section.settings.tech_description != blank -%}
+            <p class="scale-o-compare__description">{{ section.settings.tech_description | escape }}</p>
+          {%- endif -%}
+        </header>
+      {%- endif -%}
+
+      <div class="scale-o-compare__board" data-stc-animate>
+        <div class="scale-o-compare__board-wrap" tabindex="0" role="region" aria-label="{{ section.settings.tech_heading | default: 'Technology comparison' | escape }}">
+          <table class="scale-o-compare__board-table">
+            <caption class="scale-o-compare__sr-only">{{ section.settings.tech_heading | default: 'Technology comparison' | escape }}</caption>
+            <colgroup>
+              {%- if section.settings.show_features -%}
+                <col class="scale-o-compare__col scale-o-compare__col--criteria">
+              {%- endif -%}
+              {%- assign visible = 0 -%}
+              {%- for tech in tech_blocks -%}
+                {%- if tech.settings.enabled == false -%}{%- continue -%}{%- endif -%}
+                {%- assign visible = visible | plus: 1 -%}
+                {%- if visible > 4 -%}{%- break -%}{%- endif -%}
+                <col class="scale-o-compare__col{% if tech.settings.highlight %} scale-o-compare__col--featured{% endif %}">
+              {%- endfor -%}
+            </colgroup>
+            <thead>
+              <tr>
+                {%- if section.settings.show_features -%}
+                  <th class="scale-o-compare__corner" scope="col">
+                    <span>{{ section.settings.tech_criteria_heading | default: 'Comparison criteria' | escape }}</span>
+                  </th>
+                {%- endif -%}
+                {%- assign visible = 0 -%}
+                {%- for tech in tech_blocks -%}
+                  {%- if tech.settings.enabled == false -%}{%- continue -%}{%- endif -%}
+                  {%- assign visible = visible | plus: 1 -%}
+                  {%- if visible > 4 -%}{%- break -%}{%- endif -%}
+                  {%- liquid
+                    assign card_image = tech.settings.image
+                    if card_image == blank and tech.settings.product != blank
+                      assign card_image = tech.settings.product.featured_image
+                    endif
+                    assign card_mobile = tech.settings.image_mobile | default: card_image
+                    assign card_alt = tech.settings.image_alt | default: tech.settings.title | default: 'Water treatment system'
+                    assign is_highlight = tech.settings.highlight
+                  -%}
+                  <th
+                    class="scale-o-compare__head{% if is_highlight %} scale-o-compare__head--featured{% endif %}"
+                    scope="col"
+                    {{ tech.shopify_attributes }}
+                  >
+                    <div class="scale-o-compare__card{% if is_highlight %} scale-o-compare__card--featured{% endif %}">
+                      {%- if is_highlight and section.settings.show_recommended_badge -%}
+                        <p class="scale-o-compare__recommend">
+                          <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" focusable="false">
+                            <path d="M8 1.6 9.9 5.7l4.5.5-3.3 3 1 4.4L8 11.8 3.9 13.6l1-4.4-3.3-3 4.5-.5z"/>
+                          </svg>
+                          <span>{{ section.settings.recommended_label | default: 'Recommended' | escape }}</span>
+                        </p>
+                      {%- elsif tech.settings.show_badge and tech.settings.badge_text != blank -%}
+                        <p class="scale-o-compare__badge">{{ tech.settings.badge_text | escape }}</p>
+                      {%- endif -%}
+                      <div class="scale-o-compare__photo">
+                        {%- if card_image != blank -%}
+                          <picture>
+                            {%- if tech.settings.image_mobile != blank -%}
+                              <source media="(max-width: 767px)" srcset="{{ card_mobile | image_url: width: 640 }}">
+                            {%- endif -%}
+                            {{
+                              card_image
+                              | image_url: width: 720
+                              | image_tag:
+                                loading: 'lazy',
+                                widths: '240,360,480,720',
+                                sizes: '(max-width: 767px) 46vw, 220px',
+                                alt: card_alt
+                            }}
+                          </picture>
+                        {%- elsif is_highlight -%}
+                          <img src="{{ 'scale-o-solution-product.png' | asset_url }}" alt="{{ card_alt | escape }}" width="640" height="480" loading="lazy">
+                        {%- else -%}
+                          <div class="scale-o-compare__placeholder" aria-hidden="true">
+                            {% render 'scale-o-compare-icon', icon: tech.settings.theme_icon, class: 'scale-o-compare__placeholder-svg' %}
+                          </div>
+                        {%- endif -%}
+                      </div>
+                      <div class="scale-o-compare__card-body">
+                        <h3 class="scale-o-compare__card-title">{{ tech.settings.title | escape }}</h3>
+                        <p class="scale-o-compare__card-text">{{ tech.settings.description | escape }}</p>
+                      </div>
+                    </div>
+                  </th>
+                {%- endfor -%}
+              </tr>
+            </thead>
+            {%- if section.settings.show_features and feature_blocks.size > 0 -%}
+              <tbody>
+                {%- for feature in feature_blocks -%}
+                  {%- if feature.settings.enabled == false -%}{%- continue -%}{%- endif -%}
+                  <tr class="scale-o-compare__mini-row" {{ feature.shopify_attributes }}>
+                    <th class="scale-o-compare__mini-feature" scope="row">{{ feature.settings.title | escape }}</th>
+                    {%- assign visible = 0 -%}
+                    {%- for tech in tech_blocks -%}
+                      {%- if tech.settings.enabled == false -%}{%- continue -%}{%- endif -%}
+                      {%- assign visible = visible | plus: 1 -%}
+                      {%- if visible > 4 -%}{%- break -%}{%- endif -%}
+                      <td class="scale-o-compare__mini-td{% if tech.settings.highlight %} scale-o-compare__mini-td--featured{% endif %}">
+                        {%- case visible -%}
+                          {%- when 1 -%}
+                            {% render 'scale-o-compare-cell', value: feature.settings.value_1, status: feature.settings.status_1, featured: tech.settings.highlight, short_label: tech.settings.title %}
+                          {%- when 2 -%}
+                            {% render 'scale-o-compare-cell', value: feature.settings.value_2, status: feature.settings.status_2, featured: tech.settings.highlight, short_label: tech.settings.title %}
+                          {%- when 3 -%}
+                            {% render 'scale-o-compare-cell', value: feature.settings.value_3, status: feature.settings.status_3, featured: tech.settings.highlight, short_label: tech.settings.title %}
+                          {%- when 4 -%}
+                            {% render 'scale-o-compare-cell', value: feature.settings.value_4, status: feature.settings.status_4, featured: tech.settings.highlight, short_label: tech.settings.title %}
+                        {%- endcase -%}
+                      </td>
+                    {%- endfor -%}
+                  </tr>
+                {%- endfor -%}
+              </tbody>
+            {%- endif -%}
+          </table>
+        </div>
+      </div>
+    {%- endif -%}
+
+    {%- if section.settings.show_competitors and competitor_count > 0 -%}
+      <div class="scale-o-compare__mini" data-stc-animate>
+        {%- if show_comp_header -%}
+          <header class="scale-o-compare__header scale-o-compare__header--{{ header_align }} scale-o-compare__header--mini">
+            {%- if section.settings.show_eyebrow and section.settings.eyebrow != blank -%}
+              <p class="scale-o-compare__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+            {%- endif -%}
+            {%- if section.settings.heading != blank -%}
+              <h2 class="scale-o-compare__heading">{{ section.settings.heading | escape }}</h2>
+            {%- endif -%}
+            {%- if section.settings.show_description and section.settings.description != blank -%}
+              <p class="scale-o-compare__description">{{ section.settings.description | escape }}</p>
+            {%- endif -%}
+          </header>
+        {%- endif -%}
+
+        <div class="scale-o-compare__mini-wrap" tabindex="0" role="region" aria-label="{{ section.settings.heading | default: 'Competitor comparison' | escape }}">
+          <table class="scale-o-compare__mini-table">
+            <caption class="scale-o-compare__sr-only">{{ section.settings.heading | default: 'Competitor comparison' | escape }}</caption>
+            <thead>
+              <tr>
+                <th class="scale-o-compare__mini-th scale-o-compare__mini-th--criteria" scope="col">{{ section.settings.criteria_heading | default: 'Criteria' | escape }}</th>
+                {%- assign visible = 0 -%}
+                {%- for brand in competitor_blocks -%}
+                  {%- if brand.settings.enabled == false -%}{%- continue -%}{%- endif -%}
+                  {%- assign visible = visible | plus: 1 -%}
+                  {%- if visible > 4 -%}{%- break -%}{%- endif -%}
+                  <th
+                    class="scale-o-compare__mini-th{% if brand.settings.highlight %} scale-o-compare__mini-th--featured{% endif %}"
+                    scope="col"
+                    {{ brand.shopify_attributes }}
+                  >
+                    {{ brand.settings.title | escape }}
+                  </th>
+                {%- endfor -%}
+              </tr>
+            </thead>
+            {%- if competitor_rows.size > 0 -%}
+              <tbody>
+                {%- for row in competitor_rows -%}
+                  {%- if row.settings.enabled == false -%}{%- continue -%}{%- endif -%}
+                  <tr class="scale-o-compare__mini-row" {{ row.shopify_attributes }}>
+                    <th class="scale-o-compare__mini-feature" scope="row">{{ row.settings.title | escape }}</th>
+                    {%- assign visible = 0 -%}
+                    {%- for brand in competitor_blocks -%}
+                      {%- if brand.settings.enabled == false -%}{%- continue -%}{%- endif -%}
+                      {%- assign visible = visible | plus: 1 -%}
+                      {%- if visible > 4 -%}{%- break -%}{%- endif -%}
+                      <td class="scale-o-compare__mini-td{% if brand.settings.highlight %} scale-o-compare__mini-td--featured{% endif %}">
+                        {%- case visible -%}
+                          {%- when 1 -%}
+                            {% render 'scale-o-compare-cell', value: row.settings.value_1, status: row.settings.status_1, featured: brand.settings.highlight, short_label: brand.settings.title %}
+                          {%- when 2 -%}
+                            {% render 'scale-o-compare-cell', value: row.settings.value_2, status: row.settings.status_2, featured: brand.settings.highlight, short_label: brand.settings.title %}
+                          {%- when 3 -%}
+                            {% render 'scale-o-compare-cell', value: row.settings.value_3, status: row.settings.status_3, featured: brand.settings.highlight, short_label: brand.settings.title %}
+                          {%- when 4 -%}
+                            {% render 'scale-o-compare-cell', value: row.settings.value_4, status: row.settings.status_4, featured: brand.settings.highlight, short_label: brand.settings.title %}
+                        {%- endcase -%}
+                      </td>
+                    {%- endfor -%}
+                  </tr>
+                {%- endfor -%}
+              </tbody>
+            {%- endif -%}
+          </table>
+        </div>
+        {%- if section.settings.competitor_note != blank -%}
+          <p class="scale-o-compare__note">{{ section.settings.competitor_note | escape }}</p>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    {%- if show_banner -%}
+      <div class="scale-o-compare__banner" data-stc-animate>
+        <span class="scale-o-compare__banner-icon" aria-hidden="true">
+          {% render 'scale-o-compare-icon', icon: section.settings.banner_icon, class: 'scale-o-compare__icon-svg' %}
+        </span>
+        <div class="scale-o-compare__banner-copy">
+          {%- if section.settings.banner_heading != blank -%}
+            <p class="scale-o-compare__banner-heading">{{ section.settings.banner_heading | escape }}</p>
+          {%- endif -%}
+          {%- if section.settings.banner_text != blank -%}
+            <p class="scale-o-compare__banner-text">{{ section.settings.banner_text | escape }}</p>
+          {%- endif -%}
+        </div>
+        {%- if section.settings.cta_text != blank -%}
+          <a class="scale-o-compare__cta" href="{{ section.settings.cta_url | default: '#' }}">
+            <span>{{ section.settings.cta_text | escape }}</span>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+{%- if section.settings.enable_animations -%}
+  <script src="{{ 'scale-o-tech-compare.js' | asset_url }}" defer></script>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Scale-O Comparison",
+  "tag": "section",
+  "class": "scale-o-compare-section",
+  "max_blocks": 24,
+  "settings": [
+    { "type": "paragraph", "content": "Photo cards compare Scale-O with other technologies. The small table compares Scale-O with similar products. Rename competitor columns in Theme Editor." },
+
+    { "type": "header", "content": "Technology cards" },
+    { "type": "checkbox", "id": "show_tech", "label": "Show technology cards", "default": true },
+    { "type": "checkbox", "id": "show_tech_eyebrow", "label": "Show technology eyebrow", "default": true },
+    { "type": "text", "id": "tech_eyebrow", "label": "Technology eyebrow", "default": "TECHNOLOGY COMPARISON" },
+    { "type": "text", "id": "tech_heading", "label": "Technology heading", "default": "Scale-O vs Other Water Treatment" },
+    { "type": "checkbox", "id": "show_tech_description", "label": "Show technology description", "default": true },
+    { "type": "textarea", "id": "tech_description", "label": "Technology description", "default": "See how Scale-O compares with salt-based, electromagnetic and multi-media systems for household scale protection." },
+    { "type": "checkbox", "id": "show_features", "label": "Show comparison table", "default": true },
+    { "type": "text", "id": "tech_criteria_heading", "label": "Table first column heading", "default": "Comparison criteria" },
+    { "type": "checkbox", "id": "show_recommended_badge", "label": "Show Recommended badge on Scale-O", "default": true },
+    { "type": "text", "id": "recommended_label", "label": "Recommended badge text", "default": "Recommended" },
+    { "type": "checkbox", "id": "show_column_images", "label": "Show column images", "default": true },
+    { "type": "checkbox", "id": "show_column_descriptions", "label": "Show column descriptions", "default": false },
+    { "type": "checkbox", "id": "show_card_icons", "label": "Show card icons", "default": false },
+    {
+      "type": "select",
+      "id": "mobile_layout",
+      "label": "Mobile card layout",
+      "default": "scroll",
+      "options": [
+        { "value": "scroll", "label": "Horizontal scroll" },
+        { "value": "stack", "label": "Stacked cards" }
+      ]
+    },
+
+    { "type": "header", "content": "Competitor table" },
+    { "type": "checkbox", "id": "show_competitors", "label": "Show competitor table", "default": true },
+    { "type": "checkbox", "id": "show_eyebrow", "label": "Show competitor eyebrow", "default": true },
+    { "type": "text", "id": "eyebrow", "label": "Competitor eyebrow", "default": "COMPETITOR COMPARISON" },
+    { "type": "text", "id": "heading", "label": "Competitor heading", "default": "Scale-O vs Similar Solutions" },
+    { "type": "checkbox", "id": "show_description", "label": "Show competitor description", "default": true },
+    { "type": "textarea", "id": "description", "label": "Competitor description", "default": "See how Scale-O compares with other solutions designed to tackle hard-water scaling." },
+    { "type": "text", "id": "criteria_heading", "label": "First column heading", "default": "Criteria" },
+    { "type": "text", "id": "competitor_note", "label": "Table note", "default": "Comparisons describe typical household scale-control approaches." },
+
+    {
+      "type": "select",
+      "id": "header_alignment",
+      "label": "Header alignment",
+      "default": "center",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ]
+    },
+
+    { "type": "header", "content": "Scale-O highlight" },
+    { "type": "color", "id": "highlight_color", "label": "Highlight color", "default": "#0C7FDF" },
+    { "type": "color", "id": "highlight_background", "label": "Highlight background", "default": "#E8F3FC" },
+
+    { "type": "header", "content": "Conclusion banner" },
+    { "type": "checkbox", "id": "show_cta_banner", "label": "Show conclusion banner", "default": true },
+    {
+      "type": "select",
+      "id": "banner_icon",
+      "label": "Banner icon",
+      "default": "shield",
+      "options": [
+        { "value": "shield", "label": "Shield" },
+        { "value": "droplet", "label": "Water" },
+        { "value": "wrench", "label": "Install" },
+        { "value": "none", "label": "None" }
+      ]
+    },
+    { "type": "text", "id": "banner_heading", "label": "Banner heading", "default": "Simple household scale protection" },
+    { "type": "textarea", "id": "banner_text", "label": "Banner text", "default": "Scale-O is a salt-free, maintenance-light option designed for simple installation in modern homes." },
+    { "type": "text", "id": "cta_text", "label": "CTA text", "default": "Explore Scale-O Products" },
+    { "type": "url", "id": "cta_url", "label": "CTA URL" },
+
+    { "type": "header", "content": "Layout" },
+    { "type": "range", "id": "max_width", "label": "Maximum width", "min": 0, "max": 1600, "step": 20, "unit": "px", "default": 1200 },
+    {
+      "type": "select",
+      "id": "image_aspect_ratio",
+      "label": "Card image ratio",
+      "default": "4 / 3",
+      "options": [
+        { "value": "4 / 3", "label": "4:3" },
+        { "value": "1 / 1", "label": "1:1" },
+        { "value": "16 / 10", "label": "16:10" }
+      ]
+    },
+    { "type": "range", "id": "card_radius", "label": "Corner radius", "min": 8, "max": 28, "step": 1, "unit": "px", "default": 16 },
+    { "type": "checkbox", "id": "enable_animations", "label": "Enable reveal animations", "default": true },
+    { "type": "range", "id": "padding_top", "label": "Top padding (desktop)", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 36 },
+    { "type": "range", "id": "padding_bottom", "label": "Bottom padding (desktop)", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 36 },
+    { "type": "range", "id": "padding_top_mobile", "label": "Top padding (mobile)", "min": 0, "max": 80, "step": 4, "unit": "px", "default": 28 },
+    { "type": "range", "id": "padding_bottom_mobile", "label": "Bottom padding (mobile)", "min": 0, "max": 80, "step": 4, "unit": "px", "default": 28 },
+    { "type": "range", "id": "padding_x", "label": "Horizontal padding", "min": 12, "max": 80, "step": 4, "unit": "px", "default": 20 },
+    { "type": "range", "id": "margin_top", "label": "Top spacing", "min": 0, "max": 80, "step": 4, "unit": "px", "default": 0 },
+    { "type": "range", "id": "margin_bottom", "label": "Bottom spacing", "min": 0, "max": 80, "step": 4, "unit": "px", "default": 0 },
+    { "type": "range", "id": "header_gap", "label": "Header bottom gap", "min": 16, "max": 64, "step": 4, "unit": "px", "default": 32 },
+
+    { "type": "header", "content": "Typography" },
+    { "type": "range", "id": "eyebrow_size", "label": "Label size", "min": 12, "max": 22, "step": 1, "unit": "px", "default": 13 },
+    { "type": "range", "id": "heading_size_desktop", "label": "Heading size (desktop)", "min": 24, "max": 56, "step": 1, "unit": "px", "default": 36 },
+    { "type": "range", "id": "heading_size_mobile", "label": "Heading size (mobile)", "min": 20, "max": 40, "step": 1, "unit": "px", "default": 26 },
+    { "type": "range", "id": "description_size", "label": "Description size", "min": 13, "max": 20, "step": 1, "unit": "px", "default": 16 },
+
+    { "type": "header", "content": "Colors" },
+    { "type": "color", "id": "background_color", "label": "Background", "default": "#FFFFFF" },
+    { "type": "color", "id": "matrix_background", "label": "Banner background", "default": "#EEF6FF" },
+    { "type": "color", "id": "card_background", "label": "Card background", "default": "#FFFFFF" },
+    { "type": "color", "id": "card_border_color", "label": "Card border", "default": "#E4ECF6" },
+    { "type": "color", "id": "heading_color", "label": "Heading", "default": "#12345B" },
+    { "type": "color", "id": "text_color", "label": "Text", "default": "#5A6B85" },
+    { "type": "color", "id": "accent_color", "label": "Accent", "default": "#0C7FDF" },
+    { "type": "color", "id": "accent_hover_color", "label": "Accent hover", "default": "#0A6BC4" },
+    { "type": "text", "id": "accessibility_label", "label": "Accessibility label", "default": "Scale-O comparison" }
+  ],
+  "blocks": [
+    {
+      "type": "technology",
+      "name": "Technology card",
+      "limit": 4,
+      "settings": [
+        { "type": "checkbox", "id": "enabled", "label": "Show this card", "default": true },
+        { "type": "text", "id": "title", "label": "Title", "default": "Scale-O Water Softener" },
+        { "type": "text", "id": "category_label", "label": "Category label" },
+        { "type": "textarea", "id": "description", "label": "Short description", "default": "Salt-free scale protection designed for simple installation." },
+        { "type": "product", "id": "product", "label": "Shopify product" },
+        { "type": "image_picker", "id": "image", "label": "Photo" },
+        { "type": "image_picker", "id": "image_mobile", "label": "Photo (mobile)" },
+        { "type": "text", "id": "image_alt", "label": "Image alt text" },
+        {
+          "type": "select",
+          "id": "theme_icon",
+          "label": "Placeholder icon",
+          "default": "droplet",
+          "options": [
+            { "value": "bucket", "label": "Salt / bucket" },
+            { "value": "pipe", "label": "Pipe" },
+            { "value": "gear", "label": "Media / gears" },
+            { "value": "droplet", "label": "Water" },
+            { "value": "shield", "label": "Shield" },
+            { "value": "none", "label": "None" }
+          ]
+        },
+        { "type": "image_picker", "id": "icon_image", "label": "Custom icon image" },
+        { "type": "checkbox", "id": "show_icon", "label": "Show icon on this card", "default": false },
+        { "type": "checkbox", "id": "highlight", "label": "Highlight as Scale-O", "default": false },
+        { "type": "checkbox", "id": "show_badge", "label": "Show badge", "default": false },
+        { "type": "text", "id": "badge_text", "label": "Badge text", "default": "SCALE-O" },
+        { "type": "text", "id": "cta_text", "label": "Card CTA text" },
+        { "type": "url", "id": "cta_url", "label": "Card CTA URL" }
+      ]
+    },
+    {
+      "type": "feature",
+      "name": "Technology feature",
+      "limit": 8,
+      "settings": [
+        { "type": "checkbox", "id": "enabled", "label": "Show this feature", "default": true },
+        { "type": "text", "id": "title", "label": "Feature name", "default": "Salt Required" },
+        {
+          "type": "select",
+          "id": "theme_icon",
+          "label": "Icon",
+          "default": "wrench",
+          "options": [
+            { "value": "bucket", "label": "Salt" },
+            { "value": "wrench", "label": "Installation" },
+            { "value": "pipe", "label": "Plumbing" },
+            { "value": "screen", "label": "Screen" },
+            { "value": "shield", "label": "Shield" },
+            { "value": "bolt", "label": "Electricity" },
+            { "value": "gear", "label": "Gears" },
+            { "value": "droplet", "label": "Water" },
+            { "value": "settings", "label": "Maintenance" },
+            { "value": "dollar", "label": "Cost" },
+            { "value": "none", "label": "None" }
+          ]
+        },
+        { "type": "image_picker", "id": "icon_image", "label": "Custom icon image" },
+        { "type": "header", "content": "Card 1" },
+        { "type": "text", "id": "value_1", "label": "Value text" },
+        {
+          "type": "select",
+          "id": "status_1",
+          "label": "Indicator",
+          "default": "neutral",
+          "options": [
+            { "value": "positive", "label": "Check" },
+            { "value": "negative", "label": "Cross" },
+            { "value": "neutral", "label": "Dash" },
+            { "value": "required", "label": "Required" },
+            { "value": "not_required", "label": "Not required" },
+            { "value": "low", "label": "Low" },
+            { "value": "medium", "label": "Medium" },
+            { "value": "high", "label": "High" }
+          ]
+        },
+        { "type": "header", "content": "Card 2" },
+        { "type": "text", "id": "value_2", "label": "Value text" },
+        {
+          "type": "select",
+          "id": "status_2",
+          "label": "Indicator",
+          "default": "neutral",
+          "options": [
+            { "value": "positive", "label": "Check" },
+            { "value": "negative", "label": "Cross" },
+            { "value": "neutral", "label": "Dash" },
+            { "value": "required", "label": "Required" },
+            { "value": "not_required", "label": "Not required" },
+            { "value": "low", "label": "Low" },
+            { "value": "medium", "label": "Medium" },
+            { "value": "high", "label": "High" }
+          ]
+        },
+        { "type": "header", "content": "Card 3" },
+        { "type": "text", "id": "value_3", "label": "Value text" },
+        {
+          "type": "select",
+          "id": "status_3",
+          "label": "Indicator",
+          "default": "neutral",
+          "options": [
+            { "value": "positive", "label": "Check" },
+            { "value": "negative", "label": "Cross" },
+            { "value": "neutral", "label": "Dash" },
+            { "value": "required", "label": "Required" },
+            { "value": "not_required", "label": "Not required" },
+            { "value": "low", "label": "Low" },
+            { "value": "medium", "label": "Medium" },
+            { "value": "high", "label": "High" }
+          ]
+        },
+        { "type": "header", "content": "Card 4 (usually Scale-O)" },
+        { "type": "text", "id": "value_4", "label": "Value text" },
+        {
+          "type": "select",
+          "id": "status_4",
+          "label": "Indicator",
+          "default": "positive",
+          "options": [
+            { "value": "positive", "label": "Check" },
+            { "value": "negative", "label": "Cross" },
+            { "value": "neutral", "label": "Dash" },
+            { "value": "required", "label": "Required" },
+            { "value": "not_required", "label": "Not required" },
+            { "value": "low", "label": "Low" },
+            { "value": "medium", "label": "Medium" },
+            { "value": "high", "label": "High" }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "competitor",
+      "name": "Competitor column",
+      "limit": 4,
+      "settings": [
+        { "type": "checkbox", "id": "enabled", "label": "Show this column", "default": true },
+        { "type": "text", "id": "title", "label": "Column title", "default": "Scale-O" },
+        { "type": "checkbox", "id": "highlight", "label": "Highlight as Scale-O", "default": false }
+      ]
+    },
+    {
+      "type": "competitor_row",
+      "name": "Competitor row",
+      "limit": 8,
+      "settings": [
+        { "type": "checkbox", "id": "enabled", "label": "Show this row", "default": true },
+        { "type": "text", "id": "title", "label": "Row title", "default": "Salt required" },
+        { "type": "header", "content": "Column 1" },
+        { "type": "text", "id": "value_1", "label": "Value text" },
+        {
+          "type": "select",
+          "id": "status_1",
+          "label": "Indicator",
+          "default": "neutral",
+          "options": [
+            { "value": "positive", "label": "Check" },
+            { "value": "negative", "label": "Cross" },
+            { "value": "neutral", "label": "Dash" },
+            { "value": "required", "label": "Required" },
+            { "value": "not_required", "label": "Not required" },
+            { "value": "low", "label": "Low" },
+            { "value": "medium", "label": "Medium" },
+            { "value": "high", "label": "High" }
+          ]
+        },
+        { "type": "header", "content": "Column 2" },
+        { "type": "text", "id": "value_2", "label": "Value text" },
+        {
+          "type": "select",
+          "id": "status_2",
+          "label": "Indicator",
+          "default": "neutral",
+          "options": [
+            { "value": "positive", "label": "Check" },
+            { "value": "negative", "label": "Cross" },
+            { "value": "neutral", "label": "Dash" },
+            { "value": "required", "label": "Required" },
+            { "value": "not_required", "label": "Not required" },
+            { "value": "low", "label": "Low" },
+            { "value": "medium", "label": "Medium" },
+            { "value": "high", "label": "High" }
+          ]
+        },
+        { "type": "header", "content": "Column 3" },
+        { "type": "text", "id": "value_3", "label": "Value text" },
+        {
+          "type": "select",
+          "id": "status_3",
+          "label": "Indicator",
+          "default": "neutral",
+          "options": [
+            { "value": "positive", "label": "Check" },
+            { "value": "negative", "label": "Cross" },
+            { "value": "neutral", "label": "Dash" },
+            { "value": "required", "label": "Required" },
+            { "value": "not_required", "label": "Not required" },
+            { "value": "low", "label": "Low" },
+            { "value": "medium", "label": "Medium" },
+            { "value": "high", "label": "High" }
+          ]
+        },
+        { "type": "header", "content": "Column 4" },
+        { "type": "text", "id": "value_4", "label": "Value text" },
+        {
+          "type": "select",
+          "id": "status_4",
+          "label": "Indicator",
+          "default": "positive",
+          "options": [
+            { "value": "positive", "label": "Check" },
+            { "value": "negative", "label": "Cross" },
+            { "value": "neutral", "label": "Dash" },
+            { "value": "required", "label": "Required" },
+            { "value": "not_required", "label": "Not required" },
+            { "value": "low", "label": "Low" },
+            { "value": "medium", "label": "Medium" },
+            { "value": "high", "label": "High" }
+          ]
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Scale-O Comparison",
+      "category": "Custom",
+      "blocks": [
+        { "type": "technology", "settings": { "title": "Salt-Based Water Softener", "description": "Traditional ion-exchange softening using salt and regeneration.", "theme_icon": "bucket" } },
+        { "type": "technology", "settings": { "title": "Electromagnetic Scale Control", "description": "Electronic technology designed to reduce scale formation.", "theme_icon": "pipe" } },
+        { "type": "technology", "settings": { "title": "Multi-Media Water Treatment", "description": "Media-based systems using multiple filtration materials.", "theme_icon": "gear" } },
+        { "type": "technology", "settings": { "title": "Scale-O Water Softener", "description": "Salt-free scale protection designed for simple installation.", "theme_icon": "droplet", "highlight": true, "show_badge": true, "badge_text": "SCALE-O" } },
+        { "type": "feature", "settings": { "title": "Salt required", "value_1": "Yes", "status_1": "negative", "value_2": "No", "status_2": "positive", "value_3": "Depends", "status_3": "neutral", "value_4": "No", "status_4": "not_required" } },
+        { "type": "feature", "settings": { "title": "Electricity required", "value_1": "Yes", "status_1": "required", "value_2": "Yes", "status_2": "required", "value_3": "Depends", "status_3": "neutral", "value_4": "No", "status_4": "not_required" } },
+        { "type": "competitor", "settings": { "title": "Scale-O", "highlight": true } },
+        { "type": "competitor", "settings": { "title": "Other salt-free systems" } },
+        { "type": "competitor", "settings": { "title": "Other electronic devices" } },
+        { "type": "competitor_row", "settings": { "title": "Salt required", "value_1": "No", "status_1": "not_required", "value_2": "Usually no", "status_2": "positive", "value_3": "No", "status_3": "positive" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

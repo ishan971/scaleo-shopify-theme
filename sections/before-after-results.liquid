@@ -1,0 +1,484 @@
+{%- comment -%}
+  Scale-O Before & After Results — visual comparison
+{%- endcomment -%}
+
+{{ 'scale-o-before-after.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign point_blocks = section.blocks | where: 'type', 'point'
+  assign benefit_blocks = section.blocks | where: 'type', 'benefit'
+  assign header_align = section.settings.header_alignment
+
+  assign show_header = false
+  if section.settings.heading != blank
+    assign show_header = true
+  endif
+  if section.settings.show_eyebrow and section.settings.eyebrow != blank
+    assign show_header = true
+  endif
+  if section.settings.show_description and section.settings.description != blank
+    assign show_header = true
+  endif
+  if section.settings.show_description and section.settings.description_highlight != blank
+    assign show_header = true
+  endif
+
+  assign before_main = section.settings.before_image
+  assign before_mobile = section.settings.before_image_mobile | default: before_main
+  assign after_main = section.settings.after_image
+  assign after_mobile = section.settings.after_image_mobile | default: after_main
+  assign before_alt = section.settings.before_image_alt | default: section.settings.before_heading | default: 'Before Scale-O'
+  assign after_alt = section.settings.after_image_alt | default: section.settings.after_heading | default: 'After Scale-O'
+  assign transition_label = section.settings.transition_text | default: 'Before to after'
+
+  assign before_point_count = 0
+  assign after_point_count = 0
+  for block in point_blocks
+    if block.settings.title != blank
+      if block.settings.side == 'before'
+        assign before_point_count = before_point_count | plus: 1
+      elsif block.settings.side == 'after'
+        assign after_point_count = after_point_count | plus: 1
+      endif
+    endif
+  endfor
+-%}
+
+<style>
+  #shopify-section-{{ section.id }} .scale-o-before-after {
+    --sba-bg: {{ section.settings.background_color }};
+    --sba-heading: {{ section.settings.heading_color }};
+    --sba-text: {{ section.settings.text_color }};
+    --sba-accent: {{ section.settings.accent_color }};
+    --sba-accent-hover: {{ section.settings.accent_hover_color }};
+    --sba-before-bg: {{ section.settings.before_card_background }};
+    --sba-after-bg: {{ section.settings.after_card_background }};
+    --sba-radius: {{ section.settings.card_radius }}px;
+    --sba-ratio: {{ section.settings.image_aspect_ratio }};
+    --sba-image-height: {{ section.settings.image_height }}px;
+    --sba-image-height-mobile: {{ section.settings.image_height_mobile }}px;
+    --sba-arrow-size: {{ section.settings.arrow_size }}px;
+    --sba-shadow: 0 10px 28px rgba(26, 43, 74, 0.06);
+    --sba-eyebrow-size: {{ section.settings.eyebrow_size }}px;
+    --sba-heading-size: {{ section.settings.heading_size_mobile }}px;
+    --sba-heading-size-desktop: {{ section.settings.heading_size_desktop }}px;
+    --sba-desc-size: {{ section.settings.description_size }}px;
+    --sba-pad-x: {{ section.settings.padding_x }}px;
+    --sba-header-gap: {{ section.settings.header_gap }}px;
+    --sba-header-align: {{ header_align }};
+    --sba-max-width: {% if section.settings.max_width == 0 %}100%{% else %}{{ section.settings.max_width }}px{% endif %};
+    margin-top: {{ section.settings.margin_top }}px;
+    margin-bottom: {{ section.settings.margin_bottom }}px;
+    padding: {{ section.settings.padding_top_mobile }}px 0 {{ section.settings.padding_bottom_mobile }}px;
+    background: var(--sba-bg);
+  }
+  @media (min-width: 768px) {
+    #shopify-section-{{ section.id }} .scale-o-before-after {
+      padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px;
+    }
+  }
+</style>
+
+<div
+  class="scale-o-before-after"
+  data-section-id="{{ section.id }}"
+  data-animate="{% if section.settings.enable_animations %}true{% else %}false{% endif %}"
+  role="region"
+  aria-label="{{ section.settings.accessibility_label | default: 'Before and after results' | escape }}"
+>
+  <div class="scale-o-before-after__container">
+    {%- if show_header -%}
+      <header class="scale-o-before-after__header scale-o-before-after__header--{{ header_align }}" data-sba-animate>
+        {%- if section.settings.show_eyebrow and section.settings.eyebrow != blank -%}
+          <p class="scale-o-before-after__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+        {%- endif -%}
+        {%- if section.settings.heading != blank -%}
+          <h2 class="scale-o-before-after__heading{% if section.settings.heading_one_line %} scale-o-before-after__heading--one-line{% endif %}">{{ section.settings.heading | escape }}</h2>
+        {%- endif -%}
+        {%- if section.settings.show_description -%}
+          {%- if section.settings.description != blank -%}
+            <p class="scale-o-before-after__description">{{ section.settings.description | escape }}</p>
+          {%- endif -%}
+          {%- if section.settings.description_highlight != blank -%}
+            <p class="scale-o-before-after__description-accent">{{ section.settings.description_highlight | escape }}</p>
+          {%- endif -%}
+        {%- endif -%}
+      </header>
+    {%- endif -%}
+
+    <div class="scale-o-before-after__compare">
+      <article class="scale-o-before-after__card scale-o-before-after__card--before" data-sba-animate>
+        <div class="scale-o-before-after__main">
+          {%- if before_main != blank -%}
+            <picture>
+              {%- if section.settings.before_image_mobile != blank -%}
+                <source media="(max-width: 767px)" srcset="{{ before_mobile | image_url: width: 900 }}">
+              {%- endif -%}
+              {{
+                before_main
+                | image_url: width: 1200
+                | image_tag:
+                  loading: 'lazy',
+                  widths: '480,800,1200',
+                  sizes: '(max-width: 767px) 100vw, 50vw',
+                  alt: before_alt
+              }}
+            </picture>
+          {%- else -%}
+            <img src="{{ 'scale-o-ba-before-main.jpg' | asset_url }}" alt="{{ before_alt | escape }}" width="1200" height="900" loading="lazy">
+          {%- endif -%}
+          {%- if section.settings.before_label != blank or section.settings.before_heading != blank -%}
+            <div class="scale-o-before-after__overlay">
+              {%- if section.settings.before_label != blank -%}
+                <p class="scale-o-before-after__label">{{ section.settings.before_label | escape }}</p>
+              {%- endif -%}
+              {%- if section.settings.before_heading != blank -%}
+                <h3 class="scale-o-before-after__card-title">{{ section.settings.before_heading | escape }}</h3>
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+        </div>
+        {%- if section.settings.show_detail_images -%}
+        <ul class="scale-o-before-after__thumbs" role="list">
+          <li class="scale-o-before-after__thumb">
+            {%- if section.settings.before_detail_1 != blank -%}
+              {{ section.settings.before_detail_1 | image_url: width: 400 | image_tag: loading: 'lazy', widths: '200,400', alt: '' }}
+            {%- else -%}
+              <img src="{{ 'scale-o-ba-before-1.jpg' | asset_url }}" alt="" width="400" height="400" loading="lazy">
+            {%- endif -%}
+          </li>
+          <li class="scale-o-before-after__thumb">
+            {%- if section.settings.before_detail_2 != blank -%}
+              {{ section.settings.before_detail_2 | image_url: width: 400 | image_tag: loading: 'lazy', widths: '200,400', alt: '' }}
+            {%- else -%}
+              <img src="{{ 'scale-o-ba-before-2.jpg' | asset_url }}" alt="" width="400" height="400" loading="lazy">
+            {%- endif -%}
+          </li>
+          <li class="scale-o-before-after__thumb">
+            {%- if section.settings.before_detail_3 != blank -%}
+              {{ section.settings.before_detail_3 | image_url: width: 400 | image_tag: loading: 'lazy', widths: '200,400', alt: '' }}
+            {%- else -%}
+              <img src="{{ 'scale-o-ba-before-3.jpg' | asset_url }}" alt="" width="400" height="400" loading="lazy">
+            {%- endif -%}
+          </li>
+        </ul>
+        {%- endif -%}
+        {%- if section.settings.before_description != blank -%}
+          <p class="scale-o-before-after__card-copy">{{ section.settings.before_description | escape }}</p>
+        {%- endif -%}
+        {%- if before_point_count > 0 -%}
+        {%- assign shown_before_points = 0 -%}
+        <ul class="scale-o-before-after__points" role="list">
+          {%- for block in point_blocks -%}
+            {%- if block.settings.side == 'before' and shown_before_points < 4 and block.settings.title != blank -%}
+              {%- assign shown_before_points = shown_before_points | plus: 1 -%}
+              <li class="scale-o-before-after__point" {{ block.shopify_attributes }}>
+                <svg class="scale-o-before-after__mark" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 4l8 8M12 4 4 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                <span>{{ block.settings.title | escape }}</span>
+              </li>
+            {%- endif -%}
+          {%- endfor -%}
+        </ul>
+        {%- endif -%}
+      </article>
+
+      {%- if section.settings.show_transition -%}
+        <span class="scale-o-before-after__divider" aria-hidden="true"></span>
+        <span class="scale-o-before-after__mobile-arrow" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M12 4v16M6 14l6 6 6-6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <span class="scale-o-before-after__arrow" aria-label="{{ transition_label | escape }}">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M4 12h16M14 6l6 6-6 6" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+      {%- endif -%}
+
+      <article class="scale-o-before-after__card scale-o-before-after__card--after" data-sba-animate>
+        <div class="scale-o-before-after__main">
+          {%- if after_main != blank -%}
+            <picture>
+              {%- if section.settings.after_image_mobile != blank -%}
+                <source media="(max-width: 767px)" srcset="{{ after_mobile | image_url: width: 900 }}">
+              {%- endif -%}
+              {{
+                after_main
+                | image_url: width: 1200
+                | image_tag:
+                  loading: 'lazy',
+                  widths: '480,800,1200',
+                  sizes: '(max-width: 767px) 100vw, 50vw',
+                  alt: after_alt
+              }}
+            </picture>
+          {%- else -%}
+            <img src="{{ 'scale-o-ba-after-main.jpg' | asset_url }}" alt="{{ after_alt | escape }}" width="1200" height="900" loading="lazy">
+          {%- endif -%}
+          {%- if section.settings.after_label != blank or section.settings.after_heading != blank -%}
+            <div class="scale-o-before-after__overlay">
+              {%- if section.settings.after_label != blank -%}
+                <p class="scale-o-before-after__label">{{ section.settings.after_label | escape }}</p>
+              {%- endif -%}
+              {%- if section.settings.after_heading != blank -%}
+                <h3 class="scale-o-before-after__card-title">{{ section.settings.after_heading | escape }}</h3>
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+        </div>
+        {%- if section.settings.show_detail_images -%}
+        <ul class="scale-o-before-after__thumbs" role="list">
+          <li class="scale-o-before-after__thumb">
+            {%- if section.settings.after_detail_1 != blank -%}
+              {{ section.settings.after_detail_1 | image_url: width: 400 | image_tag: loading: 'lazy', widths: '200,400', alt: '' }}
+            {%- else -%}
+              <img src="{{ 'scale-o-ba-after-1.jpg' | asset_url }}" alt="" width="400" height="400" loading="lazy">
+            {%- endif -%}
+          </li>
+          <li class="scale-o-before-after__thumb">
+            {%- if section.settings.after_detail_2 != blank -%}
+              {{ section.settings.after_detail_2 | image_url: width: 400 | image_tag: loading: 'lazy', widths: '200,400', alt: '' }}
+            {%- else -%}
+              <img src="{{ 'scale-o-ba-after-2.jpg' | asset_url }}" alt="" width="400" height="400" loading="lazy">
+            {%- endif -%}
+          </li>
+          <li class="scale-o-before-after__thumb">
+            {%- if section.settings.after_detail_3 != blank -%}
+              {{ section.settings.after_detail_3 | image_url: width: 400 | image_tag: loading: 'lazy', widths: '200,400', alt: '' }}
+            {%- else -%}
+              <img src="{{ 'scale-o-ba-after-3.jpg' | asset_url }}" alt="" width="400" height="400" loading="lazy">
+            {%- endif -%}
+          </li>
+        </ul>
+        {%- endif -%}
+        {%- if section.settings.after_description != blank -%}
+          <p class="scale-o-before-after__card-copy">{{ section.settings.after_description | escape }}</p>
+        {%- endif -%}
+        {%- if after_point_count > 0 -%}
+        {%- assign shown_after_points = 0 -%}
+        <ul class="scale-o-before-after__points" role="list">
+          {%- for block in point_blocks -%}
+            {%- if block.settings.side == 'after' and shown_after_points < 4 and block.settings.title != blank -%}
+              {%- assign shown_after_points = shown_after_points | plus: 1 -%}
+              <li class="scale-o-before-after__point" {{ block.shopify_attributes }}>
+                <svg class="scale-o-before-after__mark" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span>{{ block.settings.title | escape }}</span>
+              </li>
+            {%- endif -%}
+          {%- endfor -%}
+        </ul>
+        {%- endif -%}
+      </article>
+    </div>
+
+    {%- if benefit_blocks.size > 0 -%}
+      <ul class="scale-o-before-after__benefits" role="list">
+        {%- for block in benefit_blocks limit: 4 -%}
+          <li class="scale-o-before-after__benefit" data-sba-animate {{ block.shopify_attributes }}>
+            <span class="scale-o-before-after__benefit-icon" aria-hidden="true">
+              {%- if block.settings.icon_image != blank -%}
+                {{ block.settings.icon_image | image_url: width: 80 | image_tag: loading: 'lazy', alt: '' }}
+              {%- else -%}
+                {% render 'scale-o-solution-icon', icon: block.settings.theme_icon, class: 'scale-o-before-after__benefit-svg' %}
+              {%- endif -%}
+            </span>
+            {%- if block.settings.title != blank -%}
+              <h3 class="scale-o-before-after__benefit-title">{{ block.settings.title | escape }}</h3>
+            {%- endif -%}
+            {%- if block.settings.description != blank -%}
+              <p class="scale-o-before-after__benefit-text">{{ block.settings.description | escape }}</p>
+            {%- endif -%}
+          </li>
+        {%- endfor -%}
+      </ul>
+    {%- endif -%}
+
+    {%- if section.settings.show_cta and section.settings.cta_text != blank -%}
+      <div class="scale-o-before-after__cta-wrap" data-sba-animate>
+        <a class="scale-o-before-after__cta" href="{{ section.settings.cta_url | default: '#' }}">
+          <span>{{ section.settings.cta_text | escape }}</span>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+{%- if section.settings.enable_animations -%}
+  <script src="{{ 'scale-o-before-after.js' | asset_url }}" defer></script>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Before & After Results",
+  "tag": "section",
+  "class": "scale-o-before-after-section",
+  "max_blocks": 12,
+  "settings": [
+    { "type": "header", "content": "Content" },
+    { "type": "checkbox", "id": "show_eyebrow", "label": "Show eyebrow", "default": true },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "BEFORE & AFTER RESULTS" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "The Scale-O Difference You Can See Every Day" },
+    { "type": "checkbox", "id": "heading_one_line", "label": "Keep heading on one line (desktop)", "default": true },
+    { "type": "checkbox", "id": "show_description", "label": "Show description", "default": true },
+    { "type": "textarea", "id": "description", "label": "Description", "default": "Hard water causes scale buildup that affects your home and lifestyle." },
+    { "type": "text", "id": "description_highlight", "label": "Description highlight (blue)", "default": "Scale-O protects your home, so you can live better every day." },
+    {
+      "type": "select",
+      "id": "header_alignment",
+      "label": "Header alignment",
+      "default": "center",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ]
+    },
+
+    { "type": "header", "content": "Before panel" },
+    { "type": "text", "id": "before_label", "label": "Before label", "default": "BEFORE" },
+    { "type": "text", "id": "before_heading", "label": "Before heading", "default": "Without Scale-O" },
+    { "type": "textarea", "id": "before_description", "label": "Before description", "default": "Hard-water scale can build up on everyday fixtures and surfaces." },
+    { "type": "image_picker", "id": "before_image", "label": "Before image (desktop)", "info": "Leave empty to use the default campaign image." },
+    { "type": "image_picker", "id": "before_image_mobile", "label": "Before image (mobile)" },
+    { "type": "text", "id": "before_image_alt", "label": "Before image alt text", "default": "Hard-water scale on bathroom fixtures" },
+    { "type": "image_picker", "id": "before_detail_1", "label": "Before detail image 1" },
+    { "type": "image_picker", "id": "before_detail_2", "label": "Before detail image 2" },
+    { "type": "image_picker", "id": "before_detail_3", "label": "Before detail image 3" },
+    { "type": "checkbox", "id": "show_detail_images", "label": "Show detail images", "default": true },
+
+    { "type": "header", "content": "After panel" },
+    { "type": "text", "id": "after_label", "label": "After label", "default": "AFTER" },
+    { "type": "text", "id": "after_heading", "label": "After heading", "default": "With Scale-O" },
+    { "type": "textarea", "id": "after_description", "label": "After description", "default": "Scale-O helps protect your home's water-contact surfaces from scale buildup." },
+    { "type": "image_picker", "id": "after_image", "label": "After image (desktop)", "info": "Leave empty to use the default campaign image." },
+    { "type": "image_picker", "id": "after_image_mobile", "label": "After image (mobile)" },
+    { "type": "text", "id": "after_image_alt", "label": "After image alt text", "default": "Clean bathroom fixtures with Scale-O" },
+    { "type": "image_picker", "id": "after_detail_1", "label": "After detail image 1" },
+    { "type": "image_picker", "id": "after_detail_2", "label": "After detail image 2" },
+    { "type": "image_picker", "id": "after_detail_3", "label": "After detail image 3" },
+
+    { "type": "header", "content": "Transition" },
+    { "type": "checkbox", "id": "show_transition", "label": "Show transition arrow", "default": true },
+    { "type": "text", "id": "transition_text", "label": "Transition label", "default": "Before to after" },
+    { "type": "range", "id": "arrow_size", "label": "Transition circle size", "min": 48, "max": 96, "step": 2, "unit": "px", "default": 72 },
+
+    { "type": "header", "content": "CTA" },
+    { "type": "checkbox", "id": "show_cta", "label": "Show CTA", "default": true },
+    { "type": "text", "id": "cta_text", "label": "CTA text", "default": "Explore Scale-O Products" },
+    { "type": "url", "id": "cta_url", "label": "CTA URL" },
+
+    { "type": "header", "content": "Layout" },
+    { "type": "range", "id": "max_width", "label": "Maximum width", "min": 0, "max": 1600, "step": 20, "unit": "px", "default": 1200 },
+    {
+      "type": "select",
+      "id": "image_aspect_ratio",
+      "label": "Main image ratio",
+      "default": "16 / 10",
+      "info": "Used if image height is not controlling the layout.",
+      "options": [
+        { "value": "16 / 10", "label": "16:10" },
+        { "value": "3 / 2", "label": "3:2" },
+        { "value": "16 / 9", "label": "16:9" },
+        { "value": "4 / 3", "label": "4:3" },
+        { "value": "1 / 1", "label": "1:1" }
+      ]
+    },
+    { "type": "range", "id": "image_height", "label": "Image height (desktop)", "min": 220, "max": 520, "step": 10, "unit": "px", "default": 340 },
+    { "type": "range", "id": "image_height_mobile", "label": "Image height (mobile)", "min": 180, "max": 400, "step": 10, "unit": "px", "default": 240 },
+    { "type": "range", "id": "card_radius", "label": "Corner radius", "min": 8, "max": 28, "step": 1, "unit": "px", "default": 18 },
+    { "type": "checkbox", "id": "enable_animations", "label": "Enable reveal animations", "default": true },
+    { "type": "range", "id": "padding_top", "label": "Top padding (desktop)", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 72 },
+    { "type": "range", "id": "padding_bottom", "label": "Bottom padding (desktop)", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 72 },
+    { "type": "range", "id": "padding_top_mobile", "label": "Top padding (mobile)", "min": 0, "max": 80, "step": 4, "unit": "px", "default": 48 },
+    { "type": "range", "id": "padding_bottom_mobile", "label": "Bottom padding (mobile)", "min": 0, "max": 80, "step": 4, "unit": "px", "default": 48 },
+    { "type": "range", "id": "padding_x", "label": "Horizontal padding", "min": 12, "max": 80, "step": 4, "unit": "px", "default": 20 },
+    { "type": "range", "id": "margin_top", "label": "Top spacing", "min": 0, "max": 80, "step": 4, "unit": "px", "default": 0 },
+    { "type": "range", "id": "margin_bottom", "label": "Bottom spacing", "min": 0, "max": 80, "step": 4, "unit": "px", "default": 0 },
+    { "type": "range", "id": "header_gap", "label": "Header bottom gap", "min": 16, "max": 64, "step": 4, "unit": "px", "default": 28 },
+
+    { "type": "header", "content": "Typography" },
+    { "type": "range", "id": "eyebrow_size", "label": "Eyebrow size", "min": 12, "max": 22, "step": 1, "unit": "px", "default": 16 },
+    { "type": "range", "id": "heading_size_desktop", "label": "Heading size (desktop)", "min": 24, "max": 56, "step": 1, "unit": "px", "default": 40 },
+    { "type": "range", "id": "heading_size_mobile", "label": "Heading size (mobile)", "min": 20, "max": 40, "step": 1, "unit": "px", "default": 26 },
+    { "type": "range", "id": "description_size", "label": "Description size", "min": 13, "max": 20, "step": 1, "unit": "px", "default": 16 },
+
+    { "type": "header", "content": "Colors" },
+    { "type": "color", "id": "background_color", "label": "Background", "default": "#FFFFFF" },
+    { "type": "color", "id": "before_card_background", "label": "Before card background", "default": "#F6F1EC" },
+    { "type": "color", "id": "after_card_background", "label": "After card background", "default": "#F5FAFF" },
+    { "type": "color", "id": "heading_color", "label": "Heading", "default": "#12345B" },
+    { "type": "color", "id": "text_color", "label": "Text", "default": "#5A6B85" },
+    { "type": "color", "id": "accent_color", "label": "Accent", "default": "#0C7FDF" },
+    { "type": "color", "id": "accent_hover_color", "label": "Accent hover", "default": "#0A6BC4" },
+    { "type": "text", "id": "accessibility_label", "label": "Accessibility label", "default": "Before and after results" }
+  ],
+  "blocks": [
+    {
+      "type": "point",
+      "name": "Comparison point",
+      "limit": 12,
+      "settings": [
+        {
+          "type": "select",
+          "id": "side",
+          "label": "Show on",
+          "default": "before",
+          "options": [
+            { "value": "before", "label": "Before" },
+            { "value": "after", "label": "After" }
+          ]
+        },
+        { "type": "text", "id": "title", "label": "Point text", "default": "Scale buildup on fixtures & surfaces" }
+      ]
+    },
+    {
+      "type": "benefit",
+      "name": "Benefit",
+      "limit": 4,
+      "settings": [
+        {
+          "type": "select",
+          "id": "theme_icon",
+          "label": "Icon",
+          "default": "shield",
+          "options": [
+            { "value": "shield", "label": "Shield" },
+            { "value": "home", "label": "Home" },
+            { "value": "appliance", "label": "Appliance" },
+            { "value": "droplet", "label": "Water" },
+            { "value": "faucet", "label": "Faucet" },
+            { "value": "none", "label": "None" }
+          ]
+        },
+        { "type": "image_picker", "id": "icon_image", "label": "Custom icon image" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Protects Your Home" },
+        { "type": "textarea", "id": "description", "label": "Description", "default": "Helps prevent scale buildup on water-contact surfaces." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Before & After Results",
+      "category": "Custom",
+      "blocks": [
+        { "type": "point", "settings": { "side": "before", "title": "Scale buildup on fixtures & surfaces" } },
+        { "type": "point", "settings": { "side": "before", "title": "Dull, stained bathrooms" } },
+        { "type": "point", "settings": { "side": "before", "title": "Appliance efficiency may reduce" } },
+        { "type": "point", "settings": { "side": "before", "title": "More cleaning, more hassle" } },
+        { "type": "point", "settings": { "side": "after", "title": "Clean, scale-free fixtures" } },
+        { "type": "point", "settings": { "side": "after", "title": "Bright, spotless bathrooms" } },
+        { "type": "point", "settings": { "side": "after", "title": "Better appliance performance" } },
+        { "type": "point", "settings": { "side": "after", "title": "Less cleaning, more convenience" } },
+        { "type": "benefit", "settings": { "theme_icon": "shield", "title": "Protects Your Home", "description": "Helps prevent scale buildup on water-contact surfaces." } },
+        { "type": "benefit", "settings": { "theme_icon": "home", "title": "Easier Everyday Life", "description": "Spend less time cleaning and more time enjoying life." } },
+        { "type": "benefit", "settings": { "theme_icon": "appliance", "title": "Longer Appliance Life", "description": "Helps protect appliances and fixtures from scale buildup." } },
+        { "type": "benefit", "settings": { "theme_icon": "droplet", "title": "Salt-Free Solution", "description": "A smart, salt-free approach for modern homes." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

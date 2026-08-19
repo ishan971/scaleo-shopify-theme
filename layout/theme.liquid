@@ -30,6 +30,15 @@
   {% endif %}
 >
   <head>
+{%- if collection.handle == 'all' or collection.handle == 'all-products' -%}
+  {%- capture scale_o_shop_url -%}{% render 'scale-o-shop-url' %}{%- endcapture -%}
+  <link rel="canonical" href="{{ request.origin }}{{ scale_o_shop_url }}">
+  <meta name="robots" content="noindex, follow">
+  <meta http-equiv="refresh" content="0;url={{ scale_o_shop_url }}">
+  <script>
+    window.location.replace({{ scale_o_shop_url | json }});
+  </script>
+{%- endif -%}
 <link rel="icon" href="{{ 'favicon.png' | asset_url }}?v=5">
   
 {% include 'wp-page-speed-optimization-header' %}
@@ -98,9 +107,6 @@ button.gI3IJqrf7p{
     display: block !important;
 }
  
-.m-main-product--info .delivery-time-show {
-    display: block !important;
-}
  
 .faqdiv .faq-item button.faq-question {
     display: flex !important;
@@ -254,9 +260,7 @@ button.gI3IJqrf7p{
       <script src="{{ 'product-card-swatch.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
 
-    {%- if settings.enable_cart_drawer and template != 'cart' -%}
-      {% render 'cart-drawer' %}
-    {%- endif -%}
+    {% section 'cart-drawer' %}
   {%- render "ecom_footer"-%}
 <script>
 document.addEventListener("DOMContentLoaded", function() {
@@ -273,6 +277,9 @@ document.addEventListener("DOMContentLoaded", function() {
     observer.observe(document.body, { childList: true, subtree: true });
 });
 </script>
+{% comment %} Removed broken price sync script — price is handled by variant-picker.js {% endcomment %}
+
+
 <!-- <script>
     document.addEventListener('DOMContentLoaded', function() {
   // Select the button using its class
@@ -575,9 +582,6 @@ if (document.querySelector('._1fragem2i')) {
 
 {% render 'razorpay-magic-checkout' %}
 
-{% if template contains 'product' %}
-  {% render 'product-specification' %}
-{% endif %}    
 
 <a href="https://review.wsy400.com" style="display: none;">Dadao proudct review</a >
 <a href="https://review.wsy400.com" style="display: none;">Shopify review</a >

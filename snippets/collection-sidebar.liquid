@@ -9,9 +9,31 @@
 {%- if st.show_filter or st.show_sorting -%}
   {%- assign position = st.sidebar -%}
   {%- assign sidebar_title = st.sidebar_title -%}
+  {%- liquid
+    assign scale_o_active_filters = 0
+    assign scale_o_clear_url = collection.url
+    if collection.filters
+      for filter in collection.filters
+        if filter.active_values.size > 0
+          assign scale_o_active_filters = scale_o_active_filters | plus: filter.active_values.size
+        endif
+        if filter.type == 'price_range'
+          if filter.min_value.value != nil or filter.max_value.value != nil
+            assign scale_o_active_filters = scale_o_active_filters | plus: 1
+          endif
+        endif
+      endfor
+    endif
+  -%}
 
   <div class="m-sidebar{% unless show_filter %} m:hidden{% endunless %}{% if animated %} m-scroll-trigger animate--{{ animation_effect }}{% endif %}" data-type="{{ position }}">
     <div class="m-sidebar--content{% if sidebar_title == blank %} m-sidebar--blank-title{% endif %}">
+      <div class="scale-o-filter-drawer-head">
+        <h3 class="scale-o-filter-drawer-title">{{ sidebar_title | default: 'Filters' }}</h3>
+        <button class="m-sidebar--close" type="button" aria-label="Close filters">
+          <svg class="m-svg-icon--large" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+      </div>
       {%- if sidebar_title != blank -%}
         <h3 class="m-sidebar--title">{{ sidebar_title }}</h3>
       {%- endif -%}
@@ -83,6 +105,14 @@
         {%- else -%}
           {% render 'filter-by-tags', section: section %}
         {%- endif -%}
+      </div>
+      <div class="scale-o-filter-drawer-foot">
+        {%- if scale_o_active_filters > 0 -%}
+          <a class="scale-o-filter-bar__clear" href="{{ scale_o_clear_url }}">{{ 'collections.sidebar.clear_all' | t }}</a>
+        {%- else -%}
+          <span></span>
+        {%- endif -%}
+        <button type="button" class="scale-o-filter-apply" data-scale-o-filter-apply>{{ 'collections.general.apply_filters' | t }}</button>
       </div>
     </div>
   </div>

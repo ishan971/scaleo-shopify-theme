@@ -1,0 +1,44 @@
+{%- comment -%}
+  Scale-O video highlight icons. Accepts: icon, class
+{%- endcomment -%}
+{%- liquid
+  assign icon_name = icon | default: 'none'
+  assign svg_class = class | default: 'scale-o-tech-video__icon-svg'
+-%}
+{%- unless icon_name == 'none' or icon_name == blank -%}
+  {%- case icon_name -%}
+    {%- when 'install' -%}
+      <svg class="{{ svg_class }}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+        <path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L4 17v3h3l5.3-5.3a4 4 0 0 0 5.4-5.4z"/><path d="m15 7 2 2"/>
+      </svg>
+    {%- when 'salt' -%}
+      <svg class="{{ svg_class }}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+        <path d="M12 3c2.5 3 6 6.2 6 10a6 6 0 0 1-12 0c0-3.8 3.5-7 6-10z"/><path d="M8 12h.01M15 14h.01M11 16h.01"/>
+        <path d="M5 5l14 14"/>
+      </svg>
+    {%- when 'electricity' -%}
+      <svg class="{{ svg_class }}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+        <path d="M13 2 4 14h7l-1 8 9-12h-7l1-8z"/>
+      </svg>
+    {%- when 'recycle' -%}
+      <svg class="{{ svg_class }}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+        <path d="M7 7h7a4 4 0 0 1 0 8H9"/><path d="M7 7 9.5 4.5M7 7l2.5 2.5"/><path d="M17 17H10a4 4 0 0 1 0-8h5"/><path d="m17 17-2.5 2.5M17 17l-2.5-2.5"/>
+      </svg>
+    {%- when 'droplet' -%}
+      <svg class="{{ svg_class }}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+        <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
+      </svg>
+    {%- when 'shield' -%}
+      <svg class="{{ svg_class }}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+        <path d="M12 3 5 6v6c0 4.5 3 7.5 7 9 4-1.5 7-4.5 7-9V6l-7-3z"/><path d="m9 12 2 2 4-4"/>
+      </svg>
+    {%- when 'home' -%}
+      <svg class="{{ svg_class }}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+        <path d="m3 11 9-8 9 8"/><path d="M5 10v10h14V10"/>
+      </svg>
+    {%- when 'play' -%}
+      <svg class="{{ svg_class }}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+        <path d="M8 5v14l11-7z"/>
+      </svg>
+  {%- endcase -%}
+{%- endunless -%}

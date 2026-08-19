@@ -1,0 +1,36 @@
+{%- comment -%}
+  Spec information card. Accepts: block, label, value, supporting, icon, icon_image, link, icon_size, align, card_bg
+{%- endcomment -%}
+{%- liquid
+  assign card_tag = 'article'
+  if link != blank
+    assign card_tag = 'a'
+  endif
+-%}
+<{{ card_tag }}
+  class="scale-o-pdp-fit__spec scale-o-pdp-fit__spec--{{ align | default: 'left' }}"
+  {% if link != blank %}href="{{ link }}" aria-label="{{ label | escape }}: {{ value | escape }}"{% endif %}
+  {% if card_bg != blank %}style="--spf-spec-bg: {{ card_bg }};"{% endif %}
+  {% if block %}{{ block.shopify_attributes }}{% endif %}
+>
+  <span class="scale-o-pdp-fit__spec-icon" aria-hidden="true"{% if icon_size != blank %} style="--spf-icon: {{ icon_size }}px;"{% endif %}>
+    {%- if icon_image != blank -%}
+      {{ icon_image | image_url: width: 96 | image_tag: loading: 'lazy', widths: '48, 72, 96', alt: '' }}
+    {%- elsif icon != blank and icon != 'auto' -%}
+      {% render 'scale-o-fit-icon', icon: icon %}
+    {%- else -%}
+      {% render 'scale-o-spec-icon', label: label %}
+    {%- endif -%}
+  </span>
+  <div class="scale-o-pdp-fit__spec-copy">
+    {%- if label != blank -%}
+      <p class="scale-o-pdp-fit__spec-label">{{ label | escape }}</p>
+    {%- endif -%}
+    {%- if value != blank -%}
+      <p class="scale-o-pdp-fit__spec-value">{{ value | escape }}</p>
+    {%- endif -%}
+    {%- if supporting != blank -%}
+      <p class="scale-o-pdp-fit__spec-support">{{ supporting | escape }}</p>
+    {%- endif -%}
+  </div>
+</{{ card_tag }}>

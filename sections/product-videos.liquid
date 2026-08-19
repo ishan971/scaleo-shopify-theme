@@ -1,0 +1,418 @@
+{%- comment -%}
+  Product Videos — theme-editor native reel row
+{%- endcomment -%}
+
+{{ 'product-videos.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign video_blocks = section.blocks | where: 'type', 'video'
+  assign heading = section.settings.heading
+  assign autoplay_all = section.settings.autoplay_all
+  assign muted = section.settings.muted
+  if autoplay_all
+    assign muted = true
+  endif
+-%}
+
+<style>
+  #shopify-section-{{ section.id }} .so-pvid {
+    --pvid-heading: {{ section.settings.heading_color }};
+    --pvid-title: {{ section.settings.title_color }};
+    --pvid-bg: {{ section.settings.background_color }};
+    --pvid-card-w: {{ section.settings.card_width }}px;
+    --pvid-card-h: {{ section.settings.card_height }}px;
+    --pvid-gap: {{ section.settings.card_gap }}px;
+    --pvid-radius: {{ section.settings.card_radius }}px;
+    --pvid-speed: {{ section.settings.scroll_speed }}s;
+    background: var(--pvid-bg);
+    padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px;
+  }
+  @media screen and (max-width: 767px) {
+    #shopify-section-{{ section.id }} .so-pvid {
+      --pvid-card-w: {{ section.settings.card_width_mobile }}px;
+      --pvid-card-h: {{ section.settings.card_height_mobile }}px;
+      --pvid-gap: {{ section.settings.card_gap_mobile }}px;
+      padding: {{ section.settings.padding_top_mobile }}px 0 {{ section.settings.padding_bottom_mobile }}px;
+    }
+  }
+</style>
+
+<div
+  class="so-pvid so-pvid--{{ section.settings.header_alignment }}{% if section.settings.infinite_scroll %} so-pvid--infinite{% endif %}{% if section.settings.pause_on_hover %} so-pvid--pause-hover{% endif %}"
+  data-product-videos
+  data-infinite="{% if section.settings.infinite_scroll %}true{% else %}false{% endif %}"
+  data-autoplay="{% if autoplay_all %}true{% else %}false{% endif %}"
+  data-pause-hover="{% if section.settings.pause_on_hover %}true{% else %}false{% endif %}"
+  data-speed="{{ section.settings.scroll_speed }}"
+>
+  <div class="container-fluid so-pvid__inner">
+    {%- if heading != blank -%}
+      <h2 class="so-pvid__heading">{{ heading | escape }}</h2>
+    {%- endif -%}
+
+    {%- if video_blocks.size > 0 -%}
+      <div class="so-pvid__viewport">
+        <div class="so-pvid__track" data-pvid-track>
+          {%- for block in video_blocks -%}
+            {%- liquid
+              assign video_obj = block.settings.shopify_video
+              assign video_src = ''
+              if video_obj != blank
+                for source in video_obj.sources
+                  if source.format == 'mp4' or source.mime_type == 'video/mp4'
+                    assign video_src = source.url
+                  endif
+                endfor
+                if video_src == blank and video_obj.sources.size > 0
+                  assign video_src = video_obj.sources.first.url
+                endif
+              endif
+              if video_src == blank and block.settings.video_url != blank
+                assign video_src = block.settings.video_url
+              endif
+
+              assign poster_url = ''
+              if block.settings.poster != blank
+                assign poster_url = block.settings.poster | image_url: width: 800
+              elsif video_obj != blank and video_obj.preview_image != blank
+                assign poster_url = video_obj.preview_image | image_url: width: 800
+              endif
+
+              assign item_title = block.settings.title
+              assign show_title = false
+              if section.settings.show_titles and block.settings.show_title and item_title != blank
+                assign show_title = true
+              endif
+
+              assign show_play = false
+              if section.settings.show_play_button and autoplay_all == false
+                assign show_play = true
+              endif
+            -%}
+            <article class="so-pvid__item" data-pvid-original {{ block.shopify_attributes }}>
+              <div class="so-pvid__media">
+                {%- if video_src != blank -%}
+                  <video
+                    class="so-pvid__video"
+                    {% if poster_url != blank %}poster="{{ poster_url }}"{% endif %}
+                    src="{{ video_src }}"
+                    playsinline
+                    {% if muted %}muted{% endif %}
+                    {% if section.settings.loop %}loop{% endif %}
+                    {% if autoplay_all %}autoplay{% endif %}
+                    preload="{% if autoplay_all %}auto{% else %}metadata{% endif %}"
+                    {% if section.settings.show_controls %}controls{% endif %}
+                  ></video>
+                {%- elsif poster_url != blank -%}
+                  <img class="so-pvid__video" src="{{ poster_url }}" alt="{{ item_title | default: heading | escape }}" loading="lazy">
+                {%- else -%}
+                  <div class="so-pvid__placeholder">Add a video in the theme editor</div>
+                {%- endif -%}
+                {%- if show_play -%}
+                  <span class="so-pvid__play" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" fill="#fff"/><path d="M10 8.5v7l6-3.5-6-3.5z" fill="#111"/></svg>
+                  </span>
+                {%- endif -%}
+              </div>
+              {%- if show_title -%}
+                <p class="so-pvid__title">{{ item_title | escape }}</p>
+              {%- endif -%}
+            </article>
+          {%- endfor -%}
+        </div>
+      </div>
+    {%- else -%}
+      <p class="so-pvid__empty">Add videos in the theme editor to show this section.</p>
+    {%- endif -%}
+  </div>
+</div>
+
+<script src="{{ 'product-videos.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "Product Videos",
+  "tag": "section",
+  "class": "product-videos-section",
+  "max_blocks": 24,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Why Customers Choose Scale-O"
+    },
+    {
+      "type": "select",
+      "id": "header_alignment",
+      "label": "Heading alignment",
+      "default": "left",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Playback"
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay_all",
+      "label": "Autoplay all videos",
+      "default": true,
+      "info": "All videos play muted. Required by browsers for autoplay."
+    },
+    {
+      "type": "checkbox",
+      "id": "muted",
+      "label": "Muted",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "loop",
+      "label": "Loop videos",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_controls",
+      "label": "Show video controls",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_play_button",
+      "label": "Show play button",
+      "default": true,
+      "info": "Hidden automatically when Autoplay all is on."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_titles",
+      "label": "Show video titles",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Carousel"
+    },
+    {
+      "type": "checkbox",
+      "id": "infinite_scroll",
+      "label": "Infinite smooth scroll",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "pause_on_hover",
+      "label": "Pause scroll on hover",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "scroll_speed",
+      "label": "Scroll speed",
+      "min": 12,
+      "max": 80,
+      "step": 2,
+      "unit": "s",
+      "default": 36,
+      "info": "Time for one full loop. Higher is slower."
+    },
+    {
+      "type": "header",
+      "content": "Card size"
+    },
+    {
+      "type": "range",
+      "id": "card_width",
+      "label": "Card width",
+      "min": 140,
+      "max": 260,
+      "step": 4,
+      "unit": "px",
+      "default": 188
+    },
+    {
+      "type": "range",
+      "id": "card_height",
+      "label": "Card height",
+      "min": 220,
+      "max": 420,
+      "step": 4,
+      "unit": "px",
+      "default": 320
+    },
+    {
+      "type": "range",
+      "id": "card_width_mobile",
+      "label": "Card width (mobile)",
+      "min": 120,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 148
+    },
+    {
+      "type": "range",
+      "id": "card_height_mobile",
+      "label": "Card height (mobile)",
+      "min": 200,
+      "max": 340,
+      "step": 4,
+      "unit": "px",
+      "default": 260
+    },
+    {
+      "type": "range",
+      "id": "card_gap",
+      "label": "Gap",
+      "min": 8,
+      "max": 28,
+      "step": 2,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "card_gap_mobile",
+      "label": "Gap (mobile)",
+      "min": 8,
+      "max": 20,
+      "step": 2,
+      "unit": "px",
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "card_radius",
+      "label": "Corner radius",
+      "min": 8,
+      "max": 28,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading",
+      "default": "#111111"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Video title",
+      "default": "#1A2B4A"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top padding",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 8
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom padding",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 28
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Top padding (mobile)",
+      "min": 0,
+      "max": 60,
+      "step": 4,
+      "unit": "px",
+      "default": 8
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Bottom padding (mobile)",
+      "min": 0,
+      "max": 60,
+      "step": 4,
+      "unit": "px",
+      "default": 20
+    }
+  ],
+  "blocks": [
+    {
+      "type": "video",
+      "name": "Video",
+      "settings": [
+        {
+          "type": "video",
+          "id": "shopify_video",
+          "label": "Shopify video"
+        },
+        {
+          "type": "text",
+          "id": "video_url",
+          "label": "Video URL",
+          "info": "Optional MP4 URL. Used only if no Shopify video is selected."
+        },
+        {
+          "type": "image_picker",
+          "id": "poster",
+          "label": "Poster image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Customer story"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_title",
+          "label": "Show this title",
+          "default": true
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Videos",
+      "category": "Product",
+      "blocks": [
+        { "type": "video", "settings": { "title": "See Scale-O in Action" } },
+        { "type": "video", "settings": { "title": "How Easy Is Installation?" } },
+        { "type": "video", "settings": { "title": "How Scale-O Works" } },
+        { "type": "video", "settings": { "title": "Why Customers Choose Scale-O" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

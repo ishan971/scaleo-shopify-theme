@@ -217,6 +217,7 @@
         "subheading_Tw9RDc",
         "heading_XzNiDL"
       ],
+      "disabled": true,
       "settings": {
         "container": "container",
         "color_scheme": "",
@@ -228,50 +229,229 @@
       }
     },
     "custom_liquid_qR7BgT": {
-      "type": "custom-liquid",
-      "custom_css": [],
+      "type": "people-property-advantages",
+      "blocks": {
+        "cat_people": {
+          "type": "category",
+          "settings": {
+            "handle": "people",
+            "tab_label": "For People",
+            "heading": "For People",
+            "description": "Better water for everyday life.",
+            "image_alt": "Everyday home water experience",
+            "show_cta": false,
+            "cta_text": "Learn more",
+            "cta_url": ""
+          }
+        },
+        "cat_property": {
+          "type": "category",
+          "settings": {
+            "handle": "property",
+            "tab_label": "For Property",
+            "heading": "For Property",
+            "description": "Protect the fixtures and water-using systems around your home.",
+            "image_alt": "Home fixtures and water-using appliances",
+            "show_cta": false,
+            "cta_text": "Learn more",
+            "cta_url": ""
+          }
+        },
+        "people_shower": {
+          "type": "benefit",
+          "settings": {
+            "category": "people",
+            "image_alt": "",
+            "short_label": "",
+            "title": "Better Shower Experience",
+            "description": "Help reduce visible hard-water scale around everyday bathroom fixtures.",
+            "cta_text": "",
+            "link": ""
+          }
+        },
+        "people_laundry": {
+          "type": "benefit",
+          "settings": {
+            "category": "people",
+            "image_alt": "",
+            "short_label": "",
+            "title": "Softer-Feeling Laundry",
+            "description": "Better water for everyday washing and household laundry.",
+            "cta_text": "",
+            "link": ""
+          }
+        },
+        "people_fixtures": {
+          "type": "benefit",
+          "settings": {
+            "category": "people",
+            "image_alt": "",
+            "short_label": "",
+            "title": "Cleaner-Looking Fixtures",
+            "description": "Help reduce visible mineral deposits around taps and showers.",
+            "cta_text": "",
+            "link": ""
+          }
+        },
+        "people_everyday": {
+          "type": "benefit",
+          "settings": {
+            "category": "people",
+            "image_alt": "",
+            "short_label": "",
+            "title": "Better Everyday Water Experience",
+            "description": "A simple salt-free approach to managing hard-water scale throughout the home.",
+            "cta_text": "",
+            "link": ""
+          }
+        },
+        "property_scale": {
+          "type": "benefit",
+          "settings": {
+            "category": "property",
+            "image_alt": "",
+            "short_label": "",
+            "title": "Helps Reduce Scale Buildup",
+            "description": "Helps manage mineral scale buildup on water-contact surfaces.",
+            "cta_text": "",
+            "link": ""
+          }
+        },
+        "property_appliances": {
+          "type": "benefit",
+          "settings": {
+            "category": "property",
+            "image_alt": "",
+            "short_label": "",
+            "title": "Protect Water-Using Appliances",
+            "description": "Helps reduce the impact of scale buildup in appliances that use water.",
+            "cta_text": "",
+            "link": ""
+          }
+        },
+        "property_maintenance": {
+          "type": "benefit",
+          "settings": {
+            "category": "property",
+            "image_alt": "",
+            "short_label": "",
+            "title": "Lower Maintenance Burden",
+            "description": "Less visible buildup can mean less frequent cleaning and maintenance.",
+            "cta_text": "",
+            "link": ""
+          }
+        },
+        "property_fixtures": {
+          "type": "benefit",
+          "settings": {
+            "category": "property",
+            "image_alt": "",
+            "short_label": "",
+            "title": "Protect Everyday Fixtures",
+            "description": "Help keep taps, shower fittings and other water-contact fixtures looking cleaner.",
+            "cta_text": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "cat_people",
+        "cat_property",
+        "people_shower",
+        "people_laundry",
+        "people_fixtures",
+        "people_everyday",
+        "property_scale",
+        "property_appliances",
+        "property_maintenance",
+        "property_fixtures"
+      ],
       "settings": {
-        "custom_liquid": "<style>\n    .image-container {\n        display: none;\n        margin-top: 10px;\n    }\n    #section1 {\n        display: block; /* Display the first image by default */\n    }\n    .button1 {\n        padding: 10px 20px;\n        background-color: #333333;\n        color: white;\n        border: 2px solid #333333;\n        cursor: pointer;\n        margin-right: 10px;\n        border-radius: 5px;\n    }\n    .button1:hover {\n        background-color: transparent;\n        color: #333333;\n        border: 2px solid #333333;\n    }\n\n    .button2 {\n            padding: 10px 20px;\n            background-color: transparent;\n            color: #333333;\n            border: 2px solid #333333;\n            cursor: pointer;\n            border-radius: 5px;\n        }\n        .button2:hover {\n            background-color: #333333;\n            color: white;\n        }\n\n\n\n    .button-container {\n        margin-bottom: 20px;\n        text-align: center;\n    }\n</style>\n\n\n<div class=\"button-container\">\n    <button class=\"button1\" onclick=\"showImage('section1')\">FOR PEOPLE</button>\n    <button class=\"button2\" onclick=\"showImage('section2')\">FOR PROPERTY</button>\n</div>\n\n<div id=\"section1\" class=\"image-container\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_1247.png?v=1720604164\" alt=\"Image 1\" >\n</div>\n\n<div id=\"section2\" class=\"image-container\">\n    <img src=\"image2.jpg\" alt=\"Image 2\">\n</div>\n    \n<script>\n    function showImage(sectionId) {\n        var sections = document.querySelectorAll('.image-container');\n        sections.forEach(section => {\n            section.style.display = 'none';\n        });\n        document.getElementById(sectionId).style.display = 'block';\n    }\n</script>",
-        "custom_class": "container m-section-my m-section-py sec"
+        "show_eyebrow": true,
+        "eyebrow": "ADVANTAGES",
+        "heading": "People & Property",
+        "show_description": true,
+        "description": "Discover how Scale-O helps protect your everyday water experience and your home.",
+        "header_alignment": "center",
+        "max_width": 1200,
+        "desktop_columns": "2",
+        "hero_aspect_ratio": "3 / 4",
+        "card_aspect_ratio": "16 / 9",
+        "card_gap": 14,
+        "card_radius": 18,
+        "shadow_strength": 30,
+        "show_category_icon": true,
+        "show_card_index": false,
+        "enable_animations": true,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_top_mobile": 28,
+        "padding_bottom_mobile": 28,
+        "padding_x": 20,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "header_gap": 28,
+        "eyebrow_size": 16,
+        "heading_size_desktop": 45,
+        "heading_size_mobile": 26,
+        "description_size": 16,
+        "category_title_size": 22,
+        "card_title_size": 17,
+        "card_description_size": 14,
+        "background_color": "#ffffff",
+        "panel_background": "#f3f6fa",
+        "heading_color": "#1a2b4a",
+        "text_color": "#5a6b85",
+        "accent_color": "#0c7fdf",
+        "accent_hover_color": "#0a6bc4",
+        "card_background": "#ffffff",
+        "card_border_color": "#e8eef8",
+        "tab_active_background": "#0c7fdf",
+        "tab_active_text": "#ffffff",
+        "accessibility_label": "People and property advantages"
       }
     },
     "brands_list_fkAJzd": {
-      "type": "brands-list",
+      "type": "scale-o-results-gallery",
       "blocks": {
         "image_XcTgtY": {
-          "type": "image",
+          "type": "result",
           "settings": {
+            "enabled": true,
             "image": "shopify://shop_images/Frame_427319350.png",
-            "image_by_url": "",
-            "image_link": "",
-            "max_width": ""
+            "image_url": "",
+            "label": "",
+            "title": ""
           }
         },
         "image_6tGxQ7": {
-          "type": "image",
+          "type": "result",
           "settings": {
+            "enabled": true,
             "image": "shopify://shop_images/Frame_427319358.png",
-            "image_by_url": "",
-            "image_link": "",
-            "max_width": ""
+            "image_url": "",
+            "label": "",
+            "title": ""
           }
         },
         "image_YQUdfR": {
-          "type": "image",
+          "type": "result",
           "settings": {
+            "enabled": true,
             "image": "shopify://shop_images/Frame_427319359_1802779d-b874-4f1a-a3cd-2a0451dd874f.png",
-            "image_by_url": "",
-            "image_link": "",
-            "max_width": ""
+            "image_url": "",
+            "label": "",
+            "title": ""
           }
         },
         "image_QJdiq6": {
-          "type": "image",
+          "type": "result",
           "settings": {
+            "enabled": true,
             "image": "shopify://shop_images/Frame_427319350.png",
-            "image_by_url": "",
-            "image_link": "",
-            "max_width": "150px"
+            "image_url": "",
+            "label": "",
+            "title": ""
           }
         }
       },
@@ -282,26 +462,44 @@
         "image_QJdiq6"
       ],
       "settings": {
+        "show_eyebrow": true,
+        "eyebrow": "BEFORE AND AFTER",
         "heading": "Witness the difference and our Results",
-        "heading_size": "h3",
-        "subheading": "BEFORE AND AFTER",
+        "show_description": false,
+        "description": "",
         "header_alignment": "center",
-        "container": "container",
-        "color_scheme": "scheme-cee058e4-58e3-46aa-9af9-219dadc79066",
-        "item_per_row": 3,
-        "column_gap": 30,
-        "row_gap": 30,
-        "column_gap_mobile": 10,
-        "row_gap_mobile": 10,
-        "enable_slider": true,
-        "show_nav": true,
-        "show_pagination": false,
-        "autorotate": false,
-        "autorotate_speed": 3,
-        "padding_top": 90,
-        "padding_bottom": 90,
-        "custom_class": "",
-        "animations": "inherit"
+        "show_legend": true,
+        "before_label": "Before",
+        "after_label": "After",
+        "desktop_columns": 3,
+        "tablet_columns": 3,
+        "image_height": 250,
+        "image_height_mobile": 180,
+        "max_width": 1200,
+        "card_spacing": 14,
+        "card_radius": 16,
+        "show_card_shadow": true,
+        "enable_animations": true,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_top_mobile": 28,
+        "padding_bottom_mobile": 28,
+        "padding_x": 20,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "header_gap": 24,
+        "eyebrow_size": 13,
+        "heading_size_desktop": 36,
+        "heading_size_mobile": 26,
+        "description_size": 15,
+        "background_color": "#f7fbff",
+        "card_background": "#ffffff",
+        "card_border_color": "#d7e4f2",
+        "heading_color": "#1a2b4a",
+        "text_color": "#5a6b85",
+        "accent_color": "#0c7fdf",
+        "accent_hover_color": "#0a6bc4",
+        "accessibility_label": "Before and after results"
       }
     },
     "rich_text_gYypF4": {
@@ -325,6 +523,7 @@
         "subheading_xD3gr9",
         "heading_n4MYCk"
       ],
+      "disabled": true,
       "custom_css": [
         ".sec {border-radius: 20px 20px 0px 0px;}"
       ],
@@ -339,20 +538,39 @@
       }
     },
     "968209871838256835": {
-      "type": "apps",
-      "custom_css": [
-        ".sec2 {border-radius: 0px 0px 20px 20px;}"
-      ],
+      "type": "scale-o-reviews",
       "settings": {
-        "heading": "",
-        "heading_size": "h3",
-        "subheading": "",
+        "show_eyebrow": true,
+        "eyebrow": "REVIEWS",
+        "heading": "Customer Reviews",
+        "show_description": false,
+        "description": "",
         "header_alignment": "center",
-        "container": "container",
-        "background_color": "#d2e7f9",
-        "padding_top": 0,
-        "padding_bottom": 90,
-        "custom_class": "sec2"
+        "hide_native_heading": true,
+        "max_width": 1200,
+        "card_radius": 16,
+        "show_card_shadow": true,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_top_mobile": 28,
+        "padding_bottom_mobile": 28,
+        "padding_x": 20,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "header_gap": 24,
+        "eyebrow_size": 13,
+        "heading_size_desktop": 36,
+        "heading_size_mobile": 26,
+        "description_size": 15,
+        "background_color": "#f7fbff",
+        "card_background": "#ffffff",
+        "card_border_color": "#d7e4f2",
+        "heading_color": "#1a2b4a",
+        "text_color": "#5a6b85",
+        "accent_color": "#0c7fdf",
+        "accent_hover_color": "#0a6bc4",
+        "star_color": "#f5b301",
+        "accessibility_label": "Customer reviews"
       }
     },
     "custom_code_XRU3nW": {
@@ -391,58 +609,203 @@
       }
     },
     "custom_content_3kjdhd": {
-      "type": "custom-content",
+      "type": "scale-o-faq",
       "blocks": {
-        "text_zNQQic": {
-          "type": "text",
+        "faq_1": {
+          "type": "faq",
           "settings": {
-            "title": "Frequently asked the question",
-            "subheading": "FAQ’s",
-            "text": "",
-            "width": "100%",
-            "alignment": "center",
-            "align_text": "center",
-            "text_size": "medium",
-            "text_color": "inherit",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "m-button--primary",
-            "button_size": "",
-            "block_custom_class": "",
-            "animations": "inherit"
+            "enabled": true,
+            "question": "What is Scale-O and how does it work?",
+            "answer": "<p>Scale-O is a salt-free water conditioner designed for homes with overhead tanks. Place the compact unit inside your tank. As water flows through the home, Scale-O helps reduce hard-water scale on pipes, fittings and household appliances, without salt, electricity or plumbing changes.</p>",
+            "category": ""
           }
         },
-        "liquid_xyW9Kg": {
-          "type": "liquid",
+        "faq_2": {
+          "type": "faq",
           "settings": {
-            "custom_liquid": "<style>\n        @media (min-width:768px) {\n            .faq-container {\n                padding: 20px;\n                display: flex;\n                justify-content: space-between;\n            }\n\n            .faqdiv {\n                width: 49%;\n            }\n        }\n        \n        .faq-item {\n            margin-bottom: 20px;\n        }\n        \n        .faq-question {\n            width: 100%;\n            background-color: #F5F7FF;\n            border: none;\n            padding: 15px;\n            font-size: 16px;\n            text-align: left;\n            cursor: pointer;\n            border-radius: 4px;\n            transition: background-color 0.3s;\n            display: flex;\n            justify-content: space-between;\n            align-items: center;\n            margin-right: 15px;\n        }\n        \n        .faq-question:hover {\n            background-color: #e1e1e1;\n        }\n        \n        .faq-answer {\n            max-height: 0;\n            opacity: 0;\n            overflow: hidden;\n            padding: 0 15px;\n            background-color: #F5F7FF;\n            border-radius: 0px 0px 4px 4px;\n            margin-top: 0px;\n            font-size: 14px;\n            line-height: 1.6;\n            transition: max-height 0.5s ease, opacity 0.5s ease, padding 0.5s ease;\n        }\n        \n        .faq-answer.open {\n            max-height: 500px; /* Adjust this value based on your content */\n            opacity: 1;\n            padding: 15px;\n        }\n        \n        .faq-icon {\n            width: 20px;\n            height: 20px;\n            margin-left: 5px;\n        }\n    </style>\n\n\n\n\n<div>\n        <div class=\"faq-container\">\n            <!-- col 1 -->\n            <div class=\"faqdiv\">\n                <div class=\"faq-item\">\n                    <button class=\"faq-question\">\n                        What is the life of the Scale-O water softener?\n                        <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_49.png?v=1720679877\" class=\"faq-icon open-icon\" alt=\"Open Icon\">\n                        <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/4444.png?v=1720679877\" class=\"faq-icon close-icon\" style=\"display:none;\" alt=\"Close Icon\">\n                    </button>\n                    <div class=\"faq-answer\">Life of Scale-O water softener is 6 months once the product is inside the water but can extend to 8 months depending on daily usage. However shelf life of an unused product is 2 years.</div>\n                </div>\n                <div class=\"faq-item\">\n                    <button class=\"faq-question\">\n                        What is the guarantee on Scale-O softeners?\n                        <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_49.png?v=1720679877\" class=\"faq-icon open-icon\" alt=\"Open Icon\">\n                        <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/4444.png?v=1720679877\" class=\"faq-icon close-icon\" style=\"display:none;\" alt=\"Close Icon\">\n                    </button>\n                    <div class=\"faq-answer\">Scale-O water softeners come with a one-year warranty from the date of purchase against any manufacturing defects.</div>\n                </div>\n                <div class=\"faq-item\">\n                    <button class=\"faq-question\">\n                        When should I exchange the Scale-O water softener?\n                        <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_49.png?v=1720679877\" class=\"faq-icon open-icon\" alt=\"Open Icon\">\n                        <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/4444.png?v=1720679877\" class=\"faq-icon close-icon\" style=\"display:none;\" alt=\"Close Icon\">\n                    </button>\n                    <div class=\"faq-answer\">You should exchange the Scale-O water softener every 6 to 8 months, depending on your daily usage and water quality.</div>\n                </div>\n                <div class=\"faq-item\">\n                    <button class=\"faq-question\">\n                        Can Scale-O be used with existing water softeners?\n                        <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_49.png?v=1720679877\" class=\"faq-icon open-icon\" alt=\"Open Icon\">\n                        <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/4444.png?v=1720679877\" class=\"faq-icon close-icon\" style=\"display:none;\" alt=\"Close Icon\">\n                    </button>\n                    <div class=\"faq-answer\">Yes, Scale-O can be used in conjunction with existing water softeners to enhance their effectiveness.</div>\n                </div>\n                <div class=\"faq-item\">\n                    <button class=\"faq-question\">\n                        Does Scale-O require installation services by a professional?\n                        <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_49.png?v=1720679877\" class=\"faq-icon open-icon\" alt=\"Open Icon\">\n                        <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/4444.png?v=1720679877\" class=\"faq-icon close-icon\" style=\"display:none;\" alt=\"Close Icon\">\n                    </button>\n                    <div class=\"faq-answer\">No, Scale-O is designed for easy DIY installation and does not require professional services.</div>\n                </div>\n            </div>\n\n            <!-- col 2 -->\n            <div class=\"faqdiv\">\n                <div class=\"faq-item\">\n                    <button class=\"faq-question\">\n                        Why is Scale-O better than other water softeners?\n                        <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_49.png?v=1720679877\" class=\"faq-icon open-icon\" alt=\"Open Icon\">\n                        <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/4444.png?v=1720679877\" class=\"faq-icon close-icon\" style=\"display:none;\" alt=\"Close Icon\">\n                    </button>\n                    <div class=\"faq-answer\">Scale-O offers superior performance, longer life, and easier maintenance compared to other water softeners on the market.</div>\n                </div>\n                <div class=\"faq-item\">\n                    <button class=\"faq-question\">\n                        What’s the maximum level of hardness at which Scale-O can work?\n                        <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_49.png?v=1720679877\" class=\"faq-icon open-icon\" alt=\"Open Icon\">\n                        <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/4444.png?v=1720679877\" class=\"faq-icon close-icon\" style=\"display:none;\" alt=\"Close Icon\">\n                    </button>\n                    <div class=\"faq-answer\">Scale-O can effectively work in water hardness levels up to 300 ppm (parts per million).</div>\n                </div>\n                <div class=\"faq-item\">\n                    <button class=\"faq-question\">\n                        What is the health risk associated with using Scale-O water softeners?\n                        <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_49.png?v=1720679877\" class=\"faq-icon open-icon\" alt=\"Open Icon\">\n                        <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/4444.png?v=1720679877\" class=\"faq-icon close-icon\" style=\"display:none;\" alt=\"Close Icon\">\n                    </button>\n                    <div class=\"faq-answer\">There are no health risks associated with using Scale-O water softeners as they do not add any chemicals to the water.</div>\n                </div>\n                <div class=\"faq-item\">\n                    <button class=\"faq-question\">\n                        How to choose the right Scale-O configuration for my application?\n                        <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_49.png?v=1720679877\" class=\"faq-icon open-icon\" alt=\"Open Icon\">\n                        <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/4444.png?v=1720679877\" class=\"faq-icon close-icon\" style=\"display:none;\" alt=\"Close Icon\">\n                    </button>\n                    <div class=\"faq-answer\">Choosing the right Scale-O configuration depends on the size of your household and your daily water usage. Our customer support can help you make the right choice.</div>\n                </div>\n                <div class=\"faq-item\">\n                    <button class=\"faq-question\">\n                        Can Scale-O be used for commercial purposes?\n                        <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_49.png?v=1720679877\" class=\"faq-icon open-icon\" alt=\"Open Icon\">\n                        <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/4444.png?v=1720679877\" class=\"faq-icon close-icon\" style=\"display:none;\" alt=\"Close Icon\">\n                    </button>\n                    <div class=\"faq-answer\">Yes, Scale-O is suitable for both residential and commercial purposes, depending on the configuration.</div>\n                </div>\n            </div>\n        </div>\n    </div>\n\n    <script>\n        document.addEventListener('DOMContentLoaded', function() {\n            const questions = document.querySelectorAll('.faq-question');\n\n            questions.forEach(question => {\n                question.addEventListener('click', function() {\n                    const answer = this.nextElementSibling;\n                    const isVisible = answer.classList.contains('open');\n\n                    document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));\n                    document.querySelectorAll('.close-icon').forEach(icon => icon.style.display = 'none');\n                    document.querySelectorAll('.open-icon').forEach(icon => icon.style.display = 'block');\n\n                    if (!isVisible) {\n                        answer.classList.add('open');\n                        this.querySelector('.open-icon').style.display = 'none';\n                        this.querySelector('.close-icon').style.display = 'block';\n                    } else {\n                        answer.classList.remove('open');\n                        this.querySelector('.open-icon').style.display = 'block';\n                        this.querySelector('.close-icon').style.display = 'none';\n                    }\n                });\n            });\n        });\n    </script>",
-            "width": "100%",
-            "block_custom_class": "container",
-            "animations": "inherit"
+            "enabled": true,
+            "question": "Does Scale-O require electricity?",
+            "answer": "<p>No. Scale-O does not need electricity, wiring or a power connection. Once placed in the tank, it works as water flows through your home.</p>",
+            "category": ""
+          }
+        },
+        "faq_3": {
+          "type": "faq",
+          "settings": {
+            "enabled": true,
+            "question": "Does Scale-O use salt?",
+            "answer": "<p>No. Scale-O is a salt-free water conditioner. There are no salt bags to buy, store or refill.</p>",
+            "category": ""
+          }
+        },
+        "faq_4": {
+          "type": "faq",
+          "settings": {
+            "enabled": true,
+            "question": "Does Scale-O waste water?",
+            "answer": "<p>No. Scale-O does not require backwashing, regeneration or water discharge. You get conditioned water without the water wastage typical of many salt-based softeners.</p>",
+            "category": ""
+          }
+        },
+        "faq_5": {
+          "type": "faq",
+          "settings": {
+            "enabled": true,
+            "question": "How is Scale-O installed?",
+            "answer": "<p>Installation is designed to be simple: choose the right model for your tank, open the overhead tank, place Scale-O inside, close the tank and use water as usual. No plumber or wiring is typically needed.</p>",
+            "category": ""
+          }
+        },
+        "faq_6": {
+          "type": "faq",
+          "settings": {
+            "enabled": true,
+            "question": "Where should Scale-O be installed?",
+            "answer": "<p>Scale-O is designed for overhead and storage water tanks used in Indian homes, so conditioned water can reach bathrooms, kitchen, laundry and appliances.</p>",
+            "category": ""
+          }
+        },
+        "faq_7": {
+          "type": "faq",
+          "settings": {
+            "enabled": true,
+            "question": "Can Scale-O be installed in an existing water tank?",
+            "answer": "<p>Yes. Scale-O is placed inside an existing overhead tank. You do not need to replace the tank or install a separate treatment plant.</p>",
+            "category": ""
+          }
+        },
+        "faq_8": {
+          "type": "faq",
+          "settings": {
+            "enabled": true,
+            "question": "How does Scale-O help prevent hard-water scale?",
+            "answer": "<p>Scale-O is a salt-free conditioner that helps reduce visible hard-water scale buildup on pipes, taps, geysers and other household fittings as water flows through the home.</p>",
+            "category": ""
+          }
+        },
+        "faq_9": {
+          "type": "faq",
+          "settings": {
+            "enabled": true,
+            "question": "Does Scale-O require regular maintenance?",
+            "answer": "<p>Day-to-day use does not require salt refills, electricity or regular servicing. When it is time, the unit is replaced through a straightforward exchange process.</p>",
+            "category": ""
+          }
+        },
+        "faq_10": {
+          "type": "faq",
+          "settings": {
+            "enabled": true,
+            "question": "How long does a Scale-O unit last?",
+            "answer": "<p>Household units are typically exchanged on a regular cycle so protection stays consistent, often around every 6 months, depending on the product and usage. Check your product details and exchange policy for the recommended interval.</p>",
+            "category": ""
+          }
+        },
+        "faq_11": {
+          "type": "faq",
+          "settings": {
+            "enabled": true,
+            "question": "Which Scale-O model is right for my home?",
+            "answer": "<p>Choose a Scale-O size that matches your tank capacity and household water usage. If you are unsure, talk to a Scale-O expert. They can help you pick the right model.</p>",
+            "category": ""
+          }
+        },
+        "faq_12": {
+          "type": "faq",
+          "settings": {
+            "enabled": true,
+            "question": "Can Scale-O be used with geysers, washing machines and other appliances?",
+            "answer": "<p>Yes. Once installed in the overhead tank, Scale-O conditions the water that flows to bathrooms, kitchen, laundry and household appliances such as geysers and washing machines.</p>",
+            "category": ""
+          }
+        },
+        "faq_13": {
+          "type": "faq",
+          "settings": {
+            "enabled": true,
+            "question": "How do I choose the correct Scale-O size?",
+            "answer": "<p>Match the unit to your overhead tank capacity and how much water your household uses. Larger tanks or higher usage generally need a larger model. Use the product size guide or speak with our team if you need help choosing.</p>",
+            "category": ""
+          }
+        },
+        "faq_14": {
+          "type": "faq",
+          "settings": {
+            "enabled": true,
+            "question": "What is included with my Scale-O purchase?",
+            "answer": "<p>Your Scale-O unit is ready to place in the tank. Specific inclusions can vary by model. Check the product page for what ships with your chosen size.</p>",
+            "category": ""
+          }
+        },
+        "faq_15": {
+          "type": "faq",
+          "settings": {
+            "enabled": true,
+            "question": "How does the trial / guarantee work?",
+            "answer": "<p>Scale-O offers a 7-day risk-free trial so you can try it in your home with confidence. Guarantee activation is confirmed with your invoice as part of the purchase process. See the product page or talk to our team for current trial terms.</p>",
+            "category": ""
           }
         }
       },
       "block_order": [
-        "text_zNQQic",
-        "liquid_xyW9Kg"
+        "faq_1",
+        "faq_2",
+        "faq_3",
+        "faq_4",
+        "faq_5",
+        "faq_6",
+        "faq_7",
+        "faq_8",
+        "faq_9",
+        "faq_10",
+        "faq_11",
+        "faq_12",
+        "faq_13",
+        "faq_14",
+        "faq_15"
       ],
       "settings": {
-        "heading": "",
-        "heading_size": "h3",
-        "subheading": "",
-        "description": "",
-        "header_alignment": "center",
-        "container": "container-fluid",
-        "color_scheme": "",
-        "content_color_scheme": "",
-        "enable_parallax": false,
-        "parallax_direction": "vertical",
-        "gap": 30,
-        "gap_mobile": 16,
-        "use_scroll_mobile": false,
-        "padding_top": 90,
-        "padding_bottom": 90,
-        "custom_class": ""
+        "eyebrow": "FAQ",
+        "heading": "Frequently Asked Questions",
+        "description": "Everything you need to know about Scale-O, installation, maintenance and protecting your home from hard-water scale.",
+        "show_cta": true,
+        "show_cta_icon": true,
+        "cta_heading": "Still have questions?",
+        "cta_text": "Our experts are here to help you choose the right solution.",
+        "cta_button_text": "Talk to a Scale-O Expert",
+        "cta_button_link": "shopify://pages/consult-now",
+        "layout": "two_columns",
+        "max_width": 1180,
+        "faq_column_width": 58,
+        "column_gap": 56,
+        "padding_x": 20,
+        "accordion_behavior": "single",
+        "open_first": true,
+        "animation_speed": 320,
+        "item_gap": 12,
+        "show_load_more": true,
+        "initial_count": 6,
+        "load_more_text": "Load more",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_top_mobile": 28,
+        "padding_bottom_mobile": 28,
+        "eyebrow_size": 13,
+        "heading_size_desktop": 40,
+        "heading_size_mobile": 28,
+        "description_size": 15,
+        "question_size": 16,
+        "answer_size": 15,
+        "background_color": "#f7fbff",
+        "heading_color": "#102a43",
+        "text_color": "#5a6b85",
+        "accent_color": "#0c7fdf",
+        "accent_hover_color": "#0a6bc4",
+        "card_background": "#ffffff",
+        "border_color": "#dceaf5",
+        "border_radius": 14,
+        "show_card_shadow": true,
+        "accessibility_label": "Frequently asked questions"
       }
     }
   },

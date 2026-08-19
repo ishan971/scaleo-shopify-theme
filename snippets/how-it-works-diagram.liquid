@@ -1,0 +1,55 @@
+{%- comment -%}
+  Scale-O installation diagram — inline SVG fallback.
+  Accepts: class (optional)
+{%- endcomment -%}
+{%- assign diagram_class = class | default: 'scale-o-how-it-works__diagram-svg' -%}
+<svg class="{{ diagram_class }}" viewBox="0 0 420 360" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Scale-O installation flow diagram">
+  <rect x="130" y="16" width="160" height="72" rx="10" fill="#EEF6FF" stroke="#0C7FDF" stroke-width="2"/>
+  <text x="210" y="44" text-anchor="middle" fill="#1A2B4A" font-size="11" font-weight="700">OVERHEAD WATER TANK</text>
+  <rect x="168" y="52" width="84" height="28" rx="6" fill="#0C7FDF" fill-opacity="0.12" stroke="#0C7FDF" stroke-width="1.5"/>
+  <text x="210" y="70" text-anchor="middle" fill="#0C7FDF" font-size="10" font-weight="700">SCALE-O</text>
+
+  <path d="M210 88v28" stroke="#0C7FDF" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M210 116h-90M210 116h90" stroke="#0C7FDF" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M120 116v24M210 116v24M300 116v24" stroke="#0C7FDF" stroke-width="2" stroke-linecap="round"/>
+  <path d="M120 140h180" stroke="#0C7FDF" stroke-width="2" stroke-linecap="round"/>
+
+  <rect x="130" y="148" width="160" height="34" rx="8" fill="#F5F7FF" stroke="#94DDF6" stroke-width="1.5"/>
+  <text x="210" y="169" text-anchor="middle" fill="#2A6AB2" font-size="10" font-weight="700">HOME WATER SUPPLY</text>
+
+  <path d="M210 182v18" stroke="#0C7FDF" stroke-width="2" stroke-linecap="round"/>
+  <path d="M70 200h280" stroke="#0C7FDF" stroke-width="2" stroke-linecap="round"/>
+  <path d="M70 200v22M150 200v22M230 200v22M310 200v22" stroke="#0C7FDF" stroke-width="1.8" stroke-linecap="round"/>
+
+  <rect x="36" y="222" width="68" height="44" rx="8" fill="#FFFFFF" stroke="#D6E2FA" stroke-width="1.5"/>
+  <text x="70" y="249" text-anchor="middle" fill="#1A2B4A" font-size="9" font-weight="600">Bathroom</text>
+
+  <rect x="116" y="222" width="68" height="44" rx="8" fill="#FFFFFF" stroke="#D6E2FA" stroke-width="1.5"/>
+  <text x="150" y="249" text-anchor="middle" fill="#1A2B4A" font-size="9" font-weight="600">Kitchen</text>
+
+  <rect x="196" y="222" width="68" height="44" rx="8" fill="#FFFFFF" stroke="#D6E2FA" stroke-width="1.5"/>
+  <text x="230" y="249" text-anchor="middle" fill="#1A2B4A" font-size="9" font-weight="600">Laundry</text>
+
+  <rect x="276" y="222" width="68" height="44" rx="8" fill="#FFFFFF" stroke="#D6E2FA" stroke-width="1.5"/>
+  <text x="310" y="249" text-anchor="middle" fill="#1A2B4A" font-size="9" font-weight="600">Geyser</text>
+
+  <circle cx="70" cy="200" r="4" fill="#0C7FDF"/>
+  <circle cx="150" cy="200" r="4" fill="#0C7FDF"/>
+  <circle cx="230" cy="200" r="4" fill="#0C7FDF"/>
+  <circle cx="310" cy="200" r="4" fill="#0C7FDF"/>
+
+  <rect x="24" y="290" width="372" height="56" rx="12" fill="#F5F7FF" stroke="#D6E2FA" stroke-width="1.5"/>
+  <text x="48" y="314" fill="#5A6B85" font-size="9" font-weight="600">Hard Water</text>
+  <path d="M110 322h36" stroke="#0C7FDF" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="156" y="306" width="88" height="24" rx="6" fill="#0C7FDF" fill-opacity="0.12" stroke="#0C7FDF"/>
+  <text x="200" y="322" text-anchor="middle" fill="#0C7FDF" font-size="9" font-weight="700">Scale-O</text>
+  <path d="M254 322h36" stroke="#0C7FDF" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="310" y="314" fill="#1A2B4A" font-size="9" font-weight="600">Reduced Scale Impact</text>
+  <text x="310" y="328" fill="#5A6B85" font-size="8">Across your home</text>
+
+  <defs>
+    <marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+      <path d="M0 0 L6 3 L0 6 Z" fill="#0C7FDF"/>
+    </marker>
+  </defs>
+</svg>

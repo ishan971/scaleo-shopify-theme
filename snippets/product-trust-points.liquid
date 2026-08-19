@@ -15,7 +15,7 @@
     {%- if fsr_block != nil and fsr_block.settings.shippng_title != blank -%}
       <div class="product-trust-points__item">
         {%- if fsr_block.settings.shipping_icon != blank -%}
-          <img class="product-trust-points__icon" src="{{ fsr_block.settings.shipping_icon | img_url: '48x' }}" alt="" width="28" height="28">
+          {% render 'product-trust-icon', image: fsr_block.settings.shipping_icon %}
         {%- endif -%}
         <span class="product-trust-points__text">
           {{ fsr_block.settings.shippng_title }}
@@ -32,25 +32,25 @@
     {%- if icon_block != nil -%}
       {%- if icon_block.settings.logo_1 != blank -%}
         <div class="product-trust-points__item">
-          <img class="product-trust-points__icon" src="{{ icon_block.settings.logo_1 | img_url: '48x' }}" alt="" width="28" height="28">
+          {% render 'product-trust-icon', image: icon_block.settings.logo_1 %}
           <span class="product-trust-points__text">{{ icon_block.settings.heading_1 }}</span>
         </div>
       {%- endif -%}
       {%- if icon_block.settings.logo_2 != blank -%}
         <div class="product-trust-points__item">
-          <img class="product-trust-points__icon" src="{{ icon_block.settings.logo_2 | img_url: '48x' }}" alt="" width="28" height="28">
+          {% render 'product-trust-icon', image: icon_block.settings.logo_2 %}
           <span class="product-trust-points__text">{{ icon_block.settings.heading_2 }}</span>
         </div>
       {%- endif -%}
       {%- if icon_block.settings.logo_3 != blank -%}
         <div class="product-trust-points__item">
-          <img class="product-trust-points__icon" src="{{ icon_block.settings.logo_3 | img_url: '48x' }}" alt="" width="28" height="28">
+          {% render 'product-trust-icon', image: icon_block.settings.logo_3 %}
           <span class="product-trust-points__text">{{ icon_block.settings.heading_3 }}</span>
         </div>
       {%- endif -%}
       {%- if icon_block.settings.logo_4 != blank -%}
         <div class="product-trust-points__item">
-          <img class="product-trust-points__icon" src="{{ icon_block.settings.logo_4 | img_url: '48x' }}" alt="" width="28" height="28">
+          {% render 'product-trust-icon', image: icon_block.settings.logo_4 %}
           <span class="product-trust-points__text">{{ icon_block.settings.heading_4 }}</span>
         </div>
       {%- endif -%}
@@ -59,7 +59,7 @@
     {%- if fsr_block != nil and fsr_block.settings.return_title != blank -%}
       <div class="product-trust-points__item product-trust-points__item--last">
         {%- if fsr_block.settings.return_replacement_icon != blank -%}
-          <img class="product-trust-points__icon" src="{{ fsr_block.settings.return_replacement_icon | img_url: '48x' }}" alt="" width="28" height="28">
+          {% render 'product-trust-icon', image: fsr_block.settings.return_replacement_icon %}
         {%- endif -%}
         <span class="product-trust-points__text product-trust-points__text--two">
           180 Day<br>Replacement Guarantee

@@ -62,53 +62,6 @@
           </div>
         </div>
 
-        <div class="specs-acc__item">
-          <button type="button" class="specs-acc__summary" aria-expanded="false">
-            <span class="specs-acc__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="4" y="8" width="16" height="13" rx="1"></rect>
-                <path d="M4 13h16M12 8v13"></path>
-                <path d="M8 8V5l4 2 4-2v3"></path>
-              </svg>
-            </span>
-            <span class="specs-acc__title">Package Dimensions</span>
-            <span class="specs-acc__chevron" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-            </span>
-          </button>
-          <div class="specs-acc__panel">
-            <div class="specs-acc__panel-inner">
-              <div class="specs-acc__body">
-                <div class="specs-acc__table" role="table">
-                  <div class="specs-acc__row specs-acc__row--head" role="row">
-                    <div role="columnheader"></div>
-                    <div role="columnheader">Inch</div>
-                    <div role="columnheader">C.M</div>
-                  </div>
-                  <div class="specs-acc__row" role="row">
-                    <div role="cell">Length</div>
-                    <div role="cell">{{ ps.package_dimensions_length_inch }}</div>
-                    <div role="cell">{{ ps.package_dimensions_length_cm }}</div>
-                  </div>
-                  <div class="specs-acc__row" role="row">
-                    <div role="cell">Width</div>
-                    <div role="cell">{{ ps.package_dimensions_width_inch }}</div>
-                    <div role="cell">{{ ps.package_dimensions_width_cm }}</div>
-                  </div>
-                  <div class="specs-acc__row" role="row">
-                    <div role="cell">Height</div>
-                    <div role="cell">{{ ps.package_dimensions_height_inch }}</div>
-                    <div role="cell">{{ ps.package_dimensions_height_cm }}</div>
-                  </div>
-                </div>
-                {% if ps.package_weight %}
-                  <p class="specs-acc__weight"><b>Weight</b> : {{ ps.package_weight }}</p>
-                {% endif %}
-              </div>
-            </div>
-          </div>
-        </div>
-
         {% if has_filters %}
           <div class="specs-acc__item">
             <button type="button" class="specs-acc__summary" aria-expanded="false">

@@ -58,10 +58,6 @@
             "size_title": "Plan"
           }
         },
-        "razorpay_affordability_widget_affordability_block_egxmgM": {
-          "type": "shopify://apps/razorpay-affordability-widget/blocks/affordability-block/5bf9b115-5933-4c1b-ade0-ef564b250852",
-          "settings": {}
-        },
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
@@ -146,7 +142,6 @@
         "custom_liquid_TVAThA",
         "variant_picker",
         "buy_buttons",
-        "razorpay_affordability_widget_affordability_block_egxmgM",
         "cod_checker_TNGgYz",
         "expected_delivery_time_bPGXmW",
         "specification_BKj43M",
@@ -183,6 +178,10 @@
         "cartridge_pack_heading": "Bundle of Cartridges",
         "cartridge_pack_hint": "Tap a cartridge to see when it arrives",
         "cartridge_pack_per_label": "per cartridge",
+        "cartridge_pack_benefit_1": "Hassle-Free|Auto Replenishment",
+        "cartridge_pack_benefit_2": "Consistent|Soft Water Quality",
+        "cartridge_pack_benefit_3": "Saves Time|& Extra Cost",
+        "cartridge_pack_benefit_4": "Peace of Mind|for Years",
         "cartridge_pack_terms_heading": "Terms & Conditions",
         "cartridge_pack_terms": "<p>This pack is the cartridge bundle for the plan you picked. The count always follows Plan Features, so if that copy changes, this box updates with it.</p><p>Cartridge 1 ships with your order. The rest are home delivered a few days before each 6 month swap. Scale-O tracks the cycle and reminds you when an exchange is due. Delivery and exchange stay included in the plan price.</p><p>Cost per cartridge is this plan price split across the pack. You pay once. No extra cartridge bill later.</p><p><strong>Refund.</strong> Ask within 7 days if the order is undelivered or missing. Unused product in original packing can be sent back for a refund. Once the guarantee is activated, refunds stop and only replacement applies.</p><p><strong>Replacement.</strong> Flag damage within 24 hours of delivery. If a cartridge expires before 6 months, send photo and video proof. Activate the guarantee on our site after install. No activation, no replacement.</p><p>Read the full <a href=\"/pages/refurnd-policy\" title=\"Refund policy\">refund policy</a> and <a href=\"/pages/exchange-policy\" title=\"Replacement policy\">replacement policy</a>.</p>"
       }

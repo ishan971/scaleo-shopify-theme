@@ -474,7 +474,9 @@
               image_field: image_field
             %}
           </div>
-          {% render 'product-razorpay-widget', section: section %}
+          {%- if block.settings.show_secure_checkout != false -%}
+            {% render 'product-secure-checkout' %}
+          {%- endif -%}
           {% render 'product-trust-points', section: section %}
         {% endunless %}
       {%- when 'collapsible_tab' -%}

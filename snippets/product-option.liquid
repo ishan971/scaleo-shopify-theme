@@ -507,9 +507,13 @@
           image_field: image_field
         %}
       </div>
-      {% render 'product-razorpay-widget', section: section %}
       {% render 'product-trust-points', section: section %}
-      {% render 'product-post-buy-info' %}
+      <div class="product-post-buy-row">
+        {% render 'product-post-buy-info' %}
+        {%- if buy_buttons_block.settings.show_secure_checkout != false -%}
+          {% render 'product-secure-checkout' %}
+        {%- endif -%}
+      </div>
     {%- endif -%}
   {%- endunless -%}
   <script id="productVariants" type="application/json">

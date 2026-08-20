@@ -54,6 +54,9 @@
     if block.type == 'free_shipping_return' or block.type == 'icon_text'
       assign skip_block = true
     endif
+    if block.type == '@app' and block.id contains 'razorpay'
+      assign skip_block = true
+    endif
     if product_has_plan_option
       if block.type == 'cod_checker' or block.type == 'expected_delivery_time'
         assign skip_block = true
@@ -471,9 +474,7 @@
               image_field: image_field
             %}
           </div>
-          {%- if block.settings.show_secure_checkout -%}
-            {% render 'product-secure-checkout' %}
-          {%- endif -%}
+          {% render 'product-razorpay-widget', section: section %}
           {% render 'product-trust-points', section: section %}
         {% endunless %}
       {%- when 'collapsible_tab' -%}

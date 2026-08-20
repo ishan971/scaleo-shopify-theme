@@ -471,7 +471,7 @@
               image_field: image_field
             %}
           </div>
-          {%- if block.settings.show_secure_checkout != false -%}
+          {%- if block.settings.show_secure_checkout -%}
             {% render 'product-secure-checkout' %}
           {%- endif -%}
           {% render 'product-trust-points', section: section %}

@@ -507,7 +507,7 @@
           image_field: image_field
         %}
       </div>
-      {%- if buy_buttons_block.settings.show_secure_checkout != false -%}
+      {%- if buy_buttons_block.settings.show_secure_checkout -%}
         {% render 'product-secure-checkout' %}
       {%- endif -%}
       {% render 'product-trust-points', section: section %}

@@ -67,7 +67,7 @@
           "type": "buy_buttons",
           "settings": {
             "show_quantity_selector": true,
-            "show_secure_checkout": true,
+            "show_secure_checkout": false,
             "show_atc_button": true,
             "show_dynamic_checkout": true,
             "show_gift_card_recipient": true

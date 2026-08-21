@@ -54,13 +54,6 @@
           "settings": {
             "title": "Topics"
           }
-        },
-        "dcb13e8f-be87-42ed-b4b9-65da316b09a1": {
-          "type": "instagram",
-          "settings": {
-            "title": "Instagram",
-            "images_count": 6
-          }
         }
       },
       "block_order": [
@@ -68,8 +61,7 @@
         "so_cta",
         "bb3e6ad7-c917-47d9-9bce-5edf5ff286f6",
         "36be080e-5b28-4b62-b5a9-478c96b656e7",
-        "50469c40-b191-4cca-ac7c-6a6cd0c7b8b4",
-        "dcb13e8f-be87-42ed-b4b9-65da316b09a1"
+        "50469c40-b191-4cca-ac7c-6a6cd0c7b8b4"
       ],
       "settings": {
         "container": "container-fluid",

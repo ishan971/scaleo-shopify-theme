@@ -410,3 +410,27 @@
       .replace(/"/g, '&quot;');
   }
 })();
+
+(function () {
+  document.querySelectorAll('[data-so-copy-link]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var url = btn.getAttribute('data-copy-url') || window.location.href;
+      var label = btn.querySelector('[data-so-copy-label]');
+      var original = label ? label.textContent : 'Copy link';
+      var done = function () {
+        if (!label) return;
+        label.textContent = 'Copied';
+        window.setTimeout(function () {
+          label.textContent = original;
+        }, 1600);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(done).catch(function () {
+          window.prompt('Copy this link', url);
+        });
+      } else {
+        window.prompt('Copy this link', url);
+      }
+    });
+  });
+})();

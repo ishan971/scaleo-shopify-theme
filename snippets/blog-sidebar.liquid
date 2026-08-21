@@ -120,17 +120,5 @@
       </div>
     </div>
     {%- endif -%}
-  {%- when 'instagram' -%}
-    {%- if settings.instagram_token != blank -%}
-    <div class="m-widget">
-      {{ 'instagram.css' | asset_url | stylesheet_tag }}
-      <h3 class="m-widget__title">{{ block.settings.title }}</h3>
-      <div class="m-widget__content">
-        <m-instagram class="m-instagram" data-access-token="{{ settings.instagram_token }}" data-images-count="{{ block.settings.images_count }}">
-          <div class="m-instagram__wrapper m:grid m:grid-3-cols"></div>
-        </m-instagram>
-      </div>
-    </div>
-    {%- endif -%}
 {%- endcase -%}
 {%- endfor -%}

@@ -1,5 +1,5 @@
-{{ 'component-article-card.css' | asset_url | stylesheet_tag }}
 {{ 'blog.css' | asset_url | stylesheet_tag }}
+{{ 'scale-o-article.css' | asset_url | stylesheet_tag }}
 {%- liquid
   assign animation_effect = settings.animations
   assign animated = false
@@ -15,7 +15,7 @@
   assign view = section.settings.view
   assign items = section.settings.show_item_per_row
 
-  assign blog_class = 'm-blog'
+  assign blog_class = 'm-blog so-blog'
   assign blog_class = blog_class | append: ' m-blog--view-' | append: view
 
   if show_sidebar
@@ -35,32 +35,35 @@
   endif
 -%}
 
-{% render 'page-title', title: blog.title, size: 'large', container: section.settings.container %}
-
 {%- paginate blog.articles by section.settings.blog_list -%}
 <section
   data-section-type="blog-template"
   data-section-id="{{ section.id }}"
   class="{{ blog_class }}">
   <div class="{{ container }}">
+    <header class="so-related__head so-blog__head">
+      <span class="so-related__tag">{{ 'blogs.article.related_kicker' | t }}</span>
+      <h1 class="so-related__heading">{{ blog.title | escape }}</h1>
+      <p class="so-related__sub">{{ 'blogs.article.related_subtitle' | t }}</p>
+      <nav class="so-blog__crumbs" aria-label="Breadcrumb">
+        <a href="{{ routes.root_url }}">{{ 'general.breadcrumbs.home' | t }}</a>
+        <span class="so-blog__crumbs-sep" aria-hidden="true">/</span>
+        <span aria-current="page">{{ blog.title | escape }}</span>
+      </nav>
+    </header>
+
     <div class="m-row">
       <div class="m-blog__wrapper">
-        <div class="m-blog__list m:grid m:grid-1-cols{% if view == 'grid' %} m:grid-2-cols md:m:grid-{{ items | minus: 1 }}-cols lg:m:grid-{{ items }}-cols{% endif %}">
+        <div class="so-related__grid so-blog__grid">
           {%- for article in blog.articles -%}
-            {% render 'article-card', 
-              article: article, 
-              view: view,
-              index: forloop.index,
-              animated: animated, 
-              animation_effect: animation_effect
-            %}
+            {% render 'scale-o-related-card', article: article, heading_tag: 'h2' %}
           {% endfor %}
         </div>
         {%- if paginate.pages > 1 -%}
           {%- render 'pagination', paginate: paginate, animated: animated, animation_effect: animation_effect -%}
         {%- endif -%}
       </div>
-      
+
       {% if show_sidebar %}
         <div class="m-blog-sidebar{% if animated %} m-scroll-trigger animate--{{ animation_effect }}{% endif %}">
           {% render 'blog-sidebar' %}

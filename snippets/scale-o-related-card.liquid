@@ -1,0 +1,67 @@
+{%- comment -%}
+  Related article card for blog posts.
+  Accepts: article
+{%- endcomment -%}
+{%- liquid
+  assign image_alt = article.title
+  if article.image.alt != blank
+    assign image_alt = article.image.alt
+  endif
+
+  if article.excerpt != blank
+    assign card_excerpt = article.excerpt | strip_html
+  else
+    assign card_excerpt = article.content | strip_html
+  endif
+
+  assign word_count = article.content | strip_html | split: ' ' | size
+  assign read_minutes = word_count | plus: 199 | divided_by: 200
+  if read_minutes < 1
+    assign read_minutes = 1
+  endif
+  if heading_tag != 'h2'
+    assign heading_tag = 'h3'
+  endif
+-%}
+<a class="so-related-card" href="{{ article.url }}">
+  <span class="so-related-card__media">
+    {%- if article.image != blank -%}
+      {{
+        article.image
+        | image_url: width: 900
+        | image_tag:
+          loading: 'lazy',
+          widths: '400,640,900',
+          sizes: '(max-width: 767px) 92vw, (max-width: 1023px) 46vw, 32vw',
+          alt: image_alt
+      }}
+    {%- else -%}
+      <span class="so-related-card__fallback"></span>
+    {%- endif -%}
+  </span>
+  <span class="so-related-card__body">
+    {%- if heading_tag == 'h2' -%}
+      <h2 class="so-related-card__title">{{ article.title | escape }}</h2>
+    {%- else -%}
+      <h3 class="so-related-card__title">{{ article.title | escape }}</h3>
+    {%- endif -%}
+    {%- if card_excerpt != blank -%}
+      <p class="so-related-card__excerpt">{{ card_excerpt | truncate: 140 }}</p>
+    {%- endif -%}
+    <span class="so-related-card__meta">
+      <span class="so-related-card__time">
+        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <circle cx="8" cy="8" r="6.15" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M8 4.6V8l2.2 1.4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>{{ 'blogs.article.read_minutes' | t: count: read_minutes }}</span>
+      </span>
+      <span class="so-related-card__more">
+        <span>{{ 'blogs.article.read_more' | t }}</span>
+        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M3.5 8h9M9 4.5 12.5 8 9 11.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+    </span>
+  </span>
+</a>

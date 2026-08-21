@@ -94,59 +94,8 @@
                 {% endif %}
                 {% if section.settings.blog_show_social %}
                   {% assign url = shop.url | append: article.url %}
-                  {% render 'social-sharing', url: url, class: 'm:flex m:items-center' %}
+                  {% render 'scale-o-article-share', url: url %}
                 {% endif %}
-              </div>
-            {% endif %}
-
-            {%- comment -%}Next article card{%- endcomment -%}
-            {% liquid
-              assign next_post = blog.next_article
-              if next_post == null
-                assign next_post = blog.previous_article
-              endif
-            %}
-            {% if next_post != null %}
-              <a href="{{ next_post.url }}" class="so-next-card">
-                {% if next_post.image %}
-                  <div class="so-next-card__media">
-                    {% render 'responsive-image', image: next_post.image, image_class: 'w-full' %}
-                  </div>
-                {% endif %}
-                <div class="so-next-card__body">
-                  <span class="so-next-card__label">Next article</span>
-                  <span class="so-next-card__title">{{ next_post.title }}</span>
-                </div>
-              </a>
-            {% endif %}
-
-            {%- comment -%}Related Posts{%- endcomment -%}
-            {% if section.settings.show_related_articles %}
-              <div class="m-related-posts">
-                <h3 class="m-related-posts__heading">{{ 'blogs.article.related_title' | t }}</h3>
-                <div class="m-related-posts__wrapper m-mixed-layout m-mixed-layout--mobile-scroll">
-                  <div class="m-mixed-layout__inner m:grid m:grid-2-cols md:m:grid-3-cols">
-                    {% liquid
-                      assign currentID = article.id
-                      assign counter = 0
-
-                      for article in blog.articles limit: 4
-                        if counter > 3
-                          break
-                        endif
-
-                        if article.id == currentID
-                          continue
-                        endif
-
-                        echo '<div class="m:column">'
-                        render 'article-card', article: article, view: 'grid', content_align: section.settings.article_align_content, article_show_date: section.settings.article_show_date, article_show_tags: section.settings.article_show_tags, article_show_excerpt: section.settings.article_show_excerpt, article_show_button: section.settings.article_show_button, animated: animated, animation_effect: animation_effect
-                        echo '</div>'
-                        assign counter = counter | plus: 1
-                      endfor
-                    %}
-                  </div>
-                </div>
               </div>
             {% endif %}
 
@@ -237,83 +186,101 @@
                 </div>
               {% endif %}
 
-              <div class="m-comment-form" id="m-leave-comment">
-                {% form 'new_comment', article %}
-                  <div class="m-comment-form__header m:text-center">
-                    <h3 class="m-comment-form__heading">{{ 'blogs.comments.title' | t }}</h3>
-                    <p class="m-comment-form__text">{{ 'blogs.comments.sub_title' | t }}</p>
+              <div class="m-comment-form so-comment" id="m-leave-comment">
+                {% form 'new_comment', article, class: 'so-comment__form' %}
+                  {%- liquid
+                    assign body_invalid = false
+                    assign author_invalid = false
+                    assign email_invalid = false
+                    if form.errors contains 'body'
+                      assign body_invalid = true
+                    endif
+                    if form.errors contains 'author'
+                      assign author_invalid = true
+                    endif
+                    if form.errors contains 'email'
+                      assign email_invalid = true
+                    endif
+                  -%}
+                  <div class="so-comment__head">
+                    <h3 class="so-comment__title">{{ 'blogs.comments.title' | t }}</h3>
+                    <p class="so-comment__hint">{{ 'blogs.comments.sub_title' | t }}</p>
                   </div>
 
                   {% if form.errors %}
-                    <ul>
-                      {% for error in form.errors %}
-                        <li class="notification warning show">
-                          <svg
-                            class="m-svg-icon"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                          </svg>
-                          {% if error == 'form' %}
-                            {{ form.errors.messages[error] }}
-                          {% else %}
-                            {{ form.errors.translated_fields[error] }} - {{ form.errors.messages[error] }}
-                          {% endif %}
-                        </li>
-                      {% endfor %}
-                    </ul>
+                    <div class="so-comment__errors" role="alert">
+                      <ul>
+                        {% for error in form.errors %}
+                          <li>
+                            {% if error == 'form' %}
+                              {{ form.errors.messages[error] }}
+                            {% else %}
+                              {{ form.errors.translated_fields[error] }}: {{ form.errors.messages[error] }}
+                            {% endif %}
+                          </li>
+                        {% endfor %}
+                      </ul>
+                    </div>
                   {% endif %}
 
-                  <div class="m-comment-form__message">
-                    <label for="CommentBody" class="m:hidden">{{ 'blogs.comments.message' | t }}</label>
-                    <textarea
-                      name="comment[body]"
-                      id="CommentBody"
-                      class="form-field form-field--input"
-                      placeholder="{{ 'blogs.comments.message' | t }}"
-                      rows="6"
-                    >
-                  {{- form.body -}}
-                  </textarea>
-                  </div>
-
-                  <div class="m-comment-form__fields">
-                    <div>
-                      <label for="CommentAuthor" class="m:hidden">
+                  <div class="so-comment__grid">
+                    <div class="so-comment__field so-comment__field--full">
+                      <label for="CommentBody">
+                        {{ 'blogs.comments.message' | t }}
+                        <span class="so-comment__req" aria-hidden="true">*</span>
+                      </label>
+                      <textarea
+                        name="comment[body]"
+                        id="CommentBody"
+                        class="so-comment__input{% if body_invalid %} so-comment__input--error{% endif %}"
+                        rows="3"
+                        required
+                        aria-required="true"
+                        aria-invalid="{{ body_invalid }}"
+                      >{{- form.body -}}</textarea>
+                    </div>
+                    <div class="so-comment__field">
+                      <label for="CommentAuthor">
                         {{ 'blogs.comments.name' | t }}
+                        <span class="so-comment__req" aria-hidden="true">*</span>
                       </label>
                       <input
                         type="text"
                         name="comment[author]"
                         id="CommentAuthor"
-                        class="form-field form-field--input"
-                        placeholder="{{ 'blogs.comments.name' | t }}"
+                        class="so-comment__input{% if author_invalid %} so-comment__input--error{% endif %}"
                         value="{{ form.author }}"
+                        autocomplete="name"
                         autocapitalize="words"
+                        required
+                        aria-required="true"
+                        aria-invalid="{{ author_invalid }}"
                       >
                     </div>
-                    <div>
-                      <label for="CommentEmail" class="m:hidden">
+                    <div class="so-comment__field">
+                      <label for="CommentEmail">
                         {{ 'blogs.comments.email' | t }}
+                        <span class="so-comment__req" aria-hidden="true">*</span>
                       </label>
                       <input
                         type="email"
                         name="comment[email]"
                         id="CommentEmail"
-                        class="form-field form-field--input"
-                        placeholder="{{ 'blogs.comments.email' | t }}"
+                        class="so-comment__input{% if email_invalid %} so-comment__input--error{% endif %}"
                         value="{{ form.email }}"
+                        autocomplete="email"
                         spellcheck="false"
-                        autocomplete="off"
                         autocapitalize="off"
+                        required
+                        aria-required="true"
+                        aria-invalid="{{ email_invalid }}"
                       >
                     </div>
                   </div>
-                  <div class="m-comment-form__submit">
-                    <input type="submit" class="m-button m-button--primary" value="{{ 'blogs.comments.post' | t }}">
+                  <div class="so-comment__actions">
+                    <button type="submit" class="so-comment__submit">
+                      {{ 'blogs.comments.post' | t }}
+                    </button>
                   </div>
                 {% endform %}
               </div>
@@ -328,6 +295,32 @@
         </div>
       {% endif %}
     </div>
+
+    {% if section.settings.show_related_articles %}
+      <div class="so-related">
+        <div class="so-related__head">
+          <span class="so-related__tag">{{ 'blogs.article.related_kicker' | t }}</span>
+          <h2 class="so-related__heading">{{ 'blogs.article.related_title' | t }}</h2>
+          <p class="so-related__sub">{{ 'blogs.article.related_subtitle' | t }}</p>
+        </div>
+        <div class="so-related__grid">
+          {% liquid
+            assign current_id = article.id
+            assign related_count = 0
+          %}
+          {% for related_post in blog.articles %}
+            {% if related_post.id == current_id %}
+              {% continue %}
+            {% endif %}
+            {% if related_count >= 3 %}
+              {% break %}
+            {% endif %}
+            {% render 'scale-o-related-card', article: related_post %}
+            {% assign related_count = related_count | plus: 1 %}
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
   </div>
 </section>
 <script type="application/ld+json">

@@ -1,0 +1,55 @@
+{%- comment -%}
+  Compact plan-feature benefit for the cartridge pack bar.
+  Title is derived from variant_information metafields (same rules as Plan Features).
+{%- endcomment -%}
+{%- liquid
+  assign liner = item.liner | strip
+  assign feature_title = item.title | default: item.heading
+  assign liner_down = liner | downcase
+  assign title_down = feature_title | downcase
+
+  if feature_title == blank and liner != blank
+    if liner contains ' with '
+      assign liner_parts = liner | split: ' with '
+      assign feature_title = liner_parts.first
+    elsif liner_down contains 'cartridge' or liner_down contains 'home delivered'
+      assign feature_title = 'Timely Cartridge Delivery'
+    elsif liner_down contains 'track order' or liner_down contains 'remind'
+      assign feature_title = 'Order Tracking & Reminders'
+    elsif liner_down contains 'hidden extra' or liner_down contains 'transparent pricing'
+      assign feature_title = 'No Hidden Extra Charges'
+    elsif liner_down contains 'delivery or exchange' or liner_down contains 'charges are included' or liner_down contains 'charges included'
+      assign feature_title = "Delivery's on us"
+    else
+      assign feature_title = liner
+    endif
+  endif
+
+  if title_down contains 'charges are included' or title_down contains 'charges included' or liner_down contains 'charges are included' or liner_down contains 'charges included' or liner_down contains 'delivery or exchange'
+    if feature_title == blank or title_down contains 'charges are included' or title_down contains 'charges included' or title_down contains 'delivery or exchange'
+      assign feature_title = "Delivery's on us"
+    endif
+  endif
+
+  assign check_down = feature_title | downcase | append: ' ' | append: liner_down
+  assign icon_type = 'check'
+  if check_down contains 'guarantee' or check_down contains 'replacement' or check_down contains 'damage'
+    assign icon_type = 'shield'
+  elsif check_down contains 'track' or check_down contains 'remind'
+    assign icon_type = 'clipboard'
+  elsif check_down contains 'hidden' or check_down contains 'pricing' or check_down contains 'extra charge'
+    assign icon_type = 'tag'
+  elsif check_down contains 'delivery' or check_down contains 'exchange' or check_down contains 'charges included'
+    assign icon_type = 'box'
+  elsif check_down contains 'subscription' or check_down contains 'trial' or check_down contains 'pay for' or check_down contains 'calendar'
+    assign icon_type = 'calendar'
+  endif
+-%}
+{%- if feature_title != blank -%}
+  <div class="cpk__benefit">
+    <span class="cpk__benefit-icon">
+      {% render 'cartridge-pack-benefit-icon', icon: icon_type %}
+    </span>
+    <span class="cpk__benefit-text">{{ feature_title | escape }}</span>
+  </div>
+{%- endif -%}

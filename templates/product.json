@@ -175,15 +175,9 @@
         "sticky_atc_wishtlist": false,
         "sticky_atc_compare": false,
         "show_cartridge_pack": true,
-        "cartridge_pack_heading": "Bundle of Cartridges",
+        "cartridge_pack_heading": "Plan Features",
         "cartridge_pack_hint": "Tap a cartridge to see when it arrives",
-        "cartridge_pack_per_label": "per cartridge",
-        "cartridge_pack_benefit_1": "Hassle-Free|Auto Replenishment",
-        "cartridge_pack_benefit_2": "Consistent|Soft Water Quality",
-        "cartridge_pack_benefit_3": "Saves Time|& Extra Cost",
-        "cartridge_pack_benefit_4": "Peace of Mind|for Years",
-        "cartridge_pack_terms_heading": "Terms & Conditions",
-        "cartridge_pack_terms": "<p>This pack is the cartridge bundle for the plan you picked. The count always follows Plan Features, so if that copy changes, this box updates with it.</p><p>Cartridge 1 ships with your order. The rest are home delivered a few days before each 6 month swap. Scale-O tracks the cycle and reminds you when an exchange is due. Delivery and exchange stay included in the plan price.</p><p>Cost per cartridge is this plan price split across the pack. You pay once. No extra cartridge bill later.</p><p><strong>Refund.</strong> Ask within 7 days if the order is undelivered or missing. Unused product in original packing can be sent back for a refund. Once the guarantee is activated, refunds stop and only replacement applies.</p><p><strong>Replacement.</strong> Flag damage within 24 hours of delivery. If a cartridge expires before 6 months, send photo and video proof. Activate the guarantee on our site after install. No activation, no replacement.</p><p>Read the full <a href=\"/pages/refurnd-policy\" title=\"Refund policy\">refund policy</a> and <a href=\"/pages/exchange-policy\" title=\"Replacement policy\">replacement policy</a>.</p>"
+        "cartridge_pack_per_label": "per cartridge"
       }
     },
     "product-details-tabs": {
@@ -496,79 +490,11 @@
     },
     "scale_o_usp": {
       "type": "scale-o-usp",
-      "blocks": {
-        "usp_cost": {
-          "type": "usp_card",
-          "settings": {
-            "icon": "rupee",
-            "title": "Zero Operating Cost"
-          }
-        },
-        "usp_power": {
-          "type": "usp_card",
-          "settings": {
-            "icon": "electricity",
-            "title": "Zero Electricity"
-          }
-        },
-        "usp_salt": {
-          "type": "usp_card",
-          "settings": {
-            "icon": "salt",
-            "title": "Zero Salt"
-          }
-        },
-        "usp_water": {
-          "type": "usp_card",
-          "settings": {
-            "icon": "water",
-            "title": "Zero Water Wastage"
-          }
-        },
-        "usp_maint": {
-          "type": "usp_card",
-          "settings": {
-            "icon": "maintenance",
-            "title": "Zero Maintenance"
-          }
-        },
-        "usp_man": {
-          "type": "usp_card",
-          "settings": {
-            "icon": "manpower",
-            "title": "Zero Manpower"
-          }
-        },
-        "usp_plumb": {
-          "type": "usp_card",
-          "settings": {
-            "icon": "plumbing",
-            "title": "Zero Plumbing"
-          }
-        }
-      },
-      "block_order": [
-        "usp_cost",
-        "usp_power",
-        "usp_salt",
-        "usp_water",
-        "usp_maint",
-        "usp_man",
-        "usp_plumb"
-      ],
       "settings": {
-        "eyebrow": "SCALE-O USP",
-        "heading": "Scale-O: 0 Factor",
-        "description": "<p>Scale-O chemically alters the structure and forms a coating on Ca²⁺ &amp; Mg²⁺ ions present in hard water such that they do not react with negative ions like Cl⁻ or SO₄²⁻ and prevents the formation of insoluble salts or scale in common language.</p>",
-        "heading_color": "#0c7fdf",
-        "text_color": "#374151",
-        "accent_color": "#0c7fdf",
-        "card_background": "#ffffff",
-        "card_radius": 16,
-        "padding_top": 48,
-        "padding_bottom": 56,
-        "padding_top_mobile": 32,
-        "padding_bottom_mobile": 36
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0
       }
     },
     "scale_o_product_fit": {

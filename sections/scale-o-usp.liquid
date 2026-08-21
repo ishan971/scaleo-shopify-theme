@@ -1,30 +1,33 @@
 {%- comment -%}
-  SCALE-O USP — full-width water background, white feature cards
+  SCALE-O USP — full-width banner image only (desktop + mobile, Shopify-editable)
 {%- endcomment -%}
-
 {{ 'scale-o-usp.css' | asset_url | stylesheet_tag }}
 
 {%- liquid
-  assign bg_image = section.settings.background_image
-  if bg_image != blank
-    assign bg_url = bg_image | image_url: width: 2400
+  assign banner = section.settings.banner_image
+  assign banner_mobile = section.settings.banner_image_mobile
+  assign banner_alt = 'SCALE-O USP'
+
+  if banner != blank
+    assign banner_alt = banner.alt | default: banner_alt
+    assign desktop_src = banner | image_url: width: 2880
   else
-    assign bg_url = 'scale-o-usp-bg.png' | asset_url
+    assign desktop_src = 'scale-o-usp-banner.jpg' | asset_url
   endif
-  assign heading = section.settings.heading
-  assign eyebrow = section.settings.eyebrow
-  assign description = section.settings.description
+
+  if banner_mobile != blank
+    if banner_mobile.alt != blank
+      assign banner_alt = banner_mobile.alt
+    endif
+    assign mobile_src = banner_mobile | image_url: width: 1500
+  else
+    assign mobile_src = 'scale-o-usp-banner-mobile.jpg' | asset_url
+  endif
 -%}
 
 <style>
   #shopify-section-{{ section.id }} .so-usp {
-    --so-usp-heading: {{ section.settings.heading_color }};
-    --so-usp-text: {{ section.settings.text_color }};
-    --so-usp-accent: {{ section.settings.accent_color }};
-    --so-usp-card: {{ section.settings.card_background }};
-    --so-usp-radius: {{ section.settings.card_radius }}px;
     padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px;
-    background-image: url({{ bg_url }});
   }
   @media screen and (max-width: 767px) {
     #shopify-section-{{ section.id }} .so-usp {
@@ -33,34 +36,37 @@
   }
 </style>
 
-<div class="so-usp" id="scale-o-usp">
-  <div class="container-fluid so-usp__inner">
-    <div class="so-usp__copy">
-      {%- if eyebrow != blank -%}
-        <p class="so-usp__eyebrow">{{ eyebrow | escape }}</p>
-      {%- endif -%}
-      {%- if heading != blank -%}
-        <h2 class="so-usp__heading">{{ heading | escape }}</h2>
-      {%- endif -%}
-      {%- if description != blank -%}
-        <div class="so-usp__desc rte">{{ description }}</div>
-      {%- endif -%}
-    </div>
-
-    {%- if section.blocks.size > 0 -%}
-      <div class="so-usp__cards">
-        {%- for block in section.blocks -%}
-          <article class="so-usp__card{% if forloop.last and section.blocks.size == 7 %} so-usp__card--wide{% endif %}" {{ block.shopify_attributes }}>
-            <span class="so-usp__icon" aria-hidden="true">
-              {%- render 'usp-strip-icon', icon: block.settings.icon, class: 'so-usp__svg' -%}
-            </span>
-            {%- if block.settings.title != blank -%}
-              <h3 class="so-usp__card-title">{{ block.settings.title | escape }}</h3>
-            {%- endif -%}
-          </article>
-        {%- endfor -%}
-      </div>
-    {%- endif -%}
+<div class="so-usp so-usp--banner" id="scale-o-usp">
+  <div class="so-usp__banner">
+    <picture>
+      <source
+        media="(max-width: 767px)"
+        srcset="{% if banner_mobile != blank %}{{ banner_mobile | image_url: width: 750 }} 750w, {{ banner_mobile | image_url: width: 1100 }} 1100w, {{ banner_mobile | image_url: width: 1500 }} 1500w{% else %}{{ mobile_src }}{% endif %}"
+        {% if banner_mobile != blank %}sizes="100vw"{% endif %}
+      >
+      {% if banner != blank %}
+        <source
+          media="(min-width: 768px)"
+          srcset="
+            {{ banner | image_url: width: 1100 }} 1100w,
+            {{ banner | image_url: width: 1500 }} 1500w,
+            {{ banner | image_url: width: 2000 }} 2000w,
+            {{ banner | image_url: width: 2400 }} 2400w,
+            {{ banner | image_url: width: 2880 }} 2880w
+          "
+          sizes="100vw"
+        >
+      {% endif %}
+      <img
+        class="so-usp__banner-img"
+        src="{{ desktop_src }}"
+        alt="{{ banner_alt | escape }}"
+        width="{% if banner != blank %}{{ banner.width | default: 2560 }}{% else %}2560{% endif %}"
+        height="{% if banner != blank %}{{ banner.height | default: 1022 }}{% else %}1022{% endif %}"
+        loading="lazy"
+        decoding="async"
+      >
+    </picture>
   </div>
 </div>
 
@@ -69,77 +75,18 @@
   "name": "SCALE-O USP",
   "tag": "section",
   "class": "scale-o-usp-section",
-  "max_blocks": 8,
   "settings": [
     {
-      "type": "header",
-      "content": "Content"
-    },
-    {
-      "type": "text",
-      "id": "eyebrow",
-      "label": "Eyebrow",
-      "default": "SCALE-O USP"
-    },
-    {
-      "type": "text",
-      "id": "heading",
-      "label": "Heading",
-      "default": "Scale-O: 0 Factor"
-    },
-    {
-      "type": "richtext",
-      "id": "description",
-      "label": "Description",
-      "default": "<p>Scale-O chemically alters the structure and forms a coating on Ca+2 &amp; Mg+2 ions present in hard water such that they do not react with negative ions like Cl-1 or SO4-2 and prevents the formation of insoluble salts or scale in common language.</p>"
-    },
-    {
-      "type": "header",
-      "content": "Background"
+      "type": "image_picker",
+      "id": "banner_image",
+      "label": "Desktop banner",
+      "info": "Wide landscape image. Best at 2000–2500px wide."
     },
     {
       "type": "image_picker",
-      "id": "background_image",
-      "label": "Background image",
-      "info": "Leave empty to use the default water splash background."
-    },
-    {
-      "type": "header",
-      "content": "Colors"
-    },
-    {
-      "type": "color",
-      "id": "heading_color",
-      "label": "Heading",
-      "default": "#0C7FDF"
-    },
-    {
-      "type": "color",
-      "id": "text_color",
-      "label": "Text",
-      "default": "#374151"
-    },
-    {
-      "type": "color",
-      "id": "accent_color",
-      "label": "Accent",
-      "default": "#0C7FDF"
-    },
-    {
-      "type": "color",
-      "id": "card_background",
-      "label": "Card background",
-      "default": "#FFFFFF"
-    },
-    {
-      "type": "range",
-      "id": "card_radius",
-      "label": "Card corner radius",
-      "min": 8,
-      "max": 24,
-      "step": 1,
-      "unit": "px",
-      "default": 16
+      "id": "banner_image_mobile",
+      "label": "Mobile banner",
+      "info": "Tall portrait image for phones. Leave empty to use the default mobile banner."
     },
     {
       "type": "header",
@@ -149,85 +96,47 @@
       "type": "range",
       "id": "padding_top",
       "label": "Top padding",
-      "min": 32,
-      "max": 120,
+      "min": 0,
+      "max": 80,
       "step": 4,
       "unit": "px",
-      "default": 48
+      "default": 0
     },
     {
       "type": "range",
       "id": "padding_bottom",
       "label": "Bottom padding",
-      "min": 32,
-      "max": 140,
+      "min": 0,
+      "max": 80,
       "step": 4,
       "unit": "px",
-      "default": 56
+      "default": 0
     },
     {
       "type": "range",
       "id": "padding_top_mobile",
       "label": "Top padding (mobile)",
-      "min": 24,
-      "max": 80,
+      "min": 0,
+      "max": 60,
       "step": 4,
       "unit": "px",
-      "default": 32
+      "default": 0
     },
     {
       "type": "range",
       "id": "padding_bottom_mobile",
       "label": "Bottom padding (mobile)",
-      "min": 24,
-      "max": 80,
+      "min": 0,
+      "max": 60,
       "step": 4,
       "unit": "px",
-      "default": 36
-    }
-  ],
-  "blocks": [
-    {
-      "type": "usp_card",
-      "name": "USP card",
-      "settings": [
-        {
-          "type": "select",
-          "id": "icon",
-          "label": "Icon",
-          "default": "rupee",
-          "options": [
-            { "value": "rupee", "label": "Operating cost" },
-            { "value": "electricity", "label": "Electricity" },
-            { "value": "salt", "label": "Salt" },
-            { "value": "water", "label": "Water" },
-            { "value": "maintenance", "label": "Maintenance" },
-            { "value": "manpower", "label": "Manpower" },
-            { "value": "plumbing", "label": "Plumbing" }
-          ]
-        },
-        {
-          "type": "text",
-          "id": "title",
-          "label": "Title",
-          "default": "Zero Operating Cost"
-        }
-      ]
+      "default": 0
     }
   ],
   "presets": [
     {
       "name": "SCALE-O USP",
-      "category": "Product",
-      "blocks": [
-        { "type": "usp_card", "settings": { "icon": "rupee", "title": "Zero Operating Cost" } },
-        { "type": "usp_card", "settings": { "icon": "electricity", "title": "Zero Electricity" } },
-        { "type": "usp_card", "settings": { "icon": "salt", "title": "Zero Salt" } },
-        { "type": "usp_card", "settings": { "icon": "water", "title": "Zero Water Wastage" } },
-        { "type": "usp_card", "settings": { "icon": "maintenance", "title": "Zero Maintenance" } },
-        { "type": "usp_card", "settings": { "icon": "manpower", "title": "Zero Manpower" } },
-        { "type": "usp_card", "settings": { "icon": "plumbing", "title": "Zero Plumbing" } }
-      ]
+      "category": "Product"
     }
   ]
 }

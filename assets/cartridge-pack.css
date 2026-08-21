@@ -11,6 +11,7 @@
   font-weight: 700;
   color: #111;
   margin: 0 0 16px;
+  padding-left: 6px;
   text-align: left;
 }
 
@@ -331,6 +332,7 @@
   font-weight: 700;
   color: #0d2b6b;
   min-width: 0;
+  text-align: left;
 }
 
 .cpk__footer {
@@ -492,7 +494,7 @@
   .cpk__heading {
     font-size: 18px;
     margin-bottom: 12px;
-    padding: 0 4px;
+    padding: 0 2px;
   }
 
   .cpk__card {

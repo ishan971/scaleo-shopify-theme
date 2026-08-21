@@ -29,11 +29,9 @@
     endfor
   endif
 
-  assign heading = section.settings.cartridge_pack_heading | default: 'Bundle of Cartridges'
+  assign heading = section.settings.cartridge_pack_heading | default: 'Plan Features'
   assign hint = section.settings.cartridge_pack_hint | default: 'Tap a cartridge to see when it arrives'
   assign per_label = section.settings.cartridge_pack_per_label | default: 'per cartridge'
-  assign terms_heading = section.settings.cartridge_pack_terms_heading | default: 'Terms & Conditions'
-  assign terms = section.settings.cartridge_pack_terms
   assign cartridge_image = section.settings.cartridge_pack_image
   assign card_bg = section.settings.cartridge_pack_bg
   if card_bg == blank
@@ -41,9 +39,6 @@
   else
     assign card_bg = card_bg | image_url: width: 1400
   endif
-
-  assign benefit_icons = 'calendar,droplet,savings,shield' | split: ','
-  assign benefit_defaults = 'Hassle-Free|Auto Replenishment,Consistent|Soft Water Quality,Saves Time|& Extra Cost,Peace of Mind|for Years' | split: ','
 -%}
 
 {%- if has_pack -%}
@@ -169,39 +164,26 @@
 
               <div class="cpk__bottom">
               <div class="cpk__benefits">
-                {%- for i in (1..4) -%}
-                  {%- liquid
-                    assign benefit_index = forloop.index0
-                    case i
-                      when 1
-                        assign benefit_raw = section.settings.cartridge_pack_benefit_1
-                      when 2
-                        assign benefit_raw = section.settings.cartridge_pack_benefit_2
-                      when 3
-                        assign benefit_raw = section.settings.cartridge_pack_benefit_3
-                      when 4
-                        assign benefit_raw = section.settings.cartridge_pack_benefit_4
-                    endcase
-                    if benefit_raw == blank
-                      assign benefit_raw = benefit_defaults[benefit_index]
-                    endif
-                    assign benefit_parts = benefit_raw | split: '|'
-                    assign benefit_line1 = benefit_parts[0] | strip
-                    assign benefit_line2 = benefit_parts[1] | strip
-                    assign benefit_text = benefit_line1
-                    if benefit_line2 != blank
-                      assign benefit_text = benefit_text | append: ' ' | append: benefit_line2
-                    endif
-                  -%}
-                  {%- if benefit_text != blank -%}
-                    <div class="cpk__benefit">
-                      <span class="cpk__benefit-icon">
-                        {% render 'cartridge-pack-benefit-icon', icon: benefit_icons[benefit_index] %}
-                      </span>
-                      <span class="cpk__benefit-text">{{ benefit_text | escape }}</span>
-                    </div>
-                  {%- endif -%}
-                {%- endfor -%}
+                {%- if variant.metafields.custom.variant_information != blank -%}
+                  {%- for item in variant.metafields.custom.variant_information.value -%}
+                    {%- liquid
+                      assign benefit_blob = item.liner | append: ' ' | append: item.title | append: ' ' | append: item.heading | append: ' ' | append: item.description | append: ' ' | append: item.text | append: ' ' | append: item.details | append: ' ' | append: item.subtext | downcase
+                      assign skip_benefit = false
+                      if benefit_blob contains 'cartridge' and benefit_blob contains 'included'
+                        assign skip_benefit = true
+                      endif
+                      if benefit_blob contains 'timely cartridge' or benefit_blob contains 'home delivered'
+                        assign skip_benefit = true
+                      endif
+                      if benefit_blob contains 'pay for' or benefit_blob contains 'subscription' or benefit_blob contains 'months trial' or benefit_blob contains 'worry-free usage'
+                        assign skip_benefit = true
+                      endif
+                    -%}
+                    {%- unless skip_benefit -%}
+                      {% render 'cartridge-pack-plan-benefit', item: item %}
+                    {%- endunless -%}
+                  {%- endfor -%}
+                {%- endif -%}
               </div>
 
               <div class="cpk__footer">
@@ -218,16 +200,6 @@
               </div>
               </div>
             </div>
-
-            {%- if terms != blank -%}
-              <details class="cpk__terms">
-                <summary class="cpk__terms-btn">
-                  <span>{{ terms_heading | escape }}</span>
-                  <span class="cpk__terms-plus" aria-hidden="true"></span>
-                </summary>
-                <div class="cpk__terms-body rte">{{ terms }}</div>
-              </details>
-            {%- endif -%}
           </div>
         </div>
       {%- endif -%}

@@ -313,6 +313,35 @@
   color: var(--soa-text);
 }
 
+.scale-o-advantages--grid .scale-o-advantages__grid--flat {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--soa-gap);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media (min-width: 768px) {
+  .scale-o-advantages--grid .scale-o-advantages__grid--flat {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
+  .scale-o-advantages--grid .scale-o-advantages__card-body {
+    padding: 10px 12px 12px;
+  }
+
+  .scale-o-advantages--grid .scale-o-advantages__card-desc {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+
 @media (min-width: 768px) {
   .scale-o-advantages__heading {
     font-size: var(--soa-heading-size-desktop);

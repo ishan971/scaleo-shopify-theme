@@ -1,0 +1,65 @@
+{%- comment -%}
+  Benefit card for people-property-advantages (same images/fallbacks as before)
+  Accepts: block, cat_handle, shown_benefits, show_card_index
+{%- endcomment -%}
+{%- liquid
+  assign benefit_image = block.settings.image
+  assign benefit_mobile = block.settings.image_mobile | default: benefit_image
+  assign benefit_alt = block.settings.image_alt | default: block.settings.title | default: 'Scale-O benefit'
+  assign card_index = shown_benefits | prepend: '0' | slice: -2, 2
+  assign card_tag = 'article'
+  if block.settings.link != blank
+    assign card_tag = 'a'
+  endif
+  assign benefit_fallback = 'scale-o-adv-' | append: cat_handle | append: '-' | append: shown_benefits | append: '.jpg'
+-%}
+<li data-soa-animate {{ block.shopify_attributes }}>
+  <{{ card_tag }}
+    class="scale-o-advantages__card"
+    {% if block.settings.link != blank %}href="{{ block.settings.link }}"{% endif %}
+  >
+    <div class="scale-o-advantages__card-media">
+      {%- if benefit_image != blank -%}
+        <picture>
+          {%- if block.settings.image_mobile != blank -%}
+            <source media="(max-width: 767px)" srcset="{{ benefit_mobile | image_url: width: 800 }}">
+          {%- endif -%}
+          {{
+            benefit_image
+            | image_url: width: 900
+            | image_tag:
+              loading: 'lazy',
+              widths: '400,640,900',
+              sizes: '(max-width: 767px) 48vw, (max-width: 899px) 50vw, 22vw',
+              alt: benefit_alt
+          }}
+        </picture>
+      {%- elsif shown_benefits <= 4 -%}
+        <img
+          src="{{ benefit_fallback | asset_url }}"
+          alt="{{ benefit_alt | escape }}"
+          width="800"
+          height="450"
+          loading="lazy"
+        >
+      {%- endif -%}
+      {%- if show_card_index -%}
+        <span class="scale-o-advantages__card-index">{{ card_index }}</span>
+      {%- endif -%}
+    </div>
+    <div class="scale-o-advantages__card-body">
+      {%- if block.settings.short_label != blank -%}
+        <p class="scale-o-advantages__card-label">{{ block.settings.short_label | escape }}</p>
+      {%- endif -%}
+      {%- if block.settings.title != blank -%}
+        <h4 class="scale-o-advantages__card-title">{{ block.settings.title | escape }}</h4>
+      {%- endif -%}
+      {%- if block.settings.description != blank -%}
+        <p class="scale-o-advantages__card-desc">{{ block.settings.description | escape }}</p>
+      {%- endif -%}
+      {%- if block.settings.cta_text != blank -%}
+        <span class="scale-o-advantages__card-cta">{{ block.settings.cta_text | escape }}</span>
+      {%- endif -%}
+    </div>
+  </{{ card_tag }}>
+</li>

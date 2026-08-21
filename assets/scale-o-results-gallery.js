@@ -1,13 +1,12 @@
 /**
- * Scale-O results gallery — reveal
+ * Scale-O results gallery — infinite marquee + header reveal
+ * Seamless loop via duplicated sets + translateX(-50%).
+ * Pauses on hover / focus / touch for a clean mobile feel.
  */
 (function () {
   var REDUCE = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-  function init(root) {
-    if (!root || root.dataset.srgInit === 'true') return;
-    root.dataset.srgInit = 'true';
-
+  function initReveal(root) {
     var items = root.querySelectorAll('[data-srg-animate]');
     if (!items.length) return;
 
@@ -31,6 +30,67 @@
     });
   }
 
+  function initMarquee(root) {
+    var marquee = root.querySelector('[data-srg-marquee]');
+    if (!marquee) return;
+
+    if (root.dataset.marquee !== 'true' || REDUCE.matches) {
+      root.classList.add('is-static');
+      return;
+    }
+
+    var pauseCount = 0;
+
+    function pause() {
+      pauseCount += 1;
+      root.classList.add('is-paused');
+    }
+
+    function resume() {
+      pauseCount = Math.max(0, pauseCount - 1);
+      if (pauseCount === 0) root.classList.remove('is-paused');
+    }
+
+    marquee.addEventListener('mouseenter', pause);
+    marquee.addEventListener('mouseleave', resume);
+    marquee.addEventListener('focusin', pause);
+    marquee.addEventListener('focusout', function (event) {
+      if (!marquee.contains(event.relatedTarget)) resume();
+    });
+
+    var touchTimer = null;
+    marquee.addEventListener('touchstart', function () {
+      pause();
+      if (touchTimer) clearTimeout(touchTimer);
+    }, { passive: true });
+
+    marquee.addEventListener('touchend', function () {
+      if (touchTimer) clearTimeout(touchTimer);
+      touchTimer = setTimeout(resume, 1200);
+    }, { passive: true });
+
+    marquee.addEventListener('touchcancel', function () {
+      if (touchTimer) clearTimeout(touchTimer);
+      touchTimer = setTimeout(resume, 400);
+    }, { passive: true });
+
+    // Pause when tab is hidden to avoid jump on return
+    document.addEventListener('visibilitychange', function () {
+      if (document.hidden) {
+        root.classList.add('is-paused');
+      } else if (pauseCount === 0) {
+        root.classList.remove('is-paused');
+      }
+    });
+  }
+
+  function init(root) {
+    if (!root || root.dataset.srgInit === 'true') return;
+    root.dataset.srgInit = 'true';
+    initReveal(root);
+    initMarquee(root);
+  }
+
   function boot() {
     document.querySelectorAll('.scale-o-results').forEach(init);
   }
@@ -43,6 +103,9 @@
 
   document.addEventListener('shopify:section:load', function (event) {
     var root = event.target && event.target.querySelector('.scale-o-results');
-    if (root) init(root);
+    if (root) {
+      delete root.dataset.srgInit;
+      init(root);
+    }
   });
 })();

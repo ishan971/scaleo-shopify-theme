@@ -136,8 +136,7 @@
   cursor: pointer;
 }
 
-.scale-o-cert__card:hover .scale-o-cert__preview,
-.scale-o-cert__card:hover .scale-o-cert__view {
+.scale-o-cert__card:hover .scale-o-cert__preview {
   cursor: pointer;
 }
 

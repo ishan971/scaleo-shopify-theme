@@ -1,5 +1,5 @@
 {%- comment -%}
-  Scale-O Before & After Results — all images visible, no slider
+  Scale-O Before & After Results — infinite marquee row
 {%- endcomment -%}
 
 {{ 'scale-o-results-gallery.css' | asset_url | stylesheet_tag }}
@@ -25,6 +25,8 @@
       endif
     endif
   endfor
+
+  assign marquee_speed = section.settings.marquee_speed | default: 40
 -%}
 
 <style>
@@ -38,9 +40,8 @@
     --srg-border: {{ section.settings.card_border_color }};
     --srg-radius: {{ section.settings.card_radius }}px;
     --srg-gap: {{ section.settings.card_spacing }}px;
-    --srg-cols: {{ section.settings.desktop_columns }};
-    --srg-cols-tablet: {{ section.settings.tablet_columns }};
     --srg-media-h: {{ section.settings.image_height_mobile }}px;
+    --srg-card-w: {{ section.settings.card_width_mobile }}px;
     --srg-eyebrow-size: {{ section.settings.eyebrow_size }}px;
     --srg-heading-size: {{ section.settings.heading_size_mobile }}px;
     --srg-heading-size-desktop: {{ section.settings.heading_size_desktop }}px;
@@ -50,6 +51,7 @@
     --srg-header-align: {{ header_align }};
     --srg-max-width: {% if section.settings.max_width == 0 %}100%{% else %}{{ section.settings.max_width }}px{% endif %};
     --srg-shadow: {% if section.settings.show_card_shadow %}0 10px 28px rgba(20, 43, 74, 0.08){% else %}none{% endif %};
+    --srg-marquee-duration: {{ marquee_speed }}s;
     margin-top: {{ section.settings.margin_top }}px;
     margin-bottom: {{ section.settings.margin_bottom }}px;
     padding: {{ section.settings.padding_top_mobile }}px 0 {{ section.settings.padding_bottom_mobile }}px;
@@ -58,6 +60,7 @@
   @media (min-width: 768px) {
     #shopify-section-{{ section.id }} .scale-o-results {
       --srg-media-h: {{ section.settings.image_height }}px;
+      --srg-card-w: {{ section.settings.card_width }}px;
       padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px;
     }
   }
@@ -67,6 +70,7 @@
   class="scale-o-results"
   data-section-id="{{ section.id }}"
   data-animate="{% if section.settings.enable_animations %}true{% else %}false{% endif %}"
+  data-marquee="{% if section.settings.enable_marquee %}true{% else %}false{% endif %}"
   role="region"
   aria-label="{{ section.settings.accessibility_label | default: 'Before and after results' | escape }}"
 >
@@ -95,53 +99,74 @@
         {%- endif -%}
       </header>
     {%- endif -%}
-
-    {%- if result_count > 0 -%}
-      <ul class="scale-o-results__grid" role="list">
-        {%- for block in section.blocks -%}
-          {%- if block.type == 'result' and block.settings.enabled != false -%}
-            {%- if block.settings.image != blank or block.settings.image_url != blank -%}
-              {%- assign result_alt = block.settings.title | default: section.settings.heading | default: 'Before and after result' -%}
-              <li class="scale-o-results__card" data-srg-animate {{ block.shopify_attributes }}>
-                <figure class="scale-o-results__figure">
-                  <div class="scale-o-results__media">
-                    {%- if block.settings.image != blank -%}
-                      {{
-                        block.settings.image
-                        | image_url: width: 900
-                        | image_tag:
-                          loading: 'lazy',
-                          widths: '320,480,720,900',
-                          sizes: '(max-width: 767px) 48vw, (max-width: 1024px) 32vw, 360px',
-                          alt: result_alt
-                      }}
-                    {%- else -%}
-                      <img src="{{ block.settings.image_url | escape }}" alt="{{ result_alt | escape }}" loading="lazy" width="720" height="540">
-                    {%- endif -%}
-                  </div>
-                  {%- if block.settings.label != blank or block.settings.title != blank -%}
-                    <figcaption class="scale-o-results__caption">
-                      {%- if block.settings.label != blank -%}
-                        <span class="scale-o-results__tag">{{ block.settings.label | escape }}</span>
-                      {%- endif -%}
-                      {%- if block.settings.title != blank -%}
-                        <span class="scale-o-results__title">{{ block.settings.title | escape }}</span>
-                      {%- endif -%}
-                    </figcaption>
-                  {%- endif -%}
-                </figure>
-              </li>
-            {%- endif -%}
-          {%- endif -%}
-        {%- endfor -%}
-      </ul>
-    {%- endif -%}
   </div>
+
+  {%- if result_count > 0 -%}
+    <div class="scale-o-results__marquee" data-srg-marquee>
+      <div class="scale-o-results__viewport">
+        <div class="scale-o-results__track" data-srg-track>
+          {%- for copy in (1..2) -%}
+            <ul
+              class="scale-o-results__set"
+              role="list"
+              {% if copy == 2 %}aria-hidden="true"{% endif %}
+            >
+              {%- for block in section.blocks -%}
+                {%- if block.type == 'result' and block.settings.enabled != false -%}
+                  {%- if block.settings.image != blank or block.settings.image_url != blank -%}
+                    {%- assign result_alt = block.settings.title | default: section.settings.heading | default: 'Before and after result' -%}
+                    <li
+                      class="scale-o-results__card"
+                      {% if copy == 1 %}{{ block.shopify_attributes }}{% endif %}
+                    >
+                      <figure class="scale-o-results__figure">
+                        <div class="scale-o-results__media">
+                          {%- if block.settings.image != blank -%}
+                            {{
+                              block.settings.image
+                              | image_url: width: 900
+                              | image_tag:
+                                loading: 'lazy',
+                                widths: '360,480,720,900',
+                                sizes: '(max-width: 767px) 78vw, 360px',
+                                alt: result_alt,
+                                draggable: 'false'
+                            }}
+                          {%- else -%}
+                            <img
+                              src="{{ block.settings.image_url | escape }}"
+                              alt="{{ result_alt | escape }}"
+                              loading="lazy"
+                              width="720"
+                              height="540"
+                              draggable="false"
+                            >
+                          {%- endif -%}
+                        </div>
+                        {%- if block.settings.label != blank or block.settings.title != blank -%}
+                          <figcaption class="scale-o-results__caption">
+                            {%- if block.settings.label != blank -%}
+                              <span class="scale-o-results__tag">{{ block.settings.label | escape }}</span>
+                            {%- endif -%}
+                            {%- if block.settings.title != blank -%}
+                              <span class="scale-o-results__title">{{ block.settings.title | escape }}</span>
+                            {%- endif -%}
+                          </figcaption>
+                        {%- endif -%}
+                      </figure>
+                    </li>
+                  {%- endif -%}
+                {%- endif -%}
+              {%- endfor -%}
+            </ul>
+          {%- endfor -%}
+        </div>
+      </div>
+    </div>
+  {%- endif -%}
 </div>
 
-{%- if section.settings.enable_animations -%}
-  <script src="{{ 'scale-o-results-gallery.js' | asset_url }}" defer></script>
-{%- endif -%}
+<script src="{{ 'scale-o-results-gallery.js' | asset_url }}" defer></script>
 
 {% schema %}
 {
@@ -171,16 +196,18 @@
     { "type": "text", "id": "before_label", "label": "Before label", "default": "Before" },
     { "type": "text", "id": "after_label", "label": "After label", "default": "After" },
 
-    { "type": "header", "content": "Layout" },
-    { "type": "range", "id": "desktop_columns", "label": "Desktop columns", "min": 2, "max": 4, "step": 1, "default": 3 },
-    { "type": "range", "id": "tablet_columns", "label": "Tablet columns", "min": 1, "max": 3, "step": 1, "default": 3 },
-    { "type": "range", "id": "image_height", "label": "Image height (desktop)", "min": 180, "max": 360, "step": 10, "unit": "px", "default": 250 },
-    { "type": "range", "id": "image_height_mobile", "label": "Image height (mobile)", "min": 140, "max": 280, "step": 10, "unit": "px", "default": 180 },
-    { "type": "range", "id": "max_width", "label": "Max width", "min": 960, "max": 1400, "step": 20, "unit": "px", "default": 1200 },
+    { "type": "header", "content": "Marquee" },
+    { "type": "checkbox", "id": "enable_marquee", "label": "Infinite scrolling row", "default": true },
+    { "type": "range", "id": "marquee_speed", "label": "Scroll duration (slower = higher)", "min": 20, "max": 80, "step": 2, "unit": "s", "default": 40 },
+    { "type": "range", "id": "card_width", "label": "Card width (desktop)", "min": 200, "max": 420, "step": 10, "unit": "px", "default": 360 },
+    { "type": "range", "id": "card_width_mobile", "label": "Card width (mobile)", "min": 180, "max": 340, "step": 10, "unit": "px", "default": 290 },
+    { "type": "range", "id": "image_height", "label": "Image height (desktop)", "min": 180, "max": 400, "step": 10, "unit": "px", "default": 320 },
+    { "type": "range", "id": "image_height_mobile", "label": "Image height (mobile)", "min": 140, "max": 320, "step": 10, "unit": "px", "default": 250 },
+    { "type": "range", "id": "max_width", "label": "Header max width", "min": 960, "max": 1400, "step": 20, "unit": "px", "default": 1200 },
     { "type": "range", "id": "card_spacing", "label": "Card spacing", "min": 8, "max": 28, "step": 2, "unit": "px", "default": 14 },
     { "type": "range", "id": "card_radius", "label": "Card radius", "min": 8, "max": 24, "step": 2, "unit": "px", "default": 16 },
     { "type": "checkbox", "id": "show_card_shadow", "label": "Show card shadow", "default": true },
-    { "type": "checkbox", "id": "enable_animations", "label": "Enable animations", "default": true },
+    { "type": "checkbox", "id": "enable_animations", "label": "Enable header reveal", "default": true },
 
     { "type": "header", "content": "Spacing" },
     { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 80, "step": 4, "unit": "px", "default": 36 },

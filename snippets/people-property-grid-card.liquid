@@ -1,0 +1,65 @@
+{%- comment -%}
+  Card for people-property-grid section
+  Accepts: block, category_label, fallback_index, show_tag
+{%- endcomment -%}
+{%- liquid
+  assign benefit_image = block.settings.image
+  assign benefit_mobile = block.settings.image_mobile | default: benefit_image
+  assign benefit_alt = block.settings.image_alt | default: block.settings.title | default: 'Scale-O benefit'
+  assign cat = block.settings.category | default: 'people'
+  assign benefit_fallback = 'scale-o-adv-' | append: cat | append: '-' | append: fallback_index | append: '.jpg'
+  assign card_tag = 'article'
+  if block.settings.link != blank
+    assign card_tag = 'a'
+  endif
+-%}
+<li data-sag-animate {{ block.shopify_attributes }}>
+  <{{ card_tag }}
+    class="scale-o-adv-grid__card"
+    {% if block.settings.link != blank %}href="{{ block.settings.link }}"{% endif %}
+  >
+    <div class="scale-o-adv-grid__media">
+      {%- if benefit_image != blank -%}
+        <picture>
+          {%- if block.settings.image_mobile != blank -%}
+            <source media="(max-width: 767px)" srcset="{{ benefit_mobile | image_url: width: 800 }}">
+          {%- endif -%}
+          {{
+            benefit_image
+            | image_url: width: 900
+            | image_tag:
+              loading: 'lazy',
+              widths: '320,480,640,900',
+              sizes: '(max-width: 767px) 48vw, 25vw',
+              alt: benefit_alt
+          }}
+        </picture>
+      {%- else -%}
+        <img
+          src="{{ benefit_fallback | asset_url }}"
+          alt="{{ benefit_alt | escape }}"
+          width="800"
+          height="500"
+          loading="lazy"
+        >
+      {%- endif -%}
+      {%- if show_tag and category_label != blank -%}
+        <span class="scale-o-adv-grid__tag">{{ category_label | escape }}</span>
+      {%- endif -%}
+    </div>
+    <div class="scale-o-adv-grid__body">
+      {%- if block.settings.short_label != blank -%}
+        <p class="scale-o-adv-grid__label">{{ block.settings.short_label | escape }}</p>
+      {%- endif -%}
+      {%- if block.settings.title != blank -%}
+        <h3 class="scale-o-adv-grid__title">{{ block.settings.title | escape }}</h3>
+      {%- endif -%}
+      {%- if block.settings.description != blank -%}
+        <p class="scale-o-adv-grid__desc">{{ block.settings.description | escape }}</p>
+      {%- endif -%}
+      {%- if block.settings.cta_text != blank -%}
+        <span class="scale-o-adv-grid__cta">{{ block.settings.cta_text | escape }}</span>
+      {%- endif -%}
+    </div>
+  </{{ card_tag }}>
+</li>

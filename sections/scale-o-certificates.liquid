@@ -122,7 +122,6 @@
                 if preview_src != blank
                   assign has_preview = true
                 endif
-                assign button_label = block.settings.button_text
               -%}
               <article
                 class="scale-o-cert__card"
@@ -155,20 +154,6 @@
                 <div class="scale-o-cert__body">
                   {%- if block.settings.title != blank -%}
                     <h3 class="scale-o-cert__title">{{ block.settings.title | escape }}</h3>
-                  {%- endif -%}
-
-                  {%- if button_label != blank -%}
-                    {%- if block.settings.button_url != blank -%}
-                      <a class="scale-o-cert__view" href="{{ block.settings.button_url }}">
-                        <span>{{ button_label | escape }}</span>
-                        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                      </a>
-                    {%- else -%}
-                      <button class="scale-o-cert__view" type="button" data-soc-open {% if has_preview == false or section.settings.enable_lightbox == false %}disabled{% endif %}>
-                        <span>{{ button_label | escape }}</span>
-                        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                      </button>
-                    {%- endif -%}
                   {%- endif -%}
                 </div>
               </article>

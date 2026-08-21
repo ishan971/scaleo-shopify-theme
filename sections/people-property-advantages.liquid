@@ -8,6 +8,11 @@
   assign category_blocks = section.blocks | where: 'type', 'category'
   assign benefit_blocks = section.blocks | where: 'type', 'benefit'
   assign header_align = section.settings.header_alignment
+  assign layout_style = section.settings.layout_style | default: 'tabs'
+  assign is_grid_layout = false
+  if layout_style == 'grid'
+    assign is_grid_layout = true
+  endif
   assign show_header = false
   if section.settings.heading != blank
     assign show_header = true
@@ -63,7 +68,7 @@
 </style>
 
 <div
-  class="scale-o-advantages"
+  class="scale-o-advantages{% if is_grid_layout %} scale-o-advantages--grid{% endif %}"
   data-section-id="{{ section.id }}"
   data-animate="{% if section.settings.enable_animations %}true{% else %}false{% endif %}"
   role="region"
@@ -84,7 +89,39 @@
       </header>
     {%- endif -%}
 
-    {%- if category_blocks.size > 0 -%}
+    {%- if is_grid_layout -%}
+      {%- comment -%} Flat 8-card grid: same images/content as tabs, no hero / no For People|Property labels {%- endcomment -%}
+      {%- if benefit_blocks.size > 0 -%}
+        <ul class="scale-o-advantages__grid scale-o-advantages__grid--flat" role="list">
+          {%- assign people_shown = 0 -%}
+          {%- assign property_shown = 0 -%}
+          {%- for block in benefit_blocks -%}
+            {%- if block.settings.category == 'people' and people_shown < 4 -%}
+              {%- assign people_shown = people_shown | plus: 1 -%}
+              {%- render 'people-property-advantage-card',
+                block: block,
+                cat_handle: 'people',
+                shown_benefits: people_shown,
+                show_card_index: section.settings.show_card_index
+              -%}
+            {%- endif -%}
+          {%- endfor -%}
+          {%- for block in benefit_blocks -%}
+            {%- if block.settings.category == 'property' and property_shown < 4 -%}
+              {%- assign property_shown = property_shown | plus: 1 -%}
+              {%- render 'people-property-advantage-card',
+                block: block,
+                cat_handle: 'property',
+                shown_benefits: property_shown,
+                show_card_index: section.settings.show_card_index
+              -%}
+            {%- endif -%}
+          {%- endfor -%}
+        </ul>
+      {%- else -%}
+        <p class="scale-o-advantages__empty">Add People and Property benefits in the theme editor.</p>
+      {%- endif -%}
+    {%- elsif category_blocks.size > 0 -%}
       {%- if category_blocks.size > 1 -%}
         <div class="scale-o-advantages__tabs" role="tablist" aria-label="{{ section.settings.heading | default: 'Advantages' | escape }}" data-soa-tabs>
           {%- for category in category_blocks -%}
@@ -193,68 +230,13 @@
               <ul class="scale-o-advantages__grid" role="list">
             {%- for block in benefit_blocks -%}
               {%- if block.settings.category == cat_handle and shown_benefits < 8 -%}
-                {%- liquid
-                  assign shown_benefits = shown_benefits | plus: 1
-                  assign benefit_image = block.settings.image
-                  assign benefit_mobile = block.settings.image_mobile | default: benefit_image
-                  assign benefit_alt = block.settings.image_alt | default: block.settings.title | default: 'Scale-O benefit'
-                  assign card_index = shown_benefits | prepend: '0' | slice: -2, 2
-                  assign card_tag = 'article'
-                  if block.settings.link != blank
-                    assign card_tag = 'a'
-                  endif
-                  assign benefit_fallback = 'scale-o-adv-' | append: cat_handle | append: '-' | append: shown_benefits | append: '.jpg'
+                {%- assign shown_benefits = shown_benefits | plus: 1 -%}
+                {%- render 'people-property-advantage-card',
+                  block: block,
+                  cat_handle: cat_handle,
+                  shown_benefits: shown_benefits,
+                  show_card_index: section.settings.show_card_index
                 -%}
-                <li data-soa-animate {{ block.shopify_attributes }}>
-                  <{{ card_tag }}
-                    class="scale-o-advantages__card"
-                    {% if block.settings.link != blank %}href="{{ block.settings.link }}"{% endif %}
-                  >
-                    <div class="scale-o-advantages__card-media">
-                      {%- if benefit_image != blank -%}
-                        <picture>
-                          {%- if block.settings.image_mobile != blank -%}
-                            <source media="(max-width: 767px)" srcset="{{ benefit_mobile | image_url: width: 800 }}">
-                          {%- endif -%}
-                          {{
-                            benefit_image
-                            | image_url: width: 900
-                            | image_tag:
-                              loading: 'lazy',
-                              widths: '400,640,900',
-                              sizes: '(max-width: 767px) 100vw, (max-width: 899px) 50vw, 22vw',
-                              alt: benefit_alt
-                          }}
-                        </picture>
-                      {%- elsif shown_benefits <= 4 -%}
-                        <img
-                          src="{{ benefit_fallback | asset_url }}"
-                          alt="{{ benefit_alt | escape }}"
-                          width="800"
-                          height="450"
-                          loading="lazy"
-                        >
-                      {%- endif -%}
-                      {%- if section.settings.show_card_index -%}
-                        <span class="scale-o-advantages__card-index">{{ card_index }}</span>
-                      {%- endif -%}
-                    </div>
-                    <div class="scale-o-advantages__card-body">
-                      {%- if block.settings.short_label != blank -%}
-                        <p class="scale-o-advantages__card-label">{{ block.settings.short_label | escape }}</p>
-                      {%- endif -%}
-                      {%- if block.settings.title != blank -%}
-                        <h4 class="scale-o-advantages__card-title">{{ block.settings.title | escape }}</h4>
-                      {%- endif -%}
-                      {%- if block.settings.description != blank -%}
-                        <p class="scale-o-advantages__card-desc">{{ block.settings.description | escape }}</p>
-                      {%- endif -%}
-                      {%- if block.settings.cta_text != blank -%}
-                        <span class="scale-o-advantages__card-cta">{{ block.settings.cta_text | escape }}</span>
-                      {%- endif -%}
-                    </div>
-                  </{{ card_tag }}>
-                </li>
               {%- endif -%}
             {%- endfor -%}
               </ul>
@@ -296,6 +278,16 @@
     },
 
     { "type": "header", "content": "Layout" },
+    {
+      "type": "select",
+      "id": "layout_style",
+      "label": "Layout",
+      "default": "tabs",
+      "options": [
+        { "value": "tabs", "label": "Tabs with main image" },
+        { "value": "grid", "label": "Flat 8-card grid (no tabs)" }
+      ]
+    },
     { "type": "range", "id": "max_width", "label": "Maximum width", "min": 0, "max": 1600, "step": 20, "unit": "px", "default": 1200 },
     {
       "type": "select",

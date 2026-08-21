@@ -1,6 +1,28 @@
 {{ 'blog-sidebar.css' | asset_url | stylesheet_tag }}
+{%- assign current_article_id = article.id -%}
 {%- for block in section.blocks -%}
 {%- case block.type -%}
+  {%- when 'search' -%}
+    <nav class="m-widget so-widget-toc" data-so-article-toc {{ block.shopify_attributes }} aria-label="{{ block.settings.title | default: 'In this article' | escape }}">
+      <h3 class="m-widget__title so-widget-toc__title">{{ block.settings.title | default: 'In this article' }}</h3>
+      <ol class="so-widget-toc__list" data-so-article-toc-list></ol>
+    </nav>
+  {%- when 'cta' -%}
+    {%- if block.settings.title != blank or block.settings.button_label != blank -%}
+      <div class="m-widget so-widget-cta" {{ block.shopify_attributes }}>
+        {% if block.settings.title != blank %}
+          <h3 class="m-widget__title">{{ block.settings.title }}</h3>
+        {% endif %}
+        {% if block.settings.text != blank %}
+          <p>{{ block.settings.text }}</p>
+        {% endif %}
+        {% if block.settings.button_label != blank %}
+          <a class="so-widget-cta__btn" href="{{ block.settings.button_link | default: '/collections/water-softeners' }}">
+            {{ block.settings.button_label }}
+          </a>
+        {% endif %}
+      </div>
+    {%- endif -%}
   {%- when 'categories' -%}
     {%- assign blogs_name = block.settings.list_blog -%}
     {%- if blogs_name != blank -%}
@@ -42,15 +64,21 @@
   {%- when 'recent_post' -%}
     {% liquid
       assign name_collection = block.settings.sidebar_recent_blog_name
-      assign length = block.settings.sidebar_recent_blog_count | plus: 0
+      assign length = block.settings.sidebar_recent_blog_count | plus: 1
       assign selected_blog = blogs[name_collection]
+      if selected_blog == blank
+        assign selected_blog = blog
+      endif
     %}
-    {%- if name_collection != blank -%}
+    {%- if selected_blog != blank -%}
     <div class="m-widget">
       <h3 class="m-widget__title">{{ block.settings.title }}</h3>
       <div class="m-widget__content">
         <div class="m-recent-posts">
           {%- for article in selected_blog.articles limit: length -%}
+            {%- if article.id == current_article_id -%}
+              {%- continue -%}
+            {%- endif -%}
             {% liquid
               if article.excerpt != blank
                 assign article_excerpt = article.excerpt

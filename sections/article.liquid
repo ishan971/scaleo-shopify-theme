@@ -1,5 +1,7 @@
 {{ 'component-article-card.css' | asset_url | stylesheet_tag }}
 {{ 'article.css' | asset_url | stylesheet_tag }}
+{{ 'scale-o-article.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'scale-o-article.js' | asset_url }}" defer="defer"></script>
 
 {% liquid
   assign show_sidebar = false
@@ -15,7 +17,7 @@
     assign animated = true
   endif
 
-  assign article_class = 'm-article'
+  assign article_class = 'm-article so-article'
   assign article_class = article_class | append: ' m-article--' | append: design
 
   if show_sidebar
@@ -39,9 +41,6 @@
   <div class="{{ container }}">
     <div class="m-row{% if animated %} m-scroll-trigger animate--{{ animation_effect }}{% endif %}">
       <div class="m-article__wrapper">
-        {% if section.settings.blog_show_breadcrumb %}
-          {% render 'breadcrumb', justify: 'center' %}
-        {% endif %}
         {%- if design == 'layout2' and article.image -%}
           <div class="m-article__feature-image">
             {% render 'responsive-image', image: article.image, image_class: 'w-full' %}
@@ -49,19 +48,23 @@
         {%- endif -%}
         <div role="article" class="m-article__inner">
           <article>
-            <div class="m-article__header m:text-center">
-              <a class="m-article__blog" href="{{ blog.url }}">{{ blog.title }}</a>
-              <h1 class="m-article__title">{{ article.title }}</h1>
+            <div class="m-article__header so-article-header">
+              {% if section.settings.blog_show_breadcrumb %}
+                {% render 'breadcrumb', justify: 'start', container: 'so-article-crumbs', class: 'so-article-breadcrumb' %}
+              {% endif %}
+              <a class="so-article-kicker" href="{{ blog.url }}">{{ blog.title }}</a>
+              <h1 class="m-article__title so-article-title">{{ article.title }}</h1>
               {% if section.settings.blog_show_author or section.settings.blog_show_date %}
-                <div class="m-article__meta">
-                  {% if section.settings.blog_show_author %}
-                    {{ 'blogs.article.by_author' | t }}
-                    <span>{{ article.author }}</span>
-                  {% endif %}
-                  {% if section.settings.blog_show_date %}
-                    {% if section.settings.blog_show_author %}{{ 'blogs.article.posted_in' | t }}{% endif %}
-                    <span>{{ article.published_at | date: '%b %d, %Y' }}</span>
-                  {% endif %}
+                <div class="so-article-meta">
+                  <span class="so-article-avatar" aria-hidden="true">{{ article.author | slice: 0 | upcase }}</span>
+                  <div class="so-article-meta__copy">
+                    {% if section.settings.blog_show_author %}
+                      <span class="so-article-author">{{ article.author }}</span>
+                    {% endif %}
+                    {% if section.settings.blog_show_date %}
+                      <span>{{ article.published_at | date: '%b %d, %Y' }}</span>
+                    {% endif %}
+                  </div>
                 </div>
               {% endif %}
             </div>
@@ -96,42 +99,26 @@
               </div>
             {% endif %}
 
-            {%- comment -%}Navigation{%- endcomment -%}
+            {%- comment -%}Next article card{%- endcomment -%}
             {% liquid
-              assign article_navigation_class = 'm-article-navigation'
-
-              if blog.previous_article != null and blog.next_article != null
-                assign article_navigation_class = article_navigation_class | append: ' m-article-navigation--full m:justify-between'
-              elsif blog.previous_article != null
-                assign article_navigation_class = article_navigation_class | append: ' m:justify-start'
-              else
-                assign article_navigation_class = article_navigation_class | append: ' m:justify-end'
+              assign next_post = blog.next_article
+              if next_post == null
+                assign next_post = blog.previous_article
               endif
             %}
-            <div class="{{ article_navigation_class }}">
-              {% if blog.previous_article != null %}
-                <a href="{{ blog.previous_article.url }}" class="m-article-navigation__prev">
-                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16l-4-4m0 0l4-4m-4 4h18"></path>
-                  </svg>
-                  <div class="m-article-navigation__inner">
-                    <div class="m-article-navigation__label">{{ 'blogs.article.previous_post' | t }}</div>
-                    <div class="m-article-navigation__article-title">{{ blog.previous_article.title }}</div>
+            {% if next_post != null %}
+              <a href="{{ next_post.url }}" class="so-next-card">
+                {% if next_post.image %}
+                  <div class="so-next-card__media">
+                    {% render 'responsive-image', image: next_post.image, image_class: 'w-full' %}
                   </div>
-                </a>
-              {% endif %}
-              {% if blog.next_article != null %}
-                <a href="{{ blog.next_article.url }}" class="m-article-navigation__next">
-                  <div class="m-article-navigation__inner m:text-right">
-                    <div class="m-article-navigation__label">{{ 'blogs.article.next_post' | t }}</div>
-                    <div class="m-article-navigation__article-title">{{ blog.next_article.title }}</div>
-                  </div>
-                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                  </svg>
-                </a>
-              {% endif %}
-            </div>
+                {% endif %}
+                <div class="so-next-card__body">
+                  <span class="so-next-card__label">Next article</span>
+                  <span class="so-next-card__title">{{ next_post.title }}</span>
+                </div>
+              </a>
+            {% endif %}
 
             {%- comment -%}Related Posts{%- endcomment -%}
             {% if section.settings.show_related_articles %}
@@ -465,7 +452,7 @@
       "type": "checkbox",
       "id": "blog_show_breadcrumb",
       "label": "Show breadcrumb",
-      "default": false
+      "default": true
     },
     {
       "type": "checkbox",
@@ -553,6 +540,49 @@
     }
   ],
   "blocks": [
+    {
+      "type": "search",
+      "name": "In this article",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "In this article"
+        }
+      ]
+    },
+    {
+      "type": "cta",
+      "name": "Widget CTA",
+      "limit": 2,
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Ready to fix hard water?"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text",
+          "default": "Shop salt-free softeners for overhead tanks. Mini, Semi, and Centi by tank size."
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button label",
+          "default": "Shop water softeners"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button link"
+        }
+      ]
+    },
     {
       "type": "categories",
       "name": "Widget categories",

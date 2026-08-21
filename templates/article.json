@@ -12,6 +12,21 @@
     "main": {
       "type": "article",
       "blocks": {
+        "so_toc": {
+          "type": "search",
+          "settings": {
+            "title": "In this article"
+          }
+        },
+        "so_cta": {
+          "type": "cta",
+          "settings": {
+            "title": "Ready to fix hard water?",
+            "text": "Shop salt-free softeners for overhead tanks. Pick Mini, Semi, or Centi by tank size.",
+            "button_label": "Shop water softeners",
+            "button_link": "shopify://collections/water-softeners"
+          }
+        },
         "50469c40-b191-4cca-ac7c-6a6cd0c7b8b4": {
           "type": "categories",
           "settings": {
@@ -22,10 +37,10 @@
         "bb3e6ad7-c917-47d9-9bce-5edf5ff286f6": {
           "type": "recent_post",
           "settings": {
-            "title": "Recent Post",
-            "sidebar_recent_blog_name": "mix-and-match",
-            "sidebar_recent_blog_count": "3",
-            "blog_show_tags": true,
+            "title": "Recent articles",
+            "sidebar_recent_blog_name": "articles",
+            "sidebar_recent_blog_count": "4",
+            "blog_show_tags": false,
             "blog_show_author": false,
             "blog_show_date": false,
             "show_excerpt": false,
@@ -37,7 +52,7 @@
         "36be080e-5b28-4b62-b5a9-478c96b656e7": {
           "type": "tags",
           "settings": {
-            "title": "Tags"
+            "title": "Topics"
           }
         },
         "dcb13e8f-be87-42ed-b4b9-65da316b09a1": {
@@ -49,16 +64,19 @@
         }
       },
       "block_order": [
-        "50469c40-b191-4cca-ac7c-6a6cd0c7b8b4",
+        "so_toc",
+        "so_cta",
         "bb3e6ad7-c917-47d9-9bce-5edf5ff286f6",
         "36be080e-5b28-4b62-b5a9-478c96b656e7",
+        "50469c40-b191-4cca-ac7c-6a6cd0c7b8b4",
         "dcb13e8f-be87-42ed-b4b9-65da316b09a1"
       ],
       "settings": {
-        "container": "container",
+        "container": "container-fluid",
         "sidebar_show": true,
         "sidebar_position": "right_column",
         "design": "layout1",
+        "blog_show_breadcrumb": true,
         "blog_show_author": true,
         "blog_show_date": true,
         "blog_show_tags": true,

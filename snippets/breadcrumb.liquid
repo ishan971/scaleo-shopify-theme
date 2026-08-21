@@ -98,9 +98,11 @@
             <span class="m-breadcrumb--item-current m-breadcrumb--item">{{ blog.title }}</span>
           {% endif %}
 
-        {% elsif template == 'article' %}
+        {% elsif template.name == 'article' %}
           {{ separator }}
           <a href="{{ blog.url }}" class="m-breadcrumb--item">{{ blog.title }}</a>
+          {{ separator }}
+          <span class="m-breadcrumb--item-current m-breadcrumb--item">{{ article.title }}</span>
 
         {% elsif template == 'customers/addresses' %}
           {{ separator }}

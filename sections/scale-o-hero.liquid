@@ -121,36 +121,47 @@
           {{ block.shopify_attributes }}
         >
           <div class="scale-o-hero__media">
+            {%- liquid
+              if is_first
+                assign hero_loading = 'eager'
+              else
+                assign hero_loading = 'lazy'
+              endif
+              assign hero_sizes = '(max-width: 767px) 100vw, (max-width: 1199px) 50vw, 720px'
+            -%}
             {%- if desktop_image != blank or mobile_image != blank -%}
               {%- if mobile_image != blank and desktop_image != blank and mobile_image != desktop_image -%}
                 <picture>
                   <source
                     media="(max-width: 767px)"
                     srcset="
-                      {{ mobile_image | image_url: width: 800 }} 800w,
-                      {{ mobile_image | image_url: width: 1200 }} 1200w
+                      {{ mobile_image | image_url: width: 480 }} 480w,
+                      {{ mobile_image | image_url: width: 800 }} 800w
                     "
+                    sizes="100vw"
                   >
                   {%- if is_first -%}
                     {{
                       desktop_image
-                      | image_url: width: 2400
+                      | image_url: width: 1600
                       | image_tag:
-                        loading: 'eager',
+                        loading: hero_loading,
                         fetchpriority: 'high',
-                        widths: '1200,1600,2000,2400',
-                        sizes: '100vw',
-                        alt: alt_text
+                        widths: '800,1200,1600',
+                        sizes: hero_sizes,
+                        alt: alt_text,
+                        class: 'scale-o-hero__img'
                     }}
                   {%- else -%}
                     {{
                       desktop_image
-                      | image_url: width: 2400
+                      | image_url: width: 1600
                       | image_tag:
-                        loading: 'lazy',
-                        widths: '1200,1600,2000,2400',
-                        sizes: '100vw',
-                        alt: alt_text
+                        loading: hero_loading,
+                        widths: '800,1200,1600',
+                        sizes: hero_sizes,
+                        alt: alt_text,
+                        class: 'scale-o-hero__img'
                     }}
                   {%- endif -%}
                 </picture>
@@ -159,32 +170,35 @@
                 {%- if is_first -%}
                   {{
                     hero_image
-                    | image_url: width: 2400
+                    | image_url: width: 1600
                     | image_tag:
-                      loading: 'eager',
+                      loading: hero_loading,
                       fetchpriority: 'high',
-                      widths: '800,1200,1600,2000,2400',
-                      sizes: '100vw',
-                      alt: alt_text
+                      widths: '400,800,1200,1600',
+                      sizes: hero_sizes,
+                      alt: alt_text,
+                      class: 'scale-o-hero__img'
                   }}
                 {%- else -%}
                   {{
                     hero_image
-                    | image_url: width: 2400
+                    | image_url: width: 1600
                     | image_tag:
-                      loading: 'lazy',
-                      widths: '800,1200,1600,2000,2400',
-                      sizes: '100vw',
-                      alt: alt_text
+                      loading: hero_loading,
+                      widths: '400,800,1200,1600',
+                      sizes: hero_sizes,
+                      alt: alt_text,
+                      class: 'scale-o-hero__img'
                   }}
                 {%- endif -%}
               {%- endif -%}
             {%- else -%}
               <img
-                src="{{ fallback_file | asset_url }}"
+                class="scale-o-hero__img"
+                src="{{ fallback_file | asset_img_url: '800x' }}"
                 alt="{{ alt_text | escape }}"
-                width="1920"
-                height="1080"
+                width="800"
+                height="450"
                 {% if is_first %}loading="eager" fetchpriority="high"{% else %}loading="lazy"{% endif %}
               >
             {%- endif -%}

@@ -491,6 +491,8 @@
     "scale_o_usp": {
       "type": "scale-o-usp",
       "settings": {
+        "banner_image": "shopify://shop_images/toupsc-Picsart-AiImageEnhancer.png",
+        "banner_image_mobile": "shopify://shop_images/tosc-Picsart-AiImageEnhancer.png",
         "padding_top": 0,
         "padding_bottom": 0,
         "padding_top_mobile": 0,

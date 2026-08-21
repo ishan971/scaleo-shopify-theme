@@ -41,7 +41,9 @@
 {%- endif -%}
 <link rel="icon" href="{{ 'favicon.png' | asset_url }}?v=5">
   
-{% include 'wp-page-speed-optimization-header' %}
+{%- unless template.name == 'index' -%}
+  {% include 'wp-page-speed-optimization-header' %}
+{%- endunless -%}
 {% comment %}
     <a href="https://api.whatsapp.com/send?phone=919909963304" aria-label="whats app"> 
     <div class="qr_wa_icon" style="
@@ -156,24 +158,8 @@ button.gI3IJqrf7p{
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="{{ settings.color_primary }}">
     <meta name="description" content="{{ page_description | escape | default: shop.meta_description }}" >
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-      
-    
-     <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script> -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-   
-    <!-- <script async src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-
-    <script async src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/js/bootstrap.min.js" ></script>
     {% render 'judgeme-reviews-setup'%}
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" />
 
-<script async src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
-    
     {%- liquid
       render 'preload'
       render 'SEO'
@@ -216,7 +202,8 @@ button.gI3IJqrf7p{
     {% render 'theme-data' %}
     {% render 'custom-code-head' %}
   {% include 'dadao_reviews_core.liquid' %}
-{% include 'pagefly-app-header' %}<script data-custom-wpsob="1">function a(e){const t=e.getBoundingClientRect();return t.top>=0&&t.left>=0&&t.bottom<=(window.innerHeight||document.documentElement.clientHeight)&&t.right<=(window.innerWidth||document.documentElement.clientWidth)}function b(e){e.hasAttribute("data-wpsob-width")&&e.removeAttribute("width"),e.hasAttribute("data-wpsob-height")&&e.removeAttribute("height")}function c(){const e=document.querySelectorAll("img");for(let t=0;t<e.length;t++)a(e[t])&&b(e[t])}function d(){const e=document.querySelectorAll("img");for(let t=0;t<e.length;t++)b(e[t])}window.onload=c,window.addEventListener("scroll",d);</script></head>
+{% include 'pagefly-app-header' %}
+</head>
 
 
   <body
@@ -354,6 +341,16 @@ document.addEventListener("DOMContentLoaded", function() {
                               'ecomm_totalvalue':window.google_tag_params.ecomm_totalvalue
                              });
 </script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/js/bootstrap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" defer></script>
 
 <script>
   $(document).ready(function() {

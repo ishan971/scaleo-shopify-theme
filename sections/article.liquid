@@ -319,6 +319,16 @@
             {% assign related_count = related_count | plus: 1 %}
           {% endfor %}
         </div>
+        {%- if blog.url != blank -%}
+          <div class="so-related__more">
+            <a class="so-related__more-btn" href="{{ blog.url }}">
+              <span>{{ 'blogs.article.view_more' | t }}</span>
+              <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M3.5 8h9M9 4.5 12.5 8 9 11.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+        {%- endif -%}
       </div>
     {% endif %}
   </div>

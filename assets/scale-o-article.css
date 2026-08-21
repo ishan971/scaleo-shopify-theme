@@ -606,6 +606,66 @@
   gap: 22px;
 }
 
+.so-related__more {
+  display: flex;
+  justify-content: center;
+  margin-top: 28px;
+}
+
+.so-related__more-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 22px;
+  border: 1px solid var(--soa-accent);
+  border-radius: 999px;
+  background: var(--soa-accent);
+  color: #fff !important;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none !important;
+  background-image: none !important;
+}
+
+.so-related__more-btn::before,
+.so-related__more-btn::after {
+  content: none !important;
+  display: none !important;
+}
+
+.so-related__more-btn svg {
+  width: 15px;
+  height: 15px;
+  transition: transform 0.2s ease;
+}
+
+.so-related__more-btn:hover {
+  background: var(--soa-accent-hover);
+  border-color: var(--soa-accent-hover);
+  color: #fff !important;
+}
+
+.so-related__more-btn:hover svg {
+  transform: translateX(3px);
+}
+
+.so-related__more-btn:focus-visible {
+  outline: 2px solid var(--soa-accent);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .so-related__more-btn svg {
+    transition: none;
+  }
+
+  .so-related__more-btn:hover svg {
+    transform: none;
+  }
+}
+
 .so-related-card {
   display: flex;
   flex-direction: column;
@@ -643,25 +703,23 @@
 .so-related-card__media {
   display: block;
   overflow: hidden;
-  aspect-ratio: 16 / 10;
   border-radius: 14px;
   background: var(--soa-surface);
+  line-height: 0;
 }
 
-.so-related-card__media img,
+.so-related-card__media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+}
+
 .so-related-card__fallback {
   display: block;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.35s ease;
-}
-
-.so-related-card:hover .so-related-card__media img {
-  transform: scale(1.04);
-}
-
-.so-related-card__fallback {
+  aspect-ratio: 16 / 9;
   background: linear-gradient(160deg, #d7e8f8 0%, #eef5fb 55%, #dceaf6 100%);
 }
 
@@ -748,7 +806,6 @@
 
 @media (prefers-reduced-motion: reduce) {
   .so-related-card,
-  .so-related-card__media img,
   .so-related-card__more svg {
     transition: none;
   }
@@ -758,7 +815,6 @@
     transform: none;
   }
 
-  .so-related-card:hover .so-related-card__media img,
   .so-related-card:hover .so-related-card__more svg {
     transform: none;
   }

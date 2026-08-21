@@ -11,8 +11,8 @@
             "banner_preset": "highlights",
             "alt": "Scale-O water softeners for the whole house",
             "eyebrow": "WHOLE HOUSE WATER SOLUTION",
-            "heading_line_1": "Scale-O",
-            "heading_line_2": "Water Softeners",
+            "heading_line_1": "Water Softener for Home",
+            "heading_line_2": "Salt-Free for Overhead Tanks",
             "show_heading_underline": false,
             "description": "Salt-free water softening solutions designed for Indian homes and hard-water conditions.",
             "text_alignment": "left",
@@ -77,8 +77,8 @@
         "show_arrows": false,
         "accessibility_label": "Collection banners",
         "eyebrow": "WHOLE HOUSE WATER SOLUTION",
-        "heading_line_1": "Scale-O",
-        "heading_line_2": "Water Softeners",
+        "heading_line_1": "Water Softener for Home",
+        "heading_line_2": "Salt-Free for Overhead Tanks",
         "show_heading_underline": false,
         "description": "Salt-free water softening solutions designed for Indian homes and hard-water conditions.",
         "image": "shopify://shop_images/Frame_1166_8007e267-2d52-4229-9441-96f286bd0110.png",
@@ -112,7 +112,7 @@
           "type": "heading",
           "settings": {
             "heading": "Best Water Softener for Whole House",
-            "heading_size": "h1"
+            "heading_size": "h2"
           }
         }
       },
@@ -357,7 +357,7 @@
       ],
       "settings": {
         "eyebrow": "HOW IT WORKS",
-        "heading": "Simple Setup. Simple Protection.",
+        "heading": "How to install a water softener in an overhead tank",
         "description": "See how Scale-O works, how to install it, and how easy it is to maintain and exchange.",
         "header_alignment": "center",
         "installation_diagram": "shopify://shop_images/ChatGPT_Image_Aug_12_2026_12_23_48_PM.png",
@@ -526,7 +526,7 @@
       "settings": {
         "show_eyebrow": true,
         "eyebrow": "BEFORE & AFTER RESULTS",
-        "heading": "Before vs After Using Scale-O",
+        "heading": "Before vs after a salt-free water softener",
         "heading_one_line": false,
         "show_description": true,
         "description": "Hard water silently damages fittings, tiles and appliances across your home.",

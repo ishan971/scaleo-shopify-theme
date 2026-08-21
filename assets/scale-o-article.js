@@ -120,12 +120,29 @@
     });
   }
 
+  function isCalloutStart(el) {
+    if (!el || el.tagName !== 'P') return false;
+    var strong = el.querySelector('strong, b');
+    if (!strong) return false;
+    var text = (strong.textContent || '').replace(/\s+/g, ' ').trim();
+    if (!text || text.length > 32) return false;
+    return /cannot|watch out|warning|do not|never|can help|short answer|tip|note|score/i.test(text);
+  }
+
   function wrapCallout(p, className) {
-    if (!p || p.parentElement.classList.contains('so-callout')) return;
+    if (!p || (p.parentElement && p.parentElement.classList.contains('so-callout'))) return;
     var box = document.createElement('div');
     box.className = className;
     p.parentNode.insertBefore(box, p);
     box.appendChild(p);
+
+    var next = box.nextElementSibling;
+    while (next) {
+      if (/^H[1-6]$/.test(next.tagName) || isCalloutStart(next)) break;
+      var move = next;
+      next = next.nextElementSibling;
+      box.appendChild(move);
+    }
   }
 
   function hideInternalNotes(root) {

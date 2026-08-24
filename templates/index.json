@@ -294,6 +294,7 @@
             "icon": "choose",
             "title": "Choose Your Scale-O",
             "description": "Select the right model based on your overhead tank size and daily water usage.",
+            "image_alt": "Scale-O Mini, Semi and Centi next to matching overhead tank sizes",
             "link": "",
             "button_text": ""
           }
@@ -305,6 +306,7 @@
             "icon": "install",
             "title": "Install in Your Overhead Tank",
             "description": "Place Scale-O inside your overhead water tank. No plumbing changes or electricity required.",
+            "image_alt": "Placing a Scale-O unit into an open overhead water tank",
             "link": "",
             "button_text": ""
           }
@@ -316,6 +318,7 @@
             "icon": "use",
             "title": "Enjoy Better Water Flow",
             "description": "Scale-O works continuously as water flows to your bathroom, kitchen, laundry and appliances.",
+            "image_alt": "Scale-O in the overhead tank sending treated water to bathroom, kitchen, laundry and geyser",
             "link": "",
             "button_text": ""
           }
@@ -327,6 +330,7 @@
             "icon": "exchange",
             "title": "Easy Exchange",
             "description": "When it's time, simply replace the unit with a straightforward exchange process.",
+            "image_alt": "Replacing a used Scale-O unit with a new one in the overhead tank",
             "link": "",
             "button_text": ""
           }
@@ -337,7 +341,8 @@
             "step_number": "5",
             "icon": "check",
             "title": "Zero Hassle Upkeep",
-            "description": "No salt refills, no electricity and no regular servicing — Scale-O keeps protecting your home quietly.",
+            "description": "No salt refills, no electricity and no regular servicing. Scale-O keeps protecting your home quietly.",
+            "image_alt": "Scale-O working in the overhead tank with no salt, electricity or servicing needed",
             "link": "",
             "button_text": ""
           }
@@ -348,7 +353,7 @@
             "step_number": "1",
             "icon": "check",
             "title": "Choose the Right Model",
-            "description": "Pick a Scale-O size that matches your tank capacity and household usage."
+            "description": "Pick Mini, Semi or Centi to match your overhead tank size and the water your household uses each day."
           }
         },
         "install_2": {
@@ -357,7 +362,7 @@
             "step_number": "2",
             "icon": "tank",
             "title": "Open the Overhead Tank",
-            "description": "Access your overhead water tank safely before placing the unit."
+            "description": "Open the tank lid safely on the terrace and keep the opening clear before you place the Scale-O unit inside."
           }
         },
         "install_3": {
@@ -366,7 +371,7 @@
             "step_number": "3",
             "icon": "install",
             "title": "Place Scale-O Inside the Tank",
-            "description": "Drop the compact Scale-O unit into the tank. No plumber or wiring needed."
+            "description": "Lower the compact Scale-O unit into the tank. No plumber, wiring or plumbing changes are needed at all."
           }
         },
         "install_4": {
@@ -375,7 +380,7 @@
             "step_number": "4",
             "icon": "check",
             "title": "Close and Secure the Tank",
-            "description": "Seal the tank properly so water flows normally through your home."
+            "description": "Close the lid firmly so the tank stays sealed and water can flow normally through every tap in the home."
           }
         },
         "install_5": {
@@ -384,7 +389,7 @@
             "step_number": "5",
             "icon": "home",
             "title": "Start Using Scale-O",
-            "description": "Use water as usual while Scale-O helps reduce hard-water scale buildup."
+            "description": "Use water as usual in the bathroom, kitchen and laundry while Scale-O helps reduce hard-water scale buildup."
           }
         },
         "exchange_1": {
@@ -393,7 +398,7 @@
             "step_number": "1",
             "icon": "exchange",
             "title": "Identify Your Scale-O Unit",
-            "description": "Check when your current unit needs replacement based on usage and product life."
+            "description": "Check your current unit against its product life so you know when it is time for a simple Scale-O exchange."
           }
         },
         "exchange_2": {
@@ -402,7 +407,7 @@
             "step_number": "2",
             "icon": "power",
             "title": "Turn Off the Water Supply",
-            "description": "Stop water flow to the overhead tank before removing the used unit."
+            "description": "Stop the water supply to the overhead tank first, then wait until the flow settles before you open the lid."
           }
         },
         "exchange_3": {
@@ -411,7 +416,7 @@
             "step_number": "3",
             "icon": "install",
             "title": "Remove the Existing Unit",
-            "description": "Take out the used Scale-O unit from the tank."
+            "description": "Lift the used Scale-O unit out of the tank carefully and keep the opening clear for the replacement unit."
           }
         },
         "exchange_4": {
@@ -420,7 +425,7 @@
             "step_number": "4",
             "icon": "exchange",
             "title": "Install the Replacement",
-            "description": "Place the new Scale-O unit inside the tank in the same simple way."
+            "description": "Place the new Scale-O unit inside the tank the same simple way, with no plumber or extra fittings needed."
           }
         },
         "exchange_5": {
@@ -429,7 +434,7 @@
             "step_number": "5",
             "icon": "check",
             "title": "Restart the Water Supply",
-            "description": "Restore water flow and continue enjoying scale-protected water at home."
+            "description": "Turn the water supply back on, close the lid, and keep using scale-protected water throughout the home."
           }
         }
       },
@@ -476,7 +481,7 @@
         "detail_card_gap": 12,
         "detail_mobile_layout": "vertical",
         "detail_card_min_width": 160,
-        "detail_card_min_height": 168,
+        "detail_card_min_height": 220,
         "card_shadow_strength": 70,
         "show_help_cta": false,
         "help_heading": "Need Help With Installation?",
@@ -1264,8 +1269,9 @@
         "show_description": true,
         "description": "Discover how Scale-O helps protect your everyday water experience and your home.",
         "header_alignment": "center",
-        "max_width": 1200,
-        "desktop_columns": "2",
+        "layout_style": "grid",
+        "max_width": 1280,
+        "desktop_columns": "4",
         "hero_aspect_ratio": "3  9",
         "card_gap": 14,
         "card_radius": 18,
@@ -1732,92 +1738,189 @@
             "highlight": true
           }
         },
-        "comp_saltfree": {
+        "comp_others": {
           "type": "competitor",
           "settings": {
             "enabled": true,
-            "title": "Other salt-free systems",
+            "title": "Core competitors",
             "highlight": false
           }
         },
-        "comp_electronic": {
-          "type": "competitor",
-          "settings": {
-            "enabled": true,
-            "title": "Other electronic devices",
-            "highlight": false
-          }
-        },
-        "crow_salt": {
+        "crow_fit": {
           "type": "competitor_row",
           "settings": {
             "enabled": true,
-            "title": "Salt required",
-            "value_1": "No",
-            "status_1": "not_required",
-            "value_2": "Usually no",
-            "status_2": "positive",
-            "value_3": "No",
-            "status_3": "positive",
-            "value_4": "",
-            "status_4": "positive"
-          }
-        },
-        "crow_power": {
-          "type": "competitor_row",
-          "settings": {
-            "enabled": true,
-            "title": "Electricity required",
-            "value_1": "No",
-            "status_1": "not_required",
-            "value_2": "No",
-            "status_2": "positive",
-            "value_3": "Yes",
-            "status_3": "required",
-            "value_4": "",
-            "status_4": "positive"
-          }
-        },
-        "crow_maint": {
-          "type": "competitor_row",
-          "settings": {
-            "enabled": true,
-            "title": "Regular maintenance",
-            "value_1": "Minimal",
+            "title": "Fit for your home",
+            "theme_icon": "home",
+            "impact": "Wrong size can under or over soften, so scale control suffers.",
+            "open_by_default": false,
+            "value_1": "Sized to tank and daily use",
             "status_1": "positive",
-            "value_2": "Varies",
-            "status_2": "neutral",
-            "value_3": "Low",
-            "status_3": "low",
+            "value_2": "One size for all, no analysis",
+            "status_2": "negative",
+            "value_3": "",
+            "status_3": "neutral",
             "value_4": "",
             "status_4": "positive"
           }
         },
-        "crow_cost": {
+        "crow_capacity": {
           "type": "competitor_row",
           "settings": {
             "enabled": true,
-            "title": "Operating cost",
-            "value_1": "Zero",
+            "title": "Capacity range",
+            "theme_icon": "layers",
+            "impact": "Extra units raise cost, or a smaller unit weakens results.",
+            "open_by_default": false,
+            "value_1": "500 L to 5000 L",
             "status_1": "positive",
-            "value_2": "Varies",
-            "status_2": "neutral",
-            "value_3": "Ongoing",
-            "status_3": "high",
+            "value_2": "Mostly 1000 to 1500 L",
+            "status_2": "negative",
+            "value_3": "",
+            "status_3": "neutral",
             "value_4": "",
             "status_4": "positive"
           }
         },
-        "crow_home": {
+        "crow_patent": {
           "type": "competitor_row",
           "settings": {
             "enabled": true,
-            "title": "Whole-home scale protection",
-            "value_1": "Yes",
+            "title": "Patented",
+            "theme_icon": "patent",
+            "impact": "Marketing without the technical know-how.",
+            "open_by_default": false,
+            "value_1": "Patented design",
             "status_1": "positive",
-            "value_2": "Limited",
-            "status_2": "neutral",
-            "value_3": "Limited",
+            "value_2": "Reverse-engineered, no patents",
+            "status_2": "negative",
+            "value_3": "",
+            "status_3": "neutral",
+            "value_4": "",
+            "status_4": "positive"
+          }
+        },
+        "crow_india": {
+          "type": "competitor_row",
+          "settings": {
+            "enabled": true,
+            "title": "Indian hard water",
+            "theme_icon": "flask",
+            "impact": "Can fail in high hardness and TDS up to 3000 ppm.",
+            "open_by_default": false,
+            "value_1": "Built for Indian hardness and TDS",
+            "status_1": "positive",
+            "value_2": "Copied designs, no R&D",
+            "status_2": "negative",
+            "value_3": "",
+            "status_3": "neutral",
+            "value_4": "",
+            "status_4": "positive"
+          }
+        },
+        "crow_replace": {
+          "type": "competitor_row",
+          "settings": {
+            "enabled": true,
+            "title": "Honest replacement",
+            "theme_icon": "calendar",
+            "impact": "Performance can drop before you notice, then stop working.",
+            "open_by_default": false,
+            "value_1": "Replace every 6 months",
+            "status_1": "positive",
+            "value_2": "Claims of 1 year that are not realistic",
+            "status_2": "negative",
+            "value_3": "",
+            "status_3": "neutral",
+            "value_4": "",
+            "status_4": "positive"
+          }
+        },
+        "crow_safety": {
+          "type": "competitor_row",
+          "settings": {
+            "enabled": true,
+            "title": "Safety certified",
+            "theme_icon": "shield",
+            "impact": "Uncertified chemicals can harm hair and skin.",
+            "open_by_default": false,
+            "value_1": "Food-grade and RoHS",
+            "status_1": "positive",
+            "value_2": "Uncertified, not food-grade",
+            "status_2": "negative",
+            "value_3": "",
+            "status_3": "neutral",
+            "value_4": "",
+            "status_4": "positive"
+          }
+        },
+        "crow_mfg": {
+          "type": "competitor_row",
+          "settings": {
+            "enabled": true,
+            "title": "Direct manufacturer",
+            "theme_icon": "factory",
+            "impact": "Quality, hygiene, and lots can vary.",
+            "open_by_default": false,
+            "value_1": "Made by us",
+            "status_1": "positive",
+            "value_2": "White-label, outsourced",
+            "status_2": "negative",
+            "value_3": "",
+            "status_3": "neutral",
+            "value_4": "",
+            "status_4": "positive"
+          }
+        },
+        "crow_focus": {
+          "type": "competitor_row",
+          "settings": {
+            "enabled": true,
+            "title": "Specialist focus",
+            "theme_icon": "target",
+            "impact": "Not dedicated to this product or this problem.",
+            "open_by_default": false,
+            "value_1": "Water softeners only",
+            "status_1": "positive",
+            "value_2": "Also rice, tap cleaners, electronics",
+            "status_2": "negative",
+            "value_3": "",
+            "status_3": "neutral",
+            "value_4": "",
+            "status_4": "positive"
+          }
+        },
+        "crow_retain": {
+          "type": "competitor_row",
+          "settings": {
+            "enabled": true,
+            "title": "Long-term care",
+            "theme_icon": "users",
+            "impact": "Less care after the first purchase.",
+            "open_by_default": false,
+            "value_1": "Retainer and subscription",
+            "status_1": "positive",
+            "value_2": "One-time sale, no retention",
+            "status_2": "negative",
+            "value_3": "",
+            "status_3": "neutral",
+            "value_4": "",
+            "status_4": "positive"
+          }
+        },
+        "crow_price": {
+          "type": "competitor_row",
+          "settings": {
+            "enabled": true,
+            "title": "Long-run cost",
+            "theme_icon": "dollar",
+            "impact": "You spend more over time than on a subscription.",
+            "open_by_default": false,
+            "value_1": "Subscription keeps cost down",
+            "status_1": "positive",
+            "value_2": "Full price on every repurchase",
+            "status_2": "negative",
+            "value_3": "",
             "status_3": "neutral",
             "value_4": "",
             "status_4": "positive"
@@ -1838,31 +1941,78 @@
         "feat_cost",
         "feat_regen",
         "comp_scaleo",
-        "comp_saltfree",
-        "comp_electronic",
-        "crow_salt",
-        "crow_power",
-        "crow_maint",
-        "crow_cost",
-        "crow_home"
+        "comp_others",
+        "crow_fit",
+        "crow_capacity",
+        "crow_patent",
+        "crow_india",
+        "crow_replace",
+        "crow_safety",
+        "crow_mfg",
+        "crow_focus",
+        "crow_retain",
+        "crow_price"
       ],
       "settings": {
-        "heading": "",
-        "heading_size": "h3",
-        "subheading": "",
-        "description": "",
+        "show_tech": true,
+        "show_tech_eyebrow": true,
+        "tech_eyebrow": "TECHNOLOGY COMPARISON",
+        "tech_heading": "Scale-O vs Other Water Treatment",
+        "show_tech_description": true,
+        "tech_description": "See how Scale-O compares with salt-based, electromagnetic and multi-media systems for household scale protection.",
+        "show_features": true,
+        "tech_criteria_heading": "Comparison criteria",
+        "show_recommended_badge": true,
+        "recommended_label": "Recommended",
+        "show_column_images": true,
+        "show_column_descriptions": false,
+        "show_card_icons": false,
+        "mobile_layout": "scroll",
+        "show_competitors": true,
+        "show_eyebrow": true,
+        "eyebrow": "COMPETITOR COMPARISON",
+        "heading": "Scale-O vs Core Competitors",
+        "show_description": true,
+        "description": "Ten points that change water quality, safety, and what you pay over time.",
+        "competitor_hint": "",
+        "impact_label": "Why it matters",
+        "open_first_competitor": true,
+        "criteria_heading": "Criteria",
+        "competitor_note": "",
         "header_alignment": "center",
-        "container": "w-full",
-        "color_scheme": "",
-        "content_color_scheme": "",
-        "enable_parallax": false,
-        "parallax_direction": "vertical",
-        "gap": 30,
-        "gap_mobile": 16,
-        "use_scroll_mobile": false,
-        "padding_top": 0,
-        "padding_bottom": 0,
-        "custom_class": ""
+        "highlight_color": "#0c7fdf",
+        "highlight_background": "#e8f3fc",
+        "show_cta_banner": true,
+        "banner_icon": "shield",
+        "banner_heading": "",
+        "banner_text": "Scale-O delivers salt-free, maintenance-free protection that's simple, efficient and built for modern homes.",
+        "cta_text": "Explore Scale-O Products",
+        "cta_url": "",
+        "max_width": 1200,
+        "image_aspect_ratio": "4 / 3",
+        "card_radius": 16,
+        "enable_animations": true,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_top_mobile": 28,
+        "padding_bottom_mobile": 28,
+        "padding_x": 20,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "header_gap": 32,
+        "eyebrow_size": 13,
+        "heading_size_desktop": 36,
+        "heading_size_mobile": 26,
+        "description_size": 16,
+        "background_color": "#ffffff",
+        "matrix_background": "#eef6ff",
+        "card_background": "#ffffff",
+        "card_border_color": "#e4ecf6",
+        "heading_color": "#12345b",
+        "text_color": "#5a6b85",
+        "accent_color": "#0c7fdf",
+        "accent_hover_color": "#0a6bc4",
+        "accessibility_label": "Competitor comparison"
       }
     },
     "video_testimonials_home": {
@@ -2409,14 +2559,14 @@
           "type": "item",
           "settings": {
             "enabled": true,
-            "image": "shopify://shop_images/Rectangle_17858.jpg",
+            "image": "",
             "image_by_url": "",
             "image_alt": "",
             "tag": "",
             "title": "Innovation Coverage",
             "publication": "Divya Bhaskar",
             "date": "",
-            "link": "https://www.divyabhaskar.co.in/local/gujarat/ahmedabad/news/this-cheap-device-will-make-1-lakh-liters-of-water-salt-less-130302889.html",
+            "link": "",
             "cta_text": "",
             "open_new_tab": true
           }
@@ -2425,14 +2575,14 @@
           "type": "item",
           "settings": {
             "enabled": true,
-            "image": "shopify://shop_images/vvfsvasf.png",
+            "image": "",
             "image_by_url": "",
             "image_alt": "",
             "tag": "",
             "title": "Founder with CM of Gujarat",
             "publication": "News 18",
             "date": "",
-            "link": "https://gujarati.news18.com/news/ahmedabad/ahmedabad-student-make-device-for-pure-water-kp-1252526.html",
+            "link": "",
             "cta_text": "",
             "open_new_tab": true
           }
@@ -2441,14 +2591,14 @@
           "type": "item",
           "settings": {
             "enabled": true,
-            "image": "shopify://shop_images/Rectangle_17858.png",
+            "image": "",
             "image_by_url": "",
             "image_alt": "",
             "tag": "",
             "title": "Business Coverage",
             "publication": "Ahmedabad Mirror",
             "date": "",
-            "link": "https://x.com/kuldeep_2105/status/1798197609057919273?t=j-Qm6Q-rhyoeLGNkS2-FrQ&s=08",
+            "link": "",
             "cta_text": "",
             "open_new_tab": true
           }
@@ -2457,14 +2607,14 @@
           "type": "item",
           "settings": {
             "enabled": true,
-            "image": "shopify://shop_images/image.png",
+            "image": "",
             "image_by_url": "",
             "image_alt": "",
             "tag": "",
             "title": "Innovation Showcase",
             "publication": "Book of Innovations, GOI",
             "date": "",
-            "link": "https://drive.google.com/file/d/1aL92QXJ3c6KWcYwp1iX2MUM7mVn_ujJX/view?usp=sharing",
+            "link": "",
             "cta_text": "",
             "open_new_tab": true
           }
@@ -2473,14 +2623,14 @@
           "type": "item",
           "settings": {
             "enabled": true,
-            "image": "shopify://shop_images/Rectangle_17856.png",
+            "image": "",
             "image_by_url": "",
             "image_alt": "",
             "tag": "",
             "title": "Product Footage",
             "publication": "ABP TV",
             "date": "",
-            "link": "https://drive.google.com/file/d/1MBQKO1pXFFjj-QUsexCY2aHWe_LNqt8o/view?usp=sharing",
+            "link": "",
             "cta_text": "",
             "open_new_tab": true
           }
@@ -2489,14 +2639,14 @@
           "type": "item",
           "settings": {
             "enabled": true,
-            "image": "shopify://shop_images/Rectangle_17857_4d8df349-c855-4d7d-95b2-8f84c9bc0065.png",
+            "image": "",
             "image_by_url": "",
             "image_alt": "",
             "tag": "",
             "title": "Founder’s Pitch",
             "publication": "Zee Business OTT",
             "date": "",
-            "link": "https://www.youtube.com/watch?v=kWfxUZZRbRE",
+            "link": "",
             "cta_text": "",
             "open_new_tab": true
           }
@@ -2514,19 +2664,11 @@
         "eyebrow": "RECOGNITIONS",
         "heading": "News & Media",
         "description": "Features, recognitions and media coverage that highlight Scale-O's innovation, impact and journey.",
-        "desktop_cards": 4,
-        "tablet_cards": 2,
-        "mobile_cards": "1",
-        "card_gap": 20,
-        "image_ratio": "landscape",
-        "show_arrows": true,
-        "show_dots": true,
-        "enable_autoplay": false,
-        "autoplay_speed": 5000,
-        "enable_loop": false,
-        "enable_swipe": true,
-        "show_cta": true,
-        "cta_text": "View Coverage",
+        "card_width": 200,
+        "card_height": 148,
+        "card_gap": 16,
+        "enable_infinite_carousel": true,
+        "marquee_speed": 36,
         "show_inquiry": false,
         "show_inquiry_icon": true,
         "inquiry_text": "Want to feature Scale-O in your publication? We work with media houses, digital platforms and industry publications.",
@@ -2535,7 +2677,7 @@
         "max_width": 1200,
         "padding_x": 20,
         "header_gap": 36,
-        "card_radius": 16,
+        "card_radius": 14,
         "show_card_shadow": true,
         "padding_top": 36,
         "padding_bottom": 36,
@@ -2545,8 +2687,7 @@
         "heading_size_desktop": 36,
         "heading_size_mobile": 26,
         "description_size": 15,
-        "title_size": 16,
-        "background_color": "#ffffff",
+        "background_color": "#f3faff",
         "card_background": "#ffffff",
         "card_border_color": "#dceaf5",
         "heading_color": "#142b4a",
@@ -2717,11 +2858,9 @@
         "heading": "Frequently Asked Questions",
         "description": "Everything you need to know about Scale-O, installation, maintenance and protecting your home from hard-water scale.",
         "show_cta": true,
-        "show_cta_icon": true,
-        "cta_heading": "Still have questions?",
-        "cta_text": "Our experts are here to help you choose the right solution.",
-        "cta_button_text": "Talk to a Scale-O Expert",
-        "cta_button_link": "shopify://pages/consult-now",
+        "cta_button_text": "Chat on WhatsApp",
+        "whatsapp_number": "919909963300",
+        "whatsapp_message": "Hi Scale-O, I have a question about the salt-free water softener for my home.",
         "layout": "two_columns",
         "max_width": 1180,
         "faq_column_width": 58,

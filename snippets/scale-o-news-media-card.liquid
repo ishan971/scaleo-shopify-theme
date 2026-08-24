@@ -1,0 +1,52 @@
+{%- comment -%}
+  Recognition logo card. Accepts: block, card_index, duplicate
+{%- endcomment -%}
+{%- liquid
+  assign display_name = block.settings.publication | strip
+  if display_name == blank
+    assign display_name = block.settings.title
+  endif
+  assign logo_image = block.settings.image
+  assign logo_url = block.settings.image_by_url
+  assign logo_asset = 'scale-o-nm-logo-' | append: card_index | append: '.jpg'
+  assign logo_alt = block.settings.image_alt | default: display_name | default: 'Recognition'
+  assign use_theme_logo = false
+  if logo_image == blank and logo_url == blank and card_index != blank and card_index <= 6
+    assign use_theme_logo = true
+  endif
+-%}
+<div
+  class="scale-o-nm__card"
+  {% if duplicate != true %}
+    data-snm-card
+    {{ block.shopify_attributes }}
+  {% endif %}
+>
+  <span class="scale-o-nm__logo">
+    {%- if logo_image != blank -%}
+      {{
+        logo_image
+        | image_url: width: 360
+        | image_tag:
+          loading: 'lazy',
+          widths: '160,240,360',
+          sizes: '160px',
+          alt: logo_alt
+      }}
+    {%- elsif logo_url != blank -%}
+      <img src="{{ logo_url | escape }}" alt="{{ logo_alt | escape }}" width="160" height="64" loading="lazy">
+    {%- elsif use_theme_logo -%}
+      <img
+        src="{{ logo_asset | asset_url }}"
+        alt="{{ logo_alt | escape }}"
+        width="160"
+        height="160"
+        loading="lazy"
+        decoding="async"
+      >
+    {%- endif -%}
+  </span>
+  {%- if display_name != blank -%}
+    <span class="scale-o-nm__name">{{ display_name | escape }}</span>
+  {%- endif -%}
+</div>

@@ -253,7 +253,7 @@
             "step_number": "1",
             "icon": "check",
             "title": "Choose the Right Model",
-            "description": "Pick a Scale-O size that matches your tank capacity and household usage."
+            "description": "Pick Mini, Semi or Centi to match your overhead tank size and the water your household uses each day."
           }
         },
         "install_2": {
@@ -262,7 +262,7 @@
             "step_number": "2",
             "icon": "tank",
             "title": "Open the Overhead Tank",
-            "description": "Access your overhead water tank safely before placing the unit."
+            "description": "Open the tank lid safely on the terrace and keep the opening clear before you place the Scale-O unit inside."
           }
         },
         "install_3": {
@@ -271,7 +271,7 @@
             "step_number": "3",
             "icon": "install",
             "title": "Place Scale-O Inside the Tank",
-            "description": "Drop the compact Scale-O unit into the tank. No plumber or wiring needed."
+            "description": "Lower the compact Scale-O unit into the tank. No plumber, wiring or plumbing changes are needed at all."
           }
         },
         "install_4": {
@@ -280,7 +280,7 @@
             "step_number": "4",
             "icon": "check",
             "title": "Close and Secure the Tank",
-            "description": "Seal the tank properly so water flows normally through your home."
+            "description": "Close the lid firmly so the tank stays sealed and water can flow normally through every tap in the home."
           }
         },
         "install_5": {
@@ -289,7 +289,7 @@
             "step_number": "5",
             "icon": "home",
             "title": "Start Using Scale-O",
-            "description": "Use water as usual while Scale-O helps reduce hard-water scale buildup."
+            "description": "Use water as usual in the bathroom, kitchen and laundry while Scale-O helps reduce hard-water scale buildup."
           }
         },
         "exchange_1": {
@@ -298,7 +298,7 @@
             "step_number": "1",
             "icon": "exchange",
             "title": "Identify Your Scale-O Unit",
-            "description": "Check when your current unit needs replacement based on usage and product life."
+            "description": "Check your current unit against its product life so you know when it is time for a simple Scale-O exchange."
           }
         },
         "exchange_2": {
@@ -307,7 +307,7 @@
             "step_number": "2",
             "icon": "power",
             "title": "Turn Off the Water Supply",
-            "description": "Stop water flow to the overhead tank before removing the used unit."
+            "description": "Stop the water supply to the overhead tank first, then wait until the flow settles before you open the lid."
           }
         },
         "exchange_3": {
@@ -316,7 +316,7 @@
             "step_number": "3",
             "icon": "install",
             "title": "Remove the Existing Unit",
-            "description": "Take out the used Scale-O unit from the tank."
+            "description": "Lift the used Scale-O unit out of the tank carefully and keep the opening clear for the replacement unit."
           }
         },
         "exchange_4": {
@@ -325,7 +325,7 @@
             "step_number": "4",
             "icon": "exchange",
             "title": "Install the Replacement",
-            "description": "Place the new Scale-O unit inside the tank in the same simple way."
+            "description": "Place the new Scale-O unit inside the tank the same simple way, with no plumber or extra fittings needed."
           }
         },
         "exchange_5": {
@@ -334,7 +334,7 @@
             "step_number": "5",
             "icon": "check",
             "title": "Restart the Water Supply",
-            "description": "Restore water flow and continue enjoying scale-protected water at home."
+            "description": "Turn the water supply back on, close the lid, and keep using scale-protected water throughout the home."
           }
         }
       },
@@ -825,7 +825,7 @@
           "type": "item",
           "settings": {
             "enabled": true,
-            "image": "shopify://shop_images/Rectangle_17858.jpg",
+            "image": "",
             "image_by_url": "",
             "image_alt": "",
             "tag": "",
@@ -841,7 +841,7 @@
           "type": "item",
           "settings": {
             "enabled": true,
-            "image": "shopify://shop_images/vvfsvasf.png",
+            "image": "",
             "image_by_url": "",
             "image_alt": "",
             "tag": "",
@@ -857,7 +857,7 @@
           "type": "item",
           "settings": {
             "enabled": true,
-            "image": "shopify://shop_images/Rectangle_17858.png",
+            "image": "",
             "image_by_url": "",
             "image_alt": "",
             "tag": "",
@@ -873,7 +873,7 @@
           "type": "item",
           "settings": {
             "enabled": true,
-            "image": "shopify://shop_images/image.png",
+            "image": "",
             "image_by_url": "",
             "image_alt": "",
             "tag": "",
@@ -889,7 +889,7 @@
           "type": "item",
           "settings": {
             "enabled": true,
-            "image": "shopify://shop_images/Rectangle_17856.png",
+            "image": "",
             "image_by_url": "",
             "image_alt": "",
             "tag": "",
@@ -905,7 +905,7 @@
           "type": "item",
           "settings": {
             "enabled": true,
-            "image": "shopify://shop_images/Rectangle_17857_4d8df349-c855-4d7d-95b2-8f84c9bc0065.png",
+            "image": "",
             "image_by_url": "",
             "image_alt": "",
             "tag": "",
@@ -930,19 +930,11 @@
         "eyebrow": "RECOGNITIONS",
         "heading": "News & Media",
         "description": "Features, recognitions and media coverage that highlight Scale-O's innovation, impact and journey.",
-        "desktop_cards": 4,
-        "tablet_cards": 2,
-        "mobile_cards": "1",
-        "card_gap": 20,
-        "image_ratio": "landscape",
-        "show_arrows": true,
-        "show_dots": true,
-        "enable_autoplay": false,
-        "autoplay_speed": 5000,
-        "enable_loop": false,
-        "enable_swipe": true,
-        "show_cta": true,
-        "cta_text": "View Coverage",
+        "card_width": 200,
+        "card_height": 148,
+        "card_gap": 16,
+        "enable_infinite_carousel": true,
+        "marquee_speed": 36,
         "show_inquiry": false,
         "show_inquiry_icon": true,
         "inquiry_text": "Want to feature Scale-O in your publication? We work with media houses, digital platforms and industry publications.",
@@ -961,15 +953,14 @@
         "heading_size_desktop": 36,
         "heading_size_mobile": 26,
         "description_size": 15,
-        "title_size": 16,
-        "background_color": "#ffffff",
+        "background_color": "#f3faff",
         "card_background": "#ffffff",
         "card_border_color": "#dceaf5",
         "heading_color": "#142b4a",
         "text_color": "#5a6b85",
         "accent_color": "#0c7fdf",
         "accent_hover_color": "#0a6bc4",
-        "accessibility_label": "News and media"
+        "accessibility_label": "News and media recognitions"
       }
     },
     "scale_o_faq_collection": {

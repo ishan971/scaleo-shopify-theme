@@ -1,5 +1,5 @@
 {%- comment -%}
-  Scale-O comparison: photo technology cards + compact similar-product table
+  Scale-O comparison: photo technology cards + interactive competitor versus cards
 {%- endcomment -%}
 
 {{ 'scale-o-tech-compare.css' | asset_url | stylesheet_tag }}
@@ -54,6 +54,26 @@
     if section.settings.banner_heading != blank or section.settings.banner_text != blank or section.settings.cta_text != blank
       assign show_banner = true
     endif
+  endif
+
+  assign first_versus_id = ''
+  for row in competitor_rows
+    if row.settings.enabled == false
+      continue
+    endif
+    if row.settings.open_by_default
+      assign first_versus_id = row.id
+      break
+    endif
+  endfor
+  if first_versus_id == blank
+    for row in competitor_rows
+      if row.settings.enabled == false
+        continue
+      endif
+      assign first_versus_id = row.id
+      break
+    endfor
   endif
 -%}
 
@@ -251,39 +271,102 @@
           </header>
         {%- endif -%}
 
-        <div class="scale-o-compare__mini-wrap" tabindex="0" role="region" aria-label="{{ section.settings.heading | default: 'Competitor comparison' | escape }}">
-          <table class="scale-o-compare__mini-table">
-            <caption class="scale-o-compare__sr-only">{{ section.settings.heading | default: 'Competitor comparison' | escape }}</caption>
-            <thead>
-              <tr>
-                <th class="scale-o-compare__mini-th scale-o-compare__mini-th--criteria" scope="col">{{ section.settings.criteria_heading | default: 'Criteria' | escape }}</th>
+        {%- if competitor_rows.size > 0 -%}
+          {%- if section.settings.competitor_hint != blank -%}
+            <p class="scale-o-versus__hint">{{ section.settings.competitor_hint | escape }}</p>
+          {%- endif -%}
+          <div
+            class="scale-o-versus scale-o-versus--cols-{{ competitor_count }}"
+            data-stc-versus
+            style="--stc-chip-cols: {{ competitor_count }};"
+          >
+            <div class="scale-o-versus__rail" role="tablist" aria-label="{{ section.settings.heading | default: 'Comparison points' | escape }}">
+              {%- for row in competitor_rows -%}
+                {%- if row.settings.enabled == false -%}{%- continue -%}{%- endif -%}
+                {%- liquid
+                  assign row_selected = false
+                  if first_versus_id == row.id
+                    assign row_selected = true
+                  endif
+                  assign row_icon = row.settings.theme_icon | default: 'droplet'
+                  assign tab_id = 'stc-tab-' | append: section.id | append: '-' | append: row.id
+                  assign panel_id = 'stc-point-' | append: section.id | append: '-' | append: row.id
+                -%}
+                <button
+                  class="scale-o-versus__tab{% if row_selected %} is-active{% endif %}"
+                  id="{{ tab_id }}"
+                  type="button"
+                  role="tab"
+                  aria-selected="{% if row_selected %}true{% else %}false{% endif %}"
+                  aria-controls="{{ panel_id }}"
+                  tabindex="{% if row_selected %}0{% else %}-1{% endif %}"
+                  data-stc-tab
+                  {{ row.shopify_attributes }}
+                >
+                  <span class="scale-o-versus__icon" aria-hidden="true">
+                    {% render 'scale-o-compare-icon', icon: row_icon, class: 'scale-o-compare__icon-svg' %}
+                  </span>
+                  <span class="scale-o-versus__tab-label">{{ row.settings.title | escape }}</span>
+                </button>
+              {%- endfor -%}
+            </div>
+
+            <div class="scale-o-versus__stage">
+              <div class="scale-o-versus__legend">
                 {%- assign visible = 0 -%}
                 {%- for brand in competitor_blocks -%}
                   {%- if brand.settings.enabled == false -%}{%- continue -%}{%- endif -%}
                   {%- assign visible = visible | plus: 1 -%}
                   {%- if visible > 4 -%}{%- break -%}{%- endif -%}
-                  <th
-                    class="scale-o-compare__mini-th{% if brand.settings.highlight %} scale-o-compare__mini-th--featured{% endif %}"
-                    scope="col"
-                    {{ brand.shopify_attributes }}
-                  >
-                    {{ brand.settings.title | escape }}
-                  </th>
+                  <p class="scale-o-versus__legend-item{% if brand.settings.highlight %} scale-o-versus__legend-item--win{% else %} scale-o-versus__legend-item--lose{% endif %}">
+                    {%- if brand.settings.highlight -%}
+                      <span class="scale-o-versus__legend-mark" aria-hidden="true">
+                        <svg viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.2 3.2L13 4.8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                      </span>
+                    {%- else -%}
+                      <span class="scale-o-versus__legend-mark" aria-hidden="true">
+                        <svg viewBox="0 0 16 16" fill="none"><path d="M4 4l8 8M12 4 4 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                      </span>
+                    {%- endif -%}
+                    <span>{{ brand.settings.title | escape }}</span>
+                  </p>
                 {%- endfor -%}
-              </tr>
-            </thead>
-            {%- if competitor_rows.size > 0 -%}
-              <tbody>
-                {%- for row in competitor_rows -%}
-                  {%- if row.settings.enabled == false -%}{%- continue -%}{%- endif -%}
-                  <tr class="scale-o-compare__mini-row" {{ row.shopify_attributes }}>
-                    <th class="scale-o-compare__mini-feature" scope="row">{{ row.settings.title | escape }}</th>
+              </div>
+
+              {%- for row in competitor_rows -%}
+                {%- if row.settings.enabled == false -%}{%- continue -%}{%- endif -%}
+                {%- liquid
+                  assign row_selected = false
+                  if first_versus_id == row.id
+                    assign row_selected = true
+                  endif
+                  assign row_icon = row.settings.theme_icon | default: 'droplet'
+                  assign tab_id = 'stc-tab-' | append: section.id | append: '-' | append: row.id
+                  assign panel_id = 'stc-point-' | append: section.id | append: '-' | append: row.id
+                  assign row_impact = row.settings.impact
+                -%}
+                <div
+                  class="scale-o-versus__panel{% if row_selected %} is-active{% endif %}"
+                  id="{{ panel_id }}"
+                  role="tabpanel"
+                  aria-labelledby="{{ tab_id }}"
+                  data-stc-panel
+                  {% unless row_selected %}hidden{% endunless %}
+                >
+                  <div class="scale-o-versus__panel-head">
+                    <span class="scale-o-versus__panel-icon" aria-hidden="true">
+                      {% render 'scale-o-compare-icon', icon: row_icon, class: 'scale-o-compare__icon-svg' %}
+                    </span>
+                    <h3 class="scale-o-versus__panel-title">{{ row.settings.title | escape }}</h3>
+                  </div>
+
+                  <div class="scale-o-versus__split">
                     {%- assign visible = 0 -%}
                     {%- for brand in competitor_blocks -%}
                       {%- if brand.settings.enabled == false -%}{%- continue -%}{%- endif -%}
                       {%- assign visible = visible | plus: 1 -%}
                       {%- if visible > 4 -%}{%- break -%}{%- endif -%}
-                      <td class="scale-o-compare__mini-td{% if brand.settings.highlight %} scale-o-compare__mini-td--featured{% endif %}">
+                      <div class="scale-o-versus__side{% if brand.settings.highlight %} scale-o-versus__side--win{% else %} scale-o-versus__side--lose{% endif %}">
                         {%- case visible -%}
                           {%- when 1 -%}
                             {% render 'scale-o-compare-cell', value: row.settings.value_1, status: row.settings.status_1, featured: brand.settings.highlight, short_label: brand.settings.title %}
@@ -294,14 +377,27 @@
                           {%- when 4 -%}
                             {% render 'scale-o-compare-cell', value: row.settings.value_4, status: row.settings.status_4, featured: brand.settings.highlight, short_label: brand.settings.title %}
                         {%- endcase -%}
-                      </td>
+                      </div>
                     {%- endfor -%}
-                  </tr>
-                {%- endfor -%}
-              </tbody>
-            {%- endif -%}
-          </table>
-        </div>
+                    {%- if competitor_count == 2 -%}
+                      <span class="scale-o-versus__vs" aria-hidden="true">
+                        {% render 'scale-o-compare-icon', icon: 'droplet', class: 'scale-o-versus__vs-icon' %}
+                        <span>VS</span>
+                      </span>
+                    {%- endif -%}
+                  </div>
+
+                  {%- if row_impact != blank -%}
+                    <p class="scale-o-versus__impact">
+                      <span class="scale-o-versus__impact-label">{{ section.settings.impact_label | default: 'Why it matters' | escape }}</span>
+                      <span class="scale-o-versus__impact-text">{{ row_impact | escape }}</span>
+                    </p>
+                  {%- endif -%}
+                </div>
+              {%- endfor -%}
+            </div>
+          </div>
+        {%- endif -%}
         {%- if section.settings.competitor_note != blank -%}
           <p class="scale-o-compare__note">{{ section.settings.competitor_note | escape }}</p>
         {%- endif -%}
@@ -334,18 +430,16 @@
   </div>
 </div>
 
-{%- if section.settings.enable_animations -%}
-  <script src="{{ 'scale-o-tech-compare.js' | asset_url }}" defer></script>
-{%- endif -%}
+<script src="{{ 'scale-o-tech-compare.js' | asset_url }}" defer></script>
 
 {% schema %}
 {
   "name": "Scale-O Comparison",
   "tag": "section",
   "class": "scale-o-compare-section",
-  "max_blocks": 24,
+  "max_blocks": 36,
   "settings": [
-    { "type": "paragraph", "content": "Photo cards compare Scale-O with other technologies. The small table compares Scale-O with similar products. Rename competitor columns in Theme Editor." },
+    { "type": "paragraph", "content": "Photo cards compare Scale-O with other technologies. Interactive versus cards compare Scale-O with core competitors. Keep Scale-O copy short. Put the longer customer impact in each row so it opens on tap." },
 
     { "type": "header", "content": "Technology cards" },
     { "type": "checkbox", "id": "show_tech", "label": "Show technology cards", "default": true },
@@ -372,15 +466,18 @@
       ]
     },
 
-    { "type": "header", "content": "Competitor table" },
-    { "type": "checkbox", "id": "show_competitors", "label": "Show competitor table", "default": true },
+    { "type": "header", "content": "Competitor comparison" },
+    { "type": "checkbox", "id": "show_competitors", "label": "Show competitor comparison", "default": true },
     { "type": "checkbox", "id": "show_eyebrow", "label": "Show competitor eyebrow", "default": true },
     { "type": "text", "id": "eyebrow", "label": "Competitor eyebrow", "default": "COMPETITOR COMPARISON" },
-    { "type": "text", "id": "heading", "label": "Competitor heading", "default": "Scale-O vs Similar Solutions" },
+    { "type": "text", "id": "heading", "label": "Competitor heading", "default": "Scale-O vs Core Competitors" },
     { "type": "checkbox", "id": "show_description", "label": "Show competitor description", "default": true },
-    { "type": "textarea", "id": "description", "label": "Competitor description", "default": "See how Scale-O compares with other solutions designed to tackle hard-water scaling." },
-    { "type": "text", "id": "criteria_heading", "label": "First column heading", "default": "Criteria" },
-    { "type": "text", "id": "competitor_note", "label": "Table note", "default": "Comparisons describe typical household scale-control approaches." },
+    { "type": "textarea", "id": "description", "label": "Competitor description", "default": "Ten points that change water quality, safety, and what you pay over time." },
+    { "type": "text", "id": "competitor_hint", "label": "Interaction hint" },
+    { "type": "text", "id": "impact_label", "label": "Impact label", "default": "Why it matters" },
+    { "type": "checkbox", "id": "open_first_competitor", "label": "Select the first point by default", "default": true },
+    { "type": "text", "id": "criteria_heading", "label": "First column heading (legacy)", "default": "Criteria" },
+    { "type": "text", "id": "competitor_note", "label": "Comparison note", "default": "Typical of salt-free products sold online in India." },
 
     {
       "type": "select",
@@ -608,11 +705,34 @@
     },
     {
       "type": "competitor_row",
-      "name": "Competitor row",
-      "limit": 8,
+      "name": "Competitor point",
+      "limit": 12,
       "settings": [
-        { "type": "checkbox", "id": "enabled", "label": "Show this row", "default": true },
-        { "type": "text", "id": "title", "label": "Row title", "default": "Salt required" },
+        { "type": "checkbox", "id": "enabled", "label": "Show this point", "default": true },
+        { "type": "text", "id": "title", "label": "Point title", "default": "Fit for your home" },
+        {
+          "type": "select",
+          "id": "theme_icon",
+          "label": "Icon",
+          "default": "home",
+          "options": [
+            { "value": "home", "label": "Home / fit" },
+            { "value": "layers", "label": "Capacity" },
+            { "value": "patent", "label": "Patent" },
+            { "value": "flask", "label": "Research" },
+            { "value": "calendar", "label": "Replacement" },
+            { "value": "shield", "label": "Safety" },
+            { "value": "factory", "label": "Manufacturing" },
+            { "value": "target", "label": "Focus" },
+            { "value": "users", "label": "Customers" },
+            { "value": "dollar", "label": "Price" },
+            { "value": "droplet", "label": "Water" },
+            { "value": "gear", "label": "Gears" },
+            { "value": "none", "label": "None" }
+          ]
+        },
+        { "type": "textarea", "id": "impact", "label": "Customer impact (opens on tap)" },
+        { "type": "checkbox", "id": "open_by_default", "label": "Start this point open", "default": false },
         { "type": "header", "content": "Column 1" },
         { "type": "text", "id": "value_1", "label": "Value text" },
         {
@@ -700,9 +820,8 @@
         { "type": "feature", "settings": { "title": "Salt required", "value_1": "Yes", "status_1": "negative", "value_2": "No", "status_2": "positive", "value_3": "Depends", "status_3": "neutral", "value_4": "No", "status_4": "not_required" } },
         { "type": "feature", "settings": { "title": "Electricity required", "value_1": "Yes", "status_1": "required", "value_2": "Yes", "status_2": "required", "value_3": "Depends", "status_3": "neutral", "value_4": "No", "status_4": "not_required" } },
         { "type": "competitor", "settings": { "title": "Scale-O", "highlight": true } },
-        { "type": "competitor", "settings": { "title": "Other salt-free systems" } },
-        { "type": "competitor", "settings": { "title": "Other electronic devices" } },
-        { "type": "competitor_row", "settings": { "title": "Salt required", "value_1": "No", "status_1": "not_required", "value_2": "Usually no", "status_2": "positive", "value_3": "No", "status_3": "positive" } }
+        { "type": "competitor", "settings": { "title": "Core competitors" } },
+        { "type": "competitor_row", "settings": { "title": "Fit for your home", "theme_icon": "home", "value_1": "Sized to tank and daily use", "status_1": "positive", "value_2": "One size for all, no analysis", "status_2": "negative", "impact": "Wrong size can under or over soften, so scale control suffers." } }
       ]
     }
   ]

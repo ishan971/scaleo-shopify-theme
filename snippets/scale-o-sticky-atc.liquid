@@ -1,0 +1,52 @@
+{%- comment -%}
+  Mobile sticky Add to Cart. Appears after the in-page ATC scrolls out of view.
+{%- endcomment -%}
+{%- if template.name == 'product' and product -%}
+  {%- liquid
+    assign current_variant = product.selected_or_first_available_variant
+    assign rupees = current_variant.price | divided_by: 100
+    assign sticky_price = '₹' | append: rupees
+  -%}
+  {{ 'scale-o-sticky-atc.css' | asset_url | stylesheet_tag }}
+  <div
+    class="scale-o-sticky-atc"
+    data-scale-o-sticky-atc
+    data-product-id="{{ product.id }}"
+    data-price-cents="{{ current_variant.price }}"
+    data-available="{{ current_variant.available }}"
+    aria-hidden="true"
+  >
+    <button
+      type="button"
+      class="scale-o-sticky-atc__btn{% unless current_variant.available %} is-disabled{% endunless %}"
+      data-sticky-atc-trigger
+      aria-label="Add to Cart"
+      {% unless current_variant.available %}disabled{% endunless %}
+    >
+      <span class="scale-o-sticky-atc__spinner" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" focusable="false">
+          <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3" opacity="0.25"></circle>
+          <path fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
+        </svg>
+      </span>
+      <span class="scale-o-sticky-atc__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" focusable="false">
+          <path d="M6 7h15l-1.4 8.2a2 2 0 0 1-2 1.8H9.2a2 2 0 0 1-2-1.6L5.2 4H3"></path>
+          <circle cx="10" cy="20" r="1.3" fill="currentColor" stroke="none"></circle>
+          <circle cx="18" cy="20" r="1.3" fill="currentColor" stroke="none"></circle>
+        </svg>
+      </span>
+      <span class="scale-o-sticky-atc__copy">
+        <span class="scale-o-sticky-atc__label" data-sticky-atc-label>
+          {%- if current_variant.available -%}
+            Add to Cart
+          {%- else -%}
+            Sold out
+          {%- endif -%}
+        </span>
+        <span class="scale-o-sticky-atc__price" data-sticky-atc-price>{{ sticky_price }}</span>
+      </span>
+    </button>
+  </div>
+  <script src="{{ 'scale-o-sticky-atc.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}

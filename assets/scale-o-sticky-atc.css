@@ -1,0 +1,189 @@
+.scale-o-sticky-atc {
+  display: none;
+}
+
+@media screen and (max-width: 767px) {
+  .scale-o-sticky-atc {
+    --so-sticky-safe: env(safe-area-inset-bottom, 0px);
+    display: flex;
+    position: fixed;
+    left: 50%;
+    bottom: calc(12px + var(--so-sticky-safe));
+    z-index: 90;
+    width: min(calc(100vw - 100px), 328px);
+    margin: 0;
+    padding: 0;
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-50%) translateY(18px);
+    transition: opacity 220ms ease-out, transform 220ms ease-out, visibility 220ms ease-out;
+  }
+
+  .scale-o-sticky-atc.is-visible {
+    pointer-events: auto;
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  .scale-o-sticky-atc__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    min-height: 52px;
+    margin: 0;
+    padding: 6px 8px 6px 14px;
+    border: 1px solid rgba(12, 127, 223, 0.28);
+    border-radius: 999px;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a2533 55%, #0d1b2a 100%);
+    color: #fff;
+    box-shadow:
+      0 8px 24px rgba(0, 0, 0, 0.28),
+      0 0 28px rgba(12, 127, 223, 0.18);
+    cursor: pointer;
+    appearance: none;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    font-family: inherit;
+  }
+
+  .scale-o-sticky-atc__btn:focus-visible {
+    outline: 2px solid #4db8ff;
+    outline-offset: 3px;
+  }
+
+  .scale-o-sticky-atc__btn:active:not(:disabled) {
+    transform: scale(0.98);
+  }
+
+  .scale-o-sticky-atc__btn:disabled,
+  .scale-o-sticky-atc__btn.is-disabled {
+    cursor: not-allowed;
+    opacity: 0.55;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
+  }
+
+  .scale-o-sticky-atc__icon,
+  .scale-o-sticky-atc__spinner {
+    display: flex;
+    flex: 0 0 22px;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    color: #fff;
+  }
+
+  .scale-o-sticky-atc__icon svg,
+  .scale-o-sticky-atc__spinner svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .scale-o-sticky-atc__spinner {
+    display: none;
+  }
+
+  .scale-o-sticky-atc.is-loading .scale-o-sticky-atc__spinner {
+    display: flex;
+  }
+
+  .scale-o-sticky-atc.is-loading .scale-o-sticky-atc__icon {
+    display: none;
+  }
+
+  .scale-o-sticky-atc__spinner svg {
+    animation: scale-o-sticky-atc-spin 0.7s linear infinite;
+  }
+
+  .scale-o-sticky-atc__copy {
+    display: flex;
+    flex: 1 1 auto;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    min-width: 0;
+  }
+
+  .scale-o-sticky-atc__label {
+    overflow: hidden;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    line-height: 1.2;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .scale-o-sticky-atc__price {
+    flex: 0 0 auto;
+    padding: 8px 12px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.12);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    line-height: 1;
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+  }
+
+  html.scale-o-sticky-atc-ready .m-sticky-addtocart {
+    display: none !important;
+  }
+
+  html.scale-o-sticky-atc-on .m-button--scroll-top,
+  html.scale-o-sticky-atc-on #scroll-to-top-button {
+    right: 10px;
+    bottom: calc(14px + env(safe-area-inset-bottom, 0px));
+  }
+
+  html.scale-o-sticky-atc-on #MainContent {
+    padding-bottom: 88px;
+  }
+
+  html.prevent-scroll .scale-o-sticky-atc {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+  }
+}
+
+@media screen and (max-width: 359px) {
+  .scale-o-sticky-atc {
+    width: min(calc(100vw - 96px), 260px);
+  }
+
+  .scale-o-sticky-atc__label {
+    font-size: 13px;
+  }
+
+  .scale-o-sticky-atc__price {
+    padding: 7px 9px;
+    font-size: 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scale-o-sticky-atc,
+  .scale-o-sticky-atc__btn:active:not(:disabled),
+  .scale-o-sticky-atc__spinner svg {
+    transition: none;
+    animation: none;
+  }
+
+  .scale-o-sticky-atc.is-visible {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes scale-o-sticky-atc-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

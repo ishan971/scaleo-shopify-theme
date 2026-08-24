@@ -1,0 +1,44 @@
+{%- comment -%}
+  Install / Exchange step card: image + number + title + description
+  Accepts: block, kind (install | exchange)
+{%- endcomment -%}
+{%- liquid
+  assign step_n = block.settings.step_number | default: step_index
+  assign asset_name = 'how-it-works-' | append: kind | append: '-' | append: step_n | append: '.jpg'
+  assign card_alt = block.settings.title | default: 'Scale-O step'
+-%}
+<li class="scale-o-how-it-works__detail-step" {{ block.shopify_attributes }}>
+  <div class="scale-o-how-it-works__detail-media">
+    <span class="scale-o-how-it-works__detail-num">{{ step_n | escape }}</span>
+    {%- if block.settings.image != blank -%}
+      {{
+        block.settings.image
+        | image_url: width: 800
+        | image_tag:
+          class: 'scale-o-how-it-works__detail-img',
+          loading: 'lazy',
+          widths: '400,640,800',
+          sizes: '(min-width: 1100px) 18vw, (min-width: 640px) 46vw, 100vw',
+          alt: card_alt
+      }}
+    {%- else -%}
+      <img
+        class="scale-o-how-it-works__detail-img"
+        src="{{ asset_name | asset_url }}"
+        alt="{{ card_alt | escape }}"
+        width="1200"
+        height="800"
+        loading="lazy"
+        decoding="async"
+      >
+    {%- endif -%}
+  </div>
+  <div class="scale-o-how-it-works__detail-body">
+    {%- if block.settings.title != blank -%}
+      <h4 class="scale-o-how-it-works__detail-title">{{ block.settings.title | escape }}</h4>
+    {%- endif -%}
+    {%- if block.settings.description != blank -%}
+      <p class="scale-o-how-it-works__step-text">{{ block.settings.description | escape }}</p>
+    {%- endif -%}
+  </div>
+</li>

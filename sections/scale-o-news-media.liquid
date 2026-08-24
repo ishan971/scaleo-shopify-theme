@@ -1,40 +1,32 @@
 {%- comment -%}
-  Scale-O News & Media — Theme Editor recognition carousel
+  Scale-O News & Media — logo + name recognition marquee
 {%- endcomment -%}
 
 {{ 'scale-o-news-media.css' | asset_url | stylesheet_tag }}
 <script src="{{ 'scale-o-news-media.js' | asset_url }}" defer="defer"></script>
 
 {%- liquid
-  assign desktop_cards = section.settings.desktop_cards | default: 4
-  assign tablet_cards = section.settings.tablet_cards | default: 2
-  assign mobile_cards = section.settings.mobile_cards | default: '1' | plus: 0
-  assign ratio = section.settings.image_ratio | default: 'landscape'
-  if ratio == 'square'
-    assign ratio_css = '1 / 1'
-  elsif ratio == 'wide'
-    assign ratio_css = '16 / 9'
-  else
-    assign ratio_css = '3 / 2'
-  endif
-
   assign visible_count = 0
   for block in section.blocks
     if block.type == 'item' and block.settings.enabled != false
-      if block.settings.image != blank or block.settings.image_by_url != blank or block.settings.title != blank
+      if block.settings.image != blank or block.settings.image_by_url != blank or block.settings.title != blank or block.settings.publication != blank
         assign visible_count = visible_count | plus: 1
       endif
     endif
   endfor
 
+  assign infinite_carousel = section.settings.enable_infinite_carousel
+  if infinite_carousel == nil
+    assign infinite_carousel = true
+  endif
+  assign copies = 1
+  if infinite_carousel
+    assign copies = 2
+  endif
+
   assign show_inquiry = false
   if section.settings.show_inquiry and section.settings.inquiry_button_text != blank and section.settings.inquiry_button_link != blank
     assign show_inquiry = true
-  endif
-
-  assign peek = false
-  if mobile_cards == 1
-    assign peek = true
   endif
 -%}
 
@@ -52,16 +44,14 @@
     --snm-pad-x: {{ section.settings.padding_x }}px;
     --snm-header-gap: {{ section.settings.header_gap }}px;
     --snm-max-width: {% if section.settings.max_width == 0 %}100%{% else %}{{ section.settings.max_width }}px{% endif %};
-    --snm-desktop: {{ desktop_cards }};
-    --snm-tablet: {{ tablet_cards }};
-    --snm-mobile: {{ mobile_cards }};
-    --snm-ratio: {{ ratio_css }};
+    --snm-card-width: {{ section.settings.card_width }}px;
+    --snm-card-height: {{ section.settings.card_height }}px;
+    --snm-marquee-s: {{ section.settings.marquee_speed }}s;
     --snm-eyebrow-size: {{ section.settings.eyebrow_size }}px;
     --snm-heading-size: {{ section.settings.heading_size_mobile }}px;
     --snm-heading-size-desktop: {{ section.settings.heading_size_desktop }}px;
     --snm-desc-size: {{ section.settings.description_size }}px;
-    --snm-title-size: {{ section.settings.title_size }}px;
-    --snm-shadow: {% if section.settings.show_card_shadow %}0 4px 16px rgba(16, 42, 67, 0.04){% else %}none{% endif %};
+    --snm-shadow: {% if section.settings.show_card_shadow %}0 8px 20px rgba(20, 43, 74, 0.08){% else %}none{% endif %};
     padding: {{ section.settings.padding_top_mobile }}px 0 {{ section.settings.padding_bottom_mobile }}px;
     background: var(--snm-bg);
   }
@@ -73,18 +63,11 @@
 </style>
 
 <section
-  class="scale-o-nm{% if peek %} scale-o-nm--peek{% endif %}"
+  class="scale-o-nm{% if infinite_carousel %} scale-o-nm--marquee{% else %} scale-o-nm--static{% endif %}"
   data-scale-o-nm
-  data-desktop-cards="{{ desktop_cards }}"
-  data-tablet-cards="{{ tablet_cards }}"
-  data-mobile-cards="{{ mobile_cards }}"
-  data-autoplay="{% if section.settings.enable_autoplay %}true{% else %}false{% endif %}"
-  data-interval="{{ section.settings.autoplay_speed }}"
-  data-loop="{% if section.settings.enable_loop %}true{% else %}false{% endif %}"
-  data-swipe="{% if section.settings.enable_swipe %}true{% else %}false{% endif %}"
+  data-marquee="{% if infinite_carousel %}true{% else %}false{% endif %}"
   role="region"
-  aria-label="{{ section.settings.accessibility_label | default: 'News and media' | escape }}"
-  tabindex="0"
+  aria-label="{{ section.settings.accessibility_label | default: 'News and media recognitions' | escape }}"
 >
   <div class="scale-o-nm__container">
     <header class="scale-o-nm__header">
@@ -98,116 +81,40 @@
         <p class="scale-o-nm__description">{{ section.settings.description | escape }}</p>
       {%- endif -%}
     </header>
+  </div>
 
-    {%- if visible_count > 0 -%}
-      <div class="scale-o-nm__stage">
-        {%- if section.settings.show_arrows -%}
-          <button type="button" class="scale-o-nm__nav" data-snm-prev aria-label="Previous media">
-            <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false">
-              <path d="M10 3.5 5.5 8 10 12.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </button>
-        {%- endif -%}
-
-        <div class="scale-o-nm__viewport" data-snm-viewport>
-          <div class="scale-o-nm__track" data-snm-track>
+  {%- if visible_count > 0 -%}
+    <div class="scale-o-nm__marquee" data-snm-marquee>
+      <div class="scale-o-nm__track" data-snm-track>
+        {%- for copy in (1..copies) -%}
+          <div class="scale-o-nm__group"{% if copy > 1 %} aria-hidden="true"{% endif %}>
+            {%- assign card_index = 0 -%}
+            {%- assign is_duplicate = false -%}
+            {%- if copy > 1 -%}
+              {%- assign is_duplicate = true -%}
+            {%- endif -%}
             {%- for block in section.blocks -%}
               {%- if block.type != 'item' or block.settings.enabled == false -%}{%- continue -%}{%- endif -%}
               {%- liquid
-                assign item_image = block.settings.image
-                assign item_url = block.settings.image_by_url
-                assign has_media = false
-                if item_image != blank or item_url != blank
-                  assign has_media = true
-                endif
-                if has_media == false and block.settings.title == blank
+                if block.settings.image == blank and block.settings.image_by_url == blank and block.settings.title == blank and block.settings.publication == blank
                   continue
                 endif
-                assign publication = block.settings.publication | strip_html | strip
-                assign tag_label = block.settings.tag | strip
-                if tag_label == blank
-                  assign tag_label = publication
-                endif
-                assign item_link = block.settings.link
-                assign cta_label = block.settings.cta_text
-                if cta_label == blank
-                  assign cta_label = section.settings.cta_text
-                endif
-                assign open_new = block.settings.open_new_tab
-                assign card_tag = 'article'
-                if item_link != blank
-                  assign card_tag = 'a'
-                endif
-                assign alt_text = block.settings.image_alt | default: block.settings.title | default: publication | default: 'News coverage'
+                assign card_index = card_index | plus: 1
               -%}
-              <{{ card_tag }}
-                class="scale-o-nm__card"
-                data-snm-card
-                {% if card_tag == 'a' %}
-                  href="{{ item_link }}"
-                  {% if open_new %}target="_blank" rel="noopener noreferrer"{% endif %}
-                {% endif %}
-                {{ block.shopify_attributes }}
-              >
-                {%- if has_media -%}
-                  <span class="scale-o-nm__media">
-                    {%- if item_image != blank -%}
-                      {{
-                        item_image
-                        | image_url: width: 900
-                        | image_tag:
-                          loading: 'lazy',
-                          widths: '320,480,640,900',
-                          sizes: '(min-width: 1024px) 22vw, (min-width: 768px) 42vw, 86vw',
-                          alt: alt_text
-                      }}
-                    {%- elsif item_url != blank -%}
-                      <img src="{{ item_url | escape }}" alt="{{ alt_text | escape }}" width="640" height="480" loading="lazy">
-                    {%- endif -%}
-                  </span>
-                {%- endif -%}
-                <span class="scale-o-nm__body">
-                  {%- if tag_label != blank -%}
-                    <span class="scale-o-nm__tag">{{ tag_label | escape }}</span>
-                  {%- endif -%}
-                  {%- if block.settings.title != blank -%}
-                    <span class="scale-o-nm__title">{{ block.settings.title | escape }}</span>
-                  {%- endif -%}
-                  {%- if publication != blank -%}
-                    <span class="scale-o-nm__source">{{ publication | escape }}</span>
-                  {%- endif -%}
-                  {%- if block.settings.date != blank -%}
-                    <span class="scale-o-nm__date">{{ block.settings.date | escape }}</span>
-                  {%- endif -%}
-                  {%- if section.settings.show_cta and item_link != blank and cta_label != blank -%}
-                    <span class="scale-o-nm__cta">
-                      {{ cta_label | escape }}
-                      <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false">
-                        <path d="M6 3.5h6.5V10M12.5 3.5 4.5 11.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                      </svg>
-                    </span>
-                  {%- endif -%}
-                </span>
-              </{{ card_tag }}>
+              {%- render 'scale-o-news-media-card',
+                block: block,
+                card_index: card_index,
+                duplicate: is_duplicate
+              -%}
             {%- endfor -%}
           </div>
-        </div>
-
-        {%- if section.settings.show_arrows -%}
-          <button type="button" class="scale-o-nm__nav" data-snm-next aria-label="Next media">
-            <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false">
-              <path d="M6 3.5 10.5 8 6 12.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </button>
-        {%- endif -%}
+        {%- endfor -%}
       </div>
+    </div>
+  {%- endif -%}
 
-      {%- if section.settings.show_dots -%}
-        <div class="scale-o-nm__dots" data-snm-dots></div>
-      {%- endif -%}
-    {%- endif -%}
-
-    {%- if section.settings.show_inquiry -%}
+  {%- if section.settings.show_inquiry -%}
+    <div class="scale-o-nm__container">
       <div class="scale-o-nm__inquiry">
         {%- if section.settings.show_inquiry_icon -%}
           <span class="scale-o-nm__inquiry-icon" aria-hidden="true">
@@ -228,17 +135,17 @@
           </a>
         {%- endif -%}
       </div>
-    {%- endif -%}
-  </div>
+    </div>
+  {%- endif -%}
 </section>
 
 {% schema %}
 {
   "name": "News & Media",
   "class": "scale-o-nm-section",
-  "max_blocks": 24,
+  "max_blocks": 32,
   "settings": [
-    { "type": "paragraph", "content": "Add recognition blocks for each news or media item. Drag to reorder. Existing homepage items are preserved in the template." },
+    { "type": "paragraph", "content": "Add a card for each publication: logo + title. Turn Infinite carousel off to show a static grid." },
 
     { "type": "header", "content": "Content" },
     { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "RECOGNITIONS" },
@@ -246,38 +153,11 @@
     { "type": "textarea", "id": "description", "label": "Description", "default": "Features, recognitions and media coverage that highlight Scale-O's innovation, impact and journey." },
 
     { "type": "header", "content": "Carousel" },
-    { "type": "range", "id": "desktop_cards", "label": "Cards per row (desktop)", "min": 2, "max": 4, "step": 1, "default": 4 },
-    { "type": "range", "id": "tablet_cards", "label": "Cards per row (tablet)", "min": 1, "max": 3, "step": 1, "default": 2 },
-    {
-      "type": "select",
-      "id": "mobile_cards",
-      "label": "Cards per row (mobile)",
-      "default": "1",
-      "options": [
-        { "value": "1", "label": "1 card" },
-        { "value": "2", "label": "2 cards" }
-      ]
-    },
-    { "type": "range", "id": "card_gap", "label": "Card gap", "min": 12, "max": 32, "step": 2, "unit": "px", "default": 20 },
-    {
-      "type": "select",
-      "id": "image_ratio",
-      "label": "Image aspect ratio",
-      "default": "landscape",
-      "options": [
-        { "value": "square", "label": "Square" },
-        { "value": "landscape", "label": "Landscape" },
-        { "value": "wide", "label": "Wide" }
-      ]
-    },
-    { "type": "checkbox", "id": "show_arrows", "label": "Show navigation arrows", "default": true },
-    { "type": "checkbox", "id": "show_dots", "label": "Show pagination dots", "default": true },
-    { "type": "checkbox", "id": "enable_autoplay", "label": "Enable autoplay", "default": false },
-    { "type": "range", "id": "autoplay_speed", "label": "Autoplay speed", "min": 3000, "max": 8000, "step": 500, "unit": "ms", "default": 5000 },
-    { "type": "checkbox", "id": "enable_loop", "label": "Enable infinite loop", "default": false },
-    { "type": "checkbox", "id": "enable_swipe", "label": "Enable swipe / drag", "default": true },
-    { "type": "checkbox", "id": "show_cta", "label": "Show card CTA", "default": true },
-    { "type": "text", "id": "cta_text", "label": "Default CTA text", "default": "View Coverage" },
+    { "type": "checkbox", "id": "enable_infinite_carousel", "label": "Infinite carousel", "default": true, "info": "On: logos scroll in a loop. Off: static grid of cards." },
+    { "type": "range", "id": "card_width", "label": "Card width", "min": 160, "max": 260, "step": 4, "unit": "px", "default": 200 },
+    { "type": "range", "id": "card_height", "label": "Card min height", "min": 120, "max": 200, "step": 4, "unit": "px", "default": 148 },
+    { "type": "range", "id": "card_gap", "label": "Card gap", "min": 10, "max": 32, "step": 2, "unit": "px", "default": 16 },
+    { "type": "range", "id": "marquee_speed", "label": "Carousel speed", "min": 20, "max": 80, "step": 2, "unit": "s", "default": 36, "info": "Used only when Infinite carousel is on. Higher is slower." },
 
     { "type": "header", "content": "Inquiry bar" },
     { "type": "checkbox", "id": "show_inquiry", "label": "Show media inquiry bar", "default": false },
@@ -290,7 +170,7 @@
     { "type": "range", "id": "max_width", "label": "Content width", "min": 900, "max": 1400, "step": 20, "unit": "px", "default": 1200 },
     { "type": "range", "id": "padding_x", "label": "Horizontal padding", "min": 12, "max": 40, "step": 4, "unit": "px", "default": 20 },
     { "type": "range", "id": "header_gap", "label": "Header bottom gap", "min": 20, "max": 56, "step": 4, "unit": "px", "default": 36 },
-    { "type": "range", "id": "card_radius", "label": "Card corner radius", "min": 12, "max": 24, "step": 1, "unit": "px", "default": 16 },
+    { "type": "range", "id": "card_radius", "label": "Card corner radius", "min": 8, "max": 24, "step": 1, "unit": "px", "default": 14 },
     { "type": "checkbox", "id": "show_card_shadow", "label": "Show card shadow", "default": true },
     { "type": "range", "id": "padding_top", "label": "Top padding (desktop)", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 72 },
     { "type": "range", "id": "padding_bottom", "label": "Bottom padding (desktop)", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 72 },
@@ -302,34 +182,28 @@
     { "type": "range", "id": "heading_size_desktop", "label": "Heading size (desktop)", "min": 28, "max": 48, "step": 1, "unit": "px", "default": 36 },
     { "type": "range", "id": "heading_size_mobile", "label": "Heading size (mobile)", "min": 22, "max": 36, "step": 1, "unit": "px", "default": 26 },
     { "type": "range", "id": "description_size", "label": "Description size", "min": 13, "max": 18, "step": 1, "unit": "px", "default": 15 },
-    { "type": "range", "id": "title_size", "label": "Card title size", "min": 14, "max": 20, "step": 1, "unit": "px", "default": 16 },
 
     { "type": "header", "content": "Colors" },
-    { "type": "color", "id": "background_color", "label": "Background", "default": "#FFFFFF" },
+    { "type": "color", "id": "background_color", "label": "Background", "default": "#F3FAFF" },
     { "type": "color", "id": "card_background", "label": "Card background", "default": "#FFFFFF" },
     { "type": "color", "id": "card_border_color", "label": "Card border", "default": "#DCEAF5" },
     { "type": "color", "id": "heading_color", "label": "Heading", "default": "#142B4A" },
     { "type": "color", "id": "text_color", "label": "Text", "default": "#5A6B85" },
     { "type": "color", "id": "accent_color", "label": "Accent", "default": "#0C7FDF" },
     { "type": "color", "id": "accent_hover_color", "label": "Accent hover", "default": "#0A6BC4" },
-    { "type": "text", "id": "accessibility_label", "label": "Accessibility label", "default": "News and media" }
+    { "type": "text", "id": "accessibility_label", "label": "Accessibility label", "default": "News and media recognitions" }
   ],
   "blocks": [
     {
       "type": "item",
-      "name": "Recognition",
+      "name": "Logo card",
       "settings": [
-        { "type": "checkbox", "id": "enabled", "label": "Show this item", "default": true },
-        { "type": "image_picker", "id": "image", "label": "Image" },
-        { "type": "text", "id": "image_by_url", "label": "Image from URL", "info": "Optional fallback if no image is uploaded." },
-        { "type": "text", "id": "image_alt", "label": "Image alt text" },
-        { "type": "text", "id": "tag", "label": "Category / tag", "info": "Small label on the card. Leave blank to use the publication name." },
-        { "type": "text", "id": "title", "label": "Title", "default": "Media coverage" },
-        { "type": "text", "id": "publication", "label": "Publication / source" },
-        { "type": "text", "id": "date", "label": "Date (optional)" },
-        { "type": "url", "id": "link", "label": "Link" },
-        { "type": "text", "id": "cta_text", "label": "CTA text", "info": "Leave blank to use the section default." },
-        { "type": "checkbox", "id": "open_new_tab", "label": "Open link in new tab", "default": true }
+        { "type": "checkbox", "id": "enabled", "label": "Show this card", "default": true },
+        { "type": "image_picker", "id": "image", "label": "Logo", "info": "Upload the publication logo. If empty, the first six cards can use the built-in logos." },
+        { "type": "text", "id": "publication", "label": "Title", "info": "Name shown under the logo." },
+        { "type": "text", "id": "title", "label": "Fallback title", "info": "Used only if Title is empty." },
+        { "type": "text", "id": "image_alt", "label": "Logo alt text" },
+        { "type": "text", "id": "image_by_url", "label": "Logo from URL" }
       ]
     }
   ],
@@ -337,22 +211,12 @@
     {
       "name": "News & Media",
       "blocks": [
-        {
-          "type": "item",
-          "settings": {
-            "enabled": true,
-            "title": "Innovation Coverage",
-            "publication": "Divya Bhaskar"
-          }
-        },
-        {
-          "type": "item",
-          "settings": {
-            "enabled": true,
-            "title": "Founder with CM of Gujarat",
-            "publication": "News 18"
-          }
-        }
+        { "type": "item", "settings": { "enabled": true, "publication": "Divya Bhaskar" } },
+        { "type": "item", "settings": { "enabled": true, "publication": "News 18" } },
+        { "type": "item", "settings": { "enabled": true, "publication": "Ahmedabad Mirror" } },
+        { "type": "item", "settings": { "enabled": true, "publication": "Book of Innovations, GOI" } },
+        { "type": "item", "settings": { "enabled": true, "publication": "ABP TV" } },
+        { "type": "item", "settings": { "enabled": true, "publication": "Zee Business" } }
       ]
     }
   ]

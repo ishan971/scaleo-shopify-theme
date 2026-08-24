@@ -1,5 +1,5 @@
 {%- comment -%}
-  Scale-O People & Property Advantages — image-first editorial tabs
+  Scale-O People & Property Advantages — 8-card grid (tabs optional)
 {%- endcomment -%}
 
 {{ 'scale-o-advantages.css' | asset_url | stylesheet_tag }}
@@ -8,7 +8,7 @@
   assign category_blocks = section.blocks | where: 'type', 'category'
   assign benefit_blocks = section.blocks | where: 'type', 'benefit'
   assign header_align = section.settings.header_alignment
-  assign layout_style = section.settings.layout_style | default: 'tabs'
+  assign layout_style = section.settings.layout_style | default: 'grid'
   assign is_grid_layout = false
   if layout_style == 'grid'
     assign is_grid_layout = true
@@ -90,34 +90,36 @@
     {%- endif -%}
 
     {%- if is_grid_layout -%}
-      {%- comment -%} Flat 8-card grid: same images/content as tabs, no hero / no For People|Property labels {%- endcomment -%}
+      {%- comment -%} Flat 8-card grid: no tabs, no hero image {%- endcomment -%}
       {%- if benefit_blocks.size > 0 -%}
-        <ul class="scale-o-advantages__grid scale-o-advantages__grid--flat" role="list">
-          {%- assign people_shown = 0 -%}
-          {%- assign property_shown = 0 -%}
-          {%- for block in benefit_blocks -%}
-            {%- if block.settings.category == 'people' and people_shown < 4 -%}
-              {%- assign people_shown = people_shown | plus: 1 -%}
-              {%- render 'people-property-advantage-card',
-                block: block,
-                cat_handle: 'people',
-                shown_benefits: people_shown,
-                show_card_index: section.settings.show_card_index
-              -%}
-            {%- endif -%}
-          {%- endfor -%}
-          {%- for block in benefit_blocks -%}
-            {%- if block.settings.category == 'property' and property_shown < 4 -%}
-              {%- assign property_shown = property_shown | plus: 1 -%}
-              {%- render 'people-property-advantage-card',
-                block: block,
-                cat_handle: 'property',
-                shown_benefits: property_shown,
-                show_card_index: section.settings.show_card_index
-              -%}
-            {%- endif -%}
-          {%- endfor -%}
-        </ul>
+        <div class="scale-o-advantages__flat-wrap">
+          <ul class="scale-o-advantages__grid scale-o-advantages__grid--flat" role="list">
+            {%- assign people_shown = 0 -%}
+            {%- assign property_shown = 0 -%}
+            {%- for block in benefit_blocks -%}
+              {%- if block.settings.category == 'people' and people_shown < 4 -%}
+                {%- assign people_shown = people_shown | plus: 1 -%}
+                {%- render 'people-property-advantage-card',
+                  block: block,
+                  cat_handle: 'people',
+                  shown_benefits: people_shown,
+                  show_card_index: section.settings.show_card_index
+                -%}
+              {%- endif -%}
+            {%- endfor -%}
+            {%- for block in benefit_blocks -%}
+              {%- if block.settings.category == 'property' and property_shown < 4 -%}
+                {%- assign property_shown = property_shown | plus: 1 -%}
+                {%- render 'people-property-advantage-card',
+                  block: block,
+                  cat_handle: 'property',
+                  shown_benefits: property_shown,
+                  show_card_index: section.settings.show_card_index
+                -%}
+              {%- endif -%}
+            {%- endfor -%}
+          </ul>
+        </div>
       {%- else -%}
         <p class="scale-o-advantages__empty">Add People and Property benefits in the theme editor.</p>
       {%- endif -%}
@@ -282,10 +284,10 @@
       "type": "select",
       "id": "layout_style",
       "label": "Layout",
-      "default": "tabs",
+      "default": "grid",
       "options": [
-        { "value": "tabs", "label": "Tabs with main image" },
-        { "value": "grid", "label": "Flat 8-card grid (no tabs)" }
+        { "value": "grid", "label": "Flat 8-card grid (no tabs)" },
+        { "value": "tabs", "label": "Tabs with main image" }
       ]
     },
     { "type": "range", "id": "max_width", "label": "Maximum width", "min": 0, "max": 1600, "step": 20, "unit": "px", "default": 1200 },

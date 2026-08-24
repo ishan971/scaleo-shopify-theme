@@ -139,7 +139,7 @@
     margin-bottom: 16px;
     position: relative;
     min-height: 220px;
-    aspect-ratio: 6 / 5;
+    aspect-ratio: 3 / 2;
   }
 
   #shopify-section-{{ section.id }} .scale-o-how-it-works__journey-slide .scale-o-how-it-works__diagram-img,
@@ -402,22 +402,32 @@
     margin: 0;
     padding: 0;
     display: grid;
-    grid-template-columns: repeat(var(--hiw-detail-cols), minmax(0, 1fr));
+    grid-template-columns: 1fr;
     gap: var(--hiw-detail-gap);
     align-items: stretch;
     width: 100%;
   }
 
+  @media (min-width: 640px) {
+    #shopify-section-{{ section.id }} .scale-o-how-it-works__panel-list {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (min-width: 1100px) {
+    #shopify-section-{{ section.id }} .scale-o-how-it-works__panel-list {
+      grid-template-columns: repeat(var(--hiw-detail-cols), minmax(0, 1fr));
+    }
+  }
+
   #shopify-section-{{ section.id }} .scale-o-how-it-works__detail-step {
     min-width: 0;
-    min-height: var(--hiw-detail-min-height);
     height: 100%;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
-    padding: 12px 10px 10px;
-    border-radius: 14px;
+    padding: 0;
+    overflow: hidden;
+    border-radius: 16px;
     background: var(--hiw-card-bg);
     border: 1px solid color-mix(in srgb, var(--hiw-divider) 35%, transparent);
     box-shadow: var(--hiw-card-shadow);
@@ -427,7 +437,23 @@
   #shopify-section-{{ section.id }} .scale-o-how-it-works__detail-step:hover {
     border-color: color-mix(in srgb, var(--hiw-accent) 35%, transparent);
     box-shadow: var(--hiw-card-shadow-hover);
-    transform: translateY(-1px);
+    transform: translateY(-2px);
+  }
+
+  #shopify-section-{{ section.id }} .scale-o-how-it-works__detail-media {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    background: linear-gradient(160deg, #eaf4fc 0%, #d4e8f8 100%);
+    overflow: hidden;
+  }
+
+  #shopify-section-{{ section.id }} .scale-o-how-it-works__detail-img {
+    width: 100%;
+    height: 100%;
+    max-height: none;
+    object-fit: cover;
+    display: block;
   }
 
   #shopify-section-{{ section.id }} .scale-o-how-it-works__detail-body {
@@ -437,59 +463,66 @@
     min-width: 0;
     width: 100%;
     flex: 1;
+    padding: 12px 12px 16px;
   }
 
   #shopify-section-{{ section.id }} .scale-o-how-it-works__detail-title {
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
     overflow: hidden;
     width: 100%;
     margin: 0;
     padding: 0;
-    color: var(--hiw-accent);
-    font-size: calc(var(--hiw-step-title-size) - 1px);
+    color: var(--hiw-heading);
+    font-size: 16px;
     font-weight: 700;
-    line-height: 1.25;
-    min-height: calc(2 * 1.25 * (var(--hiw-step-title-size) - 1px));
+    line-height: 1.3;
+    min-height: 1.3em;
+    letter-spacing: -0.015em;
+    white-space: nowrap;
+    text-overflow: ellipsis;
     box-sizing: border-box;
+  }
+
+  @media (min-width: 640px) {
+    #shopify-section-{{ section.id }} .scale-o-how-it-works__detail-title {
+      font-size: 15px;
+    }
+  }
+
+  @media (min-width: 1100px) {
+    #shopify-section-{{ section.id }} .scale-o-how-it-works__detail-title {
+      font-size: 13px;
+    }
   }
 
   #shopify-section-{{ section.id }} .scale-o-how-it-works__detail-step .scale-o-how-it-works__step-text {
     font-size: calc(var(--hiw-step-desc-size) - 1px);
-    line-height: 1.4;
+    line-height: 1.45;
     display: -webkit-box;
-    -webkit-line-clamp: 4;
+    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
-    flex: 1;
+    min-height: calc(3 * 1.45em);
     margin: 0;
+    color: var(--hiw-text);
   }
 
   #shopify-section-{{ section.id }} .scale-o-how-it-works__detail-num {
-    flex-shrink: 0;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 1;
     width: 32px;
     height: 32px;
     border-radius: 50%;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    background: white;
+    background: rgba(255, 255, 255, 0.96);
     color: var(--hiw-step-num);
     font-size: 13px;
     font-weight: 700;
-    border: 1.5px solid color-mix(in srgb, var(--hiw-accent) 25%, transparent);
-  }
-
-  #shopify-section-{{ section.id }} .scale-o-how-it-works__detail-img {
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    max-height: 56px;
-    object-fit: contain;
-    border-radius: 8px;
-    display: block;
-    margin-bottom: 2px;
+    border: 1.5px solid color-mix(in srgb, var(--hiw-accent) 28%, transparent);
+    box-shadow: 0 4px 12px rgba(20, 43, 74, 0.12);
   }
 
   #shopify-section-{{ section.id }} .scale-o-how-it-works__help-wrap {
@@ -608,9 +641,9 @@
     }
 
     #shopify-section-{{ section.id }} .scale-o-how-it-works--mobile-horizontal .scale-o-how-it-works__detail-step {
-      flex: 0 0 min(72vw, var(--hiw-detail-min));
-      min-width: min(72vw, var(--hiw-detail-min));
-      min-height: var(--hiw-detail-min-height);
+      flex: 0 0 min(78vw, 280px);
+      min-width: min(78vw, 280px);
+      min-height: 0;
     }
 
     #shopify-section-{{ section.id }} .scale-o-how-it-works--mobile-vertical .scale-o-how-it-works__panel-scroll {
@@ -698,12 +731,8 @@
               {%- liquid
                 assign slide_image = block.settings.image
                 assign slide_image_mobile = block.settings.image_mobile
-                if slide_image == blank
-                  assign slide_image = diagram_desktop
-                endif
-                if slide_image_mobile == blank
-                  assign slide_image_mobile = diagram_mobile | default: slide_image
-                endif
+                assign slide_step_n = block.settings.step_number | default: forloop.index
+                assign slide_asset = 'how-it-works-step-' | append: slide_step_n | append: '.jpg'
                 assign slide_alt = block.settings.image_alt | default: block.settings.title | default: section.settings.diagram_alt
               -%}
               <div
@@ -736,7 +765,15 @@
                     }}
                   </picture>
                 {%- else -%}
-                  {%- render 'how-it-works-diagram' -%}
+                  <img
+                    class="scale-o-how-it-works__diagram-img"
+                    src="{{ slide_asset | asset_url }}"
+                    alt="{{ slide_alt | escape }}"
+                    width="1536"
+                    height="1024"
+                    {% if forloop.first %}loading="eager" fetchpriority="high"{% else %}loading="lazy"{% endif %}
+                    decoding="async"
+                  >
                 {%- endif -%}
               </div>
             {%- endfor -%}
@@ -864,24 +901,7 @@
             <div class="scale-o-how-it-works__panel-scroll">
               <ol class="scale-o-how-it-works__panel-list" role="list">
                 {%- for block in install_blocks -%}
-                  <li class="scale-o-how-it-works__detail-step" {{ block.shopify_attributes }}>
-                    <span class="scale-o-how-it-works__detail-num">{{ block.settings.step_number | default: forloop.index | escape }}</span>
-                    <div class="scale-o-how-it-works__detail-body">
-                      {%- if block.settings.image != blank -%}
-                        {{
-                          block.settings.image
-                          | image_url: width: 200
-                          | image_tag: class: 'scale-o-how-it-works__detail-img', loading: 'lazy', alt: block.settings.title | escape
-                        }}
-                      {%- endif -%}
-                      {%- if block.settings.title != blank -%}
-                        <h4 class="scale-o-how-it-works__detail-title">{{ block.settings.title | escape }}</h4>
-                      {%- endif -%}
-                      {%- if block.settings.description != blank -%}
-                        <p class="scale-o-how-it-works__step-text">{{ block.settings.description | escape }}</p>
-                      {%- endif -%}
-                    </div>
-                  </li>
+                  {%- render 'how-it-works-detail-card', block: block, kind: 'install', step_index: forloop.index -%}
                 {%- endfor -%}
               </ol>
             </div>
@@ -898,24 +918,7 @@
             <div class="scale-o-how-it-works__panel-scroll">
               <ol class="scale-o-how-it-works__panel-list" role="list">
                 {%- for block in exchange_blocks -%}
-                  <li class="scale-o-how-it-works__detail-step" {{ block.shopify_attributes }}>
-                    <span class="scale-o-how-it-works__detail-num">{{ block.settings.step_number | default: forloop.index | escape }}</span>
-                    <div class="scale-o-how-it-works__detail-body">
-                      {%- if block.settings.image != blank -%}
-                        {{
-                          block.settings.image
-                          | image_url: width: 200
-                          | image_tag: class: 'scale-o-how-it-works__detail-img', loading: 'lazy', alt: block.settings.title | escape
-                        }}
-                      {%- endif -%}
-                      {%- if block.settings.title != blank -%}
-                        <h4 class="scale-o-how-it-works__detail-title">{{ block.settings.title | escape }}</h4>
-                      {%- endif -%}
-                      {%- if block.settings.description != blank -%}
-                        <p class="scale-o-how-it-works__step-text">{{ block.settings.description | escape }}</p>
-                      {%- endif -%}
-                    </div>
-                  </li>
+                  {%- render 'how-it-works-detail-card', block: block, kind: 'exchange', step_index: forloop.index -%}
                 {%- endfor -%}
               </ol>
             </div>
@@ -1146,7 +1149,7 @@
             { "value": "none", "label": "None" }
           ]
         },
-        { "type": "image_picker", "id": "image", "label": "Step image (left panel)", "info": "Shown when this step is active. Falls back to the section desktop diagram if empty." },
+        { "type": "image_picker", "id": "image", "label": "Step image (left panel)", "info": "Shown when this step is active. If empty, uses theme file how-it-works-step-N.jpg for that step number." },
         { "type": "image_picker", "id": "image_mobile", "label": "Step image — mobile (optional)", "info": "Optional mobile override for this step's left image." },
         { "type": "text", "id": "image_alt", "label": "Step image alt text" },
         { "type": "text", "id": "title", "label": "Title", "default": "Choose Your Scale-O" },
@@ -1176,7 +1179,7 @@
             { "value": "none", "label": "None" }
           ]
         },
-        { "type": "image_picker", "id": "image", "label": "Optional image" },
+        { "type": "image_picker", "id": "image", "label": "Step image", "info": "If empty, uses theme file how-it-works-install-N.jpg" },
         { "type": "text", "id": "title", "label": "Title", "default": "Turn Off Water Supply" },
         { "type": "textarea", "id": "description", "label": "Description" }
       ]
@@ -1201,7 +1204,7 @@
             { "value": "none", "label": "None" }
           ]
         },
-        { "type": "image_picker", "id": "image", "label": "Optional image" },
+        { "type": "image_picker", "id": "image", "label": "Step image", "info": "If empty, uses theme file how-it-works-exchange-N.jpg" },
         { "type": "text", "id": "title", "label": "Title", "default": "Identify Your Scale-O Unit" },
         { "type": "textarea", "id": "description", "label": "Description" }
       ]
@@ -1259,43 +1262,43 @@
         },
         {
           "type": "install_step",
-          "settings": { "step_number": "1", "title": "Choose the Right Model", "description": "Pick a Scale-O size that matches your tank capacity and household usage." }
+          "settings": { "step_number": "1", "title": "Choose the Right Model", "description": "Pick Mini, Semi or Centi to match your overhead tank size and the water your household uses each day." }
         },
         {
           "type": "install_step",
-          "settings": { "step_number": "2", "title": "Open the Overhead Tank", "description": "Access your overhead water tank safely before placing the unit." }
+          "settings": { "step_number": "2", "title": "Open the Overhead Tank", "description": "Open the tank lid safely on the terrace and keep the opening clear before you place the Scale-O unit inside." }
         },
         {
           "type": "install_step",
-          "settings": { "step_number": "3", "title": "Place Scale-O Inside the Tank", "description": "Drop the compact Scale-O unit into the tank. No plumber or wiring needed." }
+          "settings": { "step_number": "3", "title": "Place Scale-O Inside the Tank", "description": "Lower the compact Scale-O unit into the tank. No plumber, wiring or plumbing changes are needed at all." }
         },
         {
           "type": "install_step",
-          "settings": { "step_number": "4", "title": "Close and Secure the Tank", "description": "Seal the tank properly so water flows normally through your home." }
+          "settings": { "step_number": "4", "title": "Close and Secure the Tank", "description": "Close the lid firmly so the tank stays sealed and water can flow normally through every tap in the home." }
         },
         {
           "type": "install_step",
-          "settings": { "step_number": "5", "title": "Start Using Scale-O", "description": "Use water as usual while Scale-O helps reduce hard-water scale buildup." }
+          "settings": { "step_number": "5", "title": "Start Using Scale-O", "description": "Use water as usual in the bathroom, kitchen and laundry while Scale-O helps reduce hard-water scale buildup." }
         },
         {
           "type": "exchange_step",
-          "settings": { "step_number": "1", "title": "Identify Your Scale-O Unit", "description": "Check when your current unit needs replacement based on usage and product life." }
+          "settings": { "step_number": "1", "title": "Identify Your Scale-O Unit", "description": "Check your current unit against its product life so you know when it is time for a simple Scale-O exchange." }
         },
         {
           "type": "exchange_step",
-          "settings": { "step_number": "2", "title": "Turn Off the Water Supply", "description": "Stop water flow to the overhead tank before removing the used unit." }
+          "settings": { "step_number": "2", "title": "Turn Off the Water Supply", "description": "Stop the water supply to the overhead tank first, then wait until the flow settles before you open the lid." }
         },
         {
           "type": "exchange_step",
-          "settings": { "step_number": "3", "title": "Remove the Existing Unit", "description": "Take out the used Scale-O unit from the tank." }
+          "settings": { "step_number": "3", "title": "Remove the Existing Unit", "description": "Lift the used Scale-O unit out of the tank carefully and keep the opening clear for the replacement unit." }
         },
         {
           "type": "exchange_step",
-          "settings": { "step_number": "4", "title": "Install the Replacement", "description": "Place the new Scale-O unit inside the tank in the same simple way." }
+          "settings": { "step_number": "4", "title": "Install the Replacement", "description": "Place the new Scale-O unit inside the tank the same simple way, with no plumber or extra fittings needed." }
         },
         {
           "type": "exchange_step",
-          "settings": { "step_number": "5", "title": "Restart the Water Supply", "description": "Restore water flow and continue enjoying scale-protected water at home." }
+          "settings": { "step_number": "5", "title": "Restart the Water Supply", "description": "Turn the water supply back on, close the lid, and keep using scale-protected water throughout the home." }
         }
       ]
     }

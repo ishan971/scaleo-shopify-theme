@@ -356,6 +356,7 @@
           "settings": {
             "step_number": "1",
             "icon": "check",
+            "image": "shopify://shop_images/Choose-Scale-o.png",
             "title": "Choose the Right Model",
             "description": "Pick Mini, Semi or Centi to match your overhead tank size and the water your household uses each day."
           }

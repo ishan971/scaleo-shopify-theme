@@ -14,127 +14,311 @@
       "disabled": true,
       "settings": {}
     },
-    "custom_content_bkWrxF": {
-      "type": "custom-content",
-      "blocks": {
-        "image_Dp393E": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/customers_1.png",
-            "link": "",
-            "width": "100%",
-            "alignment": "center",
-            "block_custom_class": "",
-            "animations": "inherit"
-          }
-        }
-      },
-      "block_order": [
-        "image_Dp393E"
-      ],
+    "customers_hero": {
+      "type": "scale-o-page-hero",
       "settings": {
-        "heading": "",
-        "heading_size": "h3",
-        "subheading": "",
-        "description": "",
-        "header_alignment": "center",
-        "container": "w-full",
-        "color_scheme": "",
-        "content_color_scheme": "",
-        "enable_parallax": false,
-        "parallax_direction": "vertical",
-        "gap": 30,
-        "gap_mobile": 16,
-        "use_scroll_mobile": false,
-        "padding_top": 0,
-        "padding_bottom": 0,
-        "custom_class": ""
+        "image": "shopify://shop_images/customers_1.png",
+        "fallback_asset": "scale-o-collection-hero-1.jpg",
+        "image_alt": "Scale-O customers using salt-free water softeners at home",
+        "image_position": "center right",
+        "show_overlay": true,
+        "eyebrow": "Customer reviews",
+        "heading": "Scale-O customer reviews",
+        "heading_tag": "h1",
+        "show_heading_underline": false,
+        "description": "Homeowners across India share how salt-free Scale-O helps with scale, easier overhead-tank install, and everyday water at home. No salt, no plumber, no electricity.",
+        "show_button": true,
+        "button_label": "Shop water softeners",
+        "button_url": "shopify://collections/water-softeners",
+        "content_width": 0,
+        "desktop_height": 480,
+        "mobile_height": 420,
+        "padding_x": 32,
+        "padding_top": 16,
+        "padding_bottom": 8,
+        "padding_top_mobile": 12,
+        "padding_bottom_mobile": 8,
+        "border_radius": 12,
+        "background_color": "#ffffff",
+        "heading_color": "#0b1b2e",
+        "text_color": "#5b6b7c",
+        "accent_color": "#0c7fdf",
+        "accent_hover_color": "#0a6bc4",
+        "accessibility_label": "Scale-O customer reviews"
       }
     },
-    "rich_text_dhE6Mb": {
-      "type": "rich-text",
+    "customers_stories": {
+      "type": "scale-o-video-testimonials",
       "blocks": {
-        "subheading_yqTrCt": {
-          "type": "subheading",
+        "story_1": {
+          "type": "testimonial",
           "settings": {
-            "subheading": "Quotes"
+            "enabled": true,
+            "highlight": true,
+            "image_asset": "scale-o-story-1.jpg",
+            "image_alt": "Mrs. Pragati Choksi sharing her Scale-O experience at home",
+            "title": "",
+            "show_description": true,
+            "description": "Scale-O is a very innovative product. I'm very happy with the product, reason is it is very easy to install, no hassles. hard water is a big problem, we wanted a solution but not a salt based softener.",
+            "show_customer_info": true,
+            "customer_name": "Mrs. Pragati Choksi",
+            "city": "Mumbai",
+            "state": "Maharashtra",
+            "designation": "Homeowner",
+            "show_product": false,
+            "product_name": "",
+            "show_rating": true,
+            "rating": 5,
+            "show_verified": true,
+            "verified_text": "Verified customer"
           }
         },
-        "heading_KYEHj7": {
-          "type": "heading",
+        "story_2": {
+          "type": "testimonial",
           "settings": {
-            "heading": "Client Testimonials",
-            "heading_size": "h2"
+            "enabled": true,
+            "highlight": false,
+            "image_asset": "scale-o-story-2.jpg",
+            "image_alt": "Dr. Gaurav Kharana with Scale-O installed at home",
+            "title": "",
+            "show_description": true,
+            "description": "We absolutely loved Scale-O. Very compact and easy to install design. We found it really effective and could avoid the hassle and cumbersome process of conventional plant installation.",
+            "show_customer_info": true,
+            "customer_name": "Dr. Gaurav Kharana",
+            "city": "Delhi",
+            "state": "Delhi",
+            "designation": "Homeowner",
+            "show_product": false,
+            "product_name": "",
+            "show_rating": true,
+            "rating": 5,
+            "show_verified": true,
+            "verified_text": "Verified customer"
+          }
+        },
+        "story_3": {
+          "type": "testimonial",
+          "settings": {
+            "enabled": true,
+            "highlight": false,
+            "image_asset": "scale-o-story-3.jpg",
+            "image_alt": "Ms. Avani Nathwani using softened water at home",
+            "title": "",
+            "show_description": true,
+            "description": "The product is really good, and just one day post installation we can see the change in quality of water. good work!",
+            "show_customer_info": true,
+            "customer_name": "Ms. Avani Nathwani",
+            "city": "Pune",
+            "state": "Maharashtra",
+            "designation": "Homeowner",
+            "show_product": false,
+            "product_name": "",
+            "show_rating": true,
+            "rating": 5,
+            "show_verified": true,
+            "verified_text": "Verified customer"
+          }
+        },
+        "story_4": {
+          "type": "testimonial",
+          "settings": {
+            "enabled": true,
+            "highlight": false,
+            "image_asset": "scale-o-story-4.jpg",
+            "image_alt": "Mrs. Prabha Harwani sharing her Scale-O review",
+            "title": "",
+            "show_description": true,
+            "description": "Good concept, as we are facing problems due to hard water. Easy installation and friendly customer service!",
+            "show_customer_info": true,
+            "customer_name": "Mrs. Prabha Harwani",
+            "city": "Indore",
+            "state": "Madhya Pradesh",
+            "designation": "Homeowner",
+            "show_product": false,
+            "product_name": "",
+            "show_rating": true,
+            "rating": 5,
+            "show_verified": true,
+            "verified_text": "Verified customer"
+          }
+        },
+        "story_5": {
+          "type": "testimonial",
+          "settings": {
+            "enabled": true,
+            "highlight": false,
+            "image_asset": "scale-o-story-5.jpg",
+            "image_alt": "Mr. Vikram Desai showing cleaner bathroom fixtures after Scale-O",
+            "title": "",
+            "show_description": true,
+            "description": "After installing Scale-O, our bathroom fittings look cleaner and the white stains on taps have reduced noticeably. Installation was quick and the team guided us well.",
+            "show_customer_info": true,
+            "customer_name": "Mr. Vikram Desai",
+            "city": "Ahmedabad",
+            "state": "Gujarat",
+            "designation": "Homeowner",
+            "show_product": false,
+            "product_name": "",
+            "show_rating": true,
+            "rating": 5,
+            "show_verified": true,
+            "verified_text": "Verified customer"
+          }
+        },
+        "story_6": {
+          "type": "testimonial",
+          "settings": {
+            "enabled": true,
+            "highlight": false,
+            "image_asset": "scale-o-story-6.jpg",
+            "image_alt": "Mrs. Sneha Iyer at home after installing Scale-O",
+            "title": "",
+            "show_description": true,
+            "description": "We were tired of white stains on our floor tiles and cloudy water in the kitchen. Scale-O was simple to set up and we noticed a visible difference within the first week.",
+            "show_customer_info": true,
+            "customer_name": "Mrs. Sneha Iyer",
+            "city": "Bengaluru",
+            "state": "Karnataka",
+            "designation": "Homeowner",
+            "show_product": false,
+            "product_name": "",
+            "show_rating": true,
+            "rating": 5,
+            "show_verified": true,
+            "verified_text": "Verified customer"
+          }
+        },
+        "trust_1": {
+          "type": "trust",
+          "settings": {
+            "title": "Real customers",
+            "text": "Stories from homeowners using Scale-O.",
+            "icon": "people"
+          }
+        },
+        "trust_2": {
+          "type": "trust",
+          "settings": {
+            "title": "Overhead tank install",
+            "text": "No plumber, no salt, no electricity.",
+            "icon": "home"
+          }
+        },
+        "trust_3": {
+          "type": "trust",
+          "settings": {
+            "title": "Homes across India",
+            "text": "Reviews from cities nationwide.",
+            "icon": "map"
+          }
+        },
+        "trust_4": {
+          "type": "trust",
+          "settings": {
+            "title": "Made in Ahmedabad",
+            "text": "Designed and manufactured in India.",
+            "icon": "quality"
           }
         }
       },
       "block_order": [
-        "subheading_yqTrCt",
-        "heading_KYEHj7"
+        "story_1",
+        "story_2",
+        "story_3",
+        "story_4",
+        "story_5",
+        "story_6",
+        "trust_1",
+        "trust_2",
+        "trust_3",
+        "trust_4"
       ],
       "settings": {
-        "container": "container",
-        "color_scheme": "scheme-cee058e4-58e3-46aa-9af9-219dadc79066",
-        "content_alignment": "left",
-        "padding_top": 100,
-        "padding_bottom": 0,
-        "custom_class": "",
-        "animations": "inherit"
-      }
-    },
-    "custom_liquid_x4KAWh": {
-      "type": "custom-liquid",
-      "custom_css": [
-        "section.m-section.m-custom-liquid {display: flex !important; justify-content: center;}"
-      ],
-      "settings": {
-        "custom_liquid": "<style>\n\n\n/*tablet*/\n    @media (min-width: 768px) and (max-width: 1024px){\n    }\n/*mobile*/\n    @media (max-width: 767px){\n    }\n\n\n    .tr-slider.slick-initialized.slick-slider ,\n    .tr-slider2.slick-initialized.slick-slider{\n        margin: 0 -20px;\n    }\n    .tr-container{\n        margin-top: 61px !important;\n        width: 100%;\n        max-width: 1440px;\n        \n        padding: 0 20px;\n    z-index: 90 !important;\n    position: relative;\n    }\n    .slick-track {\n        display: flex;\n        gap: 20px;\n    }\n    .slick-list {\n        display: flex!important;\n    }\n    .tr-slider2{\n        padding-top: 40px;\n        padding-bottom: 90px;\n    }\n    .tr-slide {\n        background: white;\n        padding: 20px;\n        border-radius: 20px;\n        display: flex!important;\n        flex-direction: column;\n        justify-content: space-between;\n        gap: 30px;\n    }\n    .slick-slide{\n        height: auto!important;\n    }\n    .tr-author-info{\n        display: flex;\n        align-items: center;\n        gap: 10px;\n    }\n    .tr-content {\n        display: grid;\n        gap: 20px;\n    }\n    \n    /* Texts */\n    .tr-content p{\n        /* font-family: Neue Montreal; */\n        font-size: 22px;\n        line-height: 26.4px;\n        color: #333333;\n        margin: 0;\n    }\n    .tr-author-info span{\n        /* font-family: Neue Montreal; */\n        font-size: 16px;\n        line-height: 19.2px;\n        font-weight: 500;\n        color: #333333;\n    }\n    /* Navigations */\n    .slick-next{\n        position: absolute;\n        top: -80px;\n        right: 20px!important;\n        padding: 23px;\n        border-radius: 50%;\n        background: transparent;\n        transition: .4s all ease;\n    }\n    .slick-prev{\n        position: absolute;\n        top: -80px;\n        right: 70px!important;\n        left: auto;\n        padding: 23px;\n        border-radius: 50%;\n        background: transparent;\n        transition: .4s all ease;\n    }\n    .slick-prev:hover,.slick-next:hover{\n        transition: .4s all ease;\n        background: black;\n    }\n    .slick-prev:hover::before,\n    .slick-next:hover::before{\n        filter: brightness(0) invert(1);\n        transition: .4s all ease;\n    }\n    .slick-prev::before{\n        content: url('https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Group_1.svg?v=1722327196')!important;\n        display: flex;\n        width: 24px;\n        height: 24px;\n        transform: translate(-11px,-11px);\n        transition: .4s all ease;\n    }\n    .slick-next::before{\n        content: url('https://cdn.shopify.com/s/files/1/0592/6508/9638/files/cfsafa.svg?v=1722327196')!important;\n        display: flex;\n        width: 24px;\n        height: 24px;\n        transform: translate(-11px,-11px);\n        transition: .4s all ease;\n    }\n    /* Responsive */\n    @media (min-width: 768px) and (max-width: 1024px){\n    }\n    @media (max-width: 767px){\n    }\n    </style>\n    \n    \n    \n    <div class=\"tr-container\">\n        <div class=\"tr-slider\">\n            <div class=\"tr-slide\">\n                <div class=\"tr-content\">\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_40.svg?v=1722325727\" width=\"50px\" height=\"50px\">\n                    <p>\"Scale-O is a very innovative product. I'm very happy with the product, reason is it is very easy to install, no hassles. hard water is a big problem, we wanted a solution but not a salt based softner@\"</p>\n                </div>\n                <div class=\"tr-author-info\">\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/OBJECTS.svg?v=1722326122\" width=\"45px\" height=\"45px\">\n                    <span>Mrs. Pragati Choksi</span>\n                </div>\n            </div>\n            <div class=\"tr-slide\">\n                <div class=\"tr-content\">\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_40.svg?v=1722325727\" width=\"50px\" height=\"50px\">\n                    <p>\"We absolutely loved Scale-O. Very compact and easy to install design. We found it really effective and could avoid the hassle and cumbersome process of conventional plant installation.\"</p>\n                </div>\n                <div class=\"tr-author-info\">\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/dvefgsdef.svg?v=1722326122\" width=\"45px\" height=\"45px\">\n                    <span>Dr. Gaurav Kharana</span>\n                </div>\n            </div>\n            <div class=\"tr-slide\">\n                <div class=\"tr-content\">\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_40.svg?v=1722325727\" width=\"50px\" height=\"50px\">\n                    <p>\"The product is really good, and just one day post installation we can see the change in quality of water. good work!\"</p>\n                </div>\n                <div class=\"tr-author-info\">\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/ddsgege.svg?v=1722326122\" width=\"45px\" height=\"45px\">\n                    <span>Ms. Avani Nathwani</span>\n                </div>\n            </div>\n            <div class=\"tr-slide\">\n                <div class=\"tr-content\">\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_40.svg?v=1722325727\" width=\"50px\" height=\"50px\">\n                    <p>\"Good concept, as we are facing problems due to hard water. Easy installation and friendly customer service!\"</p>\n                </div>\n                <div class=\"tr-author-info\">\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/sfawff.svg?v=1722326122\" width=\"45px\" height=\"45px\">\n                    <span>Mrs. Prabha Harwani</span>\n                </div>\n            </div>\n            <div class=\"tr-slide\">\n                <div class=\"tr-content\">\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_40.svg?v=1722325727\" width=\"50px\" height=\"50px\">\n                    <p>\"Scale-O is a very innovative product. I'm very happy with the product, reason is it is very easy to install, no hassles. hard water is a big problem, we wanted a solution but not a salt based softner@\"</p>\n                </div>\n                <div class=\"tr-author-info\">\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/OBJECTS.svg?v=1722326122\" width=\"45px\" height=\"45px\">\n                    <span>Mrs. Pragati Choksi</span>\n                </div>\n            </div>\n            <div class=\"tr-slide\">\n                <div class=\"tr-content\">\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_40.svg?v=1722325727\" width=\"50px\" height=\"50px\">\n                    <p>\"We absolutely loved Scale-O. Very compact and easy to install design. We found it really effective and could avoid the hassle and cumbersome process of conventional plant installation.\"</p>\n                </div>\n                <div class=\"tr-author-info\">\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/dvefgsdef.svg?v=1722326122\" width=\"45px\" height=\"45px\">\n                    <span>Dr. Gaurav Kharana</span>\n                </div>\n            </div>\n            <div class=\"tr-slide\">\n                <div class=\"tr-content\">\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_40.svg?v=1722325727\" width=\"50px\" height=\"50px\">\n                    <p>\"The product is really good, and just one day post installation we can see the change in quality of water. good work!\"</p>\n                </div>\n                <div class=\"tr-author-info\">\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/ddsgege.svg?v=1722326122\" width=\"45px\" height=\"45px\">\n                    <span>Ms. Avani Nathwani</span>\n                </div>\n            </div>\n            <div class=\"tr-slide\">\n                <div class=\"tr-content\">\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_40.svg?v=1722325727\" width=\"50px\" height=\"50px\">\n                    <p>\"Good concept, as we are facing problems due to hard water. Easy installation and friendly customer service!\"</p>\n                </div>\n                <div class=\"tr-author-info\">\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/sfawff.svg?v=1722326122\" width=\"45px\" height=\"45px\">\n                    <span>Mrs. Prabha Harwani</span>\n                </div>\n            </div>\n        </div>\n        <div class=\"tr-slider2\">\n            <div class=\"tr-slide\">\n                <div class=\"tr-content\">\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_40.svg?v=1722325727\" width=\"50px\" height=\"50px\">\n                    <p>\"Scale-O is a very innovative product. I'm very happy with the product, reason is it is very easy to install, no hassles. hard water is a big problem, we wanted a solution but not a salt based softner@\"</p>\n                </div>\n                <div class=\"tr-author-info\">\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/OBJECTS.svg?v=1722326122\" width=\"45px\" height=\"45px\">\n                    <span>Mrs. Pragati Choksi</span>\n                </div>\n            </div>\n            <div class=\"tr-slide\">\n                <div class=\"tr-content\">\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_40.svg?v=1722325727\" width=\"50px\" height=\"50px\">\n                    <p>\"We absolutely loved Scale-O. Very compact and easy to install design. We found it really effective and could avoid the hassle and cumbersome process of conventional plant installation.\"</p>\n                </div>\n                <div class=\"tr-author-info\">\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/dvefgsdef.svg?v=1722326122\" width=\"45px\" height=\"45px\">\n                    <span>Dr. Gaurav Kharana</span>\n                </div>\n            </div>\n            <div class=\"tr-slide\">\n                <div class=\"tr-content\">\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_40.svg?v=1722325727\" width=\"50px\" height=\"50px\">\n                    <p>\"The product is really good, and just one day post installation we can see the change in quality of water. good work!\"</p>\n                </div>\n                <div class=\"tr-author-info\">\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/ddsgege.svg?v=1722326122\" width=\"45px\" height=\"45px\">\n                    <span>Ms. Avani Nathwani</span>\n                </div>\n            </div>\n            <div class=\"tr-slide\">\n                <div class=\"tr-content\">\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_40.svg?v=1722325727\" width=\"50px\" height=\"50px\">\n                    <p>\"Good concept, as we are facing problems due to hard water. Easy installation and friendly customer service!\"</p>\n                </div>\n                <div class=\"tr-author-info\">\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/sfawff.svg?v=1722326122\" width=\"45px\" height=\"45px\">\n                    <span>Mrs. Prabha Harwani</span>\n                </div>\n            </div>\n            <div class=\"tr-slide\">\n                <div class=\"tr-content\">\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_40.svg?v=1722325727\" width=\"50px\" height=\"50px\">\n                    <p>\"Scale-O is a very innovative product. I'm very happy with the product, reason is it is very easy to install, no hassles. hard water is a big problem, we wanted a solution but not a salt based softner@\"</p>\n                </div>\n                <div class=\"tr-author-info\">\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/OBJECTS.svg?v=1722326122\" width=\"45px\" height=\"45px\">\n                    <span>Mrs. Pragati Choksi</span>\n                </div>\n            </div>\n            <div class=\"tr-slide\">\n                <div class=\"tr-content\">\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_40.svg?v=1722325727\" width=\"50px\" height=\"50px\">\n                    <p>\"We absolutely loved Scale-O. Very compact and easy to install design. We found it really effective and could avoid the hassle and cumbersome process of conventional plant installation.\"</p>\n                </div>\n                <div class=\"tr-author-info\">\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/dvefgsdef.svg?v=1722326122\" width=\"45px\" height=\"45px\">\n                    <span>Dr. Gaurav Kharana</span>\n                </div>\n            </div>\n            <div class=\"tr-slide\">\n                <div class=\"tr-content\">\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_40.svg?v=1722325727\" width=\"50px\" height=\"50px\">\n                    <p>\"The product is really good, and just one day post installation we can see the change in quality of water. good work!\"</p>\n                </div>\n                <div class=\"tr-author-info\">\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/ddsgege.svg?v=1722326122\" width=\"45px\" height=\"45px\">\n                    <span>Ms. Avani Nathwani</span>\n                </div>\n            </div>\n            <div class=\"tr-slide\">\n                <div class=\"tr-content\">\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_40.svg?v=1722325727\" width=\"50px\" height=\"50px\">\n                    <p>\"Good concept, as we are facing problems due to hard water. Easy installation and friendly customer service!\"</p>\n                </div>\n                <div class=\"tr-author-info\">\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/sfawff.svg?v=1722326122\" width=\"45px\" height=\"45px\">\n                    <span>Mrs. Prabha Harwani</span>\n                </div>\n            </div>\n        </div>\n    </div>\n            \n    </div>\n    \n    <script>\n    $(document).ready(function(){\n    var $slider1 = $('.tr-slider');\n    var $slider2 = $('.tr-slider2');\n    \n    $slider1.slick({\n        slidesToShow: 4,\n        slidesToScroll: 1,\n        arrows: true,\n        autoplay: true,\n        autoplaySpeed: 1500,\n        responsive: [\n            {\n                breakpoint: 680,\n                settings: {\n                    slidesToShow: 1,\n                    slidesToScroll: 1\n                }\n            },\n            {\n                breakpoint: 768,\n                settings: {\n                    slidesToShow: 2,\n                    slidesToScroll: 1\n                }\n            },\n            {\n                breakpoint: 1024,\n                settings: {\n                    slidesToShow: 3,\n                    slidesToScroll: 1\n                }\n            }\n        ]\n    });\n    $slider2.slick({\n        slidesToShow: 4,\n        slidesToScroll: 1,\n        arrows: false,\n        autoplay: true,\n        autoplaySpeed: 1500,\n        responsive: [\n            {\n                breakpoint: 680,\n                settings: {\n                    slidesToShow: 1,\n                    slidesToScroll: 1\n                }\n            },\n            {\n                breakpoint: 768,\n                settings: {\n                    slidesToShow: 2,\n                    slidesToScroll: 1\n                }\n            },\n            {\n                breakpoint: 1024,\n                settings: {\n                    slidesToShow: 3,\n                    slidesToScroll: 1\n                }\n            }\n        ]\n    });\n    $('.slick-prev').on('click', function() {\n        $slider1.slick('slickPrev');\n        $slider2.slick('slickPrev');\n    });\n    $('.slick-next').on('click', function() {\n        $slider1.slick('slickNext');\n        $slider2.slick('slickNext');\n    });\n    });\n    </script>",
-        "custom_class": ""
-      }
-    },
-    "custom_content_7qh3m3": {
-      "type": "custom-content",
-      "blocks": {
-        "image_ewgbUw": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/Group_44_6dd7f55a-7c3f-4a7b-b8f2-0025c0a01ae1.png",
-            "link": "",
-            "width": "100%",
-            "alignment": "center",
-            "block_custom_class": "",
-            "animations": "inherit"
-          }
-        }
-      },
-      "block_order": [
-        "image_ewgbUw"
-      ],
-      "settings": {
-        "heading": "",
-        "heading_size": "h3",
-        "subheading": "",
-        "description": "",
+        "show_eyebrow": true,
+        "eyebrow": "Quotes",
+        "heading": "Scale-O customer reviews",
+        "show_description": true,
+        "description": "Hear from Scale-O customers about hard water, overhead-tank install, and everyday results at home.",
         "header_alignment": "center",
-        "container": "w-full",
-        "color_scheme": "scheme-cee058e4-58e3-46aa-9af9-219dadc79066",
-        "content_color_scheme": "scheme-cee058e4-58e3-46aa-9af9-219dadc79066",
-        "enable_parallax": false,
-        "parallax_direction": "vertical",
-        "gap": 30,
-        "gap_mobile": 16,
-        "use_scroll_mobile": false,
-        "padding_top": 100,
-        "padding_bottom": 0,
-        "custom_class": ""
+        "desktop_cards": 3,
+        "tablet_cards": 2,
+        "carousel_autoplay": true,
+        "autoplay_speed": 5000,
+        "pause_on_hover": true,
+        "show_arrows": true,
+        "show_dots": true,
+        "thumb_ratio": "16 / 10",
+        "show_trust": true,
+        "show_footer": true,
+        "trust_statement": "Real experiences from Scale-O customers across India.",
+        "show_cta": true,
+        "cta_text": "Shop water softeners",
+        "cta_url": "shopify://collections/water-softeners",
+        "max_width": 1200,
+        "card_radius": 18,
+        "card_spacing": 18,
+        "show_card_shadow": true,
+        "enable_animations": true,
+        "padding_top": 56,
+        "padding_bottom": 56,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 40,
+        "padding_x": 20,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "header_gap": 36,
+        "eyebrow_size": 13,
+        "heading_size_desktop": 36,
+        "heading_size_mobile": 26,
+        "description_size": 16,
+        "background_color": "#f5faff",
+        "card_background": "#ffffff",
+        "card_border_color": "#e4ecf6",
+        "heading_color": "#142b4a",
+        "text_color": "#5a6b85",
+        "accent_color": "#0c7fdf",
+        "accent_hover_color": "#0a6bc4",
+        "accessibility_label": "Scale-O customer reviews"
+      }
+    },
+    "customers_cta": {
+      "type": "scale-o-page-hero",
+      "settings": {
+        "image": "shopify://shop_images/Group_44_6dd7f55a-7c3f-4a7b-b8f2-0025c0a01ae1.png",
+        "fallback_asset": "scale-o-collection-hero-1.jpg",
+        "image_alt": "Scale-O salt-free water softener for Indian homes",
+        "image_position": "center right",
+        "show_overlay": true,
+        "eyebrow": "Shop Scale-O",
+        "heading": "Ready for scale-free water at home?",
+        "heading_tag": "h2",
+        "show_heading_underline": false,
+        "description": "Choose Mini, Semi or Centi for your overhead tank. Salt-free, no plumber, no electricity.",
+        "show_button": true,
+        "button_label": "Shop water softeners",
+        "button_url": "shopify://collections/water-softeners",
+        "content_width": 0,
+        "desktop_height": 420,
+        "mobile_height": 380,
+        "padding_x": 32,
+        "padding_top": 16,
+        "padding_bottom": 24,
+        "padding_top_mobile": 12,
+        "padding_bottom_mobile": 24,
+        "border_radius": 12,
+        "background_color": "#ffffff",
+        "heading_color": "#0b1b2e",
+        "text_color": "#5b6b7c",
+        "accent_color": "#0c7fdf",
+        "accent_hover_color": "#0a6bc4",
+        "accessibility_label": "Shop Scale-O"
       }
     }
   },
   "order": [
     "main",
-    "custom_content_bkWrxF",
-    "rich_text_dhE6Mb",
-    "custom_liquid_x4KAWh",
-    "custom_content_7qh3m3"
+    "customers_hero",
+    "customers_stories",
+    "customers_cta"
   ]
 }

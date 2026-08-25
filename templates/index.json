@@ -292,9 +292,10 @@
           "settings": {
             "step_number": "1",
             "icon": "choose",
+            "image": "shopify://shop_images/Choose-Scale-o.png",
+            "image_alt": "Scale-O Mini, Semi and Centi next to matching overhead tank sizes",
             "title": "Choose Your Scale-O",
             "description": "Select the right model based on your overhead tank size and daily water usage.",
-            "image_alt": "Scale-O Mini, Semi and Centi next to matching overhead tank sizes",
             "link": "",
             "button_text": ""
           }
@@ -304,9 +305,9 @@
           "settings": {
             "step_number": "2",
             "icon": "install",
+            "image_alt": "Placing a Scale-O unit into an open overhead water tank",
             "title": "Install in Your Overhead Tank",
             "description": "Place Scale-O inside your overhead water tank. No plumbing changes or electricity required.",
-            "image_alt": "Placing a Scale-O unit into an open overhead water tank",
             "link": "",
             "button_text": ""
           }
@@ -316,9 +317,10 @@
           "settings": {
             "step_number": "3",
             "icon": "use",
+            "image": "shopify://shop_images/Install.png",
+            "image_alt": "Scale-O in the overhead tank sending treated water to bathroom, kitchen, laundry and geyser",
             "title": "Enjoy Better Water Flow",
             "description": "Scale-O works continuously as water flows to your bathroom, kitchen, laundry and appliances.",
-            "image_alt": "Scale-O in the overhead tank sending treated water to bathroom, kitchen, laundry and geyser",
             "link": "",
             "button_text": ""
           }
@@ -328,9 +330,10 @@
           "settings": {
             "step_number": "4",
             "icon": "exchange",
+            "image": "shopify://shop_images/Exchange.png",
+            "image_alt": "Replacing a used Scale-O unit with a new one in the overhead tank",
             "title": "Easy Exchange",
             "description": "When it's time, simply replace the unit with a straightforward exchange process.",
-            "image_alt": "Replacing a used Scale-O unit with a new one in the overhead tank",
             "link": "",
             "button_text": ""
           }
@@ -340,9 +343,10 @@
           "settings": {
             "step_number": "5",
             "icon": "check",
+            "image": "shopify://shop_images/Check.png",
+            "image_alt": "Scale-O working in the overhead tank with no salt, electricity or servicing needed",
             "title": "Zero Hassle Upkeep",
             "description": "No salt refills, no electricity and no regular servicing. Scale-O keeps protecting your home quietly.",
-            "image_alt": "Scale-O working in the overhead tank with no salt, electricity or servicing needed",
             "link": "",
             "button_text": ""
           }
@@ -463,6 +467,7 @@
         "installation_diagram": "shopify://shop_images/ChatGPT_Image_Aug_12_2026_12_35_16_PM.png",
         "diagram_alt": "Scale-O installation flow from overhead tank to home",
         "enable_journey_autoplay": true,
+        "enable_journey_hover": false,
         "journey_autoplay_seconds": 4,
         "journey_image_fade_ms": 600,
         "step_active_glow": "#0c7fdf",
@@ -487,59 +492,32 @@
         "help_heading": "Need Help With Installation?",
         "help_button_text": "Talk to an Expert",
         "help_button_link": "shopify://pages/consult-now",
-        "enable_image_hover": true,
-        "badge_best_seller_text": "Best Seller",
-        "badge_most_affordable_text": "Most Affordable",
-        "badge_popular_text": "Popular",
-        "badge_new_text": "New",
-        "max_width": 1340,
-        "desktop_columns": "4",
-        "tablet_columns": "2",
-        "mobile_columns": "1",
-        "card_gap": 16,
-        "card_gap_mobile": 12,
-        "padding_top": 36,
-        "padding_bottom": 36,
-        "padding_x": 20,
-        "margin_top": 0,
-        "margin_bottom": 0,
-        "header_gap": 32,
-        "image_aspect_ratio": "4 videosvideosvideosvideos 16",
-        "card_radius": 18,
-        "padding_top_mobile": 28,
-        "padding_bottom_mobile": 28,
-        "autoplay": true,
-        "muted": true,
-        "loop": true,
-        "show_controls": false,
-        "pause_outside_viewport": true,
-        "enable_carousel": true,
-        "show_arrows": true,
-        "show_dots": true,
-        "enable_touch_swipe": true,
-        "overlay_style": "pill",
-        "product_image_size": 40,
-        "product_overlay_offset": 12,
-        "use_rupee_symbol": true,
+        "help_cta_max_width": 560,
+        "help_cta_alignment": "center",
+        "help_cta_background": "#eef6ff",
+        "help_cta_border_color": "#c5dffa",
+        "help_cta_heading_color": "#1a2b4a",
+        "background_color": "#ffffff",
+        "use_gradient": false,
+        "gradient_end_color": "#f5f7ff",
+        "card_background": "#ffffff",
+        "heading_color": "#1a2b4a",
+        "text_color": "#5a6b85",
+        "accent_color": "#0c7fdf",
+        "step_number_color": "#0c7fdf",
+        "divider_color": "#d6e2fa",
         "eyebrow_size": 16,
         "heading_size_desktop": 45,
         "heading_size_mobile": 26,
         "description_size": 16,
-        "background_color": "#ffffff",
-        "heading_color": "#1a2b4a",
-        "text_color": "#5a6b85",
-        "eyebrow_color": "#0c7fdf",
-        "accent_color": "#0c7fdf",
-        "arrow_background": "#0c7fdf",
-        "arrow_icon_color": "#ffffff",
-        "arrow_hover_background": "#0a6bc4",
-        "card_background": "#ffffff",
-        "card_border_color": "#e8eef8",
-        "product_card_background": "#ffffff",
-        "product_title_color": "#1a2b4a",
-        "price_color": "#0c7fdf",
-        "badge_background": "#0c7fdf",
-        "badge_text_color": "#ffffff",
+        "step_title_size": 17,
+        "step_description_size": 14,
+        "max_width": 1340,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "content_gap": 32,
         "accessibility_label": "Watch and shop"
       }
     },
@@ -822,7 +800,6 @@
           "settings": {
             "bento_size": "auto",
             "icon": "skin",
-            "image": "",
             "title": "Dry & Itchy Skin",
             "description": "Mineral residue can leave skin feeling dry and irritated.",
             "cta_text": "",
@@ -841,14 +818,36 @@
             "cta_url": ""
           }
         },
+        "problem_kidney": {
+          "type": "problem",
+          "settings": {
+            "bento_size": "auto",
+            "icon": "none",
+            "title": "Kidney Stones",
+            "description": "Hard water can contribute to mineral buildup that may impact urinary health.",
+            "cta_text": "",
+            "cta_url": ""
+          }
+        },
         "problem_water": {
           "type": "problem",
           "settings": {
             "bento_size": "auto",
             "icon": "droplet",
-            "image": "",
             "title": "Impure Water",
             "description": "Hard water can look cloudy and affect everyday use.",
+            "cta_text": "",
+            "cta_url": ""
+          }
+        },
+        "problem_heater": {
+          "type": "problem",
+          "settings": {
+            "bento_size": "auto",
+            "icon": "heater",
+            "image": "shopify://shop_images/problem4.png",
+            "title": "Damage inside Water Heaters",
+            "description": "Scale can reduce heater efficiency and lifespan.",
             "cta_text": "",
             "cta_url": ""
           }
@@ -858,7 +857,6 @@
           "settings": {
             "bento_size": "auto",
             "icon": "floor",
-            "image": "",
             "title": "White Stains on Floors & Utensils",
             "description": "Hard-water minerals leave white marks on tiles, glass and surfaces.",
             "cta_text": "",
@@ -877,38 +875,13 @@
             "cta_url": ""
           }
         },
-        "problem_heater": {
-          "type": "problem",
-          "settings": {
-            "bento_size": "auto",
-            "icon": "heater",
-            "image": "shopify://shop_images/problem4.png",
-            "title": "Damage inside Water Heaters",
-            "description": "Scale can reduce heater efficiency and lifespan.",
-            "cta_text": "",
-            "cta_url": ""
-          }
-        },
         "problem_appliance": {
           "type": "problem",
           "settings": {
             "bento_size": "auto",
             "icon": "appliance",
-            "image": "",
             "title": "Damage in Washing Machines",
             "description": "Hard water can affect appliances and everyday cleaning.",
-            "cta_text": "",
-            "cta_url": ""
-          }
-        },
-        "problem_kidney": {
-          "type": "problem",
-          "settings": {
-            "bento_size": "auto",
-            "icon": "none",
-            "image": "",
-            "title": "Kidney Stones",
-            "description": "Hard water can contribute to mineral buildup that may impact urinary health.",
             "cta_text": "",
             "cta_url": ""
           }
@@ -1124,6 +1097,128 @@
         "accessibility_label": "Scale-O water softeners solution"
       }
     },
+    "before_after_home": {
+      "type": "before-after-results",
+      "blocks": {
+        "pt_b1": {
+          "type": "point",
+          "settings": {
+            "side": "before",
+            "title": "Scale buildup on fixtures & surfaces"
+          }
+        },
+        "pt_b2": {
+          "type": "point",
+          "settings": {
+            "side": "before",
+            "title": "Dull, stained bathrooms"
+          }
+        },
+        "pt_b3": {
+          "type": "point",
+          "settings": {
+            "side": "before",
+            "title": "Appliance efficiency may reduce"
+          }
+        },
+        "pt_b4": {
+          "type": "point",
+          "settings": {
+            "side": "before",
+            "title": "More cleaning, more hassle"
+          }
+        },
+        "pt_a1": {
+          "type": "point",
+          "settings": {
+            "side": "after",
+            "title": "Clean, scale-free fixtures"
+          }
+        },
+        "pt_a2": {
+          "type": "point",
+          "settings": {
+            "side": "after",
+            "title": "Bright, spotless bathrooms"
+          }
+        },
+        "pt_a3": {
+          "type": "point",
+          "settings": {
+            "side": "after",
+            "title": "Better appliance performance"
+          }
+        },
+        "pt_a4": {
+          "type": "point",
+          "settings": {
+            "side": "after",
+            "title": "Less cleaning, more convenience"
+          }
+        }
+      },
+      "block_order": [
+        "pt_b1",
+        "pt_b2",
+        "pt_b3",
+        "pt_b4",
+        "pt_a1",
+        "pt_a2",
+        "pt_a3",
+        "pt_a4"
+      ],
+      "settings": {
+        "show_eyebrow": true,
+        "eyebrow": "BEFORE & AFTER RESULTS",
+        "heading": "The Scale-O Difference You Can See Every Day",
+        "heading_one_line": true,
+        "show_description": true,
+        "description": "Hard water causes scale buildup that affects your home and lifestyle.",
+        "description_highlight": "Scale-O protects your home, so you can live better every day.",
+        "header_alignment": "center",
+        "before_label": "BEFORE",
+        "before_heading": "Without Scale-O",
+        "before_description": "",
+        "before_image_alt": "Hard-water scale on bathroom fixtures",
+        "show_detail_images": true,
+        "after_label": "AFTER",
+        "after_heading": "With Scale-O",
+        "after_description": "",
+        "after_image_alt": "Clean bathroom fixtures with Scale-O",
+        "show_transition": true,
+        "transition_text": "Before to after",
+        "arrow_size": 72,
+        "show_cta": true,
+        "cta_text": "Explore Scale-O Products",
+        "cta_url": "",
+        "max_width": 1200,
+        "image_aspect_ratio": "16 / 10",
+        "image_height": 340,
+        "image_height_mobile": 240,
+        "card_radius": 18,
+        "enable_animations": true,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_top_mobile": 28,
+        "padding_bottom_mobile": 28,
+        "padding_x": 20,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "header_gap": 28,
+        "eyebrow_size": 16,
+        "heading_size_desktop": 40,
+        "heading_size_mobile": 26,
+        "description_size": 16,
+        "background_color": "#ffffff",
+        "before_card_background": "#f6f1ec",
+        "after_card_background": "#f5faff",
+        "heading_color": "#12345b",
+        "text_color": "#5a6b85",
+        "accent_color": "#0c7fdf",
+        "accent_hover_color": "#0a6bc4",
+        "accessibility_label": "Before and after results"
+      }
+    },
     "people_property_home": {
       "type": "people-property-advantages",
       "blocks": {
@@ -1273,6 +1368,7 @@
         "max_width": 1280,
         "desktop_columns": "4",
         "hero_aspect_ratio": "3  9",
+        "card_aspect_ratio": "16 / 9",
         "card_gap": 14,
         "card_radius": 18,
         "shadow_strength": 30,
@@ -1305,222 +1401,6 @@
         "tab_active_background": "#0c7fdf",
         "tab_active_text": "#ffffff",
         "accessibility_label": "People and property advantages"
-      }
-    },
-    "scale_o_video_home": {
-      "type": "scale-o-technology-video",
-      "blocks": {
-        "hl_install": {
-          "type": "highlight",
-          "settings": {
-            "theme_icon": "install",
-            "title": "Easy Installation",
-            "description": "Designed for simple installation without complicated plumbing."
-          }
-        },
-        "hl_salt": {
-          "type": "highlight",
-          "settings": {
-            "theme_icon": "salt",
-            "title": "Salt-Free",
-            "description": "No salt bags or traditional brine system."
-          }
-        },
-        "hl_power": {
-          "type": "highlight",
-          "settings": {
-            "theme_icon": "electricity",
-            "title": "Zero Electricity",
-            "description": "Works without electricity."
-          }
-        },
-        "hl_waste": {
-          "type": "highlight",
-          "settings": {
-            "theme_icon": "recycle",
-            "title": "Zero Water Waste",
-            "description": "No regeneration water wastage."
-          }
-        }
-      },
-      "block_order": [
-        "hl_install",
-        "hl_salt",
-        "hl_power",
-        "hl_waste"
-      ],
-      "settings": {
-        "show_eyebrow": true,
-        "eyebrow": "TECHNOLOGY",
-        "heading": "See How Scale-O Works",
-        "show_description": true,
-        "description": "Understand how Scale-O protects your home from hard-water scale with a simple, salt-free solution.",
-        "header_alignment": "center",
-        "video_type": "external",
-        "video_url": "https://vimeo.com/999469587",
-        "thumbnail": "shopify://shop_images/THUMBNAIL.png",
-        "thumbnail_alt": "Scale-O product demonstration video",
-        "video_label": "Scale-O product demonstration",
-        "video_ratio": "16 / 9",
-        "video_radius": 20,
-        "play_button_size": "large",
-        "show_badge": true,
-        "badge_text": "Real Product Demo",
-        "play_label": "Play video",
-        "play_pulse": true,
-        "autoplay": false,
-        "muted": true,
-        "loop": false,
-        "show_controls": true,
-        "playsinline": true,
-        "open_in_modal": false,
-        "show_cta": true,
-        "cta_text": "Explore Scale-O Products",
-        "cta_url": "",
-        "show_trust": true,
-        "trust_text": "Trusted by thousands of happy homes across India.",
-        "max_width": 1200,
-        "padding_top": 36,
-        "padding_bottom": 36,
-        "padding_top_mobile": 28,
-        "padding_bottom_mobile": 28,
-        "padding_x": 20,
-        "margin_top": 0,
-        "margin_bottom": 0,
-        "header_gap": 28,
-        "eyebrow_size": 16,
-        "heading_size_desktop": 45,
-        "heading_size_mobile": 26,
-        "description_size": 16,
-        "background_color": "#f7fbff",
-        "heading_color": "#1a2b4a",
-        "text_color": "#5a6b85",
-        "accent_color": "#0c7fdf",
-        "accent_hover_color": "#0a6bc4",
-        "card_border_color": "#e8eef8",
-        "accessibility_label": "Scale-O video"
-      }
-    },
-    "before_after_home": {
-      "type": "before-after-results",
-      "blocks": {
-        "pt_b1": {
-          "type": "point",
-          "settings": {
-            "side": "before",
-            "title": "Scale buildup on fixtures & surfaces"
-          }
-        },
-        "pt_b2": {
-          "type": "point",
-          "settings": {
-            "side": "before",
-            "title": "Dull, stained bathrooms"
-          }
-        },
-        "pt_b3": {
-          "type": "point",
-          "settings": {
-            "side": "before",
-            "title": "Appliance efficiency may reduce"
-          }
-        },
-        "pt_b4": {
-          "type": "point",
-          "settings": {
-            "side": "before",
-            "title": "More cleaning, more hassle"
-          }
-        },
-        "pt_a1": {
-          "type": "point",
-          "settings": {
-            "side": "after",
-            "title": "Clean, scale-free fixtures"
-          }
-        },
-        "pt_a2": {
-          "type": "point",
-          "settings": {
-            "side": "after",
-            "title": "Bright, spotless bathrooms"
-          }
-        },
-        "pt_a3": {
-          "type": "point",
-          "settings": {
-            "side": "after",
-            "title": "Better appliance performance"
-          }
-        },
-        "pt_a4": {
-          "type": "point",
-          "settings": {
-            "side": "after",
-            "title": "Less cleaning, more convenience"
-          }
-        }
-      },
-      "block_order": [
-        "pt_b1",
-        "pt_b2",
-        "pt_b3",
-        "pt_b4",
-        "pt_a1",
-        "pt_a2",
-        "pt_a3",
-        "pt_a4"
-      ],
-      "settings": {
-        "show_eyebrow": true,
-        "eyebrow": "BEFORE & AFTER RESULTS",
-        "heading": "The Scale-O Difference You Can See Every Day",
-        "heading_one_line": true,
-        "show_description": true,
-        "description": "Hard water causes scale buildup that affects your home and lifestyle.",
-        "description_highlight": "Scale-O protects your home, so you can live better every day.",
-        "header_alignment": "center",
-        "before_label": "BEFORE",
-        "before_heading": "Without Scale-O",
-        "before_description": "",
-        "before_image_alt": "Hard-water scale on bathroom fixtures",
-        "show_detail_images": true,
-        "after_label": "AFTER",
-        "after_heading": "With Scale-O",
-        "after_description": "",
-        "after_image_alt": "Clean bathroom fixtures with Scale-O",
-        "show_transition": true,
-        "transition_text": "Before to after",
-        "arrow_size": 72,
-        "show_cta": true,
-        "cta_text": "Explore Scale-O Products",
-        "cta_url": "",
-        "max_width": 1200,
-        "image_aspect_ratio": "16 / 10",
-        "image_height": 340,
-        "image_height_mobile": 240,
-        "card_radius": 18,
-        "enable_animations": true,
-        "padding_top": 36,
-        "padding_bottom": 36,
-        "padding_top_mobile": 28,
-        "padding_bottom_mobile": 28,
-        "padding_x": 20,
-        "margin_top": 0,
-        "margin_bottom": 0,
-        "header_gap": 28,
-        "eyebrow_size": 16,
-        "heading_size_desktop": 40,
-        "heading_size_mobile": 26,
-        "description_size": 16,
-        "background_color": "#ffffff",
-        "before_card_background": "#f6f1ec",
-        "after_card_background": "#f5faff",
-        "heading_color": "#12345b",
-        "text_color": "#5a6b85",
-        "accent_color": "#0c7fdf",
-        "accent_hover_color": "#0a6bc4",
-        "accessibility_label": "Before and after results"
       }
     },
     "tech_compare_home": {
@@ -2015,6 +1895,100 @@
         "accessibility_label": "Competitor comparison"
       }
     },
+    "scale_o_video_home": {
+      "type": "scale-o-technology-video",
+      "blocks": {
+        "hl_install": {
+          "type": "highlight",
+          "settings": {
+            "theme_icon": "install",
+            "title": "Easy Installation",
+            "description": "Designed for simple installation without complicated plumbing."
+          }
+        },
+        "hl_salt": {
+          "type": "highlight",
+          "settings": {
+            "theme_icon": "salt",
+            "title": "Salt-Free",
+            "description": "No salt bags or traditional brine system."
+          }
+        },
+        "hl_power": {
+          "type": "highlight",
+          "settings": {
+            "theme_icon": "electricity",
+            "title": "Zero Electricity",
+            "description": "Works without electricity."
+          }
+        },
+        "hl_waste": {
+          "type": "highlight",
+          "settings": {
+            "theme_icon": "recycle",
+            "title": "Zero Water Waste",
+            "description": "No regeneration water wastage."
+          }
+        }
+      },
+      "block_order": [
+        "hl_install",
+        "hl_salt",
+        "hl_power",
+        "hl_waste"
+      ],
+      "settings": {
+        "show_eyebrow": true,
+        "eyebrow": "TECHNOLOGY",
+        "heading": "See How Scale-O Works",
+        "show_description": true,
+        "description": "Understand how Scale-O protects your home from hard-water scale with a simple, salt-free solution.",
+        "header_alignment": "center",
+        "video_type": "external",
+        "video_url": "https://vimeo.com/999469587",
+        "thumbnail": "shopify://shop_images/THUMBNAIL.png",
+        "thumbnail_alt": "Scale-O product demonstration video",
+        "video_label": "Scale-O product demonstration",
+        "video_ratio": "16 / 9",
+        "video_radius": 20,
+        "play_button_size": "large",
+        "show_badge": true,
+        "badge_text": "Real Product Demo",
+        "play_label": "Play video",
+        "play_pulse": true,
+        "autoplay": false,
+        "muted": true,
+        "loop": false,
+        "show_controls": true,
+        "playsinline": true,
+        "open_in_modal": false,
+        "show_cta": true,
+        "cta_text": "Explore Scale-O Products",
+        "cta_url": "",
+        "show_trust": true,
+        "trust_text": "Trusted by thousands of happy homes across India.",
+        "max_width": 1200,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_top_mobile": 28,
+        "padding_bottom_mobile": 28,
+        "padding_x": 20,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "header_gap": 28,
+        "eyebrow_size": 16,
+        "heading_size_desktop": 45,
+        "heading_size_mobile": 26,
+        "description_size": 16,
+        "background_color": "#f7fbff",
+        "heading_color": "#1a2b4a",
+        "text_color": "#5a6b85",
+        "accent_color": "#0c7fdf",
+        "accent_hover_color": "#0a6bc4",
+        "card_border_color": "#e8eef8",
+        "accessibility_label": "Scale-O video"
+      }
+    },
     "video_testimonials_home": {
       "type": "scale-o-video-testimonials",
       "blocks": {
@@ -2023,7 +1997,6 @@
           "settings": {
             "enabled": true,
             "highlight": true,
-            "image": "",
             "image_asset": "scale-o-story-1.jpg",
             "image_alt": "Mrs. Pragati Choksi sharing her Scale-O experience at home",
             "title": "",
@@ -2047,7 +2020,6 @@
           "settings": {
             "enabled": true,
             "highlight": false,
-            "image": "",
             "image_asset": "scale-o-story-2.jpg",
             "image_alt": "Dr. Gaurav Khurana with Scale-O installed at home",
             "title": "",
@@ -2071,7 +2043,6 @@
           "settings": {
             "enabled": true,
             "highlight": false,
-            "image": "",
             "image_asset": "scale-o-story-3.jpg",
             "image_alt": "Ms. Avani Nathwani using softened water at home",
             "title": "",
@@ -2095,7 +2066,6 @@
           "settings": {
             "enabled": true,
             "highlight": false,
-            "image": "",
             "image_asset": "scale-o-story-4.jpg",
             "image_alt": "Mrs. Prabha Harwani sharing her Scale-O review",
             "title": "",
@@ -2119,7 +2089,6 @@
           "settings": {
             "enabled": true,
             "highlight": false,
-            "image": "",
             "image_asset": "scale-o-story-5.jpg",
             "image_alt": "Mr. Vikram Desai showing cleaner bathroom fixtures after Scale-O",
             "title": "",
@@ -2143,7 +2112,6 @@
           "settings": {
             "enabled": true,
             "highlight": false,
-            "image": "",
             "image_asset": "scale-o-story-6.jpg",
             "image_alt": "Mrs. Sneha Iyer at home after installing Scale-O",
             "title": "",
@@ -2559,96 +2527,60 @@
           "type": "item",
           "settings": {
             "enabled": true,
-            "image": "",
-            "image_by_url": "",
-            "image_alt": "",
-            "tag": "",
-            "title": "Innovation Coverage",
             "publication": "Divya Bhaskar",
-            "date": "",
-            "link": "",
-            "cta_text": "",
-            "open_new_tab": true
+            "title": "Innovation Coverage",
+            "image_alt": "",
+            "image_by_url": ""
           }
         },
         "iconbox_tP7dpC": {
           "type": "item",
           "settings": {
             "enabled": true,
-            "image": "",
-            "image_by_url": "",
-            "image_alt": "",
-            "tag": "",
-            "title": "Founder with CM of Gujarat",
             "publication": "News 18",
-            "date": "",
-            "link": "",
-            "cta_text": "",
-            "open_new_tab": true
+            "title": "Founder with CM of Gujarat",
+            "image_alt": "",
+            "image_by_url": ""
           }
         },
         "iconbox_FHqgJj": {
           "type": "item",
           "settings": {
             "enabled": true,
-            "image": "",
-            "image_by_url": "",
-            "image_alt": "",
-            "tag": "",
-            "title": "Business Coverage",
             "publication": "Ahmedabad Mirror",
-            "date": "",
-            "link": "",
-            "cta_text": "",
-            "open_new_tab": true
+            "title": "Business Coverage",
+            "image_alt": "",
+            "image_by_url": ""
           }
         },
         "iconbox_TnCkrp": {
           "type": "item",
           "settings": {
             "enabled": true,
-            "image": "",
-            "image_by_url": "",
-            "image_alt": "",
-            "tag": "",
-            "title": "Innovation Showcase",
             "publication": "Book of Innovations, GOI",
-            "date": "",
-            "link": "",
-            "cta_text": "",
-            "open_new_tab": true
+            "title": "Innovation Showcase",
+            "image_alt": "",
+            "image_by_url": ""
           }
         },
         "iconbox_DEXn8i": {
           "type": "item",
           "settings": {
             "enabled": true,
-            "image": "",
-            "image_by_url": "",
-            "image_alt": "",
-            "tag": "",
-            "title": "Product Footage",
             "publication": "ABP TV",
-            "date": "",
-            "link": "",
-            "cta_text": "",
-            "open_new_tab": true
+            "title": "Product Footage",
+            "image_alt": "",
+            "image_by_url": ""
           }
         },
         "iconbox_UfXtic": {
           "type": "item",
           "settings": {
             "enabled": true,
-            "image": "",
-            "image_by_url": "",
-            "image_alt": "",
-            "tag": "",
-            "title": "Founder’s Pitch",
             "publication": "Zee Business OTT",
-            "date": "",
-            "link": "",
-            "cta_text": "",
-            "open_new_tab": true
+            "title": "Founder’s Pitch",
+            "image_alt": "",
+            "image_by_url": ""
           }
         }
       },
@@ -2664,10 +2596,10 @@
         "eyebrow": "RECOGNITIONS",
         "heading": "News & Media",
         "description": "Features, recognitions and media coverage that highlight Scale-O's innovation, impact and journey.",
+        "enable_infinite_carousel": true,
         "card_width": 200,
         "card_height": 148,
         "card_gap": 16,
-        "enable_infinite_carousel": true,
         "marquee_speed": 36,
         "show_inquiry": false,
         "show_inquiry_icon": true,

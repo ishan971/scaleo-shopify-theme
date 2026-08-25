@@ -941,11 +941,16 @@
     gap: 32px !important;
     flex-wrap: nowrap !important;
     align-items: flex-start !important;
+    justify-content: flex-start !important;
   }
+  /*
+   * LEFT only: size so 1:1 main image + left thumbs fit in one viewport.
+   * RIGHT stays fixed — does not expand into left space.
+   */
   .m-main-product--media {
-    flex: 0 0 46% !important;
-    width: 46% !important;
-    max-width: 46% !important;
+    flex: 0 0 auto !important;
+    width: min(44%, calc(100vh - var(--m-header-height, 80px) - 72px + 68px)) !important;
+    max-width: min(44%, calc(100vh - var(--m-header-height, 80px) - 72px + 68px)) !important;
     padding-left: 0 !important;
     padding-right: 0 !important;
   }
@@ -956,46 +961,153 @@
     padding-left: 0 !important;
     padding-right: 0 !important;
   }
+
+  /* Desktop layout-6: vertical thumbs LEFT — true 1:1 boxes, border fits the box */
+  .m-product-media--layout-6 .m-product-media--slider__thumbnails {
+    margin-top: 0 !important;
+    flex-shrink: 0;
+    padding-right: 12px !important;
+  }
+  .m-product-media--layout-6 .m-product-media--slider__thumbnails .nav-swiper-container {
+    width: 56px !important;
+    max-height: calc(100vh - var(--m-header-height, 80px) - 56px) !important;
+    height: calc(100vh - var(--m-header-height, 80px) - 56px) !important;
+  }
+  .m-product-media--desktop.m-product-media--layout-6 .m-product-media--slider__thumbnails .swiper-slide {
+    width: 56px !important;
+    height: 56px !important;
+    min-width: 56px !important;
+    min-height: 56px !important;
+    max-width: 56px !important;
+    max-height: 56px !important;
+    aspect-ratio: 1 / 1 !important;
+    --slide-height: 56px !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    margin: 0 0 6px !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background-color: #f5f8fc !important;
+    box-shadow: none !important;
+    outline: none !important;
+  }
+  .m-product-media--desktop.m-product-media--layout-6 .m-product-media--slider__thumbnails .swiper-slide:last-child {
+    margin-bottom: 0 !important;
+  }
+  .m-product-media--desktop.m-product-media--layout-6 .m-product-media--slider__thumbnails .swiper-slide-thumb-active {
+    /* Inset ring — stays on the 1:1 box, does not grow the thumb */
+    box-shadow: inset 0 0 0 2px #007bff !important;
+    border: 0 !important;
+    outline: none !important;
+  }
+  .m-product-media--desktop.m-product-media--layout-6 .m-product-media--slider__thumbnails .nav-swiper-container .m-product-media {
+    padding: 0 !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    display: block !important;
+    overflow: hidden !important;
+    box-shadow: none !important;
+  }
+  .m-product-media--desktop.m-product-media--layout-6 .m-product-media--slider__thumbnails .swiper-slide-thumb-active .m-product-media {
+    border: 0 !important;
+  }
+  .m-product-media--desktop.m-product-media--layout-6 .m-product-media--slider__thumbnails .m-image,
+  .m-product-media--desktop.m-product-media--layout-6 .m-product-media--slider__thumbnails responsive-image {
+    --aspect-ratio: 1 !important;
+    aspect-ratio: 1 / 1 !important;
+    width: 100% !important;
+    height: 100% !important;
+    padding: 0 !important;
+    padding-top: 0 !important;
+    display: block !important;
+    overflow: hidden !important;
+  }
+  .m-product-media--desktop.m-product-media--layout-6 .m-product-media--slider__thumbnails .swiper-slide img {
+    border-radius: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    display: block !important;
+  }
+  /* Cap main square so it never crops at the viewport bottom */
+  .m-product-media--layout-6 .m-product-media--slider__images {
+    max-width: calc(100% - 68px);
+  }
+  .m-product-media--layout-6 .m-product-media--slider__images .m-product-media--item,
+  .m-product-media--layout-6 .m-product-media--slider__images .m-product-media--item .m-product-media responsive-image,
+  .m-product-media--layout-6 .m-product-media--slider__images .m-product-media--item .m-image {
+    max-height: calc(100vh - var(--m-header-height, 80px) - 72px) !important;
+    width: min(100%, calc(100vh - var(--m-header-height, 80px) - 72px)) !important;
+    max-width: min(100%, calc(100vh - var(--m-header-height, 80px) - 72px)) !important;
+    aspect-ratio: 1 / 1 !important;
+    --aspect-ratio: 1 !important;
+    margin-inline: auto;
+    border-radius: 0 !important;
+  }
+  .m-product-media--layout-6 .m-product-media--slider__images .m-product-media--item,
+  .m-product-media--layout-6 .m-product-media--slider__images .m-product-media--item img {
+    border-radius: 0 !important;
+  }
 }
 
-/* Balanced horizontal product image — slightly compact, not tiny */
-@media screen and (min-width: 768px) {
+/* Square 1:1 product gallery — full image visible (no crop) */
 .m-main-product--media .m-product-media--item {
-    border-radius: 18px !important;
+  border-radius: 18px !important;
   overflow: hidden !important;
   position: relative !important;
+  background-color: #f5f8fc !important;
 }
 .m-main-product--media .m-product-media--item .m-product-media responsive-image,
-.m-main-product--media .m-product-media--item .m-product-media--model > div {
-    --aspect-ratio: 1.4 !important;
-    aspect-ratio: 7 / 5 !important;
-    border-radius: 18px !important;
+.m-main-product--media .m-product-media--item .m-product-media--model > div,
+.m-main-product--media .m-product-media--item .m-image {
+  --aspect-ratio: 1 !important;
+  aspect-ratio: 1 / 1 !important;
+  border-radius: 18px !important;
   overflow: hidden !important;
+  background-color: #f5f8fc !important;
 }
 .m-main-product--media .m-product-media--item img {
-  object-fit: cover !important;
+  object-fit: contain !important;
   object-position: center !important;
   width: 100% !important;
   height: 100% !important;
 }
 .m-main-product--media .m-product-media--item deferred-media,
 .m-main-product--media .m-product-media--item product-model {
-    padding-top: 71.4% !important;
+  padding-top: 100% !important;
+}
+
+@media screen and (min-width: 768px) {
+  .m-main-product--media .m-product-media--item {
+    border-radius: 18px !important;
   }
 }
 
-/* Horizontally scrollable thumbnail strip below the main image */
+@media screen and (min-width: 1024px) {
+  .m-product-media--layout-6 .m-product-media--slider__images .m-product-media--item,
+  .m-product-media--layout-6 .m-product-media--slider__images .m-product-media--item .m-product-media responsive-image,
+  .m-product-media--layout-6 .m-product-media--slider__images .m-product-media--item .m-image,
+  .m-product-media--layout-6 .m-product-media--slider__images .m-product-media--item img {
+    border-radius: 0 !important;
+  }
+}
+
+/* Horizontally scrollable thumbnail strip below the main image (mobile / non-layout-6) */
 .m-product-media--slider__thumbnails {
-  margin-top: 10px !important;
+  margin-top: 10px;
 }
 .m-product-media--slider__thumbnails .swiper-slide {
   border-radius: 8px !important;
   overflow: hidden !important;
   border: 2px solid transparent !important;
   transition: all 0.2s ease !important;
-  aspect-ratio: 4 / 3 !important;
-  width: 84px !important;
-  background-color: #f7f7f8;
+  aspect-ratio: 1 / 1 !important;
+  width: 72px !important;
+  background-color: #f5f8fc;
 }
 .m-product-media--slider__thumbnails .swiper-slide-thumb-active {
   border-color: #007bff !important; /* Active indicator blue border */
@@ -1003,10 +1115,58 @@
 .m-product-media--slider__thumbnails .swiper-slide img {
   width: 100% !important;
   height: 100% !important;
-  object-fit: cover !important;
+  object-fit: contain !important;
+  object-position: center !important;
 }
 
-/* Buy buttons row directly below plan cards */
+/* Desktop layout-6 thumbs: override general strip rules so selected ring stays flush */
+@media screen and (min-width: 1024px) {
+  .m-product-media--desktop.m-product-media--layout-6 .m-product-media--slider__thumbnails .swiper-slide {
+    width: 56px !important;
+    height: 56px !important;
+    min-width: 56px !important;
+    min-height: 56px !important;
+    max-width: 56px !important;
+    max-height: 56px !important;
+    aspect-ratio: 1 / 1 !important;
+    --slide-height: 56px !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    margin: 0 0 6px !important;
+    box-shadow: none !important;
+    overflow: hidden !important;
+  }
+  .m-product-media--desktop.m-product-media--layout-6 .m-product-media--slider__thumbnails .swiper-slide:last-child {
+    margin-bottom: 0 !important;
+  }
+  .m-product-media--desktop.m-product-media--layout-6 .m-product-media--slider__thumbnails .swiper-slide-thumb-active {
+    border: 0 !important;
+    border-color: transparent !important;
+    box-shadow: inset 0 0 0 2px #007bff !important;
+  }
+  .m-product-media--desktop.m-product-media--layout-6 .m-product-media--slider__thumbnails .swiper-slide-thumb-active .m-product-media {
+    border: 0 !important;
+  }
+  .m-product-media--desktop.m-product-media--layout-6 .m-product-media--slider__thumbnails .swiper-slide img {
+    object-fit: cover !important;
+  }
+}
+
+/* Catalog / collection cards: keep product art fully visible in square frames */
+.m-product-card__media .m-image,
+.m-product-card__media responsive-image {
+  --aspect-ratio: 1 !important;
+  aspect-ratio: 1 / 1 !important;
+  background-color: #f5f8fc;
+}
+.m-product-card__media img {
+  object-fit: contain !important;
+  object-position: center !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
 .product-plan-buy-buttons {
   --plan-btn-blue: #0C7FDF;
   --plan-btn-blue-light: #4db8ff;
@@ -1657,10 +1817,11 @@
     padding-right: 0 !important;
   }
   .m-main-product--media .m-product-media--item {
-    border-radius: 0 !important; /* Flush full-width on mobile */
+    border-radius: 12px !important;
   }
-  .m-main-product--media .m-product-media--item .m-product-media responsive-image {
-    border-radius: 0 !important;
+  .m-main-product--media .m-product-media--item .m-product-media responsive-image,
+  .m-main-product--media .m-product-media--item .m-image {
+    border-radius: 12px !important;
   }
   .product-trust-strip {
     gap: 8px;

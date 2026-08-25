@@ -562,7 +562,7 @@
         "margin_top": 0,
         "margin_bottom": 0,
         "header_gap": 32,
-        "image_aspect_ratio": "4 / 3",
+        "image_aspect_ratio": "1 / 1",
         "image_padding": 8,
         "card_radius": 16,
         "eyebrow_size": 16,

@@ -1,0 +1,292 @@
+{%- comment -%}
+  Scale-O plans comparison and why-choose band.
+{%- endcomment -%}
+
+{{ 'scale-o-plans.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign header_align = section.settings.header_alignment | default: 'center'
+  assign compare_blocks = section.blocks | where: 'type', 'compare'
+  assign why_blocks = section.blocks | where: 'type', 'why'
+  assign collection_url = section.settings.cta_url
+  if collection_url == blank
+    capture collection_url
+      render 'scale-o-shop-url'
+    endcapture
+    assign collection_url = collection_url | strip
+  endif
+-%}
+
+<style>
+  #shopify-section-{{ section.id }} .scale-o-plans {
+    --sop-bg: {{ section.settings.background_color }};
+    --sop-heading: {{ section.settings.heading_color }};
+    --sop-text: {{ section.settings.text_color }};
+    --sop-accent: {{ section.settings.accent_color }};
+    --sop-accent-hover: {{ section.settings.accent_hover_color }};
+    --sop-card-bg: {{ section.settings.card_background }};
+    --sop-border: {{ section.settings.border_color }};
+    --sop-radius: {{ section.settings.card_radius }}px;
+    --sop-pad-x: {{ section.settings.padding_x }}px;
+    --sop-header-gap: {{ section.settings.header_gap }}px;
+    --sop-header-align: {{ header_align }};
+    --sop-eyebrow-size: {{ section.settings.eyebrow_size }}px;
+    --sop-heading-size: {{ section.settings.heading_size_mobile }}px;
+    --sop-heading-size-desktop: {{ section.settings.heading_size_desktop }}px;
+    --sop-desc-size: {{ section.settings.description_size }}px;
+    --sop-max: {% if section.settings.max_width == 0 %}100%{% else %}{{ section.settings.max_width }}px{% endif %};
+    padding: {{ section.settings.padding_top_mobile }}px 0 {{ section.settings.padding_bottom_mobile }}px;
+    background: var(--sop-bg);
+  }
+  @media (min-width: 768px) {
+    #shopify-section-{{ section.id }} .scale-o-plans {
+      padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px;
+    }
+  }
+  #shopify-section-{{ section.id }} .scale-o-plans__why-wrap {
+    margin-top: {{ section.settings.why_gap }}px;
+    padding-top: {{ section.settings.why_gap }}px;
+    border-top: 1px solid var(--sop-border);
+  }
+</style>
+
+<section
+  class="scale-o-plans"
+  role="region"
+  aria-label="{{ section.settings.accessibility_label | default: 'Compare Scale-O models' | escape }}"
+>
+  <div class="scale-o-plans__container">
+    <header class="scale-o-plans__header{% if header_align == 'left' %} scale-o-plans__header--left{% endif %}">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="scale-o-plans__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+      {%- endif -%}
+      {%- if section.settings.heading != blank -%}
+        <h2 class="scale-o-plans__heading">{{ section.settings.heading | escape }}</h2>
+      {%- endif -%}
+      {%- if section.settings.description != blank -%}
+        <p class="scale-o-plans__description">{{ section.settings.description | escape }}</p>
+      {%- endif -%}
+    </header>
+
+    {%- if compare_blocks.size > 0 -%}
+      <div class="scale-o-plans__compare">
+        {%- for block in compare_blocks -%}
+          {%- if block.settings.enabled == false -%}
+            {%- continue -%}
+          {%- endif -%}
+          {%- liquid
+            assign compare_product = block.settings.product
+            assign compare_url = block.settings.cta_url
+            if compare_url == blank and compare_product != blank
+              assign compare_url = compare_product.url
+            endif
+          -%}
+          <article
+            class="scale-o-plans__compare-card{% if block.settings.featured %} scale-o-plans__compare-card--featured{% endif %}"
+            {{ block.shopify_attributes }}
+          >
+            {%- if block.settings.eyebrow != blank -%}
+              <p class="scale-o-plans__card-tag">{{ block.settings.eyebrow | escape }}</p>
+            {%- endif -%}
+            {%- if block.settings.heading != blank -%}
+              <h3 class="scale-o-plans__card-title">{{ block.settings.heading | escape }}</h3>
+            {%- endif -%}
+            <dl class="scale-o-plans__spec">
+              {%- if block.settings.family != blank -%}
+                <div>
+                  <dt>Family size</dt>
+                  <dd>{{ block.settings.family | escape }}</dd>
+                </div>
+              {%- endif -%}
+              {%- if block.settings.usage != blank -%}
+                <div>
+                  <dt>Daily usage</dt>
+                  <dd>{{ block.settings.usage | escape }}</dd>
+                </div>
+              {%- endif -%}
+              {%- if block.settings.best_for != blank -%}
+                <div>
+                  <dt>Best for</dt>
+                  <dd>{{ block.settings.best_for | escape }}</dd>
+                </div>
+              {%- endif -%}
+            </dl>
+            {%- if block.settings.cta_label != blank and compare_url != blank -%}
+              <a class="scale-o-plans__cta scale-o-plans__cta--ghost" href="{{ compare_url }}">
+                {{ block.settings.cta_label | escape }}
+              </a>
+            {%- endif -%}
+          </article>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
+    {%- if section.settings.show_why -%}
+      <div class="scale-o-plans__why-wrap">
+        <div class="scale-o-plans__why">
+          <div>
+            {%- if section.settings.why_eyebrow != blank -%}
+              <p class="scale-o-plans__eyebrow">{{ section.settings.why_eyebrow | escape }}</p>
+            {%- endif -%}
+            {%- if section.settings.why_heading != blank -%}
+              <h2 class="scale-o-plans__heading">{{ section.settings.why_heading | escape }}</h2>
+            {%- endif -%}
+            {%- if section.settings.why_description != blank -%}
+              <p class="scale-o-plans__description">{{ section.settings.why_description | escape }}</p>
+            {%- endif -%}
+            {%- if section.settings.show_cta and section.settings.cta_label != blank and collection_url != blank -%}
+              <a class="scale-o-plans__cta scale-o-plans__cta--inline" href="{{ collection_url }}">
+                {{ section.settings.cta_label | escape }}
+              </a>
+            {%- endif -%}
+          </div>
+
+          {%- if why_blocks.size > 0 -%}
+            <ul class="scale-o-plans__why-list">
+              {%- for block in why_blocks -%}
+                {%- if block.settings.enabled == false or block.settings.text == blank -%}
+                  {%- continue -%}
+                {%- endif -%}
+                <li class="scale-o-plans__why-item" {{ block.shopify_attributes }}>
+                  <span class="scale-o-plans__why-icon" aria-hidden="true">
+                    <svg viewBox="0 0 16 16" fill="none" focusable="false">
+                      <path d="M3.5 8.2 6.4 11.2 12.5 4.8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </span>
+                  <span>{{ block.settings.text | escape }}</span>
+                </li>
+              {%- endfor -%}
+            </ul>
+          {%- endif -%}
+        </div>
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Scale-O plans compare",
+  "tag": "section",
+  "class": "scale-o-plans-compare-section",
+  "settings": [
+    { "type": "header", "content": "Comparison" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Compare models" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Which Scale-O water softener is right for you?" },
+    { "type": "textarea", "id": "description", "label": "Description", "default": "Match family size and daily water use to Mini, Semi or Centi. Combos cover dual overhead tanks." },
+    {
+      "type": "select",
+      "id": "header_alignment",
+      "label": "Header alignment",
+      "default": "center",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" }
+      ]
+    },
+
+    { "type": "header", "content": "Why Scale-O" },
+    { "type": "checkbox", "id": "show_why", "label": "Show why Scale-O band", "default": true },
+    { "type": "text", "id": "why_eyebrow", "label": "Eyebrow", "default": "Why Scale-O" },
+    { "type": "text", "id": "why_heading", "label": "Heading", "default": "Salt-free water softeners for Indian homes" },
+    {
+      "type": "textarea",
+      "id": "why_description",
+      "label": "Description",
+      "default": "Scale-O helps homeowners deal with hard water without salt, electricity or complicated installation. Place the unit in the overhead tank of a house, villa or bungalow and use water as usual."
+    },
+    { "type": "checkbox", "id": "show_cta", "label": "Show collection button", "default": true },
+    { "type": "text", "id": "cta_label", "label": "Button label", "default": "Shop water softeners" },
+    { "type": "url", "id": "cta_url", "label": "Button link", "info": "Leave blank to use the water-softeners collection." },
+
+    { "type": "header", "content": "Layout" },
+    { "type": "range", "id": "max_width", "label": "Content width", "min": 900, "max": 1400, "step": 20, "unit": "px", "default": 1180 },
+    { "type": "range", "id": "padding_x", "label": "Side padding", "min": 12, "max": 40, "step": 4, "unit": "px", "default": 20 },
+    { "type": "range", "id": "header_gap", "label": "Header bottom gap", "min": 20, "max": 64, "step": 4, "unit": "px", "default": 36 },
+    { "type": "range", "id": "why_gap", "label": "Gap before why band", "min": 24, "max": 80, "step": 4, "unit": "px", "default": 56 },
+    { "type": "range", "id": "padding_top", "label": "Top padding (desktop)", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 24 },
+    { "type": "range", "id": "padding_bottom", "label": "Bottom padding (desktop)", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 80 },
+    { "type": "range", "id": "padding_top_mobile", "label": "Top padding (mobile)", "min": 24, "max": 80, "step": 4, "unit": "px", "default": 24 },
+    { "type": "range", "id": "padding_bottom_mobile", "label": "Bottom padding (mobile)", "min": 24, "max": 80, "step": 4, "unit": "px", "default": 56 },
+    { "type": "range", "id": "eyebrow_size", "label": "Eyebrow size", "min": 11, "max": 16, "step": 1, "unit": "px", "default": 13 },
+    { "type": "range", "id": "heading_size_desktop", "label": "Heading size (desktop)", "min": 24, "max": 48, "step": 1, "unit": "px", "default": 36 },
+    { "type": "range", "id": "heading_size_mobile", "label": "Heading size (mobile)", "min": 22, "max": 36, "step": 1, "unit": "px", "default": 28 },
+    { "type": "range", "id": "description_size", "label": "Description size", "min": 14, "max": 18, "step": 1, "unit": "px", "default": 16 },
+    { "type": "color", "id": "background_color", "label": "Background", "default": "#F7FBFF" },
+    { "type": "color", "id": "heading_color", "label": "Heading", "default": "#102A43" },
+    { "type": "color", "id": "text_color", "label": "Text", "default": "#5A6B85" },
+    { "type": "color", "id": "accent_color", "label": "Accent", "default": "#0C7FDF" },
+    { "type": "color", "id": "accent_hover_color", "label": "Accent hover", "default": "#0A6BC4" },
+    { "type": "color", "id": "card_background", "label": "Card background", "default": "#FFFFFF" },
+    { "type": "color", "id": "border_color", "label": "Border", "default": "#DCEAF5" },
+    { "type": "range", "id": "card_radius", "label": "Card radius", "min": 8, "max": 24, "step": 1, "unit": "px", "default": 16 },
+    { "type": "text", "id": "accessibility_label", "label": "Accessibility label", "default": "Compare Scale-O models" }
+  ],
+  "blocks": [
+    {
+      "type": "compare",
+      "name": "Compare card",
+      "limit": 3,
+      "settings": [
+        { "type": "checkbox", "id": "enabled", "label": "Show this model", "default": true },
+        { "type": "checkbox", "id": "featured", "label": "Highlight this card", "default": false },
+        { "type": "product", "id": "product", "label": "Product" },
+        { "type": "text", "id": "eyebrow", "label": "Tag", "default": "Mini" },
+        { "type": "text", "id": "heading", "label": "Title", "default": "Scale-O Mini" },
+        { "type": "text", "id": "family", "label": "Family size", "default": "Up to 3 people" },
+        { "type": "text", "id": "usage", "label": "Daily usage", "default": "500 L/day" },
+        { "type": "text", "id": "best_for", "label": "Best for", "default": "Small family homes" },
+        { "type": "text", "id": "cta_label", "label": "Button label", "default": "View Mini" },
+        { "type": "url", "id": "cta_url", "label": "Button link" }
+      ]
+    },
+    {
+      "type": "why",
+      "name": "Why point",
+      "settings": [
+        { "type": "checkbox", "id": "enabled", "label": "Show this point", "default": true },
+        { "type": "text", "id": "text", "label": "Text", "default": "Helps reduce hard-water scaling" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Scale-O plans compare",
+      "blocks": [
+        { "type": "compare" },
+        {
+          "type": "compare",
+          "settings": {
+            "featured": true,
+            "eyebrow": "Semi",
+            "heading": "Scale-O Semi",
+            "family": "4 to 6 people",
+            "usage": "1500 L/day",
+            "best_for": "Medium-sized homes",
+            "cta_label": "View Semi"
+          }
+        },
+        {
+          "type": "compare",
+          "settings": {
+            "eyebrow": "Centi",
+            "heading": "Scale-O Centi",
+            "family": "7 to 10 people",
+            "usage": "2500 L/day",
+            "best_for": "Large homes and villas",
+            "cta_label": "View Centi"
+          }
+        },
+        { "type": "why", "settings": { "text": "Helps reduce hard-water scaling" } },
+        { "type": "why", "settings": { "text": "Supports better appliance efficiency" } },
+        { "type": "why", "settings": { "text": "Designed for overhead water tanks" } },
+        { "type": "why", "settings": { "text": "Sizes for different family needs" } },
+        { "type": "why", "settings": { "text": "DIY installation, no plumber" } },
+        { "type": "why", "settings": { "text": "No salt refill or regeneration" } },
+        { "type": "why", "settings": { "text": "Works without electricity" } },
+        { "type": "why", "settings": { "text": "No backwash or water wastage" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

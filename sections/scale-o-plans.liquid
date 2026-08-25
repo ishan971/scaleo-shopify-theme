@@ -1,0 +1,350 @@
+{%- comment -%}
+  Scale-O plans — Mini / Semi / Centi cards with editable prices.
+{%- endcomment -%}
+
+{{ 'scale-o-plans.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign header_align = section.settings.header_alignment | default: 'center'
+  assign chip_lines = section.settings.highlights | strip | newline_to_br | split: '<br />'
+-%}
+
+<style>
+  #shopify-section-{{ section.id }} .scale-o-plans {
+    --sop-bg: {{ section.settings.background_color }};
+    --sop-heading: {{ section.settings.heading_color }};
+    --sop-text: {{ section.settings.text_color }};
+    --sop-accent: {{ section.settings.accent_color }};
+    --sop-accent-hover: {{ section.settings.accent_hover_color }};
+    --sop-card-bg: {{ section.settings.card_background }};
+    --sop-border: {{ section.settings.border_color }};
+    --sop-radius: {{ section.settings.card_radius }}px;
+    --sop-gap: {{ section.settings.card_gap }}px;
+    --sop-cols: {{ section.settings.columns }};
+    --sop-pad-x: {{ section.settings.padding_x }}px;
+    --sop-header-gap: {{ section.settings.header_gap }}px;
+    --sop-header-align: {{ header_align }};
+    --sop-eyebrow-size: {{ section.settings.eyebrow_size }}px;
+    --sop-heading-size: {{ section.settings.heading_size_mobile }}px;
+    --sop-heading-size-desktop: {{ section.settings.heading_size_desktop }}px;
+    --sop-desc-size: {{ section.settings.description_size }}px;
+    --sop-max: {% if section.settings.max_width == 0 %}100%{% else %}{{ section.settings.max_width }}px{% endif %};
+    --sop-shadow: {% if section.settings.show_card_shadow %}0 10px 28px rgba(16, 42, 67, 0.06){% else %}none{% endif %};
+    padding: {{ section.settings.padding_top_mobile }}px 0 {{ section.settings.padding_bottom_mobile }}px;
+    background: var(--sop-bg);
+  }
+  @media (min-width: 768px) {
+    #shopify-section-{{ section.id }} .scale-o-plans {
+      padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px;
+    }
+  }
+</style>
+
+<section
+  class="scale-o-plans"
+  role="region"
+  aria-label="{{ section.settings.accessibility_label | default: 'Water softener plans' | escape }}"
+>
+  <div class="scale-o-plans__container">
+    <header class="scale-o-plans__header{% if header_align == 'left' %} scale-o-plans__header--left{% endif %}">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="scale-o-plans__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+      {%- endif -%}
+      {%- if section.settings.heading != blank -%}
+        <h2 class="scale-o-plans__heading">{{ section.settings.heading | escape }}</h2>
+      {%- endif -%}
+      {%- if section.settings.description != blank -%}
+        <p class="scale-o-plans__description">{{ section.settings.description | escape }}</p>
+      {%- endif -%}
+      {%- if section.settings.highlights != blank -%}
+        <ul class="scale-o-plans__chips">
+          {%- for chip in chip_lines -%}
+            {%- assign chip_text = chip | strip -%}
+            {%- if chip_text != blank -%}
+              <li class="scale-o-plans__chip">{{ chip_text | escape }}</li>
+            {%- endif -%}
+          {%- endfor -%}
+        </ul>
+      {%- endif -%}
+    </header>
+
+    <ul class="scale-o-plans__grid">
+      {%- for block in section.blocks -%}
+        {%- if block.type != 'plan' or block.settings.enabled == false -%}
+          {%- continue -%}
+        {%- endif -%}
+        {%- liquid
+          assign plan_product = block.settings.product
+          assign plan_image = block.settings.image
+          if plan_image == blank and plan_product != blank
+            assign plan_image = plan_product.featured_image
+          endif
+          assign plan_alt = block.settings.image_alt | default: block.settings.heading | default: plan_product.title
+          assign plan_url = block.settings.cta_url
+          if plan_url == blank and plan_product != blank
+            assign plan_url = plan_product.url
+          endif
+          assign fit_lines = block.settings.fit_list | strip | newline_to_br | split: '<br />'
+        -%}
+        <li {{ block.shopify_attributes }}>
+          <article class="scale-o-plans__card{% if block.settings.featured %} scale-o-plans__card--featured{% endif %}">
+            <div class="scale-o-plans__media">
+              {%- if block.settings.badge != blank -%}
+                <span class="scale-o-plans__badge">{{ block.settings.badge | escape }}</span>
+              {%- endif -%}
+              {%- if plan_image != blank -%}
+                {{
+                  plan_image
+                  | image_url: width: 800
+                  | image_tag:
+                    loading: 'lazy',
+                    widths: '400, 640, 800',
+                    sizes: '(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 33vw',
+                    alt: plan_alt
+                }}
+              {%- endif -%}
+            </div>
+            <div class="scale-o-plans__body">
+              {%- if block.settings.eyebrow != blank -%}
+                <p class="scale-o-plans__card-tag">{{ block.settings.eyebrow | escape }}</p>
+              {%- endif -%}
+              {%- if block.settings.heading != blank -%}
+                <h3 class="scale-o-plans__card-title">{{ block.settings.heading | escape }}</h3>
+              {%- endif -%}
+              {%- if block.settings.fit_list != blank -%}
+                <ul class="scale-o-plans__fit">
+                  {%- for line in fit_lines -%}
+                    {%- assign fit_text = line | strip -%}
+                    {%- if fit_text != blank -%}
+                      <li>{{ fit_text | escape }}</li>
+                    {%- endif -%}
+                  {%- endfor -%}
+                </ul>
+              {%- endif -%}
+
+              <div class="scale-o-plans__rows">
+                {%- if block.settings.plan_1_name != blank or block.settings.plan_1_price != blank -%}
+                  <div class="scale-o-plans__row{% if block.settings.plan_1_popular %} scale-o-plans__row--popular{% endif %}">
+                    <span class="scale-o-plans__row-name">
+                      {{ block.settings.plan_1_name | escape }}
+                      {%- if block.settings.plan_1_note != blank -%}
+                        <span class="scale-o-plans__row-note">{{ block.settings.plan_1_note | escape }}</span>
+                      {%- endif -%}
+                    </span>
+                    <span class="scale-o-plans__row-price">{{ block.settings.plan_1_price | escape }}</span>
+                    <span class="scale-o-plans__row-save">{{ block.settings.plan_1_save | default: '—' | escape }}</span>
+                  </div>
+                {%- endif -%}
+                {%- if block.settings.plan_2_name != blank or block.settings.plan_2_price != blank -%}
+                  <div class="scale-o-plans__row{% if block.settings.plan_2_popular %} scale-o-plans__row--popular{% endif %}">
+                    <span class="scale-o-plans__row-name">
+                      {{ block.settings.plan_2_name | escape }}
+                      {%- if block.settings.plan_2_note != blank -%}
+                        <span class="scale-o-plans__row-note">{{ block.settings.plan_2_note | escape }}</span>
+                      {%- endif -%}
+                    </span>
+                    <span class="scale-o-plans__row-price">{{ block.settings.plan_2_price | escape }}</span>
+                    <span class="scale-o-plans__row-save">{{ block.settings.plan_2_save | default: '—' | escape }}</span>
+                  </div>
+                {%- endif -%}
+                {%- if block.settings.plan_3_name != blank or block.settings.plan_3_price != blank -%}
+                  <div class="scale-o-plans__row{% if block.settings.plan_3_popular %} scale-o-plans__row--popular{% endif %}">
+                    <span class="scale-o-plans__row-name">
+                      {{ block.settings.plan_3_name | escape }}
+                      {%- if block.settings.plan_3_note != blank -%}
+                        <span class="scale-o-plans__row-note">{{ block.settings.plan_3_note | escape }}</span>
+                      {%- endif -%}
+                    </span>
+                    <span class="scale-o-plans__row-price">{{ block.settings.plan_3_price | escape }}</span>
+                    <span class="scale-o-plans__row-save">{{ block.settings.plan_3_save | default: '—' | escape }}</span>
+                  </div>
+                {%- endif -%}
+                {%- if block.settings.plan_4_name != blank or block.settings.plan_4_price != blank -%}
+                  <div class="scale-o-plans__row{% if block.settings.plan_4_popular %} scale-o-plans__row--popular{% endif %}">
+                    <span class="scale-o-plans__row-name">
+                      {{ block.settings.plan_4_name | escape }}
+                      {%- if block.settings.plan_4_note != blank -%}
+                        <span class="scale-o-plans__row-note">{{ block.settings.plan_4_note | escape }}</span>
+                      {%- endif -%}
+                    </span>
+                    <span class="scale-o-plans__row-price">{{ block.settings.plan_4_price | escape }}</span>
+                    <span class="scale-o-plans__row-save">{{ block.settings.plan_4_save | default: '—' | escape }}</span>
+                  </div>
+                {%- endif -%}
+              </div>
+
+              {%- if block.settings.cta_label != blank and plan_url != blank -%}
+                <a class="scale-o-plans__cta" href="{{ plan_url }}">{{ block.settings.cta_label | escape }}</a>
+              {%- endif -%}
+            </div>
+          </article>
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Scale-O plans",
+  "tag": "section",
+  "class": "scale-o-plans-section",
+  "settings": [
+    { "type": "header", "content": "Header" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Choose a model" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Pick Mini, Semi or Centi by tank size" },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "These salt-free water softeners sit in the overhead tank of independent houses, villas and bungalows. Choose the model that matches family size and daily use, then pick a trial, 1 year, 2 year or 3 year plan."
+    },
+    {
+      "type": "textarea",
+      "id": "highlights",
+      "label": "Highlights",
+      "info": "One per line",
+      "default": "No salt refill\nEasy tank installation\nHelps reduce scaling\nMade for Indian water\nTrial to 3-year plans"
+    },
+    {
+      "type": "select",
+      "id": "header_alignment",
+      "label": "Header alignment",
+      "default": "center",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" }
+      ]
+    },
+
+    { "type": "header", "content": "Layout" },
+    { "type": "range", "id": "max_width", "label": "Content width", "min": 900, "max": 1400, "step": 20, "unit": "px", "default": 1180 },
+    {
+      "type": "select",
+      "id": "columns",
+      "label": "Desktop columns",
+      "default": "3",
+      "options": [
+        { "value": "2", "label": "2" },
+        { "value": "3", "label": "3" }
+      ]
+    },
+    { "type": "range", "id": "card_gap", "label": "Card gap", "min": 12, "max": 40, "step": 2, "unit": "px", "default": 20 },
+    { "type": "range", "id": "padding_x", "label": "Side padding", "min": 12, "max": 40, "step": 4, "unit": "px", "default": 20 },
+    { "type": "range", "id": "header_gap", "label": "Header bottom gap", "min": 20, "max": 64, "step": 4, "unit": "px", "default": 36 },
+    { "type": "range", "id": "padding_top", "label": "Top padding (desktop)", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 56 },
+    { "type": "range", "id": "padding_bottom", "label": "Bottom padding (desktop)", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 72 },
+    { "type": "range", "id": "padding_top_mobile", "label": "Top padding (mobile)", "min": 24, "max": 80, "step": 4, "unit": "px", "default": 40 },
+    { "type": "range", "id": "padding_bottom_mobile", "label": "Bottom padding (mobile)", "min": 24, "max": 80, "step": 4, "unit": "px", "default": 48 },
+
+    { "type": "header", "content": "Typography" },
+    { "type": "range", "id": "eyebrow_size", "label": "Eyebrow size", "min": 11, "max": 16, "step": 1, "unit": "px", "default": 13 },
+    { "type": "range", "id": "heading_size_desktop", "label": "Heading size (desktop)", "min": 24, "max": 48, "step": 1, "unit": "px", "default": 36 },
+    { "type": "range", "id": "heading_size_mobile", "label": "Heading size (mobile)", "min": 22, "max": 36, "step": 1, "unit": "px", "default": 28 },
+    { "type": "range", "id": "description_size", "label": "Description size", "min": 14, "max": 18, "step": 1, "unit": "px", "default": 16 },
+
+    { "type": "header", "content": "Colors" },
+    { "type": "color", "id": "background_color", "label": "Background", "default": "#F7FBFF" },
+    { "type": "color", "id": "heading_color", "label": "Heading", "default": "#102A43" },
+    { "type": "color", "id": "text_color", "label": "Text", "default": "#5A6B85" },
+    { "type": "color", "id": "accent_color", "label": "Accent", "default": "#0C7FDF" },
+    { "type": "color", "id": "accent_hover_color", "label": "Accent hover", "default": "#0A6BC4" },
+    { "type": "color", "id": "card_background", "label": "Card background", "default": "#FFFFFF" },
+    { "type": "color", "id": "border_color", "label": "Card border", "default": "#DCEAF5" },
+    { "type": "range", "id": "card_radius", "label": "Card radius", "min": 8, "max": 24, "step": 1, "unit": "px", "default": 16 },
+    { "type": "checkbox", "id": "show_card_shadow", "label": "Show card shadow", "default": true },
+    { "type": "text", "id": "accessibility_label", "label": "Accessibility label", "default": "Water softener plans" }
+  ],
+  "blocks": [
+    {
+      "type": "plan",
+      "name": "Plan card",
+      "settings": [
+        { "type": "checkbox", "id": "enabled", "label": "Show this plan", "default": true },
+        { "type": "checkbox", "id": "featured", "label": "Highlight this card", "default": false },
+        { "type": "text", "id": "badge", "label": "Badge" },
+        { "type": "product", "id": "product", "label": "Product" },
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "image_alt", "label": "Image alt text" },
+        { "type": "text", "id": "eyebrow", "label": "Tag", "default": "Mini for 1 to 3 members" },
+        { "type": "text", "id": "heading", "label": "Title", "default": "Scale-O Mini" },
+        {
+          "type": "textarea",
+          "id": "fit_list",
+          "label": "Ideal for",
+          "info": "One point per line",
+          "default": "1 to 3 family members\nBungalows and villa homes\nDaily water usage up to 500 L/day\nOverhead tanks up to 750 litres"
+        },
+        { "type": "header", "content": "Plan 1" },
+        { "type": "text", "id": "plan_1_name", "label": "Name", "default": "6 Months" },
+        { "type": "text", "id": "plan_1_note", "label": "Note", "default": "Trial" },
+        { "type": "text", "id": "plan_1_price", "label": "Price", "default": "₹3,500" },
+        { "type": "text", "id": "plan_1_save", "label": "Savings", "default": "—" },
+        { "type": "checkbox", "id": "plan_1_popular", "label": "Highlight this row", "default": false },
+        { "type": "header", "content": "Plan 2" },
+        { "type": "text", "id": "plan_2_name", "label": "Name", "default": "1 Year" },
+        { "type": "text", "id": "plan_2_note", "label": "Note" },
+        { "type": "text", "id": "plan_2_price", "label": "Price", "default": "₹5,000" },
+        { "type": "text", "id": "plan_2_save", "label": "Savings", "default": "Save ₹2,000" },
+        { "type": "checkbox", "id": "plan_2_popular", "label": "Highlight this row", "default": false },
+        { "type": "header", "content": "Plan 3" },
+        { "type": "text", "id": "plan_3_name", "label": "Name", "default": "2 Year" },
+        { "type": "text", "id": "plan_3_note", "label": "Note" },
+        { "type": "text", "id": "plan_3_price", "label": "Price", "default": "₹8,000" },
+        { "type": "text", "id": "plan_3_save", "label": "Savings", "default": "Save ₹6,000" },
+        { "type": "checkbox", "id": "plan_3_popular", "label": "Highlight this row", "default": false },
+        { "type": "header", "content": "Plan 4" },
+        { "type": "text", "id": "plan_4_name", "label": "Name", "default": "3 Year" },
+        { "type": "text", "id": "plan_4_note", "label": "Note", "default": "Popular" },
+        { "type": "text", "id": "plan_4_price", "label": "Price", "default": "₹10,000" },
+        { "type": "text", "id": "plan_4_save", "label": "Savings", "default": "Save ₹11,000" },
+        { "type": "checkbox", "id": "plan_4_popular", "label": "Highlight this row", "default": true },
+        { "type": "text", "id": "cta_label", "label": "Button label", "default": "View Mini plans" },
+        { "type": "url", "id": "cta_url", "label": "Button link", "info": "Leave blank to use the selected product." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Scale-O plans",
+      "blocks": [
+        { "type": "plan" },
+        {
+          "type": "plan",
+          "settings": {
+            "featured": true,
+            "badge": "Most homes",
+            "eyebrow": "Semi for 4 to 6 members",
+            "heading": "Scale-O Semi",
+            "fit_list": "4 to 6 family members\nMedium-sized homes\nDaily water usage up to 1500 L/day\n1000 L to 1500 L storage tanks",
+            "plan_1_price": "₹3,500",
+            "plan_2_price": "₹6,000",
+            "plan_2_save": "Save ₹1,000",
+            "plan_3_price": "₹10,000",
+            "plan_3_save": "Save ₹4,000",
+            "plan_4_price": "₹12,000",
+            "plan_4_save": "Save ₹9,000",
+            "cta_label": "View Semi plans"
+          }
+        },
+        {
+          "type": "plan",
+          "settings": {
+            "eyebrow": "Centi for 7 to 10 members",
+            "heading": "Scale-O Centi",
+            "fit_list": "7 to 10 family members\nLarge homes and villas\nDaily water usage up to 2500 L/day\nOverhead tanks up to 3000 litres",
+            "plan_1_price": "₹4,500",
+            "plan_2_price": "₹7,000",
+            "plan_2_save": "Save ₹2,000",
+            "plan_3_price": "₹12,000",
+            "plan_3_save": "Save ₹6,000",
+            "plan_4_price": "₹15,000",
+            "plan_4_save": "Save ₹12,000",
+            "cta_label": "View Centi plans"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -244,12 +244,6 @@
     display: none !important;
   }
 
-  html.scale-o-sticky-atc-on .m-button--scroll-top,
-  html.scale-o-sticky-atc-on #scroll-to-top-button {
-    right: 10px;
-    bottom: calc(86px + env(safe-area-inset-bottom, 0px));
-  }
-
   html.scale-o-sticky-atc-on #MainContent {
     padding-bottom: 96px;
   }
@@ -528,11 +522,6 @@
 
   .scale-o-sticky-desk__spinner svg {
     animation: scale-o-sticky-atc-spin 0.7s linear infinite;
-  }
-
-  html.scale-o-sticky-desk-on .m-button--scroll-top,
-  html.scale-o-sticky-desk-on #scroll-to-top-button {
-    bottom: 108px;
   }
 
   html.prevent-scroll .scale-o-sticky-desk {

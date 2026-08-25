@@ -1,7 +1,7 @@
 /**
  * Scale-O results gallery — infinite marquee + header reveal
  * Seamless loop via duplicated sets + translateX(-50%).
- * Pauses on hover / focus / touch for a clean mobile feel.
+ * Pauses on hover / focus / touch.
  */
 (function () {
   var REDUCE = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -32,11 +32,24 @@
 
   function initMarquee(root) {
     var marquee = root.querySelector('[data-srg-marquee]');
-    if (!marquee) return;
+    var track = root.querySelector('[data-srg-track]');
+    if (!marquee || !track) return;
 
     if (root.dataset.marquee !== 'true' || REDUCE.matches) {
       root.classList.add('is-static');
       return;
+    }
+
+    root.classList.remove('is-static');
+    root.classList.remove('is-paused');
+
+    // Ensure both sets stay equal width for a seamless -50% loop
+    var sets = track.querySelectorAll('.scale-o-results__set');
+    if (sets.length >= 2) {
+      var w0 = sets[0].offsetWidth;
+      if (w0 > 0) {
+        sets[1].style.minWidth = w0 + 'px';
+      }
     }
 
     var pauseCount = 0;
@@ -74,7 +87,6 @@
       touchTimer = setTimeout(resume, 400);
     }, { passive: true });
 
-    // Pause when tab is hidden to avoid jump on return
     document.addEventListener('visibilitychange', function () {
       if (document.hidden) {
         root.classList.add('is-paused');
@@ -101,7 +113,7 @@
     boot();
   }
 
-  document.addEventListener('shopify:section:load', function (event) {
+  window.addEventListener('shopify:section:load', function (event) {
     var root = event.target && event.target.querySelector('.scale-o-results');
     if (root) {
       delete root.dataset.srgInit;

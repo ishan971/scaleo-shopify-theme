@@ -1,0 +1,151 @@
+{%- comment -%}
+  Scale-O about split — image + editable copy for About Us (vision, founder, story).
+{%- endcomment -%}
+
+{{ 'scale-o-about.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign image_side = section.settings.image_position | default: 'left'
+  assign heading_tag = section.settings.heading_tag | default: 'h2'
+  assign cta_url = section.settings.button_url
+  assign media_alt = section.settings.image_alt | default: section.settings.heading
+  assign split_class = 'scale-o-about__split scale-o-about__split--image-' | append: image_side
+  if section.settings.image == blank
+    assign split_class = split_class | append: ' scale-o-about__split--copy-only'
+  endif
+-%}
+
+<style>
+  #shopify-section-{{ section.id }} .scale-o-about {
+    --soa-bg: {{ section.settings.background_color }};
+    --soa-heading: {{ section.settings.heading_color }};
+    --soa-text: {{ section.settings.text_color }};
+    --soa-accent: {{ section.settings.accent_color }};
+    --soa-accent-hover: {{ section.settings.accent_hover_color }};
+    --soa-radius: {{ section.settings.card_radius }}px;
+    --soa-pad-x: {{ section.settings.padding_x }}px;
+    --soa-eyebrow-size: {{ section.settings.eyebrow_size }}px;
+    --soa-heading-size: {{ section.settings.heading_size_mobile }}px;
+    --soa-heading-size-desktop: {{ section.settings.heading_size_desktop }}px;
+    --soa-desc-size: {{ section.settings.description_size }}px;
+    --soa-max: {% if section.settings.max_width == 0 %}100%{% else %}{{ section.settings.max_width }}px{% endif %};
+    padding: {{ section.settings.padding_top_mobile }}px 0 {{ section.settings.padding_bottom_mobile }}px;
+    background: var(--soa-bg);
+  }
+  @media (min-width: 768px) {
+    #shopify-section-{{ section.id }} .scale-o-about {
+      padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px;
+    }
+  }
+</style>
+
+<section
+  class="scale-o-about"
+  role="region"
+  aria-label="{{ section.settings.accessibility_label | default: section.settings.heading | default: 'About Scale-O' | escape }}"
+>
+  <div class="scale-o-about__container">
+    <div class="{{ split_class }}">
+      {%- if section.settings.image != blank -%}
+        <div class="scale-o-about__media">
+          {{
+            section.settings.image
+            | image_url: width: 1200
+            | image_tag:
+              loading: 'lazy',
+              widths: '600, 900, 1200',
+              sizes: '(max-width: 767px) 100vw, 50vw',
+              alt: media_alt
+          }}
+        </div>
+      {%- endif -%}
+
+      <div class="scale-o-about__copy">
+        {%- if section.settings.eyebrow != blank -%}
+          <p class="scale-o-about__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+        {%- endif -%}
+        {%- if section.settings.heading != blank -%}
+          <{{ heading_tag }} class="scale-o-about__heading">{{ section.settings.heading | escape }}</{{ heading_tag }}>
+        {%- endif -%}
+        {%- if section.settings.text != blank -%}
+          <div class="scale-o-about__body rte">{{ section.settings.text }}</div>
+        {%- endif -%}
+        {%- if section.settings.show_button and section.settings.button_label != blank and cta_url != blank -%}
+          <a class="scale-o-about__cta" href="{{ cta_url }}">{{ section.settings.button_label | escape }}</a>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Scale-O about split",
+  "tag": "section",
+  "class": "scale-o-about-section",
+  "settings": [
+    { "type": "header", "content": "Copy" },
+    { "type": "text", "id": "eyebrow", "label": "Tag", "default": "Our story" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "How Scale-O started" },
+    {
+      "type": "select",
+      "id": "heading_tag",
+      "label": "Heading tag",
+      "default": "h2",
+      "options": [
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" }
+      ]
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>Scale-O is a salt-free water softener made in Ahmedabad for overhead tanks in Indian homes.</p>"
+    },
+    { "type": "checkbox", "id": "show_button", "label": "Show button", "default": false },
+    { "type": "text", "id": "button_label", "label": "Button label", "default": "Shop water softeners" },
+    { "type": "url", "id": "button_url", "label": "Button link" },
+
+    { "type": "header", "content": "Image" },
+    { "type": "image_picker", "id": "image", "label": "Image" },
+    { "type": "text", "id": "image_alt", "label": "Image alt text" },
+    {
+      "type": "select",
+      "id": "image_position",
+      "label": "Image position (desktop)",
+      "default": "left",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "right", "label": "Right" }
+      ]
+    },
+
+    { "type": "header", "content": "Layout" },
+    { "type": "range", "id": "max_width", "label": "Content width", "min": 900, "max": 1400, "step": 20, "unit": "px", "default": 1180 },
+    { "type": "range", "id": "padding_x", "label": "Side padding", "min": 12, "max": 40, "step": 4, "unit": "px", "default": 20 },
+    { "type": "range", "id": "padding_top", "label": "Top padding (desktop)", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 72 },
+    { "type": "range", "id": "padding_bottom", "label": "Bottom padding (desktop)", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 72 },
+    { "type": "range", "id": "padding_top_mobile", "label": "Top padding (mobile)", "min": 24, "max": 80, "step": 4, "unit": "px", "default": 40 },
+    { "type": "range", "id": "padding_bottom_mobile", "label": "Bottom padding (mobile)", "min": 24, "max": 80, "step": 4, "unit": "px", "default": 40 },
+    { "type": "range", "id": "eyebrow_size", "label": "Tag size", "min": 11, "max": 16, "step": 1, "unit": "px", "default": 13 },
+    { "type": "range", "id": "heading_size_desktop", "label": "Heading size (desktop)", "min": 24, "max": 48, "step": 1, "unit": "px", "default": 36 },
+    { "type": "range", "id": "heading_size_mobile", "label": "Heading size (mobile)", "min": 22, "max": 36, "step": 1, "unit": "px", "default": 28 },
+    { "type": "range", "id": "description_size", "label": "Text size", "min": 14, "max": 18, "step": 1, "unit": "px", "default": 16 },
+    { "type": "range", "id": "card_radius", "label": "Image radius", "min": 8, "max": 24, "step": 1, "unit": "px", "default": 16 },
+
+    { "type": "header", "content": "Colors" },
+    { "type": "color", "id": "background_color", "label": "Background", "default": "#FFFFFF" },
+    { "type": "color", "id": "heading_color", "label": "Heading", "default": "#102A43" },
+    { "type": "color", "id": "text_color", "label": "Text", "default": "#5A6B85" },
+    { "type": "color", "id": "accent_color", "label": "Accent", "default": "#0C7FDF" },
+    { "type": "color", "id": "accent_hover_color", "label": "Accent hover", "default": "#0A6BC4" },
+    { "type": "text", "id": "accessibility_label", "label": "Accessibility label", "default": "About Scale-O" }
+  ],
+  "presets": [
+    {
+      "name": "Scale-O about split"
+    }
+  ]
+}
+{% endschema %}

@@ -1464,7 +1464,7 @@
         "banner_heading": "",
         "banner_text": "Scale-O delivers salt-free, maintenance-free protection that’s simple, efficient and built for modern homes.",
         "cta_text": "Explore Scale-O Products",
-        "cta_url": "",
+        "cta_url": "shopify://collections/water-softeners",
         "max_width": 1200,
         "image_aspect_ratio": "4 / 3",
         "card_radius": 16,
@@ -2109,7 +2109,7 @@
           "settings": {
             "enabled": true,
             "question": "Does Scale-O use salt?",
-            "answer": "<p>No. Scale-O is a salt-free water conditioner. There are no salt bags to buy, store or refill. Compare models in our <a href=\"/collections/water-softeners\">water softener for home</a> range, or see <a href=\"/pages/water-softener-plans\">water softener price and plans</a>.</p>",
+            "answer": "<p>No. Scale-O is a salt-free water conditioner. There are no salt bags to buy, store or refill. Compare <a href=\"/blogs/articles/salt-free-vs-salt-based-water-softeners\">salt-free vs salt-based water softeners</a> for Indian homes, or shop the <a href=\"/collections/water-softeners\">water softener for home</a> range and <a href=\"/pages/water-softener-plans\">water softener price and plans</a>.</p>",
             "category": ""
           }
         },
@@ -2118,7 +2118,7 @@
           "settings": {
             "enabled": true,
             "question": "Does Scale-O waste water?",
-            "answer": "<p>No. Scale-O does not require backwashing, regeneration or water discharge. You get conditioned water without the water wastage typical of many salt-based softeners.</p>",
+            "answer": "<p>No. Scale-O does not require backwashing, regeneration or water discharge. You get conditioned water without the water wastage typical of many salt-based softeners. See how that compares in <a href=\"/blogs/articles/salt-free-vs-salt-based-water-softeners\">salt-free vs salt-based water softeners</a>.</p>",
             "category": ""
           }
         },
@@ -2190,7 +2190,7 @@
           "settings": {
             "enabled": true,
             "question": "Can Scale-O be used with geysers, washing machines and other appliances?",
-            "answer": "<p>Yes. Once installed in the overhead tank, Scale-O conditions the water that flows to bathrooms, kitchen, laundry and household appliances such as geysers and washing machines.</p>",
+            "answer": "<p>Yes. Once installed in the overhead tank, Scale-O conditions the water that flows to bathrooms, kitchen, laundry and household appliances such as geysers and washing machines. Hard water can also leave hair feeling coated or brittle; read <a href=\"/blogs/articles/hard-water-hair-breakage-vs-shedding\">hard water hair fall: breakage vs shedding</a> for what tank-level conditioning can and cannot help.</p>",
             "category": ""
           }
         },

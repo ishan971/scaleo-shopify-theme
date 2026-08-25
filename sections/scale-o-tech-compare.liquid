@@ -1,5 +1,5 @@
 {%- comment -%}
-  Scale-O comparison: photo technology cards + interactive competitor versus cards
+  Scale-O comparison: technology photo table + competitor comparison table
 {%- endcomment -%}
 
 {{ 'scale-o-tech-compare.css' | asset_url | stylesheet_tag }}
@@ -54,26 +54,6 @@
     if section.settings.banner_heading != blank or section.settings.banner_text != blank or section.settings.cta_text != blank
       assign show_banner = true
     endif
-  endif
-
-  assign first_versus_id = ''
-  for row in competitor_rows
-    if row.settings.enabled == false
-      continue
-    endif
-    if row.settings.open_by_default
-      assign first_versus_id = row.id
-      break
-    endif
-  endfor
-  if first_versus_id == blank
-    for row in competitor_rows
-      if row.settings.enabled == false
-        continue
-      endif
-      assign first_versus_id = row.id
-      break
-    endfor
   endif
 -%}
 
@@ -273,100 +253,86 @@
 
         {%- if competitor_rows.size > 0 -%}
           {%- if section.settings.competitor_hint != blank -%}
-            <p class="scale-o-versus__hint">{{ section.settings.competitor_hint | escape }}</p>
+            <p class="scale-o-compare__hint">{{ section.settings.competitor_hint | escape }}</p>
           {%- endif -%}
           <div
-            class="scale-o-versus scale-o-versus--cols-{{ competitor_count }}"
-            data-stc-versus
-            style="--stc-chip-cols: {{ competitor_count }};"
+            class="scale-o-compare__matrix-wrap scale-o-compare__matrix-wrap--competitors scale-o-compare__matrix-wrap--cols-{{ competitor_count }}"
+            tabindex="0"
+            role="region"
+            aria-label="{{ section.settings.heading | default: 'Competitor comparison' | escape }}"
           >
-            <div class="scale-o-versus__rail" role="tablist" aria-label="{{ section.settings.heading | default: 'Comparison points' | escape }}">
-              {%- for row in competitor_rows -%}
-                {%- if row.settings.enabled == false -%}{%- continue -%}{%- endif -%}
-                {%- liquid
-                  assign row_selected = false
-                  if first_versus_id == row.id
-                    assign row_selected = true
-                  endif
-                  assign row_icon = row.settings.theme_icon | default: 'droplet'
-                  assign tab_id = 'stc-tab-' | append: section.id | append: '-' | append: row.id
-                  assign panel_id = 'stc-point-' | append: section.id | append: '-' | append: row.id
-                -%}
-                <button
-                  class="scale-o-versus__tab{% if row_selected %} is-active{% endif %}"
-                  id="{{ tab_id }}"
-                  type="button"
-                  role="tab"
-                  aria-selected="{% if row_selected %}true{% else %}false{% endif %}"
-                  aria-controls="{{ panel_id }}"
-                  tabindex="{% if row_selected %}0{% else %}-1{% endif %}"
-                  data-stc-tab
-                  {{ row.shopify_attributes }}
-                >
-                  <span class="scale-o-versus__icon" aria-hidden="true">
-                    {% render 'scale-o-compare-icon', icon: row_icon, class: 'scale-o-compare__icon-svg' %}
-                  </span>
-                  <span class="scale-o-versus__tab-label">{{ row.settings.title | escape }}</span>
-                </button>
-              {%- endfor -%}
-            </div>
-
-            <div class="scale-o-versus__stage">
-              <div class="scale-o-versus__legend">
+            <table class="scale-o-compare__matrix-table">
+              <caption class="scale-o-compare__sr-only">{{ section.settings.heading | default: 'Competitor comparison' | escape }}</caption>
+              <colgroup>
+                <col class="scale-o-compare__col scale-o-compare__col--criteria">
                 {%- assign visible = 0 -%}
                 {%- for brand in competitor_blocks -%}
                   {%- if brand.settings.enabled == false -%}{%- continue -%}{%- endif -%}
                   {%- assign visible = visible | plus: 1 -%}
                   {%- if visible > 4 -%}{%- break -%}{%- endif -%}
-                  <p class="scale-o-versus__legend-item{% if brand.settings.highlight %} scale-o-versus__legend-item--win{% else %} scale-o-versus__legend-item--lose{% endif %}">
-                    {%- if brand.settings.highlight -%}
-                      <span class="scale-o-versus__legend-mark" aria-hidden="true">
-                        <svg viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.2 3.2L13 4.8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                      </span>
-                    {%- else -%}
-                      <span class="scale-o-versus__legend-mark" aria-hidden="true">
-                        <svg viewBox="0 0 16 16" fill="none"><path d="M4 4l8 8M12 4 4 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-                      </span>
-                    {%- endif -%}
-                    <span>{{ brand.settings.title | escape }}</span>
-                  </p>
+                  <col class="scale-o-compare__col{% if brand.settings.highlight %} scale-o-compare__col--featured{% endif %}">
                 {%- endfor -%}
-              </div>
-
-              {%- for row in competitor_rows -%}
-                {%- if row.settings.enabled == false -%}{%- continue -%}{%- endif -%}
-                {%- liquid
-                  assign row_selected = false
-                  if first_versus_id == row.id
-                    assign row_selected = true
-                  endif
-                  assign row_icon = row.settings.theme_icon | default: 'droplet'
-                  assign tab_id = 'stc-tab-' | append: section.id | append: '-' | append: row.id
-                  assign panel_id = 'stc-point-' | append: section.id | append: '-' | append: row.id
-                  assign row_impact = row.settings.impact
-                -%}
-                <div
-                  class="scale-o-versus__panel{% if row_selected %} is-active{% endif %}"
-                  id="{{ panel_id }}"
-                  role="tabpanel"
-                  aria-labelledby="{{ tab_id }}"
-                  data-stc-panel
-                  {% unless row_selected %}hidden{% endunless %}
-                >
-                  <div class="scale-o-versus__panel-head">
-                    <span class="scale-o-versus__panel-icon" aria-hidden="true">
-                      {% render 'scale-o-compare-icon', icon: row_icon, class: 'scale-o-compare__icon-svg' %}
-                    </span>
-                    <h3 class="scale-o-versus__panel-title">{{ row.settings.title | escape }}</h3>
-                  </div>
-
-                  <div class="scale-o-versus__split">
+              </colgroup>
+              <thead>
+                <tr>
+                  <th class="scale-o-compare__matrix-th scale-o-compare__matrix-th--criteria" scope="col">
+                    {{ section.settings.criteria_heading | default: 'Criteria' | escape }}
+                  </th>
+                  {%- assign visible = 0 -%}
+                  {%- for brand in competitor_blocks -%}
+                    {%- if brand.settings.enabled == false -%}{%- continue -%}{%- endif -%}
+                    {%- assign visible = visible | plus: 1 -%}
+                    {%- if visible > 4 -%}{%- break -%}{%- endif -%}
+                    <th
+                      class="scale-o-compare__matrix-th{% if brand.settings.highlight %} scale-o-compare__matrix-th--featured{% endif %}"
+                      scope="col"
+                      {{ brand.shopify_attributes }}
+                    >
+                      {%- if brand.settings.highlight and section.settings.show_recommended_badge -%}
+                        <span class="scale-o-compare__th-recommend">
+                          <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" focusable="false">
+                            <path d="M8 1.6 9.9 5.7l4.5.5-3.3 3 1 4.4L8 11.8 3.9 13.6l1-4.4-3.3-3 4.5-.5z"/>
+                          </svg>
+                          <span>{{ section.settings.recommended_label | default: 'Recommended' | escape }}</span>
+                        </span>
+                      {%- endif -%}
+                      <span class="scale-o-compare__matrix-brand">{{ brand.settings.title | escape }}</span>
+                    </th>
+                  {%- endfor -%}
+                </tr>
+              </thead>
+              <tbody>
+                {%- for row in competitor_rows -%}
+                  {%- if row.settings.enabled == false -%}{%- continue -%}{%- endif -%}
+                  {%- liquid
+                    assign row_icon = row.settings.theme_icon | default: 'droplet'
+                    assign row_impact = row.settings.impact
+                  -%}
+                  <tr class="scale-o-compare__matrix-row" {{ row.shopify_attributes }}>
+                    <th class="scale-o-compare__matrix-feature" scope="row">
+                      <span class="scale-o-compare__matrix-feature-main">
+                        {%- if row_icon != 'none' -%}
+                          <span class="scale-o-compare__matrix-feature-icon" aria-hidden="true">
+                            {% render 'scale-o-compare-icon', icon: row_icon, class: 'scale-o-compare__icon-svg' %}
+                          </span>
+                        {%- endif -%}
+                        <span class="scale-o-compare__matrix-feature-copy">
+                          <span class="scale-o-compare__matrix-feature-title">{{ row.settings.title | escape }}</span>
+                          {%- if row_impact != blank -%}
+                            <span class="scale-o-compare__matrix-feature-impact">
+                              <span class="scale-o-compare__sr-only">{{ section.settings.impact_label | default: 'Why it matters' | escape }}: </span>
+                              {{ row_impact | escape }}
+                            </span>
+                          {%- endif -%}
+                        </span>
+                      </span>
+                    </th>
                     {%- assign visible = 0 -%}
                     {%- for brand in competitor_blocks -%}
                       {%- if brand.settings.enabled == false -%}{%- continue -%}{%- endif -%}
                       {%- assign visible = visible | plus: 1 -%}
                       {%- if visible > 4 -%}{%- break -%}{%- endif -%}
-                      <div class="scale-o-versus__side{% if brand.settings.highlight %} scale-o-versus__side--win{% else %} scale-o-versus__side--lose{% endif %}">
+                      <td class="scale-o-compare__matrix-td{% if brand.settings.highlight %} scale-o-compare__matrix-td--featured{% endif %}">
                         {%- case visible -%}
                           {%- when 1 -%}
                             {% render 'scale-o-compare-cell', value: row.settings.value_1, status: row.settings.status_1, featured: brand.settings.highlight, short_label: brand.settings.title %}
@@ -377,25 +343,12 @@
                           {%- when 4 -%}
                             {% render 'scale-o-compare-cell', value: row.settings.value_4, status: row.settings.status_4, featured: brand.settings.highlight, short_label: brand.settings.title %}
                         {%- endcase -%}
-                      </div>
+                      </td>
                     {%- endfor -%}
-                    {%- if competitor_count == 2 -%}
-                      <span class="scale-o-versus__vs" aria-hidden="true">
-                        {% render 'scale-o-compare-icon', icon: 'droplet', class: 'scale-o-versus__vs-icon' %}
-                        <span>VS</span>
-                      </span>
-                    {%- endif -%}
-                  </div>
-
-                  {%- if row_impact != blank -%}
-                    <p class="scale-o-versus__impact">
-                      <span class="scale-o-versus__impact-label">{{ section.settings.impact_label | default: 'Why it matters' | escape }}</span>
-                      <span class="scale-o-versus__impact-text">{{ row_impact | escape }}</span>
-                    </p>
-                  {%- endif -%}
-                </div>
-              {%- endfor -%}
-            </div>
+                  </tr>
+                {%- endfor -%}
+              </tbody>
+            </table>
           </div>
         {%- endif -%}
         {%- if section.settings.competitor_note != blank -%}
@@ -418,7 +371,7 @@
           {%- endif -%}
         </div>
         {%- if section.settings.cta_text != blank -%}
-          <a class="scale-o-compare__cta" href="{{ section.settings.cta_url | default: '#' }}">
+          <a class="scale-o-compare__cta" href="{{ section.settings.cta_url | default: '/collections/water-softeners' }}">
             <span>{{ section.settings.cta_text | escape }}</span>
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
               <path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
@@ -439,7 +392,7 @@
   "class": "scale-o-compare-section",
   "max_blocks": 36,
   "settings": [
-    { "type": "paragraph", "content": "Photo cards compare Scale-O with other technologies. Interactive versus cards compare Scale-O with core competitors. Keep Scale-O copy short. Put the longer customer impact in each row so it opens on tap." },
+    { "type": "paragraph", "content": "Technology table compares Scale-O with other water treatments. Competitor table compares Scale-O with core competitors. Keep cell copy short; put the longer customer impact under each row title." },
 
     { "type": "header", "content": "Technology cards" },
     { "type": "checkbox", "id": "show_tech", "label": "Show technology cards", "default": true },
@@ -473,10 +426,9 @@
     { "type": "text", "id": "heading", "label": "Competitor heading", "default": "Scale-O vs Core Competitors" },
     { "type": "checkbox", "id": "show_description", "label": "Show competitor description", "default": true },
     { "type": "textarea", "id": "description", "label": "Competitor description", "default": "Ten points that change water quality, safety, and what you pay over time." },
-    { "type": "text", "id": "competitor_hint", "label": "Interaction hint" },
-    { "type": "text", "id": "impact_label", "label": "Impact label", "default": "Why it matters" },
-    { "type": "checkbox", "id": "open_first_competitor", "label": "Select the first point by default", "default": true },
-    { "type": "text", "id": "criteria_heading", "label": "First column heading (legacy)", "default": "Criteria" },
+    { "type": "text", "id": "competitor_hint", "label": "Table hint" },
+    { "type": "text", "id": "impact_label", "label": "Impact label (screen reader)", "default": "Why it matters" },
+    { "type": "text", "id": "criteria_heading", "label": "First column heading", "default": "Criteria" },
     { "type": "text", "id": "competitor_note", "label": "Comparison note", "default": "Typical of salt-free products sold online in India." },
 
     {
@@ -512,7 +464,7 @@
     { "type": "text", "id": "banner_heading", "label": "Banner heading", "default": "Simple household scale protection" },
     { "type": "textarea", "id": "banner_text", "label": "Banner text", "default": "Scale-O is a salt-free, maintenance-light option designed for simple installation in modern homes." },
     { "type": "text", "id": "cta_text", "label": "CTA text", "default": "Explore Scale-O Products" },
-    { "type": "url", "id": "cta_url", "label": "CTA URL" },
+    { "type": "url", "id": "cta_url", "label": "CTA URL", "info": "Leave blank to use /collections/water-softeners." },
 
     { "type": "header", "content": "Layout" },
     { "type": "range", "id": "max_width", "label": "Maximum width", "min": 0, "max": 1600, "step": 20, "unit": "px", "default": 1200 },
@@ -731,8 +683,7 @@
             { "value": "none", "label": "None" }
           ]
         },
-        { "type": "textarea", "id": "impact", "label": "Customer impact (opens on tap)" },
-        { "type": "checkbox", "id": "open_by_default", "label": "Start this point open", "default": false },
+        { "type": "textarea", "id": "impact", "label": "Customer impact (shown under title)" },
         { "type": "header", "content": "Column 1" },
         { "type": "text", "id": "value_1", "label": "Value text" },
         {

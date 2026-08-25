@@ -235,7 +235,7 @@
     {%- if show_footer -%}
       <div class="scale-o-tech-video__cta-wrap">
         {%- if section.settings.show_cta and section.settings.cta_text != blank -%}
-          <a class="scale-o-tech-video__cta" href="{{ section.settings.cta_url | default: '#' }}">
+          <a class="scale-o-tech-video__cta" href="{{ section.settings.cta_url | default: '/collections/water-softeners' }}">
             <span>{{ section.settings.cta_text | escape }}</span>
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
               <path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
@@ -357,7 +357,7 @@
     { "type": "header", "content": "CTA" },
     { "type": "checkbox", "id": "show_cta", "label": "Show CTA", "default": true },
     { "type": "text", "id": "cta_text", "label": "CTA text", "default": "Explore Scale-O Products" },
-    { "type": "url", "id": "cta_url", "label": "CTA URL" },
+    { "type": "url", "id": "cta_url", "label": "CTA URL", "info": "Leave blank to use /collections/water-softeners." },
     { "type": "checkbox", "id": "show_trust", "label": "Show trust line", "default": true },
     { "type": "text", "id": "trust_text", "label": "Trust text", "default": "Trusted by thousands of happy homes across India." },
 

@@ -270,7 +270,7 @@
           <p class="scale-o-vt__statement">{{ section.settings.trust_statement | escape }}</p>
         {%- endif -%}
         {%- if section.settings.show_cta and section.settings.cta_text != blank -%}
-          <a class="scale-o-vt__cta" href="{{ section.settings.cta_url | default: '#' }}">
+          <a class="scale-o-vt__cta" href="{{ section.settings.cta_url | default: '/pages/customers' }}">
             <span>{{ section.settings.cta_text | escape }}</span>
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
               <path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
@@ -340,7 +340,7 @@
     { "type": "text", "id": "trust_statement", "label": "Trust statement", "default": "Real experiences from Scale-O customers across India." },
     { "type": "checkbox", "id": "show_cta", "label": "Show CTA button", "default": true },
     { "type": "text", "id": "cta_text", "label": "CTA text", "default": "See More Customer Stories" },
-    { "type": "url", "id": "cta_url", "label": "CTA URL" },
+    { "type": "url", "id": "cta_url", "label": "CTA URL", "info": "Leave blank to use /pages/customers." },
 
     { "type": "header", "content": "Layout" },
     { "type": "range", "id": "max_width", "label": "Maximum width", "min": 0, "max": 1600, "step": 20, "unit": "px", "default": 1200 },

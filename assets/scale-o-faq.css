@@ -320,7 +320,12 @@
 
 .scale-o-faq__answer.rte a {
   color: var(--sof-accent);
+  font-weight: 600;
   text-underline-offset: 2px;
+}
+
+.scale-o-faq__answer.rte a:hover {
+  color: var(--sof-accent-hover);
 }
 
 @media (max-width: 767px) {

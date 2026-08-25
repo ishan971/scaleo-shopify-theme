@@ -2006,6 +2006,83 @@
         "accessibility_label": "Customer reviews"
       }
     },
+    "scale_o_pdp_sizes": {
+      "type": "scale-o-pdp-sizes",
+      "blocks": {
+        "size_mini": {
+          "type": "size",
+          "settings": {
+            "enabled": true,
+            "product": "mini-water-softener-500l-750l-tanks",
+            "fallback_handle": "mini-water-softener-500l-750l-tanks",
+            "url": "",
+            "heading": "Scale-O Mini",
+            "tank": "500L-750L overhead tanks",
+            "link_label": "View Mini"
+          }
+        },
+        "size_semi": {
+          "type": "size",
+          "settings": {
+            "enabled": true,
+            "product": "semi-water-softener-1000l-1500l-tanks",
+            "fallback_handle": "semi-water-softener-1000l-1500l-tanks",
+            "url": "",
+            "heading": "Scale-O Semi",
+            "tank": "1000L-1500L overhead tanks",
+            "link_label": "View Semi"
+          }
+        },
+        "size_centi": {
+          "type": "size",
+          "settings": {
+            "enabled": true,
+            "product": "centi-water-softener-2000l-2500l-tanks",
+            "fallback_handle": "centi-water-softener-2000l-2500l-tanks",
+            "url": "",
+            "heading": "Scale-O Centi",
+            "tank": "2000L-2500L overhead tanks",
+            "link_label": "View Centi"
+          }
+        }
+      },
+      "block_order": [
+        "size_mini",
+        "size_semi",
+        "size_centi"
+      ],
+      "settings": {
+        "eyebrow": "Other sizes",
+        "heading": "Need a different tank size?",
+        "description": "Mini, Semi and Centi are sized for your overhead tank. Compare water softener price, or shop all models for home.",
+        "current_badge": "This size",
+        "show_cta_row": true,
+        "plans_label": "Water softener price and plans",
+        "plans_url": "shopify://pages/water-softener-plans",
+        "collection_label": "Shop water softeners for home",
+        "collection_url": "shopify://collections/water-softeners",
+        "max_width": 1180,
+        "padding_x": 20,
+        "padding_top": 48,
+        "padding_bottom": 16,
+        "padding_top_mobile": 36,
+        "padding_bottom_mobile": 16,
+        "eyebrow_size": 13,
+        "heading_size_desktop": 32,
+        "heading_size_mobile": 26,
+        "description_size": 16,
+        "background_color": "#f7fbff",
+        "heading_color": "#102a43",
+        "text_color": "#5a6b85",
+        "accent_color": "#0c7fdf",
+        "accent_hover_color": "#0a6bc4",
+        "card_background": "#ffffff",
+        "border_color": "#dceaf5",
+        "card_radius": 16,
+        "show_card_shadow": true,
+        "accessibility_label": "Other Scale-O tank sizes"
+      }
+    },
     "custom_content_3kjdhd": {
       "type": "scale-o-faq",
       "blocks": {
@@ -2032,7 +2109,7 @@
           "settings": {
             "enabled": true,
             "question": "Does Scale-O use salt?",
-            "answer": "<p>No. Scale-O is a salt-free water conditioner. There are no salt bags to buy, store or refill.</p>",
+            "answer": "<p>No. Scale-O is a salt-free water conditioner. There are no salt bags to buy, store or refill. Compare models in our <a href=\"/collections/water-softeners\">water softener for home</a> range, or see <a href=\"/pages/water-softener-plans\">water softener price and plans</a>.</p>",
             "category": ""
           }
         },
@@ -2050,7 +2127,7 @@
           "settings": {
             "enabled": true,
             "question": "How is Scale-O installed?",
-            "answer": "<p>Installation is designed to be simple: choose the right model for your tank, open the overhead tank, place Scale-O inside, close the tank and use water as usual. No plumber or wiring is typically needed.</p>",
+            "answer": "<p>Installation is designed to be simple: choose the right model for your tank, open the overhead tank, place Scale-O inside, close the tank and use water as usual. No plumber or wiring is typically needed. Pick <a href=\"/products/mini-water-softener-500l-750l-tanks\">Mini for 500L-750L tanks</a>, <a href=\"/products/semi-water-softener-1000l-1500l-tanks\">Semi for 1000L-1500L tanks</a>, or <a href=\"/products/centi-water-softener-2000l-2500l-tanks\">Centi for 2000L-2500L tanks</a>.</p>",
             "category": ""
           }
         },
@@ -2104,7 +2181,7 @@
           "settings": {
             "enabled": true,
             "question": "Which Scale-O model is right for my home?",
-            "answer": "<p>Choose a Scale-O size that matches your tank capacity and household water usage. If you are unsure, talk to a Scale-O expert. They can help you pick the right model.</p>",
+            "answer": "<p>Choose a Scale-O size that matches your tank capacity and household water usage. <a href=\"/products/mini-water-softener-500l-750l-tanks\">Mini</a> fits 500L-750L tanks, <a href=\"/products/semi-water-softener-1000l-1500l-tanks\">Semi</a> fits 1000L-1500L tanks, and <a href=\"/products/centi-water-softener-2000l-2500l-tanks\">Centi</a> fits 2000L-2500L tanks. Need two tanks? Compare <a href=\"/pages/water-softener-plans\">water softener price and plans</a>.</p>",
             "category": ""
           }
         },
@@ -2122,7 +2199,7 @@
           "settings": {
             "enabled": true,
             "question": "How do I choose the correct Scale-O size?",
-            "answer": "<p>Match the unit to your overhead tank capacity and how much water your household uses. Larger tanks or higher usage generally need a larger model. Use the product size guide or speak with our team if you need help choosing.</p>",
+            "answer": "<p>Match the unit to your overhead tank capacity and how much water your household uses. Larger tanks or higher usage generally need a larger model. Compare sizes on <a href=\"/pages/water-softener-plans\">Water Softener Price and Plans</a>, or shop the full <a href=\"/collections/water-softeners\">water softener for home</a> range.</p>",
             "category": ""
           }
         },
@@ -2275,6 +2352,7 @@
     "brands_list_fkAJzd",
     "custom_content_yeTHiX",
     "968209871838256835",
+    "scale_o_pdp_sizes",
     "custom_content_3kjdhd",
     "custom_content_BUnkYP",
     "870828012984175711"

@@ -1,5 +1,6 @@
 (function () {
-  var MQ = window.matchMedia('(max-width: 767px)');
+  var MQ = window.matchMedia('(max-width: 989px)');
+  var DESK_MQ = window.matchMedia('(min-width: 990px)');
 
   function ready(fn) {
     if (document.readyState === 'loading') {
@@ -14,6 +15,23 @@
     var amount = Math.round(Number(cents) / 100);
     if (isNaN(amount)) return '';
     return '₹' + amount.toLocaleString('en-IN');
+  }
+
+  function variantImageSrc(variant, fallback) {
+    if (!variant) return fallback;
+    var image = variant.featured_image || variant.image;
+    if (!image) return fallback;
+    if (typeof image === 'string') return image;
+    return image.src || fallback;
+  }
+
+  function findPlanFeatures() {
+    return (
+      document.querySelector('[data-cartridge-pack]') ||
+      document.querySelector('.cpk') ||
+      document.querySelector('.plan-features') ||
+      document.querySelector('.plan-features__heading')
+    );
   }
 
   function findMainAtc(root) {
@@ -49,7 +67,13 @@
     var trigger = root.querySelector('[data-sticky-atc-trigger]');
     var labelEl = root.querySelector('[data-sticky-atc-label]');
     var priceEl = root.querySelector('[data-sticky-atc-price]');
+    var compareEl = root.querySelector('[data-sticky-atc-compare]');
+    var offEl = root.querySelector('[data-sticky-atc-off]');
+    var priceBox = root.querySelector('[data-sticky-atc-pricebox]');
+    var variantEl = root.querySelector('[data-sticky-atc-variant]');
+    var imageEl = root.querySelector('[data-sticky-atc-image]');
     var productId = root.getAttribute('data-product-id');
+    var fallbackImage = root.getAttribute('data-fallback-image') || '';
     var mainAtc = findMainAtc(root);
     var observer = null;
     var loadingTimer = null;
@@ -74,25 +98,60 @@
     }
 
     function setAvailable(available) {
-      if (!trigger || !labelEl) return;
+      if (!trigger) return;
       if (available) {
         trigger.disabled = false;
         trigger.classList.remove('is-disabled');
         trigger.setAttribute('aria-label', 'Add to Cart');
-        labelEl.textContent = 'Add to Cart';
+        if (labelEl) labelEl.textContent = 'Add to Cart';
       } else {
         trigger.disabled = true;
         trigger.classList.add('is-disabled');
         trigger.setAttribute('aria-label', 'Sold out');
-        labelEl.textContent = 'Sold out';
+        if (labelEl) labelEl.textContent = 'Sold out';
         setLoading(false);
       }
     }
 
-    function setPrice(cents) {
-      if (!priceEl) return;
-      var formatted = formatPrice(cents);
-      if (formatted) priceEl.textContent = formatted;
+    function setSale(priceCents, compareCents) {
+      var price = Number(priceCents);
+      var compare = Number(compareCents);
+      var onSale = compare > price && price > 0;
+      if (priceEl) {
+        var formatted = formatPrice(price);
+        if (formatted) priceEl.textContent = formatted;
+      }
+      if (compareEl) {
+        if (onSale) {
+          compareEl.hidden = false;
+          compareEl.textContent = formatPrice(compare);
+        } else {
+          compareEl.hidden = true;
+          compareEl.textContent = '';
+        }
+      }
+      if (offEl) {
+        if (onSale) {
+          var pct = Math.round(((compare - price) * 100) / compare);
+          offEl.hidden = false;
+          offEl.textContent = pct + '% OFF';
+        } else {
+          offEl.hidden = true;
+          offEl.textContent = '';
+        }
+      }
+      if (priceBox) priceBox.classList.toggle('is-sale', onSale);
+    }
+
+    function setVariantMeta(variant) {
+      if (!variant) return;
+      if (variantEl && variant.title) variantEl.textContent = variant.title;
+      if (imageEl) {
+        var src = variantImageSrc(variant, fallbackImage);
+        if (src) imageEl.src = src;
+      }
+      setSale(variant.price, variant.compare_at_price);
+      setAvailable(!!variant.available);
     }
 
     function syncFromMain() {
@@ -166,13 +225,12 @@
       });
     }
 
-    setPrice(root.getAttribute('data-price-cents'));
+    setSale(root.getAttribute('data-price-cents'), root.getAttribute('data-compare-cents'));
     if (root.getAttribute('data-available') === 'false') setAvailable(false);
 
     function onVariantChange(variant) {
       if (!variant) return;
-      setPrice(variant.price);
-      setAvailable(!!variant.available);
+      setVariantMeta(variant);
     }
 
     function bindVariantEvents() {
@@ -213,8 +271,228 @@
     syncFromMain();
   }
 
+  function initDesktop(root) {
+    if (!root || root.dataset.soStickyDeskInit === 'true') return;
+    root.dataset.soStickyDeskInit = 'true';
+
+    var trigger = root.querySelector('[data-sticky-desk-trigger]');
+    var labelEl = root.querySelector('[data-sticky-desk-label]');
+    var priceEl = root.querySelector('[data-sticky-desk-price]');
+    var compareEl = root.querySelector('[data-sticky-desk-compare]');
+    var offEl = root.querySelector('[data-sticky-desk-off]');
+    var priceBox = root.querySelector('[data-sticky-desk-pricebox]');
+    var variantEl = root.querySelector('[data-sticky-desk-variant]');
+    var imageEl = root.querySelector('[data-sticky-desk-image]');
+    var productId = root.getAttribute('data-product-id');
+    var fallbackImage = root.getAttribute('data-fallback-image') || '';
+    var mainAtc = findMainAtc(root);
+    var planFeatures = findPlanFeatures();
+    var observer = null;
+    var loadingTimer = null;
+    var visible = false;
+    var ticking = false;
+
+    function isDesktop() {
+      return DESK_MQ.matches;
+    }
+
+    function setLoading(on) {
+      root.classList.toggle('is-loading', !!on);
+      if (trigger) trigger.setAttribute('aria-busy', on ? 'true' : 'false');
+      window.clearTimeout(loadingTimer);
+      if (on) {
+        loadingTimer = window.setTimeout(function () {
+          setLoading(false);
+        }, 2800);
+      }
+    }
+
+    function setAvailable(available) {
+      if (!trigger || !labelEl) return;
+      if (available) {
+        trigger.disabled = false;
+        trigger.classList.remove('is-disabled');
+        trigger.setAttribute('aria-label', 'Add to Cart');
+        labelEl.textContent = 'Add to Cart';
+      } else {
+        trigger.disabled = true;
+        trigger.classList.add('is-disabled');
+        trigger.setAttribute('aria-label', 'Sold out');
+        labelEl.textContent = 'Sold out';
+        setLoading(false);
+      }
+    }
+
+    function setSale(priceCents, compareCents) {
+      var price = Number(priceCents);
+      var compare = Number(compareCents);
+      var onSale = compare > price && price > 0;
+      if (priceEl) {
+        var formatted = formatPrice(price);
+        if (formatted) priceEl.textContent = formatted;
+      }
+      if (compareEl) {
+        if (onSale) {
+          compareEl.hidden = false;
+          compareEl.textContent = formatPrice(compare);
+        } else {
+          compareEl.hidden = true;
+          compareEl.textContent = '';
+        }
+      }
+      if (offEl) {
+        if (onSale) {
+          var pct = Math.round(((compare - price) * 100) / compare);
+          offEl.hidden = false;
+          offEl.textContent = pct + '% OFF';
+        } else {
+          offEl.hidden = true;
+          offEl.textContent = '';
+        }
+      }
+      if (priceBox) priceBox.classList.toggle('is-sale', onSale);
+    }
+
+    function setVariantMeta(variant) {
+      if (!variant) return;
+      if (variantEl && variant.title) variantEl.textContent = variant.title;
+      if (imageEl) {
+        var src = variantImageSrc(variant, fallbackImage);
+        if (src) imageEl.src = src;
+      }
+      setSale(variant.price, variant.compare_at_price);
+      setAvailable(!!variant.available);
+    }
+
+    function syncFromMain() {
+      if (!mainAtc) return;
+      var disabled = mainAtc.disabled || mainAtc.classList.contains('disabled');
+      setAvailable(!disabled);
+    }
+
+    function pastPlanFeatures() {
+      planFeatures = planFeatures && document.contains(planFeatures) ? planFeatures : findPlanFeatures();
+      if (planFeatures) {
+        return planFeatures.getBoundingClientRect().bottom < 16;
+      }
+      if (!mainAtc) return false;
+      return mainAtc.getBoundingClientRect().bottom < 8;
+    }
+
+    function setVisible(next) {
+      next = !!(next && isDesktop() && mainAtc);
+      if (next === visible) return;
+      visible = next;
+      root.classList.toggle('is-visible', visible);
+      root.setAttribute('aria-hidden', visible ? 'false' : 'true');
+      document.documentElement.classList.toggle('scale-o-sticky-desk-on', visible);
+      if (trigger) {
+        if (visible) trigger.removeAttribute('tabindex');
+        else trigger.setAttribute('tabindex', '-1');
+      }
+    }
+
+    function evaluate() {
+      if (!isDesktop() || !mainAtc) {
+        setVisible(false);
+        return;
+      }
+      setVisible(pastPlanFeatures());
+    }
+
+    function requestEvaluate() {
+      if (ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(function () {
+        ticking = false;
+        evaluate();
+      });
+    }
+
+    function observe() {
+      if (observer) {
+        observer.disconnect();
+        observer = null;
+      }
+      var target = planFeatures || mainAtc;
+      if (!target || !('IntersectionObserver' in window)) {
+        evaluate();
+        return;
+      }
+      observer = new IntersectionObserver(
+        function () {
+          evaluate();
+        },
+        { threshold: [0, 0.01, 1], rootMargin: '0px' }
+      );
+      observer.observe(target);
+      evaluate();
+    }
+
+    if (trigger) {
+      trigger.setAttribute('tabindex', '-1');
+      trigger.addEventListener('click', function () {
+        if (!isDesktop() || trigger.disabled) return;
+        mainAtc = mainAtc && document.contains(mainAtc) ? mainAtc : findMainAtc(root);
+        if (!mainAtc) return;
+        if (mainAtc.disabled || mainAtc.classList.contains('disabled')) {
+          setAvailable(false);
+          return;
+        }
+        setLoading(true);
+        mainAtc.click();
+      });
+    }
+
+    setSale(root.getAttribute('data-price-cents'), root.getAttribute('data-compare-cents'));
+    if (root.getAttribute('data-available') === 'false') setAvailable(false);
+
+    function onVariantChange(variant) {
+      if (!variant) return;
+      setVariantMeta(variant);
+    }
+
+    function bindVariantEvents() {
+      if (!productId || !window.MinimogEvents || typeof window.MinimogEvents.subscribe !== 'function') return false;
+      window.MinimogEvents.subscribe(productId + '__VARIANT_CHANGE', onVariantChange);
+      return true;
+    }
+
+    if (!bindVariantEvents()) {
+      var tries = 0;
+      var timer = window.setInterval(function () {
+        tries += 1;
+        if (bindVariantEvents() || tries > 20) window.clearInterval(timer);
+      }, 250);
+    }
+
+    if (mainAtc && typeof MutationObserver === 'function') {
+      var mo = new MutationObserver(function () {
+        syncFromMain();
+        if (mainAtc.classList.contains('m-loading') || mainAtc.getAttribute('aria-busy') === 'true') {
+          setLoading(true);
+        } else if (root.classList.contains('is-loading') && !mainAtc.disabled) {
+          setLoading(false);
+        }
+      });
+      mo.observe(mainAtc, { attributes: true, attributeFilter: ['disabled', 'class', 'aria-busy'] });
+    }
+
+    bindMq(DESK_MQ, function () {
+      if (!DESK_MQ.matches) setVisible(false);
+      else evaluate();
+    });
+
+    window.addEventListener('scroll', requestEvaluate, { passive: true });
+    window.addEventListener('resize', requestEvaluate);
+
+    observe();
+    syncFromMain();
+  }
+
   function scan() {
     document.querySelectorAll('[data-scale-o-sticky-atc]').forEach(init);
+    document.querySelectorAll('[data-scale-o-sticky-desk]').forEach(initDesktop);
   }
 
   ready(scan);
@@ -222,6 +500,9 @@
   document.addEventListener('shopify:section:load', function () {
     document.querySelectorAll('[data-scale-o-sticky-atc]').forEach(function (el) {
       el.dataset.soStickyInit = '';
+    });
+    document.querySelectorAll('[data-scale-o-sticky-desk]').forEach(function (el) {
+      el.dataset.soStickyDeskInit = '';
     });
     scan();
   });

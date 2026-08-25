@@ -1,11 +1,26 @@
 {%- comment -%}
-  Mobile sticky Add to Cart. Appears after the in-page ATC scrolls out of view.
+  Sticky Add to Cart:
+  - Mobile / tablet: floating product bar after in-page ATC leaves view
+  - Desktop: centered bar after Plan Features scrolls out of view
 {%- endcomment -%}
 {%- if template.name == 'product' and product -%}
   {%- liquid
     assign current_variant = product.selected_or_first_available_variant
     assign rupees = current_variant.price | divided_by: 100
     assign sticky_price = '₹' | append: rupees
+    assign compare_cents = current_variant.compare_at_price | default: 0
+    assign sticky_compare = ''
+    assign sticky_off = 0
+    if compare_cents > current_variant.price
+      assign compare_rupees = compare_cents | divided_by: 100
+      assign sticky_compare = '₹' | append: compare_rupees
+      assign sticky_off = compare_cents | minus: current_variant.price | times: 100.0 | divided_by: compare_cents | round
+    endif
+    assign sticky_image = product.featured_image
+    if current_variant.image != blank
+      assign sticky_image = current_variant.image
+    endif
+    assign sticky_image_alt = sticky_image.alt | default: product.title
   -%}
   {{ 'scale-o-sticky-atc.css' | asset_url | stylesheet_tag }}
   <div
@@ -13,40 +28,142 @@
     data-scale-o-sticky-atc
     data-product-id="{{ product.id }}"
     data-price-cents="{{ current_variant.price }}"
+    data-compare-cents="{{ compare_cents }}"
     data-available="{{ current_variant.available }}"
+    data-fallback-image="{% if sticky_image %}{{ sticky_image | image_url: width: 160 }}{% endif %}"
     aria-hidden="true"
   >
-    <button
-      type="button"
-      class="scale-o-sticky-atc__btn{% unless current_variant.available %} is-disabled{% endunless %}"
-      data-sticky-atc-trigger
-      aria-label="Add to Cart"
-      {% unless current_variant.available %}disabled{% endunless %}
-    >
-      <span class="scale-o-sticky-atc__spinner" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" focusable="false">
-          <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3" opacity="0.25"></circle>
-          <path fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
-        </svg>
-      </span>
-      <span class="scale-o-sticky-atc__icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" focusable="false">
-          <path d="M6 7h15l-1.4 8.2a2 2 0 0 1-2 1.8H9.2a2 2 0 0 1-2-1.6L5.2 4H3"></path>
-          <circle cx="10" cy="20" r="1.3" fill="currentColor" stroke="none"></circle>
-          <circle cx="18" cy="20" r="1.3" fill="currentColor" stroke="none"></circle>
-        </svg>
-      </span>
-      <span class="scale-o-sticky-atc__copy">
-        <span class="scale-o-sticky-atc__label" data-sticky-atc-label>
+    <div class="scale-o-sticky-atc__bar">
+      <div class="scale-o-sticky-atc__product">
+        {%- if sticky_image -%}
+          <span class="scale-o-sticky-atc__thumb">
+            <img
+              data-sticky-atc-image
+              src="{{ sticky_image | image_url: width: 160 }}"
+              alt="{{ sticky_image_alt | escape }}"
+              width="48"
+              height="48"
+              loading="lazy"
+            >
+          </span>
+        {%- endif -%}
+        <span class="scale-o-sticky-atc__meta">
+          <span class="scale-o-sticky-atc__title">{{ product.title | escape }}</span>
+          <span class="scale-o-sticky-atc__variant" data-sticky-atc-variant>{{ current_variant.title | escape }}</span>
+        </span>
+      </div>
+
+      <div class="scale-o-sticky-atc__pricing{% if sticky_off > 0 %} is-sale{% endif %}" data-sticky-atc-pricebox>
+        <span class="scale-o-sticky-atc__off" data-sticky-atc-off{% if sticky_off <= 0 %} hidden{% endif %}>
+          {%- if sticky_off > 0 -%}{{ sticky_off }}% OFF{%- endif -%}
+        </span>
+        <span class="scale-o-sticky-atc__amounts">
+          <span class="scale-o-sticky-atc__now" data-sticky-atc-price>{{ sticky_price }}</span>
+          <s class="scale-o-sticky-atc__was" data-sticky-atc-compare{% if sticky_compare == blank %} hidden{% endif %}>{{ sticky_compare }}</s>
+        </span>
+      </div>
+
+      <button
+        type="button"
+        class="scale-o-sticky-atc__btn{% unless current_variant.available %} is-disabled{% endunless %}"
+        data-sticky-atc-trigger
+        aria-label="Add to Cart"
+        {% unless current_variant.available %}disabled{% endunless %}
+      >
+        <span class="scale-o-sticky-atc__spinner" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" focusable="false">
+            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3" opacity="0.25"></circle>
+            <path fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
+          </svg>
+        </span>
+        <span class="scale-o-sticky-atc__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" focusable="false">
+            <path d="M6 7h15l-1.4 8.2a2 2 0 0 1-2 1.8H9.2a2 2 0 0 1-2-1.6L5.2 4H3"></path>
+            <circle cx="10" cy="20" r="1.3" fill="currentColor" stroke="none"></circle>
+            <circle cx="18" cy="20" r="1.3" fill="currentColor" stroke="none"></circle>
+            <path d="M12 9v4M10 11h4"></path>
+          </svg>
+        </span>
+        <span class="scale-o-sticky-atc__sr" data-sticky-atc-label>
           {%- if current_variant.available -%}
             Add to Cart
           {%- else -%}
             Sold out
           {%- endif -%}
         </span>
-        <span class="scale-o-sticky-atc__price" data-sticky-atc-price>{{ sticky_price }}</span>
-      </span>
-    </button>
+      </button>
+    </div>
+  </div>
+
+  <div
+    class="scale-o-sticky-desk"
+    data-scale-o-sticky-desk
+    data-product-id="{{ product.id }}"
+    data-price-cents="{{ current_variant.price }}"
+    data-compare-cents="{{ compare_cents }}"
+    data-available="{{ current_variant.available }}"
+    data-fallback-image="{% if sticky_image %}{{ sticky_image | image_url: width: 160 }}{% endif %}"
+    aria-hidden="true"
+  >
+    <div class="scale-o-sticky-desk__bar">
+      <div class="scale-o-sticky-desk__product">
+        {%- if sticky_image -%}
+          <span class="scale-o-sticky-desk__thumb">
+            <img
+              data-sticky-desk-image
+              src="{{ sticky_image | image_url: width: 160 }}"
+              alt="{{ sticky_image_alt | escape }}"
+              width="56"
+              height="56"
+              loading="lazy"
+            >
+          </span>
+        {%- endif -%}
+        <span class="scale-o-sticky-desk__copy">
+          <span class="scale-o-sticky-desk__title">{{ product.title | escape }}</span>
+          <span class="scale-o-sticky-desk__variant" data-sticky-desk-variant>{{ current_variant.title | escape }}</span>
+        </span>
+      </div>
+
+      <div class="scale-o-sticky-desk__price{% if sticky_off > 0 %} is-sale{% endif %}" data-sticky-desk-pricebox>
+        <span class="scale-o-sticky-desk__off" data-sticky-desk-off{% if sticky_off <= 0 %} hidden{% endif %}>
+          {%- if sticky_off > 0 -%}{{ sticky_off }}% OFF{%- endif -%}
+        </span>
+        <span class="scale-o-sticky-desk__amounts">
+          <span class="scale-o-sticky-desk__now" data-sticky-desk-price>{{ sticky_price }}</span>
+          <s class="scale-o-sticky-desk__was" data-sticky-desk-compare{% if sticky_compare == blank %} hidden{% endif %}>{{ sticky_compare }}</s>
+        </span>
+      </div>
+
+      <button
+        type="button"
+        class="scale-o-sticky-desk__btn{% unless current_variant.available %} is-disabled{% endunless %}"
+        data-sticky-desk-trigger
+        aria-label="Add to Cart"
+        {% unless current_variant.available %}disabled{% endunless %}
+      >
+        <span class="scale-o-sticky-desk__spinner" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" focusable="false">
+            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3" opacity="0.25"></circle>
+            <path fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
+          </svg>
+        </span>
+        <span class="scale-o-sticky-desk__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" focusable="false">
+            <path d="M6 7h15l-1.4 8.2a2 2 0 0 1-2 1.8H9.2a2 2 0 0 1-2-1.6L5.2 4H3"></path>
+            <circle cx="10" cy="20" r="1.3" fill="currentColor" stroke="none"></circle>
+            <circle cx="18" cy="20" r="1.3" fill="currentColor" stroke="none"></circle>
+          </svg>
+        </span>
+        <span data-sticky-desk-label>
+          {%- if current_variant.available -%}
+            Add to Cart
+          {%- else -%}
+            Sold out
+          {%- endif -%}
+        </span>
+      </button>
+    </div>
   </div>
   <script src="{{ 'scale-o-sticky-atc.js' | asset_url }}" defer="defer"></script>
 {%- endif -%}

@@ -1,5 +1,7 @@
 /**
  * Scale-O Shop by Products — optional carousel
+ * Advances by column count, but clamps the last page so leftover
+ * cards sit flush (no empty slots / big right-side gap).
  */
 (function () {
   function getCols(root) {
@@ -26,7 +28,22 @@
 
     var page = 0;
     var cols = getCols(root);
-    var totalPages = Math.max(1, Math.ceil(slides.length / cols));
+    var totalPages = 1;
+
+    function getMaxStart() {
+      return Math.max(0, slides.length - cols);
+    }
+
+    function getStartIndex() {
+      // e.g. 6 cards / 4 cols: page 0 → 0, page 1 → 2 (not 4)
+      return Math.min(page * cols, getMaxStart());
+    }
+
+    function recalcPages() {
+      cols = getCols(root);
+      totalPages = Math.max(1, Math.ceil(slides.length / cols));
+      if (page >= totalPages) page = totalPages - 1;
+    }
 
     function updateStaticState() {
       if (slides.length <= cols) {
@@ -57,15 +74,18 @@
     }
 
     function render() {
-      cols = getCols(root);
-      totalPages = Math.max(1, Math.ceil(slides.length / cols));
-      if (page >= totalPages) page = totalPages - 1;
+      recalcPages();
 
       if (updateStaticState()) return;
 
       var slideWidth = slides[0].getBoundingClientRect().width;
-      var gap = parseFloat(getComputedStyle(track).gap) || 0;
-      var offset = page * cols * (slideWidth + gap);
+      var styles = getComputedStyle(track);
+      var gap = parseFloat(styles.columnGap || styles.gap) || 0;
+      var startIndex = getStartIndex();
+      var rawOffset = startIndex * (slideWidth + gap);
+      var maxOffset = Math.max(0, track.scrollWidth - viewport.clientWidth);
+      var offset = Math.min(rawOffset, maxOffset);
+
       track.style.transform = 'translate3d(-' + offset + 'px, 0, 0)';
 
       if (dotsWrap) {
@@ -75,8 +95,8 @@
         });
       }
 
-      if (prev) prev.disabled = page === 0;
-      if (next) next.disabled = page >= totalPages - 1;
+      if (prev) prev.disabled = startIndex === 0;
+      if (next) next.disabled = startIndex >= getMaxStart();
     }
 
     function go(delta) {
@@ -87,6 +107,7 @@
     if (prev) prev.addEventListener('click', function () { go(-1); });
     if (next) next.addEventListener('click', function () { go(1); });
 
+    recalcPages();
     buildDots();
     render();
 
@@ -94,6 +115,7 @@
     window.addEventListener('resize', function () {
       clearTimeout(resizeTimer);
       resizeTimer = setTimeout(function () {
+        recalcPages();
         buildDots();
         render();
       }, 150);

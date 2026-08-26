@@ -37,49 +37,156 @@
   else
     assign seo_media = product.featured_media
   endif
+
+  assign product_url = request.origin | append: product.url
+  assign product_id = product_url | append: '#product'
+  assign org_id = shop.url | append: '/#organization'
+  assign group_id = shop.url | append: '/#product-group/scale-o-salt-free-water-softener'
+  assign group_handles = 'mini-water-softener-500l-750l-tanks|semi-water-softener-1000l-1500l-tanks|centi-water-softener-2000l-2500l-tanks' | split: '|'
+  assign is_size_family = false
+  assign product_size = blank
+
+  case product.handle
+    when 'mini-water-softener-500l-750l-tanks'
+      assign is_size_family = true
+      assign product_size = '500L-750L tank'
+    when 'semi-water-softener-1000l-1500l-tanks'
+      assign is_size_family = true
+      assign product_size = '1000L-1500L tank'
+    when 'centi-water-softener-2000l-2500l-tanks'
+      assign is_size_family = true
+      assign product_size = '2000L-2500L tank'
+  endcase
+
+  assign seo_image_url = blank
+  if seo_media
+    assign seo_image_url = seo_media | image_url: width: seo_media.preview_image.width
+    unless seo_image_url contains 'https:'
+      assign seo_image_url = seo_image_url | prepend: 'https:'
+    endunless
+  endif
 -%}
 
+{%- if is_size_family -%}
 <script type="application/ld+json">
-  {
-    "@context": "http://schema.org/",
-    "@type": "Product",
-    "name": {{ product.title | json }},
-    "url": {{ request.origin | append: product.url | json }},
-    {%- if seo_media -%}
-      "image": [
-        {{ seo_media | image_url: width: seo_media.preview_image.width | prepend: "https:" | json }}
-      ],
-    {%- endif -%}
-    "description": {{ product.description | strip_html | json }},
-    {% if product.selected_or_first_available_variant.sku != blank -%}
-      "sku": {{ product.selected_or_first_available_variant.sku | json }},
-    {%- endif %}
-    "brand": {
-      "@type": "Brand",
-      "name": {{ product.vendor | json }}
-    },
-    "offers": [
-      {%- for variant in product.variants -%}
+{
+  "@context": "https://schema.org",
+  "@type": "ProductGroup",
+  "@id": {{ group_id | json }},
+  "name": "Scale-O Salt-Free Water Softener",
+  "description": "Salt-free water softeners for Indian overhead tanks. Choose Mini, Semi or Centi by tank size.",
+  "url": {{ shop.url | append: '/collections/water-softeners' | json }},
+  "brand": {
+    "@type": "Brand",
+    "name": "Scale-O"
+  },
+  "productGroupID": "scale-o-salt-free-water-softener",
+  "variesBy": [
+    "https://schema.org/size"
+  ],
+  "hasVariant": [
+    {%- assign emitted_variant = false -%}
+    {%- for handle in group_handles -%}
+      {%- assign variant_product = all_products[handle] -%}
+      {%- if variant_product != blank -%}
+        {%- if emitted_variant -%},{%- endif -%}
+        {%- assign emitted_variant = true -%}
+        {%- assign variant_url = request.origin | append: variant_product.url -%}
+        {%- assign variant_image = blank -%}
+        {%- if variant_product.featured_media -%}
+          {%- assign variant_image = variant_product.featured_media | image_url: width: 1200 -%}
+          {%- unless variant_image contains 'https:' -%}
+            {%- assign variant_image = variant_image | prepend: 'https:' -%}
+          {%- endunless -%}
+        {%- endif -%}
         {
-          "@type" : "Offer",
-          {%- if variant.sku != blank -%}
-            "sku": {{ variant.sku | json }},
+          "@type": "Product",
+          "@id": {{ variant_url | append: '#product' | json }},
+          "name": {{ variant_product.title | json }},
+          "url": {{ variant_url | json }}
+          {%- if variant_product.selected_or_first_available_variant.sku != blank -%}
+          ,"sku": {{ variant_product.selected_or_first_available_variant.sku | json }}
           {%- endif -%}
-          {%- if variant.barcode.size == 12 -%}
-            "gtin12": {{ variant.barcode }},
+          {%- case handle -%}
+            {%- when 'mini-water-softener-500l-750l-tanks' -%}
+              ,"size": "500L-750L tank"
+            {%- when 'semi-water-softener-1000l-1500l-tanks' -%}
+              ,"size": "1000L-1500L tank"
+            {%- when 'centi-water-softener-2000l-2500l-tanks' -%}
+              ,"size": "2000L-2500L tank"
+          {%- endcase -%}
+          {%- if variant_image != blank -%}
+          ,"image": [{{ variant_image | json }}]
           {%- endif -%}
-          {%- if variant.barcode.size == 13 -%}
-            "gtin13": {{ variant.barcode }},
-          {%- endif -%}
-          {%- if variant.barcode.size == 14 -%}
-            "gtin14": {{ variant.barcode }},
-          {%- endif -%}
-          "availability" : "http://schema.org/{% if variant.available %}InStock{% else %}OutOfStock{% endif %}",
-          "price" : {{ variant.price | divided_by: 100.00 | json }},
-          "priceCurrency" : {{ cart.currency.iso_code | json }},
-          "url" : {{ request.origin | append: variant.url | json }}
-        }{% unless forloop.last %},{% endunless %}
-      {%- endfor -%}
-    ]
-  }
+          ,"offers": {
+            "@type": "Offer",
+            "url": {{ variant_url | json }},
+            "priceCurrency": {{ cart.currency.iso_code | json }},
+            "price": {{ variant_product.selected_or_first_available_variant.price | divided_by: 100.00 | json }},
+            "availability": "https://schema.org/{% if variant_product.available %}InStock{% else %}OutOfStock{% endif %}",
+            "itemCondition": "https://schema.org/NewCondition",
+            "seller": {
+              "@id": {{ org_id | json }}
+            }
+          }
+        }
+      {%- endif -%}
+    {%- endfor -%}
+  ]
+}
+</script>
+{%- endif -%}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "@id": {{ product_id | json }},
+  "name": {{ product.title | json }},
+  "url": {{ product_url | json }},
+  {%- if seo_image_url != blank -%}
+  "image": [{{ seo_image_url | json }}],
+  {%- endif -%}
+  "description": {{ product.description | strip_html | json }},
+  {%- if product.selected_or_first_available_variant.sku != blank -%}
+  "sku": {{ product.selected_or_first_available_variant.sku | json }},
+  {%- endif -%}
+  {%- if product_size != blank -%}
+  "size": {{ product_size | json }},
+  {%- endif -%}
+  "brand": {
+    "@type": "Brand",
+    "name": {{ product.vendor | default: 'Scale-O' | json }}
+  },
+  {%- if is_size_family -%}
+  "isVariantOf": {
+    "@id": {{ group_id | json }}
+  },
+  {%- endif -%}
+  "offers": [
+    {%- for variant in product.variants -%}
+      {
+        "@type": "Offer",
+        {%- if variant.sku != blank -%}
+        "sku": {{ variant.sku | json }},
+        {%- endif -%}
+        {%- if variant.barcode.size == 12 -%}
+        "gtin12": {{ variant.barcode | json }},
+        {%- elsif variant.barcode.size == 13 -%}
+        "gtin13": {{ variant.barcode | json }},
+        {%- elsif variant.barcode.size == 14 -%}
+        "gtin14": {{ variant.barcode | json }},
+        {%- endif -%}
+        "availability": "https://schema.org/{% if variant.available %}InStock{% else %}OutOfStock{% endif %}",
+        "itemCondition": "https://schema.org/NewCondition",
+        "price": {{ variant.price | divided_by: 100.00 | json }},
+        "priceCurrency": {{ cart.currency.iso_code | json }},
+        "url": {{ request.origin | append: variant.url | json }},
+        "seller": {
+          "@id": {{ org_id | json }}
+        }
+      }{% unless forloop.last %},{% endunless %}
+    {%- endfor -%}
+  ]
+}
 </script>

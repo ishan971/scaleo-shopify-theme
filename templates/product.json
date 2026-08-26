@@ -504,7 +504,7 @@
       "blocks": {
         "spec_1": {
           "type": "spec",
-      "settings": {
+          "settings": {
             "enabled": true,
             "icon": "droplet",
             "icon_size": 22,
@@ -518,42 +518,42 @@
         },
         "spec_2": {
           "type": "spec",
-      "settings": {
+          "settings": {
             "enabled": true,
             "icon": "chart",
             "icon_size": 22,
             "label": "Daily Usage",
             "value": "1500 L/day",
             "supporting_text": "Total Water Consumption",
-        "link": "",
+            "link": "",
             "text_alignment": "left",
             "card_background": "#ffffff"
           }
         },
         "spec_3": {
           "type": "spec",
-      "settings": {
+          "settings": {
             "enabled": true,
             "icon": "family",
             "icon_size": 22,
             "label": "Family",
             "value": "4 to 6 Members",
             "supporting_text": "People in Your Home",
-        "link": "",
+            "link": "",
             "text_alignment": "left",
             "card_background": "#ffffff"
           }
         },
         "spec_4": {
           "type": "spec",
-      "settings": {
+          "settings": {
             "enabled": true,
             "icon": "target",
             "icon_size": 22,
             "label": "Water Type",
             "value": "Hard Water",
             "supporting_text": "Input Water Condition",
-        "link": "",
+            "link": "",
             "text_alignment": "left",
             "card_background": "#ffffff"
           }
@@ -1230,7 +1230,6 @@
             "title": "Fit for your home",
             "theme_icon": "home",
             "impact": "Wrong size can under or over soften, so scale control suffers.",
-            "open_by_default": false,
             "value_1": "Sized to tank and daily use",
             "status_1": "positive",
             "value_2": "One size for all, no analysis",
@@ -1248,7 +1247,6 @@
             "title": "Capacity range",
             "theme_icon": "layers",
             "impact": "Extra units raise cost, or a smaller unit weakens results.",
-            "open_by_default": false,
             "value_1": "500 L to 5000 L",
             "status_1": "positive",
             "value_2": "Mostly 1000 L to 1500 L",
@@ -1266,7 +1264,6 @@
             "title": "Patented",
             "theme_icon": "patent",
             "impact": "Marketing without the technical know-how.",
-            "open_by_default": false,
             "value_1": "Patented design",
             "status_1": "positive",
             "value_2": "Reverse-engineered, no patents",
@@ -1284,7 +1281,6 @@
             "title": "Indian hard water",
             "theme_icon": "flask",
             "impact": "Can fail in high hardness and TDS up to 3000 ppm.",
-            "open_by_default": false,
             "value_1": "Built for Indian hardness and TDS",
             "status_1": "positive",
             "value_2": "Copied designs, no R&D",
@@ -1302,7 +1298,6 @@
             "title": "Honest replacement",
             "theme_icon": "calendar",
             "impact": "Performance can drop before you notice, then stop working.",
-            "open_by_default": false,
             "value_1": "Replace every 6 months",
             "status_1": "positive",
             "value_2": "Claims of 1 year that are not realistic",
@@ -1320,7 +1315,6 @@
             "title": "Safety certified",
             "theme_icon": "shield",
             "impact": "Uncertified chemicals can harm hair and skin.",
-            "open_by_default": false,
             "value_1": "Food-grade and RoHS",
             "status_1": "positive",
             "value_2": "Uncertified, not food-grade",
@@ -1338,7 +1332,6 @@
             "title": "Direct manufacturer",
             "theme_icon": "factory",
             "impact": "Quality, hygiene, and lots can vary.",
-            "open_by_default": false,
             "value_1": "Made by us",
             "status_1": "positive",
             "value_2": "White-label, outsourced",
@@ -1356,7 +1349,6 @@
             "title": "Specialist focus",
             "theme_icon": "target",
             "impact": "Not dedicated to this product or this problem.",
-            "open_by_default": false,
             "value_1": "Water softeners only",
             "status_1": "positive",
             "value_2": "Also RO, tap cleaners, electronics",
@@ -1374,7 +1366,6 @@
             "title": "Long-term care",
             "theme_icon": "users",
             "impact": "Less care after the first purchase.",
-            "open_by_default": false,
             "value_1": "Retainer and subscription",
             "status_1": "positive",
             "value_2": "One-time sale, no retention",
@@ -1392,7 +1383,6 @@
             "title": "Long-run cost",
             "theme_icon": "dollar",
             "impact": "You spend more over time than on a subscription.",
-            "open_by_default": false,
             "value_1": "Subscription keeps cost down",
             "status_1": "positive",
             "value_2": "Full price on every repurchase",
@@ -1456,7 +1446,6 @@
         "lose_legend": "Competitor limitation",
         "competitor_hint": "",
         "impact_label": "Why it matters",
-        "open_first_competitor": true,
         "criteria_heading": "Criteria",
         "competitor_note": "",
         "header_alignment": "center",
@@ -1527,7 +1516,7 @@
       "blocks": {
         "cat_people": {
           "type": "category",
-      "settings": {
+          "settings": {
             "handle": "people",
             "tab_label": "For People",
             "heading": "For People",
@@ -1784,19 +1773,11 @@
         "heading": "Before & After Results",
         "show_description": true,
         "description": "See how Scale-O helps reduce hard-water scale on hair, skin, and fixtures across the home.",
-        "description_highlight": "Real Indian homes. No salt, no electricity, no plumber.",
         "header_alignment": "center",
         "show_legend": true,
         "before_label": "Before",
         "after_label": "After",
-        "show_proof": true,
-        "proof_1": "Hair & skin",
-        "proof_2": "Geysers & fittings",
-        "proof_3": "Whole-house from the tank",
         "enable_marquee": true,
-        "show_arrows": true,
-        "show_dots": true,
-        "enable_autoplay": true,
         "marquee_speed": 42,
         "card_width": 340,
         "card_width_mobile": 280,
@@ -2091,7 +2072,7 @@
       "blocks": {
         "faq_1": {
           "type": "faq",
-      "settings": {
+          "settings": {
             "enabled": true,
             "question": "What is Scale-O and how does it work?",
             "answer": "<p>Scale-O is a salt-free water conditioner designed for homes with overhead tanks. Place the compact unit inside your tank. As water flows through the home, Scale-O helps reduce hard-water scale on pipes, fittings and household appliances, without salt, electricity or plumbing changes.</p>",

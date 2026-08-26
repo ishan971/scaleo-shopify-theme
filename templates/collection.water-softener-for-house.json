@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "scale_o_collection_hero": {
@@ -246,10 +255,10 @@
       "block_order": [
         "heading_tRYhPx"
       ],
-      "name": "Rich text",
       "custom_css": [
         ".m-richtext__title.h1 {font-size: clamp(24px, 2.8vw, 34px) !important; line-height: 1.28 !important;}"
       ],
+      "name": "Rich text",
       "settings": {
         "container": "container",
         "color_scheme": "",
@@ -397,7 +406,7 @@
             "step_number": "5",
             "icon": "check",
             "title": "Zero Hassle Upkeep",
-            "description": "No salt refills, no electricity and no regular servicing \u2014 Scale-O keeps protecting your home quietly.",
+            "description": "No salt refills, no electricity and no regular servicing — Scale-O keeps protecting your home quietly.",
             "link": "",
             "button_text": ""
           }
@@ -870,7 +879,7 @@
             "image": "shopify://shop_images/Frame_1310_6eed278e-7133-4307-bdf6-9a7dff5c9fed.png",
             "image_by_url": "",
             "image_alt": "Ahmedabad Municipal Corporation",
-            "title": "Ahmedabad Municipal Corporation \u2013 AMC",
+            "title": "Ahmedabad Municipal Corporation – AMC",
             "description": "",
             "link": ""
           }
@@ -882,7 +891,7 @@
             "image": "shopify://shop_images/sp-3.png",
             "image_by_url": "",
             "image_alt": "Government of Gujarat",
-            "title": "Government of Gujarat \u2013 GOG",
+            "title": "Government of Gujarat – GOG",
             "description": "",
             "link": ""
           }
@@ -945,15 +954,10 @@
           "settings": {
             "enabled": true,
             "image": "",
-            "image_by_url": "",
-            "image_alt": "",
-            "tag": "",
-            "title": "Innovation Coverage",
             "publication": "Divya Bhaskar",
-            "date": "",
-            "link": "https://www.divyabhaskar.co.in/local/gujarat/ahmedabad/news/this-cheap-device-will-make-1-lakh-liters-of-water-salt-less-130302889.html",
-            "cta_text": "",
-            "open_new_tab": true
+            "title": "Innovation Coverage",
+            "image_alt": "",
+            "image_by_url": ""
           }
         },
         "iconbox_tP7dpC": {
@@ -961,15 +965,10 @@
           "settings": {
             "enabled": true,
             "image": "",
-            "image_by_url": "",
-            "image_alt": "",
-            "tag": "",
-            "title": "Founder with CM of Gujarat",
             "publication": "News 18",
-            "date": "",
-            "link": "https://gujarati.news18.com/news/ahmedabad/ahmedabad-student-make-device-for-pure-water-kp-1252526.html",
-            "cta_text": "",
-            "open_new_tab": true
+            "title": "Founder with CM of Gujarat",
+            "image_alt": "",
+            "image_by_url": ""
           }
         },
         "iconbox_FHqgJj": {
@@ -977,15 +976,10 @@
           "settings": {
             "enabled": true,
             "image": "",
-            "image_by_url": "",
-            "image_alt": "",
-            "tag": "",
-            "title": "Business Coverage",
             "publication": "Ahmedabad Mirror",
-            "date": "",
-            "link": "https://x.com/kuldeep_2105/status/1798197609057919273?t=j-Qm6Q-rhyoeLGNkS2-FrQ&s=08",
-            "cta_text": "",
-            "open_new_tab": true
+            "title": "Business Coverage",
+            "image_alt": "",
+            "image_by_url": ""
           }
         },
         "iconbox_TnCkrp": {
@@ -993,15 +987,10 @@
           "settings": {
             "enabled": true,
             "image": "",
-            "image_by_url": "",
-            "image_alt": "",
-            "tag": "",
-            "title": "Innovation Showcase",
             "publication": "Book of Innovations, GOI",
-            "date": "",
-            "link": "https://drive.google.com/file/d/1aL92QXJ3c6KWcYwp1iX2MUM7mVn_ujJX/view?usp=sharing",
-            "cta_text": "",
-            "open_new_tab": true
+            "title": "Innovation Showcase",
+            "image_alt": "",
+            "image_by_url": ""
           }
         },
         "iconbox_DEXn8i": {
@@ -1009,15 +998,10 @@
           "settings": {
             "enabled": true,
             "image": "",
-            "image_by_url": "",
-            "image_alt": "",
-            "tag": "",
-            "title": "Product Footage",
             "publication": "ABP TV",
-            "date": "",
-            "link": "https://drive.google.com/file/d/1MBQKO1pXFFjj-QUsexCY2aHWe_LNqt8o/view?usp=sharing",
-            "cta_text": "",
-            "open_new_tab": true
+            "title": "Product Footage",
+            "image_alt": "",
+            "image_by_url": ""
           }
         },
         "iconbox_UfXtic": {
@@ -1025,15 +1009,10 @@
           "settings": {
             "enabled": true,
             "image": "",
-            "image_by_url": "",
-            "image_alt": "",
-            "tag": "",
-            "title": "Founder\u2019s Pitch",
             "publication": "Zee Business OTT",
-            "date": "",
-            "link": "https://www.youtube.com/watch?v=kWfxUZZRbRE",
-            "cta_text": "",
-            "open_new_tab": true
+            "title": "Founder’s Pitch",
+            "image_alt": "",
+            "image_by_url": ""
           }
         }
       },
@@ -1049,10 +1028,10 @@
         "eyebrow": "RECOGNITIONS",
         "heading": "News & Media",
         "description": "Features, recognitions and media coverage that highlight Scale-O's innovation, impact and journey.",
+        "enable_infinite_carousel": true,
         "card_width": 200,
         "card_height": 148,
         "card_gap": 16,
-        "enable_infinite_carousel": true,
         "marquee_speed": 36,
         "show_inquiry": false,
         "show_inquiry_icon": true,
@@ -1153,11 +1132,7 @@
         "heading": "Frequently Asked Questions",
         "description": "Answers for homeowners choosing a Scale-O water softener for overhead tanks.",
         "show_cta": false,
-        "show_cta_icon": true,
-        "cta_heading": "Still have questions?",
-        "cta_text": "Our experts are here to help you choose the right solution.",
         "cta_button_text": "Talk to a Scale-O Expert",
-        "cta_button_link": "",
         "layout": "two_columns",
         "max_width": 1180,
         "faq_column_width": 58,

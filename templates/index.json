@@ -72,7 +72,7 @@
           "type": "slide",
           "settings": {
             "enabled": true,
-            "image": "shopify://shop_images/Hero_3.png",
+            "image": "shopify://shop_images/main_hero-3.png",
             "image_mobile": "shopify://shop_images/3rd.png",
             "banner_preset": "highlights",
             "image_alt": "Scale-O product highlights",

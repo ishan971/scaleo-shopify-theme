@@ -770,8 +770,8 @@
       "settings": {
         "eyebrow": "BENEFITS",
         "heading": "Scale-O Benefits for Soft Water Living",
-        "description": "Scale-O helps improve your everyday water experience by reducing hard water scaling across your",
-        "description_highlight": "entire home.",
+        "description": "Scale-O helps improve your everyday water experience by reducing hard water scaling across your entire home.",
+        "description_highlight": "",
         "max_width": 1200,
         "padding_top": 32,
         "padding_bottom": 48,
@@ -784,7 +784,7 @@
         "text_color": "#5a6b85",
         "accent_color": "#0c7fdf",
         "card_background": "#ffffff",
-        "card_border": "#e8eef8",
+        "card_border": "#c5d0e0",
         "icon_background": "#eef6ff"
       }
     },
@@ -1045,7 +1045,7 @@
           "type": "technology",
           "settings": {
             "enabled": true,
-            "title": "Multi-Media Water Treatment",
+            "title": "Multi-Media Water Treatment System",
             "category_label": "",
             "description": "Media-based treatment systems using multiple filtration materials.",
             "product": "",
@@ -1434,7 +1434,7 @@
         "show_tech": true,
         "show_tech_eyebrow": true,
         "tech_eyebrow": "TECHNOLOGY COMPARISON",
-        "tech_heading": "Scale-O vs Other Water Treatment",
+        "tech_heading": "Chelation Technology vs Others",
         "show_tech_description": true,
         "tech_description": "See how Scale-O compares with salt-based, electromagnetic and multi-media systems for household scale protection.",
         "show_features": true,
@@ -1448,7 +1448,7 @@
         "show_competitors": true,
         "show_eyebrow": true,
         "eyebrow": "COMPETITOR COMPARISON",
-        "heading": "Scale-O vs Core Competitors",
+        "heading": "Scale-O vs Competitors",
         "show_description": true,
         "description": "Ten points that change water quality, safety, and what you pay over time.",
         "show_comp_legend": true,

@@ -138,29 +138,29 @@
     "usp_strip_home": {
       "type": "usp-strip",
       "blocks": {
-        "usp_item_electricity": {
+        "usp_item_hard_water": {
           "type": "usp_item",
           "settings": {
-            "icon": "electricity",
-            "title": "Zero Electricity",
+            "icon": "droplet",
+            "title": "Designed for Indian Hard Water",
             "description": "",
             "link": ""
           }
         },
-        "usp_item_salt": {
+        "usp_item_houses": {
           "type": "usp_item",
           "settings": {
-            "icon": "salt",
-            "title": "Zero Salt",
+            "icon": "house",
+            "title": "Suitable for Individual Houses",
             "description": "",
             "link": ""
           }
         },
-        "usp_item_water": {
+        "usp_item_patent": {
           "type": "usp_item",
           "settings": {
-            "icon": "water",
-            "title": "Zero Water Wastage",
+            "icon": "patent",
+            "title": "Patented & Manufactured Inhouse",
             "description": "",
             "link": ""
           }
@@ -169,16 +169,16 @@
           "type": "usp_item",
           "settings": {
             "icon": "maintenance",
-            "title": "Zero Maintenance",
+            "title": "Zero Maintenance Solution",
             "description": "",
             "link": ""
           }
         }
       },
       "block_order": [
-        "usp_item_electricity",
-        "usp_item_salt",
-        "usp_item_water",
+        "usp_item_hard_water",
+        "usp_item_houses",
+        "usp_item_patent",
         "usp_item_maintenance"
       ],
       "settings": {
@@ -186,8 +186,8 @@
         "use_gradient": false,
         "gradient_end_color": "#2a6ab2",
         "title_color": "#ffffff",
-        "title_size_desktop": 15,
-        "title_size_mobile": 13,
+        "title_size_desktop": 14,
+        "title_size_mobile": 12,
         "title_font_weight": "600",
         "show_description": false,
         "description_color": "#e8f4ff",
@@ -199,7 +199,7 @@
         "max_width": 0,
         "padding_y": 16,
         "padding_x": 24,
-        "item_gap": 24,
+        "item_gap": 20,
         "border_radius": 0,
         "margin_top": 0,
         "margin_bottom": 0,
@@ -209,7 +209,7 @@
         "enable_mobile_auto_scroll": false,
         "hide_desktop": false,
         "hide_mobile": false,
-        "accessibility_label": "Product benefits"
+        "accessibility_label": "Scale-O product highlights"
       }
     },
     "stats_trust_home": {
@@ -219,9 +219,9 @@
           "type": "stat",
           "settings": {
             "icon": "star",
-            "value": "4.8/5",
-            "label": "Overall Customer Rating",
-            "description": "Rated by our customers",
+            "value": "4.2/5",
+            "label": "Average Rating",
+            "description": "",
             "link": ""
           }
         },
@@ -229,19 +229,19 @@
           "type": "stat",
           "settings": {
             "icon": "users",
-            "value": "1000+",
-            "label": "Happy Customers",
-            "description": "Homes choosing Scale-O",
+            "value": "2 Lac+",
+            "label": "Customers",
+            "description": "",
             "link": ""
           }
         },
-        "stat_trial": {
+        "stat_homes": {
           "type": "stat",
           "settings": {
-            "icon": "shield",
-            "value": "7-Day",
-            "label": "Risk-Free Trial",
-            "description": "Try Scale-O with confidence",
+            "icon": "home",
+            "value": "40,000+",
+            "label": "Homes Protected",
+            "description": "",
             "link": ""
           }
         }
@@ -249,7 +249,7 @@
       "block_order": [
         "stat_rating",
         "stat_customers",
-        "stat_trial"
+        "stat_homes"
       ],
       "settings": {
         "background_color": "#f5f7ff",
@@ -262,7 +262,7 @@
         "value_font_weight": "700",
         "label_color": "#2a6ab2",
         "label_size": 14,
-        "show_description": true,
+        "show_description": false,
         "description_color": "#5a6b85",
         "description_size": 12,
         "icon_color": "#0c7fdf",
@@ -282,6 +282,75 @@
         "mobile_layout": "stack",
         "enable_entrance_animation": false,
         "accessibility_label": "Customer statistics"
+      }
+    },
+    "zero_factor_usp_home": {
+      "type": "scale-o-zero-factor",
+      "blocks": {
+        "zf_cost": {
+          "type": "usp",
+          "settings": {
+            "title": "Zero Operating Cost"
+          }
+        },
+        "zf_electricity": {
+          "type": "usp",
+          "settings": {
+            "title": "Zero Electricity"
+          }
+        },
+        "zf_salt": {
+          "type": "usp",
+          "settings": {
+            "title": "Zero Salt"
+          }
+        },
+        "zf_water": {
+          "type": "usp",
+          "settings": {
+            "title": "Zero Water Wastage"
+          }
+        },
+        "zf_maintenance": {
+          "type": "usp",
+          "settings": {
+            "title": "Zero Maintenance"
+          }
+        },
+        "zf_manpower": {
+          "type": "usp",
+          "settings": {
+            "title": "Zero Manpower"
+          }
+        }
+      },
+      "block_order": [
+        "zf_cost",
+        "zf_electricity",
+        "zf_salt",
+        "zf_water",
+        "zf_maintenance",
+        "zf_manpower"
+      ],
+      "settings": {
+        "eyebrow": "SCALE-O USP",
+        "heading": "Our Zero Factor USP",
+        "max_width": 1200,
+        "padding_top": 48,
+        "padding_bottom": 56,
+        "padding_top_mobile": 32,
+        "padding_bottom_mobile": 40,
+        "eyebrow_size": 13,
+        "heading_size_desktop": 40,
+        "heading_size_mobile": 28,
+        "card_title_size": 14,
+        "background_color": "#ffffff",
+        "heading_color": "#0c7fdf",
+        "text_color": "#3d4f6a",
+        "accent_color": "#0c7fdf",
+        "card_background": "#ffffff",
+        "card_radius": 14,
+        "enable_animations": true
       }
     },
     "how_it_works_home": {
@@ -462,7 +531,7 @@
       ],
       "settings": {
         "eyebrow": "HOW IT WORKS",
-        "heading": "How a salt-free water softener works in an overhead tank",
+        "heading": "How to Install & Exchange Scale-O Water Softeners",
         "description": "See how Scale-O works, how to install it, and how easy it is to maintain and exchange.",
         "header_alignment": "center",
         "installation_diagram": "shopify://shop_images/ChatGPT_Image_Aug_12_2026_12_35_16_PM.png",
@@ -622,12 +691,12 @@
             "badge": "PRODUCT DEMO",
             "cta_text": "Shop Now",
             "cta_url": "",
-            "show_product": true,
+            "show_product": false,
             "show_product_image": true,
-            "show_product_price": true,
+            "show_product_price": false,
             "show_cta": true,
             "show_badge": false,
-            "show_video_title": false,
+            "show_video_title": true,
             "show_play_button": true,
             "show_controls": false,
             "autoplay": true,
@@ -649,12 +718,12 @@
             "badge": "INSTALLATION",
             "cta_text": "Shop Now",
             "cta_url": "",
-            "show_product": true,
+            "show_product": false,
             "show_product_image": true,
-            "show_product_price": true,
+            "show_product_price": false,
             "show_cta": true,
             "show_badge": false,
-            "show_video_title": false,
+            "show_video_title": true,
             "show_play_button": true,
             "show_controls": false,
             "autoplay": true,
@@ -676,12 +745,12 @@
             "badge": "HOW IT WORKS",
             "cta_text": "Shop Now",
             "cta_url": "",
-            "show_product": true,
+            "show_product": false,
             "show_product_image": true,
-            "show_product_price": true,
+            "show_product_price": false,
             "show_cta": true,
             "show_badge": false,
-            "show_video_title": false,
+            "show_video_title": true,
             "show_play_button": true,
             "show_controls": false,
             "autoplay": true,
@@ -703,12 +772,12 @@
             "badge": "CUSTOMER REVIEW",
             "cta_text": "Shop Now",
             "cta_url": "",
-            "show_product": true,
+            "show_product": false,
             "show_product_image": true,
-            "show_product_price": true,
+            "show_product_price": false,
             "show_cta": true,
             "show_badge": false,
-            "show_video_title": false,
+            "show_video_title": true,
             "show_play_button": true,
             "show_controls": false,
             "autoplay": true,
@@ -725,8 +794,8 @@
       ],
       "settings": {
         "show_eyebrow": true,
-        "eyebrow": "WATCH & SHOP",
-        "heading": "See Scale-O in Action",
+        "eyebrow": "Watch & Learn",
+        "heading": "Watch Scale-O in Action",
         "show_description": true,
         "description": "Watch real product demonstrations, installation guides and customer experiences.",
         "header_alignment": "center",
@@ -901,7 +970,7 @@
       ],
       "settings": {
         "eyebrow": "THE PROBLEM",
-        "heading": "Hard water hair fall, geyser scale and bathroom stains",
+        "heading": "Hard Water & Scaling Problems",
         "description": "Hard water can leave visible scale, affect everyday cleaning, and contribute to buildup across the fixtures and appliances in your home.",
         "header_alignment": "center",
         "show_flow": true,
@@ -1045,7 +1114,7 @@
       "settings": {
         "show_eyebrow": true,
         "eyebrow": "SOLUTION",
-        "heading": "Scale-O salt-free water softener, tank-level protection",
+        "heading": "What Scale-O Solves for your Homes",
         "show_description": true,
         "description": "A smarter, salt-free approach to protecting your home from hard-water scale.",
         "header_alignment": "center",
@@ -1177,6 +1246,11 @@
         "description": "Hard water causes scale buildup that affects your home and lifestyle.",
         "description_highlight": "Scale-O protects your home, so you can live better every day.",
         "header_alignment": "center",
+        "layout_style": "pairs",
+        "pair_label_1": "For Property",
+        "pair_label_2": "For People",
+        "pair_label_3": "For Property",
+        "pair_label_4": "For People",
         "before_label": "BEFORE",
         "before_heading": "Without Scale-O",
         "before_description": "",
@@ -1192,7 +1266,7 @@
         "show_cta": true,
         "cta_text": "Explore Scale-O Products",
         "cta_url": "shopify://collections/water-softeners",
-        "max_width": 1200,
+        "max_width": 1400,
         "image_aspect_ratio": "16 / 10",
         "image_height": 340,
         "image_height_mobile": 240,
@@ -1227,8 +1301,8 @@
           "type": "category",
           "settings": {
             "handle": "people",
-            "tab_label": "For People",
-            "heading": "For People",
+            "tab_label": "For Health",
+            "heading": "For Health",
             "description": "Better water for everyday life.",
             "image_alt": "Everyday home water experience",
             "show_cta": false,
@@ -1240,8 +1314,8 @@
           "type": "category",
           "settings": {
             "handle": "property",
-            "tab_label": "For Property",
-            "heading": "For Property",
+            "tab_label": "For Homes",
+            "heading": "For Homes",
             "description": "Protect the fixtures and water-using systems around your home.",
             "image_alt": "Home fixtures and water-using appliances",
             "show_cta": false,
@@ -1361,7 +1435,7 @@
       "settings": {
         "show_eyebrow": true,
         "eyebrow": "WHY SCALE-O",
-        "heading": "People & Property",
+        "heading": "Benefits with Scale-O",
         "show_description": true,
         "description": "Discover how Scale-O helps protect your everyday water experience and your home.",
         "header_alignment": "center",
@@ -1449,7 +1523,7 @@
           "type": "technology",
           "settings": {
             "enabled": true,
-            "title": "Multi-Media Water Treatment",
+            "title": "Multi-Media Water Treatment System",
             "category_label": "",
             "description": "Media-based treatment systems using multiple filtration materials.",
             "product": "",
@@ -1838,11 +1912,11 @@
         "show_tech": true,
         "show_tech_eyebrow": true,
         "tech_eyebrow": "TECHNOLOGY COMPARISON",
-        "tech_heading": "Scale-O vs Other Water Treatment",
+        "tech_heading": "Chelation Technology vs Others",
         "show_tech_description": true,
         "tech_description": "See how Scale-O compares with salt-based, electromagnetic and multi-media systems for household scale protection.",
         "show_features": true,
-        "tech_criteria_heading": "Comparison criteria",
+        "tech_criteria_heading": "Feature",
         "show_recommended_badge": true,
         "recommended_label": "Recommended",
         "show_column_images": true,
@@ -1852,7 +1926,7 @@
         "show_competitors": true,
         "show_eyebrow": true,
         "eyebrow": "COMPETITOR COMPARISON",
-        "heading": "Scale-O vs Core Competitors",
+        "heading": "Scale-O vs Competitors",
         "show_description": true,
         "description": "Ten points that change water quality, safety, and what you pay over time.",
         "show_comp_legend": true,
@@ -1901,46 +1975,8 @@
     },
     "scale_o_video_home": {
       "type": "scale-o-technology-video",
-      "blocks": {
-        "hl_install": {
-          "type": "highlight",
-          "settings": {
-            "theme_icon": "install",
-            "title": "Easy Installation",
-            "description": "Designed for simple installation without complicated plumbing."
-          }
-        },
-        "hl_salt": {
-          "type": "highlight",
-          "settings": {
-            "theme_icon": "salt",
-            "title": "Salt-Free",
-            "description": "No salt bags or traditional brine system."
-          }
-        },
-        "hl_power": {
-          "type": "highlight",
-          "settings": {
-            "theme_icon": "electricity",
-            "title": "Zero Electricity",
-            "description": "Works without electricity."
-          }
-        },
-        "hl_waste": {
-          "type": "highlight",
-          "settings": {
-            "theme_icon": "recycle",
-            "title": "Zero Water Waste",
-            "description": "No regeneration water wastage."
-          }
-        }
-      },
-      "block_order": [
-        "hl_install",
-        "hl_salt",
-        "hl_power",
-        "hl_waste"
-      ],
+      "blocks": {},
+      "block_order": [],
       "settings": {
         "show_eyebrow": true,
         "eyebrow": "TECHNOLOGY",
@@ -2310,7 +2346,7 @@
       "settings": {
         "show_eyebrow": true,
         "eyebrow": "CERTIFICATIONS & QUALITY",
-        "heading": "Built on Tested Quality & Innovation",
+        "heading": "Certifications",
         "show_description": true,
         "description": "Every Scale-O product is backed by documented testing, intellectual property and quality standards designed to deliver reliable hard-water scale protection.",
         "header_alignment": "center",
@@ -2360,7 +2396,7 @@
     "blog_posts_ryzFA7": {
       "type": "blog-posts",
       "settings": {
-        "heading": "Learn More About Hard Water",
+        "heading": "Read Our Blog",
         "heading_size": "h2",
         "subheading": "BLOG / INSIGHTS",
         "description": "Helpful guides, insights and practical information about hard water, water softening and protecting your home.",
@@ -2497,7 +2533,7 @@
       ],
       "settings": {
         "eyebrow": "AFFILIATION",
-        "heading": "Supported By",
+        "heading": "Our Associations",
         "description": "Proudly supported by leading government bodies and organizations that share our vision.",
         "header_alignment": "center",
         "max_width": 1200,
@@ -2902,6 +2938,7 @@
     "1621243260e1af0c20",
     "usp_strip_home",
     "stats_trust_home",
+    "zero_factor_usp_home",
     "how_it_works_home",
     "featured_collection_hJqRXq",
     "watch_and_shop_home",

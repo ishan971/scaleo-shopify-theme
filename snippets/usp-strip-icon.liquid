@@ -8,6 +8,19 @@
 -%}
 {%- case icon_name -%}
 
+  {%- comment -%} Indian Hard Water — clean droplet {%- endcomment -%}
+  {%- when 'droplet' -%}
+    <svg class="{{ svg_class }}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+      <path d="M12 3.2c2.8 3.6 6.2 7.2 6.2 11a6.2 6.2 0 1 1-12.4 0c0-3.8 3.4-7.4 6.2-11Z"/>
+    </svg>
+
+  {%- comment -%} Patented / Manufactured — badge check {%- endcomment -%}
+  {%- when 'patent' -%}
+    <svg class="{{ svg_class }}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+      <path d="M12 3.2 14.2 5l2.6.4-.4 2.6 1.8 2.2-1.8 2.2.4 2.6-2.6.4L12 17.6l-2.2-1.8-2.6-.4.4-2.6L5.8 10.6l1.8-2.2-.4-2.6 2.6-.4L12 3.2Z"/>
+      <path d="m9.4 11.2 1.8 1.8 3.4-3.5"/>
+    </svg>
+
   {%- comment -%} Zero Electricity — Lucide plug-zap {%- endcomment -%}
   {%- when 'electricity' -%}
     <svg class="{{ svg_class }}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">

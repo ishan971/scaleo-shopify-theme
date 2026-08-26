@@ -7,7 +7,13 @@
 {%- liquid
   assign point_blocks = section.blocks | where: 'type', 'point'
   assign benefit_blocks = section.blocks | where: 'type', 'benefit'
+  assign pair_blocks = section.blocks | where: 'type', 'compare_pair'
   assign header_align = section.settings.header_alignment
+  assign layout_style = section.settings.layout_style | default: 'pairs'
+  assign is_pairs = false
+  if layout_style == 'pairs'
+    assign is_pairs = true
+  endif
 
   assign show_header = false
   if section.settings.heading != blank
@@ -77,10 +83,51 @@
       padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px;
     }
   }
+
+  /* Pair cards: keep images inside + gap between Before/After */
+  #shopify-section-{{ section.id }} .scale-o-before-after--pairs .scale-o-before-after__pair {
+    padding: 16px !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+    border: 1.5px solid #c5d0e0 !important;
+    box-shadow: 0 10px 28px rgba(18, 40, 72, 0.14) !important;
+  }
+  #shopify-section-{{ section.id }} .scale-o-before-after--pairs .scale-o-before-after__pair-media {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: stretch !important;
+    gap: 14px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+  }
+  #shopify-section-{{ section.id }} .scale-o-before-after--pairs .scale-o-before-after__pair-shot {
+    position: relative !important;
+    flex: 1 1 0 !important;
+    width: auto !important;
+    max-width: calc(50% - 7px) !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    border-radius: 14px !important;
+    aspect-ratio: 1 / 1 !important;
+    box-sizing: border-box !important;
+  }
+  #shopify-section-{{ section.id }} .scale-o-before-after--pairs .scale-o-before-after__pair-shot img {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 100% !important;
+    margin: 0 !important;
+    object-fit: cover !important;
+  }
 </style>
 
 <div
-  class="scale-o-before-after"
+  class="scale-o-before-after{% if is_pairs %} scale-o-before-after--pairs{% else %} scale-o-before-after--classic{% endif %}"
   data-section-id="{{ section.id }}"
   data-animate="{% if section.settings.enable_animations %}true{% else %}false{% endif %}"
   role="region"
@@ -106,6 +153,101 @@
       </header>
     {%- endif -%}
 
+    {%- if is_pairs -%}
+      <div class="scale-o-before-after__pairs" role="list">
+        {%- if pair_blocks.size > 0 -%}
+          {%- for block in pair_blocks -%}
+            {%- liquid
+              assign pair_before = block.settings.before_image
+              assign pair_after = block.settings.after_image
+              assign pair_label = block.settings.category_label
+              assign pair_before_tag = block.settings.before_label | default: 'Before'
+              assign pair_after_tag = block.settings.after_label | default: 'After'
+            -%}
+            <article class="scale-o-before-after__pair" role="listitem" data-sba-animate {{ block.shopify_attributes }}>
+              {%- if pair_label != blank -%}
+                <p class="scale-o-before-after__pair-label">{{ pair_label | escape }}</p>
+              {%- endif -%}
+              <div class="scale-o-before-after__pair-media">
+                <div class="scale-o-before-after__pair-shot">
+                  {%- if pair_before != blank -%}
+                    {{ pair_before | image_url: width: 700 | image_tag: loading: 'lazy', widths: '280,420,700', sizes: '(max-width: 767px) 45vw, 12vw', alt: pair_before_tag }}
+                  {%- else -%}
+                    {{ 'image' | placeholder_svg_tag: 'scale-o-before-after__pair-placeholder' }}
+                  {%- endif -%}
+                  <span class="scale-o-before-after__pair-tag">{{ pair_before_tag | escape }}</span>
+                </div>
+                <div class="scale-o-before-after__pair-shot">
+                  {%- if pair_after != blank -%}
+                    {{ pair_after | image_url: width: 700 | image_tag: loading: 'lazy', widths: '280,420,700', sizes: '(max-width: 767px) 45vw, 12vw', alt: pair_after_tag }}
+                  {%- else -%}
+                    {{ 'image' | placeholder_svg_tag: 'scale-o-before-after__pair-placeholder' }}
+                  {%- endif -%}
+                  <span class="scale-o-before-after__pair-tag">{{ pair_after_tag | escape }}</span>
+                </div>
+              </div>
+            </article>
+          {%- endfor -%}
+        {%- else -%}
+          {%- comment -%} Fallback: build 4 static pairs from section images {%- endcomment -%}
+          {%- for i in (1..4) -%}
+            {%- liquid
+              assign pair_label = ''
+              assign pair_before = blank
+              assign pair_after = blank
+              if i == 1
+                assign pair_label = section.settings.pair_label_1 | default: 'For Property'
+                assign pair_before = before_main
+                assign pair_after = after_main
+                assign before_fallback = 'scale-o-ba-before-main.jpg'
+                assign after_fallback = 'scale-o-ba-after-main.jpg'
+              elsif i == 2
+                assign pair_label = section.settings.pair_label_2 | default: 'For People'
+                assign pair_before = section.settings.before_detail_1
+                assign pair_after = section.settings.after_detail_1
+                assign before_fallback = 'scale-o-ba-before-1.jpg'
+                assign after_fallback = 'scale-o-ba-after-1.jpg'
+              elsif i == 3
+                assign pair_label = section.settings.pair_label_3 | default: 'For Property'
+                assign pair_before = section.settings.before_detail_2
+                assign pair_after = section.settings.after_detail_2
+                assign before_fallback = 'scale-o-ba-before-2.jpg'
+                assign after_fallback = 'scale-o-ba-after-2.jpg'
+              else
+                assign pair_label = section.settings.pair_label_4 | default: 'For People'
+                assign pair_before = section.settings.before_detail_3
+                assign pair_after = section.settings.after_detail_3
+                assign before_fallback = 'scale-o-ba-before-3.jpg'
+                assign after_fallback = 'scale-o-ba-after-3.jpg'
+              endif
+            -%}
+            <article class="scale-o-before-after__pair" role="listitem" data-sba-animate>
+              {%- if pair_label != blank -%}
+                <p class="scale-o-before-after__pair-label">{{ pair_label | escape }}</p>
+              {%- endif -%}
+              <div class="scale-o-before-after__pair-media">
+                <div class="scale-o-before-after__pair-shot">
+                  {%- if pair_before != blank -%}
+                    {{ pair_before | image_url: width: 700 | image_tag: loading: 'lazy', widths: '280,420,700', sizes: '(max-width: 767px) 45vw, 12vw', alt: 'Before' }}
+                  {%- else -%}
+                    <img src="{{ before_fallback | asset_url }}" alt="Before" width="700" height="700" loading="lazy">
+                  {%- endif -%}
+                  <span class="scale-o-before-after__pair-tag">Before</span>
+                </div>
+                <div class="scale-o-before-after__pair-shot">
+                  {%- if pair_after != blank -%}
+                    {{ pair_after | image_url: width: 700 | image_tag: loading: 'lazy', widths: '280,420,700', sizes: '(max-width: 767px) 45vw, 12vw', alt: 'After' }}
+                  {%- else -%}
+                    <img src="{{ after_fallback | asset_url }}" alt="After" width="700" height="700" loading="lazy">
+                  {%- endif -%}
+                  <span class="scale-o-before-after__pair-tag">After</span>
+                </div>
+              </div>
+            </article>
+          {%- endfor -%}
+        {%- endif -%}
+      </div>
+    {%- else -%}
     <div class="scale-o-before-after__compare">
       <article class="scale-o-before-after__card scale-o-before-after__card--before" data-sba-animate>
         <div class="scale-o-before-after__main">
@@ -271,6 +413,7 @@
         {%- endif -%}
       </article>
     </div>
+    {%- endif -%}
 
     {%- if benefit_blocks.size > 0 -%}
       <ul class="scale-o-before-after__benefits" role="list">
@@ -325,7 +468,7 @@
     { "type": "checkbox", "id": "heading_one_line", "label": "Keep heading on one line (desktop)", "default": true },
     { "type": "checkbox", "id": "show_description", "label": "Show description", "default": true },
     { "type": "textarea", "id": "description", "label": "Description", "default": "Hard water causes scale buildup that affects your home and lifestyle." },
-    { "type": "text", "id": "description_highlight", "label": "Description highlight (blue)", "default": "Scale-O protects your home, so you can live better every day." },
+    { "type": "text", "id": "description_highlight", "label": "Description line 2", "default": "Scale-O protects your home, so you can live better every day." },
     {
       "type": "select",
       "id": "header_alignment",
@@ -372,6 +515,21 @@
     { "type": "url", "id": "cta_url", "label": "CTA URL" },
 
     { "type": "header", "content": "Layout" },
+    {
+      "type": "select",
+      "id": "layout_style",
+      "label": "Layout style",
+      "default": "pairs",
+      "options": [
+        { "value": "pairs", "label": "One row — Before/After pairs (static)" },
+        { "value": "classic", "label": "Classic — two large panels" }
+      ],
+      "info": "Pairs layout shows static cards in one row. No carousel or sliding."
+    },
+    { "type": "text", "id": "pair_label_1", "label": "Pair 1 label (fallback)", "default": "For Property", "info": "Used when no Compare pair blocks are added" },
+    { "type": "text", "id": "pair_label_2", "label": "Pair 2 label (fallback)", "default": "For People" },
+    { "type": "text", "id": "pair_label_3", "label": "Pair 3 label (fallback)", "default": "For Property" },
+    { "type": "text", "id": "pair_label_4", "label": "Pair 4 label (fallback)", "default": "For People" },
     { "type": "range", "id": "max_width", "label": "Maximum width", "min": 0, "max": 1600, "step": 20, "unit": "px", "default": 1200 },
     {
       "type": "select",
@@ -417,6 +575,18 @@
     { "type": "text", "id": "accessibility_label", "label": "Accessibility label", "default": "Before and after results" }
   ],
   "blocks": [
+    {
+      "type": "compare_pair",
+      "name": "Before/After pair",
+      "limit": 8,
+      "settings": [
+        { "type": "text", "id": "category_label", "label": "Category label", "default": "For People", "info": "Example: For People / For Property" },
+        { "type": "image_picker", "id": "before_image", "label": "Before image" },
+        { "type": "image_picker", "id": "after_image", "label": "After image" },
+        { "type": "text", "id": "before_label", "label": "Before tag", "default": "Before" },
+        { "type": "text", "id": "after_label", "label": "After tag", "default": "After" }
+      ]
+    },
     {
       "type": "point",
       "name": "Comparison point",

@@ -109,7 +109,7 @@
 
   assign show_product = false
   if block.settings.show_product
-    if display_title != blank or display_price != blank or product_image != blank
+    if display_title != blank or product_image != blank or block.settings.show_product_price and display_price != blank
       assign show_product = true
     endif
   endif

@@ -100,38 +100,17 @@
     "scale_o_collection_hero": {
       "type": "scale-o-collection-hero",
       "blocks": {
-        "slide_whole_house": {
-          "type": "slide",
-          "settings": {
-            "enabled": true,
-            "image": "shopify://shop_images/Frame_1166_8007e267-2d52-4229-9441-96f286bd0110.png",
-            "banner_preset": "highlights",
-            "alt": "Scale-O water softeners for the whole house",
-            "eyebrow": "WHOLE HOUSE WATER SOLUTION",
-            "heading_line_1": "Scale-O",
-            "heading_line_2": "Water Softeners",
-            "show_heading_underline": false,
-            "description": "Salt-free water softening solutions designed for Indian homes and hard-water conditions.",
-            "text_alignment": "left",
-            "show_cta": false,
-            "cta_label": "Shop Water Softeners",
-            "cta_url": "",
-            "show_secondary_cta": false,
-            "secondary_cta_label": "Find the right solution",
-            "secondary_cta_url": ""
-          }
-        },
-        "slide_salt_free": {
+        "slide_zero_factor": {
           "type": "slide",
           "settings": {
             "enabled": true,
             "banner_preset": "family",
-            "alt": "Scale-O 0 Factor salt-free water softener",
-            "eyebrow": "SCALE-O 0 FACTOR",
-            "heading_line_1": "Zero Salt. Zero Power.",
-            "heading_line_2": "Zero Hassle.",
+            "alt": "Scale-O Zero Factor USP salt-free water softener",
+            "eyebrow": "ZERO FACTOR USP",
+            "heading_line_1": "Our Zero Factor",
+            "heading_line_2": "Advantage",
             "show_heading_underline": false,
-            "description": "No salt, no electricity, no plumber, no maintenance. Drop Scale-O in your overhead tank and protect the whole house.",
+            "description": "Zero operating cost, zero electricity, zero salt, zero water wastage, zero maintenance and zero manpower — Scale-O simplifies hard-water protection.",
             "text_alignment": "left",
             "show_cta": false,
             "cta_label": "Shop Water Softeners",
@@ -141,17 +120,17 @@
             "secondary_cta_url": ""
           }
         },
-        "slide_hard_water": {
+        "slide_highlights": {
           "type": "slide",
           "settings": {
             "enabled": true,
             "banner_preset": "highlights",
             "alt": "Scale-O Mini Semi Centi product highlights",
             "eyebrow": "PRODUCT HIGHLIGHTS",
-            "heading_line_1": "Smart Water Softening.",
-            "heading_line_2": "Without Salt or Electricity.",
+            "heading_line_1": "Mini, Semi & Centi",
+            "heading_line_2": "Built for Every Home",
             "show_heading_underline": false,
-            "description": "Mini, Semi and Centi for 500L to 2500L tanks. Choose by family size and daily use — salt-free, built for Indian homes.",
+            "description": "Choose by overhead tank size from 500L to 2500L. Salt-free, no electricity, simple overhead-tank install for Indian hard water.",
             "text_alignment": "left",
             "show_cta": false,
             "cta_label": "Shop Water Softeners",
@@ -163,9 +142,8 @@
         }
       },
       "block_order": [
-        "slide_whole_house",
-        "slide_salt_free",
-        "slide_hard_water"
+        "slide_zero_factor",
+        "slide_highlights"
       ],
       "settings": {
         "enable_autoplay": true,
@@ -173,11 +151,11 @@
         "show_dots": true,
         "show_arrows": false,
         "accessibility_label": "Collection banners",
-        "eyebrow": "WHOLE HOUSE WATER SOLUTION",
-        "heading_line_1": "Scale-O",
-        "heading_line_2": "Water Softeners",
+        "eyebrow": "ZERO FACTOR USP",
+        "heading_line_1": "Our Zero Factor",
+        "heading_line_2": "Advantage",
         "show_heading_underline": false,
-        "description": "Salt-free water softening solutions designed for Indian homes and hard-water conditions.",
+        "description": "Zero operating cost, zero electricity, zero salt, zero water wastage, zero maintenance and zero manpower — Scale-O simplifies hard-water protection.",
         "image": "shopify://shop_images/Frame_1166_8007e267-2d52-4229-9441-96f286bd0110.png",
         "show_cta": false,
         "cta_label": "Shop Water Softeners",
@@ -199,7 +177,156 @@
         "padding_bottom": 16,
         "padding_top_mobile": 8,
         "padding_bottom_mobile": 12,
-        "show_trust_strip": true
+        "show_trust_strip": false
+      }
+    },
+    "usp_strip_collection": {
+      "type": "usp-strip",
+      "blocks": {
+        "usp_item_hard_water": {
+          "type": "usp_item",
+          "settings": {
+            "icon": "droplet",
+            "title": "Designed for Indian Hard Water",
+            "description": "",
+            "link": ""
+          }
+        },
+        "usp_item_houses": {
+          "type": "usp_item",
+          "settings": {
+            "icon": "house",
+            "title": "Suitable for Individual Houses",
+            "description": "",
+            "link": ""
+          }
+        },
+        "usp_item_patent": {
+          "type": "usp_item",
+          "settings": {
+            "icon": "patent",
+            "title": "Patented & Manufactured Inhouse",
+            "description": "",
+            "link": ""
+          }
+        },
+        "usp_item_maintenance": {
+          "type": "usp_item",
+          "settings": {
+            "icon": "maintenance",
+            "title": "Zero Maintenance Solution",
+            "description": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "usp_item_hard_water",
+        "usp_item_houses",
+        "usp_item_patent",
+        "usp_item_maintenance"
+      ],
+      "settings": {
+        "background_color": "#0c7fdf",
+        "use_gradient": false,
+        "gradient_end_color": "#2a6ab2",
+        "title_color": "#ffffff",
+        "title_size_desktop": 14,
+        "title_size_mobile": 12,
+        "title_font_weight": "600",
+        "show_description": false,
+        "description_color": "#e8f4ff",
+        "description_size": 12,
+        "icon_color": "#ffffff",
+        "icon_background": "#0c7fdf",
+        "icon_size": 26,
+        "icon_style": "plain",
+        "max_width": 0,
+        "padding_y": 16,
+        "padding_x": 24,
+        "item_gap": 20,
+        "border_radius": 0,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "show_dividers": true,
+        "divider_color": "#ffffff",
+        "mobile_layout": "grid",
+        "enable_mobile_auto_scroll": false,
+        "hide_desktop": false,
+        "hide_mobile": false,
+        "accessibility_label": "Scale-O product highlights"
+      }
+    },
+    "stats_trust_collection": {
+      "type": "stats-trust",
+      "blocks": {
+        "stat_rating": {
+          "type": "stat",
+          "settings": {
+            "icon": "star",
+            "value": "4.2/5",
+            "label": "Average Rating",
+            "description": "",
+            "link": ""
+          }
+        },
+        "stat_customers": {
+          "type": "stat",
+          "settings": {
+            "icon": "users",
+            "value": "2 Lac+",
+            "label": "Customers",
+            "description": "",
+            "link": ""
+          }
+        },
+        "stat_homes": {
+          "type": "stat",
+          "settings": {
+            "icon": "home",
+            "value": "40,000+",
+            "label": "Homes Protected",
+            "description": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "stat_rating",
+        "stat_customers",
+        "stat_homes"
+      ],
+      "settings": {
+        "background_color": "#f5f7ff",
+        "use_gradient": true,
+        "gradient_end_color": "#eef6ff",
+        "accent_color": "#0c7fdf",
+        "value_color": "#1a2b4a",
+        "value_size_desktop": 28,
+        "value_size_mobile": 22,
+        "value_font_weight": "700",
+        "label_color": "#2a6ab2",
+        "label_size": 14,
+        "show_description": false,
+        "description_color": "#5a6b85",
+        "description_size": 12,
+        "icon_color": "#0c7fdf",
+        "icon_background": "#ffffff",
+        "icon_size": 22,
+        "icon_style": "circle",
+        "max_width": 1200,
+        "padding_top": 24,
+        "padding_bottom": 24,
+        "padding_x": 24,
+        "stat_gap": 24,
+        "border_radius": 16,
+        "margin_top": 12,
+        "margin_bottom": 16,
+        "show_dividers": true,
+        "divider_color": "#0c7fdf",
+        "mobile_layout": "stack",
+        "enable_entrance_animation": false,
+        "accessibility_label": "Customer statistics"
       }
     },
     "main": {
@@ -319,6 +446,8 @@
   "order": [
     "collection-header",
     "scale_o_collection_hero",
+    "usp_strip_collection",
+    "stats_trust_collection",
     "image_with_text_2_BhPGq3",
     "collection_banner_768w6G",
     "main",

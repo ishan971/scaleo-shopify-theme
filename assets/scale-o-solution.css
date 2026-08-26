@@ -21,7 +21,7 @@
 }
 
 .scale-o-solution__header {
-  max-width: 720px;
+  max-width: min(100%, 980px);
   margin: 0 auto var(--sos-header-gap);
   text-align: var(--sos-header-align);
 }
@@ -363,6 +363,7 @@
 @media (min-width: 900px) {
   .scale-o-solution__heading {
     font-size: var(--sos-heading-size-desktop);
+    white-space: nowrap;
   }
 
   .scale-o-solution__layout {

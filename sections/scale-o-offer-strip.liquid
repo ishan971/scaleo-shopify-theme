@@ -1,0 +1,113 @@
+{%- comment -%}
+  Scale-O offer / discount strip — editable promo under collection title
+{%- endcomment -%}
+
+{{ 'scale-o-offer-strip.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign show_strip = false
+  if section.settings.enabled
+    if section.settings.heading != blank or section.settings.text != blank or section.settings.code != blank
+      assign show_strip = true
+    endif
+  endif
+-%}
+
+{%- if show_strip -%}
+  <style>
+    #shopify-section-{{ section.id }} .scale-o-offer-strip {
+      --sos-bg: {{ section.settings.background_color }};
+      --sos-bg-end: {{ section.settings.background_end_color }};
+      --sos-text: {{ section.settings.text_color }};
+      --sos-accent: {{ section.settings.accent_color }};
+      --sos-code-bg: {{ section.settings.code_background }};
+      --sos-code-text: {{ section.settings.code_text_color }};
+      --sos-radius: {{ section.settings.border_radius }}px;
+      --sos-max: {% if section.settings.max_width == 0 %}100%{% else %}{{ section.settings.max_width }}px{% endif %};
+      padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px;
+    }
+    @media (max-width: 767px) {
+      #shopify-section-{{ section.id }} .scale-o-offer-strip {
+        padding: {{ section.settings.padding_top_mobile }}px 0 {{ section.settings.padding_bottom_mobile }}px;
+      }
+    }
+  </style>
+
+  <section
+    class="scale-o-offer-strip"
+    role="region"
+    aria-label="{{ section.settings.accessibility_label | default: 'Special offer' | escape }}"
+  >
+    <div class="scale-o-offer-strip__inner">
+      <div class="scale-o-offer-strip__bar">
+        {%- if section.settings.show_icon -%}
+          <span class="scale-o-offer-strip__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M20.59 13.41 13.42 20.58a2 2 0 0 1-2.83 0l-7.17-7.17a2 2 0 0 1 0-2.83L10.59 3.6a2 2 0 0 1 1.41-.59H19a2 2 0 0 1 2 2v6.99a2 2 0 0 1-.59 1.41Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+              <circle cx="16.5" cy="7.5" r="1.2" fill="currentColor"/>
+            </svg>
+          </span>
+        {%- endif -%}
+
+        <div class="scale-o-offer-strip__copy">
+          {%- if section.settings.heading != blank -%}
+            <p class="scale-o-offer-strip__heading">{{ section.settings.heading | escape }}</p>
+          {%- endif -%}
+          {%- if section.settings.text != blank -%}
+            <p class="scale-o-offer-strip__text">{{ section.settings.text | escape }}</p>
+          {%- endif -%}
+        </div>
+
+        {%- if section.settings.code != blank -%}
+          <p class="scale-o-offer-strip__code">
+            <span class="scale-o-offer-strip__code-label">{{ section.settings.code_label | default: 'Code' | escape }}</span>
+            <span class="scale-o-offer-strip__code-value">{{ section.settings.code | escape }}</span>
+          </p>
+        {%- endif -%}
+
+        {%- if section.settings.cta_text != blank and section.settings.cta_url != blank -%}
+          <a class="scale-o-offer-strip__cta" href="{{ section.settings.cta_url }}">{{ section.settings.cta_text | escape }}</a>
+        {%- endif -%}
+      </div>
+    </div>
+  </section>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Scale-O offer strip",
+  "tag": "section",
+  "class": "scale-o-offer-strip-section",
+  "settings": [
+    { "type": "checkbox", "id": "enabled", "label": "Show offer strip", "default": true },
+    { "type": "header", "content": "Content" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Limited-time offer" },
+    { "type": "textarea", "id": "text", "label": "Offer text", "default": "Get Flat ₹500 Off on your entire order." },
+    { "type": "text", "id": "code_label", "label": "Code label", "default": "Use code" },
+    { "type": "text", "id": "code", "label": "Discount code", "default": "SO-5", "info": "Leave empty to hide the code badge." },
+    { "type": "text", "id": "cta_text", "label": "Button label" },
+    { "type": "url", "id": "cta_url", "label": "Button link" },
+    { "type": "checkbox", "id": "show_icon", "label": "Show tag icon", "default": true },
+    { "type": "text", "id": "accessibility_label", "label": "Accessibility label", "default": "Special offer" },
+    { "type": "header", "content": "Layout" },
+    { "type": "range", "id": "max_width", "label": "Maximum width", "min": 0, "max": 1400, "step": 20, "unit": "px", "default": 1200 },
+    { "type": "range", "id": "border_radius", "label": "Corner radius", "min": 0, "max": 24, "step": 2, "unit": "px", "default": 12 },
+    { "type": "range", "id": "padding_top", "label": "Top padding", "min": 0, "max": 40, "step": 2, "unit": "px", "default": 8 },
+    { "type": "range", "id": "padding_bottom", "label": "Bottom padding", "min": 0, "max": 40, "step": 2, "unit": "px", "default": 16 },
+    { "type": "range", "id": "padding_top_mobile", "label": "Top padding (mobile)", "min": 0, "max": 32, "step": 2, "unit": "px", "default": 4 },
+    { "type": "range", "id": "padding_bottom_mobile", "label": "Bottom padding (mobile)", "min": 0, "max": 32, "step": 2, "unit": "px", "default": 12 },
+    { "type": "header", "content": "Colors" },
+    { "type": "color", "id": "background_color", "label": "Background start", "default": "#E8F4FF" },
+    { "type": "color", "id": "background_end_color", "label": "Background end", "default": "#D6ECFF" },
+    { "type": "color", "id": "text_color", "label": "Text", "default": "#1A2B4A" },
+    { "type": "color", "id": "accent_color", "label": "Accent", "default": "#0C7FDF" },
+    { "type": "color", "id": "code_background", "label": "Code background", "default": "#0C7FDF" },
+    { "type": "color", "id": "code_text_color", "label": "Code text", "default": "#FFFFFF" }
+  ],
+  "presets": [
+    {
+      "name": "Scale-O offer strip"
+    }
+  ]
+}
+{% endschema %}

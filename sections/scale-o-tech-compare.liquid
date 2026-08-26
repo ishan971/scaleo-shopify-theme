@@ -195,7 +195,9 @@
                       </div>
                       <div class="scale-o-compare__card-body">
                         <h3 class="scale-o-compare__card-title">{{ tech.settings.title | escape }}</h3>
-                        <p class="scale-o-compare__card-text">{{ tech.settings.description | escape }}</p>
+                        {%- if section.settings.show_column_descriptions and tech.settings.description != blank -%}
+                          <p class="scale-o-compare__card-text">{{ tech.settings.description | escape }}</p>
+                        {%- endif -%}
                       </div>
                     </div>
                   </th>
@@ -332,6 +334,15 @@
               endif
             -%}
 
+            <div class="scale-o-versus-rows__cols" aria-hidden="true">
+              <span class="scale-o-versus-rows__col scale-o-versus-rows__col--feature">Feature</span>
+              <span class="scale-o-versus-rows__col-group">
+                <span class="scale-o-versus-rows__col scale-o-versus-rows__col--win">{{ win_brand_title | escape }}</span>
+                <span class="scale-o-versus-rows__col-spacer"></span>
+                <span class="scale-o-versus-rows__col scale-o-versus-rows__col--lose">{{ lose_brand_title | escape }}</span>
+              </span>
+            </div>
+
             <ol class="scale-o-versus-rows" role="list" aria-label="{{ section.settings.heading | default: 'Competitor comparison' | escape }}">
               {%- assign row_num = 0 -%}
               {%- for row in competitor_rows -%}
@@ -387,7 +398,7 @@
                           <svg viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.2 3.2L13 4.8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
                         </span>
                         <div class="scale-o-versus-rows__side-copy">
-                          <p class="scale-o-versus-rows__brand">{{ win_brand_title | escape }}</p>
+                          <p class="scale-o-versus-rows__brand scale-o-versus-rows__brand--mobile">{{ win_brand_title | escape }}</p>
                           {%- if win_value != blank -%}
                             <p class="scale-o-versus-rows__text">{{ win_value | escape }}</p>
                           {%- endif -%}
@@ -397,17 +408,11 @@
                       <span class="scale-o-versus-rows__vs" aria-hidden="true">VS</span>
 
                       <div class="scale-o-versus-rows__side scale-o-versus-rows__side--lose">
-                        {%- if row_icon != 'none' -%}
-                          <span class="scale-o-versus-rows__icon scale-o-versus-rows__icon--lose" aria-hidden="true">
-                            {% render 'scale-o-compare-icon', icon: row_icon, class: 'scale-o-compare__icon-svg' %}
-                          </span>
-                        {%- else -%}
-                          <span class="scale-o-versus-rows__mark scale-o-versus-rows__mark--lose" aria-hidden="true">
-                            <svg viewBox="0 0 16 16" fill="none"><path d="M4 4l8 8M12 4 4 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-                          </span>
-                        {%- endif -%}
+                        <span class="scale-o-versus-rows__mark scale-o-versus-rows__mark--lose" aria-hidden="true">
+                          <svg viewBox="0 0 16 16" fill="none"><path d="M4 4l8 8M12 4 4 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                        </span>
                         <div class="scale-o-versus-rows__side-copy">
-                          <p class="scale-o-versus-rows__opp-title">{{ lose_brand_title | escape }}</p>
+                          <p class="scale-o-versus-rows__opp-title scale-o-versus-rows__brand--mobile">{{ lose_brand_title | escape }}</p>
                           {%- if lose_value != blank -%}
                             <p class="scale-o-versus-rows__text">{{ lose_value | escape }}</p>
                           {%- endif -%}

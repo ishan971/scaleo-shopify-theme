@@ -1,0 +1,169 @@
+/* Scale-O Zero Factor USP — centered header + 6-card row */
+.scale-o-zf {
+  width: 100%;
+  overflow: hidden;
+  font-family: var(--font-stack-header);
+  font-style: var(--font-style-header);
+  color: var(--szf-text, #3d4f6a);
+  background: var(--szf-bg, #ffffff);
+}
+
+.scale-o-zf *:not(svg):not(path):not(circle):not(line):not(polyline):not(rect) {
+  font-family: inherit !important;
+}
+
+.scale-o-zf__inner {
+  width: 100%;
+  max-width: var(--szf-max, 1200px);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.scale-o-zf__header {
+  max-width: 720px;
+  margin: 0 auto 28px;
+  text-align: center;
+}
+
+.scale-o-zf__eyebrow {
+  margin: 0 0 10px;
+  color: var(--szf-accent, #0c7fdf);
+  font-size: var(--szf-eyebrow-size, 13px);
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.scale-o-zf__heading {
+  margin: 0;
+  color: var(--szf-heading, #0c7fdf);
+  font-size: var(--szf-heading-size, 28px);
+  font-weight: var(--font-weight-header);
+  letter-spacing: var(--heading-letter-spacing);
+  line-height: 1.18;
+}
+
+.scale-o-zf__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.scale-o-zf__card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+  border-radius: var(--szf-radius, 14px);
+  background: var(--szf-card, #fff);
+  border: 1px solid color-mix(in srgb, var(--szf-accent, #0c7fdf) 12%, #fff);
+  box-shadow:
+    0 2px 6px rgba(18, 55, 100, 0.06),
+    0 12px 28px rgba(18, 55, 100, 0.14);
+}
+
+.scale-o-zf__card-media {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: #dcecf8;
+}
+
+.scale-o-zf__card-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.scale-o-zf__card-label {
+  margin: 0;
+  padding: 10px 8px;
+  color: var(--szf-accent, #0c7fdf);
+  font-size: var(--szf-card-title-size, 13px);
+  font-weight: 700;
+  line-height: 1.25;
+  text-align: center;
+  letter-spacing: 0.01em;
+  background: var(--szf-card, #fff);
+}
+
+.scale-o-zf[data-animate='true'] .scale-o-zf__header,
+.scale-o-zf[data-animate='true'] .scale-o-zf__card {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.scale-o-zf[data-animate='true'].is-inview .scale-o-zf__header,
+.scale-o-zf[data-animate='true'].is-inview .scale-o-zf__card {
+  opacity: 1;
+  transform: none;
+}
+
+.scale-o-zf[data-animate='true'].is-inview .scale-o-zf__card:nth-child(1) { transition-delay: 0.04s; }
+.scale-o-zf[data-animate='true'].is-inview .scale-o-zf__card:nth-child(2) { transition-delay: 0.08s; }
+.scale-o-zf[data-animate='true'].is-inview .scale-o-zf__card:nth-child(3) { transition-delay: 0.12s; }
+.scale-o-zf[data-animate='true'].is-inview .scale-o-zf__card:nth-child(4) { transition-delay: 0.16s; }
+.scale-o-zf[data-animate='true'].is-inview .scale-o-zf__card:nth-child(5) { transition-delay: 0.2s; }
+.scale-o-zf[data-animate='true'].is-inview .scale-o-zf__card:nth-child(6) { transition-delay: 0.24s; }
+
+@media (min-width: 768px) {
+  .scale-o-zf__header {
+    margin-bottom: 32px;
+  }
+
+  .scale-o-zf__heading {
+    font-size: calc(var(--szf-heading-size, 28px) + 4px);
+  }
+
+  .scale-o-zf__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+  }
+
+  .scale-o-zf__card-label {
+    padding: 11px 10px;
+    font-size: var(--szf-card-title-size, 14px);
+  }
+}
+
+@media (min-width: 990px) {
+  .scale-o-zf__header {
+    margin-bottom: 36px;
+  }
+
+  .scale-o-zf__heading {
+    font-size: var(--szf-heading-size-desktop, 40px);
+  }
+
+  .scale-o-zf__grid {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 14px;
+  }
+
+  .scale-o-zf__card-media {
+    aspect-ratio: 5 / 4;
+  }
+
+  .scale-o-zf__card-label {
+    padding: 12px 8px;
+    font-size: clamp(11px, 1.05vw, var(--szf-card-title-size, 14px));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scale-o-zf[data-animate='true'] .scale-o-zf__header,
+  .scale-o-zf[data-animate='true'] .scale-o-zf__card {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

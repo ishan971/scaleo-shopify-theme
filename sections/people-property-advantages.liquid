@@ -90,38 +90,60 @@
     {%- endif -%}
 
     {%- if is_grid_layout -%}
-      {%- comment -%} Flat 8-card grid: no tabs, no hero image {%- endcomment -%}
+      {%- comment -%} Flat grid with For Health / For Homes group labels {%- endcomment -%}
       {%- if benefit_blocks.size > 0 -%}
+        {%- liquid
+          assign health_label = 'For Health'
+          assign homes_label = 'For Homes'
+          for category in category_blocks
+            if category.settings.handle == 'people'
+              assign health_label = category.settings.heading | default: category.settings.tab_label | default: health_label
+            endif
+            if category.settings.handle == 'property'
+              assign homes_label = category.settings.heading | default: category.settings.tab_label | default: homes_label
+            endif
+          endfor
+        -%}
         <div class="scale-o-advantages__flat-wrap">
-          <ul class="scale-o-advantages__grid scale-o-advantages__grid--flat" role="list">
-            {%- assign people_shown = 0 -%}
-            {%- assign property_shown = 0 -%}
-            {%- for block in benefit_blocks -%}
-              {%- if block.settings.category == 'people' and people_shown < 4 -%}
-                {%- assign people_shown = people_shown | plus: 1 -%}
-                {%- render 'people-property-advantage-card',
-                  block: block,
-                  cat_handle: 'people',
-                  shown_benefits: people_shown,
-                  show_card_index: section.settings.show_card_index
-                -%}
-              {%- endif -%}
-            {%- endfor -%}
-            {%- for block in benefit_blocks -%}
-              {%- if block.settings.category == 'property' and property_shown < 4 -%}
-                {%- assign property_shown = property_shown | plus: 1 -%}
-                {%- render 'people-property-advantage-card',
-                  block: block,
-                  cat_handle: 'property',
-                  shown_benefits: property_shown,
-                  show_card_index: section.settings.show_card_index
-                -%}
-              {%- endif -%}
-            {%- endfor -%}
-          </ul>
+          <div class="scale-o-advantages__groups">
+            <div class="scale-o-advantages__group">
+              <h3 class="scale-o-advantages__group-title">{{ health_label | escape }}</h3>
+              <ul class="scale-o-advantages__grid scale-o-advantages__grid--flat" role="list">
+                {%- assign people_shown = 0 -%}
+                {%- for block in benefit_blocks -%}
+                  {%- if block.settings.category == 'people' and people_shown < 4 -%}
+                    {%- assign people_shown = people_shown | plus: 1 -%}
+                    {%- render 'people-property-advantage-card',
+                      block: block,
+                      cat_handle: 'people',
+                      shown_benefits: people_shown,
+                      show_card_index: section.settings.show_card_index
+                    -%}
+                  {%- endif -%}
+                {%- endfor -%}
+              </ul>
+            </div>
+            <div class="scale-o-advantages__group">
+              <h3 class="scale-o-advantages__group-title">{{ homes_label | escape }}</h3>
+              <ul class="scale-o-advantages__grid scale-o-advantages__grid--flat" role="list">
+                {%- assign property_shown = 0 -%}
+                {%- for block in benefit_blocks -%}
+                  {%- if block.settings.category == 'property' and property_shown < 4 -%}
+                    {%- assign property_shown = property_shown | plus: 1 -%}
+                    {%- render 'people-property-advantage-card',
+                      block: block,
+                      cat_handle: 'property',
+                      shown_benefits: property_shown,
+                      show_card_index: section.settings.show_card_index
+                    -%}
+                  {%- endif -%}
+                {%- endfor -%}
+              </ul>
+            </div>
+          </div>
         </div>
       {%- else -%}
-        <p class="scale-o-advantages__empty">Add People and Property benefits in the theme editor.</p>
+        <p class="scale-o-advantages__empty">Add Health and Homes benefits in the theme editor.</p>
       {%- endif -%}
     {%- elsif category_blocks.size > 0 -%}
       {%- if category_blocks.size > 1 -%}

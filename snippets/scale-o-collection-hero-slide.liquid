@@ -14,7 +14,9 @@
   endif
 
   assign fallback_file = 'scale-o-collection-hero-1.jpg'
-  if banner_preset == 'family'
+  if banner_preset == 'highlights'
+    assign fallback_file = 'scale-o-hero-highlights.jpg'
+  elsif banner_preset == 'family'
     assign fallback_file = 'scale-o-collection-hero-2.jpg'
   elsif banner_preset == 'whole_house'
     assign fallback_file = 'scale-o-collection-hero-3.jpg'

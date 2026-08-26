@@ -294,17 +294,35 @@
 
 .scale-o-watch-shop__video-title {
   position: absolute;
-  left: 14px;
-  right: 14px;
-  bottom: calc(var(--was-overlay-offset) + 58px);
+  left: 50%;
+  right: auto;
+  bottom: var(--was-overlay-offset);
   z-index: 4;
   margin: 0;
+  max-width: calc(100% - 24px);
+  width: max-content;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: var(--was-accent, #0C7FDF);
   color: #fff;
-  font-size: 13px;
-  font-weight: 500;
-  line-height: 1.3;
-  text-shadow: 0 1px 8px rgba(12, 28, 48, 0.45);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+  text-align: center;
+  text-shadow: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  box-shadow: 0 6px 16px rgba(12, 127, 223, 0.35);
+  transform: translateX(-50%);
   pointer-events: none;
+  display: block;
+  -webkit-line-clamp: unset;
+}
+
+.scale-o-watch-shop__card:has(.scale-o-watch-shop__product) .scale-o-watch-shop__video-title {
+  bottom: calc(var(--was-overlay-offset) + 58px);
 }
 
 .scale-o-watch-shop__play {
@@ -422,10 +440,10 @@
   color: var(--was-product-title);
   font-size: 12px;
   font-weight: 500;
-  line-height: 1.25;
+  line-height: 1.3;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 1;
+  -webkit-line-clamp: 2;
   overflow: hidden;
 }
 

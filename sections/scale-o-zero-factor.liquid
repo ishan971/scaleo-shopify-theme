@@ -1,0 +1,184 @@
+{%- comment -%}
+  Scale-O Zero Factor USP — centered header + USP cards
+{%- endcomment -%}
+
+{{ 'scale-o-zero-factor.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign usp_blocks = section.blocks | where: 'type', 'usp'
+-%}
+
+<style>
+  #shopify-section-{{ section.id }} .scale-o-zf {
+    --szf-bg: {{ section.settings.background_color }};
+    --szf-heading: {{ section.settings.heading_color }};
+    --szf-text: {{ section.settings.text_color }};
+    --szf-accent: {{ section.settings.accent_color }};
+    --szf-card: {{ section.settings.card_background }};
+    --szf-radius: {{ section.settings.card_radius }}px;
+    --szf-max: {% if section.settings.max_width == 0 %}100%{% else %}{{ section.settings.max_width }}px{% endif %};
+    --szf-eyebrow-size: {{ section.settings.eyebrow_size }}px;
+    --szf-heading-size: {{ section.settings.heading_size_mobile }}px;
+    --szf-heading-size-desktop: {{ section.settings.heading_size_desktop }}px;
+    --szf-card-title-size: {{ section.settings.card_title_size }}px;
+    padding: {{ section.settings.padding_top_mobile }}px 0 {{ section.settings.padding_bottom_mobile }}px;
+  }
+  @media (min-width: 990px) {
+    #shopify-section-{{ section.id }} .scale-o-zf {
+      padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px;
+    }
+  }
+</style>
+
+<section
+  class="scale-o-zf"
+  data-animate="{% if section.settings.enable_animations %}true{% else %}false{% endif %}"
+  data-scale-o-zf
+  aria-label="{{ section.settings.heading | default: 'Our Zero Factor USP' | escape }}"
+>
+  <div class="scale-o-zf__inner">
+    {%- if section.settings.eyebrow != blank or section.settings.heading != blank -%}
+      <header class="scale-o-zf__header">
+        {%- if section.settings.eyebrow != blank -%}
+          <p class="scale-o-zf__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+        {%- endif -%}
+        {%- if section.settings.heading != blank -%}
+          <h2 class="scale-o-zf__heading">{{ section.settings.heading | escape }}</h2>
+        {%- endif -%}
+      </header>
+    {%- endif -%}
+
+    {%- if usp_blocks.size > 0 -%}
+      <ul class="scale-o-zf__grid" role="list">
+        {%- for block in usp_blocks -%}
+          {%- liquid
+            assign card_image = block.settings.image
+            assign fallback = ''
+            case forloop.index
+              when 1
+                assign fallback = 'scale-o-zf-cost.png'
+              when 2
+                assign fallback = 'scale-o-zf-electricity.png'
+              when 3
+                assign fallback = 'scale-o-zf-salt.png'
+              when 4
+                assign fallback = 'scale-o-zf-water.png'
+              when 5
+                assign fallback = 'scale-o-zf-maintenance.png'
+              when 6
+                assign fallback = 'scale-o-zf-manpower.png'
+            endcase
+          -%}
+          <li class="scale-o-zf__card" {{ block.shopify_attributes }}>
+            <div class="scale-o-zf__card-media">
+              {%- if card_image != blank -%}
+                {{
+                  card_image
+                  | image_url: width: 640
+                  | image_tag:
+                    loading: 'lazy',
+                    widths: '240,360,480,640',
+                    sizes: '(max-width: 767px) 46vw, (max-width: 989px) 30vw, 180px',
+                    alt: block.settings.title
+                }}
+              {%- elsif fallback != blank -%}
+                <img
+                  src="{{ fallback | asset_url }}"
+                  alt="{{ block.settings.title | escape }}"
+                  width="640"
+                  height="480"
+                  loading="lazy"
+                  decoding="async"
+                >
+              {%- endif -%}
+            </div>
+            {%- if block.settings.title != blank -%}
+              <p class="scale-o-zf__card-label">{{ block.settings.title | escape }}</p>
+            {%- endif -%}
+          </li>
+        {%- endfor -%}
+      </ul>
+    {%- endif -%}
+  </div>
+</section>
+
+<script>
+  (function () {
+    var root = document.querySelector('#shopify-section-{{ section.id }} [data-scale-o-zf]');
+    if (!root || root.getAttribute('data-animate') !== 'true') return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      root.classList.add('is-inview');
+      return;
+    }
+    if (!('IntersectionObserver' in window)) {
+      root.classList.add('is-inview');
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          root.classList.add('is-inview');
+          io.disconnect();
+        }
+      });
+    }, { threshold: 0.18 });
+    io.observe(root);
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Scale-O Zero Factor USP",
+  "tag": "section",
+  "class": "scale-o-zero-factor-section",
+  "max_blocks": 8,
+  "settings": [
+    { "type": "header", "content": "Content" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "SCALE-O USP" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Our Zero Factor USP" },
+    { "type": "header", "content": "Layout" },
+    { "type": "range", "id": "max_width", "label": "Maximum width", "min": 0, "max": 1400, "step": 20, "unit": "px", "default": 1200 },
+    { "type": "range", "id": "padding_top", "label": "Top padding (desktop)", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 48 },
+    { "type": "range", "id": "padding_bottom", "label": "Bottom padding (desktop)", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 56 },
+    { "type": "range", "id": "padding_top_mobile", "label": "Top padding (mobile)", "min": 0, "max": 80, "step": 4, "unit": "px", "default": 32 },
+    { "type": "range", "id": "padding_bottom_mobile", "label": "Bottom padding (mobile)", "min": 0, "max": 80, "step": 4, "unit": "px", "default": 40 },
+    { "type": "header", "content": "Typography" },
+    { "type": "range", "id": "eyebrow_size", "label": "Eyebrow size", "min": 11, "max": 16, "step": 1, "unit": "px", "default": 13 },
+    { "type": "range", "id": "heading_size_desktop", "label": "Heading size (desktop)", "min": 28, "max": 52, "step": 1, "unit": "px", "default": 40 },
+    { "type": "range", "id": "heading_size_mobile", "label": "Heading size (mobile)", "min": 22, "max": 36, "step": 1, "unit": "px", "default": 28 },
+    { "type": "range", "id": "card_title_size", "label": "Card title size", "min": 11, "max": 18, "step": 1, "unit": "px", "default": 14 },
+    { "type": "header", "content": "Colors" },
+    { "type": "color", "id": "background_color", "label": "Background", "default": "#FFFFFF" },
+    { "type": "color", "id": "heading_color", "label": "Heading", "default": "#0C7FDF" },
+    { "type": "color", "id": "text_color", "label": "Text", "default": "#3D4F6A" },
+    { "type": "color", "id": "accent_color", "label": "Accent", "default": "#0C7FDF" },
+    { "type": "color", "id": "card_background", "label": "Card background", "default": "#FFFFFF" },
+    { "type": "range", "id": "card_radius", "label": "Card corner radius", "min": 8, "max": 24, "step": 1, "unit": "px", "default": 14 },
+    { "type": "header", "content": "Motion" },
+    { "type": "checkbox", "id": "enable_animations", "label": "Enable entrance animation", "default": true }
+  ],
+  "blocks": [
+    {
+      "type": "usp",
+      "name": "USP card",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Card image", "info": "Leave empty to use the default graphic for this card order." },
+        { "type": "text", "id": "title", "label": "Title", "default": "Zero Operating Cost" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Scale-O Zero Factor USP",
+      "blocks": [
+        { "type": "usp", "settings": { "title": "Zero Operating Cost" } },
+        { "type": "usp", "settings": { "title": "Zero Electricity" } },
+        { "type": "usp", "settings": { "title": "Zero Salt" } },
+        { "type": "usp", "settings": { "title": "Zero Water Wastage" } },
+        { "type": "usp", "settings": { "title": "Zero Maintenance" } },
+        { "type": "usp", "settings": { "title": "Zero Manpower" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

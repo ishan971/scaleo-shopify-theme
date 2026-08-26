@@ -1,8 +1,9 @@
 {%- comment -%}
-  Scale-O PDP size links — Mini / Semi / Centi plus Plans and collection.
-  The current product is marked in place and not linked to itself.
+  Scale-O PDP sizes — Mini / Semi / Centi as full product-grid cards
+  (image, badges, specs, price, Shop Now), matching Shop by Products.
 {%- endcomment -%}
 
+{{ 'scale-o-product-grid.css' | asset_url | stylesheet_tag }}
 {{ 'scale-o-pdp-sizes.css' | asset_url | stylesheet_tag }}
 
 {%- liquid
@@ -29,15 +30,56 @@
     --sps-text: {{ section.settings.text_color }};
     --sps-accent: {{ section.settings.accent_color }};
     --sps-accent-hover: {{ section.settings.accent_hover_color }};
-    --sps-card: {{ section.settings.card_background }};
-    --sps-border: {{ section.settings.border_color }};
-    --sps-radius: {{ section.settings.card_radius }}px;
     --sps-pad-x: {{ section.settings.padding_x }}px;
     --sps-max: {% if section.settings.max_width == 0 %}100%{% else %}{{ section.settings.max_width }}px{% endif %};
     --sps-eyebrow-size: {{ section.settings.eyebrow_size }}px;
     --sps-heading-size: {{ section.settings.heading_size_mobile }}px;
     --sps-desc-size: {{ section.settings.description_size }}px;
-    --sps-shadow: {% if section.settings.show_card_shadow %}0 10px 28px rgba(16, 42, 67, 0.06){% else %}none{% endif %};
+
+    --spg-bg: {{ section.settings.background_color }};
+    --spg-accent: {{ section.settings.accent_color }};
+    --spg-eyebrow-color: {{ section.settings.accent_color }};
+    --spg-heading-color: {{ section.settings.heading_color }};
+    --spg-text-color: {{ section.settings.text_color }};
+    --spg-title-color: {{ section.settings.heading_color }};
+    --spg-price-color: {{ section.settings.price_color }};
+    --spg-compare-color: {{ section.settings.compare_price_color }};
+    --spg-discount-color: {{ section.settings.discount_color }};
+    --spg-spec-background: {{ section.settings.spec_background }};
+    --spg-spec-text-color: {{ section.settings.spec_text_color }};
+    --spg-spec-border-color: {{ section.settings.spec_border_color }};
+    --spg-spec-icon-color: {{ section.settings.spec_icon_color }};
+    --spg-card-bg: {{ section.settings.card_background }};
+    --spg-card-border: {{ section.settings.card_border_color }};
+    --spg-image-bg: {{ section.settings.image_background }};
+    --spg-button-bg: {{ section.settings.button_background }};
+    --spg-button-bg-hover: {{ section.settings.button_background_hover }};
+    --spg-button-text: {{ section.settings.button_text_color }};
+    --spg-badge-sale-bg: {{ section.settings.badge_sale_background }};
+    --spg-badge-sale-text: {{ section.settings.badge_sale_text }};
+    --spg-badge-best-bg: {{ section.settings.badge_best_seller_background }};
+    --spg-badge-best-text: {{ section.settings.badge_best_seller_text_color }};
+    --spg-badge-affordable-bg: {{ section.settings.badge_affordable_background }};
+    --spg-badge-affordable-text: {{ section.settings.badge_affordable_text_color }};
+    --spg-badge-popular-bg: {{ section.settings.badge_popular_background }};
+    --spg-badge-popular-text: {{ section.settings.badge_popular_text_color }};
+    --spg-badge-new-bg: {{ section.settings.badge_new_background }};
+    --spg-badge-new-text: {{ section.settings.badge_new_text_color }};
+    --spg-image-ratio: {{ section.settings.image_aspect_ratio | default: '1 / 1' }};
+    --spg-image-padding: {{ section.settings.image_padding | default: 12 }}px;
+    --spg-card-radius: {{ section.settings.card_radius }}px;
+    --spg-card-shadow: {% if section.settings.show_card_shadow %}0 4px 16px rgba(26, 43, 74, 0.06){% else %}none{% endif %};
+    --spg-card-shadow-hover: 0 8px 24px rgba(26, 43, 74, 0.1);
+    --spg-gap: 16px;
+    --spg-gap-mobile: 12px;
+    --spg-title-size: {{ section.settings.title_size | default: 15 }}px;
+    --spg-price-size: {{ section.settings.price_size | default: 20 }}px;
+    --spg-spec-size: {{ section.settings.spec_size | default: 12 }}px;
+    --spg-button-size: {{ section.settings.button_text_size | default: 14 }}px;
+    --spg-cols-desktop: 3;
+    --spg-cols-tablet: 2;
+    --spg-cols-mobile: 1;
+
     padding: {{ section.settings.padding_top_mobile }}px 0 {{ section.settings.padding_bottom_mobile }}px;
     background: var(--sps-bg);
   }
@@ -50,7 +92,7 @@
 </style>
 
 <section
-  class="scale-o-pdp-sizes"
+  class="scale-o-pdp-sizes scale-o-product-grid"
   role="navigation"
   aria-label="{{ section.settings.accessibility_label | default: 'Other Scale-O tank sizes' | escape }}"
 >
@@ -67,7 +109,8 @@
       {%- endif -%}
     </header>
 
-    <ul class="scale-o-pdp-sizes__grid">
+    <ul class="scale-o-pdp-sizes__grid scale-o-product-grid__track" role="list">
+      {%- assign card_index = 0 -%}
       {%- for block in section.blocks -%}
         {%- if block.type != 'size' or block.settings.enabled == false -%}
           {%- continue -%}
@@ -78,49 +121,26 @@
             assign size_product = all_products[block.settings.fallback_handle]
           endif
 
-          assign size_url = block.settings.url
-          if size_url == blank and size_product != blank
-            assign size_url = size_product.url
-          endif
-          if size_url == blank and block.settings.fallback_handle != blank
-            assign size_url = '/products/' | append: block.settings.fallback_handle
-          endif
-
-          assign size_title = block.settings.heading
-          if size_title == blank and size_product != blank
-            assign size_title = size_product.title
-          endif
-
           assign is_current = false
-          if current_handle != blank
-            if size_product != blank and size_product.handle == current_handle
-              assign is_current = true
-            elsif block.settings.fallback_handle != blank and block.settings.fallback_handle == current_handle
-              assign is_current = true
-            endif
+          if current_handle != blank and size_product != blank and size_product.handle == current_handle
+            assign is_current = true
+          elsif current_handle != blank and block.settings.fallback_handle != blank and block.settings.fallback_handle == current_handle
+            assign is_current = true
           endif
         -%}
-        {%- if size_title == blank or size_url == blank -%}
+        {%- if size_product == blank -%}
           {%- continue -%}
         {%- endif -%}
-        <li class="scale-o-pdp-sizes__item{% if is_current %} scale-o-pdp-sizes__item--current{% endif %}" {{ block.shopify_attributes }}>
-          {%- if is_current -%}
-            <div class="scale-o-pdp-sizes__card scale-o-pdp-sizes__card--current">
-              <span class="scale-o-pdp-sizes__badge">{{ section.settings.current_badge | default: 'This size' | escape }}</span>
-              <p class="scale-o-pdp-sizes__name">{{ size_title | escape }}</p>
-              {%- if block.settings.tank != blank -%}
-                <p class="scale-o-pdp-sizes__tank">{{ block.settings.tank | escape }}</p>
-              {%- endif -%}
-            </div>
-          {%- else -%}
-            <a class="scale-o-pdp-sizes__card" href="{{ size_url }}">
-              <p class="scale-o-pdp-sizes__name">{{ size_title | escape }}</p>
-              {%- if block.settings.tank != blank -%}
-                <p class="scale-o-pdp-sizes__tank">{{ block.settings.tank | escape }}</p>
-              {%- endif -%}
-              <span class="scale-o-pdp-sizes__go">{{ block.settings.link_label | default: 'View size' | escape }}</span>
-            </a>
-          {%- endif -%}
+        {%- assign card_index = card_index | plus: 1 -%}
+        <li class="scale-o-pdp-sizes__item scale-o-product-grid__slide{% if is_current %} is-current{% endif %}" {{ block.shopify_attributes }}>
+          {% render 'scale-o-product-card',
+            product: size_product,
+            section: section,
+            card_index: card_index,
+            is_current: is_current,
+            current_badge: section.settings.current_badge,
+            current_cta_text: section.settings.current_cta_text
+          %}
         </li>
       {%- endfor -%}
     </ul>
@@ -155,12 +175,43 @@
     { "type": "text", "id": "heading", "label": "Heading", "default": "Need a different tank size?" },
     { "type": "textarea", "id": "description", "label": "Description", "default": "Mini, Semi and Centi are sized for your overhead tank. Compare water softener price, or shop all models for home." },
     { "type": "text", "id": "current_badge", "label": "Current size badge", "default": "This size" },
+    { "type": "text", "id": "current_cta_text", "label": "Current size button text", "default": "This size" },
+
+    { "type": "header", "content": "Product card" },
+    { "type": "checkbox", "id": "show_badges", "label": "Show badges", "default": true },
+    { "type": "checkbox", "id": "show_specifications", "label": "Show specifications", "default": true },
+    { "type": "checkbox", "id": "show_spec_icons", "label": "Show spec icons", "default": true },
+    { "type": "checkbox", "id": "show_compare_at_price", "label": "Show compare-at price", "default": true },
+    { "type": "checkbox", "id": "show_discount", "label": "Show discount badge", "default": true },
+    { "type": "checkbox", "id": "use_rupee_symbol", "label": "Use ₹ symbol", "default": true },
+    { "type": "checkbox", "id": "show_ratings", "label": "Show ratings", "default": false },
+    { "type": "checkbox", "id": "show_shop_now_button", "label": "Show Shop Now button", "default": true },
+    { "type": "text", "id": "button_text", "label": "Shop Now button text", "default": "Shop Now" },
+    { "type": "checkbox", "id": "enable_image_hover", "label": "Enable image hover", "default": true },
+    { "type": "text", "id": "badge_best_seller_text", "label": "Best Seller badge text", "default": "Best Seller" },
+    { "type": "text", "id": "badge_most_affordable_text", "label": "Most Affordable badge text", "default": "Most Affordable" },
+    { "type": "text", "id": "badge_popular_text", "label": "Popular badge text", "default": "Popular" },
+    { "type": "text", "id": "badge_new_text", "label": "New badge text", "default": "New" },
+    {
+      "type": "select",
+      "id": "image_aspect_ratio",
+      "label": "Image aspect ratio",
+      "default": "1 / 1",
+      "options": [
+        { "value": "1 / 1", "label": "Square" },
+        { "value": "4 / 3", "label": "4:3" },
+        { "value": "5 / 4", "label": "5:4" }
+      ]
+    },
+    { "type": "range", "id": "image_padding", "label": "Image padding", "min": 0, "max": 24, "step": 2, "unit": "px", "default": 12 },
+
     { "type": "header", "content": "Plans and collection" },
     { "type": "checkbox", "id": "show_cta_row", "label": "Show Plans and collection buttons", "default": true },
     { "type": "text", "id": "plans_label", "label": "Plans button", "default": "Water softener price and plans" },
     { "type": "url", "id": "plans_url", "label": "Plans URL" },
     { "type": "text", "id": "collection_label", "label": "Collection button", "default": "Shop water softeners for home" },
-    { "type": "url", "id": "collection_url", "label": "Collection URL", "info": "Leave blank to use the water-softeners collection." },
+    { "type": "url", "id": "collection_url", "label": "Collection URL" },
+
     { "type": "header", "content": "Layout" },
     { "type": "range", "id": "max_width", "label": "Content width", "min": 900, "max": 1400, "step": 20, "unit": "px", "default": 1180 },
     { "type": "range", "id": "padding_x", "label": "Side padding", "min": 12, "max": 40, "step": 4, "unit": "px", "default": 20 },
@@ -168,11 +219,17 @@
     { "type": "range", "id": "padding_bottom", "label": "Bottom padding (desktop)", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 16 },
     { "type": "range", "id": "padding_top_mobile", "label": "Top padding (mobile)", "min": 24, "max": 80, "step": 4, "unit": "px", "default": 36 },
     { "type": "range", "id": "padding_bottom_mobile", "label": "Bottom padding (mobile)", "min": 16, "max": 80, "step": 4, "unit": "px", "default": 16 },
+
     { "type": "header", "content": "Typography" },
     { "type": "range", "id": "eyebrow_size", "label": "Eyebrow size", "min": 11, "max": 16, "step": 1, "unit": "px", "default": 13 },
     { "type": "range", "id": "heading_size_desktop", "label": "Heading size (desktop)", "min": 24, "max": 44, "step": 1, "unit": "px", "default": 32 },
     { "type": "range", "id": "heading_size_mobile", "label": "Heading size (mobile)", "min": 22, "max": 34, "step": 1, "unit": "px", "default": 26 },
     { "type": "range", "id": "description_size", "label": "Description size", "min": 14, "max": 18, "step": 1, "unit": "px", "default": 16 },
+    { "type": "range", "id": "title_size", "label": "Card title size", "min": 13, "max": 18, "step": 1, "unit": "px", "default": 15 },
+    { "type": "range", "id": "price_size", "label": "Price size", "min": 16, "max": 28, "step": 1, "unit": "px", "default": 20 },
+    { "type": "range", "id": "spec_size", "label": "Spec text size", "min": 10, "max": 14, "step": 1, "unit": "px", "default": 12 },
+    { "type": "range", "id": "button_text_size", "label": "Button text size", "min": 12, "max": 18, "step": 1, "unit": "px", "default": 14 },
+
     { "type": "header", "content": "Colors" },
     { "type": "color", "id": "background_color", "label": "Background", "default": "#F7FBFF" },
     { "type": "color", "id": "heading_color", "label": "Heading", "default": "#102A43" },
@@ -180,7 +237,28 @@
     { "type": "color", "id": "accent_color", "label": "Accent", "default": "#0C7FDF" },
     { "type": "color", "id": "accent_hover_color", "label": "Accent hover", "default": "#0A6BC4" },
     { "type": "color", "id": "card_background", "label": "Card background", "default": "#FFFFFF" },
-    { "type": "color", "id": "border_color", "label": "Card border", "default": "#DCEAF5" },
+    { "type": "color", "id": "card_border_color", "label": "Card border", "default": "#DCEAF5" },
+    { "type": "color", "id": "image_background", "label": "Image background", "default": "#F5F9FF" },
+    { "type": "color", "id": "price_color", "label": "Price", "default": "#22A06B" },
+    { "type": "color", "id": "compare_price_color", "label": "Compare price", "default": "#8A97A8" },
+    { "type": "color", "id": "discount_color", "label": "Discount badge text", "default": "#0C7FDF" },
+    { "type": "color", "id": "spec_background", "label": "Spec background", "default": "#FFFFFF" },
+    { "type": "color", "id": "spec_text_color", "label": "Spec text", "default": "#1A2B4A" },
+    { "type": "color", "id": "spec_border_color", "label": "Spec border", "default": "#E4ECF6" },
+    { "type": "color", "id": "spec_icon_color", "label": "Spec icon", "default": "#0C7FDF" },
+    { "type": "color", "id": "button_background", "label": "Button background", "default": "#0C7FDF" },
+    { "type": "color", "id": "button_background_hover", "label": "Button hover", "default": "#0A6BC4" },
+    { "type": "color", "id": "button_text_color", "label": "Button text", "default": "#FFFFFF" },
+    { "type": "color", "id": "badge_sale_background", "label": "Sale badge background", "default": "#0C7FDF" },
+    { "type": "color", "id": "badge_sale_text", "label": "Sale badge text", "default": "#FFFFFF" },
+    { "type": "color", "id": "badge_best_seller_background", "label": "Best Seller background", "default": "#22A06B" },
+    { "type": "color", "id": "badge_best_seller_text_color", "label": "Best Seller text", "default": "#FFFFFF" },
+    { "type": "color", "id": "badge_affordable_background", "label": "Most Affordable background", "default": "#C8F542" },
+    { "type": "color", "id": "badge_affordable_text_color", "label": "Most Affordable text", "default": "#1A2B4A" },
+    { "type": "color", "id": "badge_popular_background", "label": "Popular background", "default": "#0C7FDF" },
+    { "type": "color", "id": "badge_popular_text_color", "label": "Popular text", "default": "#FFFFFF" },
+    { "type": "color", "id": "badge_new_background", "label": "New background", "default": "#7C3AED" },
+    { "type": "color", "id": "badge_new_text_color", "label": "New text", "default": "#FFFFFF" },
     { "type": "range", "id": "card_radius", "label": "Card radius", "min": 8, "max": 24, "step": 1, "unit": "px", "default": 16 },
     { "type": "checkbox", "id": "show_card_shadow", "label": "Show card shadow", "default": true },
     { "type": "text", "id": "accessibility_label", "label": "Accessibility label", "default": "Other Scale-O tank sizes" }
@@ -188,15 +266,11 @@
   "blocks": [
     {
       "type": "size",
-      "name": "Size link",
+      "name": "Size product",
       "settings": [
         { "type": "checkbox", "id": "enabled", "label": "Show this size", "default": true },
         { "type": "product", "id": "product", "label": "Product" },
-        { "type": "text", "id": "fallback_handle", "label": "Fallback product handle", "info": "Used if no product is selected." },
-        { "type": "url", "id": "url", "label": "Override URL" },
-        { "type": "text", "id": "heading", "label": "Title", "default": "Scale-O Mini" },
-        { "type": "text", "id": "tank", "label": "Tank size", "default": "500L-750L overhead tanks" },
-        { "type": "text", "id": "link_label", "label": "Link label", "default": "View Mini" }
+        { "type": "text", "id": "fallback_handle", "label": "Fallback product handle", "info": "Used if no product is selected." }
       ]
     }
   ],
@@ -204,33 +278,9 @@
     {
       "name": "Scale-O PDP sizes",
       "blocks": [
-        {
-          "type": "size",
-          "settings": {
-            "heading": "Scale-O Mini",
-            "tank": "500L-750L overhead tanks",
-            "fallback_handle": "mini-water-softener-500l-750l-tanks",
-            "link_label": "View Mini"
-          }
-        },
-        {
-          "type": "size",
-          "settings": {
-            "heading": "Scale-O Semi",
-            "tank": "1000L-1500L overhead tanks",
-            "fallback_handle": "semi-water-softener-1000l-1500l-tanks",
-            "link_label": "View Semi"
-          }
-        },
-        {
-          "type": "size",
-          "settings": {
-            "heading": "Scale-O Centi",
-            "tank": "2000L-2500L overhead tanks",
-            "fallback_handle": "centi-water-softener-2000l-2500l-tanks",
-            "link_label": "View Centi"
-          }
-        }
+        { "type": "size", "settings": { "fallback_handle": "mini-water-softener-500l-750l-tanks" } },
+        { "type": "size", "settings": { "fallback_handle": "semi-water-softener-1000l-1500l-tanks" } },
+        { "type": "size", "settings": { "fallback_handle": "centi-water-softener-2000l-2500l-tanks" } }
       ]
     }
   ]

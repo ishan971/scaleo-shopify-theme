@@ -8,10 +8,32 @@
   endif
   assign logo_image = block.settings.image
   assign logo_url = block.settings.image_by_url
-  assign logo_asset = 'scale-o-nm-logo-' | append: card_index | append: '.jpg'
   assign logo_alt = block.settings.image_alt | default: display_name | default: 'Recognition'
+
+  assign pub_key = display_name | downcase | strip
+  assign logo_asset = blank
+  assign logo_tone = 'default'
+
+  if pub_key contains 'divya'
+    assign logo_asset = 'scale-o-nm-divya.png'
+  elsif pub_key contains 'news18' or pub_key contains 'news 18'
+    assign logo_asset = 'scale-o-nm-news18.png'
+    assign logo_tone = 'bleed'
+  elsif pub_key contains 'ahmedabad' or pub_key contains 'mirror'
+    assign logo_asset = 'scale-o-nm-mirror.png'
+  elsif pub_key contains 'abp'
+    assign logo_asset = 'scale-o-nm-abp.png'
+    assign logo_tone = 'bleed'
+  elsif pub_key contains 'zee'
+    assign logo_asset = 'scale-o-nm-zee.png'
+  elsif pub_key contains 'book of innovations' or pub_key contains 'goi'
+    assign logo_asset = 'scale-o-nm-goi.jpg'
+  elsif card_index != blank and card_index <= 6
+    assign logo_asset = 'scale-o-nm-logo-' | append: card_index | append: '.jpg'
+  endif
+
   assign use_theme_logo = false
-  if logo_image == blank and logo_url == blank and card_index != blank and card_index <= 6
+  if logo_image == blank and logo_url == blank and logo_asset != blank
     assign use_theme_logo = true
   endif
 -%}
@@ -22,7 +44,7 @@
     {{ block.shopify_attributes }}
   {% endif %}
 >
-  <span class="scale-o-nm__logo">
+  <span class="scale-o-nm__logo scale-o-nm__logo--{{ logo_tone }}">
     {%- if logo_image != blank -%}
       {{
         logo_image

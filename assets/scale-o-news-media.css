@@ -124,7 +124,7 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 72px;
+  height: 76px;
 }
 
 .scale-o-nm__logo img {
@@ -135,6 +135,13 @@
   max-height: 64px;
   object-fit: contain;
   object-position: center;
+}
+
+.scale-o-nm__logo--bleed img {
+  max-width: 118px;
+  max-height: 72px;
+  border-radius: 8px;
+  box-shadow: 0 1px 0 rgba(20, 43, 74, 0.06);
 }
 
 .scale-o-nm__name {

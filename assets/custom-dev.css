@@ -2225,7 +2225,7 @@
 }
 .specs-acc__body {
   padding: 0 0 20px;
-  color: #6b7280;
+  color: #243b53;
   font-size: 14px;
   line-height: 1.55;
   font-weight: 400;
@@ -2265,7 +2265,7 @@
   padding: 7px 0;
   border-bottom: 1px solid #f0f0f0;
   font-size: 14px;
-  color: #6b7280;
+  color: #1a2b4a;
 }
 .specs-acc__row > div:first-child {
   text-align: left;
@@ -2275,12 +2275,18 @@
 .specs-acc__row > div:nth-child(2),
 .specs-acc__row > div:nth-child(3) {
   text-align: center;
+  color: #1a2b4a;
+  font-weight: 500;
 }
 .specs-acc__row--head {
   font-weight: 600;
   color: #1a2b4a;
   border-bottom: 1px solid #e5e7eb;
   padding-top: 0;
+}
+.specs-acc__row--head > div {
+  color: #1a2b4a;
+  font-weight: 600;
 }
 .specs-acc__row--head > div:first-child {
   font-weight: 600;
@@ -2301,6 +2307,7 @@
 }
 .specs-acc__kv-row {
   border-bottom: 1px solid #eef2f6;
+  background: #fff;
 }
 .specs-acc__kv-row:last-child {
   border-bottom: 0;
@@ -2322,11 +2329,13 @@
   font-weight: 700;
   color: #1a2b4a;
   border-right: 1px solid #eef2f6;
+  background: inherit;
 }
 .specs-acc__kv-value {
   width: 66%;
-  font-weight: 400;
-  color: #5a6b85;
+  font-weight: 500;
+  color: #1a2b4a;
+  background: inherit;
 }
 .specs-acc__kv-value ul,
 .specs-acc__kv-value ol {
@@ -2353,6 +2362,16 @@
     display: grid;
     grid-template-columns: minmax(120px, 38%) 1fr;
     border-right: 1px solid #eef2f6;
+    background: #fff;
+  }
+  /* Reset mobile odd/even so left/right columns match on the same visual row */
+  .specs-acc__kv-row:nth-child(odd),
+  .specs-acc__kv-row:nth-child(even) {
+    background: #fff;
+  }
+  .specs-acc__kv-row:nth-child(4n + 1),
+  .specs-acc__kv-row:nth-child(4n + 2) {
+    background: #f8fbfe;
   }
   .specs-acc__kv-row:nth-child(even) {
     border-right: 0;
@@ -2364,13 +2383,14 @@
   .specs-acc__kv-label,
   .specs-acc__kv-value {
     width: auto;
+    background: inherit;
   }
 }
 .specs-acc__body--rte,
 .specs-acc__body--rte p {
   text-align: left;
   font-size: 14px;
-  color: #6b7280;
+  color: #243b53;
   line-height: 1.55;
 }
 .specs-acc__body--rte a {

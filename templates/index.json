@@ -1026,7 +1026,7 @@
             "icon_style": "theme",
             "theme_icon": "scale",
             "title": "Scale & Mineral Buildup",
-            "description": "Hard-water minerals can leave deposits on everyday surfaces.",
+            "description": "",
             "link": ""
           }
         },
@@ -1036,7 +1036,7 @@
             "icon_style": "theme",
             "theme_icon": "appliance",
             "title": "Appliance Scaling",
-            "description": "Mineral buildup can affect water-using appliances.",
+            "description": "",
             "link": ""
           }
         },
@@ -1046,7 +1046,7 @@
             "icon_style": "theme",
             "theme_icon": "faucet",
             "title": "Tap & Shower Deposits",
-            "description": "Hard-water scale can accumulate around fixtures.",
+            "description": "",
             "link": ""
           }
         },
@@ -1056,7 +1056,7 @@
             "icon_style": "theme",
             "theme_icon": "home",
             "title": "Pipe Scale & Reduced Pressure",
-            "description": "Mineral buildup inside pipes can affect water flow across the home.",
+            "description": "",
             "link": ""
           }
         },
@@ -1067,7 +1067,7 @@
             "theme_icon": "shield",
             "short_label": "",
             "title": "Protects Appliances",
-            "description": "Helps reduce scale buildup in geysers, washing machines, dishwashers, and pipelines."
+            "description": ""
           }
         },
         "benefit_salt": {
@@ -1077,7 +1077,7 @@
             "theme_icon": "droplet",
             "short_label": "",
             "title": "Cleaner Bathrooms",
-            "description": "Reduces white stains and scaling on taps, showers, and tiles."
+            "description": ""
           }
         },
         "benefit_water": {
@@ -1087,7 +1087,7 @@
             "theme_icon": "water",
             "short_label": "",
             "title": "Better Water Flow",
-            "description": "Helps reduce mineral buildup inside plumbing systems."
+            "description": ""
           }
         },
         "benefit_maintenance": {
@@ -1097,7 +1097,7 @@
             "theme_icon": "home",
             "short_label": "",
             "title": "Whole House Protection",
-            "description": "Treats water at the overhead tank to help protect the entire home."
+            "description": ""
           }
         }
       },
@@ -1929,7 +1929,7 @@
         "header_alignment": "center",
         "highlight_color": "#0c7fdf",
         "highlight_background": "#e8f3fc",
-        "show_cta_banner": true,
+        "show_cta_banner": false,
         "banner_icon": "shield",
         "banner_heading": "Better water. Better life.",
         "banner_text": "Scale-O delivers salt-free, maintenance-free protection that’s simple, efficient and built for modern homes.",
@@ -2217,7 +2217,7 @@
         "show_arrows": true,
         "show_dots": true,
         "thumb_ratio": "16 / 10",
-        "show_trust": true,
+        "show_trust": false,
         "show_footer": true,
         "trust_statement": "Real experiences from Scale-O customers across India.",
         "show_cta": true,
@@ -2556,7 +2556,7 @@
             "enabled": true,
             "publication": "Divya Bhaskar",
             "title": "Innovation Coverage",
-            "image_alt": "",
+            "image_alt": "Divya Bhaskar",
             "image_by_url": ""
           }
         },
@@ -2566,7 +2566,7 @@
             "enabled": true,
             "publication": "News 18",
             "title": "Founder with CM of Gujarat",
-            "image_alt": "",
+            "image_alt": "News 18",
             "image_by_url": ""
           }
         },
@@ -2576,7 +2576,7 @@
             "enabled": true,
             "publication": "Ahmedabad Mirror",
             "title": "Business Coverage",
-            "image_alt": "",
+            "image_alt": "Ahmedabad Mirror",
             "image_by_url": ""
           }
         },
@@ -2594,9 +2594,9 @@
           "type": "item",
           "settings": {
             "enabled": true,
-            "publication": "ABP TV",
+            "publication": "ABP News",
             "title": "Product Footage",
-            "image_alt": "",
+            "image_alt": "ABP News",
             "image_by_url": ""
           }
         },
@@ -2604,9 +2604,9 @@
           "type": "item",
           "settings": {
             "enabled": true,
-            "publication": "Zee Business OTT",
+            "publication": "Zee Business",
             "title": "Founder’s Pitch",
-            "image_alt": "",
+            "image_alt": "Zee Business",
             "image_by_url": ""
           }
         }
@@ -2624,8 +2624,8 @@
         "heading": "News & Media",
         "description": "Features, recognitions and media coverage that highlight Scale-O's innovation, impact and journey.",
         "enable_infinite_carousel": true,
-        "card_width": 200,
-        "card_height": 148,
+        "card_width": 208,
+        "card_height": 156,
         "card_gap": 16,
         "marquee_speed": 36,
         "show_inquiry": false,
@@ -2816,6 +2816,9 @@
         "eyebrow": "FAQ",
         "heading": "Frequently Asked Questions",
         "description": "Everything you need to know about Scale-O, installation, maintenance and protecting your home from hard-water scale.",
+        "filter_by_product": false,
+        "dynamic_product_copy": false,
+        "enable_faq_schema": true,
         "show_cta": true,
         "cta_button_text": "Chat on WhatsApp",
         "whatsapp_number": "919909963300",
@@ -2837,8 +2840,8 @@
         "padding_top_mobile": 28,
         "padding_bottom_mobile": 28,
         "eyebrow_size": 13,
-        "heading_size_desktop": 40,
-        "heading_size_mobile": 28,
+        "heading_size_desktop": 28,
+        "heading_size_mobile": 22,
         "description_size": 15,
         "question_size": 16,
         "answer_size": 15,

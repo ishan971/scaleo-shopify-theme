@@ -103,6 +103,7 @@
   font-weight: var(--font-weight-header);
   letter-spacing: var(--heading-letter-spacing);
   line-height: 1.3;
+  text-align: center;
 }
 
 .scale-o-solution__list {
@@ -116,7 +117,7 @@
 
 .scale-o-solution__card {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 12px;
   padding: 14px 16px;
   background: var(--sos-card-bg);

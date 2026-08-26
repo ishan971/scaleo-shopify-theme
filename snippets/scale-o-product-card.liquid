@@ -59,6 +59,11 @@
     assign show_cta = false
   endif
   assign cta_text = section.settings.button_text | default: 'Shop Now'
+  if is_current and current_cta_text != blank
+    assign cta_text = current_cta_text
+  elsif is_current
+    assign cta_text = 'This size'
+  endif
   assign show_spec_icons = true
   if section.settings.show_spec_icons == false
     assign show_spec_icons = false
@@ -77,12 +82,14 @@
   endif
 -%}
 
-<article class="scale-o-product-card" data-product-id="{{ product.id }}">
+<article class="scale-o-product-card{% if is_current %} scale-o-product-card--current{% endif %}" data-product-id="{{ product.id }}">
   <div class="scale-o-product-card__media-wrap{% if has_hover_image %} scale-o-product-card__media-wrap--has-hover{% endif %}">
-  {%- if show_badges -%}
+  {%- if show_badges or is_current -%}
     <div class="scale-o-product-card__badges" aria-hidden="true">
       <div class="scale-o-product-card__badges-left">
-        {%- if on_sale and show_discount -%}
+        {%- if is_current -%}
+          <span class="scale-o-product-card__badge scale-o-product-card__badge--current">{{ current_badge | default: 'This size' | escape }}</span>
+        {%- elsif on_sale and show_discount -%}
           <span class="scale-o-product-card__badge scale-o-product-card__badge--sale">-{{ discount_pct }}%</span>
         {%- endif -%}
       </div>

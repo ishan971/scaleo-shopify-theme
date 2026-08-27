@@ -67,6 +67,30 @@
   endif
 -%}
 
+{%- if request.page_type == 'product' -%}
+{%- liquid
+  assign rating_value = blank
+  assign review_count = 0
+  assign best_rating = 5
+  assign worst_rating = 1
+
+  if product.metafields.reviews.rating.value.rating != blank
+    assign rating_value = product.metafields.reviews.rating.value.rating
+    assign best_rating = product.metafields.reviews.rating.value.scale_max | default: 5
+    assign worst_rating = product.metafields.reviews.rating.value.scale_min | default: 1
+    assign review_count = product.metafields.reviews.rating_count.value | plus: 0
+  elsif product.metafields.reviews.rating.value != blank and product.metafields.reviews.rating_count.value != blank
+    assign rating_value = product.metafields.reviews.rating.value
+    assign review_count = product.metafields.reviews.rating_count.value | plus: 0
+  elsif product.metafields.ddreviews.content.total != blank and product.metafields.ddreviews.content.total > 0
+    assign rating_value = product.metafields.ddreviews.content.average_star
+    assign review_count = product.metafields.ddreviews.content.total | plus: 0
+  endif
+
+  assign price_valid_until = 'now' | date: '%s' | plus: 2592000 | date: '%Y-%m-%d'
+  assign return_url = request.origin | append: '/pages/refund-policy'
+-%}
+
 {%- if is_size_family -%}
 <script type="application/ld+json">
 {
@@ -123,6 +147,7 @@
             "url": {{ variant_url | json }},
             "priceCurrency": {{ cart.currency.iso_code | json }},
             "price": {{ variant_product.selected_or_first_available_variant.price | divided_by: 100.00 | json }},
+            "priceValidUntil": {{ price_valid_until | json }},
             "availability": "https://schema.org/{% if variant_product.available %}InStock{% else %}OutOfStock{% endif %}",
             "itemCondition": "https://schema.org/NewCondition",
             "seller": {
@@ -181,12 +206,32 @@
         "itemCondition": "https://schema.org/NewCondition",
         "price": {{ variant.price | divided_by: 100.00 | json }},
         "priceCurrency": {{ cart.currency.iso_code | json }},
+        "priceValidUntil": {{ price_valid_until | json }},
         "url": {{ request.origin | append: variant.url | json }},
         "seller": {
           "@id": {{ org_id | json }}
+        },
+        "hasMerchantReturnPolicy": {
+          "@type": "MerchantReturnPolicy",
+          "applicableCountry": "IN",
+          "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+          "merchantReturnDays": 7,
+          "returnMethod": "https://schema.org/ReturnByMail",
+          "returnFees": "https://schema.org/ReturnFeesCustomerResponsibility",
+          "url": {{ return_url | json }}
         }
       }{% unless forloop.last %},{% endunless %}
     {%- endfor -%}
   ]
+  {%- if rating_value != blank and review_count > 0 -%}
+  ,"aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": {{ rating_value | json }},
+    "reviewCount": {{ review_count | json }},
+    "bestRating": {{ best_rating | json }},
+    "worstRating": {{ worst_rating | json }}
+  }
+  {%- endif -%}
 }
 </script>
+{%- endif -%}

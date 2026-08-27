@@ -1,0 +1,139 @@
+{%- comment -%}
+  BreadcrumbList JSON-LD. Render once from scale-o-structured-data (header).
+  Trail matches snippets/breadcrumb.liquid, preferring the water-softeners collection on PDPs.
+{%- endcomment -%}
+{%- if request.page_type != 'index' -%}
+  {%- liquid
+    assign home_url = request.origin | append: routes.root_url
+    assign home_name = 'general.breadcrumbs.home' | t
+    assign pos = 1
+
+    assign crumb_collection = collection
+    if request.page_type == 'product'
+      if crumb_collection == blank or crumb_collection.handle == 'all' or crumb_collection.handle == 'all-products'
+        assign crumb_collection = blank
+        if product != blank
+          for col in product.collections
+            if col.handle == 'water-softeners'
+              assign crumb_collection = col
+              break
+            endif
+          endfor
+          if crumb_collection == blank
+            for col in product.collections
+              unless col.handle == 'all' or col.handle == 'all-products'
+                assign crumb_collection = col
+                break
+              endunless
+            endfor
+          endif
+        endif
+      endif
+    endif
+  -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": {{ pos }},
+      "name": {{ home_name | json }},
+      "item": {{ home_url | json }}
+    }
+    {%- case request.page_type -%}
+      {%- when 'product' -%}
+        {%- if crumb_collection != blank -%}
+          {%- assign pos = pos | plus: 1 -%}
+          ,{
+            "@type": "ListItem",
+            "position": {{ pos }},
+            "name": {{ crumb_collection.title | json }},
+            "item": {{ request.origin | append: crumb_collection.url | json }}
+          }
+        {%- endif -%}
+        {%- assign pos = pos | plus: 1 -%}
+        ,{
+          "@type": "ListItem",
+          "position": {{ pos }},
+          "name": {{ product.title | json }},
+          "item": {{ canonical_url | json }}
+        }
+      {%- when 'collection' -%}
+        {%- if current_tags != blank -%}
+          {%- assign pos = pos | plus: 1 -%}
+          ,{
+            "@type": "ListItem",
+            "position": {{ pos }},
+            "name": {{ collection.title | json }},
+            "item": {{ request.origin | append: collection.url | json }}
+          }
+          {%- assign pos = pos | plus: 1 -%}
+          ,{
+            "@type": "ListItem",
+            "position": {{ pos }},
+            "name": {{ current_tags | join: ' + ' | json }},
+            "item": {{ canonical_url | json }}
+          }
+        {%- else -%}
+          {%- assign pos = pos | plus: 1 -%}
+          ,{
+            "@type": "ListItem",
+            "position": {{ pos }},
+            "name": {{ collection.title | json }},
+            "item": {{ canonical_url | json }}
+          }
+        {%- endif -%}
+      {%- when 'article' -%}
+        {%- assign pos = pos | plus: 1 -%}
+        ,{
+          "@type": "ListItem",
+          "position": {{ pos }},
+          "name": {{ blog.title | json }},
+          "item": {{ request.origin | append: blog.url | json }}
+        }
+        {%- assign pos = pos | plus: 1 -%}
+        ,{
+          "@type": "ListItem",
+          "position": {{ pos }},
+          "name": {{ article.title | json }},
+          "item": {{ canonical_url | json }}
+        }
+      {%- when 'blog' -%}
+        {%- assign pos = pos | plus: 1 -%}
+        ,{
+          "@type": "ListItem",
+          "position": {{ pos }},
+          "name": {{ blog.title | json }},
+          "item": {{ canonical_url | json }}
+        }
+      {%- when 'page' -%}
+        {%- assign pos = pos | plus: 1 -%}
+        ,{
+          "@type": "ListItem",
+          "position": {{ pos }},
+          "name": {{ page.title | json }},
+          "item": {{ canonical_url | json }}
+        }
+      {%- when 'search' -%}
+        {%- assign pos = pos | plus: 1 -%}
+        ,{
+          "@type": "ListItem",
+          "position": {{ pos }},
+          "name": {{ 'general.search.heading' | t: count: search.results_count, terms: search.terms | json }},
+          "item": {{ canonical_url | json }}
+        }
+      {%- else -%}
+        {%- assign pos = pos | plus: 1 -%}
+        ,{
+          "@type": "ListItem",
+          "position": {{ pos }},
+          "name": {{ page_title | json }},
+          "item": {{ canonical_url | json }}
+        }
+    {%- endcase -%}
+  ]
+}
+</script>
+{%- endif -%}

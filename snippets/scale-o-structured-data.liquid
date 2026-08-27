@@ -1,11 +1,12 @@
 {%- comment -%}
-  Scale-O structured data: Organization (sitewide), WebSite (sitewide), WebPage (pages).
+  Scale-O structured data: Organization (sitewide), LocalBusiness (HQ), WebSite, WebPage, BreadcrumbList.
   Render from header with: {% render 'scale-o-structured-data', logo: section.settings.logo %}
 {%- endcomment -%}
 
 {%- liquid
   assign org_id = shop.url | append: '/#organization'
   assign website_id = shop.url | append: '/#website'
+  assign local_id = shop.url | append: '/#localbusiness'
   assign page_id = canonical_url
 
   assign logo_url = blank
@@ -14,6 +15,36 @@
     unless logo_url contains 'https:'
       assign logo_url = logo_url | prepend: 'https:'
     endunless
+  endif
+
+  assign lb_street = settings.local_business_street
+  if lb_street == blank
+    assign lb_street = shop.address.street
+  endif
+  assign lb_city = settings.local_business_city
+  if lb_city == blank
+    assign lb_city = shop.address.city | default: 'Ahmedabad'
+  endif
+  assign lb_region = settings.local_business_region
+  if lb_region == blank
+    assign lb_region = shop.address.province | default: 'Gujarat'
+  endif
+  assign lb_postal = settings.local_business_postal
+  if lb_postal == blank
+    assign lb_postal = shop.address.zip
+  endif
+  assign lb_country = settings.local_business_country
+  if lb_country == blank
+    assign lb_country = shop.address.country_code | default: 'IN'
+  endif
+
+  assign show_local_business = false
+  if request.page_type == 'index'
+    assign show_local_business = true
+  elsif request.page_type == 'page'
+    if page.handle == 'best-water-softener-in-ah' or page.handle contains 'ahmedabad' or page.handle contains 'contact' or page.handle contains 'about-us' or page.handle == 'about-2'
+      assign show_local_business = true
+    endif
   endif
 -%}
 
@@ -48,22 +79,105 @@
   {%- if same_as_items != blank -%}
   ,"sameAs": [{{ same_as_items }}]
   {%- endif -%}
-  {%- if settings.contact_phone_number != blank or settings.contact_email != blank -%}
-  ,"contactPoint": [{
-    "@type": "ContactPoint",
-    "contactType": "customer service"
-    {%- if settings.contact_phone_number != blank -%}
-    ,"telephone": {{ settings.contact_phone_number | json }}
+  ,"contactPoint": [
+    {
+      "@type": "ContactPoint",
+      "contactType": "sales",
+      "name": "Sales",
+      "telephone": {{ settings.contact_phone_number | default: '+91 99099 63304' | json }},
+      "email": {{ settings.contact_email | default: 'sales@scale-o.com' | json }},
+      "areaServed": "IN",
+      "availableLanguage": ["en", "hi"]
+    },
+    {
+      "@type": "ContactPoint",
+      "contactType": "customer service",
+      "name": "Support",
+      "telephone": {{ settings.contact_support_phone | default: '+91 99099 63300' | json }},
+      "email": {{ settings.contact_support_email | default: 'support@scale-o.com' | json }},
+      "areaServed": "IN",
+      "availableLanguage": ["en", "hi"]
+    }
+  ]
+  {%- if lb_city != blank -%}
+  ,"address": {
+    "@type": "PostalAddress"
+    {%- if lb_street != blank -%}
+    ,"streetAddress": {{ lb_street | json }}
     {%- endif -%}
-    {%- if settings.contact_email != blank -%}
-    ,"email": {{ settings.contact_email | json }}
+    ,"addressLocality": {{ lb_city | json }}
+    ,"addressRegion": {{ lb_region | json }}
+    {%- if lb_postal != blank -%}
+    ,"postalCode": {{ lb_postal | json }}
     {%- endif -%}
-    ,"areaServed": "IN",
-    "availableLanguage": ["en", "hi"]
-  }]
+    ,"addressCountry": {{ lb_country | json }}
+  }
   {%- endif -%}
 }
 </script>
+
+{%- if show_local_business -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": {{ local_id | json }},
+  "name": {{ shop.name | json }},
+  "url": {{ shop.url | json }},
+  "parentOrganization": {
+    "@id": {{ org_id | json }}
+  }
+  {%- if logo_url != blank -%}
+  ,"image": {{ logo_url | json }}
+  {%- endif -%}
+  {%- if settings.contact_phone_number != blank -%}
+  ,"telephone": {{ settings.contact_phone_number | json }}
+  {%- endif -%}
+  {%- if settings.contact_email != blank -%}
+  ,"email": {{ settings.contact_email | json }}
+  {%- endif -%}
+  ,"contactPoint": [
+    {
+      "@type": "ContactPoint",
+      "contactType": "sales",
+      "name": "Sales",
+      "telephone": {{ settings.contact_phone_number | default: '+91 99099 63304' | json }},
+      "email": {{ settings.contact_email | default: 'sales@scale-o.com' | json }},
+      "areaServed": "IN",
+      "availableLanguage": ["en", "hi"]
+    },
+    {
+      "@type": "ContactPoint",
+      "contactType": "customer service",
+      "name": "Support",
+      "telephone": {{ settings.contact_support_phone | default: '+91 99099 63300' | json }},
+      "email": {{ settings.contact_support_email | default: 'support@scale-o.com' | json }},
+      "areaServed": "IN",
+      "availableLanguage": ["en", "hi"]
+    }
+  ]
+  ,"address": {
+    "@type": "PostalAddress"
+    {%- if lb_street != blank -%}
+    ,"streetAddress": {{ lb_street | json }}
+    {%- endif -%}
+    ,"addressLocality": {{ lb_city | json }}
+    ,"addressRegion": {{ lb_region | json }}
+    {%- if lb_postal != blank -%}
+    ,"postalCode": {{ lb_postal | json }}
+    {%- endif -%}
+    ,"addressCountry": {{ lb_country | json }}
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "IN"
+  },
+  "priceRange": "₹₹"
+}
+</script>
+{%- endif -%}
+
+{% render 'scale-o-breadcrumb-schema' %}
 
 {%- assign search_target = shop.url | append: routes.search_url | append: '?q={search_term_string}' -%}
 <script type="application/ld+json">

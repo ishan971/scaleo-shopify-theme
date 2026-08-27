@@ -1292,6 +1292,18 @@
   </div>
 </div>
 
+{%- if request.page_type == 'page' and page.handle contains 'best-water-softener' -%}
+  {%- capture city_faq_html -%}
+    {%- for block in section.blocks -%}
+      {%- if block.type == 'liquid' -%}{{ block.settings.custom_liquid }}{%- endif -%}
+      {%- if block.type == 'html' -%}{{ block.settings.code }}{%- endif -%}
+    {%- endfor -%}
+  {%- endcapture -%}
+  {%- if city_faq_html contains 'faq-item' -%}
+    {% render 'scale-o-html-faq-schema', faq_html: city_faq_html %}
+  {%- endif -%}
+{%- endif -%}
+
 {% schema %}
 {
   "name": "Custom content",

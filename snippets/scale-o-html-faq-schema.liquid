@@ -1,0 +1,84 @@
+{%- comment -%}
+  FAQPage JSON-LD from visible HTML.
+  - City / custom liquid: .faq-item + h4 + .faq-answer
+  - Articles: h2 whose heading contains FAQ / questions, then h3 + answer
+{%- endcomment -%}
+{%- liquid
+  assign faq_html = faq_html | default: ''
+  assign faq_entities = ''
+  assign faq_count = 0
+-%}
+
+{%- if faq_html contains 'faq-answer' and faq_html contains '<h4' -%}
+  {%- assign faq_chunks = faq_html | split: 'class="faq-item"' -%}
+  {%- for chunk in faq_chunks -%}
+    {%- if forloop.first -%}{%- continue -%}{%- endif -%}
+    {%- if chunk contains '<h4' -%}
+      {%- assign faq_q = chunk | split: '<h4' | last | split: '</h4>' | first | split: '>' | last | strip_html | strip -%}
+      {%- assign faq_a = chunk | split: 'faq-answer">' | last | split: '</div>' | first | strip_html | strip -%}
+      {%- if faq_q != blank and faq_a != blank -%}
+        {%- assign faq_count = faq_count | plus: 1 -%}
+        {%- capture faq_entities -%}
+          {{- faq_entities -}}
+          {%- if faq_count > 1 -%},{%- endif -%}
+          {
+            "@type": "Question",
+            "name": {{ faq_q | json }},
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": {{ faq_a | json }}
+            }
+          }
+        {%- endcapture -%}
+      {%- endif -%}
+    {%- endif -%}
+  {%- endfor -%}
+{%- elsif faq_html contains '<h2' or faq_html contains '<h3' -%}
+  {%- assign h2_chunks = faq_html | split: '<h2' -%}
+  {%- assign faq_section = blank -%}
+  {%- for chunk in h2_chunks -%}
+    {%- if forloop.first -%}{%- continue -%}{%- endif -%}
+    {%- assign chunk_check = chunk | downcase -%}
+    {%- if chunk_check contains 'faq'
+      or chunk_check contains 'buyer questions'
+      or chunk_check contains 'questions (short'
+      or chunk_check contains 'frequently asked'
+    -%}
+      {%- assign faq_section = chunk -%}
+      {%- break -%}
+    {%- endif -%}
+  {%- endfor -%}
+  {%- if faq_section != blank -%}
+    {%- assign h3_chunks = faq_section | split: '<h3' -%}
+    {%- for chunk in h3_chunks -%}
+      {%- if forloop.first -%}{%- continue -%}{%- endif -%}
+      {%- assign faq_q = chunk | split: '</h3>' | first | split: '>' | last | strip_html | strip -%}
+      {%- assign faq_a = chunk | split: '</h3>' | last | strip_html | strip -%}
+      {%- if faq_q != blank and faq_a != blank -%}
+        {%- assign faq_count = faq_count | plus: 1 -%}
+        {%- capture faq_entities -%}
+          {{- faq_entities -}}
+          {%- if faq_count > 1 -%},{%- endif -%}
+          {
+            "@type": "Question",
+            "name": {{ faq_q | json }},
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": {{ faq_a | json }}
+            }
+          }
+        {%- endcapture -%}
+      {%- endif -%}
+    {%- endfor -%}
+  {%- endif -%}
+{%- endif -%}
+
+{%- if faq_count > 0 and faq_entities != blank -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [{{ faq_entities }}]
+}
+</script>
+{%- endif -%}

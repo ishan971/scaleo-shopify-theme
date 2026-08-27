@@ -2145,21 +2145,78 @@
         "content": "[Watch tutorial](https://foxecom.link/H0hiW4)"
       },
       {
+        "type": "header",
+        "content": "Sales"
+      },
+      {
         "type": "text",
         "id": "contact_phone_number",
-        "label": "Phone number",
-        "default": "+84 (0)387 392 056"
+        "label": "Sales phone",
+        "default": "+91 99099 63304"
       },
       {
         "type": "text",
         "id": "contact_email",
-        "label": "Email",
-        "default": "hello@domain.com"
+        "label": "Sales email",
+        "default": "sales@scale-o.com"
+      },
+      {
+        "type": "header",
+        "content": "Support"
+      },
+      {
+        "type": "text",
+        "id": "contact_support_phone",
+        "label": "Support phone",
+        "default": "+91 99099 63300"
+      },
+      {
+        "type": "text",
+        "id": "contact_support_email",
+        "label": "Support email",
+        "default": "support@scale-o.com"
       },
       {
         "type": "page",
         "id": "find_store",
         "label": "Find store page"
+      },
+      {
+        "type": "header",
+        "content": "Local business (SEO schema)"
+      },
+      {
+        "type": "paragraph",
+        "content": "Used for LocalBusiness JSON-LD on the homepage and Ahmedabad page. HQ only. Do not invent other city storefronts."
+      },
+      {
+        "type": "text",
+        "id": "local_business_street",
+        "label": "Street address"
+      },
+      {
+        "type": "text",
+        "id": "local_business_city",
+        "label": "City",
+        "default": "Ahmedabad"
+      },
+      {
+        "type": "text",
+        "id": "local_business_region",
+        "label": "State / region",
+        "default": "Gujarat"
+      },
+      {
+        "type": "text",
+        "id": "local_business_postal",
+        "label": "Postal code"
+      },
+      {
+        "type": "text",
+        "id": "local_business_country",
+        "label": "Country code",
+        "default": "IN",
+        "info": "ISO country code, e.g. IN"
       },
       {
         "type": "header",

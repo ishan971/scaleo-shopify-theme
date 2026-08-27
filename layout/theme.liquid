@@ -19,6 +19,15 @@
   if template.suffix == 'about-us'
     assign body_classes = body_classes | append: ' sf__page-about'
   endif
+  if template.name == 'collection'
+    assign scale_o_water_softeners_collection = false
+    if collection.handle == 'water-softeners' or collection.handle == 'water_softeners' or template.suffix == 'water-softener-for-house'
+      assign scale_o_water_softeners_collection = true
+    endif
+    if scale_o_water_softeners_collection
+      assign body_classes = body_classes | append: ' scale-o-collection-water-softeners'
+    endif
+  endif
 %}
 <!doctype html>
 <html
@@ -98,7 +107,9 @@ button.gI3IJqrf7p{
  
  
 .m-main-product--info  m-quantity-input.m-quantity button.m-quantity__button {
-    display: block !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
 }
  
 .m-main-product--info button.m-add-to-cart {
@@ -169,6 +180,9 @@ button.gI3IJqrf7p{
     {% render 'critical-css' %}
     {{ 'main.css' | asset_url | stylesheet_tag }}
     {{ 'custom-dev.css' | asset_url | stylesheet_tag }}
+    <style id="so-cart-drawer-hide">
+      #MinimogCartDrawer:not(.m-cart-drawer--active) { display: none !important; }
+    </style>
     {% render 'style-tags' %}
     <script src="{{ 'vendor.min.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'theme-global.js' | asset_url }}" defer="defer"></script>

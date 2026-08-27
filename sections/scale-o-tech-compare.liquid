@@ -136,7 +136,7 @@
               <tr>
                 {%- if section.settings.show_features -%}
                   <th class="scale-o-compare__corner" scope="col">
-                    <span>{{ section.settings.tech_criteria_heading | default: 'Comparison criteria' | escape }}</span>
+                    <span>{{ section.settings.tech_criteria_heading | default: 'TECHNOLOGY' | escape }}</span>
                   </th>
                 {%- endif -%}
                 {%- assign visible = 0 -%}
@@ -273,6 +273,12 @@
               assign lose_brand_title = 'Core competitors'
               assign win_index = 1
               assign lose_index = 2
+              assign win_brand_image = blank
+              assign win_brand_image_mobile = blank
+              assign win_brand_image_alt = 'Scale-O'
+              assign lose_brand_image = blank
+              assign lose_brand_image_mobile = blank
+              assign lose_brand_image_alt = 'Core competitors'
               assign visible = 0
               assign found_win = false
               assign found_lose = false
@@ -288,12 +294,18 @@
                 if brand.settings.highlight and found_win == false
                   assign win_brand_title = brand.settings.title
                   assign win_index = visible
+                  assign win_brand_image = brand.settings.image
+                  assign win_brand_image_mobile = brand.settings.image_mobile
+                  assign win_brand_image_alt = brand.settings.image_alt | default: brand.settings.title
                   assign found_win = true
                 endif
                 unless brand.settings.highlight
                   if found_lose == false
                     assign lose_brand_title = brand.settings.title
                     assign lose_index = visible
+                    assign lose_brand_image = brand.settings.image
+                    assign lose_brand_image_mobile = brand.settings.image_mobile
+                    assign lose_brand_image_alt = brand.settings.image_alt | default: brand.settings.title
                     assign found_lose = true
                   endif
                 endunless
@@ -311,6 +323,9 @@
                   endif
                   assign win_brand_title = brand.settings.title
                   assign win_index = visible
+                  assign win_brand_image = brand.settings.image
+                  assign win_brand_image_mobile = brand.settings.image_mobile
+                  assign win_brand_image_alt = brand.settings.image_alt | default: brand.settings.title
                   break
                 endfor
               endif
@@ -328,101 +343,127 @@
                   if visible != win_index
                     assign lose_brand_title = brand.settings.title
                     assign lose_index = visible
+                    assign lose_brand_image = brand.settings.image
+                    assign lose_brand_image_mobile = brand.settings.image_mobile
+                    assign lose_brand_image_alt = brand.settings.image_alt | default: brand.settings.title
                     break
                   endif
                 endfor
               endif
             -%}
 
-            <div class="scale-o-versus-rows__cols" aria-hidden="true">
-              <span class="scale-o-versus-rows__col scale-o-versus-rows__col--feature">Feature</span>
-              <span class="scale-o-versus-rows__col-group">
-                <span class="scale-o-versus-rows__col scale-o-versus-rows__col--win">{{ win_brand_title | escape }}</span>
-                <span class="scale-o-versus-rows__col-spacer"></span>
-                <span class="scale-o-versus-rows__col scale-o-versus-rows__col--lose">{{ lose_brand_title | escape }}</span>
-              </span>
+            <div class="scale-o-versus-table-wrap" tabindex="0">
+              <table class="scale-o-versus-table">
+                <caption class="scale-o-compare__sr-only">{{ section.settings.heading | default: 'Competitor comparison' | escape }}</caption>
+                <thead>
+                  <tr>
+                    <th scope="col" class="scale-o-versus-table__th scale-o-versus-table__th--feature">Feature</th>
+                    <th scope="col" class="scale-o-versus-table__th scale-o-versus-table__th--win">
+                      <div class="scale-o-versus-table__head-cell">
+                        <div class="scale-o-versus-table__head-photo">
+                          {%- if win_brand_image != blank -%}
+                            <picture>
+                              {%- if win_brand_image_mobile != blank -%}
+                                <source media="(max-width: 767px)" srcset="{{ win_brand_image_mobile | image_url: width: 320 }}">
+                              {%- endif -%}
+                              {{
+                                win_brand_image
+                                | image_url: width: 480
+                                | image_tag:
+                                  loading: 'lazy',
+                                  widths: '160,240,320,480',
+                                  sizes: '(max-width: 767px) 28vw, 180px',
+                                  alt: win_brand_image_alt | escape
+                              }}
+                            </picture>
+                          {%- else -%}
+                            <img src="{{ 'scale-o-solution-product.png' | asset_url }}" alt="{{ win_brand_image_alt | escape }}" width="480" height="360" loading="lazy">
+                          {%- endif -%}
+                        </div>
+                        <p class="scale-o-versus-table__head-title">{{ win_brand_title | escape }}</p>
+                      </div>
+                    </th>
+                    <th scope="col" class="scale-o-versus-table__th scale-o-versus-table__th--lose">
+                      <div class="scale-o-versus-table__head-cell">
+                        <div class="scale-o-versus-table__head-photo">
+                          {%- if lose_brand_image != blank -%}
+                            <picture>
+                              {%- if lose_brand_image_mobile != blank -%}
+                                <source media="(max-width: 767px)" srcset="{{ lose_brand_image_mobile | image_url: width: 320 }}">
+                              {%- endif -%}
+                              {{
+                                lose_brand_image
+                                | image_url: width: 480
+                                | image_tag:
+                                  loading: 'lazy',
+                                  widths: '160,240,320,480',
+                                  sizes: '(max-width: 767px) 28vw, 180px',
+                                  alt: lose_brand_image_alt | escape
+                              }}
+                            </picture>
+                          {%- else -%}
+                            <div class="scale-o-versus-table__head-placeholder" aria-hidden="true">
+                              {% render 'scale-o-compare-icon', icon: 'factory', class: 'scale-o-compare__icon-svg' %}
+                            </div>
+                          {%- endif -%}
+                        </div>
+                        <p class="scale-o-versus-table__head-title">{{ lose_brand_title | escape }}</p>
+                      </div>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {%- for row in competitor_rows -%}
+                    {%- if row.settings.enabled == false -%}{%- continue -%}{%- endif -%}
+                    {%- liquid
+                      assign win_value = ''
+                      assign lose_value = ''
+                      assign win_status = 'neutral'
+                      assign lose_status = 'neutral'
+                      case win_index
+                        when 1
+                          assign win_value = row.settings.value_1
+                          assign win_status = row.settings.status_1
+                        when 2
+                          assign win_value = row.settings.value_2
+                          assign win_status = row.settings.status_2
+                        when 3
+                          assign win_value = row.settings.value_3
+                          assign win_status = row.settings.status_3
+                        when 4
+                          assign win_value = row.settings.value_4
+                          assign win_status = row.settings.status_4
+                      endcase
+                      case lose_index
+                        when 1
+                          assign lose_value = row.settings.value_1
+                          assign lose_status = row.settings.status_1
+                        when 2
+                          assign lose_value = row.settings.value_2
+                          assign lose_status = row.settings.status_2
+                        when 3
+                          assign lose_value = row.settings.value_3
+                          assign lose_status = row.settings.status_3
+                        when 4
+                          assign lose_value = row.settings.value_4
+                          assign lose_status = row.settings.status_4
+                      endcase
+                    -%}
+                    <tr class="scale-o-versus-table__row" {{ row.shopify_attributes }}>
+                      <th scope="row" class="scale-o-versus-table__feature">
+                        <span class="scale-o-versus-table__feature-title">{{ row.settings.title | escape }}</span>
+                      </th>
+                      <td class="scale-o-versus-table__td scale-o-versus-table__td--win" data-col="{{ win_brand_title | escape }}">
+                        {% render 'scale-o-compare-cell', value: win_value, status: win_status, featured: true, short_label: win_brand_title %}
+                      </td>
+                      <td class="scale-o-versus-table__td scale-o-versus-table__td--lose" data-col="{{ lose_brand_title | escape }}">
+                        {% render 'scale-o-compare-cell', value: lose_value, status: lose_status, featured: false, short_label: lose_brand_title %}
+                      </td>
+                    </tr>
+                  {%- endfor -%}
+                </tbody>
+              </table>
             </div>
-
-            <ol class="scale-o-versus-rows" role="list" aria-label="{{ section.settings.heading | default: 'Competitor comparison' | escape }}">
-              {%- assign row_num = 0 -%}
-              {%- for row in competitor_rows -%}
-                {%- if row.settings.enabled == false -%}{%- continue -%}{%- endif -%}
-                {%- assign row_num = row_num | plus: 1 -%}
-                {%- liquid
-                  assign row_icon = row.settings.theme_icon | default: 'droplet'
-                  assign win_value = ''
-                  assign lose_value = ''
-                  case win_index
-                    when 1
-                      assign win_value = row.settings.value_1
-                    when 2
-                      assign win_value = row.settings.value_2
-                    when 3
-                      assign win_value = row.settings.value_3
-                    when 4
-                      assign win_value = row.settings.value_4
-                  endcase
-                  case lose_index
-                    when 1
-                      assign lose_value = row.settings.value_1
-                    when 2
-                      assign lose_value = row.settings.value_2
-                    when 3
-                      assign lose_value = row.settings.value_3
-                    when 4
-                      assign lose_value = row.settings.value_4
-                  endcase
-                  if row_num < 10
-                    assign row_index_label = row_num | prepend: '0'
-                  else
-                    assign row_index_label = row_num
-                  endif
-                -%}
-                <li class="scale-o-versus-rows__item" {{ row.shopify_attributes }}>
-                  <article class="scale-o-versus-rows__card">
-                    <div class="scale-o-versus-rows__criterion">
-                      <span class="scale-o-versus-rows__index" aria-hidden="true">{{ row_index_label }}</span>
-                      {%- if row_icon != 'none' -%}
-                        <span class="scale-o-versus-rows__icon scale-o-versus-rows__icon--win" aria-hidden="true">
-                          {% render 'scale-o-compare-icon', icon: row_icon, class: 'scale-o-compare__icon-svg' %}
-                        </span>
-                      {%- endif -%}
-                      <div class="scale-o-versus-rows__copy">
-                        <h3 class="scale-o-versus-rows__title">{{ row.settings.title | escape }}</h3>
-                      </div>
-                    </div>
-
-                    <div class="scale-o-versus-rows__sides">
-                      <div class="scale-o-versus-rows__side scale-o-versus-rows__side--win">
-                        <span class="scale-o-versus-rows__mark scale-o-versus-rows__mark--win" aria-hidden="true">
-                          <svg viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.2 3.2L13 4.8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                        </span>
-                        <div class="scale-o-versus-rows__side-copy">
-                          <p class="scale-o-versus-rows__brand scale-o-versus-rows__brand--mobile">{{ win_brand_title | escape }}</p>
-                          {%- if win_value != blank -%}
-                            <p class="scale-o-versus-rows__text">{{ win_value | escape }}</p>
-                          {%- endif -%}
-                        </div>
-                      </div>
-
-                      <span class="scale-o-versus-rows__vs" aria-hidden="true">VS</span>
-
-                      <div class="scale-o-versus-rows__side scale-o-versus-rows__side--lose">
-                        <span class="scale-o-versus-rows__mark scale-o-versus-rows__mark--lose" aria-hidden="true">
-                          <svg viewBox="0 0 16 16" fill="none"><path d="M4 4l8 8M12 4 4 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-                        </span>
-                        <div class="scale-o-versus-rows__side-copy">
-                          <p class="scale-o-versus-rows__opp-title scale-o-versus-rows__brand--mobile">{{ lose_brand_title | escape }}</p>
-                          {%- if lose_value != blank -%}
-                            <p class="scale-o-versus-rows__text">{{ lose_value | escape }}</p>
-                          {%- endif -%}
-                        </div>
-                      </div>
-                    </div>
-                  </article>
-                </li>
-              {%- endfor -%}
-            </ol>
           {%- endif -%}
 
           {%- if section.settings.competitor_note != blank -%}
@@ -500,7 +541,7 @@
     { "type": "checkbox", "id": "show_tech_description", "label": "Show technology description", "default": true },
     { "type": "textarea", "id": "tech_description", "label": "Technology description", "default": "See how Scale-O compares with salt-based, electromagnetic and multi-media systems for household scale protection." },
     { "type": "checkbox", "id": "show_features", "label": "Show comparison table", "default": true },
-    { "type": "text", "id": "tech_criteria_heading", "label": "Table first column heading", "default": "Comparison criteria" },
+    { "type": "text", "id": "tech_criteria_heading", "label": "Table first column heading", "default": "TECHNOLOGY" },
     { "type": "checkbox", "id": "show_recommended_badge", "label": "Show Recommended badge on Scale-O", "default": true },
     { "type": "text", "id": "recommended_label", "label": "Recommended badge text", "default": "Recommended" },
     { "type": "checkbox", "id": "show_column_images", "label": "Show column images", "default": true },
@@ -753,7 +794,10 @@
       "settings": [
         { "type": "checkbox", "id": "enabled", "label": "Show this column", "default": true },
         { "type": "text", "id": "title", "label": "Column title", "default": "Scale-O" },
-        { "type": "checkbox", "id": "highlight", "label": "Highlight as Scale-O", "default": false }
+        { "type": "checkbox", "id": "highlight", "label": "Highlight as Scale-O", "default": false },
+        { "type": "image_picker", "id": "image", "label": "Column image", "info": "Shown in the table header row." },
+        { "type": "image_picker", "id": "image_mobile", "label": "Mobile column image", "info": "Optional. Uses desktop image if empty." },
+        { "type": "text", "id": "image_alt", "label": "Image alt text" }
       ]
     },
     {

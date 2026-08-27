@@ -78,10 +78,19 @@
       ],
       "custom_css": [],
       "settings": {
-        "marquee_speed": 30,
-        "image_width": 300,
+        "enabled": true,
+        "offer_text": "Get Flat 500/- Off on Entire Order - Use Code: SO-5",
+        "offer_link": "",
+        "accessibility_label": "Offer announcement",
+        "enable_sticky": true,
+        "sticky_scope": "water_softeners",
+        "background_color": "#0c7fdf",
         "color": "#ffffff",
-        "background_color": "#0c7fdf"
+        "font_size": 14,
+        "padding_y": 10,
+        "item_gap": 30,
+        "marquee_speed": 20,
+        "image_width": 300
       }
     },
     "header": {

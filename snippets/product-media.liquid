@@ -364,7 +364,7 @@
             </div>
           </div>
           {% if show_thumbnails and product.media.size > 1 %}
-            <div class="m-product-media--slider__thumbnails">
+            <div class="m-product-media--slider__thumbnails" style="--thumb-count: {{ product.media.size }};">
               <div class="nav-swiper-container">
                 <div class="swiper-wrapper" style="min-width: 70px;">
                   {% for media in product.media %}

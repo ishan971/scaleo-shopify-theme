@@ -45,25 +45,132 @@ $('.m-product-option--content input[type="radio"]').change(function() {
   // });
 
 function formatCardPrice(cents) {
-  if (cents == null) return '';
-  const amount = Math.round(cents / 100);
+  if (cents == null || cents === '') return '';
+  var amount = Math.round(Number(cents) / 100);
+  if (isNaN(amount)) return '';
   return '₹' + amount.toLocaleString('en-IN') + ' /-';
 }
 
 function applyCardPriceFormat(variant) {
-  const priceBlock = document.querySelector('.main-product__block-price [data-card-price-format]');
-  if (!priceBlock || !variant) return;
+  if (!variant) return;
 
-  const saleEl = priceBlock.querySelector('.m-price-item--sale');
-  const compareEl = priceBlock.querySelector('.m-price__sale .m-price-item--regular');
-  const regularEl = priceBlock.querySelector('.m-price__regular .m-price-item--regular');
+  var priceBlock = document.querySelector('.main-product__block-price [data-card-price-format]')
+    || document.querySelector('[data-card-price-format]');
+  if (!priceBlock) return;
 
-  if (saleEl) saleEl.textContent = formatCardPrice(variant.price);
-  if (compareEl && variant.compare_at_price > variant.price) {
-    compareEl.textContent = formatCardPrice(variant.compare_at_price);
+  var saleEl = priceBlock.querySelector('.product-price-strip__sale')
+    || priceBlock.querySelector('.m-price-item--sale');
+  var compareEl = priceBlock.querySelector('.product-price-strip__compare')
+    || priceBlock.querySelector('.m-price-item--regular');
+  var saveEl = priceBlock.querySelector('.product-price-strip__save');
+  var saveAmountEl = priceBlock.querySelector('[data-saved-price]');
+  var mrpGroup = priceBlock.querySelector('.product-price-strip__group--mrp');
+  var saveGroup = priceBlock.querySelector('.product-price-strip__group--save');
+
+  var price = Number(variant.price);
+  var compare = Number(variant.compare_at_price || 0);
+  var onSale = compare > price;
+
+  if (saleEl) saleEl.textContent = formatCardPrice(price);
+
+  if (onSale) {
+    if (compareEl) compareEl.textContent = formatCardPrice(compare);
+    if (mrpGroup) mrpGroup.style.display = '';
+    var pct = Math.round(((compare - price) * 100) / compare);
+    if (saveAmountEl) {
+      saveAmountEl.textContent = pct + '%';
+    } else if (saveEl) {
+      saveEl.textContent = 'Save ' + pct + '%';
+    }
+    if (saveGroup) saveGroup.style.display = '';
+    else if (saveEl) saveEl.style.display = '';
+    priceBlock.classList.add('m-price--on-sale');
+  } else {
+    if (mrpGroup) mrpGroup.style.display = 'none';
+    if (saveGroup) saveGroup.style.display = 'none';
+    else if (saveEl) saveEl.style.display = 'none';
+    priceBlock.classList.remove('m-price--on-sale');
   }
-  if (regularEl) regularEl.textContent = formatCardPrice(variant.price);
 }
+
+function bindCardPriceVariantSync() {
+  if (!document.querySelector('[data-card-price-format]')) return;
+  if (window.__scaleoCardPriceBound) return;
+  window.__scaleoCardPriceBound = true;
+
+  function onVariant(variant) {
+    applyCardPriceFormat(variant);
+  }
+
+  function subscribeMinimog() {
+    var picker = document.querySelector('variant-picker[data-product-id], variant-picker');
+    if (!picker || !window.MinimogEvents || typeof window.MinimogEvents.subscribe !== 'function') {
+      return false;
+    }
+    var productId = picker.dataset.productId || picker.getAttribute('data-product-id');
+    if (!productId) return false;
+    window.MinimogEvents.subscribe(productId + '__VARIANT_CHANGE', onVariant);
+    return true;
+  }
+
+  if (!subscribeMinimog()) {
+    var tries = 0;
+    var timer = setInterval(function () {
+      tries += 1;
+      if (subscribeMinimog() || tries > 40) clearInterval(timer);
+    }, 250);
+  }
+
+  // Fallback: plan card radio changes (works even if MinimogEvents is late)
+  document.addEventListener('change', function (event) {
+    var input = event.target;
+    if (!input || input.type !== 'radio') return;
+    if (!input.closest('variant-picker, .variant-cards-container, .m-product-option')) return;
+
+    var picker = input.closest('variant-picker') || document.querySelector('variant-picker');
+    if (!picker) return;
+
+    var variant = null;
+    if (picker.currentVariant) {
+      variant = picker.currentVariant;
+    } else if (typeof picker.getSelectedVariant === 'function') {
+      try { picker.getSelectedVariant(); } catch (e) {}
+      variant = picker.currentVariant || null;
+    }
+
+    if (!variant && picker.variantData && input.value) {
+      var list = typeof picker.variantData === 'string'
+        ? (function () { try { return JSON.parse(picker.variantData); } catch (e) { return []; } })()
+        : picker.variantData;
+      if (Array.isArray(list)) {
+        variant = list.find(function (v) { return String(v.id) === String(input.value); }) || null;
+      }
+    }
+
+    // Last resort: read price from the selected plan card labels
+    if (!variant) {
+      var node = input.closest('.m-product-option--node');
+      var priceNode = node && node.querySelector('.variant-card-price');
+      var compareNode = node && node.querySelector('.variant-card-compare');
+      var saveNode = node && node.querySelector('.variant-card-save, .discount-sale-badge');
+      if (priceNode) {
+        var parseRupee = function (txt) {
+          var n = String(txt || '').replace(/[^\d]/g, '');
+          return n ? Number(n) * 100 : 0;
+        };
+        variant = {
+          price: parseRupee(priceNode.textContent),
+          compare_at_price: compareNode ? parseRupee(compareNode.textContent) : 0
+        };
+      }
+    }
+
+    if (variant) onVariant(variant);
+  });
+}
+
+document.addEventListener('DOMContentLoaded', bindCardPriceVariantSync);
+if (document.readyState !== 'loading') bindCardPriceVariantSync();
 
 var swipeupReelTitles = [];
 window.addEventListener('SwipeUp::INIT', function (event) {
@@ -201,13 +308,52 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
   }
-
-  if (!document.querySelector('[data-card-price-format]')) return;
-
-  const picker = document.querySelector('variant-picker[data-product-id]');
-  if (!picker || !window.MinimogEvents) return;
-
-  MinimogEvents.subscribe(picker.dataset.productId + '__VARIANT_CHANGE', function (variant) {
-    applyCardPriceFormat(variant);
-  });
 });
+
+(function () {
+  function isWaterSoftenersCollection() {
+    return /\/collections\/water[-_]softeners\/?$/i.test(window.location.pathname)
+      || document.body.classList.contains('water-softener-for-house')
+      || document.body.classList.contains('scale-o-collection-water-softeners');
+  }
+
+  function syncPromoStickyBar() {
+    if (isWaterSoftenersCollection()) {
+      document.body.classList.add('scale-o-collection-water-softeners');
+    }
+
+    var promo = document.querySelector('[data-scale-o-promo-marquee]');
+    var promoSection = document.querySelector('.scale-o-promo-marquee-section')
+      || (promo && promo.closest('.shopify-section'));
+
+    if (promoSection) promoSection.classList.add('scale-o-promo-marquee-section');
+
+    var stickyOn = !!(promo && promo.getAttribute('data-sticky') === 'true');
+    document.body.classList.toggle('scale-o-promo-sticky-on', stickyOn);
+
+    if (!stickyOn || !promo) {
+      document.documentElement.style.removeProperty('--scale-o-promo-bar-height');
+      return;
+    }
+
+    var height = Math.max(promo.offsetHeight || 0, 36);
+    document.documentElement.style.setProperty('--scale-o-promo-bar-height', height + 'px');
+  }
+
+  function boot() {
+    syncPromoStickyBar();
+    window.setTimeout(syncPromoStickyBar, 50);
+    window.setTimeout(syncPromoStickyBar, 300);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', boot);
+  } else {
+    boot();
+  }
+
+  window.addEventListener('load', syncPromoStickyBar);
+  window.addEventListener('resize', syncPromoStickyBar);
+  document.addEventListener('shopify:section:load', syncPromoStickyBar);
+  document.addEventListener('shopify:section:reorder', syncPromoStickyBar);
+})();

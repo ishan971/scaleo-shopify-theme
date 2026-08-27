@@ -67,22 +67,6 @@
       </header>
     {%- endif -%}
 
-    {%- if section.settings.show_flow -%}
-      <div class="scale-o-problems__flow" aria-hidden="true">
-        {%- if section.settings.flow_step_1 != blank -%}
-          <span class="scale-o-problems__flow-item">{{ section.settings.flow_step_1 | escape }}</span>
-        {%- endif -%}
-        {%- if section.settings.flow_step_2 != blank -%}
-          <span class="scale-o-problems__flow-arrow" aria-hidden="true">→</span>
-          <span class="scale-o-problems__flow-item">{{ section.settings.flow_step_2 | escape }}</span>
-        {%- endif -%}
-        {%- if section.settings.flow_step_3 != blank -%}
-          <span class="scale-o-problems__flow-arrow" aria-hidden="true">→</span>
-          <span class="scale-o-problems__flow-item">{{ section.settings.flow_step_3 | escape }}</span>
-        {%- endif -%}
-      </div>
-    {%- endif -%}
-
     {%- if problem_blocks.size > 0 -%}
       <div class="scale-o-problems__bento-grid" data-bento-count="{{ visible_count }}">
         {%- for block in problem_blocks -%}
@@ -171,11 +155,6 @@
         { "value": "right", "label": "Right" }
       ]
     },
-    { "type": "header", "content": "Problem flow" },
-    { "type": "checkbox", "id": "show_flow", "label": "Show problem flow", "default": true },
-    { "type": "text", "id": "flow_step_1", "label": "Flow step 1", "default": "Hard Water" },
-    { "type": "text", "id": "flow_step_2", "label": "Flow step 2", "default": "Mineral Buildup" },
-    { "type": "text", "id": "flow_step_3", "label": "Flow step 3", "default": "Everyday Household Problems" },
     { "type": "header", "content": "Bento grid" },
     { "type": "range", "id": "visible_cards", "label": "Cards to show initially", "min": 2, "max": 9, "step": 1, "default": 9 },
     { "type": "range", "id": "bento_row_height", "label": "Desktop row height", "min": 160, "max": 280, "step": 10, "unit": "px", "default": 210 },

@@ -783,6 +783,7 @@
     },
     "custom_content_BUnkYP": {
       "type": "custom-content",
+      "disabled": true,
       "blocks": {
         "image_MFUqW6": {
           "type": "image",

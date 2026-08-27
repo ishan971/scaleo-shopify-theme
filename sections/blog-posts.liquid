@@ -7,12 +7,12 @@
 
 {%- liquid
   assign blog = blogs[section.settings.blog]
-  assign post_limit = section.settings.limit | default: 3
+  assign post_limit = section.settings.limit | default: 4
   if post_limit > 4
     assign post_limit = 4
   endif
   assign header_align = section.settings.header_alignment | default: 'center'
-  assign cols = section.settings.column | default: 3
+  assign cols = section.settings.column | default: 4
   if cols < 2
     assign cols = 3
   endif
@@ -253,7 +253,7 @@
       "min": 2,
       "max": 4,
       "step": 1,
-      "default": 3,
+      "default": 4,
       "info": "Used only when no Article blocks are added. Maximum 4."
     },
     {
@@ -263,7 +263,7 @@
       "min": 2,
       "max": 4,
       "step": 1,
-      "default": 3
+      "default": 4
     },
     {
       "type": "range",
@@ -329,7 +329,7 @@
       "type": "checkbox",
       "id": "article_show_excerpt",
       "label": "Show excerpt",
-      "default": true
+      "default": false
     },
     {
       "type": "range",

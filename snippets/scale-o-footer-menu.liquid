@@ -1,0 +1,18 @@
+{%- comment -%} Compact footer link list from a Shopify navigation menu. {%- endcomment -%}
+{%- assign so_menu = linklists[handle] -%}
+{%- if so_menu == blank -%}
+  {%- assign so_menu = linklists['main-menu'] -%}
+{%- endif -%}
+{%- if so_menu != blank and so_menu.links.size > 0 -%}
+  <ul class="so-footer__links" role="list">
+    {%- for link in so_menu.links -%}
+      {%- assign so_link_title = link.title | downcase | strip -%}
+      {%- if so_link_title == 'faq' or link.url contains '/pages/rzp-account' or link.url contains '/pages/spurit-subscriptions' -%}
+        {%- continue -%}
+      {%- endif -%}
+      <li>
+        <a href="{{ link.url }}" title="{{ link.title | escape }}">{{ link.title | escape }}</a>
+      </li>
+    {%- endfor -%}
+  </ul>
+{%- endif -%}

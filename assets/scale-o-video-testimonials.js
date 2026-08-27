@@ -6,15 +6,9 @@
 
   function visibleCount(root) {
     var w = window.innerWidth;
-    if (w >= 1024) return parseInt(root.dataset.desktopCards, 10) || 3;
+    if (w >= 1024) return parseInt(root.dataset.desktopCards, 10) || 4;
     if (w >= 768) return parseInt(root.dataset.tabletCards, 10) || 2;
     return 1;
-  }
-
-  function stepWidth(track, card) {
-    if (!card) return 0;
-    var gap = parseFloat(window.getComputedStyle(track).columnGap || window.getComputedStyle(track).gap) || 0;
-    return card.getBoundingClientRect().width + gap;
   }
 
   function init(root) {
@@ -74,11 +68,35 @@
       }
     }
 
+    function getTranslateX(activeIndex) {
+      var card = cards[0];
+      if (!card) return 0;
+      var gap = parseFloat(window.getComputedStyle(track).columnGap || window.getComputedStyle(track).gap) || 0;
+      var cardWidth = card.getBoundingClientRect().width;
+      var step = cardWidth + gap;
+      var vis = visibleCount(root);
+
+      if (vis === 1) {
+        var viewport = root.querySelector('[data-svt-viewport]');
+        if (viewport) {
+          var vpStyle = window.getComputedStyle(viewport);
+          var padL = parseFloat(vpStyle.paddingLeft) || 0;
+          var padR = parseFloat(vpStyle.paddingRight) || 0;
+          var innerWidth = viewport.clientWidth - padL - padR;
+          var activeWidth = cards[activeIndex]
+            ? cards[activeIndex].getBoundingClientRect().width
+            : cardWidth;
+          var centerOffset = (innerWidth - activeWidth) / 2;
+          return activeIndex * step - centerOffset;
+        }
+      }
+
+      return step * activeIndex;
+    }
+
     function go(nextIndex) {
       index = Math.min(Math.max(nextIndex, 0), maxIndex());
-      var first = cards[0];
-      var x = stepWidth(track, first) * index;
-      track.style.transform = 'translateX(' + (-x) + 'px)';
+      track.style.transform = 'translateX(' + (-getTranslateX(index)) + 'px)';
       var featured = featuredIndex();
       cards.forEach(function (card, i) {
         card.classList.toggle('is-featured', i === featured);

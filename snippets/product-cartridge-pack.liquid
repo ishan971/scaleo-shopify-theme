@@ -43,10 +43,6 @@
 
 {%- if has_pack -%}
   <div class="variant-metafields cpk" data-cartridge-pack>
-    {%- if heading != blank -%}
-      <h5 class="cpk__heading">{{ heading | escape }}</h5>
-    {%- endif -%}
-
     {%- for variant in product.variants -%}
       {%- liquid
         assign pack_qty = 0
@@ -87,7 +83,12 @@
           <div class="cpk__card" style="--cpk-bg: url('{{ card_bg }}');">
             <div class="cpk__card-body">
               <div class="cpk__head">
-                <span class="cpk__badge">Pack of {{ pack_qty }}</span>
+                <div class="cpk__head-row">
+                  {%- if heading != blank -%}
+                    <h5 class="cpk__heading">{{ heading | escape }}</h5>
+                  {%- endif -%}
+                  <span class="cpk__badge">Pack of {{ pack_qty }}</span>
+                </div>
                 {%- if pack_line != blank -%}
                   <p class="cpk__line">{{ pack_line | escape }}</p>
                 {%- endif -%}

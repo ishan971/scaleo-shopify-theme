@@ -52,6 +52,7 @@
     --snm-heading-size-desktop: {{ section.settings.heading_size_desktop }}px;
     --snm-desc-size: {{ section.settings.description_size }}px;
     --snm-shadow: {% if section.settings.show_card_shadow %}0 8px 20px rgba(20, 43, 74, 0.08){% else %}none{% endif %};
+    --snm-item-count: {{ visible_count }};
     padding: {{ section.settings.padding_top_mobile }}px 0 {{ section.settings.padding_bottom_mobile }}px;
     background: var(--snm-bg);
   }
@@ -153,7 +154,7 @@
     { "type": "textarea", "id": "description", "label": "Description", "default": "Features, recognitions and media coverage that highlight Scale-O's innovation, impact and journey." },
 
     { "type": "header", "content": "Carousel" },
-    { "type": "checkbox", "id": "enable_infinite_carousel", "label": "Infinite carousel", "default": true, "info": "On: logos scroll in a loop. Off: static grid of cards." },
+    { "type": "checkbox", "id": "enable_infinite_carousel", "label": "Infinite carousel", "default": false, "info": "On: logos scroll in a loop. Off: static grid of cards." },
     { "type": "range", "id": "card_width", "label": "Card width", "min": 160, "max": 260, "step": 4, "unit": "px", "default": 200 },
     { "type": "range", "id": "card_height", "label": "Card min height", "min": 120, "max": 200, "step": 4, "unit": "px", "default": 148 },
     { "type": "range", "id": "card_gap", "label": "Card gap", "min": 10, "max": 32, "step": 2, "unit": "px", "default": 16 },

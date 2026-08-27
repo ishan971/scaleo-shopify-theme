@@ -1,124 +1,319 @@
+{%- comment -%}
+  Offer announcement marquee — editable text + sticky controls in Theme Editor
+{%- endcomment -%}
+
+{%- liquid
+  assign show_bar = section.settings.enabled
+  if show_bar == nil
+    assign show_bar = true
+  endif
+
+  assign offer_text = section.settings.offer_text | strip
+  assign offer_link = section.settings.offer_link
+  assign use_blocks = false
+  if offer_text == blank and section.blocks.size > 0
+    assign use_blocks = true
+  endif
+
+  assign sticky_enabled = section.settings.enable_sticky
+  if sticky_enabled == nil
+    assign sticky_enabled = false
+  endif
+
+  assign sticky_scope = section.settings.sticky_scope | default: 'water_softeners'
+  assign is_water_softeners = false
+  if template.name == 'collection'
+    if collection.handle == 'water-softeners' or collection.handle == 'water_softeners' or template.suffix == 'water-softener-for-house'
+      assign is_water_softeners = true
+    endif
+  endif
+
+  assign sticky_active = false
+  if sticky_enabled
+    if sticky_scope == 'all'
+      assign sticky_active = true
+    elsif sticky_scope == 'water_softeners' and is_water_softeners
+      assign sticky_active = true
+    endif
+  endif
+
+  assign scroll_speed = section.settings.marquee_speed | default: 20
+-%}
+
+{%- if show_bar -%}
 <style>
-  /* Marquee Container */
-  .marquee {
-    width: 100%; /* Full width */
+  #shopify-section-{{ section.id }} .scale-o-promo-marquee {
+    --sopm-speed: {{ scroll_speed }}s;
+    --sopm-gap: {{ section.settings.item_gap | default: 30 }}px;
+    --sopm-pad-y: {{ section.settings.padding_y | default: 10 }}px;
+    --sopm-font-size: {{ section.settings.font_size | default: 14 }}px;
+    background: {{ section.settings.background_color }};
+    color: {{ section.settings.color }};
+  }
+
+  #shopify-section-{{ section.id }} .sopm-viewport {
+    width: 100%;
     overflow: hidden;
     white-space: nowrap;
     box-sizing: border-box;
-    padding: 10px 0;
+    padding: var(--sopm-pad-y) 0;
   }
 
-  .marquee-inner {
+  #shopify-section-{{ section.id }} .sopm-track {
     display: flex;
-    gap: 30px;
-    width: fit-content; /* Makes the content width dynamic */
-    animation: marquee {{ section.settings.marquee_speed }}s linear infinite;
+    width: max-content;
+    will-change: transform;
+    animation: sopm-marquee-scroll var(--sopm-speed) linear infinite;
   }
 
-  .marquee-inner:hover {
+  #shopify-section-{{ section.id }} .sopm-track:hover {
     animation-play-state: paused;
   }
 
-  /* Marquee Content */
-  .marquee-content {
+  #shopify-section-{{ section.id }} .sopm-group {
     display: flex;
-    gap: 30px; /* Spacing between logos */
+    flex-shrink: 0;
+    align-items: center;
+    gap: var(--sopm-gap);
+    padding-right: var(--sopm-gap);
   }
 
-  .marquee-slide {
-    padding: 0 20px;
-    display: block;
+  #shopify-section-{{ section.id }} .sopm-item {
+    flex-shrink: 0;
+    padding: 0 4px;
+    font-size: var(--sopm-font-size);
+    line-height: 1.4;
+    color: inherit;
+    text-decoration: none;
+    white-space: nowrap;
   }
 
-  .marquee-content a{
-    display: flex;
+  #shopify-section-{{ section.id }} a.sopm-item:hover {
+    text-decoration: underline;
   }
-  
-  /* Marquee Animation */
-  @keyframes marquee {
-    from {
-      transform: translateX(0);
-    }
-    to {
-      transform: translateX(-50%); /* Moves halfway since content is duplicated */
+
+  @keyframes sopm-marquee-scroll {
+    from { transform: translate3d(0, 0, 0); }
+    to { transform: translate3d(-50%, 0, 0); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #shopify-section-{{ section.id }} .sopm-track {
+      animation: sopm-marquee-scroll calc(var(--sopm-speed) * 2) linear infinite;
     }
   }
-</style>  
-<div class="section--padding" style="background:{{ section.settings.background_color }};color:{{ section.settings.color }}">
-  <div class="marquee">
-    <div class="marquee-inner">
-      {% for i in (1..2) %}
-        <div class="marquee-content">
-          {% for block in section.blocks %}
-            {% if block.settings.link != blank %}<a class="marquee-slide" href="{{ block.settings.link }}">{% else %}<div class="marquee-slide">{% endif %}
-              {{ block.settings.text }}
-            {% if block.settings.link != blank %}</a>{% else %}</div>{% endif %} 
-          {% endfor %}  
+</style>
+
+<div
+  class="scale-o-promo-marquee{% if sticky_active %} scale-o-promo-marquee--sticky-page is-sticky{% endif %}"
+  data-scale-o-promo-marquee
+  data-sticky="{% if sticky_active %}true{% else %}false{% endif %}"
+  data-sticky-scope="{{ sticky_scope | escape }}"
+  role="region"
+  aria-label="{{ section.settings.accessibility_label | default: 'Offer announcement' | escape }}"
+>
+  <div class="sopm-viewport">
+    <div class="sopm-track">
+      {%- for copy in (1..2) -%}
+        <div class="sopm-group"{% if copy > 1 %} aria-hidden="true"{% endif %}>
+          {%- if use_blocks -%}
+            {%- for n in (1..4) -%}
+              {%- for block in section.blocks -%}
+                {%- if block.settings.text == blank -%}{%- continue -%}{%- endif -%}
+                {%- if block.settings.link != blank -%}
+                  <a class="sopm-item" href="{{ block.settings.link }}" {% if copy == 1 and n == 1 %}{{ block.shopify_attributes }}{% endif %}>{{ block.settings.text }}</a>
+                {%- else -%}
+                  <span class="sopm-item" {% if copy == 1 and n == 1 %}{{ block.shopify_attributes }}{% endif %}>{{ block.settings.text }}</span>
+                {%- endif -%}
+              {%- endfor -%}
+            {%- endfor -%}
+          {%- else -%}
+            {%- for n in (1..8) -%}
+              {%- if offer_link != blank -%}
+                <a class="sopm-item" href="{{ offer_link }}">{{ offer_text | escape }}</a>
+              {%- else -%}
+                <span class="sopm-item">{{ offer_text | escape }}</span>
+              {%- endif -%}
+            {%- endfor -%}
+          {%- endif -%}
         </div>
-      {% endfor %}
+      {%- endfor -%}
     </div>
   </div>
 </div>
+{%- endif -%}
 
 {% schema %}
-  {
-    "name": "Marquee Slider",
-    "settings": [
-      {
-        "type": "range",
-        "id": "marquee_speed",
-        "label": "Marquee Speed",
-        "max": 50,
-        "min": 5,
-        "step": 5,
-        "unit": "s",
-        "default": 20
-      },
-      {
-        "type": "range",
-        "id": "image_width",
-        "label": "Image Width",
-        "max": 500,
-        "min": 200,
-        "step": 10,
-        "unit": "px",
-        "default": 300
-      },
-      {
-        "type": "color",
-        "id": "color",
-        "label": "Color",
-        "default": "#ffffff"
-      },
-      {
-        "type": "color",
-        "id": "background_color",
-        "label": "Background Color",
-        "default": "#000000"
+{
+  "name": "Offer announcement bar",
+  "class": "scale-o-promo-marquee-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "checkbox",
+      "id": "enabled",
+      "label": "Show announcement bar",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "offer_text",
+      "label": "Offer text",
+      "default": "Get Flat 500/- Off on Entire Order - Use Code: SO-5",
+      "info": "Main scrolling message. Leave blank only if you use Slide blocks below."
+    },
+    {
+      "type": "url",
+      "id": "offer_link",
+      "label": "Offer link",
+      "info": "Optional. Makes the offer text clickable."
+    },
+    {
+      "type": "text",
+      "id": "accessibility_label",
+      "label": "Accessibility label",
+      "default": "Offer announcement"
+    },
+    {
+      "type": "header",
+      "content": "Sticky behavior"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_sticky",
+      "label": "Make bar sticky on scroll",
+      "default": true,
+      "info": "Keeps the offer bar fixed at the top while customers scroll."
+    },
+    {
+      "type": "select",
+      "id": "sticky_scope",
+      "label": "Sticky on",
+      "default": "water_softeners",
+      "options": [
+        {
+          "value": "water_softeners",
+          "label": "Water softeners collection only"
+        },
+        {
+          "value": "all",
+          "label": "All pages"
+        }
+      ],
+      "info": "Choose where sticky mode applies when sticky is turned on."
+    },
+    {
+      "type": "header",
+      "content": "Style"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background",
+      "default": "#0C7FDF"
+    },
+    {
+      "type": "color",
+      "id": "color",
+      "label": "Text color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "range",
+      "id": "font_size",
+      "label": "Text size",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "padding_y",
+      "label": "Vertical padding",
+      "min": 4,
+      "max": 20,
+      "step": 2,
+      "unit": "px",
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "item_gap",
+      "label": "Gap between repeats",
+      "min": 12,
+      "max": 48,
+      "step": 2,
+      "unit": "px",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "marquee_speed",
+      "label": "Scroll speed",
+      "min": 10,
+      "max": 60,
+      "step": 5,
+      "unit": "s",
+      "default": 20,
+      "info": "Lower = faster. Higher = slower."
+    },
+    {
+      "type": "header",
+      "content": "Advanced"
+    },
+    {
+      "type": "paragraph",
+      "content": "Optional: add Slide blocks to show multiple messages. Used only when Offer text is empty."
+    },
+    {
+      "type": "range",
+      "id": "image_width",
+      "label": "Legacy image width",
+      "min": 200,
+      "max": 500,
+      "step": 10,
+      "unit": "px",
+      "default": 300,
+      "info": "Kept for older setups. Not used by the text offer bar."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Slide",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "Get Flat 500/- Off on Entire Order - Use Code: SO-5"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Offer announcement bar",
+      "settings": {
+        "enabled": true,
+        "offer_text": "Get Flat 500/- Off on Entire Order - Use Code: SO-5",
+        "enable_sticky": true,
+        "sticky_scope": "water_softeners",
+        "background_color": "#0C7FDF",
+        "color": "#FFFFFF",
+        "marquee_speed": 20
       }
-    ],
-    "blocks": [
-      {
-        "type": "slide",
-        "name": "Slide",
-        "settings": [
-          {
-            "type": "inline_richtext",
-            "id": "text",
-            "label": "Text"
-          },
-          {
-            "type": "url",
-            "id": "link",
-            "label": "Link"
-          }
-        ]
-      }
-    ],
-    "presets": [
-      {
-        "name": "Marquee Slider"
-      }
-    ]
-  }
+    }
+  ]
+}
 {% endschema %}

@@ -62,6 +62,7 @@
 .scale-o-blog__grid {
   display: grid;
   grid-template-columns: 1fr;
+  align-items: stretch;
   gap: var(--sob-gap);
   margin: 0 auto;
 }
@@ -141,16 +142,16 @@
 }
 
 .scale-o-blog__title {
-  margin: 0;
-  min-height: 4.05em;
+  margin: 0 0 16px;
+  min-height: calc(1.35em * var(--sob-title-lines));
   color: var(--sob-heading);
   font-size: 18px !important;
   font-weight: var(--font-weight-header);
   line-height: 1.35;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
-  line-clamp: 3;
+  -webkit-line-clamp: var(--sob-title-lines);
+  line-clamp: var(--sob-title-lines);
   overflow: hidden;
 }
 

@@ -153,7 +153,7 @@
       ],
       "custom_css": [
         ".sls-widget-branding,.ddreview-star {display: none;}",
-        ".sls-price {margin-top: 15px;}",
+        ".sls-price {margin-top: 8px;}",
         ".sls-option-container.seal-table {display: none;}",
         ".sls-option-container.seal-table.sls-active {display: block;}"
       ],
@@ -426,6 +426,7 @@
         "loop": true,
         "show_controls": false,
         "show_play_button": true,
+        "show_sound_toggle": true,
         "show_titles": true,
         "infinite_scroll": true,
         "pause_on_hover": true,
@@ -788,128 +789,6 @@
         "icon_background": "#eef6ff"
       }
     },
-    "scale_o_before_after": {
-      "type": "before-after-results",
-      "blocks": {
-        "p1": {
-          "type": "point",
-          "settings": {
-            "side": "before",
-            "title": "White scaling on taps & fittings"
-          }
-        },
-        "p2": {
-          "type": "point",
-          "settings": {
-            "side": "before",
-            "title": "Dull, dry & pimple-prone skin"
-          }
-        },
-        "p3": {
-          "type": "point",
-          "settings": {
-            "side": "before",
-            "title": "Excess hair fall and thinning"
-          }
-        },
-        "p4": {
-          "type": "point",
-          "settings": {
-            "side": "before",
-            "title": "Scale buildup in geysers & appliances"
-          }
-        },
-        "a1": {
-          "type": "point",
-          "settings": {
-            "side": "after",
-            "title": "Reduced visible scaling"
-          }
-        },
-        "a2": {
-          "type": "point",
-          "settings": {
-            "side": "after",
-            "title": "Clearer, healthier looking skin"
-          }
-        },
-        "a3": {
-          "type": "point",
-          "settings": {
-            "side": "after",
-            "title": "Softer hair with less fall"
-          }
-        },
-        "a4": {
-          "type": "point",
-          "settings": {
-            "side": "after",
-            "title": "Better appliance protection"
-          }
-        }
-      },
-      "block_order": [
-        "p1",
-        "p2",
-        "p3",
-        "p4",
-        "a1",
-        "a2",
-        "a3",
-        "a4"
-      ],
-      "settings": {
-        "show_eyebrow": true,
-        "eyebrow": "BEFORE & AFTER",
-        "heading": "Before vs After Using Scale-O",
-        "heading_one_line": true,
-        "show_description": true,
-        "description": "Hard water affects fixtures, skin, and hair. Scale-O helps reduce scale across the home.",
-        "description_highlight": "See the difference after installing Scale-O in your overhead tank.",
-        "header_alignment": "center",
-        "before_label": "BEFORE",
-        "before_heading": "Before Scale-O",
-        "before_description": "Hard water can leave scale on fixtures and leave skin and hair feeling dry and damaged.",
-        "before_image_alt": "Hard water effects on fixtures, skin, and hair",
-        "show_detail_images": true,
-        "after_label": "AFTER",
-        "after_heading": "After Scale-O",
-        "after_description": "Scale-O helps reduce scale at home and supports cleaner water for skin, hair, and fixtures.",
-        "after_image_alt": "Cleaner fixtures, clearer skin, and healthier hair with Scale-O",
-        "show_transition": true,
-        "transition_text": "Before to after",
-        "arrow_size": 72,
-        "show_cta": false,
-        "cta_text": "Explore Scale-O Products",
-        "cta_url": "",
-        "max_width": 1200,
-        "image_aspect_ratio": "16 / 10",
-        "image_height": 340,
-        "image_height_mobile": 240,
-        "card_radius": 18,
-        "enable_animations": true,
-        "padding_top": 48,
-        "padding_bottom": 48,
-        "padding_top_mobile": 48,
-        "padding_bottom_mobile": 48,
-        "padding_x": 20,
-        "margin_top": 0,
-        "margin_bottom": 0,
-        "header_gap": 28,
-        "eyebrow_size": 16,
-        "heading_size_desktop": 40,
-        "heading_size_mobile": 26,
-        "description_size": 16,
-        "background_color": "#ffffff",
-        "before_card_background": "#f6f1ec",
-        "after_card_background": "#f5faff",
-        "heading_color": "#12345b",
-        "text_color": "#5a6b85",
-        "accent_color": "#0c7fdf",
-        "accent_hover_color": "#0a6bc4",
-        "accessibility_label": "Before and after using Scale-O"
-      }
-    },
     "scale_o_guide_slider": {
       "type": "scale-o-guide-slider",
       "blocks": {
@@ -928,16 +807,7 @@
             "enabled": true,
             "label": "How It Works?",
             "fallback_image": "scale-o-guide-works",
-            "alt": "How Scale-O works"
-          }
-        },
-        "s3": {
-          "type": "slide",
-          "settings": {
-            "enabled": true,
-            "label": "0 Factor",
-            "fallback_image": "scale-o-guide-factor",
-            "alt": "Scale-O 0 Factor"
+            "alt": "How Scale-O works — chelation alters Ca and Mg ions to prevent scale on pipes and appliances"
           }
         },
         "s4": {
@@ -946,40 +816,52 @@
             "enabled": true,
             "label": "How to Test?",
             "fallback_image": "scale-o-guide-test",
-            "alt": "How to test Scale-O"
+            "alt": "How to test Scale-O water — boil and compare hard water vs Scale-O water"
           }
         },
-        "s5": {
+        "s6": {
           "type": "slide",
           "settings": {
             "enabled": true,
-            "label": "Clean & Replace",
-            "image": "shopify://shop_images/rep.png",
-            "fallback_image": "scale-o-guide-care",
-            "alt": "How to clean and replace Scale-O"
+            "label": "How To Replace?",
+            "fallback_image": "scale-o-guide-replace",
+            "alt": "How to replace Scale-O — remove, pack for return, install new softener"
+          }
+        },
+        "s7": {
+          "type": "slide",
+          "settings": {
+            "enabled": true,
+            "label": "How To Clean?",
+            "fallback_image": "scale-o-guide-clean",
+            "alt": "How to clean Scale-O — pull up, store, and reinstall"
+          }
+        },
+        "s8": {
+          "type": "slide",
+          "settings": {
+            "enabled": true,
+            "label": "When To Replace?",
+            "fallback_image": "scale-o-guide-when-replace",
+            "alt": "When to replace Scale-O — float test and boiling hardness check"
           }
         }
       },
       "block_order": [
         "s1",
         "s2",
-        "s3",
         "s4",
-        "s5"
+        "s6",
+        "s7",
+        "s8"
       ],
       "settings": {
         "show_header": true,
         "eyebrow": "GUIDE",
         "heading": "How Scale-O works in your home",
-        "show_tabs": true,
-        "show_arrows": true,
-        "show_dots": true,
-        "autoplay": true,
-        "autoplay_speed": 5,
-        "max_width": 0,
-        "slide_height": 62,
-        "padding_top": 28,
-        "padding_bottom": 24,
+        "max_width": 1280,
+        "padding_top": 40,
+        "padding_bottom": 48,
         "heading_size_desktop": 40,
         "heading_size_mobile": 28,
         "background_color": "#eef6ff",
@@ -1428,7 +1310,7 @@
         "show_tech_description": true,
         "tech_description": "See how Scale-O compares with salt-based, electromagnetic and multi-media systems for household scale protection.",
         "show_features": true,
-        "tech_criteria_heading": "Comparison criteria",
+        "tech_criteria_heading": "TECHNOLOGY",
         "show_recommended_badge": true,
         "recommended_label": "Recommended",
         "show_column_images": true,
@@ -1451,7 +1333,7 @@
         "header_alignment": "center",
         "highlight_color": "#0c7fdf",
         "highlight_background": "#e8f3fc",
-        "show_cta_banner": true,
+        "show_cta_banner": false,
         "banner_icon": "shield",
         "banner_heading": "Better water. Better life.",
         "banner_text": "Scale-O delivers salt-free, maintenance-free protection that’s simple, efficient and built for modern homes.",
@@ -1462,9 +1344,9 @@
         "card_radius": 16,
         "enable_animations": true,
         "padding_top": 48,
-        "padding_bottom": 48,
+        "padding_bottom": 16,
         "padding_top_mobile": 32,
-        "padding_bottom_mobile": 32,
+        "padding_bottom_mobile": 12,
         "padding_x": 20,
         "margin_top": 0,
         "margin_bottom": 0,
@@ -1474,7 +1356,7 @@
         "heading_size_mobile": 28,
         "description_size": 16,
         "background_color": "#ffffff",
-        "matrix_background": "#eef6ff",
+        "matrix_background": "#ffffff",
         "card_background": "#ffffff",
         "card_border_color": "#e4ecf6",
         "heading_color": "#12345b",
@@ -1667,9 +1549,9 @@
         "show_category_icon": false,
         "show_card_index": false,
         "enable_animations": true,
-        "padding_top": 48,
+        "padding_top": 16,
         "padding_bottom": 48,
-        "padding_top_mobile": 32,
+        "padding_top_mobile": 12,
         "padding_bottom_mobile": 32,
         "padding_x": 20,
         "margin_top": 0,
@@ -1702,6 +1584,7 @@
           "type": "result",
           "settings": {
             "enabled": true,
+            "pair_preset": "none",
             "image": "shopify://shop_images/Frame_427319350_a3f5ce84-cccd-4c10-afb4-5012dd7363e2.png",
             "image_url": "",
             "label": "",
@@ -1712,6 +1595,7 @@
           "type": "result",
           "settings": {
             "enabled": true,
+            "pair_preset": "none",
             "image": "shopify://shop_images/Frame_427319359_c5d43ec2-7057-4665-aa3d-c482022779dc.png",
             "image_url": "",
             "label": "",
@@ -1722,6 +1606,7 @@
           "type": "result",
           "settings": {
             "enabled": true,
+            "pair_preset": "none",
             "image": "shopify://shop_images/Frame_427319361_2d71d9b1-e86a-40dc-a0de-668ae6861253.png",
             "image_url": "",
             "label": "",
@@ -1732,6 +1617,7 @@
           "type": "result",
           "settings": {
             "enabled": true,
+            "pair_preset": "none",
             "image": "shopify://shop_images/skin.png",
             "image_url": "",
             "label": "",
@@ -1742,6 +1628,7 @@
           "type": "result",
           "settings": {
             "enabled": true,
+            "pair_preset": "none",
             "image": "shopify://shop_images/Frame_427319358_51f3533f-0692-46cd-919b-6080fde751c9.png",
             "image_url": "",
             "label": "",
@@ -1752,7 +1639,38 @@
           "type": "result",
           "settings": {
             "enabled": true,
+            "pair_preset": "none",
             "image": "shopify://shop_images/Frame_427319360_654c21ff-b19f-4ad0-a1be-0d916ebe14ac.png",
+            "image_url": "",
+            "label": "",
+            "title": ""
+          }
+        },
+        "pair_fixtures": {
+          "type": "result",
+          "settings": {
+            "enabled": true,
+            "pair_preset": "card-fixtures",
+            "image_url": "",
+            "label": "",
+            "title": ""
+          }
+        },
+        "pair_pot": {
+          "type": "result",
+          "settings": {
+            "enabled": true,
+            "pair_preset": "card-utensils",
+            "image_url": "",
+            "label": "",
+            "title": ""
+          }
+        },
+        "pair_face": {
+          "type": "result",
+          "settings": {
+            "enabled": true,
+            "pair_preset": "card-face",
             "image_url": "",
             "label": "",
             "title": ""
@@ -1765,27 +1683,31 @@
         "image_LGgpbz",
         "image_R7CM7g",
         "image_6tGxQ7",
-        "image_PQybz8"
+        "image_PQybz8",
+        "pair_fixtures",
+        "pair_pot",
+        "pair_face"
       ],
       "settings": {
         "show_eyebrow": true,
-        "eyebrow": "ADVANTAGES",
-        "heading": "Before & After Results",
+        "eyebrow": "BEFORE & AFTER RESULTS",
+        "heading": "Before vs after a salt-free water softener",
         "show_description": true,
-        "description": "See how Scale-O helps reduce hard-water scale on hair, skin, and fixtures across the home.",
+        "description": "Hard water silently damages fittings, tiles and appliances across your home.",
+        "description_highlight": "See the difference after installing Scale-O in your overhead tank.",
         "header_alignment": "center",
         "show_legend": true,
         "before_label": "Before",
         "after_label": "After",
         "enable_marquee": true,
         "marquee_speed": 42,
-        "card_width": 340,
-        "card_width_mobile": 280,
-        "image_height": 300,
-        "image_height_mobile": 240,
+        "card_width": 260,
+        "card_width_mobile": 220,
+        "image_height": 180,
+        "image_height_mobile": 150,
         "max_width": 1200,
-        "card_spacing": 16,
-        "card_radius": 20,
+        "card_spacing": 12,
+        "card_radius": 12,
         "show_card_shadow": true,
         "enable_animations": true,
         "padding_top": 56,
@@ -1893,7 +1815,7 @@
       "settings": {
         "show_eyebrow": true,
         "eyebrow": "CERTIFICATIONS & QUALITY",
-        "heading": "Built on Tested Quality & Innovation",
+        "heading": "Certifications",
         "show_description": true,
         "description": "Every Scale-O product is backed by documented testing, intellectual property and quality standards designed to deliver reliable hard-water scale protection.",
         "header_alignment": "center",
@@ -2412,6 +2334,7 @@
     },
     "custom_content_BUnkYP": {
       "type": "custom-content",
+      "disabled": true,
       "blocks": {
         "image_MFUqW6": {
           "type": "image",
@@ -2472,7 +2395,6 @@
     "scale_o_usp",
     "scale_o_product_fit",
     "scale_o_product_benefits",
-    "scale_o_before_after",
     "scale_o_guide_slider",
     "custom_liquid_MTFkLe",
     "custom_liquid_T4RdYX",

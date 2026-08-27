@@ -44,6 +44,9 @@
 -%}
 
 <style>
+  #MinimogCartDrawer:not(.m-cart-drawer--active) {
+    display: none !important;
+  }
   #MinimogCartDrawer.scale-o-cart-drawer {
     --socd-accent: {{ settings.cart_drawer_accent_color | default: '#0C7FDF' }};
     --socd-accent-hover: {{ settings.cart_drawer_accent_hover_color | default: '#0A6BC4' }};

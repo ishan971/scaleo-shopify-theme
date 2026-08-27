@@ -29,6 +29,7 @@
           }
         }
       });
+      clone.querySelectorAll('[data-pvid-sound]').forEach(resetSoundButton);
       track.appendChild(clone);
     });
   }
@@ -70,10 +71,62 @@
     track.classList.add('is-ready');
   }
 
+  function resetSoundButton(btn) {
+    if (!btn) return;
+    btn.classList.remove('is-on');
+    btn.setAttribute('aria-pressed', 'false');
+    btn.setAttribute('aria-label', 'Unmute review');
+  }
+
+  function setCardSound(root, video, on) {
+    root.querySelectorAll('video.so-pvid__video').forEach(function (item) {
+      var btn = item.closest('.so-pvid__media')
+        ? item.closest('.so-pvid__media').querySelector('[data-pvid-sound]')
+        : null;
+      if (on && item === video) {
+        item.muted = false;
+        item.volume = 1;
+        if (item.paused) {
+          var playPromise = item.play();
+          if (playPromise && typeof playPromise.catch === 'function') {
+            playPromise.catch(function () {});
+          }
+        }
+        if (btn) {
+          btn.classList.add('is-on');
+          btn.setAttribute('aria-pressed', 'true');
+          btn.setAttribute('aria-label', 'Mute review');
+        }
+      } else {
+        item.muted = true;
+        resetSoundButton(btn);
+      }
+    });
+    root.classList.toggle('so-pvid--listening', !!on);
+  }
+
+  function bindSound(root) {
+    if (!root || root.dataset.pvidSoundBound === 'true') return;
+    root.dataset.pvidSoundBound = 'true';
+    root.addEventListener('click', function (event) {
+      var btn = event.target.closest('[data-pvid-sound]');
+      if (!btn || !root.contains(btn)) return;
+      event.preventDefault();
+      event.stopPropagation();
+      var media = btn.closest('.so-pvid__media');
+      var video = media ? media.querySelector('video.so-pvid__video') : null;
+      if (!video) return;
+      setCardSound(root, video, !btn.classList.contains('is-on'));
+    });
+  }
+
   function init(root) {
     if (!root) return;
+    root.classList.remove('so-pvid--listening');
+    root.querySelectorAll('[data-pvid-sound]').forEach(resetSoundButton);
     setupInfinite(root);
     playVideos(root);
+    bindSound(root);
     root.setAttribute('data-pvid-ready', 'true');
   }
 

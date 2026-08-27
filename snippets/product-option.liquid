@@ -339,17 +339,14 @@
           assign bn_badge = variant.metafields.custom.variant_badge.value
           assign badge_label = bn_badge.label
           assign badge_color = bn_badge.colour
+          assign badge_down = badge_label | downcase
+          assign show_plan_badge = false
 
-          if badge_label == blank
-            if value contains 'Trial'
-              assign badge_label = 'Trial'
-            elsif value contains '1 Year' or value contains '1-Year' or value contains '1year'
-              assign badge_label = 'Best Seller'
-            elsif value contains '2 Year' or value contains '2-Year' or value contains '2year'
-              assign badge_label = 'Popular'
-            elsif value contains '3 Year' or value contains '3-Year' or value contains '3year'
-              assign badge_label = 'Affordable'
-            endif
+          if value contains '1 Year' or value contains '1-Year' or value contains '1year'
+            assign badge_label = 'Best Seller'
+            assign show_plan_badge = true
+          elsif badge_down contains 'best seller' or badge_down contains 'bestseller'
+            assign show_plan_badge = true
           endif
         -%}
         <input type="radio"
@@ -359,8 +356,8 @@
                form="{{ product_form_id }}"
                {% if option.selected_value == value %} checked {% endif %}>
         <label for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}"
-               class="m-product-option--node__label-card">
-          {% if badge_label != blank %}
+               class="m-product-option--node__label-card{% if show_plan_badge %} has-badge{% endif %}">
+          {% if show_plan_badge and badge_label != blank %}
             <span class="variant-card-badge" {% if badge_color != blank %}style="background-color: {{ badge_color }};"{% endif %}>
               {{ badge_label }}
             </span>
@@ -484,6 +481,7 @@
         {%- endcase -%}
       </div>
     {%- endfor -%}
+    {% render 'product-cartridge-pack', product: product, section: section %}
     {%- liquid
       assign show_plan_buy_row = false
       for option in product.options_with_values

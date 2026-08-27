@@ -60,6 +60,22 @@
     else if (mq.addListener) mq.addListener(handler);
   }
 
+  function findFooter() {
+    return (
+      document.querySelector('.so-footer') ||
+      document.querySelector('#so-footer') ||
+      document.querySelector('footer[role="contentinfo"]') ||
+      document.querySelector('footer')
+    );
+  }
+
+  function footerInView() {
+    var footer = findFooter();
+    if (!footer) return false;
+    var top = footer.getBoundingClientRect().top;
+    return top < window.innerHeight - 72;
+  }
+
   function init(root) {
     if (!root || root.dataset.soStickyInit === 'true') return;
     root.dataset.soStickyInit = 'true';
@@ -179,7 +195,7 @@
         return;
       }
       var rect = mainAtc.getBoundingClientRect();
-      setVisible(rect.bottom < 8);
+      setVisible(rect.bottom < 8 && !footerInView());
     }
 
     function requestEvaluate() {
@@ -196,7 +212,7 @@
         observer.disconnect();
         observer = null;
       }
-      if (!mainAtc || !('IntersectionObserver' in window)) {
+      if (!('IntersectionObserver' in window)) {
         evaluate();
         return;
       }
@@ -204,9 +220,11 @@
         function () {
           evaluate();
         },
-        { threshold: [0, 0.01, 1], rootMargin: '0px' }
+        { threshold: [0, 0.01, 0.2, 1], rootMargin: '0px' }
       );
-      observer.observe(mainAtc);
+      if (mainAtc) observer.observe(mainAtc);
+      var footer = findFooter();
+      if (footer) observer.observe(footer);
       evaluate();
     }
 
@@ -397,7 +415,7 @@
         setVisible(false);
         return;
       }
-      setVisible(pastPlanFeatures());
+      setVisible(pastPlanFeatures() && !footerInView());
     }
 
     function requestEvaluate() {
@@ -415,7 +433,7 @@
         observer = null;
       }
       var target = planFeatures || mainAtc;
-      if (!target || !('IntersectionObserver' in window)) {
+      if (!('IntersectionObserver' in window)) {
         evaluate();
         return;
       }
@@ -423,9 +441,11 @@
         function () {
           evaluate();
         },
-        { threshold: [0, 0.01, 1], rootMargin: '0px' }
+        { threshold: [0, 0.01, 0.2, 1], rootMargin: '0px' }
       );
-      observer.observe(target);
+      if (target) observer.observe(target);
+      var footer = findFooter();
+      if (footer) observer.observe(footer);
       evaluate();
     }
 

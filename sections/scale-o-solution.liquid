@@ -87,26 +87,6 @@
       </header>
     {%- endif -%}
 
-    {%- if section.settings.show_flow -%}
-      <div class="scale-o-solution__flow" aria-hidden="true" data-sos-animate>
-        {%- if section.settings.flow_step_1 != blank -%}
-          <span class="scale-o-solution__flow-item">{{ section.settings.flow_step_1 | escape }}</span>
-        {%- endif -%}
-        {%- if section.settings.flow_step_2 != blank -%}
-          <span class="scale-o-solution__flow-arrow" aria-hidden="true">→</span>
-          <span class="scale-o-solution__flow-item">{{ section.settings.flow_step_2 | escape }}</span>
-        {%- endif -%}
-        {%- if section.settings.flow_step_3 != blank -%}
-          <span class="scale-o-solution__flow-arrow" aria-hidden="true">→</span>
-          <span class="scale-o-solution__flow-item">{{ section.settings.flow_step_3 | escape }}</span>
-        {%- endif -%}
-        {%- if section.settings.flow_step_4 != blank -%}
-          <span class="scale-o-solution__flow-arrow" aria-hidden="true">→</span>
-          <span class="scale-o-solution__flow-item">{{ section.settings.flow_step_4 | escape }}</span>
-        {%- endif -%}
-      </div>
-    {%- endif -%}
-
     <div class="scale-o-solution__layout">
       <div class="scale-o-solution__col scale-o-solution__col--problem scale-o-solution__mobile-order-problem">
         {%- if section.settings.problem_heading != blank -%}
@@ -321,12 +301,6 @@
     { "type": "textarea", "id": "solution_description", "label": "Solution description", "default": "Scale-O changes how hard-water minerals behave, helping reduce scale formation without salt, electricity or water wastage." },
     { "type": "text", "id": "benefits_heading", "label": "Benefits heading", "default": "Solutions" },
 
-    { "type": "header", "content": "Story flow" },
-    { "type": "checkbox", "id": "show_flow", "label": "Show story flow", "default": true },
-    { "type": "text", "id": "flow_step_1", "label": "Flow step 1", "default": "Hard Water" },
-    { "type": "text", "id": "flow_step_2", "label": "Flow step 2", "default": "Scale-O Technology" },
-    { "type": "text", "id": "flow_step_3", "label": "Flow step 3", "default": "Scale Protection" },
-    { "type": "text", "id": "flow_step_4", "label": "Flow step 4", "default": "Zero-Factor Benefits" },
     { "type": "checkbox", "id": "show_connectors", "label": "Show desktop connecting lines", "default": true },
 
     { "type": "header", "content": "Product visual" },

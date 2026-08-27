@@ -103,6 +103,28 @@
                     preload="{% if autoplay_all %}auto{% else %}metadata{% endif %}"
                     {% if section.settings.show_controls %}controls{% endif %}
                   ></video>
+                  {%- if section.settings.show_sound_toggle != false -%}
+                    <button
+                      type="button"
+                      class="so-pvid__sound"
+                      data-pvid-sound
+                      aria-label="Unmute review"
+                      aria-pressed="false"
+                    >
+                      <span class="so-pvid__sound-icon so-pvid__sound-icon--off" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none">
+                          <path d="M11 5 6.5 9H3v6h3.5L11 19V5Z" fill="currentColor"/>
+                          <path d="m16 9 5 6M21 9l-5 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                        </svg>
+                      </span>
+                      <span class="so-pvid__sound-icon so-pvid__sound-icon--on" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none">
+                          <path d="M11 5 6.5 9H3v6h3.5L11 19V5Z" fill="currentColor"/>
+                          <path d="M14.5 9.5a4.2 4.2 0 0 1 0 5M17.2 7.2a7 7 0 0 1 0 9.6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                        </svg>
+                      </span>
+                    </button>
+                  {%- endif -%}
                 {%- elsif poster_url != blank -%}
                   <img class="so-pvid__video" src="{{ poster_url }}" alt="{{ item_title | default: heading | escape }}" loading="lazy">
                 {%- else -%}
@@ -191,6 +213,13 @@
       "label": "Show play button",
       "default": true,
       "info": "Hidden automatically when Autoplay all is on."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_sound_toggle",
+      "label": "Show sound on/off button",
+      "default": true,
+      "info": "Top-right on each reel. Videos still start muted so autoplay works; customers tap to hear the original review."
     },
     {
       "type": "checkbox",

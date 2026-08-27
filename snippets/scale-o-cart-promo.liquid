@@ -1,0 +1,137 @@
+{%- comment -%}
+  Cart drawer promo (Scale-O colors): coupon card + totals.
+  No "View all coupons". Safe AJAX-ready shell.
+{%- endcomment -%}
+{%- liquid
+  assign promo_on = settings.cart_drawer_promo_enable
+  assign promo_code = settings.cart_drawer_promo_code | default: 'SO-5' | strip | upcase
+  assign promo_amount = settings.cart_drawer_promo_amount | default: 500 | plus: 0
+  if promo_amount < 0
+    assign promo_amount = 0
+  endif
+  assign promo_cents = promo_amount | times: 100
+  assign promo_title = settings.cart_drawer_promo_title | default: 'Save ₹500 with SO-5'
+  assign auto_apply = settings.cart_drawer_promo_auto_apply
+
+  assign shop_discount_cents = cart.total_discount | default: 0
+  assign code_applied = false
+  if cart.cart_level_discount_applications.size > 0
+    for discount in cart.cart_level_discount_applications
+      assign dtitle = discount.title | upcase
+      if dtitle contains promo_code
+        assign code_applied = true
+      endif
+    endfor
+  endif
+  if shop_discount_cents >= promo_cents and promo_cents > 0
+    assign code_applied = true
+  endif
+
+  assign subtotal_cents = cart.original_total_price | default: cart.total_price
+  if cart.original_total_price == blank or cart.original_total_price == 0
+    assign subtotal_cents = cart.total_price | plus: shop_discount_cents
+  endif
+
+  if code_applied and shop_discount_cents > 0
+    assign discount_cents = shop_discount_cents
+    assign payable_cents = cart.total_price
+  else
+    assign discount_cents = promo_cents
+    if discount_cents > subtotal_cents
+      assign discount_cents = subtotal_cents
+    endif
+    assign payable_cents = subtotal_cents | minus: discount_cents
+  endif
+
+  assign show_promo = false
+  if promo_on and promo_code != blank and promo_amount > 0
+    assign show_promo = true
+  endif
+-%}
+
+{%- if show_promo -%}
+  <div
+    class="scale-o-cart-promo{% if code_applied or auto_apply %} is-applied{% endif %}{% if cart.item_count == 0 %} is-empty{% endif %}"
+    data-scale-o-cart-promo
+    data-promo-code="{{ promo_code | escape }}"
+    data-promo-cents="{{ promo_cents }}"
+    data-auto-apply="{% if auto_apply %}true{% else %}false{% endif %}"
+    data-currency-code="{% if settings.currency_code_enabled %}true{% else %}false{% endif %}"
+    {% if cart.item_count == 0 %}hidden{% endif %}
+  >
+    <input
+      type="hidden"
+      name="discount"
+      form="cart-drawer-form"
+      value="{{ promo_code | escape }}"
+      data-scale-o-promo-input
+    >
+
+    <div class="scale-o-cart-promo__offer">
+      <span class="scale-o-cart-promo__icon" aria-hidden="true">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+          <circle cx="12" cy="12" r="11" fill="#0C7FDF"/>
+          <text x="12" y="16" text-anchor="middle" fill="#fff" font-size="11" font-weight="700" font-family="system-ui,sans-serif">%</text>
+        </svg>
+      </span>
+      <div class="scale-o-cart-promo__offer-copy">
+        <p class="scale-o-cart-promo__offer-title">{{ promo_title | escape }}</p>
+        <p class="scale-o-cart-promo__offer-sub">
+          Code: <strong data-scale-o-promo-code-label>{{ promo_code | escape }}</strong>
+        </p>
+      </div>
+      <button
+        type="button"
+        class="scale-o-cart-promo__apply"
+        data-scale-o-promo-apply
+        {% if code_applied or auto_apply %}hidden{% endif %}
+      >
+        Apply
+      </button>
+      <span class="scale-o-cart-promo__applied" data-scale-o-promo-applied {% unless code_applied or auto_apply %}hidden{% endunless %}>
+        Applied
+      </span>
+    </div>
+
+    <div class="scale-o-cart-promo__summary">
+      <div class="scale-o-cart-promo__rows">
+        <div class="scale-o-cart-promo__row">
+          <span>Cart Total</span>
+          <span data-scale-o-promo-subtotal>
+            {%- if settings.currency_code_enabled -%}
+              {{ subtotal_cents | money_with_currency }}
+            {%- else -%}
+              {{ subtotal_cents | money }}
+            {%- endif -%}
+          </span>
+        </div>
+        <div class="scale-o-cart-promo__row scale-o-cart-promo__row--discount">
+          <span>Coupon Discount ({{ promo_code | escape }})</span>
+          <span data-scale-o-promo-discount>
+            -
+            {%- if settings.currency_code_enabled -%}
+              {{ discount_cents | money_with_currency }}
+            {%- else -%}
+              {{ discount_cents | money }}
+            {%- endif -%}
+          </span>
+        </div>
+        <div class="scale-o-cart-promo__row">
+          <span>Shipping</span>
+          <span class="scale-o-cart-promo__shipping">FREE</span>
+        </div>
+        <div class="scale-o-cart-promo__row scale-o-cart-promo__row--payable">
+          <span>To Pay</span>
+          <span data-scale-o-promo-payable>
+            {%- if settings.currency_code_enabled -%}
+              {{ payable_cents | money_with_currency }}
+            {%- else -%}
+              {{ payable_cents | money }}
+            {%- endif -%}
+          </span>
+        </div>
+      </div>
+      <p class="scale-o-cart-promo__tax">Inclusive of all taxes</p>
+    </div>
+  </div>
+{%- endif -%}

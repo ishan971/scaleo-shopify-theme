@@ -1094,15 +1094,29 @@
           "settings": {
             "enabled": true,
             "title": "Scale-O",
-            "highlight": true
+            "highlight": true,
+            "image": "shopify://shop_images/ChatGPT_Image_Aug_13_2026_11_54_21_AM.png",
+            "image_alt": "Scale-O salt-free water softener"
           }
         },
-        "comp_others": {
+        "comp_a": {
           "type": "competitor",
           "settings": {
             "enabled": true,
-            "title": "Core competitors",
-            "highlight": false
+            "title": "Competitor A",
+            "highlight": false,
+            "image": "shopify://shop_images/ChatGPT_Image_Aug_13_2026_11_48_51_AM.png",
+            "image_alt": "Competitor A water softener"
+          }
+        },
+        "comp_b": {
+          "type": "competitor",
+          "settings": {
+            "enabled": true,
+            "title": "Competitor B",
+            "highlight": false,
+            "image": "shopify://shop_images/content.png",
+            "image_alt": "Competitor B water softener"
           }
         },
         "crow_fit": {
@@ -1116,8 +1130,8 @@
             "status_1": "positive",
             "value_2": "One size for all, no analysis",
             "status_2": "negative",
-            "value_3": "",
-            "status_3": "neutral",
+            "value_3": "One size for all, no analysis",
+            "status_3": "negative",
             "value_4": "",
             "status_4": "positive"
           }
@@ -1133,8 +1147,8 @@
             "status_1": "positive",
             "value_2": "Mostly 1000 L to 1500 L",
             "status_2": "negative",
-            "value_3": "",
-            "status_3": "neutral",
+            "value_3": "Mostly 1000 L to 1500 L",
+            "status_3": "negative",
             "value_4": "",
             "status_4": "positive"
           }
@@ -1150,8 +1164,8 @@
             "status_1": "positive",
             "value_2": "Reverse-engineered, no patents",
             "status_2": "negative",
-            "value_3": "",
-            "status_3": "neutral",
+            "value_3": "Reverse-engineered, no patents",
+            "status_3": "negative",
             "value_4": "",
             "status_4": "positive"
           }
@@ -1167,8 +1181,8 @@
             "status_1": "positive",
             "value_2": "Copied designs, no R&D",
             "status_2": "negative",
-            "value_3": "",
-            "status_3": "neutral",
+            "value_3": "Copied designs, no R&D",
+            "status_3": "negative",
             "value_4": "",
             "status_4": "positive"
           }
@@ -1184,8 +1198,8 @@
             "status_1": "positive",
             "value_2": "Claims of 1 year that are not realistic",
             "status_2": "negative",
-            "value_3": "",
-            "status_3": "neutral",
+            "value_3": "Claims of 1 year that are not realistic",
+            "status_3": "negative",
             "value_4": "",
             "status_4": "positive"
           }
@@ -1201,8 +1215,8 @@
             "status_1": "positive",
             "value_2": "Uncertified, not food-grade",
             "status_2": "negative",
-            "value_3": "",
-            "status_3": "neutral",
+            "value_3": "Uncertified, not food-grade",
+            "status_3": "negative",
             "value_4": "",
             "status_4": "positive"
           }
@@ -1218,8 +1232,8 @@
             "status_1": "positive",
             "value_2": "White-label, outsourced",
             "status_2": "negative",
-            "value_3": "",
-            "status_3": "neutral",
+            "value_3": "White-label, outsourced",
+            "status_3": "negative",
             "value_4": "",
             "status_4": "positive"
           }
@@ -1235,8 +1249,8 @@
             "status_1": "positive",
             "value_2": "Also RO, tap cleaners, electronics",
             "status_2": "negative",
-            "value_3": "",
-            "status_3": "neutral",
+            "value_3": "Also RO, tap cleaners, electronics",
+            "status_3": "negative",
             "value_4": "",
             "status_4": "positive"
           }
@@ -1252,8 +1266,8 @@
             "status_1": "positive",
             "value_2": "One-time sale, no retention",
             "status_2": "negative",
-            "value_3": "",
-            "status_3": "neutral",
+            "value_3": "One-time sale, no retention",
+            "status_3": "negative",
             "value_4": "",
             "status_4": "positive"
           }
@@ -1269,8 +1283,8 @@
             "status_1": "positive",
             "value_2": "Full price on every repurchase",
             "status_2": "negative",
-            "value_3": "",
-            "status_3": "neutral",
+            "value_3": "Full price on every repurchase",
+            "status_3": "negative",
             "value_4": "",
             "status_4": "positive"
           }
@@ -1290,7 +1304,8 @@
         "feat_cost",
         "feat_regen",
         "comp_scaleo",
-        "comp_others",
+        "comp_a",
+        "comp_b",
         "crow_fit",
         "crow_capacity",
         "crow_patent",

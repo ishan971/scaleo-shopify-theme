@@ -116,7 +116,7 @@
         </header>
       {%- endif -%}
 
-      <div class="scale-o-compare__board" data-stc-animate>
+      <div class="scale-o-compare__board scale-o-compare__board--desktop" data-stc-animate>
         <div class="scale-o-compare__board-wrap" tabindex="0" role="region" aria-label="{{ section.settings.tech_heading | default: 'Technology comparison' | escape }}">
           <table class="scale-o-compare__board-table">
             <caption class="scale-o-compare__sr-only">{{ section.settings.tech_heading | default: 'Technology comparison' | escape }}</caption>
@@ -235,6 +235,182 @@
           </table>
         </div>
       </div>
+
+      {%- comment -%} Mobile: 4 selectable cards + 2-column FEATURES / selected tech {%- endcomment -%}
+      {%- liquid
+        assign default_tech_index = 1
+        assign visible = 0
+        for tech in tech_blocks
+          if tech.settings.enabled == false
+            continue
+          endif
+          assign visible = visible | plus: 1
+          if visible > 4
+            break
+          endif
+          if tech.settings.highlight
+            assign default_tech_index = visible
+          endif
+        endfor
+      -%}
+      <div
+        class="scale-o-compare__mobile"
+        data-stc-mobile
+        data-stc-default="{{ default_tech_index }}"
+        data-stc-animate
+      >
+        <div class="scale-o-compare__picker" role="radiogroup" aria-label="{{ section.settings.tech_heading | default: 'Select technology' | escape }}">
+          {%- assign visible = 0 -%}
+          {%- for tech in tech_blocks -%}
+            {%- if tech.settings.enabled == false -%}{%- continue -%}{%- endif -%}
+            {%- assign visible = visible | plus: 1 -%}
+            {%- if visible > 4 -%}{%- break -%}{%- endif -%}
+            {%- liquid
+              assign card_image = tech.settings.image
+              if card_image == blank and tech.settings.product != blank
+                assign card_image = tech.settings.product.featured_image
+              endif
+              assign card_alt = tech.settings.image_alt | default: tech.settings.title
+              assign is_highlight = tech.settings.highlight
+              assign is_default = false
+              if visible == default_tech_index
+                assign is_default = true
+              endif
+              assign radio_id = 'stc-tech-' | append: section.id | append: '-' | append: visible
+            -%}
+            <label
+              class="scale-o-compare__picker-card{% if is_default %} is-selected{% endif %}{% if is_highlight %} is-featured{% endif %}"
+              for="{{ radio_id }}"
+              {{ tech.shopify_attributes }}
+            >
+              <span class="scale-o-compare__picker-photo">
+                {%- if card_image != blank -%}
+                  {{
+                    card_image
+                    | image_url: width: 160
+                    | image_tag: loading: 'lazy', widths: '80,120,160', sizes: '56px', alt: card_alt
+                  }}
+                {%- elsif is_highlight -%}
+                  <img src="{{ 'scale-o-solution-product.png' | asset_url }}" alt="{{ card_alt | escape }}" width="56" height="56" loading="lazy">
+                {%- else -%}
+                  <span class="scale-o-compare__picker-fallback" aria-hidden="true">
+                    {% render 'scale-o-compare-icon', icon: tech.settings.theme_icon, class: 'scale-o-compare__picker-fallback-svg' %}
+                  </span>
+                {%- endif -%}
+              </span>
+              <span class="scale-o-compare__picker-body">
+                {%- if is_highlight and section.settings.show_recommended_badge -%}
+                  <span class="scale-o-compare__picker-badge">
+                    <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" focusable="false">
+                      <path d="M8 1.6 9.9 5.7l4.5.5-3.3 3 1 4.4L8 11.8 3.9 13.6l1-4.4-3.3-3 4.5-.5z"/>
+                    </svg>
+                    {{ section.settings.recommended_label | default: 'Recommended' | escape }}
+                  </span>
+                {%- endif -%}
+                <span class="scale-o-compare__picker-title">{{ tech.settings.title | escape }}</span>
+              </span>
+              <input
+                class="scale-o-compare__picker-input"
+                id="{{ radio_id }}"
+                type="radio"
+                name="stc-tech-{{ section.id }}"
+                value="{{ visible }}"
+                data-stc-tech-index="{{ visible }}"
+                data-stc-tech-title="{{ tech.settings.title | escape }}"
+                data-stc-tech-featured="{% if is_highlight %}true{% else %}false{% endif %}"
+                {% if card_image != blank %}
+                  data-stc-tech-image="{{ card_image | image_url: width: 120 }}"
+                {% elsif is_highlight %}
+                  data-stc-tech-image="{{ 'scale-o-solution-product.png' | asset_url }}"
+                {% endif %}
+                {% if is_default %}checked{% endif %}
+              >
+              <span class="scale-o-compare__picker-radio" aria-hidden="true"></span>
+            </label>
+          {%- endfor -%}
+        </div>
+
+        {%- if section.settings.show_features and feature_blocks.size > 0 -%}
+          <div class="scale-o-compare__mobile-matrix">
+            <div class="scale-o-compare__mobile-matrix-head">
+              <div class="scale-o-compare__mobile-matrix-corner">
+                Technology
+              </div>
+              <div class="scale-o-compare__mobile-matrix-tech" data-stc-mobile-head>
+                {%- assign visible = 0 -%}
+                {%- for tech in tech_blocks -%}
+                  {%- if tech.settings.enabled == false -%}{%- continue -%}{%- endif -%}
+                  {%- assign visible = visible | plus: 1 -%}
+                  {%- if visible > 4 -%}{%- break -%}{%- endif -%}
+                  {%- if visible == default_tech_index -%}
+                    {%- liquid
+                      assign head_image = tech.settings.image
+                      if head_image == blank and tech.settings.product != blank
+                        assign head_image = tech.settings.product.featured_image
+                      endif
+                    -%}
+                    {%- if head_image != blank -%}
+                      {{
+                        head_image
+                        | image_url: width: 120
+                        | image_tag: loading: 'lazy', class: 'scale-o-compare__mobile-matrix-logo', widths: '60,90,120', sizes: '44px', alt: tech.settings.title
+                      }}
+                    {%- else -%}
+                      <span class="scale-o-compare__mobile-matrix-name">{{ tech.settings.title | escape }}</span>
+                    {%- endif -%}
+                  {%- endif -%}
+                {%- endfor -%}
+              </div>
+            </div>
+
+            <div class="scale-o-compare__mobile-matrix-body" data-stc-mobile-rows>
+              {%- for feature in feature_blocks -%}
+                {%- if feature.settings.enabled == false -%}{%- continue -%}{%- endif -%}
+                <div
+                  class="scale-o-compare__mobile-row"
+                  data-stc-mobile-row
+                  data-v1="{{ feature.settings.value_1 | escape }}"
+                  data-s1="{{ feature.settings.status_1 | escape }}"
+                  data-v2="{{ feature.settings.value_2 | escape }}"
+                  data-s2="{{ feature.settings.status_2 | escape }}"
+                  data-v3="{{ feature.settings.value_3 | escape }}"
+                  data-s3="{{ feature.settings.status_3 | escape }}"
+                  data-v4="{{ feature.settings.value_4 | escape }}"
+                  data-s4="{{ feature.settings.status_4 | escape }}"
+                  {{ feature.shopify_attributes }}
+                >
+                  <div class="scale-o-compare__mobile-feature">
+                    <span class="scale-o-compare__mobile-feature-icon" aria-hidden="true">
+                      {%- if feature.settings.icon_image != blank -%}
+                        {{
+                          feature.settings.icon_image
+                          | image_url: width: 64
+                          | image_tag: loading: 'lazy', widths: '32,48,64', sizes: '20px', alt: ''
+                        }}
+                      {%- else -%}
+                        {% render 'scale-o-compare-icon', icon: feature.settings.theme_icon, class: 'scale-o-compare__mobile-feature-svg' %}
+                      {%- endif -%}
+                    </span>
+                    <span class="scale-o-compare__mobile-feature-title">{{ feature.settings.title | escape }}</span>
+                  </div>
+                  <div class="scale-o-compare__mobile-value" data-stc-mobile-value>
+                    {%- case default_tech_index -%}
+                      {%- when 1 -%}
+                        {% render 'scale-o-compare-cell', value: feature.settings.value_1, status: feature.settings.status_1, featured: true %}
+                      {%- when 2 -%}
+                        {% render 'scale-o-compare-cell', value: feature.settings.value_2, status: feature.settings.status_2, featured: true %}
+                      {%- when 3 -%}
+                        {% render 'scale-o-compare-cell', value: feature.settings.value_3, status: feature.settings.status_3, featured: true %}
+                      {%- else -%}
+                        {% render 'scale-o-compare-cell', value: feature.settings.value_4, status: feature.settings.status_4, featured: true %}
+                    {%- endcase -%}
+                  </div>
+                </div>
+              {%- endfor -%}
+            </div>
+          </div>
+        {%- endif -%}
+      </div>
     {%- endif -%}
   </div>
 
@@ -352,7 +528,7 @@
               endif
             -%}
 
-            <div class="scale-o-versus-table-wrap" tabindex="0">
+            <div class="scale-o-versus-table-wrap scale-o-versus-table-wrap--desktop" tabindex="0">
               <table class="scale-o-versus-table">
                 <caption class="scale-o-compare__sr-only">{{ section.settings.heading | default: 'Competitor comparison' | escape }}</caption>
                 <thead>
@@ -463,6 +639,126 @@
                   {%- endfor -%}
                 </tbody>
               </table>
+            </div>
+
+            {%- comment -%} Mobile: 3 brand cards + accordion points {%- endcomment -%}
+            <div
+              class="scale-o-versus-mobile"
+              data-stc-versus-mobile
+              data-stc-default="{{ win_index }}"
+            >
+              <div class="scale-o-versus-mobile__cards" role="radiogroup" aria-label="{{ section.settings.heading | default: 'Select brand' | escape }}">
+                {%- assign visible = 0 -%}
+                {%- for brand in competitor_blocks -%}
+                  {%- if brand.settings.enabled == false -%}{%- continue -%}{%- endif -%}
+                  {%- assign visible = visible | plus: 1 -%}
+                  {%- if visible > 3 -%}{%- break -%}{%- endif -%}
+                  {%- liquid
+                    assign brand_image = brand.settings.image | default: brand.settings.image_mobile
+                    assign brand_alt = brand.settings.image_alt | default: brand.settings.title
+                    assign is_win = brand.settings.highlight
+                    assign is_default = false
+                    if visible == win_index
+                      assign is_default = true
+                    endif
+                    assign radio_id = 'stc-vs-' | append: section.id | append: '-' | append: visible
+                  -%}
+                  <label
+                    class="scale-o-versus-mobile__card{% if is_default %} is-selected{% endif %}{% if is_win %} is-featured{% endif %}"
+                    for="{{ radio_id }}"
+                    {{ brand.shopify_attributes }}
+                  >
+                    <span class="scale-o-versus-mobile__card-photo">
+                      {%- if brand_image != blank -%}
+                        {{
+                          brand_image
+                          | image_url: width: 240
+                          | image_tag: loading: 'lazy', widths: '120,180,240', sizes: '96px', alt: brand_alt
+                        }}
+                      {%- elsif is_win -%}
+                        <img src="{{ 'scale-o-solution-product.png' | asset_url }}" alt="{{ brand_alt | escape }}" width="96" height="72" loading="lazy">
+                      {%- else -%}
+                        <span class="scale-o-versus-mobile__card-fallback" aria-hidden="true">
+                          {% render 'scale-o-compare-icon', icon: 'factory', class: 'scale-o-compare__icon-svg' %}
+                        </span>
+                      {%- endif -%}
+                    </span>
+                    <span class="scale-o-versus-mobile__card-title">{{ brand.settings.title | escape }}</span>
+                    {%- if is_win and section.settings.show_recommended_badge -%}
+                      <span class="scale-o-versus-mobile__card-badge">
+                        <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 1.6 9.9 5.7l4.5.5-3.3 3 1 4.4L8 11.8 3.9 13.6l1-4.4-3.3-3 4.5-.5z"/></svg>
+                        {{ section.settings.recommended_label | default: 'Recommended' | escape }}
+                      </span>
+                    {%- endif -%}
+                    <input
+                      class="scale-o-versus-mobile__input"
+                      id="{{ radio_id }}"
+                      type="radio"
+                      name="stc-vs-{{ section.id }}"
+                      value="{{ visible }}"
+                      data-stc-vs-index="{{ visible }}"
+                      data-stc-vs-featured="{% if is_win %}true{% else %}false{% endif %}"
+                      {% if is_default %}checked{% endif %}
+                    >
+                  </label>
+                {%- endfor -%}
+              </div>
+
+              <div class="scale-o-versus-mobile__list" data-stc-versus-list>
+                {%- for row in competitor_rows -%}
+                  {%- if row.settings.enabled == false -%}{%- continue -%}{%- endif -%}
+                  {%- liquid
+                    assign row_value = ''
+                    assign row_status = 'neutral'
+                    case win_index
+                      when 1
+                        assign row_value = row.settings.value_1
+                        assign row_status = row.settings.status_1
+                      when 2
+                        assign row_value = row.settings.value_2
+                        assign row_status = row.settings.status_2
+                      when 3
+                        assign row_value = row.settings.value_3
+                        assign row_status = row.settings.status_3
+                      when 4
+                        assign row_value = row.settings.value_4
+                        assign row_status = row.settings.status_4
+                    endcase
+                  -%}
+                  <details
+                    class="scale-o-versus-mobile__item"
+                    data-stc-versus-row
+                    data-v1="{{ row.settings.value_1 | escape }}"
+                    data-s1="{{ row.settings.status_1 | escape }}"
+                    data-v2="{{ row.settings.value_2 | escape }}"
+                    data-s2="{{ row.settings.status_2 | escape }}"
+                    data-v3="{{ row.settings.value_3 | escape }}"
+                    data-s3="{{ row.settings.status_3 | escape }}"
+                    data-v4="{{ row.settings.value_4 | escape }}"
+                    data-s4="{{ row.settings.status_4 | escape }}"
+                    {{ row.shopify_attributes }}
+                  >
+                    <summary class="scale-o-versus-mobile__summary">
+                      <span class="scale-o-versus-mobile__icon" aria-hidden="true">
+                        {% render 'scale-o-compare-icon', icon: row.settings.theme_icon, class: 'scale-o-versus-mobile__icon-svg' %}
+                      </span>
+                      <span class="scale-o-versus-mobile__mark" data-stc-versus-mark aria-hidden="true">
+                        {% render 'scale-o-compare-cell', value: '', status: row_status, featured: true %}
+                      </span>
+                      <span class="scale-o-versus-mobile__copy">
+                        <span class="scale-o-versus-mobile__point">{{ row.settings.title | escape }}</span>
+                        <span class="scale-o-versus-mobile__value" data-stc-versus-value>{{ row_value | escape }}</span>
+                      </span>
+                      <span class="scale-o-versus-mobile__chevron" aria-hidden="true">
+                        <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                      </span>
+                    </summary>
+                    {%- if row.settings.impact != blank -%}
+                      <div class="scale-o-versus-mobile__impact">{{ row.settings.impact | escape }}</div>
+                    {%- endif -%}
+                  </details>
+                {%- endfor -%}
+              </div>
             </div>
           {%- endif -%}
 

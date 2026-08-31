@@ -243,7 +243,7 @@
   }
 
   .scale-o-compare__mobile-matrix-corner {
-    color: #64748b;
+    color: #556474;
     font-size: 11px;
     font-weight: 700;
     letter-spacing: 0.08em;
@@ -826,7 +826,7 @@
 
 .scale-o-versus-rows__pill--lose {
   background: #fff;
-  color: #5a6b85;
+  color: #465568;
   border: 1px solid #e8c9c5;
 }
 
@@ -1161,7 +1161,7 @@
   }
 
   .scale-o-versus-mobile__card-title {
-    color: #64748b;
+    color: #556474;
     font-size: 12px;
     font-weight: 700;
     letter-spacing: 0.02em;
@@ -1294,7 +1294,7 @@
   }
 
   .scale-o-versus-mobile__value {
-    color: #64748b;
+    color: #556474;
     font-size: 12px;
     line-height: 1.35;
   }
@@ -1311,7 +1311,7 @@
 
   .scale-o-versus-mobile__impact {
     padding: 0 12px 12px 70px;
-    color: #64748b;
+    color: #556474;
     font-size: 12px;
     line-height: 1.45;
   }
@@ -1418,6 +1418,18 @@
   justify-content: center;
 }
 
+.scale-o-compare__cell--text-only {
+  justify-content: center;
+}
+
+.scale-o-compare__cell--text-only .scale-o-compare__value {
+  font-weight: inherit;
+}
+
+.scale-o-compare__cell--text-only.scale-o-compare__cell--featured .scale-o-compare__value {
+  font-weight: 700;
+}
+
 .scale-o-compare__mark {
   flex-shrink: 0;
   width: 18px;
@@ -1427,7 +1439,7 @@
   align-items: center;
   justify-content: center;
   background: #edf2f7;
-  color: #7a8aa0;
+  color: #667888;
 }
 
 .scale-o-compare__mark svg {

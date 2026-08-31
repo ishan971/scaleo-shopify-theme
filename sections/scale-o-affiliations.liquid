@@ -110,11 +110,11 @@
                 {%- if logo_image != blank -%}
                   {{
                     logo_image
-                    | image_url: width: 360
+                    | image_url: width: 400
                     | image_tag:
                       loading: 'lazy',
-                      widths: '160,240,360',
-                      sizes: '160px',
+                      widths: '176,264,400',
+                      sizes: '176px',
                       alt: logo_alt
                   }}
                 {%- elsif logo_url != blank -%}
@@ -182,7 +182,7 @@
     { "type": "color", "id": "card_background", "label": "Card background", "default": "#FFFFFF" },
     { "type": "color", "id": "card_border_color", "label": "Card border", "default": "#DCEAF5" },
     { "type": "color", "id": "heading_color", "label": "Heading", "default": "#142B4A" },
-    { "type": "color", "id": "text_color", "label": "Text", "default": "#5A6B85" },
+    { "type": "color", "id": "text_color", "label": "Text", "default": "#465568" },
     { "type": "color", "id": "accent_color", "label": "Accent", "default": "#0C7FDF" }
   ],
   "blocks": [

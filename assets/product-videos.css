@@ -72,7 +72,7 @@
   padding: 16px;
   text-align: center;
   font-size: 13px;
-  color: #6b7280;
+  color: #5c6572;
   box-sizing: border-box;
 }
 .so-pvid__sound {
@@ -171,7 +171,7 @@
   margin: 0;
   padding: 12px 0 8px;
   font-size: 14px;
-  color: #6b7280;
+  color: #5c6572;
 }
 
 @keyframes so-pvid-marquee {

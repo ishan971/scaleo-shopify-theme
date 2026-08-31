@@ -217,13 +217,13 @@
                       <td class="scale-o-compare__mini-td{% if tech.settings.highlight %} scale-o-compare__mini-td--featured{% endif %}">
                         {%- case visible -%}
                           {%- when 1 -%}
-                            {% render 'scale-o-compare-cell', value: section.settings.tech_type_value_1, status: 'neutral', featured: tech.settings.highlight, short_label: tech.settings.title %}
+                            {% render 'scale-o-compare-cell', value: section.settings.tech_type_value_1, status: 'neutral', featured: tech.settings.highlight, short_label: tech.settings.title, show_mark: false %}
                           {%- when 2 -%}
-                            {% render 'scale-o-compare-cell', value: section.settings.tech_type_value_2, status: 'neutral', featured: tech.settings.highlight, short_label: tech.settings.title %}
+                            {% render 'scale-o-compare-cell', value: section.settings.tech_type_value_2, status: 'neutral', featured: tech.settings.highlight, short_label: tech.settings.title, show_mark: false %}
                           {%- when 3 -%}
-                            {% render 'scale-o-compare-cell', value: section.settings.tech_type_value_3, status: 'neutral', featured: tech.settings.highlight, short_label: tech.settings.title %}
+                            {% render 'scale-o-compare-cell', value: section.settings.tech_type_value_3, status: 'neutral', featured: tech.settings.highlight, short_label: tech.settings.title, show_mark: false %}
                           {%- when 4 -%}
-                            {% render 'scale-o-compare-cell', value: section.settings.tech_type_value_4, status: 'neutral', featured: tech.settings.highlight, short_label: tech.settings.title %}
+                            {% render 'scale-o-compare-cell', value: section.settings.tech_type_value_4, status: 'neutral', featured: tech.settings.highlight, short_label: tech.settings.title, show_mark: false %}
                         {%- endcase -%}
                       </td>
                     {%- endfor -%}
@@ -409,13 +409,13 @@
                   <div class="scale-o-compare__mobile-value" data-stc-mobile-value>
                     {%- case default_tech_index -%}
                       {%- when 1 -%}
-                        {% render 'scale-o-compare-cell', value: section.settings.tech_type_value_1, status: 'neutral', featured: true %}
+                        {% render 'scale-o-compare-cell', value: section.settings.tech_type_value_1, status: 'neutral', featured: true, show_mark: false %}
                       {%- when 2 -%}
-                        {% render 'scale-o-compare-cell', value: section.settings.tech_type_value_2, status: 'neutral', featured: true %}
+                        {% render 'scale-o-compare-cell', value: section.settings.tech_type_value_2, status: 'neutral', featured: true, show_mark: false %}
                       {%- when 3 -%}
-                        {% render 'scale-o-compare-cell', value: section.settings.tech_type_value_3, status: 'neutral', featured: true %}
+                        {% render 'scale-o-compare-cell', value: section.settings.tech_type_value_3, status: 'neutral', featured: true, show_mark: false %}
                       {%- else -%}
-                        {% render 'scale-o-compare-cell', value: section.settings.tech_type_value_4, status: 'neutral', featured: true %}
+                        {% render 'scale-o-compare-cell', value: section.settings.tech_type_value_4, status: 'neutral', featured: true, show_mark: false %}
                     {%- endcase -%}
                   </div>
                 </div>
@@ -896,10 +896,10 @@
     { "type": "text", "id": "tech_criteria_heading", "label": "Table first column heading", "default": "TECHNOLOGY" },
     { "type": "checkbox", "id": "show_tech_type_row", "label": "Show technology type row", "default": true },
     { "type": "text", "id": "tech_type_row_title", "label": "Technology type row title", "default": "Technology" },
-    { "type": "text", "id": "tech_type_value_1", "label": "Technology type column 1", "default": "Ion Exchange" },
-    { "type": "text", "id": "tech_type_value_2", "label": "Technology type column 2", "default": "Electro-Magnetism" },
-    { "type": "text", "id": "tech_type_value_3", "label": "Technology type column 3", "default": "Multi bed Filtration" },
-    { "type": "text", "id": "tech_type_value_4", "label": "Technology type column 4", "default": "Advanced Chelation" },
+    { "type": "text", "id": "tech_type_value_1", "label": "Technology type column 1", "default": "Salt Based Water Softener" },
+    { "type": "text", "id": "tech_type_value_2", "label": "Technology type column 2", "default": "Electro-magnetic Water Softener" },
+    { "type": "text", "id": "tech_type_value_3", "label": "Technology type column 3", "default": "Multi-media Water Softener" },
+    { "type": "text", "id": "tech_type_value_4", "label": "Technology type column 4", "default": "Scale-O Water Softener" },
     { "type": "checkbox", "id": "show_recommended_badge", "label": "Show Recommended badge on Scale-O", "default": true },
     { "type": "text", "id": "recommended_label", "label": "Recommended badge text", "default": "Recommended" },
     { "type": "checkbox", "id": "show_column_images", "label": "Show column images", "default": true },
@@ -1002,7 +1002,7 @@
     { "type": "color", "id": "card_background", "label": "Card background", "default": "#FFFFFF" },
     { "type": "color", "id": "card_border_color", "label": "Card border", "default": "#E4ECF6" },
     { "type": "color", "id": "heading_color", "label": "Heading", "default": "#12345B" },
-    { "type": "color", "id": "text_color", "label": "Text", "default": "#5A6B85" },
+    { "type": "color", "id": "text_color", "label": "Text", "default": "#465568" },
     { "type": "color", "id": "accent_color", "label": "Accent", "default": "#0C7FDF" },
     { "type": "color", "id": "accent_hover_color", "label": "Accent hover", "default": "#0A6BC4" },
     { "type": "text", "id": "accessibility_label", "label": "Accessibility label", "default": "Scale-O comparison" }
@@ -1267,10 +1267,10 @@
       "name": "Scale-O Comparison",
       "category": "Custom",
       "blocks": [
-        { "type": "technology", "settings": { "title": "Salt-Based Water Softener", "description": "Traditional ion-exchange softening using salt and regeneration.", "theme_icon": "bucket" } },
-        { "type": "technology", "settings": { "title": "Electromagnetic Scale Control", "description": "Electronic technology designed to reduce scale formation.", "theme_icon": "pipe" } },
-        { "type": "technology", "settings": { "title": "Multi-Media Water Treatment", "description": "Media-based systems using multiple filtration materials.", "theme_icon": "gear" } },
-        { "type": "technology", "settings": { "title": "Scale-O Water Softener", "description": "Salt-free scale protection designed for simple installation.", "theme_icon": "droplet", "highlight": true, "show_badge": true, "badge_text": "SCALE-O" } },
+        { "type": "technology", "settings": { "title": "Ion Exchange", "description": "Traditional ion-exchange softening using salt and regeneration.", "theme_icon": "bucket" } },
+        { "type": "technology", "settings": { "title": "Electro-Magnetism", "description": "Electronic technology designed to reduce scale formation.", "theme_icon": "pipe" } },
+        { "type": "technology", "settings": { "title": "Multi bed Filtration", "description": "Media-based systems using multiple filtration materials.", "theme_icon": "gear" } },
+        { "type": "technology", "settings": { "title": "Advanced Chelation", "description": "Salt-free scale protection designed for simple installation.", "theme_icon": "droplet", "highlight": true, "show_badge": true, "badge_text": "SCALE-O" } },
         { "type": "feature", "settings": { "title": "Salt required", "value_1": "Yes", "status_1": "negative", "value_2": "No", "status_2": "positive", "value_3": "Depends", "status_3": "neutral", "value_4": "No", "status_4": "not_required" } },
         { "type": "feature", "settings": { "title": "Electricity required", "value_1": "Yes", "status_1": "required", "value_2": "Yes", "status_2": "required", "value_3": "Depends", "status_3": "neutral", "value_4": "No", "status_4": "not_required" } },
         { "type": "competitor", "settings": { "title": "Scale-O", "highlight": true } },

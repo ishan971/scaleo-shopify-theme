@@ -19,9 +19,9 @@
     elsif liner_down contains 'hidden extra' or liner_down contains 'transparent pricing'
       assign feature_title = 'No Hidden Extra Charges'
       assign feature_desc = liner
-    elsif liner_down contains 'delivery or exchange' or liner_down contains 'charges are included' or liner_down contains 'charges included'
-      assign feature_title = "Delivery's on us"
-      assign feature_desc = liner
+    elsif liner_down contains 'delivery or exchange' or liner_down contains 'charges are included' or liner_down contains 'charges included' or liner_down contains 'replacement' or liner_down contains 'pre-mature' or liner_down contains 'premature'
+      assign feature_title = 'Free Replacement for'
+      assign feature_desc = 'Damage or Pre-mature Expiry'
     else
       assign feature_title = liner
     endif
@@ -30,15 +30,16 @@
   endif
 
   assign check_down = feature_title | downcase | append: ' ' | append: liner_down
-  if title_down contains 'charges are included' or title_down contains 'charges included' or liner_down contains 'charges are included' or liner_down contains 'charges included' or liner_down contains 'delivery or exchange'
-    if feature_title == blank or title_down contains 'charges are included' or title_down contains 'charges included' or title_down contains 'delivery or exchange'
-      assign feature_title = "Delivery's on us"
+  if title_down contains 'charges are included' or title_down contains 'charges included' or liner_down contains 'charges are included' or liner_down contains 'charges included' or liner_down contains 'delivery or exchange' or title_down contains 'replacement' or title_down contains 'pre-mature' or title_down contains 'premature'
+    if feature_title == blank or title_down contains 'charges are included' or title_down contains 'charges included' or title_down contains 'delivery or exchange' or title_down contains 'replacement' or title_down contains 'pre-mature' or title_down contains 'premature'
+      assign feature_title = 'Free Replacement for'
+      assign feature_desc = 'Damage or Pre-mature Expiry'
     endif
   endif
-  if feature_title == "Delivery's on us"
+  if feature_title == 'Free Replacement for'
     assign desc_down = feature_desc | downcase
-    if feature_desc == blank or feature_desc == feature_title or desc_down contains 'charges are included' or desc_down contains 'charges included'
-      assign feature_desc = 'No extra charges for delivery or exchange'
+    if feature_desc == blank or feature_desc == feature_title or desc_down contains 'charges are included' or desc_down contains 'charges included' or desc_down contains 'delivery or exchange'
+      assign feature_desc = 'Damage or Pre-mature Expiry'
     endif
   endif
   if feature_desc == blank or feature_desc == feature_title
@@ -122,7 +123,7 @@
     {%- endcase -%}
   </div>
   {%- if feature_title != blank -%}
-    <span class="plan-features__title{% if feature_title contains "Delivery's on us" or feature_title contains 'charges are included' or feature_title contains 'Charges Included' %} plan-features__title--oneline{% endif %}">{{ feature_title }}</span>
+    <span class="plan-features__title{% if feature_title contains 'charges are included' or feature_title contains 'Charges Included' %} plan-features__title--oneline{% endif %}">{{ feature_title }}</span>
   {%- endif -%}
   {%- if feature_desc != blank and feature_desc != feature_title -%}
     <span class="plan-features__desc">{{ feature_desc }}</span>

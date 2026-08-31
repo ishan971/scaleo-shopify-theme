@@ -1,0 +1,11 @@
+{%- comment -%}
+  Formats a Shopify money amount (paise) as grouped INR rupees: 10,000
+  @param amount {Number} price in paise
+{%- endcomment -%}
+{%- liquid
+  assign amount = amount | default: 0
+  assign money_str = amount | money_without_currency | strip
+  assign money_str = money_str | split: '.' | first | split: ',' | join: ','
+  assign money_str = money_str | replace: 'INR', '' | replace: 'Rs.', '' | strip
+-%}
+{{- money_str -}}

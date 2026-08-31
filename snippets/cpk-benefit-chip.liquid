@@ -1,6 +1,6 @@
 {%- comment -%}
   Single benefit chip for the cartridge pack bar.
-  Params: title (required), icon (optional, default: check)
+  Params: title (required), title_line_2 (optional), icon (optional, default: check)
 {%- endcomment -%}
 {%- liquid
   assign chip_icon = icon | default: 'check'
@@ -10,6 +10,13 @@
     <span class="cpk__benefit-icon">
       {% render 'cartridge-pack-benefit-icon', icon: chip_icon %}
     </span>
-    <span class="cpk__benefit-text">{{ title | escape }}</span>
+    {%- if title_line_2 != blank -%}
+      <span class="cpk__benefit-text cpk__benefit-text--multiline">
+        <span>{{ title | escape }}</span>
+        <span>{{ title_line_2 | escape }}</span>
+      </span>
+    {%- else -%}
+      <span class="cpk__benefit-text">{{ title | escape }}</span>
+    {%- endif -%}
   </div>
 {%- endif -%}

@@ -10,7 +10,17 @@
     return 'dash';
   }
 
-  function cellHtml(value, status, featured) {
+  function cellHtml(value, status, featured, textOnly) {
+    if (textOnly) {
+      return (
+        '<span class="scale-o-compare__cell scale-o-compare__cell--text-only' +
+        (featured ? ' scale-o-compare__cell--featured' : '') +
+        '">' +
+        (value ? '<span class="scale-o-compare__value">' + value + '</span>' : '') +
+        '</span>'
+      );
+    }
+
     var mark = markType(status);
     var markInner =
       mark === 'check'
@@ -67,7 +77,8 @@
       var value = row.getAttribute('data-v' + idx) || '';
       var status = row.getAttribute('data-s' + idx) || 'neutral';
       var cell = row.querySelector('[data-stc-mobile-value]');
-      if (cell) cell.innerHTML = cellHtml(value, status, featured);
+      var textOnly = row.classList.contains('scale-o-compare__mobile-row--type');
+      if (cell) cell.innerHTML = cellHtml(value, status, featured, textOnly);
     });
   }
 

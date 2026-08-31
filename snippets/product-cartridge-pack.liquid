@@ -34,10 +34,10 @@
   assign cartridge_image = section.settings.cartridge_pack_image
   assign cartridge_media = blank
   if cartridge_image == blank
-    if product.media.size > 1 and product.media[1].media_type == 'image'
-      assign cartridge_media = product.media[1]
-    elsif product.featured_media != blank and product.featured_media.media_type == 'image'
+    if product.featured_media != blank and product.featured_media.media_type == 'image'
       assign cartridge_media = product.featured_media
+    elsif product.media.size > 0 and product.media[0].media_type == 'image'
+      assign cartridge_media = product.media[0]
     endif
   endif
   assign card_bg = section.settings.cartridge_pack_bg
@@ -75,14 +75,18 @@
           assign is_current = true
         endif
         assign per_rupees = 0
+        assign per_cartridge_amount = variant.price
         if pack_qty > 0
           assign per_rupees = variant.price | divided_by: pack_qty | divided_by: 100 | round
+          assign per_cartridge_amount = variant.price | divided_by: pack_qty
         endif
         assign total_rupees = variant.price | divided_by: 100 | round
 
         assign stage_count = pack_qty
         assign now_qty = 1
         assign batch_later_qty = 0
+        assign delivery_batch_qty = 1
+        assign batch_repeat = false
         assign future_qty = pack_qty | minus: 1
         assign use_delivery_schedule = false
         assign initial_status = 'Cartridge 1 ships with your order'
@@ -96,6 +100,7 @@
             assign use_delivery_schedule = true
             assign stage_count = 1
             assign now_qty = pack_qty
+            assign delivery_batch_qty = pack_qty
             if now_qty > 1
               assign initial_status = now_qty | append: ' cartridges ship with your order'
             endif
@@ -106,11 +111,17 @@
             if now_qty == 0
               assign now_qty = 1
             endif
+            assign delivery_batch_qty = now_qty
 
             if schedule_blob contains 'every 6 months'
-              assign future_part = after_plus | split: ' (' | first | strip
-              assign future_qty = future_part | plus: 0
-              assign stage_count = future_qty | plus: 1
+              if now_qty > 1
+                assign batch_repeat = true
+                assign stage_count = pack_qty | divided_by: now_qty
+              else
+                assign future_part = after_plus | split: ' (' | first | strip
+                assign future_qty = future_part | plus: 0
+                assign stage_count = future_qty | plus: 1
+              endif
             elsif schedule_blob contains 'months later'
               assign later_part = after_plus | split: ' (' | first | strip
               assign batch_later_qty = later_part | plus: 0
@@ -121,6 +132,37 @@
               assign initial_status = now_qty | append: ' cartridges ship with your order'
             endif
           endif
+        endif
+
+        assign plan_sub_label = ''
+        assign variant_title_down = variant.title | downcase
+        if variant_title_down contains 'trial'
+          assign plan_sub_label = 'Pay for 6 Months Trial'
+        elsif variant_title_down contains '3 year'
+          assign plan_sub_label = 'Pay for 3 Year Subscription'
+        elsif variant_title_down contains '2 year'
+          assign plan_sub_label = 'Pay for 2 Year Subscription'
+        elsif variant_title_down contains '1 year'
+          assign plan_sub_label = 'Pay for 1 Year Subscription'
+        endif
+
+        assign pack_line_display = pack_line
+        assign future_cartridge_qty = pack_qty | minus: now_qty
+        assign plan_period_label = ''
+        if variant_title_down contains '3 year'
+          assign plan_period_label = '3 Years'
+        elsif variant_title_down contains '2 year'
+          assign plan_period_label = '2 Years'
+        elsif variant_title_down contains '1 year'
+          assign plan_period_label = '1 Year'
+        endif
+
+        if schedule_blob contains 'every 6 months' and plan_period_label != blank and use_delivery_schedule
+          assign pack_line_display = pack_qty | append: ' Cartridges Included - ' | append: now_qty | append: ' (Now) + ' | append: future_cartridge_qty | append: ' (Every 6 Months until ' | append: plan_period_label | append: ' from Order Date)'
+        elsif batch_later_qty > 0
+          assign pack_line_display = pack_qty | append: ' Cartridges Included - ' | append: now_qty | append: ' (Now) + ' | append: batch_later_qty | append: ' (6 Months Later)'
+        elsif schedule_blob contains 'lasts for 6 months' and pack_qty > 0
+          assign pack_line_display = pack_qty | append: ' Cartridges Included - Lasts for 6 Months'
         endif
       -%}
       {%- if pack_qty > 0 -%}
@@ -151,7 +193,18 @@
                       assign when_label = 'Now'
                       assign when_copy = initial_status
 
-                      if i == 1
+                      if batch_repeat
+                        assign month = i | minus: 1 | times: 6
+                        if i == 1
+                          assign when_label = 'Now'
+                          assign stage_qty = delivery_batch_qty
+                          assign when_copy = delivery_batch_qty | append: ' cartridges ship with your order'
+                        else
+                          assign when_label = 'Month ' | append: month
+                          assign stage_qty = delivery_batch_qty
+                          assign when_copy = delivery_batch_qty | append: ' cartridges land around month ' | append: month
+                        endif
+                      elsif i == 1
                         assign month = 0
                         assign when_label = 'Now'
                         assign stage_qty = now_qty
@@ -181,7 +234,7 @@
                     <div class="cpk__pipeline-col">
                       <button
                         type="button"
-                        class="cpk__stage{% if stage_qty > 1 %} cpk__stage--multi{% endif %}{% if forloop.first %} is-active{% endif %}"
+                        class="cpk__stage{% if forloop.first %} is-active{% endif %}"
                         role="listitem"
                         data-cpk-stage
                         data-index="{{ i }}"
@@ -191,31 +244,29 @@
                         aria-label="{{ when_label | escape }}"
                       >
                         <span class="cpk__stage-body">
-                          <span class="cpk__stage-art{% if stage_qty > 1 %} cpk__stage-art--multi{% endif %}">
-                            {%- for j in (1..stage_qty) -%}
-                              {%- assign icon_id = gradient_id | append: '-' | append: j -%}
-                              {%- if cartridge_image != blank -%}
-                                <img
-                                  class="cpk__stage-photo"
-                                  src="{{ cartridge_image | image_url: width: 220 }}"
-                                  alt=""
-                                  width="88"
-                                  height="110"
-                                  loading="lazy"
-                                >
-                              {%- elsif cartridge_media != blank -%}
-                                <img
-                                  class="cpk__stage-photo"
-                                  src="{{ cartridge_media | image_url: width: 220 }}"
-                                  alt=""
-                                  width="88"
-                                  height="110"
-                                  loading="lazy"
-                                >
-                              {%- else -%}
-                                {% render 'cartridge-pack-icon', class: 'cpk__stage-svg', gradient_id: icon_id %}
-                              {%- endif -%}
-                            {%- endfor -%}
+                          <span class="cpk__stage-art">
+                            {%- assign icon_id = gradient_id | append: '-1' -%}
+                            {%- if cartridge_image != blank -%}
+                              <img
+                                class="cpk__stage-photo"
+                                src="{{ cartridge_image | image_url: width: 220 }}"
+                                alt=""
+                                width="88"
+                                height="110"
+                                loading="lazy"
+                              >
+                            {%- elsif cartridge_media != blank -%}
+                              <img
+                                class="cpk__stage-photo"
+                                src="{{ cartridge_media | image_url: width: 220 }}"
+                                alt=""
+                                width="88"
+                                height="110"
+                                loading="lazy"
+                              >
+                            {%- else -%}
+                              {% render 'cartridge-pack-icon', class: 'cpk__stage-svg', gradient_id: icon_id %}
+                            {%- endif -%}
                           </span>
                         </span>
                         <span class="cpk__stage-label">{{ when_label }}</span>
@@ -240,7 +291,7 @@
                   <strong data-cpk-status>{{ initial_status | escape }}</strong>
                   {%- if pack_line != blank -%}
                     <span class="cpk__status-sep" aria-hidden="true">|</span>
-                    <span class="cpk__status-detail">{{ pack_line | escape }}</span>
+                    <span class="cpk__status-detail">{{ pack_line_display | escape }}</span>
                   {%- endif -%}
                 </p>
               </div>
@@ -265,19 +316,25 @@
                 -%}
                 {% render 'cpk-benefit-chip', title: 'Delivery & Exchange Included', icon: 'box' %}
                 {% render 'cpk-benefit-chip', title: guarantee_label, icon: 'shield' %}
-                {% render 'cpk-benefit-chip', title: "Delivery's on us", icon: 'box' %}
+                {% render 'cpk-benefit-chip', title: 'Free Replacement for', title_line_2: 'Damage or Pre-mature Expiry', icon: 'shield' %}
                 {% render 'cpk-benefit-chip', title: 'No Hidden Extra Charges', icon: 'tag' %}
               </div>
 
               <div class="cpk__footer">
                 <div class="cpk__footer-left">
-                  <span class="cpk__footer-value">₹{{ per_rupees | number_with_delimiter }} /-</span>
+                  <span class="cpk__footer-value">₹{% render 'scale-o-inr-amount', amount: per_cartridge_amount %} /-</span>
                   <span class="cpk__footer-label">{{ per_label | escape }}</span>
+                </div>
+                <span class="cpk__footer-divider" aria-hidden="true"></span>
+                <div class="cpk__footer-center">
+                  {%- if plan_sub_label != blank -%}
+                    <span class="cpk__footer-plan">{{ plan_sub_label | escape }}</span>
+                  {%- endif -%}
                 </div>
                 <span class="cpk__footer-divider" aria-hidden="true"></span>
                 <div class="cpk__footer-right">
                   <span class="cpk__footer-total">
-                    Plan total ₹{{ total_rupees | number_with_delimiter }} /- for {{ pack_qty }} cartridge{% if pack_qty > 1 %}s{% endif %}
+                    Plan total ₹{% render 'scale-o-inr-amount', amount: variant.price %} /- for {{ pack_qty }} cartridge{% if pack_qty > 1 %}s{% endif %}
                   </span>
                 </div>
               </div>

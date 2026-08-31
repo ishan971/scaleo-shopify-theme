@@ -19,10 +19,14 @@
   assign available = target.available | default: false
 
   if card_price_format
-    assign money_price_number = price | divided_by: 100 | number_with_delimiter
+    capture money_price_number
+      render 'scale-o-inr-amount', amount: price
+    endcapture
     assign money_price = '₹' | append: money_price_number | append: ' /-'
 
-    assign money_compare_price_number = compare_at_price | divided_by: 100 | number_with_delimiter
+    capture money_compare_price_number
+      render 'scale-o-inr-amount', amount: compare_at_price
+    endcapture
     assign money_compare_price = '₹' | append: money_compare_price_number | append: ' /-'
   else
     assign money_price = price | money

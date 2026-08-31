@@ -46,7 +46,7 @@
 
 .scale-o-pdp-sizes__desc {
   margin: 12px 0 0;
-  color: var(--sps-text, #5a6b85);
+  color: var(--sps-text, #465568);
   font-size: var(--sps-desc-size, 16px);
   line-height: 1.6;
 }

@@ -74,7 +74,7 @@
   font-size: 12px;
   line-height: 1.4;
   font-weight: 500;
-  color: #5a6b85;
+  color: #465568;
   max-width: none;
 }
 
@@ -138,10 +138,12 @@
 .cpk__stage-body {
   position: relative;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 52px;
-  padding: 6px 6px 4px;
+  align-items: stretch;
+  justify-content: stretch;
+  flex: 1 1 auto;
+  min-height: 64px;
+  aspect-ratio: 10 / 11;
+  padding: 0;
   background: #fff;
   overflow: hidden;
 }
@@ -176,45 +178,57 @@
 .cpk__stage-art {
   position: relative;
   z-index: 1;
-  width: 36px;
-  height: 42px;
+  width: 100%;
+  height: 100%;
+  min-height: inherit;
   display: flex;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
 }
 
 .cpk__stage-art--multi {
-  width: auto;
-  min-width: 36px;
-  max-width: 72px;
-  gap: 2px;
+  width: 100%;
+  min-width: 0;
+  max-width: none;
+  gap: 0;
 }
 
 .cpk__stage--multi .cpk__stage-body {
-  min-height: 56px;
+  min-height: 64px;
 }
 
 .cpk__stage-art--multi img,
 .cpk__stage-art--multi .cpk__stage-svg {
-  width: 28px;
-  height: 34px;
+  flex: 1 1 0;
+  width: auto;
+  min-width: 0;
+  height: 100%;
 }
 
 .cpk__stage-art--multi .cpk__stage-photo {
-  width: 26px;
-  height: 32px;
+  width: auto;
+  height: 100%;
 }
 
 .cpk__stage-art img,
 .cpk__stage-svg {
-  width: 36px;
-  height: 42px;
-  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   display: block;
+}
+
+.cpk__stage-svg {
+  object-fit: contain;
+  padding: 6px;
+  background: #f5f9fd;
   filter: drop-shadow(0 2px 6px rgba(12, 127, 223, 0.16));
 }
 
 .cpk__stage-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   filter: none;
 }
 
@@ -295,8 +309,8 @@
 }
 
 .cpk__status-detail {
-  font-weight: 500;
-  color: #5a6b85;
+  font-weight: 700;
+  color: #0d2b6b;
 }
 
 .cpk__bottom {
@@ -335,7 +349,7 @@
   flex-shrink: 0;
   width: 15px;
   height: 15px;
-  color: #475569;
+  color: #3d4a58;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -359,13 +373,28 @@
   letter-spacing: -0.01em;
 }
 
+.cpk__benefit-text--multiline {
+  white-space: normal;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+  line-height: 1.1;
+  max-width: none;
+}
+
+.cpk__benefit-text--multiline > span {
+  display: block;
+  white-space: nowrap;
+}
+
 .cpk__footer {
   display: grid;
-  grid-template-columns: minmax(0, 1.15fr) 1px minmax(0, 1fr);
+  grid-template-columns: minmax(0, 0.95fr) 1px minmax(0, 1.15fr) 1px minmax(0, 1fr);
   align-items: center;
-  gap: 0 12px;
+  gap: 0 10px;
   margin-top: 0;
-  padding: 8px 12px;
+  padding: 10px 12px;
   border-radius: 10px;
   background: linear-gradient(90deg, #0d2b6b 0%, #1e4db7 48%, #0d2b6b 100%);
   box-shadow: none;
@@ -401,6 +430,22 @@
   min-height: 44px;
   background: rgba(255, 255, 255, 0.32);
   justify-self: center;
+}
+
+.cpk__footer-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  padding: 0 2px;
+}
+
+.cpk__footer-plan {
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.25;
+  text-align: center;
 }
 
 .cpk__footer-right {
@@ -543,15 +588,16 @@
   }
 
   .cpk__stage-body {
-    min-height: 44px;
-    padding: 4px 4px 2px;
+    min-height: 56px;
+    padding: 0;
   }
 
   .cpk__stage-art,
   .cpk__stage-art img,
-  .cpk__stage-svg {
-    width: 30px;
-    height: 36px;
+  .cpk__stage-svg,
+  .cpk__stage-photo {
+    width: 100%;
+    height: 100%;
   }
 
   .cpk__pipeline {
@@ -582,6 +628,15 @@
     min-height: 0;
   }
 
+  .cpk__footer-center {
+    justify-content: flex-start;
+  }
+
+  .cpk__footer-plan {
+    text-align: left;
+    font-size: 11px;
+  }
+
   .cpk__footer-right {
     justify-content: flex-start;
   }
@@ -599,7 +654,7 @@
     overflow-x: auto;
     scrollbar-width: none;
     -webkit-overflow-scrolling: touch;
-    grid-template-columns: repeat(4, minmax(92px, 1fr));
+    grid-template-columns: repeat(4, minmax(112px, 1fr));
   }
 
   .cpk__benefits::-webkit-scrollbar {

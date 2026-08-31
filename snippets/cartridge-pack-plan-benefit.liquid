@@ -18,16 +18,18 @@
       assign feature_title = 'Order Tracking & Reminders'
     elsif liner_down contains 'hidden extra' or liner_down contains 'transparent pricing'
       assign feature_title = 'No Hidden Extra Charges'
-    elsif liner_down contains 'delivery or exchange' or liner_down contains 'charges are included' or liner_down contains 'charges included'
-      assign feature_title = "Delivery's on us"
+    elsif liner_down contains 'delivery or exchange' or liner_down contains 'charges are included' or liner_down contains 'charges included' or liner_down contains 'replacement' or liner_down contains 'pre-mature' or liner_down contains 'premature'
+      assign feature_title = 'Free Replacement for'
+      assign feature_title_line_2 = 'Damage or Pre-mature Expiry'
     else
       assign feature_title = liner
     endif
   endif
 
-  if title_down contains 'charges are included' or title_down contains 'charges included' or liner_down contains 'charges are included' or liner_down contains 'charges included' or liner_down contains 'delivery or exchange'
-    if feature_title == blank or title_down contains 'charges are included' or title_down contains 'charges included' or title_down contains 'delivery or exchange'
-      assign feature_title = "Delivery's on us"
+  if title_down contains 'charges are included' or title_down contains 'charges included' or liner_down contains 'charges are included' or liner_down contains 'charges included' or liner_down contains 'delivery or exchange' or title_down contains 'replacement' or title_down contains 'pre-mature' or title_down contains 'premature'
+    if feature_title == blank or title_down contains 'charges are included' or title_down contains 'charges included' or title_down contains 'delivery or exchange' or title_down contains 'replacement' or title_down contains 'pre-mature' or title_down contains 'premature'
+      assign feature_title = 'Free Replacement for'
+      assign feature_title_line_2 = 'Damage or Pre-mature Expiry'
     endif
   endif
 
@@ -50,6 +52,11 @@
     <span class="cpk__benefit-icon">
       {% render 'cartridge-pack-benefit-icon', icon: icon_type %}
     </span>
-    <span class="cpk__benefit-text">{{ feature_title | escape }}</span>
+    <span class="cpk__benefit-text{% if feature_title_line_2 != blank %} cpk__benefit-text--multiline{% endif %}">
+      <span>{{ feature_title | escape }}</span>
+      {%- if feature_title_line_2 != blank -%}
+        <span>{{ feature_title_line_2 | escape }}</span>
+      {%- endif -%}
+    </span>
   </div>
 {%- endif -%}

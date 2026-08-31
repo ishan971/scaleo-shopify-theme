@@ -57,7 +57,7 @@
     --soch-trust-bg-end: {{ section.settings.trust_background_end | default: '#eef6ff' }};
     --soch-trust-value: {{ section.settings.trust_value_color | default: '#1a2b4a' }};
     --soch-trust-label: {{ section.settings.trust_label_color | default: '#2a6ab2' }};
-    --soch-trust-desc: {{ section.settings.trust_description_color | default: '#5a6b85' }};
+    --soch-trust-desc: {{ section.settings.trust_description_color | default: '#465568' }};
     --soch-trust-count: {{ trust_count | at_least: 1 }};
     padding-bottom: {{ section.settings.padding_bottom }}px;
   }
@@ -339,7 +339,7 @@
     { "type": "header", "content": "Colors" },
     { "type": "color", "id": "background_color", "label": "Fallback color", "default": "#ffffff" },
     { "type": "color", "id": "heading_color", "label": "Heading color", "default": "#0b1b2e" },
-    { "type": "color", "id": "text_color", "label": "Description color", "default": "#5b6b7c" },
+    { "type": "color", "id": "text_color", "label": "Description color", "default": "#465568" },
     { "type": "color", "id": "accent_color", "label": "Accent color", "default": "#0C7FDF" },
     { "type": "header", "content": "Spacing" },
     { "type": "range", "id": "padding_x", "label": "Side padding", "min": 0, "max": 80, "step": 2, "unit": "px", "default": 32 },
@@ -355,7 +355,7 @@
     { "type": "color", "id": "trust_background_end", "label": "Trust background end", "default": "#eef6ff" },
     { "type": "color", "id": "trust_value_color", "label": "Number color", "default": "#1a2b4a" },
     { "type": "color", "id": "trust_label_color", "label": "Label color", "default": "#2a6ab2" },
-    { "type": "color", "id": "trust_description_color", "label": "Description color", "default": "#5a6b85" }
+    { "type": "color", "id": "trust_description_color", "label": "Description color", "default": "#465568" }
   ],
   "blocks": [
     {

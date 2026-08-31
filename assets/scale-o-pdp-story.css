@@ -71,7 +71,7 @@
 
 .scale-o-pdp-fit__desc {
   margin: 14px 0 0;
-  color: var(--spf-text, #5a6b85);
+  color: var(--spf-text, #465568);
   font-size: var(--spf-desc-size, 16px);
   font-weight: 400;
   line-height: 1.65;
@@ -90,7 +90,7 @@
 
 .scale-o-pdp-benefits__desc {
   margin: 14px 0 0;
-  color: var(--spb-text, #5a6b85);
+  color: var(--spb-text, #465568);
   font-size: var(--spb-desc-size, 16px);
   font-weight: 400;
   line-height: 1.65;
@@ -161,7 +161,7 @@
 
 .scale-o-pdp-fit__spec-label {
   margin: 0;
-  color: var(--spf-text, #5a6b85);
+  color: var(--spf-text, #465568);
   font-size: 12px;
   font-weight: 500;
   letter-spacing: 0.02em;
@@ -180,7 +180,7 @@
   margin: 12px 0 0;
   padding-top: 10px;
   border-top: 1px solid var(--spf-border, #e4ebf5);
-  color: var(--spf-text, #5a6b85);
+  color: var(--spf-text, #465568);
   font-size: 12px;
   font-weight: 400;
   line-height: 1.4;
@@ -356,14 +356,14 @@
 }
 
 .scale-o-pdp-fit__rec-price s {
-  color: var(--spf-text, #5a6b85);
+  color: var(--spf-text, #465568);
   font-size: 14px;
   font-weight: 400;
 }
 
 .scale-o-pdp-fit__rec-desc {
   margin: 10px 0 0;
-  color: var(--spf-text, #5a6b85);
+  color: var(--spf-text, #465568);
   font-size: 15px;
   line-height: 1.55;
 }
@@ -421,7 +421,7 @@
 }
 
 .scale-o-pdp-fit__mini-text {
-  color: var(--spf-text, #5a6b85);
+  color: var(--spf-text, #465568);
   font-size: 12px;
   font-weight: 400;
   line-height: 1.35;
@@ -569,7 +569,7 @@
 
 .scale-o-pdp-benefits__text {
   margin: 0;
-  color: var(--spb-text, #5a6b85);
+  color: var(--spb-text, #465568);
   font-size: 14px;
   font-weight: 400;
   line-height: 1.55;

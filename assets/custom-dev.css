@@ -1,3 +1,9 @@
+/* Scale-O muted description text — slightly darker for readability */
+:root {
+  --scale-o-text-muted: #465568;
+  --scale-o-text-muted-2: #556474;
+}
+
 .product-badges{
       position: absolute;
     z-index: 999;
@@ -476,7 +482,7 @@
   font-size: 13px;
   font-weight: 400;
   line-height: 1.45;
-  color: #6b7280;
+  color: #5c6572;
   max-width: 100%;
 }
 
@@ -1805,12 +1811,12 @@
 }
 .product-trust-strip__scale {
   font-weight: 500;
-  color: #6b7c93;
+  color: #12345b;
 }
 .product-trust-strip__rating-label {
   font-size: 11px;
   font-weight: 500;
-  color: #6b7c93;
+  color: #12345b;
   letter-spacing: 0.01em;
 }
 .product-trust-strip__sep {
@@ -2128,7 +2134,7 @@
 .spec-bar-label {
   font-size: 10px;
   font-weight: 500;
-  color: #64748b;
+  color: #556474;
   line-height: 1.2;
   margin-bottom: 2px;
   white-space: nowrap;
@@ -2354,7 +2360,7 @@
 .variant-card-compare {
   font-size: 11px !important;
   text-decoration: line-through !important;
-  color: #7a8a9e !important;
+  color: #667888 !important;
   line-height: 1.2 !important;
   text-align: left !important;
   white-space: nowrap !important;
@@ -2380,7 +2386,7 @@
   display: inline-flex;
   align-items: center;
   background-color: #f1f5f9;
-  color: #475569;
+  color: #3d4a58;
   padding: 4px 10px;
   border-radius: 20px;
   font-size: 11px;
@@ -2389,7 +2395,7 @@
   line-height: 1;
 }
 .lock-in-badge svg {
-  color: #64748b;
+  color: #556474;
   vertical-align: middle;
 }
 
@@ -2447,14 +2453,14 @@
 .product-price-strip__mrp-label {
   font-size: 11px;
   font-weight: 600;
-  color: #556880;
+  color: #465668;
   text-transform: uppercase;
   letter-spacing: 0.04em;
 }
 .product-price-strip__compare {
   font-size: 14px;
   font-weight: 500;
-  color: #556880;
+  color: #465668;
   text-decoration: line-through;
 }
 .product-price-strip__save {
@@ -2479,7 +2485,7 @@
 .product-price-strip__tax {
   font-size: 11px;
   font-weight: 500;
-  color: #556880;
+  color: #465668;
   white-space: nowrap;
 }
 .product-block-group--price .m-product-tax {

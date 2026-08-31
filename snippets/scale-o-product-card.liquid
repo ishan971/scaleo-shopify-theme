@@ -50,6 +50,12 @@
   if section.settings.show_discount == false
     assign show_discount = false
   endif
+  assign show_corner_discount = false
+  if section.settings.show_corner_discount_badge == true
+    assign show_corner_discount = true
+  elsif section.settings.show_corner_discount_badge == nil and show_discount
+    assign show_corner_discount = true
+  endif
   assign show_ratings = true
   if section.settings.show_ratings == false
     assign show_ratings = false
@@ -89,7 +95,7 @@
       <div class="scale-o-product-card__badges-left">
         {%- if is_current -%}
           <span class="scale-o-product-card__badge scale-o-product-card__badge--current">{{ current_badge | default: 'This size' | escape }}</span>
-        {%- elsif on_sale and show_discount -%}
+        {%- elsif on_sale and show_corner_discount -%}
           <span class="scale-o-product-card__badge scale-o-product-card__badge--sale">-{{ discount_pct }}%</span>
         {%- endif -%}
       </div>
@@ -182,6 +188,8 @@
               {%- assign spec_label = spec_text -%}
               {%- assign spec_value = '' -%}
             {%- endif -%}
+            {%- capture display_label -%}{% render 'scale-o-spec-display-label', label: spec_label, variant: 'full' %}{%- endcapture -%}
+            {%- assign display_label = display_label | strip -%}
             <div
               class="scale-o-product-card__spec scale-o-product-card__spec--theme"
               title="{{ spec_text | escape }}"
@@ -192,10 +200,10 @@
                 {%- endif -%}
                 <span class="scale-o-product-card__spec-text">
                   {%- if spec_value != blank -%}
-                    <span class="scale-o-product-card__spec-label">{{ spec_label | escape }}</span>
+                    <span class="scale-o-product-card__spec-label">{{ display_label | escape }}</span>
                     <span class="scale-o-product-card__spec-value">{{ spec_value | escape }}</span>
                   {%- else -%}
-                    <span class="scale-o-product-card__spec-value scale-o-product-card__spec-value--solo">{{ spec_label | escape }}</span>
+                    <span class="scale-o-product-card__spec-value scale-o-product-card__spec-value--solo">{{ display_label | escape }}</span>
                   {%- endif -%}
                 </span>
               </span>
@@ -243,9 +251,13 @@
     {%- if show_cta -%}
       <a
         href="{{ product_url }}"
-        class="scale-o-product-card__cta m-button m-button--primary{% unless product.available %} scale-o-product-card__cta--sold-out{% endunless %}"
+        class="scale-o-product-card__cta m-button m-button--primary{% if is_current %} scale-o-product-card__cta--current{% endif %}{% unless product.available %} scale-o-product-card__cta--sold-out{% endunless %}"
       >
-        <svg class="scale-o-product-card__cta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+        {%- if is_current -%}
+          <svg class="scale-o-product-card__cta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"></path></svg>
+        {%- else -%}
+          <svg class="scale-o-product-card__cta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+        {%- endif -%}
         <span>{% if product.available %}{{ cta_text | escape }}{% else %}Sold out{% endif %}</span>
       </a>
     {%- endif -%}

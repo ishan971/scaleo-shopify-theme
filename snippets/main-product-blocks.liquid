@@ -150,17 +150,7 @@
               </div>
               <span class="product-trust-strip__sep" aria-hidden="true"></span>
             {%- endif -%}
-            <div class="product-trust-strip__chip product-trust-strip__chip--customers">
-              <span class="product-trust-strip__people" aria-hidden="true">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false">
-                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                  <circle cx="9" cy="7" r="4"/>
-                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-                  <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-                </svg>
-              </span>
-              <span class="product-trust-strip__customers"><strong>{{ trust_customers }}</strong> Customers</span>
-            </div>
+            {% render 'product-trust-customers', trust_customers: trust_customers %}
           </div>
         </div>
         {% if settings.review_app == 'ali_reviews' %}
@@ -576,7 +566,8 @@
                         {%- assign label = text -%}
                         {%- assign value = '' -%}
                       {%- endif -%}
-                      {%- assign short_label = label | replace: 'Daily ', '' -%}
+                      {%- capture display_label -%}{% render 'scale-o-spec-display-label', label: label, variant: 'full' %}{%- endcapture -%}
+                      {%- capture short_label -%}{% render 'scale-o-spec-display-label', label: label, variant: 'short' %}{%- endcapture -%}
                       {%- assign compact_value = value | replace: ' L - ', '–' | replace: ' L- ', '–' | replace: ' L-', '–' | replace: ' to ', '–' | replace: 'L/day', 'L/d' -%}
                       {%- if label contains 'Family' -%}
                         {%- assign compact_value = compact_value | remove: ' Members' -%}
@@ -598,8 +589,8 @@
                         </div>
                         <div class="spec-bar-text">
                           <span class="spec-bar-label">
-                            <span class="spec-bar-label__full">{{ label }}</span>
-                            <span class="spec-bar-label__short">{{ short_label }}</span>
+                            <span class="spec-bar-label__full">{{ display_label | strip }}</span>
+                            <span class="spec-bar-label__short">{{ short_label | strip }}</span>
                           </span>
                           <span class="spec-bar-value">{{ compact_value }}</span>
                         </div>

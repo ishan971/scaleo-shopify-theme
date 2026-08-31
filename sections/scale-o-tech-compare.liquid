@@ -206,6 +206,29 @@
             </thead>
             {%- if section.settings.show_features and feature_blocks.size > 0 -%}
               <tbody>
+                {%- if section.settings.show_tech_type_row -%}
+                  <tr class="scale-o-compare__mini-row scale-o-compare__mini-row--type">
+                    <th class="scale-o-compare__mini-feature" scope="row">{{ section.settings.tech_type_row_title | default: 'Technology' | escape }}</th>
+                    {%- assign visible = 0 -%}
+                    {%- for tech in tech_blocks -%}
+                      {%- if tech.settings.enabled == false -%}{%- continue -%}{%- endif -%}
+                      {%- assign visible = visible | plus: 1 -%}
+                      {%- if visible > 4 -%}{%- break -%}{%- endif -%}
+                      <td class="scale-o-compare__mini-td{% if tech.settings.highlight %} scale-o-compare__mini-td--featured{% endif %}">
+                        {%- case visible -%}
+                          {%- when 1 -%}
+                            {% render 'scale-o-compare-cell', value: section.settings.tech_type_value_1, status: 'neutral', featured: tech.settings.highlight, short_label: tech.settings.title %}
+                          {%- when 2 -%}
+                            {% render 'scale-o-compare-cell', value: section.settings.tech_type_value_2, status: 'neutral', featured: tech.settings.highlight, short_label: tech.settings.title %}
+                          {%- when 3 -%}
+                            {% render 'scale-o-compare-cell', value: section.settings.tech_type_value_3, status: 'neutral', featured: tech.settings.highlight, short_label: tech.settings.title %}
+                          {%- when 4 -%}
+                            {% render 'scale-o-compare-cell', value: section.settings.tech_type_value_4, status: 'neutral', featured: tech.settings.highlight, short_label: tech.settings.title %}
+                        {%- endcase -%}
+                      </td>
+                    {%- endfor -%}
+                  </tr>
+                {%- endif -%}
                 {%- for feature in feature_blocks -%}
                   {%- if feature.settings.enabled == false -%}{%- continue -%}{%- endif -%}
                   <tr class="scale-o-compare__mini-row" {{ feature.shopify_attributes }}>
@@ -364,6 +387,39 @@
             </div>
 
             <div class="scale-o-compare__mobile-matrix-body" data-stc-mobile-rows>
+              {%- if section.settings.show_tech_type_row -%}
+                <div
+                  class="scale-o-compare__mobile-row scale-o-compare__mobile-row--type"
+                  data-stc-mobile-row
+                  data-v1="{{ section.settings.tech_type_value_1 | escape }}"
+                  data-s1="neutral"
+                  data-v2="{{ section.settings.tech_type_value_2 | escape }}"
+                  data-s2="neutral"
+                  data-v3="{{ section.settings.tech_type_value_3 | escape }}"
+                  data-s3="neutral"
+                  data-v4="{{ section.settings.tech_type_value_4 | escape }}"
+                  data-s4="neutral"
+                >
+                  <div class="scale-o-compare__mobile-feature">
+                    <span class="scale-o-compare__mobile-feature-icon" aria-hidden="true">
+                      {% render 'scale-o-compare-icon', icon: 'layers', class: 'scale-o-compare__mobile-feature-svg' %}
+                    </span>
+                    <span class="scale-o-compare__mobile-feature-title">{{ section.settings.tech_type_row_title | default: 'Technology' | escape }}</span>
+                  </div>
+                  <div class="scale-o-compare__mobile-value" data-stc-mobile-value>
+                    {%- case default_tech_index -%}
+                      {%- when 1 -%}
+                        {% render 'scale-o-compare-cell', value: section.settings.tech_type_value_1, status: 'neutral', featured: true %}
+                      {%- when 2 -%}
+                        {% render 'scale-o-compare-cell', value: section.settings.tech_type_value_2, status: 'neutral', featured: true %}
+                      {%- when 3 -%}
+                        {% render 'scale-o-compare-cell', value: section.settings.tech_type_value_3, status: 'neutral', featured: true %}
+                      {%- else -%}
+                        {% render 'scale-o-compare-cell', value: section.settings.tech_type_value_4, status: 'neutral', featured: true %}
+                    {%- endcase -%}
+                  </div>
+                </div>
+              {%- endif -%}
               {%- for feature in feature_blocks -%}
                 {%- if feature.settings.enabled == false -%}{%- continue -%}{%- endif -%}
                 <div
@@ -838,6 +894,12 @@
     { "type": "textarea", "id": "tech_description", "label": "Technology description", "default": "See how Scale-O compares with salt-based, electromagnetic and multi-media systems for household scale protection." },
     { "type": "checkbox", "id": "show_features", "label": "Show comparison table", "default": true },
     { "type": "text", "id": "tech_criteria_heading", "label": "Table first column heading", "default": "TECHNOLOGY" },
+    { "type": "checkbox", "id": "show_tech_type_row", "label": "Show technology type row", "default": true },
+    { "type": "text", "id": "tech_type_row_title", "label": "Technology type row title", "default": "Technology" },
+    { "type": "text", "id": "tech_type_value_1", "label": "Technology type column 1", "default": "Ion Exchange" },
+    { "type": "text", "id": "tech_type_value_2", "label": "Technology type column 2", "default": "Electro-Magnetism" },
+    { "type": "text", "id": "tech_type_value_3", "label": "Technology type column 3", "default": "Multi bed Filtration" },
+    { "type": "text", "id": "tech_type_value_4", "label": "Technology type column 4", "default": "Advanced Chelation" },
     { "type": "checkbox", "id": "show_recommended_badge", "label": "Show Recommended badge on Scale-O", "default": true },
     { "type": "text", "id": "recommended_label", "label": "Recommended badge text", "default": "Recommended" },
     { "type": "checkbox", "id": "show_column_images", "label": "Show column images", "default": true },

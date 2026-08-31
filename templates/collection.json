@@ -324,7 +324,7 @@
         "margin_bottom": 16,
         "show_dividers": true,
         "divider_color": "#0c7fdf",
-        "mobile_layout": "stack",
+        "mobile_layout": "row",
         "enable_entrance_animation": false,
         "accessibility_label": "Customer statistics"
       }
@@ -356,6 +356,7 @@
         "show_spec_icons": true,
         "show_badges": true,
         "show_compare_at_price": true,
+        "show_corner_discount_badge": false,
         "show_discount": true,
         "show_ratings": false,
         "use_rupee_symbol": true,
@@ -371,7 +372,7 @@
         "sidebar_title": "Filters",
         "show_price_filter": false,
         "show_storage_filter": true,
-        "show_daily_usage_filter": true,
+        "show_daily_usage_filter": false,
         "daily_usage_label": "Daily Usage",
         "daily_usage_options": "500 L/d\n1000 L/d\n1500 L/d\n2000 L/d\n5000 L/d\n10,000 L/d\n20,000 L/d",
         "show_people_family_filter": true,

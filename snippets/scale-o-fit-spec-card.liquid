@@ -6,10 +6,14 @@
   if link != blank
     assign card_tag = 'a'
   endif
+  capture display_label
+    render 'scale-o-spec-display-label', label: label, variant: 'full'
+  endcapture
+  assign display_label = display_label | strip
 -%}
 <{{ card_tag }}
   class="scale-o-pdp-fit__spec scale-o-pdp-fit__spec--{{ align | default: 'left' }}"
-  {% if link != blank %}href="{{ link }}" aria-label="{{ label | escape }}: {{ value | escape }}"{% endif %}
+  {% if link != blank %}href="{{ link }}" aria-label="{{ display_label | escape }}: {{ value | escape }}"{% endif %}
   {% if card_bg != blank %}style="--spf-spec-bg: {{ card_bg }};"{% endif %}
   {% if block %}{{ block.shopify_attributes }}{% endif %}
 >
@@ -23,8 +27,8 @@
     {%- endif -%}
   </span>
   <div class="scale-o-pdp-fit__spec-copy">
-    {%- if label != blank -%}
-      <p class="scale-o-pdp-fit__spec-label">{{ label | escape }}</p>
+    {%- if display_label != blank -%}
+      <p class="scale-o-pdp-fit__spec-label">{{ display_label | escape }}</p>
     {%- endif -%}
     {%- if value != blank -%}
       <p class="scale-o-pdp-fit__spec-value">{{ value | escape }}</p>

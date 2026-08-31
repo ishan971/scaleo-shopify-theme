@@ -176,6 +176,7 @@
         "sticky_atc_compare": false,
         "show_cartridge_pack": true,
         "cartridge_pack_heading": "Plan Features",
+        "cartridge_pack_hint": "Tap a cartridge to see when it arrives",
         "cartridge_pack_per_label": "per cartridge"
       }
     },
@@ -418,7 +419,7 @@
         "video_10"
       ],
       "settings": {
-        "heading": "Glimpse into Scale-O",
+        "heading": "Why Customers Choose Scale-O",
         "header_alignment": "left",
         "autoplay_all": true,
         "muted": true,
@@ -508,7 +509,7 @@
             "enabled": true,
             "icon": "droplet",
             "icon_size": 22,
-            "label": "Storage Tank",
+            "label": "Storage",
             "value": "1000 L – 1500 L",
             "supporting_text": "Overhead Tank Capacity",
             "link": "",
@@ -536,7 +537,7 @@
             "enabled": true,
             "icon": "family",
             "icon_size": 22,
-            "label": "Family Size",
+            "label": "Family",
             "value": "4 to 6 Members",
             "supporting_text": "People in Your Home",
             "link": "",
@@ -730,7 +731,7 @@
           "settings": {
             "icon": "molecule",
             "title": "Salt-Free Technology",
-            "text": "No salt refilling, electricity, or water wastage from regeneration cycles."
+            "text": "No salt refilling, chemicals, or regeneration required."
           }
         },
         "b5": {
@@ -738,7 +739,7 @@
           "settings": {
             "icon": "wrench",
             "title": "DIY Installation",
-            "text": "Simply placed inside the overhead tank without plumber or technician."
+            "text": "Simply placed inside the overhead tank without plumbing modifications."
           }
         },
         "b6": {
@@ -748,6 +749,14 @@
             "title": "Whole House Protection",
             "text": "Supports hard water treatment for the entire house through the overhead tank system."
           }
+        },
+        "b7": {
+          "type": "benefit",
+          "settings": {
+            "icon": "gear",
+            "title": "Zero Maintenance",
+            "text": "No complicated servicing or recurring maintenance needs."
+          }
         }
       },
       "block_order": [
@@ -756,12 +765,13 @@
         "b3",
         "b4",
         "b5",
-        "b6"
+        "b6",
+        "b7"
       ],
       "settings": {
-        "eyebrow": "ADVANTAGES",
-        "heading": "The Scale-O Advantage at Home",
-        "description": "Salt-free hard water support for your whole home — no salt, electricity or water wastage, and no plumber or technician needed for installation.",
+        "eyebrow": "BENEFITS",
+        "heading": "Scale-O Benefits for Soft Water Living",
+        "description": "Scale-O helps improve your everyday water experience by reducing hard water scaling across your entire home.",
         "description_highlight": "",
         "max_width": 1200,
         "padding_top": 32,
@@ -848,7 +858,7 @@
       "settings": {
         "show_header": true,
         "eyebrow": "GUIDE",
-        "heading": "Scale-O Installation, Working, Replacement & Technology Guide",
+        "heading": "How Scale-O works in your home",
         "max_width": 1280,
         "padding_top": 40,
         "padding_bottom": 48,
@@ -879,7 +889,7 @@
           "type": "technology",
           "settings": {
             "enabled": true,
-            "title": "Ion Exchange",
+            "title": "Salt-Based Water Softener",
             "category_label": "",
             "description": "Traditional ion-exchange softening using salt and regeneration.",
             "product": "",
@@ -898,7 +908,7 @@
           "type": "technology",
           "settings": {
             "enabled": true,
-            "title": "Electro-Magnetism",
+            "title": "Electromagnetic / Electronic Scale Control",
             "category_label": "",
             "description": "Electronic or electromagnetic technology designed to reduce scale formation.",
             "product": "",
@@ -917,7 +927,7 @@
           "type": "technology",
           "settings": {
             "enabled": true,
-            "title": "Multi bed Filtration",
+            "title": "Multi-Media Water Treatment System",
             "category_label": "",
             "description": "Media-based treatment systems using multiple filtration materials.",
             "product": "",
@@ -936,7 +946,7 @@
           "type": "technology",
           "settings": {
             "enabled": true,
-            "title": "Advanced Chelation",
+            "title": "Scale-O Water Softener",
             "category_label": "",
             "description": "Salt-free scale protection designed for simple installation and zero operating requirements.",
             "product": "",
@@ -1005,13 +1015,13 @@
             "enabled": true,
             "title": "Plumbing Changes",
             "theme_icon": "pipe",
-            "value_1": "Yes",
-            "status_1": "negative",
-            "value_2": "Yes",
-            "status_2": "negative",
-            "value_3": "Yes",
-            "status_3": "negative",
-            "value_4": "No",
+            "value_1": "Required",
+            "status_1": "required",
+            "value_2": "Usually required",
+            "status_2": "required",
+            "value_3": "Required",
+            "status_3": "required",
+            "value_4": "Not required",
             "status_4": "not_required"
           }
         },
@@ -1089,29 +1099,39 @@
             "image_alt": "Scale-O salt-free water softener"
           }
         },
-        "comp_others": {
+        "comp_a": {
           "type": "competitor",
           "settings": {
             "enabled": true,
-            "title": "Core Competitors",
+            "title": "Competitor A",
             "highlight": false,
             "image": "shopify://shop_images/ChatGPT_Image_Aug_13_2026_11_48_51_AM.png",
-            "image_alt": "Typical salt-based water softener competitor"
+            "image_alt": "Competitor A water softener"
+          }
+        },
+        "comp_b": {
+          "type": "competitor",
+          "settings": {
+            "enabled": true,
+            "title": "Competitor B",
+            "highlight": false,
+            "image": "shopify://shop_images/content.png",
+            "image_alt": "Competitor B water softener"
           }
         },
         "crow_fit": {
           "type": "competitor_row",
           "settings": {
             "enabled": true,
-            "title": "Fit For Your Home",
+            "title": "Fit for your home",
             "theme_icon": "home",
             "impact": "Wrong size can under or over soften, so scale control suffers.",
             "value_1": "Sized to tank and daily use",
             "status_1": "positive",
             "value_2": "One size for all, no analysis",
             "status_2": "negative",
-            "value_3": "",
-            "status_3": "neutral",
+            "value_3": "One size for all, no analysis",
+            "status_3": "negative",
             "value_4": "",
             "status_4": "positive"
           }
@@ -1120,15 +1140,15 @@
           "type": "competitor_row",
           "settings": {
             "enabled": true,
-            "title": "Capacity Range",
+            "title": "Capacity range",
             "theme_icon": "layers",
             "impact": "Extra units raise cost, or a smaller unit weakens results.",
             "value_1": "500 L to 5000 L",
             "status_1": "positive",
             "value_2": "Mostly 1000 L to 1500 L",
             "status_2": "negative",
-            "value_3": "",
-            "status_3": "neutral",
+            "value_3": "Mostly 1000 L to 1500 L",
+            "status_3": "negative",
             "value_4": "",
             "status_4": "positive"
           }
@@ -1144,8 +1164,8 @@
             "status_1": "positive",
             "value_2": "Reverse-engineered, no patents",
             "status_2": "negative",
-            "value_3": "",
-            "status_3": "neutral",
+            "value_3": "Reverse-engineered, no patents",
+            "status_3": "negative",
             "value_4": "",
             "status_4": "positive"
           }
@@ -1154,15 +1174,15 @@
           "type": "competitor_row",
           "settings": {
             "enabled": true,
-            "title": "Indian Hard Water",
+            "title": "Indian hard water",
             "theme_icon": "flask",
             "impact": "Can fail in high hardness and TDS up to 3000 ppm.",
             "value_1": "Built for Indian hardness and TDS",
             "status_1": "positive",
             "value_2": "Copied designs, no R&D",
             "status_2": "negative",
-            "value_3": "",
-            "status_3": "neutral",
+            "value_3": "Copied designs, no R&D",
+            "status_3": "negative",
             "value_4": "",
             "status_4": "positive"
           }
@@ -1171,15 +1191,15 @@
           "type": "competitor_row",
           "settings": {
             "enabled": true,
-            "title": "Honest Replacement",
+            "title": "Honest replacement",
             "theme_icon": "calendar",
             "impact": "Performance can drop before you notice, then stop working.",
             "value_1": "Replace every 6 months",
             "status_1": "positive",
             "value_2": "Claims of 1 year that are not realistic",
             "status_2": "negative",
-            "value_3": "",
-            "status_3": "neutral",
+            "value_3": "Claims of 1 year that are not realistic",
+            "status_3": "negative",
             "value_4": "",
             "status_4": "positive"
           }
@@ -1188,15 +1208,15 @@
           "type": "competitor_row",
           "settings": {
             "enabled": true,
-            "title": "Safety Certified",
+            "title": "Safety certified",
             "theme_icon": "shield",
             "impact": "Uncertified chemicals can harm hair and skin.",
             "value_1": "Food-grade and RoHS",
             "status_1": "positive",
             "value_2": "Uncertified, not food-grade",
             "status_2": "negative",
-            "value_3": "",
-            "status_3": "neutral",
+            "value_3": "Uncertified, not food-grade",
+            "status_3": "negative",
             "value_4": "",
             "status_4": "positive"
           }
@@ -1205,15 +1225,15 @@
           "type": "competitor_row",
           "settings": {
             "enabled": true,
-            "title": "Direct Manufacturer",
+            "title": "Direct manufacturer",
             "theme_icon": "factory",
             "impact": "Quality, hygiene, and lots can vary.",
             "value_1": "Made by us",
             "status_1": "positive",
             "value_2": "White-label, outsourced",
             "status_2": "negative",
-            "value_3": "",
-            "status_3": "neutral",
+            "value_3": "White-label, outsourced",
+            "status_3": "negative",
             "value_4": "",
             "status_4": "positive"
           }
@@ -1222,15 +1242,15 @@
           "type": "competitor_row",
           "settings": {
             "enabled": true,
-            "title": "Specialist Focus",
+            "title": "Specialist focus",
             "theme_icon": "target",
             "impact": "Not dedicated to this product or this problem.",
             "value_1": "Water softeners only",
             "status_1": "positive",
             "value_2": "Also RO, tap cleaners, electronics",
             "status_2": "negative",
-            "value_3": "",
-            "status_3": "neutral",
+            "value_3": "Also RO, tap cleaners, electronics",
+            "status_3": "negative",
             "value_4": "",
             "status_4": "positive"
           }
@@ -1239,15 +1259,15 @@
           "type": "competitor_row",
           "settings": {
             "enabled": true,
-            "title": "Long-Term Care",
+            "title": "Long-term care",
             "theme_icon": "users",
             "impact": "Less care after the first purchase.",
             "value_1": "Retainer and subscription",
             "status_1": "positive",
             "value_2": "One-time sale, no retention",
             "status_2": "negative",
-            "value_3": "",
-            "status_3": "neutral",
+            "value_3": "One-time sale, no retention",
+            "status_3": "negative",
             "value_4": "",
             "status_4": "positive"
           }
@@ -1256,15 +1276,15 @@
           "type": "competitor_row",
           "settings": {
             "enabled": true,
-            "title": "Long-Run Cost",
+            "title": "Long-run cost",
             "theme_icon": "dollar",
             "impact": "You spend more over time than on a subscription.",
             "value_1": "Subscription keeps cost down",
             "status_1": "positive",
             "value_2": "Full price on every repurchase",
             "status_2": "negative",
-            "value_3": "",
-            "status_3": "neutral",
+            "value_3": "Full price on every repurchase",
+            "status_3": "negative",
             "value_4": "",
             "status_4": "positive"
           }
@@ -1284,7 +1304,8 @@
         "feat_cost",
         "feat_regen",
         "comp_scaleo",
-        "comp_others",
+        "comp_a",
+        "comp_b",
         "crow_fit",
         "crow_capacity",
         "crow_patent",
@@ -1300,17 +1321,11 @@
         "show_tech": true,
         "show_tech_eyebrow": true,
         "tech_eyebrow": "TECHNOLOGY COMPARISON",
-        "tech_heading": "Advanced Chelation Technology v/s Others",
+        "tech_heading": "Chelation Technology vs Others",
         "show_tech_description": true,
         "tech_description": "See how Scale-O compares with salt-based, electromagnetic and multi-media systems for household scale protection.",
         "show_features": true,
-        "tech_criteria_heading": "Water Softener Type",
-        "show_tech_type_row": true,
-        "tech_type_row_title": "Technology",
-        "tech_type_value_1": "Ion Exchange",
-        "tech_type_value_2": "Electro-Magnetism",
-        "tech_type_value_3": "Multi bed Filtration",
-        "tech_type_value_4": "Advanced Chelation",
+        "tech_criteria_heading": "TECHNOLOGY",
         "show_recommended_badge": true,
         "recommended_label": "Recommended",
         "show_column_images": true,
@@ -1322,12 +1337,12 @@
         "eyebrow": "COMPETITOR COMPARISON",
         "heading": "Scale-O vs Competitors",
         "show_description": true,
-        "description": "See how Scale-O edges over and dominates its core-competitors with similar offerings.",
+        "description": "Ten points that change water quality, safety, and what you pay over time.",
         "show_comp_legend": true,
-        "win_legend": "Scale-O Advantage",
-        "lose_legend": "Competitor Limitation",
+        "win_legend": "Scale-O advantage",
+        "lose_legend": "Competitor limitation",
         "competitor_hint": "",
-        "impact_label": "Why It Matters",
+        "impact_label": "Why it matters",
         "criteria_heading": "Criteria",
         "competitor_note": "",
         "header_alignment": "center",
@@ -1344,19 +1359,19 @@
         "card_radius": 16,
         "enable_animations": true,
         "padding_top": 48,
-        "padding_bottom": 20,
+        "padding_bottom": 16,
         "padding_top_mobile": 32,
-        "padding_bottom_mobile": 16,
+        "padding_bottom_mobile": 12,
         "padding_x": 20,
         "margin_top": 0,
         "margin_bottom": 0,
         "header_gap": 36,
         "eyebrow_size": 13,
-        "heading_size_desktop": 38,
+        "heading_size_desktop": 44,
         "heading_size_mobile": 28,
         "description_size": 16,
         "background_color": "#ffffff",
-        "matrix_background": "#eef6ff",
+        "matrix_background": "#ffffff",
         "card_background": "#ffffff",
         "card_border_color": "#e4ecf6",
         "heading_color": "#12345b",
@@ -1400,8 +1415,8 @@
           "type": "category",
           "settings": {
             "handle": "people",
-            "tab_label": "For Health",
-            "heading": "For Health",
+            "tab_label": "For People",
+            "heading": "For People",
             "description": "Better water for everyday life.",
             "image_alt": "Everyday home water experience",
             "show_cta": false,
@@ -1413,8 +1428,8 @@
           "type": "category",
           "settings": {
             "handle": "property",
-            "tab_label": "For Homes",
-            "heading": "For Homes",
+            "tab_label": "For Property",
+            "heading": "For Property",
             "description": "Protect the fixtures and water-using systems around your home.",
             "image_alt": "Home fixtures and water-using appliances",
             "show_cta": false,
@@ -1534,36 +1549,36 @@
       "settings": {
         "show_eyebrow": true,
         "eyebrow": "WHY SCALE-O",
-        "heading": "Benefits with Scale-O",
+        "heading": "People & Property",
         "show_description": true,
-        "description": "Multiple benefits everyday after getting Scale-O for your home.",
+        "description": "Discover how Scale-O helps protect your everyday water experience and your home.",
         "header_alignment": "center",
         "layout_style": "grid",
-        "max_width": 1280,
+        "max_width": 1200,
         "desktop_columns": "4",
-        "hero_aspect_ratio": "3  9",
+        "hero_aspect_ratio": "3 / 4",
         "card_aspect_ratio": "16 / 9",
         "card_gap": 14,
         "card_radius": 18,
         "shadow_strength": 30,
-        "show_category_icon": true,
+        "show_category_icon": false,
         "show_card_index": false,
         "enable_animations": true,
-        "padding_top": 36,
-        "padding_bottom": 36,
-        "padding_top_mobile": 28,
-        "padding_bottom_mobile": 28,
+        "padding_top": 16,
+        "padding_bottom": 48,
+        "padding_top_mobile": 12,
+        "padding_bottom_mobile": 32,
         "padding_x": 20,
         "margin_top": 0,
         "margin_bottom": 0,
         "header_gap": 28,
         "eyebrow_size": 16,
-        "heading_size_desktop": 45,
+        "heading_size_desktop": 40,
         "heading_size_mobile": 26,
         "description_size": 16,
         "category_title_size": 22,
-        "card_title_size": 17,
-        "card_description_size": 14,
+        "card_title_size": 16,
+        "card_description_size": 13,
         "background_color": "#ffffff",
         "panel_background": "#f3f6fa",
         "heading_color": "#1a2b4a",
@@ -1691,11 +1706,10 @@
       "settings": {
         "show_eyebrow": true,
         "eyebrow": "BEFORE & AFTER RESULTS",
-        "heading": "Checkout Before vs After Results with Scale-O",
-        "heading_one_line": true,
+        "heading": "Before vs after a salt-free water softener",
         "show_description": true,
-        "description": "Genuine differences and impact after installing our water softeners across houses.",
-        "description_highlight": "",
+        "description": "Hard water silently damages fittings, tiles and appliances across your home.",
+        "description_highlight": "See the difference after installing Scale-O in your overhead tank.",
         "header_alignment": "center",
         "show_legend": true,
         "before_label": "Before",
@@ -1723,7 +1737,7 @@
         "heading_size_desktop": 40,
         "heading_size_mobile": 26,
         "description_size": 16,
-        "background_color": "#ffffff",
+        "background_color": "#f7fbff",
         "card_background": "#ffffff",
         "card_border_color": "#d7e4f2",
         "heading_color": "#1a2b4a",
@@ -1818,7 +1832,7 @@
         "eyebrow": "CERTIFICATIONS & QUALITY",
         "heading": "Certifications",
         "show_description": true,
-        "description": "All Scale-O products are patented, certified and tested for highest safety which means zero risks.",
+        "description": "Every Scale-O product is backed by documented testing, intellectual property and quality standards designed to deliver reliable hard-water scale protection.",
         "header_alignment": "center",
         "desktop_cards": 5,
         "tablet_cards": 2,
@@ -1956,7 +1970,6 @@
         "show_specifications": true,
         "show_spec_icons": true,
         "show_compare_at_price": true,
-        "show_corner_discount_badge": false,
         "show_discount": true,
         "use_rupee_symbol": true,
         "show_ratings": false,
@@ -2024,6 +2037,15 @@
     "custom_content_3kjdhd": {
       "type": "scale-o-faq",
       "blocks": {
+        "faq_1": {
+          "type": "faq",
+          "settings": {
+            "enabled": true,
+            "question": "What is Scale-O and how does it work?",
+            "answer": "<p>Scale-O is a salt-free water conditioner designed for homes with overhead tanks. Place the compact unit inside your tank. As water flows through the home, Scale-O helps reduce hard-water scale on pipes, fittings and household appliances, without salt, electricity or plumbing changes.</p>",
+            "category": ""
+          }
+        },
         "faq_2": {
           "type": "faq",
           "settings": {
@@ -2253,65 +2275,6 @@
             "answer": "<p>For homes with two overhead tanks, dedicated tank-level Scale-O units often fit Indian plumbing better than one bulky salt plant. See <a href=\"/pages/water-softener-plans\">plans and pricing</a> and <a href=\"/blogs/articles/best-overhead-tank-water-softener-india\">overhead tank softener</a> guidance.</p>",
             "category": "Combo"
           }
-        },
-        "faq_any_1": {
-          "type": "faq",
-          "settings": {
-            "enabled": true,
-            "question": "What is Scale-O and how does it work?",
-            "answer": "<p>Scale-O is a salt-free water softener for Indian homes with overhead tanks. Place the compact unit inside your tank. As water flows through the home, it conditions minerals and helps reduce hard-water scale on pipes, fittings and household appliances, without salt, electricity or plumbing changes.</p>",
-            "category": ""
-          }
-        },
-        "faq_any_5": {
-          "type": "faq",
-          "settings": {
-            "enabled": true,
-            "product_scope": "any",
-            "question": "Does a water softener reduce hair fall from hard water?",
-            "answer": "<p>Hard water hair fall in India is often breakage from mineral film, not medical shedding. A salt-free water softener in the overhead tank can help hair feel less dry. Scale-O does not claim to stop balding. See <a href=\"/blogs/articles/hard-water-hair-breakage-vs-shedding\">hard water hair fall guide</a>.</p>",
-            "category": ""
-          }
-        },
-        "faq_any_6": {
-          "type": "faq",
-          "settings": {
-            "enabled": true,
-            "product_scope": "any",
-            "question": "Can I install a water softener in an overhead tank without a plumber?",
-            "answer": "<p>Yes. Scale-O is a DIY water softener for overhead tanks: open the lid, place the unit inside, close and use water normally. No plumber, drain or electricity. Read the <a href=\"/blogs/articles/best-overhead-tank-water-softener-india\">overhead tank water softener</a> guide.</p>",
-            "category": ""
-          }
-        },
-        "faq_mini_6": {
-          "type": "faq",
-          "settings": {
-            "enabled": true,
-            "product_scope": "mini",
-            "question": "Is Scale-O Mini enough for a 500 litre overhead tank?",
-            "answer": "<p>Yes. Scale-O Mini is a salt-free water softener for 500L-750L overhead tanks, common in 1-3 member homes. If your tank is closer to 1000L, choose <a href=\"/products/semi-water-softener-1000l-1500l-tanks\">Semi</a> instead.</p>",
-            "category": "Mini"
-          }
-        },
-        "faq_semi_6": {
-          "type": "faq",
-          "settings": {
-            "enabled": true,
-            "product_scope": "semi",
-            "question": "Which water softener is right for a 4 to 6 member family?",
-            "answer": "<p>Most 4 to 6 member Indian homes with a 1000L-1500L overhead tank choose <a href=\"/products/semi-water-softener-1000l-1500l-tanks\">Scale-O Semi</a>. Smaller 500L-750L tanks use <a href=\"/products/mini-water-softener-500l-750l-tanks\">Mini</a>; 2000L+ tanks use <a href=\"/products/centi-water-softener-2000l-2500l-tanks\">Centi</a>.</p>",
-            "category": "Semi"
-          }
-        },
-        "faq_centi_6": {
-          "type": "faq",
-          "settings": {
-            "enabled": true,
-            "product_scope": "centi",
-            "question": "Is Scale-O Centi right for a 2000 litre overhead tank?",
-            "answer": "<p>Yes. Scale-O Centi is built for 2000L-2500L overhead tanks in larger homes with higher daily use. For 1000L-1500L tanks, see <a href=\"/products/semi-water-softener-1000l-1500l-tanks\">Semi</a>.</p>",
-            "category": "Centi"
-          }
         }
       },
       "block_order": [
@@ -2319,26 +2282,21 @@
         "faq_any_2",
         "faq_any_3",
         "faq_any_4",
-        "faq_any_5",
-        "faq_any_6",
         "faq_mini_1",
         "faq_mini_2",
         "faq_mini_3",
         "faq_mini_4",
         "faq_mini_5",
-        "faq_mini_6",
         "faq_semi_1",
         "faq_semi_2",
         "faq_semi_3",
         "faq_semi_4",
         "faq_semi_5",
-        "faq_semi_6",
         "faq_centi_1",
         "faq_centi_2",
         "faq_centi_3",
         "faq_centi_4",
         "faq_centi_5",
-        "faq_centi_6",
         "faq_combo_1",
         "faq_combo_2",
         "faq_combo_3",
@@ -2347,7 +2305,7 @@
       "settings": {
         "eyebrow": "FAQ",
         "heading": "Frequently Asked Questions",
-        "description": "<p>Common questions about Scale-O salt-free water softeners: overhead tank installation, sizing for your home, hair fall from hard water, salt-free benefits, and protecting appliances from scale.</p>",
+        "description": "Product-specific answers about Scale-O salt-free water softeners for overhead tanks: install, sizing, salt-free benefits and hard-water protection.",
         "filter_by_product": true,
         "dynamic_product_copy": true,
         "enable_faq_schema": true,

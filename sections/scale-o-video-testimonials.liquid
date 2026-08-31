@@ -117,7 +117,7 @@
                 endif
                 assign show_meta = false
                 if block.settings.show_customer_info
-                  if block.settings.customer_name != blank or location_parts != blank or block.settings.designation != blank or block.settings.avatar != blank
+                  if block.settings.customer_name != blank or location_parts != blank or block.settings.designation != blank
                     assign show_meta = true
                   endif
                 endif
@@ -194,31 +194,40 @@
                   {%- endif -%}
 
                   {%- if show_meta -%}
-                    <div class="scale-o-vt__person">
-                      {%- if block.settings.avatar != blank -%}
-                        {%- assign avatar_alt = block.settings.customer_name | default: 'Customer' -%}
-                        {{
-                          block.settings.avatar
-                          | image_url: width: 96
-                          | image_tag:
-                            loading: 'lazy',
-                            widths: '64,96',
-                            sizes: '48px',
-                            alt: avatar_alt,
-                            class: 'scale-o-vt__avatar'
-                        }}
-                      {%- else -%}
-                        <span class="scale-o-vt__avatar scale-o-vt__avatar--placeholder" aria-hidden="true"></span>
+                    <div class="scale-o-vt__person{% unless section.settings.show_customer_avatar %} scale-o-vt__person--no-avatar{% endunless %}">
+                      {%- if section.settings.show_customer_avatar -%}
+                        {%- if block.settings.avatar != blank -%}
+                          {%- assign avatar_alt = block.settings.customer_name | default: 'Customer' -%}
+                          {{
+                            block.settings.avatar
+                            | image_url: width: 96
+                            | image_tag:
+                              loading: 'lazy',
+                              widths: '64,96',
+                              sizes: '48px',
+                              alt: avatar_alt,
+                              class: 'scale-o-vt__avatar'
+                          }}
+                        {%- else -%}
+                          <span class="scale-o-vt__avatar scale-o-vt__avatar--placeholder" aria-hidden="true"></span>
+                        {%- endif -%}
                       {%- endif -%}
                       <div class="scale-o-vt__person-copy">
                         {%- if block.settings.customer_name != blank -%}
                           <p class="scale-o-vt__name">{{ block.settings.customer_name | escape }}</p>
                         {%- endif -%}
-                        {%- if location_parts != blank -%}
-                          <p class="scale-o-vt__location">{{ location_parts | escape }}</p>
-                        {%- endif -%}
-                        {%- if block.settings.designation != blank -%}
-                          <p class="scale-o-vt__role">{{ block.settings.designation | escape }}</p>
+                        {%- if location_parts != blank or block.settings.designation != blank -%}
+                          <p class="scale-o-vt__location">
+                            {%- if location_parts != blank -%}
+                              {{ location_parts | escape }}
+                            {%- endif -%}
+                            {%- if location_parts != blank and block.settings.designation != blank -%}
+                              <span aria-hidden="true"> | </span>
+                            {%- endif -%}
+                            {%- if block.settings.designation != blank -%}
+                              {{ block.settings.designation | escape }}
+                            {%- endif -%}
+                          </p>
                         {%- endif -%}
                         {%- if block.settings.show_product and block.settings.product_name != blank -%}
                           <p class="scale-o-vt__product">{{ block.settings.product_name | escape }}</p>
@@ -299,7 +308,7 @@
     { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "CUSTOMER STORIES" },
     { "type": "text", "id": "heading", "label": "Heading", "default": "Real Customers. Real Results." },
     { "type": "checkbox", "id": "show_description", "label": "Show description", "default": true },
-    { "type": "textarea", "id": "description", "label": "Description", "default": "Hear directly from Scale-O customers about their experience with hard water, installation and everyday use." },
+    { "type": "textarea", "id": "description", "label": "Description", "default": "Hear directly from Scale-O customers about their experience with soft water, installation and everyday use." },
     {
       "type": "select",
       "id": "header_alignment",
@@ -333,6 +342,8 @@
         { "value": "4 / 3", "label": "4:3" }
       ]
     },
+
+    { "type": "checkbox", "id": "show_customer_avatar", "label": "Show profile image next to name", "default": false },
 
     { "type": "header", "content": "Trust row & CTA" },
     { "type": "checkbox", "id": "show_trust", "label": "Show trust items", "default": true },

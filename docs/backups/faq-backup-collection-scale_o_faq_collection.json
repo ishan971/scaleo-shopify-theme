@@ -1,0 +1,169 @@
+{
+  "type": "scale-o-faq",
+  "blocks": {
+    "faq_1": {
+      "type": "faq",
+      "settings": {
+        "enabled": true,
+        "question": "Is Scale-O salt-free water softener suitable for apartments?",
+        "answer": "<p>No. Scale-O is designed for houses, villas and bungalows with an overhead water tank you can access. Apartments without a private overhead tank are not the fit. See the <a href=\"/collections/water-softeners\">water softener for home</a> collection and <a href=\"/blogs/articles/best-overhead-tank-water-softener-india\">overhead tank water softener guide</a>.</p>",
+        "category": ""
+      }
+    },
+    "faq_2": {
+      "type": "faq",
+      "settings": {
+        "enabled": true,
+        "question": "Does Scale-O require plumber installation?",
+        "answer": "<p>No. Scale-O is a DIY salt-free water softener placed inside the overhead tank, with no plumbing cut-in or wiring. Learn install basics in the <a href=\"/blogs/articles/best-overhead-tank-water-softener-india\">overhead tank softener</a> article.</p>",
+        "category": ""
+      }
+    },
+    "faq_3": {
+      "type": "faq",
+      "settings": {
+        "enabled": true,
+        "question": "Does Scale-O use salt like traditional softeners?",
+        "answer": "<p>No. Scale-O is salt-free and does not need salt bags or regeneration discharge. Compare <a href=\"/blogs/articles/salt-free-vs-salt-based-water-softeners\">salt-free vs salt-based water softeners</a>.</p>",
+        "category": ""
+      }
+    },
+    "faq_4": {
+      "type": "faq",
+      "settings": {
+        "enabled": true,
+        "question": "Is Scale-O suitable for whole-house water supply?",
+        "answer": "<p>Yes. Treating water at the overhead tank helps protect bathrooms, kitchen and appliances fed from that tank. Shop <a href=\"/products/mini-water-softener-500l-750l-tanks\">Mini</a>, <a href=\"/products/semi-water-softener-1000l-1500l-tanks\">Semi</a> and <a href=\"/products/centi-water-softener-2000l-2500l-tanks\">Centi</a> by tank size.</p>",
+        "category": ""
+      }
+    },
+    "faq_5": {
+      "type": "faq",
+      "settings": {
+        "enabled": true,
+        "question": "Does Scale-O require electricity?",
+        "answer": "<p>No. Scale-O works without electricity or external power, which is ideal for terrace overhead tanks. See <a href=\"/pages/water-softener-plans\">water softener price and plans</a>.</p>",
+        "category": ""
+      }
+    },
+    "faq_6": {
+      "type": "faq",
+      "settings": {
+        "enabled": true,
+        "question": "Which Scale-O model should I choose for my tank?",
+        "answer": "<p>Match tank capacity: <a href=\"/products/mini-water-softener-500l-750l-tanks\">Mini (500L-750L)</a>, <a href=\"/products/semi-water-softener-1000l-1500l-tanks\">Semi (1000L-1500L)</a>, <a href=\"/products/centi-water-softener-2000l-2500l-tanks\">Centi (2000L-2500L)</a>. Two tanks? Check <a href=\"/pages/water-softener-plans\">combo plans</a>.</p>",
+        "category": ""
+      }
+    },
+    "faq_7": {
+      "type": "faq",
+      "settings": {
+        "enabled": true,
+        "question": "Water softener for home vs bathroom softener: which do I need?",
+        "answer": "<p>A water softener for home at the overhead tank protects bathrooms, kitchen, geysers and washing machines. A bathroom or shower unit only treats one tap. Scale-O is a salt-free tank insert for houses and villas with a private overhead tank, not typical apartments.</p>",
+        "category": ""
+      }
+    },
+    "faq_8": {
+      "type": "faq",
+      "settings": {
+        "enabled": true,
+        "question": "What is a salt-free water softener?",
+        "answer": "<p>A salt-free water softener conditions hard-water minerals instead of swapping them with salt. Scale-O sits in your overhead tank, needs no electricity or salt bags, and helps reduce scale on taps, geysers and tiles. Compare <a href=\"/blogs/articles/salt-free-vs-salt-based-water-softeners\">salt-free vs salt-based water softeners</a>.</p>",
+        "category": ""
+      }
+    },
+    "faq_9": {
+      "type": "faq",
+      "settings": {
+        "enabled": true,
+        "question": "Does a water softener reduce hair fall from hard water?",
+        "answer": "<p>Hard water hair fall in India is often breakage from mineral film, not medical shedding. A salt-free water softener in the overhead tank can help hair feel less dry and brittle. Scale-O does not claim to stop balding. Read <a href=\"/blogs/articles/hard-water-hair-breakage-vs-shedding\">hard water hair fall: breakage vs shedding</a>.</p>",
+        "category": ""
+      }
+    },
+    "faq_10": {
+      "type": "faq",
+      "settings": {
+        "enabled": true,
+        "question": "What is a water softener for overhead tank?",
+        "answer": "<p>A water softener for overhead tank sits inside your storage tank and treats water before it reaches bathrooms, kitchen and appliances. Scale-O is salt-free, installs without a plumber, and suits 500L-2500L tanks. See the <a href=\"/blogs/articles/best-overhead-tank-water-softener-india\">overhead tank buyer guide</a>.</p>",
+        "category": ""
+      }
+    },
+    "faq_11": {
+      "type": "faq",
+      "settings": {
+        "enabled": true,
+        "question": "Salt-free vs salt-based water softener: which is better for Indian homes?",
+        "answer": "<p>Salt-based softeners can drop hardness more but need salt, drain and often a plumber. A salt-free water softener like Scale-O fits Indian overhead-tank homes: no salt, no electricity, DIY drop-in, and helps reduce scale. Read <a href=\"/blogs/articles/salt-free-vs-salt-based-water-softeners\">salt-free vs salt-based</a>.</p>",
+        "category": ""
+      }
+    },
+    "faq_12": {
+      "type": "faq",
+      "settings": {
+        "enabled": true,
+        "question": "Do I need RO if I use a water softener for home?",
+        "answer": "<p>Keep RO for drinking if you already use it. A water softener for home treats the overhead tank supply for bathing, kitchen lines and appliances. Scale-O is not a drinking-water purifier. Use RO for potable water and Scale-O for whole-house scale protection.</p>",
+        "category": ""
+      }
+    }
+  },
+  "block_order": [
+    "faq_1",
+    "faq_2",
+    "faq_3",
+    "faq_4",
+    "faq_5",
+    "faq_6",
+    "faq_7",
+    "faq_8",
+    "faq_9",
+    "faq_10",
+    "faq_11",
+    "faq_12"
+  ],
+  "settings": {
+    "eyebrow": "FAQ",
+    "heading": "Water Softener for Home FAQ — Salt-Free Overhead Tanks",
+    "description": "AEO answers for Indian homes: water softener for home vs bathroom units, overhead tank install, hair fall from hard water, salt-free vs salt-based, and RO vs softener.",
+    "filter_by_product": false,
+    "dynamic_product_copy": false,
+    "enable_faq_schema": true,
+    "show_cta": false,
+    "cta_button_text": "Talk to a Scale-O Expert",
+    "layout": "two_columns",
+    "max_width": 1180,
+    "faq_column_width": 58,
+    "column_gap": 56,
+    "padding_x": 20,
+    "accordion_behavior": "single",
+    "open_first": false,
+    "animation_speed": 320,
+    "item_gap": 12,
+    "show_load_more": true,
+    "initial_count": 6,
+    "load_more_text": "Load more",
+    "padding_top": 80,
+    "padding_bottom": 80,
+    "padding_top_mobile": 48,
+    "padding_bottom_mobile": 48,
+    "eyebrow_size": 13,
+    "heading_size_desktop": 28,
+    "heading_size_mobile": 22,
+    "description_size": 15,
+    "question_size": 16,
+    "answer_size": 15,
+    "background_color": "#f7fbff",
+    "heading_color": "#102a43",
+    "text_color": "#5a6b85",
+    "accent_color": "#0c7fdf",
+    "accent_hover_color": "#0a6bc4",
+    "card_background": "#ffffff",
+    "border_color": "#dceaf5",
+    "border_radius": 14,
+    "show_card_shadow": true,
+    "accessibility_label": "Frequently asked questions"
+  }
+}

@@ -89,6 +89,7 @@
 
 .scale-o-vt__track {
   display: flex;
+  align-items: stretch;
   gap: var(--svt-gap);
   will-change: transform;
   transition: transform 0.45s ease;
@@ -96,8 +97,11 @@
 
 .scale-o-vt__card {
   position: relative;
+  display: flex;
+  flex-direction: column;
   flex: 0 0 82%;
   min-width: 0;
+  height: auto;
   background: var(--svt-card-bg);
   border: 1px solid var(--svt-card-border);
   border-radius: var(--svt-radius);
@@ -163,11 +167,15 @@
 }
 
 .scale-o-vt__body {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
   padding: 12px 14px 14px;
 }
 
 .scale-o-vt__quote-wrap {
   display: grid;
+  flex: 1 1 auto;
   gap: 6px;
 }
 
@@ -222,7 +230,13 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-top: 12px;
+  margin-top: auto;
+  padding-top: 14px;
+  border-top: 1px solid var(--svt-card-border);
+}
+
+.scale-o-vt__person--no-avatar {
+  gap: 0;
 }
 
 .scale-o-vt__avatar {

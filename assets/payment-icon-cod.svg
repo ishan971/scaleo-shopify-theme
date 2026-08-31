@@ -1,0 +1,7 @@
+<svg width="148" height="40" viewBox="0 0 148 40" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Cash on Delivery">
+  <rect x="2" y="1.5" width="32" height="37" rx="3.5" stroke="#17345C" stroke-width="2" fill="none"/>
+  <rect x="13" y="5.5" width="10" height="4" rx="1" fill="#17345C"/>
+  <text x="18" y="24.5" text-anchor="middle" fill="#17345C" font-family="Arial, Helvetica, sans-serif" font-size="9.5" font-weight="700">COD</text>
+  <text x="41" y="16" fill="#17345C" font-family="Arial, Helvetica, sans-serif" font-size="10.5" font-weight="700" letter-spacing="0.5">CASH ON</text>
+  <text x="41" y="31" fill="#17345C" font-family="Arial, Helvetica, sans-serif" font-size="10.5" font-weight="700" letter-spacing="0.5">DELIVERY</text>
+</svg>

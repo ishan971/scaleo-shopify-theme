@@ -1,0 +1,23 @@
+{%- comment -%}
+  Display labels for product specification rows.
+  Params: label (required), variant: 'full' | 'short' (default: full)
+{%- endcomment -%}
+{%- liquid
+  assign label_variant = variant | default: 'full'
+-%}
+{%- case label -%}
+  {%- when 'Storage', 'Storage Tank' -%}
+    {%- if label_variant == 'short' -%}Tank{%- else -%}Storage Tank{%- endif -%}
+  {%- when 'Family', 'Family Size' -%}
+    {%- if label_variant == 'short' -%}Family{%- else -%}Family Size{%- endif -%}
+  {%- when 'Size', 'Product Size' -%}
+    {%- if label_variant == 'short' -%}Size{%- else -%}Product Size{%- endif -%}
+  {%- when 'Daily Usage' -%}
+    {%- if label_variant == 'short' -%}Usage{%- else -%}Daily Usage{%- endif -%}
+  {%- else -%}
+    {%- if label_variant == 'short' -%}
+      {{ label | replace: 'Daily ', '' }}
+    {%- else -%}
+      {{ label }}
+    {%- endif -%}
+{%- endcase -%}

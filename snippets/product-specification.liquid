@@ -55,7 +55,11 @@
                   </div>
                 </div>
                 {% if ps.product_weight %}
-                  <p class="specs-acc__weight"><b>Weight</b> : {{ ps.product_weight }}</p>
+                  <p class="specs-acc__weight">
+                    <span class="specs-acc__weight-label">Weight</span>
+                    <span class="specs-acc__weight-sep"> : </span>
+                    <span class="specs-acc__weight-value">{{ ps.product_weight }}</span>
+                  </p>
                 {% endif %}
               </div>
             </div>
@@ -90,14 +94,16 @@
                         {% if dfl == 0 %}
                           {% assign spec_label = i %}
                         {% else %}
-                          {% assign val_plain = i | strip_html | strip %}
+                          {%- assign val_plain = i | strip_html | strip %}
+                          {%- capture display_value -%}{% render 'scale-o-spec-display-value', label: spec_label, value: i %}{%- endcapture -%}
+                          {%- assign display_value = display_value | strip -%}
                           {% assign pair_wide = false %}
-                          {% if val_plain.size > 70 or i contains '<ul' or i contains '<br' or i contains '<p' %}
+                          {% if display_value.size > 70 or i contains '<ul' or i contains '<br' or i contains '<p' %}
                             {% assign pair_wide = true %}
                           {% endif %}
                           <tr class="specs-acc__kv-row{% if pair_wide %} specs-acc__kv-row--wide{% endif %}">
                             <th scope="row" class="specs-acc__kv-label">{{ spec_label }}</th>
-                            <td class="specs-acc__kv-value">{{ i }}</td>
+                            <td class="specs-acc__kv-value">{{ display_value }}</td>
                           </tr>
                         {% endif %}
                         {% if dfl == 0 and forloop.last %}

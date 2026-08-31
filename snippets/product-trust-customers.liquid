@@ -1,0 +1,49 @@
+{%- comment -%}
+  Social proof chip: customer avatars, names, and total count.
+  Uses theme assets from Scale-O customer stories.
+{%- endcomment -%}
+{%- liquid
+  assign trust_customers = trust_customers | default: '32,000+'
+-%}
+<div class="product-trust-strip__chip product-trust-strip__chip--customers" aria-label="Trusted by Pragati, Gaurav, Avani and over {{ trust_customers }} customers">
+  <div class="product-trust-strip__avatars" aria-hidden="true">
+    <img
+      src="{{ 'scale-o-story-1.jpg' | asset_url }}"
+      alt=""
+      class="product-trust-strip__avatar"
+      width="24"
+      height="24"
+      loading="lazy"
+    >
+    <img
+      src="{{ 'scale-o-story-2.jpg' | asset_url }}"
+      alt=""
+      class="product-trust-strip__avatar"
+      width="24"
+      height="24"
+      loading="lazy"
+    >
+    <img
+      src="{{ 'scale-o-story-3.jpg' | asset_url }}"
+      alt=""
+      class="product-trust-strip__avatar"
+      width="24"
+      height="24"
+      loading="lazy"
+    >
+    <img
+      src="{{ 'scale-o-story-4.jpg' | asset_url }}"
+      alt=""
+      class="product-trust-strip__avatar"
+      width="24"
+      height="24"
+      loading="lazy"
+    >
+  </div>
+  <span class="product-trust-strip__customers">
+    <span class="product-trust-strip__names product-trust-strip__names--desktop">Pragati, Gaurav, Avani &amp; more</span>
+    <span class="product-trust-strip__names product-trust-strip__names--mobile">Pragati, Gaurav &amp; more</span>
+    <span class="product-trust-strip__dot" aria-hidden="true">·</span>
+    <span class="product-trust-strip__count"><strong>{{ trust_customers }}</strong> Customers</span>
+  </span>
+</div>

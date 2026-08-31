@@ -61,6 +61,43 @@
   line-height: 1.65;
 }
 
+.scale-o-faq__description.rte p {
+  margin: 0;
+}
+
+.scale-o-faq__description.rte a,
+.scale-o-faq__description.rte a:visited {
+  color: var(--sof-accent);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+  background: none;
+  background-image: none;
+  border-bottom: 0;
+  box-shadow: none;
+}
+
+.scale-o-faq__description.rte a:hover,
+.scale-o-faq__description.rte a:focus {
+  color: var(--sof-accent-hover);
+  text-decoration: none;
+  background: none !important;
+  background-image: none !important;
+  border-bottom: 0 !important;
+  box-shadow: none !important;
+}
+
+.scale-o-faq__description.rte a::before,
+.scale-o-faq__description.rte a::after,
+.scale-o-faq__description.rte a:hover::before,
+.scale-o-faq__description.rte a:hover::after,
+.scale-o-faq__description.rte a:focus::before,
+.scale-o-faq__description.rte a:focus::after {
+  content: none !important;
+  display: none !important;
+}
+
 .scale-o-faq__wa {
   display: inline-flex;
   align-items: center;
@@ -333,9 +370,8 @@
 .scale-o-faq__answer.rte a:hover,
 .scale-o-faq__answer.rte a:focus {
   color: var(--sof-accent-hover);
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 2px;
+  text-decoration: none;
+  background: none !important;
   background-image: none !important;
   border-bottom: 0 !important;
   box-shadow: none !important;

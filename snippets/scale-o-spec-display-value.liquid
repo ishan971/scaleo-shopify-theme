@@ -1,0 +1,18 @@
+{%- comment -%}
+  Normalizes technical specification values for display.
+  Params: label (required), value (required)
+{%- endcomment -%}
+{%- liquid
+  assign label_down = label | downcase | strip
+  assign value_plain = value | strip_html | strip
+  assign value_down = value_plain | downcase
+
+  assign display_value = value
+
+  if label_down contains 'hardness'
+    assign display_value = 'Up to 3000+ ppm'
+  elsif value_down contains '2000+ ppm' or value_down contains 'upto 2000' or value_down contains 'up to 2000'
+    assign display_value = 'Up to 3000+ ppm'
+  endif
+-%}
+{{ display_value }}

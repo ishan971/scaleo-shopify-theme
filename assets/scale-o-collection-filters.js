@@ -21,6 +21,7 @@
       if (!content) return;
       content.style.left = '';
       content.style.right = '';
+      content.style.removeProperty('--sof-popover-x');
     });
   };
 
@@ -34,19 +35,43 @@
   const keepPopoverInView = (widget) => {
     const content = widget.querySelector('.m-filter--widget-content, .m-accordion--item-content');
     if (!content) return;
-    content.style.left = '0px';
-    content.style.right = 'auto';
-    const rect = content.getBoundingClientRect();
-    const pad = 12;
-    if (rect.right > window.innerWidth - pad) {
-      content.style.left = 'auto';
-      content.style.right = '0px';
-    }
-    const next = content.getBoundingClientRect();
-    if (next.left < pad) {
-      content.style.left = Math.max(pad - widget.getBoundingClientRect().left, 0) + 'px';
-      content.style.right = 'auto';
-    }
+
+    content.style.removeProperty('--sof-popover-x');
+    content.style.left = '';
+    content.style.right = '';
+
+    const apply = () => {
+      const pad = 12;
+      const widgetRect = widget.getBoundingClientRect();
+      const contentRect = content.getBoundingClientRect();
+      const isMobile = window.matchMedia('(max-width: 1023px)').matches;
+      let offsetX = 0;
+
+      if (contentRect.right > window.innerWidth - pad) {
+        offsetX = window.innerWidth - pad - contentRect.right;
+      }
+
+      if (widgetRect.left + offsetX < pad) {
+        offsetX = pad - widgetRect.left;
+      }
+
+      if (isMobile) {
+        if (offsetX !== 0) {
+          content.style.setProperty('--sof-popover-x', `${offsetX}px`);
+        }
+        return;
+      }
+
+      if (offsetX !== 0) {
+        content.style.left = `${offsetX}px`;
+        content.style.right = 'auto';
+      } else if (contentRect.right > window.innerWidth - pad) {
+        content.style.left = 'auto';
+        content.style.right = '0px';
+      }
+    };
+
+    requestAnimationFrame(apply);
   };
 
   const onDocClick = (event) => {

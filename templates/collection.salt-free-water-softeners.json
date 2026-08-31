@@ -209,6 +209,7 @@
         "show_spec_icons": true,
         "show_badges": true,
         "show_compare_at_price": true,
+        "show_corner_discount_badge": false,
         "show_discount": true,
         "show_ratings": false,
         "use_rupee_symbol": true,

@@ -70,46 +70,6 @@
         "animations": "inherit"
       }
     },
-    "featured_collection_8MTc7Y": {
-      "type": "featured-collection",
-      "name": "Featured collection",
-      "settings": {
-        "heading": "",
-        "heading_size": "h3",
-        "subheading": "",
-        "description": "",
-        "header_alignment": "center",
-        "color_scheme": "",
-        "container": "container-fluid",
-        "collection": "best-water-softener-in-ahmedabad",
-        "enable_flashsale": false,
-        "show_countdown": false,
-        "product_to_show": 8,
-        "items_per_row": 3,
-        "item_gap": 30,
-        "pcard_layout": "",
-        "pcard_image_ratio": "",
-        "show_vendor": false,
-        "hide_title": false,
-        "enable_slider": false,
-        "show_pagination": false,
-        "show_navigation": false,
-        "show_button_on_header": false,
-        "button_type": "link",
-        "button_text": "",
-        "button_style": "m-button--primary",
-        "button_size": "",
-        "infinite_load": false,
-        "max_page_load": 3,
-        "mobile_disable_slider": false,
-        "use_scroll_mobile": true,
-        "item_gap_mobile": 16,
-        "padding_top": 0,
-        "padding_bottom": 44,
-        "custom_class": "",
-        "animations": "inherit"
-      }
-    },
     "custom_content_Kf3JzP": {
       "type": "custom-content",
       "blocks": {
@@ -173,60 +133,187 @@
         "animations": "inherit"
       }
     },
-    "custom_content_jUmVj8": {
-      "type": "custom-content",
+    "scale_o_faq_city": {
+      "type": "scale-o-faq",
       "blocks": {
-        "text_RGrYgf": {
-          "type": "text",
+        "faq_1": {
+          "type": "faq",
           "settings": {
-            "title": "Frequently asked questions",
-            "subheading": "FAQ",
-            "text": "",
-            "width": "100%",
-            "alignment": "center",
-            "align_text": "center",
-            "text_size": "medium",
-            "text_color": "inherit",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "m-button--primary",
-            "button_size": "",
-            "block_custom_class": "",
-            "animations": "inherit"
+            "enabled": true,
+            "product_scope": "any",
+            "question": "What causes hard water in Hyderabad?",
+            "answer": "<p>Most areas in Hyderabad receive borewell or mixed water supplies that contain high levels of calcium and magnesium minerals, leading to hard water problems.</p>",
+            "category": ""
           }
         },
-        "liquid_Qh8FyJ": {
-          "type": "liquid",
+        "faq_2": {
+          "type": "faq",
           "settings": {
-            "custom_liquid": "<style>\n    @media (min-width:768px) {\n        .faq-container {\n            padding: 20px;\n            display: flex;\n            justify-content: space-between;\n            gap: 20px;\n        }\n\n        .faqdiv {\n            width: 50%;\n        }\n    }\n\n    .faq-item {\n        margin-bottom: 20px;\n    }\n\n    .faq-question {\n        width: 100%;\n        background-color: #F5F7FF;\n        border: none;\n        padding: 15px;\n        text-align: left;\n        cursor: pointer;\n        border-radius: 4px;\n        transition: background-color 0.3s;\n        display: flex;\n        justify-content: space-between;\n        align-items: center;\n        color: #000;\n    }\n\n    .faq-question h4 {\n        margin: 0;\n        font-size: 16px;\n        font-weight: 600;\n        line-height: 1.5;\n        width: calc(100% - 30px);\n    }\n\n    .faq-question:hover {\n        background-color: #e1e1e1;\n    }\n\n    .faq-question.active {\n        background-color: #2a6ab2;\n        color: #fff;\n        border-radius: 4px 4px 0 0;\n    }\n\n    .faq-question.active h4 {\n        color: #fff;\n    }\n\n    .faq-answer {\n        max-height: 0;\n        opacity: 0;\n        overflow: hidden;\n        padding: 0 15px;\n        background-color: #2a6ab2;\n        border-radius: 0 0 4px 4px;\n        font-size: 14px;\n        line-height: 1.8;\n        color: #fff;\n        transition: max-height 0.5s ease, opacity 0.5s ease, padding 0.5s ease;\n    }\n\n    .faq-answer.open {\n        max-height: 500px;\n        opacity: 1;\n        padding: 15px;\n        border-top: 1px solid #DBE2FF;\n    }\n\n    .faq-icon {\n        width: 20px;\n        height: 20px;\n        margin-left: 10px;\n        flex-shrink: 0;\n    }\n</style>\n\n<div class=\"faq-container\">\n\n    <!-- Left Column -->\n    <div class=\"faqdiv\">\n\n        <div class=\"faq-item\">\n            <button class=\"faq-question\">\n                <h4>What causes hard water in Hyderabad?</h4>\n\n                <span>\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_49.png?v=1720679877\"\n                        class=\"faq-icon open-icon\" alt=\"Open Icon\">\n\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/4444.png?v=1720679877\"\n                        class=\"faq-icon close-icon\" style=\"display:none;\" alt=\"Close Icon\">\n                </span>\n            </button>\n\n            <div class=\"faq-answer\">Most areas in Hyderabad receive borewell or mixed water supplies that contain high levels of calcium and magnesium minerals, leading to hard water problems.\n            </div>\n        </div>\n\n        <div class=\"faq-item\">\n            <button class=\"faq-question\">\n                <h4>How can I identify hard water in my home?</h4>\n\n                <span>\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_49.png?v=1720679877\"\n                        class=\"faq-icon open-icon\" alt=\"Open Icon\">\n\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/4444.png?v=1720679877\"\n                        class=\"faq-icon close-icon\" style=\"display:none;\" alt=\"Close Icon\">\n                </span>\n            </button>\n\n            <div class=\"faq-answer\">White stains on taps, scaling on bathroom fittings, blocked showerheads, dry skin and reduced geyser efficiency are common indicators of hard water.\n            </div>\n        </div>\n\n        <div class=\"faq-item\">\n            <button class=\"faq-question\">\n                <h4>Which is the best water softener in Hyderabad?</h4>\n\n                <span>\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_49.png?v=1720679877\"\n                        class=\"faq-icon open-icon\" alt=\"Open Icon\">\n\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/4444.png?v=1720679877\"\n                        class=\"faq-icon close-icon\" style=\"display:none;\" alt=\"Close Icon\">\n                </span>\n            </button>\n\n            <div class=\"faq-answer\">Scale-O is considered one of the best water softener in Hyderabad options because it works directly inside overhead tanks and requires no salt, electricity or maintenance.\n            </div>\n        </div>\n        <div class=\"faq-item\">\n            <button class=\"faq-question\">\n                <h4>Is Scale-O suitable for borewell water?</h4>\n\n                <span>\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_49.png?v=1720679877\"\n                        class=\"faq-icon open-icon\" alt=\"Open Icon\">\n\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/4444.png?v=1720679877\"\n                        class=\"faq-icon close-icon\" style=\"display:none;\" alt=\"Close Icon\">\n                </span>\n            </button>\n\n            <div class=\"faq-answer\">Yes. Scale-O is specifically designed to work effectively with borewell water, municipal water and mixed water supplies commonly found in Hyderabad.\n            </div>\n        </div>\n    </div>\n\n    <!-- Right Column -->\n    <div class=\"faqdiv\">\n\n        <div class=\"faq-item\">\n            <button class=\"faq-question\">\n                <h4>Does Scale-O require plumbing modifications?</h4>\n\n                <span>\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_49.png?v=1720679877\"\n                        class=\"faq-icon open-icon\" alt=\"Open Icon\">\n\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/4444.png?v=1720679877\"\n                        class=\"faq-icon close-icon\" style=\"display:none;\" alt=\"Close Icon\">\n                </span>\n            </button>\n\n            <div class=\"faq-answer\">No. Scale-O is installed directly inside the overhead tank and does not require any plumbing changes.\n            </div>\n        </div>\n\n        <div class=\"faq-item\">\n            <button class=\"faq-question\">\n                <h4>How much maintenance does Scale-O require?</h4>\n\n                <span>\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_49.png?v=1720679877\"\n                        class=\"faq-icon open-icon\" alt=\"Open Icon\">\n\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/4444.png?v=1720679877\"\n                        class=\"faq-icon close-icon\" style=\"display:none;\" alt=\"Close Icon\">\n                </span>\n            </button>\n\n            <div class=\"faq-answer\">Scale-O is virtually maintenance-free and does not require salt refilling, media replacement or servicing.\n            </div>\n        </div>\n        <div class=\"faq-item\">\n            <button class=\"faq-question\">\n                <h4>What makes Scale-O different from traditional softeners?</h4>\n\n                <span>\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_49.png?v=1720679877\"\n                        class=\"faq-icon open-icon\" alt=\"Open Icon\">\n\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/4444.png?v=1720679877\"\n                        class=\"faq-icon close-icon\" style=\"display:none;\" alt=\"Close Icon\">\n                </span>\n            </button>\n\n            <div class=\"faq-answer\">Unlike conventional systems, Scale-O does not use salt, electricity, backwashing or regeneration cycles, making it a more convenient and eco-friendly solution.\n            </div>\n        </div>\n        <div class=\"faq-item\">\n            <button class=\"faq-question\">\n                <h4>How long does it take to install Scale-O?</h4>\n\n                <span>\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_49.png?v=1720679877\"\n                        class=\"faq-icon open-icon\" alt=\"Open Icon\">\n\n                    <img src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/4444.png?v=1720679877\"\n                        class=\"faq-icon close-icon\" style=\"display:none;\" alt=\"Close Icon\">\n                </span>\n            </button>\n\n            <div class=\"faq-answer\">Installation typically takes only a few minutes and can be completed without professional assistance.\n            </div>\n        </div>\n    </div>\n\n</div>\n\n<script>\n    document.addEventListener('DOMContentLoaded', function () {\n\n        const questions = document.querySelectorAll('.faq-question');\n\n        questions.forEach(question => {\n\n            question.addEventListener('click', function () {\n\n                const answer = this.nextElementSibling;\n                const isOpen = answer.classList.contains('open');\n\n                // Close all FAQ items\n                document.querySelectorAll('.faq-answer').forEach(item => {\n                    item.classList.remove('open');\n                });\n\n                document.querySelectorAll('.faq-question').forEach(item => {\n                    item.classList.remove('active');\n                });\n\n                document.querySelectorAll('.open-icon').forEach(icon => {\n                    icon.style.display = 'inline-block';\n                });\n\n                document.querySelectorAll('.close-icon').forEach(icon => {\n                    icon.style.display = 'none';\n                });\n\n                // Open current FAQ item\n                if (!isOpen) {\n                    answer.classList.add('open');\n                    this.classList.add('active');\n\n                    this.querySelector('.open-icon').style.display = 'none';\n                    this.querySelector('.close-icon').style.display = 'inline-block';\n                }\n\n            });\n\n        });\n\n    });\n</script>",
-            "width": "100%",
-            "block_custom_class": "",
-            "animations": "inherit"
+            "enabled": true,
+            "product_scope": "any",
+            "question": "How can I identify hard water in my home?",
+            "answer": "<p>White stains on taps, scaling on bathroom fittings, blocked showerheads, dry skin and reduced geyser efficiency are common indicators of hard water.</p>",
+            "category": ""
+          }
+        },
+        "faq_3": {
+          "type": "faq",
+          "settings": {
+            "enabled": true,
+            "product_scope": "any",
+            "question": "Which is the best water softener in Hyderabad?",
+            "answer": "<p>Scale-O is considered one of the best water softener in Hyderabad options because it works directly inside overhead tanks and requires no salt, electricity or maintenance.</p>",
+            "category": ""
+          }
+        },
+        "faq_4": {
+          "type": "faq",
+          "settings": {
+            "enabled": true,
+            "product_scope": "any",
+            "question": "Is Scale-O suitable for borewell water?",
+            "answer": "<p>Yes. Scale-O is specifically designed to work effectively with borewell water, municipal water and mixed water supplies commonly found in Hyderabad.</p>",
+            "category": ""
+          }
+        },
+        "faq_5": {
+          "type": "faq",
+          "settings": {
+            "enabled": true,
+            "product_scope": "any",
+            "question": "Does Scale-O require plumbing modifications?",
+            "answer": "<p>No. Scale-O is installed directly inside the overhead tank and does not require any plumbing changes.</p>",
+            "category": ""
+          }
+        },
+        "faq_6": {
+          "type": "faq",
+          "settings": {
+            "enabled": true,
+            "product_scope": "any",
+            "question": "How much maintenance does Scale-O require?",
+            "answer": "<p>Scale-O is virtually maintenance-free and does not require salt refilling, media replacement or servicing.</p>",
+            "category": ""
+          }
+        },
+        "faq_7": {
+          "type": "faq",
+          "settings": {
+            "enabled": true,
+            "product_scope": "any",
+            "question": "What makes Scale-O different from traditional softeners?",
+            "answer": "<p>Unlike conventional systems, Scale-O does not use salt, electricity, backwashing or regeneration cycles, making it a more convenient and eco-friendly solution.</p>",
+            "category": ""
+          }
+        },
+        "faq_8": {
+          "type": "faq",
+          "settings": {
+            "enabled": true,
+            "product_scope": "any",
+            "question": "How long does it take to install Scale-O?",
+            "answer": "<p>Installation typically takes only a few minutes and can be completed without professional assistance.</p>",
+            "category": ""
+          }
+        },
+        "faq_9": {
+          "type": "faq",
+          "settings": {
+            "enabled": true,
+            "product_scope": "any",
+            "question": "Does Hyderabad borewell water cause hard water hair fall?",
+            "answer": "<p>Many Hyderabad homes on borewell supply see dry hair and bathroom scale. Hard water hair fall is often breakage from minerals, not shedding. A salt-free overhead tank softener can help hair feel softer. Scale-O does not treat medical hair loss.</p>",
+            "category": ""
+          }
+        },
+        "faq_10": {
+          "type": "faq",
+          "settings": {
+            "enabled": true,
+            "product_scope": "any",
+            "question": "Is Scale-O a salt-free water softener for overhead tanks in Hyderabad?",
+            "answer": "<p>Yes. Scale-O is salt-free, needs no electricity and installs inside the overhead tank. It helps reduce hard-water scale on geysers, taps and fittings across Hyderabad tank homes fed by borewell or municipal mix.</p>",
+            "category": ""
+          }
+        },
+        "faq_11": {
+          "type": "faq",
+          "settings": {
+            "enabled": true,
+            "product_scope": "any",
+            "question": "Do I still need RO if I use a water softener in Hyderabad?",
+            "answer": "<p>Keep RO for drinking if you already use it. A water softener for home treats the tank supply for bathing, kitchen lines and appliances. Scale-O is not a drinking-water purifier.</p>",
+            "category": ""
+          }
+        },
+        "faq_12": {
+          "type": "faq",
+          "settings": {
+            "enabled": true,
+            "product_scope": "any",
+            "question": "Where else does Scale-O offer city water softener guides?",
+            "answer": "<p>Beyond Hyderabad, read local guides for <a href=\"/pages/best-water-softener-blr\">best water softener in Bangalore</a>, <a href=\"/pages/best-water-softener-delhi\">best water softener in Delhi</a>, <a href=\"/pages/best-water-softener-in-pune\">best water softener in Pune</a>, <a href=\"/pages/best-water-softener-in-ahmedabad\">best water softener in Ahmedabad</a>. Shop <a href=\"/collections/water-softeners\">water softeners for home</a>, <a href=\"/pages/water-softener-plans\">plans and pricing</a>, or <a href=\"/pages/connect\">contact Scale-O</a> for sizing help.</p>",
+            "category": ""
           }
         }
       },
       "block_order": [
-        "text_RGrYgf",
-        "liquid_Qh8FyJ"
+        "faq_1",
+        "faq_2",
+        "faq_3",
+        "faq_4",
+        "faq_5",
+        "faq_6",
+        "faq_7",
+        "faq_8",
+        "faq_9",
+        "faq_10",
+        "faq_11",
+        "faq_12"
       ],
-      "name": "Custom content",
       "settings": {
-        "heading": "",
-        "heading_size": "h3",
-        "subheading": "",
-        "description": "",
-        "header_alignment": "center",
-        "container": "container-fluid",
-        "color_scheme": "",
-        "content_color_scheme": "",
-        "enable_parallax": false,
-        "parallax_direction": "vertical",
-        "gap": 30,
-        "gap_mobile": 16,
-        "use_scroll_mobile": false,
-        "padding_top": 46,
-        "padding_bottom": 22,
-        "custom_class": ""
+        "eyebrow": "FAQ",
+        "heading": "Frequently asked questions",
+        "description": "<p>Local answers on hard water, overhead tank install, salt-free softeners and Scale-O sizing for Hyderabad homes. Also see guides for <a href=\"/pages/best-water-softener-blr\">best water softener in Bangalore</a>, <a href=\"/pages/best-water-softener-delhi\">best water softener in Delhi</a>, <a href=\"/pages/best-water-softener-in-pune\">best water softener in Pune</a>, <a href=\"/pages/best-water-softener-in-ahmedabad\">best water softener in Ahmedabad</a>.</p>",
+        "filter_by_product": false,
+        "dynamic_product_copy": false,
+        "enable_faq_schema": true,
+        "show_cta": true,
+        "cta_button_text": "Chat on WhatsApp",
+        "whatsapp_number": "919909963300",
+        "whatsapp_message": "Hi Scale-O, I have a question about the salt-free water softener for my home in Hyderabad.",
+        "layout": "two_columns",
+        "max_width": 1180,
+        "faq_column_width": 58,
+        "column_gap": 56,
+        "padding_x": 20,
+        "accordion_behavior": "single",
+        "open_first": true,
+        "animation_speed": 320,
+        "item_gap": 12,
+        "show_load_more": true,
+        "initial_count": 6,
+        "load_more_text": "Load more",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_top_mobile": 28,
+        "padding_bottom_mobile": 28,
+        "eyebrow_size": 13,
+        "heading_size_desktop": 28,
+        "heading_size_mobile": 22,
+        "description_size": 15,
+        "question_size": 16,
+        "answer_size": 15,
+        "background_color": "#f7fbff",
+        "heading_color": "#102a43",
+        "text_color": "#5a6b85",
+        "accent_color": "#0c7fdf",
+        "accent_hover_color": "#0a6bc4",
+        "card_background": "#ffffff",
+        "border_color": "#dceaf5",
+        "border_radius": 14,
+        "show_card_shadow": true,
+        "accessibility_label": "Frequently asked questions about water softeners in Hyderabad"
       }
     }
   },
@@ -234,9 +321,8 @@
     "main",
     "image_with_text_2_6rMNAB",
     "rich_text_Fz3V6V",
-    "featured_collection_8MTc7Y",
     "custom_content_Kf3JzP",
     "rich_text_RBjtUd",
-    "custom_content_jUmVj8"
+    "scale_o_faq_city"
   ]
 }

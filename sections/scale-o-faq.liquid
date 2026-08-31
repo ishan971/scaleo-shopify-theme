@@ -125,6 +125,8 @@
       padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px;
     }
   }
+  #shopify-section-{{ section.id }} .scale-o-faq__description a,
+  #shopify-section-{{ section.id }} .scale-o-faq__description a:visited,
   #shopify-section-{{ section.id }} .scale-o-faq__answer a,
   #shopify-section-{{ section.id }} .scale-o-faq__answer a:visited {
     color: var(--sof-accent);
@@ -132,20 +134,26 @@
     text-decoration: underline;
     text-decoration-thickness: 1px;
     text-underline-offset: 2px;
+    background: none;
     background-image: none;
     border-bottom: 0;
     box-shadow: none;
   }
+  #shopify-section-{{ section.id }} .scale-o-faq__description a:hover,
+  #shopify-section-{{ section.id }} .scale-o-faq__description a:focus,
   #shopify-section-{{ section.id }} .scale-o-faq__answer a:hover,
   #shopify-section-{{ section.id }} .scale-o-faq__answer a:focus {
     color: var(--sof-accent-hover);
-    text-decoration: underline;
-    text-decoration-thickness: 1px;
-    text-underline-offset: 2px;
+    text-decoration: none;
+    background: none !important;
     background-image: none !important;
     border-bottom: 0 !important;
     box-shadow: none !important;
   }
+  #shopify-section-{{ section.id }} .scale-o-faq__description a::before,
+  #shopify-section-{{ section.id }} .scale-o-faq__description a::after,
+  #shopify-section-{{ section.id }} .scale-o-faq__description a:hover::before,
+  #shopify-section-{{ section.id }} .scale-o-faq__description a:hover::after,
   #shopify-section-{{ section.id }} .scale-o-faq__answer a::before,
   #shopify-section-{{ section.id }} .scale-o-faq__answer a::after,
   #shopify-section-{{ section.id }} .scale-o-faq__answer a:hover::before,
@@ -174,7 +182,7 @@
           <h2 class="scale-o-faq__heading">{{ faq_heading | escape }}</h2>
         {%- endif -%}
         {%- if faq_description != blank -%}
-          <p class="scale-o-faq__description">{{ faq_description | escape }}</p>
+          <div class="scale-o-faq__description rte">{{ faq_description }}</div>
         {%- endif -%}
 
         {%- if show_cta -%}
@@ -308,7 +316,7 @@
     { "type": "header", "content": "Content" },
     { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "FAQ" },
     { "type": "text", "id": "heading", "label": "Heading", "default": "Frequently Asked Questions" },
-    { "type": "textarea", "id": "description", "label": "Description", "default": "Everything you need to know about Scale-O, installation, maintenance and protecting your home from hard-water scale." },
+    { "type": "richtext", "id": "description", "label": "Description", "default": "<p>Everything you need to know about Scale-O, installation, maintenance and protecting your home from hard-water scale.</p>" },
 
     { "type": "header", "content": "Product-page FAQ targeting" },
     { "type": "checkbox", "id": "filter_by_product", "label": "Filter FAQs by product (Mini / Semi / Centi / Combo)", "default": false, "info": "Enable on product templates. Blocks with Product scope = Any show on every PDP; scoped blocks show only on matching products." },

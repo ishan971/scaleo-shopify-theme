@@ -44,6 +44,7 @@
     --hiw-detail-gap: {{ section.settings.detail_card_gap }}px;
     --hiw-detail-min: {{ section.settings.detail_card_min_width }}px;
     --hiw-detail-cols: {{ detail_cols | default: 5 }};
+    --hiw-detail-card-width: 240px;
     --hiw-detail-min-height: {{ section.settings.detail_card_min_height }}px;
     --hiw-card-shadow: 0 4px {{ section.settings.card_shadow_strength | divided_by: 4 | plus: 10 }}px rgba(26, 43, 74, {{ section.settings.card_shadow_strength | times: 0.0012 }}), 0 1px 3px rgba(12, 127, 223, {{ section.settings.card_shadow_strength | times: 0.0008 }});
     --hiw-card-shadow-hover: 0 8px {{ section.settings.card_shadow_strength | divided_by: 3 | plus: 14 }}px rgba(26, 43, 74, {{ section.settings.card_shadow_strength | times: 0.0016 }}), 0 2px 6px rgba(12, 127, 223, {{ section.settings.card_shadow_strength | times: 0.001 }});
@@ -372,8 +373,17 @@
   }
 
   @media (min-width: 1100px) {
+    #shopify-section-{{ section.id }} .scale-o-how-it-works__panel-scroll {
+      display: flex;
+      justify-content: center;
+    }
+
     #shopify-section-{{ section.id }} .scale-o-how-it-works__panel-list {
-      grid-template-columns: repeat(var(--hiw-detail-cols), minmax(0, 1fr));
+      grid-template-columns: repeat(var(--hiw-panel-cols, var(--hiw-detail-cols)), var(--hiw-detail-card-width));
+      justify-content: center;
+      width: fit-content;
+      max-width: 100%;
+      margin-inline: auto;
     }
   }
 
@@ -824,7 +834,7 @@
         {%- if install_blocks.size > 0 -%}
           <div class="scale-o-how-it-works__panel is-active" role="tabpanel" data-hiw-panel="install" {% unless install_blocks.size > 0 %}hidden{% endunless %}>
             <div class="scale-o-how-it-works__panel-scroll">
-              <ol class="scale-o-how-it-works__panel-list" role="list">
+              <ol class="scale-o-how-it-works__panel-list" role="list" style="--hiw-panel-cols: {{ install_blocks.size }};">
                 {%- for block in install_blocks -%}
                   {%- render 'how-it-works-detail-card', block: block, kind: 'install', step_index: forloop.index -%}
                 {%- endfor -%}
@@ -841,7 +851,7 @@
             {% if install_blocks.size > 0 %}hidden{% endif %}
           >
             <div class="scale-o-how-it-works__panel-scroll">
-              <ol class="scale-o-how-it-works__panel-list" role="list">
+              <ol class="scale-o-how-it-works__panel-list" role="list" style="--hiw-panel-cols: {{ exchange_blocks.size }};">
                 {%- for block in exchange_blocks -%}
                   {%- render 'how-it-works-detail-card', block: block, kind: 'exchange', step_index: forloop.index -%}
                 {%- endfor -%}

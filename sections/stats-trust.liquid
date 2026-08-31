@@ -273,6 +273,63 @@
       padding-bottom: 14px;
     }
 
+    #shopify-section-{{ section.id }} .scale-o-stats[data-mobile-layout="row"] .scale-o-stats__inner {
+      padding: 14px 10px;
+    }
+
+    #shopify-section-{{ section.id }} .scale-o-stats[data-mobile-layout="row"] .scale-o-stats__list {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 6px;
+      align-items: stretch;
+    }
+
+    #shopify-section-{{ section.id }} .scale-o-stats[data-mobile-layout="row"] .scale-o-stats__item {
+      justify-content: center;
+      align-items: center;
+      padding: 6px 2px;
+    }
+
+    #shopify-section-{{ section.id }} .scale-o-stats[data-mobile-layout="row"] .scale-o-stats__item:not(:last-child) {
+      border-bottom: 0;
+      padding-bottom: 6px;
+    }
+
+    #shopify-section-{{ section.id }} .scale-o-stats[data-mobile-layout="row"] .scale-o-stats__content,
+    #shopify-section-{{ section.id }} .scale-o-stats[data-mobile-layout="row"] .scale-o-stats__link {
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 6px;
+      width: 100%;
+    }
+
+    #shopify-section-{{ section.id }} .scale-o-stats[data-mobile-layout="row"] .scale-o-stats__icon {
+      width: calc(var(--stats-icon-size) + 8px);
+      height: calc(var(--stats-icon-size) + 8px);
+    }
+
+    #shopify-section-{{ section.id }} .scale-o-stats[data-mobile-layout="row"] .scale-o-stats__text {
+      align-items: center;
+      text-align: center;
+      gap: 1px;
+      width: 100%;
+    }
+
+    #shopify-section-{{ section.id }} .scale-o-stats[data-mobile-layout="row"] .scale-o-stats__value {
+      font-size: clamp(13px, 3.6vw, 17px);
+      line-height: 1.1;
+      white-space: nowrap;
+    }
+
+    #shopify-section-{{ section.id }} .scale-o-stats[data-mobile-layout="row"] .scale-o-stats__label {
+      font-size: clamp(9px, 2.5vw, 11px);
+      line-height: 1.2;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
     #shopify-section-{{ section.id }} .scale-o-stats__content,
     #shopify-section-{{ section.id }} .scale-o-stats__link {
       gap: 10px;
@@ -599,8 +656,9 @@
       "type": "select",
       "id": "mobile_layout",
       "label": "Mobile layout",
-      "default": "grid",
+      "default": "row",
       "options": [
+        { "value": "row", "label": "Single row (3 columns)" },
         { "value": "grid", "label": "2 columns" },
         { "value": "stack", "label": "Stacked" }
       ]

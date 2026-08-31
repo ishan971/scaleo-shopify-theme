@@ -258,6 +258,47 @@
   color: var(--sor-text);
 }
 
+/* Summary row first, review carousel second */
+.scale-o-reviews .jdgm-rev-widg.scale-o-reviews__jdgm-layout,
+.scale-o-reviews .jdgm-rev-widg {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.scale-o-reviews .jdgm-rev-widg > * {
+  order: 4;
+}
+
+/* Summary above carousel after JS moves header node */
+.scale-o-reviews.scale-o-reviews--layout-ready .jdgm-rev-widg__header,
+.scale-o-reviews .jdgm-rev-widg__header {
+  order: 1 !important;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--sor-border);
+}
+
+.scale-o-reviews [class*="jdgm-rev-snippet-widget"] {
+  order: 2 !important;
+}
+
+.scale-o-reviews .jdgm-rev-widg__sort-wrapper,
+.scale-o-reviews .jdgm-rev-widg__body,
+.scale-o-reviews .jdgm-rev-widg__reviews,
+.scale-o-reviews .jdgm-rev-widg__paginate-spinner-wrapper,
+.scale-o-reviews .jdgm-paginate {
+  order: 3 !important;
+}
+
+/* Hide aggregate CONCEPT / CONVENIENCE / QUALITY bars */
+.scale-o-reviews .jdgm-cf-bars-wrapper,
+.scale-o-reviews .jdgm-custom-forms-avg-responses,
+.scale-o-reviews .jdgm-custom-forms-avg-responses-data,
+.scale-o-reviews .jdgm-custom-forms-filters,
+.scale-o-reviews .jdgm-custom-forms-filters-data {
+  display: none !important;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .scale-o-reviews .jdgm-write-rev-link,
   .scale-o-reviews .jdgm-btn,

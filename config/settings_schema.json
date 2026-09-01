@@ -2577,44 +2577,19 @@
       },
       {
         "type": "header",
-        "content": "Cart drawer promo (SO-5)"
+        "content": "Cart drawer promo (plan coupons)"
       },
       {
         "type": "checkbox",
         "id": "cart_drawer_promo_enable",
-        "label": "Show flat promo in cart totals",
+        "label": "Show plan coupons in cart totals",
         "default": true,
-        "info": "Shows Subtotal → discount → Payable in the cart drawer (same offer as the top bar)."
-      },
-      {
-        "type": "text",
-        "id": "cart_drawer_promo_code",
-        "label": "Promo code",
-        "default": "SO-5"
-      },
-      {
-        "type": "number",
-        "id": "cart_drawer_promo_amount",
-        "label": "Flat discount amount",
-        "default": 500,
-        "info": "Amount in store currency without symbol. Example: 500 for ₹500."
-      },
-      {
-        "type": "text",
-        "id": "cart_drawer_promo_title",
-        "label": "Promo card title",
-        "default": "Save ₹500 with SO-5"
-      },
-      {
-        "type": "text",
-        "id": "cart_drawer_promo_subtitle",
-        "label": "Promo card subtitle",
-        "default": "Flat ₹500 off on entire order"
+        "info": "Auto-applies plan coupon (SO-6M, SO-1Y, SO-2Y, SO-3Y) and shows order summary."
       },
       {
         "type": "checkbox",
         "id": "cart_drawer_promo_auto_apply",
-        "label": "Auto-apply promo when cart opens",
+        "label": "Auto-apply plan coupon when cart opens",
         "default": true
       },
       {

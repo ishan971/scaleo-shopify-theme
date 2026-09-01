@@ -86,25 +86,31 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 78px;
+  height: 86px;
 }
 
 .scale-o-aff__logo img {
   display: block;
   width: auto;
   height: auto;
-  max-width: 176px;
-  max-height: 72px;
+  max-width: 188px;
+  max-height: 80px;
   object-fit: contain;
   object-position: center;
 }
 
 .scale-o-aff__name {
   margin: 10px 0 0;
+  min-height: calc(1.35em * 2);
   color: var(--soa-heading);
   font-size: 12px;
   font-weight: 500;
   line-height: 1.35;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
 }
 
 .scale-o-aff__note {

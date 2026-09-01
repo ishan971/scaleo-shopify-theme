@@ -76,6 +76,175 @@
     return top < window.innerHeight - 72;
   }
 
+  var stickyVariantSyncBound = false;
+  var stickyVariantCallbacks = {};
+  var stickyVariantSubscribed = {};
+
+  function notifyStickyVariants(productId, variant) {
+    var key = String(productId);
+    var resolved = variant || resolveCurrentVariant(key);
+    if (!resolved) return;
+    (stickyVariantCallbacks[key] || []).forEach(function (fn) {
+      fn(resolved);
+    });
+  }
+
+  function findVariantPicker(productId) {
+    var picker = document.querySelector('variant-picker[data-product-id="' + productId + '"]');
+    if (!picker) picker = document.querySelector('variant-picker');
+    return picker;
+  }
+
+  function parseRupeeCents(text) {
+    var n = String(text || '').replace(/[^\d]/g, '');
+    return n ? Number(n) * 100 : 0;
+  }
+
+  function selectedPlanNode(picker) {
+    if (!picker) return null;
+    return (
+      picker.querySelector('.variant-cards-container input[type="radio"]:checked') ||
+      picker.querySelector('.m-product-option--content input[type="radio"]:checked') ||
+      picker.querySelector('input[type="radio"]:checked')
+    );
+  }
+
+  function planTitleFromInput(input) {
+    if (!input) return '';
+    var node = input.closest('.m-product-option--node');
+    if (!node) return '';
+    var titleEl = node.querySelector('.variant-card-title');
+    return titleEl ? titleEl.textContent.trim() : '';
+  }
+
+  function parseVariantData(picker) {
+    if (!picker || !picker.variantData) return [];
+    if (Array.isArray(picker.variantData)) return picker.variantData;
+    try {
+      return JSON.parse(picker.variantData);
+    } catch (e) {
+      return [];
+    }
+  }
+
+  function resolveCurrentVariant(productId, input) {
+    var picker = findVariantPicker(productId);
+    var checked = input && input.type === 'radio' ? input : selectedPlanNode(picker);
+    var variant = null;
+
+    if (picker) {
+      if (typeof picker.getSelectedVariant === 'function') {
+        try {
+          picker.getSelectedVariant();
+        } catch (e) {}
+      }
+      if (picker.currentVariant) variant = picker.currentVariant;
+    }
+
+    if (!variant && checked && checked.value && picker) {
+      var list = parseVariantData(picker);
+      variant =
+        list.find(function (v) {
+          return String(v.id) === String(checked.value);
+        }) || null;
+    }
+
+    if (!variant) {
+      var idInput = document.querySelector('.m-main-product--wrapper [name="id"]');
+      if (idInput && idInput.value && picker) {
+        var variants = parseVariantData(picker);
+        variant =
+          variants.find(function (v) {
+            return String(v.id) === String(idInput.value);
+          }) || null;
+      }
+    }
+
+    var node = checked && checked.closest ? checked.closest('.m-product-option--node') : null;
+    if (node) {
+      var priceNode = node.querySelector('.variant-card-price');
+      var compareNode = node.querySelector('.variant-card-compare');
+      var planTitle = planTitleFromInput(checked);
+      var cardVariant = {};
+
+      if (priceNode) {
+        cardVariant.price = parseRupeeCents(priceNode.textContent);
+        cardVariant.compare_at_price = compareNode ? parseRupeeCents(compareNode.textContent) : 0;
+      }
+      if (planTitle) cardVariant.title = planTitle;
+
+      if (variant) {
+        variant = Object.assign({}, variant, cardVariant);
+        if (planTitle) variant.title = planTitle;
+      } else if (cardVariant.price) {
+        variant = cardVariant;
+      }
+    }
+
+    return variant;
+  }
+
+  function displayVariantTitle(variant, productId) {
+    if (!variant) return '';
+    var picker = findVariantPicker(productId);
+    var checked = selectedPlanNode(picker);
+    var planTitle = planTitleFromInput(checked);
+    if (planTitle) return planTitle;
+    var title = variant.title || variant.public_title || '';
+    if (/as per selected plan/i.test(title)) return planTitle || title;
+    return title;
+  }
+
+  function registerVariantSync(productId, applyVariant) {
+    if (!productId) return;
+    var key = String(productId);
+    if (!stickyVariantCallbacks[key]) stickyVariantCallbacks[key] = [];
+    stickyVariantCallbacks[key].push(applyVariant);
+
+    if (!stickyVariantSubscribed[key]) {
+      stickyVariantSubscribed[key] = true;
+
+      function bindMinimog() {
+        if (!window.MinimogEvents || typeof window.MinimogEvents.subscribe !== 'function') return false;
+        window.MinimogEvents.subscribe(key + '__VARIANT_CHANGE', function (variant) {
+          notifyStickyVariants(key, variant);
+        });
+        return true;
+      }
+
+      if (!bindMinimog()) {
+        var tries = 0;
+        var timer = window.setInterval(function () {
+          tries += 1;
+          if (bindMinimog() || tries > 40) window.clearInterval(timer);
+        }, 250);
+      }
+    }
+
+    if (!stickyVariantSyncBound) {
+      stickyVariantSyncBound = true;
+      document.addEventListener(
+        'change',
+        function (event) {
+          var input = event.target;
+          if (!input || input.type !== 'radio') return;
+          if (!input.closest('variant-picker, .variant-cards-container, .m-product-option')) return;
+          var picker = input.closest('variant-picker') || findVariantPicker('');
+          var pid = picker && picker.getAttribute('data-product-id');
+          if (!pid) return;
+          window.requestAnimationFrame(function () {
+            notifyStickyVariants(pid, resolveCurrentVariant(pid, input));
+          });
+        },
+        true
+      );
+    }
+
+    window.requestAnimationFrame(function () {
+      notifyStickyVariants(key, resolveCurrentVariant(key));
+    });
+  }
+
   function init(root) {
     if (!root || root.dataset.soStickyInit === 'true') return;
     root.dataset.soStickyInit = 'true';
@@ -161,13 +330,16 @@
 
     function setVariantMeta(variant) {
       if (!variant) return;
-      if (variantEl && variant.title) variantEl.textContent = variant.title;
+      if (variantEl) {
+        var label = displayVariantTitle(variant, productId);
+        if (label) variantEl.textContent = label;
+      }
       if (imageEl) {
         var src = variantImageSrc(variant, fallbackImage);
         if (src) imageEl.src = src;
       }
-      setSale(variant.price, variant.compare_at_price);
-      setAvailable(!!variant.available);
+      if (variant.price != null) setSale(variant.price, variant.compare_at_price);
+      if (typeof variant.available === 'boolean') setAvailable(!!variant.available);
     }
 
     function syncFromMain() {
@@ -246,24 +418,7 @@
     setSale(root.getAttribute('data-price-cents'), root.getAttribute('data-compare-cents'));
     if (root.getAttribute('data-available') === 'false') setAvailable(false);
 
-    function onVariantChange(variant) {
-      if (!variant) return;
-      setVariantMeta(variant);
-    }
-
-    function bindVariantEvents() {
-      if (!productId || !window.MinimogEvents || typeof window.MinimogEvents.subscribe !== 'function') return false;
-      window.MinimogEvents.subscribe(productId + '__VARIANT_CHANGE', onVariantChange);
-      return true;
-    }
-
-    if (!bindVariantEvents()) {
-      var tries = 0;
-      var timer = window.setInterval(function () {
-        tries += 1;
-        if (bindVariantEvents() || tries > 20) window.clearInterval(timer);
-      }, 250);
-    }
+    registerVariantSync(productId, setVariantMeta);
 
     if (mainAtc && typeof MutationObserver === 'function') {
       var mo = new MutationObserver(function () {
@@ -373,13 +528,16 @@
 
     function setVariantMeta(variant) {
       if (!variant) return;
-      if (variantEl && variant.title) variantEl.textContent = variant.title;
+      if (variantEl) {
+        var label = displayVariantTitle(variant, productId);
+        if (label) variantEl.textContent = label;
+      }
       if (imageEl) {
         var src = variantImageSrc(variant, fallbackImage);
         if (src) imageEl.src = src;
       }
-      setSale(variant.price, variant.compare_at_price);
-      setAvailable(!!variant.available);
+      if (variant.price != null) setSale(variant.price, variant.compare_at_price);
+      if (typeof variant.available === 'boolean') setAvailable(!!variant.available);
     }
 
     function syncFromMain() {
@@ -467,24 +625,7 @@
     setSale(root.getAttribute('data-price-cents'), root.getAttribute('data-compare-cents'));
     if (root.getAttribute('data-available') === 'false') setAvailable(false);
 
-    function onVariantChange(variant) {
-      if (!variant) return;
-      setVariantMeta(variant);
-    }
-
-    function bindVariantEvents() {
-      if (!productId || !window.MinimogEvents || typeof window.MinimogEvents.subscribe !== 'function') return false;
-      window.MinimogEvents.subscribe(productId + '__VARIANT_CHANGE', onVariantChange);
-      return true;
-    }
-
-    if (!bindVariantEvents()) {
-      var tries = 0;
-      var timer = window.setInterval(function () {
-        tries += 1;
-        if (bindVariantEvents() || tries > 20) window.clearInterval(timer);
-      }, 250);
-    }
+    registerVariantSync(productId, setVariantMeta);
 
     if (mainAtc && typeof MutationObserver === 'function') {
       var mo = new MutationObserver(function () {
@@ -518,6 +659,8 @@
   ready(scan);
 
   document.addEventListener('shopify:section:load', function () {
+    stickyVariantCallbacks = {};
+    stickyVariantSubscribed = {};
     document.querySelectorAll('[data-scale-o-sticky-atc]').forEach(function (el) {
       el.dataset.soStickyInit = '';
     });

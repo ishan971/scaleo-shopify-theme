@@ -17,12 +17,26 @@
   data-index="{{- forloop.index -}}"
 >
   <div class="m-cart-item--drawer__wrapper m:flex m:items-start">
-    <div class="m-cart-drawer-item__image m-cart-item__image">
-      <a href="{{- item.url -}}">
+    <div class="m-cart-drawer-item__image m-cart-item__image scale-o-cart-drawer-item__image-wrap">
+      <a href="{{- item.url -}}" class="scale-o-cart-drawer-item__image-link">
         {% if item.image != blank %}
-          {% render 'responsive-image', image: item.image, wrapper_class: 'm-cart-item__image' %}
+          <img
+            class="scale-o-cart-drawer-item__thumb"
+            src="{{ item.image | image_url: width: 160 }}"
+            srcset="
+              {%- if item.image.width >= 80 -%}{{ item.image | image_url: width: 80 }} 80w,{%- endif -%}
+              {%- if item.image.width >= 120 -%}{{ item.image | image_url: width: 120 }} 120w,{%- endif -%}
+              {%- if item.image.width >= 160 -%}{{ item.image | image_url: width: 160 }} 160w,{%- endif -%}
+              {{ item.image | image_url: width: 160 }} 160w
+            "
+            sizes="80px"
+            alt="{{ item.image.alt | default: item.product.title | escape }}"
+            width="80"
+            height="80"
+            loading="lazy"
+          >
         {% else %}
-          {{- 'image' | placeholder_svg_tag: 'm-placeholder-svg' -}}
+          {{- 'image' | placeholder_svg_tag: 'm-placeholder-svg scale-o-cart-drawer-item__thumb' -}}
         {% endif %}
       </a>
     </div>

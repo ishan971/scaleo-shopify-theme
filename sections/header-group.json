@@ -52,21 +52,21 @@
         "slide_UiknQx": {
           "type": "slide",
           "settings": {
-            "text": "Get Flat 500/- Off on Entire Order - Use Code: SO-5",
+            "text": "Get ₹500 to ₹1000 Off on All Products & Plans | Free Shipping Pan India",
             "link": ""
           }
         },
         "slide_JnXGx3": {
           "type": "slide",
           "settings": {
-            "text": "Get Flat 500/- Off on Entire Order - Use Code: SO-5",
+            "text": "Get ₹500 to ₹1000 Off on All Products & Plans | Free Shipping Pan India",
             "link": ""
           }
         },
         "slide_fMyQWG": {
           "type": "slide",
           "settings": {
-            "text": "Get Flat 500/- Off on Entire Order - Use Code: SO-5",
+            "text": "Get ₹500 to ₹1000 Off on All Products & Plans | Free Shipping Pan India",
             "link": "/"
           }
         }
@@ -79,7 +79,7 @@
       "custom_css": [],
       "settings": {
         "enabled": true,
-        "offer_text": "Get Flat 500/- Off on Entire Order - Use Code: SO-5",
+        "offer_text": "Get ₹500 to ₹1000 Off on All Products & Plans | Free Shipping Pan India",
         "offer_link": "",
         "accessibility_label": "Offer announcement",
         "enable_sticky": true,

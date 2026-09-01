@@ -1,7 +1,9 @@
 {{ 'scale-o-cart-drawer.css' | asset_url | stylesheet_tag }}
 <script src="{{ 'cart.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
+{%- if settings.cart_drawer_promo_enable -%}
 <script src="{{ 'scale-o-cart-promo.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}
 {%- if settings.enable_cart_drawer and template.name != 'cart' -%}
 {% liquid
   if linklists['gift-wrapping'].links != blank and linklists['gift-wrapping'].links.first.type == 'product_link'
@@ -94,7 +96,7 @@
 
       <m-cart-drawer-items
         data-minimog-cart-items
-        class="m-cart-drawer__body scale-o-cart-drawer__body m-scrollbar--vertical m:flex m:flex-col m:flex-1"
+        class="m-cart-drawer__body scale-o-cart-drawer__body scale-o-scroll-hidden m-scrollbar--vertical m:flex m:flex-col m:flex-1"
       >
         <form action="{{ routes.cart_url }}" method="post" id="cart-drawer-form" class="m:w-full" novalidate>
           {%- if cart.items.size > 0 -%}
@@ -119,6 +121,7 @@
       </m-cart-drawer-items>
 
       <div class="m-cart-drawer__footer scale-o-cart-drawer__footer" id="MinimogCartDrawerFooter">
+        <div class="scale-o-cart-drawer__footer-extras">
         {% render 'cart-addons', form_id: 'cart-drawer-form' %}
         <div class="m-cart-drawer__gift-wrapping" data-minimog-gift-wrapping>
           {%- if gift_wrapping != null -%}
@@ -175,10 +178,12 @@
             </m-gift-wrapping-component>
           {%- endif -%}
         </div>
+        </div>
 
+        <div class="scale-o-cart-drawer__footer-main">
         <div class="m-cart__summary m-cart-drawer__summary scale-o-cart-drawer__summary">
           <div data-foxkit-cart-summary></div>
-          <div data-minimog-cart-discounts>
+          <div data-minimog-cart-discounts{% if settings.cart_drawer_promo_enable %} hidden{% endif %}>
             {%- if cart.cart_level_discount_applications.size > 0 -%}
               <ul class="m-cart__discount" role="list">
                 {%- for discount in cart.cart_level_discount_applications -%}
@@ -195,7 +200,9 @@
           </div>
 
           {%- if settings.cart_drawer_promo_enable -%}
-            {% render 'scale-o-cart-promo' %}
+            <div data-scale-o-cart-promo-wrap>
+              {% render 'scale-o-cart-promo' %}
+            </div>
             <div class="m-cart__subtotal m:flex m:justify-between scale-o-cart-drawer__subtotal-fallback" data-cart-subtotal hidden>
               <span class="m-cart__subtotal--label">{{ 'cart.general.subtotal' | t }}</span>
               <span class="m-cart__subtotal--price" data-cart-subtotal-price>
@@ -231,7 +238,9 @@
             <p class="scale-o-cart-drawer__tax-note">{{ taxes_shipping_checkout }}</p>
           {%- endif -%}
         </div>
+        </div>
 
+        <div class="scale-o-cart-drawer__footer-bottom">
         <div class="scale-o-cart-drawer__actions m:flex m:flex-col m:items-center">
           {% assign show_terms = false %}
           {% if settings.agree_text != blank and settings.show_agree_on_cart %}
@@ -322,6 +331,7 @@
             >
           </div>
         {% endif %}
+        </div>
       </div>
       <div class="m-cart__overlay"></div>
     </div>

@@ -29,6 +29,23 @@
       </div>
     {%- endif -%}
 
+    {%- if fsr_block != nil and fsr_block.settings.return_title != blank -%}
+      <div class="product-trust-points__item">
+        {%- if fsr_block.settings.return_replacement_icon != blank -%}
+          {% render 'product-trust-icon', image: fsr_block.settings.return_replacement_icon %}
+        {%- endif -%}
+        <span class="product-trust-points__text product-trust-points__text--two">
+          180 Day<br>Replacement Guarantee
+          {%- if fsr_block.settings.return_tooltip != blank -%}
+            <span class="tooltip-icon">
+              <img src="https://cdn.shopify.com/s/files/1/0592/6508/9638/files/icons8-info_1.svg?v=1740225280" alt="" width="12" height="12">
+              <span class="tooltip-content">{{ fsr_block.settings.return_tooltip }}</span>
+            </span>
+          {%- endif -%}
+        </span>
+      </div>
+    {%- endif -%}
+
     {%- if icon_block != nil -%}
       {%- if icon_block.settings.logo_1 != blank -%}
         <div class="product-trust-points__item">
@@ -49,28 +66,11 @@
         </div>
       {%- endif -%}
       {%- if icon_block.settings.logo_4 != blank -%}
-        <div class="product-trust-points__item">
+        <div class="product-trust-points__item product-trust-points__item--last">
           {% render 'product-trust-icon', image: icon_block.settings.logo_4 %}
           <span class="product-trust-points__text">{{ icon_block.settings.heading_4 }}</span>
         </div>
       {%- endif -%}
-    {%- endif -%}
-
-    {%- if fsr_block != nil and fsr_block.settings.return_title != blank -%}
-      <div class="product-trust-points__item product-trust-points__item--last">
-        {%- if fsr_block.settings.return_replacement_icon != blank -%}
-          {% render 'product-trust-icon', image: fsr_block.settings.return_replacement_icon %}
-        {%- endif -%}
-        <span class="product-trust-points__text product-trust-points__text--two">
-          180 Day<br>Replacement Guarantee
-          {%- if fsr_block.settings.return_tooltip != blank -%}
-            <span class="tooltip-icon">
-              <img src="https://cdn.shopify.com/s/files/1/0592/6508/9638/files/icons8-info_1.svg?v=1740225280" alt="" width="12" height="12">
-              <span class="tooltip-content">{{ fsr_block.settings.return_tooltip }}</span>
-            </span>
-          {%- endif -%}
-        </span>
-      </div>
     {%- endif -%}
   </div>
 {%- endif -%}

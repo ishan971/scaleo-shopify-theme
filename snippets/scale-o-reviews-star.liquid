@@ -1,0 +1,37 @@
+{%- comment -%} Inline SVG stars. Accepts: score (number), size (optional: sm|lg) {%- endcomment -%}
+{%- liquid
+  assign rating = score | default: 5 | plus: 0
+  assign full = rating | floor
+  if full > 5
+    assign full = 5
+  endif
+  assign remainder = rating | minus: full
+  assign has_half = false
+  if remainder >= 0.25 and remainder < 0.75
+    assign has_half = true
+  elsif remainder >= 0.75
+    assign full = full | plus: 1
+  endif
+  if full > 5
+    assign full = 5
+  endif
+  assign empty = 5 | minus: full
+  if has_half
+    assign empty = empty | minus: 1
+  endif
+  assign star_size = 22
+  if size == 'lg'
+    assign star_size = 28
+  endif
+-%}
+<span class="scale-o-reviews__stars scale-o-reviews__stars--{{ size | default: 'sm' }}" aria-hidden="true">
+  {%- for i in (1..full) -%}
+    <svg width="{{ star_size }}" height="{{ star_size }}" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+  {%- endfor -%}
+  {%- if has_half -%}
+    <svg width="{{ star_size }}" height="{{ star_size }}" viewBox="0 0 24 24"><defs><linearGradient id="sor-half-{{ section.id | default: 'x' }}"><stop offset="50%" stop-color="currentColor"/><stop offset="50%" stop-color="#dce4ef"/></linearGradient></defs><path fill="url(#sor-half-{{ section.id | default: 'x' }})" d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+  {%- endif -%}
+  {%- for i in (1..empty) -%}
+    <svg width="{{ star_size }}" height="{{ star_size }}" viewBox="0 0 24 24" fill="#dce4ef"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+  {%- endfor -%}
+</span>

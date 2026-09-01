@@ -1,27 +1,41 @@
 {%- comment -%}
-  Scale-O Customer Reviews — visual wrapper around Judge.me app block.
-  Do not replace or rebuild the widget. App block HTML/JS stays intact.
+  Scale-O Premium Customer Reviews — custom UI, Judge.me live data.
 {%- endcomment -%}
 
 {{ 'scale-o-reviews.css' | asset_url | stylesheet_tag }}
 
 {%- liquid
-  assign header_align = section.settings.header_alignment
-  assign show_header = false
-  if section.settings.heading != blank
-    assign show_header = true
+  assign jm = shop.metafields.judgeme
+  assign review_count = jm.all_reviews_count | default: 0
+  assign review_score = jm.all_reviews_rating | default: 5
+  assign per_page = section.settings.cards_per_page | default: 3
+
+  assign heading_text = section.settings.heading
+  if section.settings.auto_heading_count and review_count > 0
+    assign heading_text = 'Loved by ' | append: review_count | append: '+ Happy Homes'
   endif
-  if section.settings.show_eyebrow and section.settings.eyebrow != blank
-    assign show_header = true
+
+  assign count_label = section.settings.reviews_count_label
+  if count_label contains '[count]'
+    assign count_label = count_label | replace: '[count]', review_count
+  elsif count_label == blank
+    assign count_label = 'from ' | append: review_count | append: ' reviews'
   endif
-  if section.settings.show_description and section.settings.description != blank
-    assign show_header = true
+
+  assign default_thumb = section.settings.default_product_image
+  if default_thumb == blank and product != blank and product.featured_media != blank
+    assign default_thumb = product.featured_media
+  endif
+  assign default_thumb_url = ''
+  if default_thumb != blank
+    assign default_thumb_url = default_thumb | image_url: width: 160
   endif
 -%}
 
 <style>
   #shopify-section-{{ section.id }} .scale-o-reviews {
     --sor-bg: {{ section.settings.background_color }};
+    --sor-bg-end: {{ section.settings.background_color_end }};
     --sor-heading: {{ section.settings.heading_color }};
     --sor-text: {{ section.settings.text_color }};
     --sor-accent: {{ section.settings.accent_color }};
@@ -30,19 +44,12 @@
     --sor-border: {{ section.settings.card_border_color }};
     --sor-star: {{ section.settings.star_color }};
     --sor-radius: {{ section.settings.card_radius }}px;
-    --sor-eyebrow-size: {{ section.settings.eyebrow_size }}px;
-    --sor-heading-size: {{ section.settings.heading_size_mobile }}px;
-    --sor-heading-size-desktop: {{ section.settings.heading_size_desktop }}px;
-    --sor-desc-size: {{ section.settings.description_size }}px;
-    --sor-pad-x: {{ section.settings.padding_x }}px;
-    --sor-header-gap: {{ section.settings.header_gap }}px;
-    --sor-header-align: {{ header_align }};
     --sor-max-width: {% if section.settings.max_width == 0 %}100%{% else %}{{ section.settings.max_width }}px{% endif %};
-    --sor-shadow: {% if section.settings.show_card_shadow %}0 10px 28px rgba(20, 43, 74, 0.08){% else %}none{% endif %};
+    --sor-pad-x: {{ section.settings.padding_x }}px;
+    --sor-eyebrow-size: {{ section.settings.eyebrow_size }}px;
     margin-top: {{ section.settings.margin_top }}px;
     margin-bottom: {{ section.settings.margin_bottom }}px;
     padding: {{ section.settings.padding_top_mobile }}px 0 {{ section.settings.padding_bottom_mobile }}px;
-    background: var(--sor-bg);
   }
   @media (min-width: 768px) {
     #shopify-section-{{ section.id }} .scale-o-reviews {
@@ -51,91 +58,133 @@
   }
 </style>
 
-<div
-  class="scale-o-reviews{% if section.settings.hide_native_heading %} scale-o-reviews--hide-native-title{% endif %}"
-  data-section-id="{{ section.id }}"
-  role="region"
+<section
+  class="scale-o-reviews"
+  data-scale-o-reviews
+  data-per-page="{{ per_page }}"
+  {% if default_thumb_url != blank %}data-default-thumb="{{ default_thumb_url }}"{% endif %}
   aria-label="{{ section.settings.accessibility_label | default: 'Customer reviews' | escape }}"
 >
   <div class="scale-o-reviews__container">
-    {%- if show_header -%}
-      <header class="scale-o-reviews__header scale-o-reviews__header--{{ header_align }}">
-        {%- if section.settings.show_eyebrow and section.settings.eyebrow != blank -%}
-          <p class="scale-o-reviews__eyebrow">{{ section.settings.eyebrow | escape }}</p>
-        {%- endif -%}
-        {%- if section.settings.heading != blank -%}
-          <h2 class="scale-o-reviews__heading">{{ section.settings.heading | escape }}</h2>
-        {%- endif -%}
-        {%- if section.settings.show_description and section.settings.description != blank -%}
-          <p class="scale-o-reviews__description">{{ section.settings.description | escape }}</p>
-        {%- endif -%}
-      </header>
-    {%- endif -%}
+    <header class="scale-o-reviews__header">
+      {%- if section.settings.show_eyebrow and section.settings.eyebrow != blank -%}
+        <p class="scale-o-reviews__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+      {%- endif -%}
 
-    <div class="scale-o-reviews__widget">
-      {% for block in section.blocks %}
-        {% render block %}
-      {% else %}
-        {%- if request.design_mode -%}
-          <p class="scale-o-reviews__empty">Add the Judge.me Review Widget app block in Theme Editor to show reviews here.</p>
+      {%- if heading_text != blank -%}
+        <h2 class="scale-o-reviews__heading">{{ heading_text | escape }}</h2>
+      {%- endif -%}
+
+      {%- if section.settings.description != blank -%}
+        <p class="scale-o-reviews__description">{{ section.settings.description | escape }}</p>
+      {%- endif -%}
+
+      {%- if section.settings.show_rating_summary -%}
+        <div class="scale-o-reviews__rating">
+          {% render 'scale-o-reviews-star', score: review_score, size: 'lg', section: section %}
+          <p class="scale-o-reviews__count">
+            <span>{{ count_label | escape }}</span>
+            {%- if section.settings.show_verified_badge -%}
+              <span class="scale-o-reviews__count-verified">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10" fill="#14b8a6"/>
+                  <path d="M8 12.2 10.6 14.8 16.2 9.2" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Verified
+              </span>
+            {%- endif -%}
+          </p>
+        </div>
+      {%- endif -%}
+    </header>
+
+    <div class="scale-o-reviews__slider">
+      <div class="scale-o-reviews__track" data-sor-track role="list"></div>
+
+      <div class="scale-o-reviews__controls">
+        <button type="button" class="scale-o-reviews__nav" data-sor-prev aria-label="Previous reviews">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M14.5 6.5 9 12l5.5 5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="scale-o-reviews__dots" data-sor-dots role="tablist" aria-label="Review pages"></div>
+        <button type="button" class="scale-o-reviews__nav" data-sor-next aria-label="Next reviews">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M9.5 6.5 15 12l-5.5 5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    {%- comment -%} Fallback reviews from blocks {%- endcomment -%}
+    <div class="scale-o-reviews__fallback" hidden>
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'review' -%}
+          <span
+            data-sor-fallback-review
+            data-title="{{ block.settings.title | escape }}"
+            data-body="{{ block.settings.body | escape }}"
+            data-author="{{ block.settings.author | escape }}"
+            {% if block.settings.image != blank %}
+              data-image="{{ block.settings.image | image_url: width: 160 }}"
+            {% elsif default_thumb_url != blank %}
+              data-image="{{ default_thumb_url }}"
+            {% endif %}
+            {{ block.shopify_attributes }}
+          ></span>
         {%- endif -%}
-      {% endfor %}
+      {%- endfor -%}
+    </div>
+
+    {%- comment -%} Hidden Judge.me source for live review data {%- endcomment -%}
+    <div class="scale-o-reviews__jm-source" data-sor-jm-source aria-hidden="true">
+      {% render 'scale-o-judgeme-carousel' %}
     </div>
   </div>
-</div>
+</section>
 
-<script src="{{ 'scale-o-reviews.js' | asset_url }}" defer></script>
+<script src="{{ 'scale-o-reviews.js' | asset_url }}" defer="defer"></script>
 
 {% schema %}
 {
   "name": "Customer Reviews",
   "tag": "section",
   "class": "scale-o-reviews-section",
+  "max_blocks": 15,
   "settings": [
     { "type": "header", "content": "Header" },
     { "type": "checkbox", "id": "show_eyebrow", "label": "Show eyebrow", "default": true },
     { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "REVIEWS" },
-    { "type": "text", "id": "heading", "label": "Heading", "default": "Customer Reviews" },
-    { "type": "checkbox", "id": "show_description", "label": "Show description", "default": false },
-    { "type": "textarea", "id": "description", "label": "Description" },
-    {
-      "type": "select",
-      "id": "header_alignment",
-      "label": "Header alignment",
-      "default": "center",
-      "options": [
-        { "value": "left", "label": "Left" },
-        { "value": "center", "label": "Center" },
-        { "value": "right", "label": "Right" }
-      ]
-    },
-    { "type": "checkbox", "id": "hide_native_heading", "label": "Hide Judge.me widget title (keeps our heading)", "default": true, "info": "Does not hide ratings, write-a-review, sorting, or pagination." },
+    { "type": "checkbox", "id": "auto_heading_count", "label": "Auto heading with review count", "default": true },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Loved by 100+ Happy Homes", "info": "Used when auto heading is off." },
+    { "type": "textarea", "id": "description", "label": "Supporting text", "default": "Real experiences from real customers who trust Scale-O." },
+    { "type": "checkbox", "id": "show_rating_summary", "label": "Show star rating row", "default": true },
+    { "type": "text", "id": "reviews_count_label", "label": "Review count label", "default": "from [count] reviews", "info": "Use [count] for live review total." },
+    { "type": "checkbox", "id": "show_verified_badge", "label": "Show verified badge", "default": true },
+
+    { "type": "header", "content": "Carousel" },
+    { "type": "range", "id": "cards_per_page", "label": "Cards per page (desktop)", "min": 1, "max": 3, "step": 1, "default": 3 },
+    { "type": "image_picker", "id": "default_product_image", "label": "Default product thumbnail", "info": "Used when a review has no product image. On product pages, the current product image is used automatically." },
 
     { "type": "header", "content": "Layout" },
-    { "type": "range", "id": "max_width", "label": "Max width", "min": 960, "max": 1400, "step": 20, "unit": "px", "default": 1200 },
-    { "type": "range", "id": "card_radius", "label": "Card radius", "min": 8, "max": 24, "step": 2, "unit": "px", "default": 16 },
-    { "type": "checkbox", "id": "show_card_shadow", "label": "Show card shadow", "default": true },
-
-    { "type": "header", "content": "Spacing" },
-    { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 80, "step": 4, "unit": "px", "default": 36 },
-    { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 0, "max": 80, "step": 4, "unit": "px", "default": 36 },
-    { "type": "range", "id": "padding_top_mobile", "label": "Padding top (mobile)", "min": 0, "max": 64, "step": 4, "unit": "px", "default": 28 },
-    { "type": "range", "id": "padding_bottom_mobile", "label": "Padding bottom (mobile)", "min": 0, "max": 64, "step": 4, "unit": "px", "default": 28 },
-    { "type": "range", "id": "padding_x", "label": "Side padding", "min": 12, "max": 40, "step": 2, "unit": "px", "default": 20 },
+    { "type": "range", "id": "max_width", "label": "Max width", "min": 960, "max": 1280, "step": 20, "unit": "px", "default": 1200 },
+    { "type": "range", "id": "card_radius", "label": "Card radius", "min": 12, "max": 28, "step": 2, "unit": "px", "default": 22 },
+    { "type": "range", "id": "padding_x", "label": "Side padding", "min": 16, "max": 48, "step": 4, "unit": "px", "default": 24 },
+    { "type": "range", "id": "padding_top", "label": "Padding top", "min": 24, "max": 96, "step": 4, "unit": "px", "default": 56 },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 24, "max": 96, "step": 4, "unit": "px", "default": 56 },
+    { "type": "range", "id": "padding_top_mobile", "label": "Padding top (mobile)", "min": 24, "max": 72, "step": 4, "unit": "px", "default": 40 },
+    { "type": "range", "id": "padding_bottom_mobile", "label": "Padding bottom (mobile)", "min": 24, "max": 72, "step": 4, "unit": "px", "default": 40 },
     { "type": "range", "id": "margin_top", "label": "Margin top", "min": 0, "max": 80, "step": 4, "unit": "px", "default": 0 },
     { "type": "range", "id": "margin_bottom", "label": "Margin bottom", "min": 0, "max": 80, "step": 4, "unit": "px", "default": 0 },
-    { "type": "range", "id": "header_gap", "label": "Header gap", "min": 12, "max": 48, "step": 2, "unit": "px", "default": 24 },
-    { "type": "range", "id": "eyebrow_size", "label": "Eyebrow size", "min": 11, "max": 18, "step": 1, "unit": "px", "default": 13 },
-    { "type": "range", "id": "heading_size_desktop", "label": "Heading size (desktop)", "min": 28, "max": 52, "step": 1, "unit": "px", "default": 36 },
-    { "type": "range", "id": "heading_size_mobile", "label": "Heading size (mobile)", "min": 22, "max": 36, "step": 1, "unit": "px", "default": 26 },
-    { "type": "range", "id": "description_size", "label": "Description size", "min": 13, "max": 18, "step": 1, "unit": "px", "default": 15 },
+    { "type": "range", "id": "eyebrow_size", "label": "Eyebrow size", "min": 11, "max": 16, "step": 1, "unit": "px", "default": 13 },
 
     { "type": "header", "content": "Colors" },
-    { "type": "color", "id": "background_color", "label": "Background", "default": "#F7FBFF" },
+    { "type": "color", "id": "background_color", "label": "Background start", "default": "#F8FCFF" },
+    { "type": "color", "id": "background_color_end", "label": "Background end", "default": "#EEF6FF" },
     { "type": "color", "id": "card_background", "label": "Card background", "default": "#FFFFFF" },
-    { "type": "color", "id": "card_border_color", "label": "Border", "default": "#D7E4F2" },
-    { "type": "color", "id": "heading_color", "label": "Heading", "default": "#1A2B4A" },
-    { "type": "color", "id": "text_color", "label": "Text", "default": "#465568" },
+    { "type": "color", "id": "card_border_color", "label": "Card border", "default": "#D7E8F8" },
+    { "type": "color", "id": "heading_color", "label": "Heading", "default": "#142B4A" },
+    { "type": "color", "id": "text_color", "label": "Body text", "default": "#5A6B80" },
     { "type": "color", "id": "accent_color", "label": "Accent", "default": "#0C7FDF" },
     { "type": "color", "id": "accent_hover_color", "label": "Accent hover", "default": "#0A6BC4" },
     { "type": "color", "id": "star_color", "label": "Star color", "default": "#F5B301" },
@@ -143,12 +192,45 @@
   ],
   "blocks": [
     {
-      "type": "@app"
+      "type": "review",
+      "name": "Fallback review",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Review title", "default": "Nice result" },
+        { "type": "textarea", "id": "body", "label": "Review text", "default": "Water quality is visibly better. No more white deposits in bathroom and utensils. Totally worth it!" },
+        { "type": "text", "id": "author", "label": "Customer name", "default": "Dr Sagar Ghanghav" },
+        { "type": "image_picker", "id": "image", "label": "Product thumbnail" }
+      ]
     }
   ],
   "presets": [
     {
-      "name": "Customer Reviews"
+      "name": "Customer Reviews",
+      "blocks": [
+        {
+          "type": "review",
+          "settings": {
+            "title": "Nice result",
+            "body": "Water quality is visibly better. No more white deposits in bathroom and utensils. Totally worth it!",
+            "author": "Dr Sagar Ghanghav"
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "title": "So convenient to use",
+            "body": "Found the concept really innovative and super easy to install and maintain. Need of the hour!!",
+            "author": "Jayraj Soni"
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "title": "Recommended",
+            "body": "I'd suggest this product for smaller tanks only. We installed at our house few weeks back, results are okay but improving slowly...",
+            "author": "John D'souza"
+          }
+        }
+      ]
     }
   ]
 }

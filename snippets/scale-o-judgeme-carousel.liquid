@@ -1,0 +1,11 @@
+{%- comment -%}
+  Judge.me Featured Reviews Carousel body only (no header — rendered by section).
+{%- endcomment -%}
+{%- assign jm_metafields = shop.metafields.judgeme -%}
+{%- if jm_metafields.featured_carousel != blank -%}
+  <div class="jdgm-carousel-wrapper scale-o-jm-carousel" data-scale-o-jm-carousel>
+    {{ jm_metafields.featured_carousel }}
+  </div>
+{%- elsif request.design_mode -%}
+  <p class="scale-o-reviews__empty">Judge.me carousel is not available yet. Enable the Reviews Carousel in Judge.me admin.</p>
+{%- endif -%}

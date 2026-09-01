@@ -133,7 +133,6 @@
             if trust_rating != blank
               assign trust_rating_display = trust_rating | plus: 0 | round: 1
             endif
-            assign trust_customers = '32,000+'
           -%}
           <div class="product-trust-strip" role="group" aria-label="Product rating and customer trust">
             {%- if trust_rating_display != blank -%}
@@ -150,7 +149,7 @@
               </div>
               <span class="product-trust-strip__sep" aria-hidden="true"></span>
             {%- endif -%}
-            {% render 'product-trust-customers', trust_customers: trust_customers %}
+            {% render 'product-trust-customers', product: product %}
           </div>
         </div>
         {% if settings.review_app == 'ali_reviews' %}

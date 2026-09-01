@@ -1,11 +1,50 @@
 {%- comment -%}
-  Social proof chip: customer avatars, names, and total count.
-  Uses theme assets from Scale-O customer stories.
+  Social proof chip: customer avatars, names, and total count — per product model.
 {%- endcomment -%}
 {%- liquid
-  assign trust_customers = trust_customers | default: '32,000+'
+  assign product_handle = product.handle | default: '' | downcase
+  assign trust_count = '32,000'
+  assign trust_name_1 = 'Abhishek Mahajan'
+  assign trust_name_2 = 'Shailesh b patel'
+  assign trust_name_3 = 'Bhavesh Kumar Patel'
+
+  if product_handle contains 'mini-combo'
+    assign trust_count = '8,000'
+    assign trust_name_1 = 'Kailash Rekhari'
+    assign trust_name_2 = 'Rupesh Kumar Vaishya'
+    assign trust_name_3 = 'Chandrashekar BR'
+  elsif product_handle contains 'semi-combo'
+    assign trust_count = '17,000'
+    assign trust_name_1 = 'Gaurav Aggarwal'
+    assign trust_name_2 = 'Jogesh'
+    assign trust_name_3 = 'Harish Yadav'
+  elsif product_handle contains 'centi-combo'
+    assign trust_count = '12,000'
+    assign trust_name_1 = 'Shail Desai'
+    assign trust_name_2 = 'Varunn Todii'
+    assign trust_name_3 = 'Rajesh Kulandaivelu'
+  elsif product_handle contains 'mini'
+    assign trust_count = '18,000'
+    assign trust_name_1 = 'Harish Kumar'
+    assign trust_name_2 = 'Yogesh Goswami'
+    assign trust_name_3 = 'Anand shah'
+  elsif product_handle contains 'semi'
+    assign trust_count = '43,000'
+    assign trust_name_1 = 'Keyur Panchal'
+    assign trust_name_2 = 'Karan Sharma'
+    assign trust_name_3 = 'Satyarth Gulia'
+  elsif product_handle contains 'centi'
+    assign trust_count = '32,000'
+    assign trust_name_1 = 'Abhishek Mahajan'
+    assign trust_name_2 = 'Shailesh b patel'
+    assign trust_name_3 = 'Bhavesh Kumar Patel'
+  endif
+
+  assign trust_names_desktop = trust_name_1 | append: ', ' | append: trust_name_2 | append: ', ' | append: trust_name_3 | append: ' & more'
+  assign trust_names_mobile = trust_name_1 | append: ', ' | append: trust_name_2 | append: ' & more'
+  assign trust_aria_label = 'Trusted by ' | append: trust_name_1 | append: ', ' | append: trust_name_2 | append: ', ' | append: trust_name_3 | append: ' and ' | append: trust_count | append: ' others'
 -%}
-<div class="product-trust-strip__chip product-trust-strip__chip--customers" aria-label="Trusted by Pragati, Gaurav, Avani and over {{ trust_customers }} customers">
+<div class="product-trust-strip__chip product-trust-strip__chip--customers" aria-label="{{ trust_aria_label | escape }}">
   <div class="product-trust-strip__avatars" aria-hidden="true">
     <img
       src="{{ 'scale-o-story-1.jpg' | asset_url }}"
@@ -31,19 +70,11 @@
       height="24"
       loading="lazy"
     >
-    <img
-      src="{{ 'scale-o-story-4.jpg' | asset_url }}"
-      alt=""
-      class="product-trust-strip__avatar"
-      width="24"
-      height="24"
-      loading="lazy"
-    >
   </div>
   <span class="product-trust-strip__customers">
-    <span class="product-trust-strip__names product-trust-strip__names--desktop">Pragati, Gaurav, Avani &amp; more</span>
-    <span class="product-trust-strip__names product-trust-strip__names--mobile">Pragati, Gaurav &amp; more</span>
+    <span class="product-trust-strip__names product-trust-strip__names--desktop">{{ trust_names_desktop | escape }}</span>
+    <span class="product-trust-strip__names product-trust-strip__names--mobile">{{ trust_names_mobile | escape }}</span>
     <span class="product-trust-strip__dot" aria-hidden="true">·</span>
-    <span class="product-trust-strip__count"><strong>{{ trust_customers }}</strong> Customers</span>
+    <span class="product-trust-strip__count"><strong>{{ trust_count }}</strong> others</span>
   </span>
 </div>

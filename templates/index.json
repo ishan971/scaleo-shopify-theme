@@ -377,6 +377,7 @@
           "settings": {
             "step_number": "1",
             "icon": "exchange",
+            "image": "shopify://shop_images/how-it-works-exchange-1.png",
             "title": "Check the Correct Variant",
             "description": "Check for the correct variant to replace based on order details or the installed product."
           }
@@ -386,6 +387,7 @@
           "settings": {
             "step_number": "2",
             "icon": "install",
+            "image": "shopify://shop_images/how-it-works-exchange-2.png",
             "title": "Remove the Used Unit",
             "description": "If the product is floating on the water surface or is empty with scaling on the outer casing, remove it using the rope."
           }
@@ -395,6 +397,7 @@
           "settings": {
             "step_number": "3",
             "icon": "check",
+            "image": "shopify://shop_images/how-it-works-exchange-3.png",
             "title": "Dry Wipe and Dispose",
             "description": "Dry wipe the used product and dispose it in a polythene bag with the rope as well."
           }
@@ -404,6 +407,7 @@
           "settings": {
             "step_number": "4",
             "icon": "exchange",
+            "image": "shopify://shop_images/how-it-works-exchange-4-updated.png",
             "title": "Install the New Unit",
             "description": "Install the new water softener as earlier and close the lid."
           }
@@ -433,8 +437,13 @@
         "header_alignment": "center",
         "installation_diagram": "shopify://shop_images/ChatGPT_Image_Aug_12_2026_12_35_16_PM.png",
         "diagram_alt": "Scale-O installation flow from overhead tank to home",
+        "usp_panel_eyebrow": "",
+        "usp_panel_heading": "",
         "installation_video_url": "",
         "video_button_text": "Watch Installation Video",
+        "detail_eyebrow": "Product Guide",
+        "detail_heading": "How to Install & Exchange Scale-O Water Softeners",
+        "detail_description": "Follow 4 simple and easy steps to install and exchange the Scale-O water softeners.",
         "install_tab_label": "How to Install",
         "exchange_tab_label": "How to Exchange",
         "tabs_alignment": "center",
@@ -473,12 +482,7 @@
         "margin_top": 0,
         "margin_bottom": 0,
         "content_gap": 32,
-        "accessibility_label": "Watch and shop",
-        "usp_panel_eyebrow": "",
-        "usp_panel_heading": "",
-        "detail_eyebrow": "Product Guide",
-        "detail_heading": "How to Install & Exchange Scale-O Water Softeners",
-        "detail_description": "Follow 4 simple and easy steps to install and exchange the Scale-O water softeners."
+        "accessibility_label": "Watch and shop"
       }
     },
     "featured_collection_hJqRXq": {
@@ -1164,7 +1168,6 @@
         "show_eyebrow": true,
         "eyebrow": "BEFORE & AFTER RESULTS",
         "heading": "Checkout Before vs After Results with Scale-O",
-        "heading_one_line": true,
         "show_description": true,
         "description": "Genuine differences and impact after installing our water softeners across houses.",
         "description_highlight": "",
@@ -2585,6 +2588,7 @@
           "type": "faq",
           "settings": {
             "enabled": true,
+            "product_scope": "any",
             "question": "What is Scale-O and how does it work?",
             "answer": "<p>Scale-O is a salt-free water softener for Indian homes with overhead tanks. Place the compact unit inside your tank. As water flows through the home, it conditions minerals and helps reduce hard-water scale on pipes, fittings and household appliances, without salt, electricity or plumbing changes.</p>",
             "category": ""
@@ -2594,6 +2598,7 @@
           "type": "faq",
           "settings": {
             "enabled": true,
+            "product_scope": "any",
             "question": "Does Scale-O require electricity?",
             "answer": "<p>No. Scale-O does not need electricity, wiring or a power connection. Once placed in the tank, it works as water flows through your home.</p>",
             "category": ""
@@ -2603,6 +2608,7 @@
           "type": "faq",
           "settings": {
             "enabled": true,
+            "product_scope": "any",
             "question": "Does Scale-O use salt?",
             "answer": "<p>No. Scale-O is a salt-free water softener. There are no salt bags to buy, store or refill, unlike salt-based water softeners.</p>",
             "category": ""
@@ -2612,6 +2618,7 @@
           "type": "faq",
           "settings": {
             "enabled": true,
+            "product_scope": "any",
             "question": "Does Scale-O waste water?",
             "answer": "<p>No. Scale-O does not require backwashing, regeneration or water discharge. You get conditioned water without the water wastage typical of many salt-based softeners.</p>",
             "category": ""
@@ -2621,6 +2628,7 @@
           "type": "faq",
           "settings": {
             "enabled": true,
+            "product_scope": "any",
             "question": "How is Scale-O installed?",
             "answer": "<p>Yes. Installation is simple and usually needs no plumber: choose the right model for your tank, open the overhead tank, place Scale-O inside, close the tank and use water as usual. No wiring or drain line is required.</p>",
             "category": ""
@@ -2630,6 +2638,7 @@
           "type": "faq",
           "settings": {
             "enabled": true,
+            "product_scope": "any",
             "question": "Where should Scale-O be installed?",
             "answer": "<p>Scale-O is designed for overhead and storage water tanks used in Indian homes, so conditioned water can reach bathrooms, kitchen, laundry and appliances.</p>",
             "category": ""
@@ -2639,6 +2648,7 @@
           "type": "faq",
           "settings": {
             "enabled": true,
+            "product_scope": "any",
             "question": "Can Scale-O be installed in an existing water tank?",
             "answer": "<p>Yes. Scale-O is placed inside an existing overhead tank. You do not need to replace the tank or install a separate treatment plant.</p>",
             "category": ""
@@ -2648,6 +2658,7 @@
           "type": "faq",
           "settings": {
             "enabled": true,
+            "product_scope": "any",
             "question": "How does Scale-O help prevent hard-water scale?",
             "answer": "<p>Scale-O is a salt-free conditioner that helps reduce visible hard-water scale buildup on pipes, taps, geysers and other household fittings as water flows through the home.</p>",
             "category": ""
@@ -2657,6 +2668,7 @@
           "type": "faq",
           "settings": {
             "enabled": true,
+            "product_scope": "any",
             "question": "Does Scale-O require regular maintenance?",
             "answer": "<p>Day-to-day use does not require salt refills, electricity or regular servicing. When it is time, the unit is replaced through a straightforward exchange process.</p>",
             "category": ""
@@ -2666,6 +2678,7 @@
           "type": "faq",
           "settings": {
             "enabled": true,
+            "product_scope": "any",
             "question": "How long does a Scale-O unit last?",
             "answer": "<p>Household units are typically exchanged on a regular cycle so protection stays consistent, often around every 6 months, depending on the product and usage. Check your product details and exchange policy for the recommended interval.</p>",
             "category": ""
@@ -2675,6 +2688,7 @@
           "type": "faq",
           "settings": {
             "enabled": true,
+            "product_scope": "any",
             "question": "Which Scale-O model is right for my home?",
             "answer": "<p>Match your overhead tank: Mini for 500L-750L, Semi for 1000L-1500L, Centi for 2000L-2500L. A 4 to 6 member family often uses Semi when the tank is about 1000L-1500L. If you are unsure, talk to a Scale-O expert.</p>",
             "category": ""
@@ -2684,6 +2698,7 @@
           "type": "faq",
           "settings": {
             "enabled": true,
+            "product_scope": "any",
             "question": "Can Scale-O be used with geysers, washing machines and other appliances?",
             "answer": "<p>Yes. Once installed in the overhead tank, Scale-O conditions the water that flows to bathrooms, kitchen, laundry and household appliances such as geysers and washing machines.</p>",
             "category": ""
@@ -2693,6 +2708,7 @@
           "type": "faq",
           "settings": {
             "enabled": true,
+            "product_scope": "any",
             "question": "How do I choose the correct Scale-O size?",
             "answer": "<p>Match the unit to your overhead tank capacity and how much water your household uses. Larger tanks or higher usage generally need a larger model. Use the product size guide or speak with our team if you need help choosing.</p>",
             "category": ""
@@ -2702,6 +2718,7 @@
           "type": "faq",
           "settings": {
             "enabled": true,
+            "product_scope": "any",
             "question": "What is included with my Scale-O purchase?",
             "answer": "<p>Your Scale-O unit is ready to place in the tank. Specific inclusions can vary by model. Check the product page for what ships with your chosen size.</p>",
             "category": ""
@@ -2711,6 +2728,7 @@
           "type": "faq",
           "settings": {
             "enabled": true,
+            "product_scope": "any",
             "question": "How does the trial / guarantee work?",
             "answer": "<p>Scale-O offers a 7-day risk-free trial so you can try it in your home with confidence. Guarantee activation is confirmed with your invoice as part of the purchase process. See the product page or talk to our team for current trial terms.</p>",
             "category": ""
@@ -2720,6 +2738,7 @@
           "type": "faq",
           "settings": {
             "enabled": true,
+            "product_scope": "any",
             "question": "What is a salt-free water softener?",
             "answer": "<p>A salt-free water softener conditions hard-water minerals instead of swapping them with salt. Scale-O sits in your overhead tank, needs no electricity or salt bags, and helps reduce scale on taps, geysers and tiles. It is not an ion-exchange salt plant. Compare <a href=\"/blogs/articles/salt-free-vs-salt-based-water-softeners\">salt-free vs salt-based water softeners</a>.</p>",
             "category": ""
@@ -2729,6 +2748,7 @@
           "type": "faq",
           "settings": {
             "enabled": true,
+            "product_scope": "any",
             "question": "Does a water softener reduce hair fall from hard water?",
             "answer": "<p>Hard water hair fall in India is often breakage from mineral film, not medical shedding. A salt-free water softener in the overhead tank can help hair feel less dry and brittle over time. Scale-O does not claim to stop balding or regrow hair. Read <a href=\"/blogs/articles/hard-water-hair-breakage-vs-shedding\">hard water hair fall: breakage vs shedding</a>.</p>",
             "category": ""
@@ -2738,6 +2758,7 @@
           "type": "faq",
           "settings": {
             "enabled": true,
+            "product_scope": "any",
             "question": "Do I still need RO if I use a water softener?",
             "answer": "<p>Yes. Keep RO for drinking if you already use it. A water softener for home treats the overhead tank supply for bathrooms, kitchen lines and appliances. Scale-O is not a drinking-water purifier. Use RO for potable water and Scale-O for whole-house scale protection.</p>",
             "category": ""
@@ -2747,6 +2768,7 @@
           "type": "faq",
           "settings": {
             "enabled": true,
+            "product_scope": "any",
             "question": "Can I install a water softener in an overhead tank?",
             "answer": "<p>Yes. Scale-O is a water softener for overhead tanks: open the lid, place the unit, close and use water as usual. No plumber, no drain, no electricity. It is for houses, villas and bungalows with a tank you can access. See the <a href=\"/blogs/articles/best-overhead-tank-water-softener-india\">overhead tank water softener</a> guide.</p>",
             "category": ""
@@ -2756,6 +2778,7 @@
           "type": "faq",
           "settings": {
             "enabled": true,
+            "product_scope": "any",
             "question": "Which is better for Indian homes: salt-free or salt-based water softener?",
             "answer": "<p>Salt-based softeners can drop hardness more, but need salt, drain and often a plumber. A salt-free water softener like Scale-O fits Indian overhead-tank homes: no salt, no electricity, DIY drop-in, and helps reduce scale. Read <a href=\"/blogs/articles/salt-free-vs-salt-based-water-softeners\">salt-free vs salt-based water softeners</a>.</p>",
             "category": ""
@@ -2765,6 +2788,7 @@
           "type": "faq",
           "settings": {
             "enabled": true,
+            "product_scope": "any",
             "question": "Which Scale-O is right for a 4 to 6 member family?",
             "answer": "<p>Most 4 to 6 member Indian homes with a 1000L-1500L overhead tank choose Scale-O Semi. Smaller 500L-750L tanks use Mini. Larger 2000L-2500L tanks use Centi. Shop by tank size in the <a href=\"/collections/water-softeners\">water softener for home</a> collection or see <a href=\"/pages/water-softener-plans\">water softener price and plans</a>.</p>",
             "category": ""
@@ -2774,6 +2798,7 @@
           "type": "faq",
           "settings": {
             "enabled": true,
+            "product_scope": "any",
             "question": "Is Scale-O a water softener for apartments?",
             "answer": "<p>Scale-O is built for houses, villas and bungalows with a private overhead tank. Typical apartments without tank access are not the right fit. If your independent floor has its own overhead tank, match Mini, Semi or Centi to tank litres. Ask on WhatsApp if you are unsure.</p>",
             "category": ""
@@ -2851,7 +2876,6 @@
     },
     "custom_content_EwkEYn": {
       "type": "custom-content",
-      "disabled": true,
       "blocks": {
         "image_eyY9e6": {
           "type": "image",
@@ -2868,6 +2892,7 @@
       "block_order": [
         "image_eyY9e6"
       ],
+      "disabled": true,
       "settings": {
         "heading": "",
         "heading_size": "h3",

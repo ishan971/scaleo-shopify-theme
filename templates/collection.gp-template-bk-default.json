@@ -68,6 +68,7 @@
     },
     "image_with_text_2_BhPGq3": {
       "type": "image-with-text-2",
+      "disabled": true,
       "settings": {
         "color_scheme": "",
         "container": "w-full",
@@ -96,6 +97,238 @@
         "enable_bg_zoom_effect": true
       }
     },
+    "scale_o_collection_hero": {
+      "type": "scale-o-collection-hero",
+      "blocks": {
+        "slide_zero_factor": {
+          "type": "slide",
+          "settings": {
+            "enabled": true,
+            "banner_preset": "family",
+            "alt": "Scale-O Zero Factor USP salt-free water softener",
+            "eyebrow": "ZERO FACTOR USP",
+            "heading_line_1": "Our Zero Factor",
+            "heading_line_2": "Advantage",
+            "show_heading_underline": false,
+            "description": "Zero operating cost, zero electricity, zero salt, zero water wastage, zero maintenance and zero manpower — Scale-O simplifies hard-water protection.",
+            "text_alignment": "left",
+            "show_cta": false,
+            "cta_label": "Shop Water Softeners",
+            "cta_url": "",
+            "show_secondary_cta": false,
+            "secondary_cta_label": "Find the right solution",
+            "secondary_cta_url": ""
+          }
+        },
+        "slide_highlights": {
+          "type": "slide",
+          "settings": {
+            "enabled": true,
+            "banner_preset": "highlights",
+            "alt": "Scale-O Mini Semi Centi product highlights",
+            "eyebrow": "PRODUCT HIGHLIGHTS",
+            "heading_line_1": "Mini, Semi & Centi",
+            "heading_line_2": "Built for Every Home",
+            "show_heading_underline": false,
+            "description": "Choose by overhead tank size from 500L to 2500L. Salt-free, no electricity, simple overhead-tank install for Indian hard water.",
+            "text_alignment": "left",
+            "show_cta": false,
+            "cta_label": "Shop Water Softeners",
+            "cta_url": "",
+            "show_secondary_cta": false,
+            "secondary_cta_label": "Find the right solution",
+            "secondary_cta_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "slide_zero_factor",
+        "slide_highlights"
+      ],
+      "settings": {
+        "enable_autoplay": true,
+        "autoplay_speed": 5,
+        "show_dots": true,
+        "show_arrows": false,
+        "accessibility_label": "Collection banners",
+        "eyebrow": "ZERO FACTOR USP",
+        "heading_line_1": "Our Zero Factor",
+        "heading_line_2": "Advantage",
+        "show_heading_underline": false,
+        "description": "Zero operating cost, zero electricity, zero salt, zero water wastage, zero maintenance and zero manpower — Scale-O simplifies hard-water protection.",
+        "image": "shopify://shop_images/Frame_1166_8007e267-2d52-4229-9441-96f286bd0110.png",
+        "show_cta": false,
+        "cta_label": "Shop Water Softeners",
+        "cta_url": "",
+        "show_secondary_cta": false,
+        "secondary_cta_label": "Find the right solution →",
+        "secondary_cta_url": "",
+        "text_alignment": "left",
+        "desktop_height": 520,
+        "mobile_height": 380,
+        "content_width": 0,
+        "border_radius": 0,
+        "background_color": "#ffffff",
+        "heading_color": "#0b1b2e",
+        "text_color": "#5b6b7c",
+        "accent_color": "#0C7FDF",
+        "padding_x": 0,
+        "padding_top": 12,
+        "padding_bottom": 16,
+        "padding_top_mobile": 8,
+        "padding_bottom_mobile": 12,
+        "show_trust_strip": false
+      }
+    },
+    "usp_strip_collection": {
+      "type": "usp-strip",
+      "blocks": {
+        "usp_item_hard_water": {
+          "type": "usp_item",
+          "settings": {
+            "icon": "droplet",
+            "title": "Designed for Indian Hard Water",
+            "description": "",
+            "link": ""
+          }
+        },
+        "usp_item_houses": {
+          "type": "usp_item",
+          "settings": {
+            "icon": "house",
+            "title": "Suitable for Individual Houses",
+            "description": "",
+            "link": ""
+          }
+        },
+        "usp_item_patent": {
+          "type": "usp_item",
+          "settings": {
+            "icon": "patent",
+            "title": "Patented & Manufactured Inhouse",
+            "description": "",
+            "link": ""
+          }
+        },
+        "usp_item_maintenance": {
+          "type": "usp_item",
+          "settings": {
+            "icon": "maintenance",
+            "title": "Zero Maintenance Solution",
+            "description": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "usp_item_hard_water",
+        "usp_item_houses",
+        "usp_item_patent",
+        "usp_item_maintenance"
+      ],
+      "settings": {
+        "background_color": "#0c7fdf",
+        "use_gradient": false,
+        "gradient_end_color": "#2a6ab2",
+        "title_color": "#ffffff",
+        "title_size_desktop": 14,
+        "title_size_mobile": 12,
+        "title_font_weight": "600",
+        "show_description": false,
+        "description_color": "#e8f4ff",
+        "description_size": 12,
+        "icon_color": "#ffffff",
+        "icon_background": "#0c7fdf",
+        "icon_size": 26,
+        "icon_style": "plain",
+        "max_width": 0,
+        "padding_y": 16,
+        "padding_x": 24,
+        "item_gap": 20,
+        "border_radius": 0,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "show_dividers": true,
+        "divider_color": "#ffffff",
+        "mobile_layout": "grid",
+        "enable_mobile_auto_scroll": false,
+        "hide_desktop": false,
+        "hide_mobile": false,
+        "accessibility_label": "Scale-O product highlights"
+      }
+    },
+    "stats_trust_collection": {
+      "type": "stats-trust",
+      "blocks": {
+        "stat_rating": {
+          "type": "stat",
+          "settings": {
+            "icon": "star",
+            "value": "4.2/5",
+            "label": "Average Rating",
+            "description": "",
+            "link": ""
+          }
+        },
+        "stat_customers": {
+          "type": "stat",
+          "settings": {
+            "icon": "users",
+            "value": "2 Lac+",
+            "label": "Customers",
+            "description": "",
+            "link": ""
+          }
+        },
+        "stat_homes": {
+          "type": "stat",
+          "settings": {
+            "icon": "home",
+            "value": "40,000+",
+            "label": "Homes Protected",
+            "description": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "stat_rating",
+        "stat_customers",
+        "stat_homes"
+      ],
+      "settings": {
+        "background_color": "#f5f7ff",
+        "use_gradient": true,
+        "gradient_end_color": "#eef6ff",
+        "accent_color": "#0c7fdf",
+        "value_color": "#1a2b4a",
+        "value_size_desktop": 28,
+        "value_size_mobile": 22,
+        "value_font_weight": "700",
+        "label_color": "#2a6ab2",
+        "label_size": 14,
+        "show_description": false,
+        "description_color": "#5a6b85",
+        "description_size": 12,
+        "icon_color": "#0c7fdf",
+        "icon_background": "#ffffff",
+        "icon_size": 22,
+        "icon_style": "circle",
+        "max_width": 1200,
+        "padding_top": 24,
+        "padding_bottom": 24,
+        "padding_x": 24,
+        "stat_gap": 24,
+        "border_radius": 16,
+        "margin_top": 12,
+        "margin_bottom": 16,
+        "show_dividers": true,
+        "divider_color": "#0c7fdf",
+        "mobile_layout": "row",
+        "enable_entrance_animation": false,
+        "accessibility_label": "Customer statistics"
+      }
+    },
     "main": {
       "type": "main-collection-product-grid",
       "custom_css": [
@@ -111,7 +344,24 @@
       "settings": {
         "container": "container-fluid",
         "grid_layout": "grid",
-        "grid_columns": "4",
+        "grid_columns": "3",
+        "use_scale_o_cards": true,
+        "show_grid_heading": false,
+        "grid_eyebrow": "PRODUCTS",
+        "grid_heading": "Shop by Products",
+        "grid_description": "Choose the perfect Scale-O Water Softener for your home.",
+        "show_shop_now_button": true,
+        "button_text": "Shop Now",
+        "show_specifications": true,
+        "show_spec_icons": true,
+        "show_badges": true,
+        "show_compare_at_price": true,
+        "show_corner_discount_badge": false,
+        "show_discount": true,
+        "show_ratings": false,
+        "use_rupee_symbol": true,
+        "card_gap": 24,
+        "card_gap_mobile": 12,
         "show_columns_switcher": false,
         "pagination_limit": 12,
         "paginate_type": "infinite",
@@ -120,6 +370,24 @@
         "filters_type": "storefront_filters",
         "sidebar": "leftColumn",
         "sidebar_title": "Filters",
+        "show_price_filter": false,
+        "show_storage_filter": true,
+        "show_daily_usage_filter": false,
+        "daily_usage_label": "Daily Usage",
+        "daily_usage_options": "500 L/d\n1000 L/d\n1500 L/d\n2000 L/d\n5000 L/d\n10,000 L/d\n20,000 L/d",
+        "show_people_family_filter": true,
+        "people_family_label": "People in Family",
+        "people_family_options": "Upto 3 Members\n4 - 6 Members\n7 to 10 Members\n11 to 15 Members",
+        "enable_horizontal_filter_bar": true,
+        "show_filter_icon": true,
+        "show_collection_count": true,
+        "show_clear_all": true,
+        "show_active_filter_count": true,
+        "filter_bar_radius": 12,
+        "filter_bar_background": "#FFFFFF",
+        "filter_bar_border": "#E6EDF4",
+        "filter_bar_text": "#0B1B2E",
+        "filter_bar_accent": "#0C7FDF",
         "limit_height_widget": true,
         "limit_height": 300,
         "change_product_variant_on_fitlering": true,
@@ -178,6 +446,9 @@
   },
   "order": [
     "collection-header",
+    "scale_o_collection_hero",
+    "usp_strip_collection",
+    "stats_trust_collection",
     "image_with_text_2_BhPGq3",
     "collection_banner_768w6G",
     "main",

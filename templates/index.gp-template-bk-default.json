@@ -10,1370 +10,2552 @@
 {
   "sections": {
     "1621243260e1af0c20": {
-      "type": "slider",
+      "type": "scale-o-hero",
       "blocks": {
-        "1621243260e1af0c20-0": {
-          "type": "slider_item",
+        "hero_2": {
+          "type": "slide",
           "settings": {
-            "background": "shopify://shop_images/banner-3_8afb6499-7f5d-4998-b8be-7a4dc15ca6fe.jpg",
-            "mb_background": "shopify://shop_images/1_56b6adee-a1d2-4b37-8c86-80b8f503370e.jpg",
-            "content_in_container": false,
-            "content_position": "left top",
+            "enabled": true,
+            "image": "shopify://shop_images/main-hero-1.png",
+            "image_mobile": "",
+            "banner_preset": "family",
+            "image_alt": "Scale-O salt-free water softener in overhead tank",
+            "show_usp": true,
+            "usp": "ZERO SALT • ZERO MAINTENANCE",
+            "usp_icon": "droplet",
+            "heading": "Prevent Hair fall, Dry Skin & Kidney Stone Concerns for Your Family",
+            "accent_words": "Hair fall, Dry Skin & Kidney Stone",
+            "description": "Scale-O water softeners protects health for your loved ones",
+            "show_cta": true,
+            "button_label": "Shop Now",
+            "button_url": "shopify://collections/water-softeners",
+            "show_trust": true,
+            "trust_style": "stars",
+            "trust_value": "4.8/5",
+            "show_stars": true,
+            "trust_text": "Trusted by more than 2 Lac Families in India",
+            "image_position": "right",
             "text_alignment": "left",
-            "text_size": "medium",
-            "text_color": "black",
-            "subheading": "",
-            "title": "Protect your Family from <br> Hair Fall, Dry Skin & Kidney <br>Stones!",
-            "description": "",
-            "image_link": "",
-            "button_text": "",
-            "button_link": "",
-            "button_style": "sf__btn-secondary",
-            "button_size": "",
-            "second_button_text": "Shop Now",
-            "second_button_link": "https://scale-o.com/collections/water-softeners",
-            "second_button_style": "m-button--primary",
-            "second_button_size": "",
-            "show_footer": true,
-            "footer_alignment": "end",
-            "footer_text": "",
-            "footer_button": "",
-            "footer_link": ""
+            "show_overlay": false,
+            "background_color": "#f7fbff"
           }
         },
-        "slider_item_mVh9Yk": {
-          "type": "slider_item",
+        "hero_3": {
+          "type": "slide",
           "settings": {
-            "background": "shopify://shop_images/banner-2_a3a0f78f-8da6-4dc2-bee5-68dfa8f6af77.jpg",
-            "mb_background": "shopify://shop_images/2_0672745a-c7cf-471d-9582-829a01378d06.jpg",
-            "content_in_container": false,
-            "content_position": "left top",
+            "enabled": true,
+            "image": "shopify://shop_images/main_hero-2_fc07f6b8-77c1-4edb-be84-031f0cc76a45.png",
+            "image_mobile": "",
+            "banner_preset": "whole_house",
+            "image_alt": "Scale-O whole-house protection",
+            "show_usp": true,
+            "usp": "WHOLE-HOUSE PROTECTION",
+            "usp_icon": "shield",
+            "heading": "Whole House Water Softener",
+            "accent_words": "Whole House",
+            "description": "Prevent scaling inside bathrooms, kitchen, laundry, appliances and floors",
+            "show_cta": true,
+            "button_label": "Shop Now",
+            "button_url": "shopify://collections/water-softeners",
+            "show_trust": true,
+            "trust_style": "stars",
+            "trust_value": "40,000+",
+            "show_stars": true,
+            "trust_text": "Trusted by 40,000+ Homes in India",
+            "image_position": "right",
             "text_alignment": "left",
-            "text_size": "large",
-            "text_color": "black",
-            "subheading": "",
-            "title": "Save Your Bathroom<br> Floors & Fittings!",
-            "description": "",
-            "image_link": "",
-            "button_text": "",
-            "button_link": "",
-            "button_style": "sf__btn-secondary",
-            "button_size": "",
-            "second_button_text": "Shop Now",
-            "second_button_link": "https://scale-o.com/collections/water-softeners",
-            "second_button_style": "m-button--primary",
-            "second_button_size": "",
-            "show_footer": true,
-            "footer_alignment": "center",
-            "footer_text": "",
-            "footer_button": "",
-            "footer_link": ""
+            "show_overlay": false,
+            "background_color": "#f7f4ee"
           }
         },
-        "slider_item_7hzTpK": {
-          "type": "slider_item",
+        "hero_1": {
+          "type": "slide",
           "settings": {
-            "background": "shopify://shop_images/banner-4_0c47473e-1ff7-4bc2-9581-b7b95035b755.jpg",
-            "mb_background": "shopify://shop_images/3_3b1b8baf-0e53-4da3-9570-c005b6a05812.jpg",
-            "content_in_container": false,
-            "content_position": "left top",
+            "enabled": true,
+            "image": "shopify://shop_images/main_hero-3_cbdd4454-171b-48f0-a5b1-52b13f1d20f5.png",
+            "image_mobile": "",
+            "banner_preset": "highlights",
+            "image_alt": "Scale-O product highlights",
+            "show_usp": true,
+            "usp": "ZERO ELECTRICITY",
+            "usp_icon": "electricity",
+            "heading": "Scale-O Salt Free Water Softeners for Homes",
+            "accent_words": "Salt Free",
+            "description": "Based on Advanced Chealtion Technology with Zero Hassle Solution",
+            "show_cta": true,
+            "button_label": "Shop Now",
+            "button_url": "shopify://collections/water-softeners",
+            "show_trust": true,
+            "trust_style": "stars",
+            "trust_value": "4.2/5",
+            "show_stars": true,
+            "trust_text": "4.2/5 Average Rating across Hundreds of Ratings",
+            "image_position": "right",
             "text_alignment": "left",
-            "text_size": "large",
-            "text_color": "black",
-            "subheading": "",
-            "title": "Keep your Kitchen Utensils <br> & Glassware Stain-Free!",
-            "description": "",
-            "image_link": "",
-            "button_text": "",
-            "button_link": "",
-            "button_style": "m-button--primary",
-            "button_size": "",
-            "second_button_text": "Shop Now",
-            "second_button_link": "https://scale-o.com/collections/water-softeners",
-            "second_button_style": "m-button--primary",
-            "second_button_size": "",
-            "show_footer": false,
-            "footer_alignment": "center",
-            "footer_text": "",
-            "footer_button": "",
-            "footer_link": ""
-          }
-        },
-        "slider_item_xrxKn6": {
-          "type": "slider_item",
-          "settings": {
-            "background": "shopify://shop_images/banner-4_06fefd66-f0b8-4ff1-bd88-f6816a0223d8.jpg",
-            "mb_background": "shopify://shop_images/115151.jpg",
-            "content_in_container": false,
-            "content_position": "left top",
-            "text_alignment": "left",
-            "text_size": "large",
-            "text_color": "black",
-            "subheading": "",
-            "title": "Brighter & Better Laundry <br> with Efficient Washes!",
-            "description": "",
-            "image_link": "",
-            "button_text": "",
-            "button_link": "",
-            "button_style": "sf__btn-secondary",
-            "button_size": "",
-            "second_button_text": "Shop Now",
-            "second_button_link": "https://scale-o.com/collections/water-softeners",
-            "second_button_style": "m-button--primary",
-            "second_button_size": "",
-            "show_footer": true,
-            "footer_alignment": "end",
-            "footer_text": "",
-            "footer_button": "",
-            "footer_link": ""
+            "show_overlay": false,
+            "background_color": "#f7fbff"
           }
         }
       },
       "block_order": [
-        "1621243260e1af0c20-0",
-        "slider_item_mVh9Yk",
-        "slider_item_7hzTpK",
-        "slider_item_xrxKn6"
+        "hero_2",
+        "hero_3",
+        "hero_1"
       ],
       "settings": {
-        "container": "w-full",
-        "slideshow_height": "adapt",
-        "show_overlay": false,
-        "dots_position": "bottom",
-        "dots_color": "dark",
-        "show_dots": true,
+        "height_mode": "medium",
+        "desktop_height": 560,
+        "mobile_height": 0,
+        "image_max_desktop": 560,
+        "image_max_mobile": 260,
+        "content_alignment": "left",
+        "image_position": "right",
+        "mobile_layout": "content",
+        "text_width": 560,
+        "max_width": 1400,
+        "overlay_opacity": 0,
+        "content_left": 56,
+        "padding_x": 20,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "enable_autoplay": true,
+        "autoplay_speed": 5,
         "show_arrows": true,
-        "autorotate": true,
-        "autorotate_speed": 2,
-        "use_content_above": true,
-        "custom_class": "sf-home__slideshow",
-        "animations": "fade-in-left"
+        "show_pagination": true,
+        "usp_size": 12,
+        "heading_size_desktop": 52,
+        "heading_size_mobile": 32,
+        "description_size_desktop": 18,
+        "description_size_mobile": 16,
+        "background_color": "#f7fbff",
+        "heading_color": "#111111",
+        "text_color": "#465568",
+        "accent_color": "#0c7fdf",
+        "accent_hover_color": "#0a6bc4",
+        "accessibility_label": "Featured banners"
       }
     },
-    "custom_content_PHMhVN": {
-      "type": "custom-content",
+    "usp_strip_home": {
+      "type": "usp-strip",
       "blocks": {
-        "liquid_hGTWjK": {
-          "type": "liquid",
+        "usp_item_hard_water": {
+          "type": "usp_item",
           "settings": {
-            "custom_liquid": "<style>\n  .ctabox {\n    padding: 20px;\n    border: 1.5px solid #858585;\n    border-radius: 10px;\n    text-align: -webkit-center;\n    position: relative; /* Ensure the image is positioned relative to its parent */\n  }\n\n  .ctabox:hover {\n    background-image: url(\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/CTA_4fb3526a-6955-49dd-aed6-f6607544c1b3.png?v=1721886594\");\n    background-position: center;\n    background-repeat: no-repeat;\n    background-size: cover;\n    padding-top: 20px;\n    padding-bottom: 20px;\n    border-radius: 10px;\n    text-align: -webkit-center;\n  }\n\n  .ctabox img {\n    transition: opacity 0.3s ease; /* Smooth transition for image change */\n  }\n\n  .ctabox:hover img {\n    content: url(\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/consult-now-white.svg?v=1723111490\");\n  }\n\n  .ctabox p{\n    font-size: 24px;\n    margin-top: 26px;\n  }\n\n  .ctabox:hover p{\n    color: white;\n  }\n\n  @media only screen and (max-width: 431px) {\n    .ctabox h3 {\n      font-size: 16px;\n    }\n  }\n</style>\n\n<a href=\"https://ae1ef9-c0.myshopify.com/pages/consult-now\" target=\"_blank\">\n  <div class=\"ctabox\">\n    <img\n      src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_41.svg?v=1722323519\"\n      alt=\"\"\n    />\n    <p>Consult Now</p>\n  </div>\n</a>",
-            "width": "25%",
-            "block_custom_class": "",
-            "animations": "inherit"
+            "icon": "droplet",
+            "title": "Designed for Indian Hard Water",
+            "description": "",
+            "link": ""
           }
         },
-        "liquid_nnWxRW": {
-          "type": "liquid",
+        "usp_item_houses": {
+          "type": "usp_item",
           "settings": {
-            "custom_liquid": "<style>\n  .ctabox2 {\n    padding: 20px;\n    border: 1.5px solid #858585;\n    border-radius: 10px;\n    text-align: -webkit-center;\n    position: relative; /* Ensure the image is positioned relative to its parent */\n  }\n\n  .ctabox2:hover {\n    background-image: url(\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/CTA_4fb3526a-6955-49dd-aed6-f6607544c1b3.png?v=1721886594\");\n    background-position: center;\n    background-repeat: no-repeat;\n    background-size: cover;\n    padding-top: 20px;\n    padding-bottom: 20px;\n    border-radius: 10px;\n    text-align: -webkit-center;\n  }\n\n  .ctabox2 img {\n    transition: opacity 0.3s ease; /* Smooth transition for image change */\n  }\n\n  .ctabox2:hover img {\n    content: url(\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/book-trial-white.svg?v=1723111490\");\n  }\n\n  .ctabox2 p{\n    font-size: 24px;\n    margin-top: 26px;\n  }\n\n  .ctabox2:hover p{\n    color: white;\n  }\n\n  @media only screen and (max-width: 431px) {\n    .ctabox2 p {\n      font-size: 16px;\n    }\n  }\n</style>\n\n<a href=\"https://scale-o.com/products/scale-o-nano-water-softeners\" target=\"_blank\">\n  <div class=\"ctabox2\">\n    <img\n      src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_1370.svg?v=1722323519\"\n      alt=\"\"\n    />\n    <p>Book Trial</p>\n  </div>\n</a>",
-            "width": "25%",
-            "block_custom_class": "",
-            "animations": "inherit"
+            "icon": "house",
+            "title": "Suitable for Individual Houses",
+            "description": "",
+            "link": ""
           }
         },
-        "liquid_3jeg7M": {
-          "type": "liquid",
+        "usp_item_patent": {
+          "type": "usp_item",
           "settings": {
-            "custom_liquid": "<style>\n  .ctabox3 {\n    padding: 20px;\n    border: 1.5px solid #858585;\n    border-radius: 10px;\n    text-align: -webkit-center;\n    position: relative; /* Ensure the image is positioned relative to its parent */\n  }\n\n  .ctabox3:hover {\n    background-image: url(\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/CTA_4fb3526a-6955-49dd-aed6-f6607544c1b3.png?v=1721886594\");\n    background-position: center;\n    background-repeat: no-repeat;\n    background-size: cover;\n    padding-top: 20px;\n    padding-bottom: 20px;\n    border-radius: 10px;\n    text-align: -webkit-center;\n  }\n\n  .ctabox3 img {\n    transition: opacity 0.3s ease; /* Smooth transition for image change */\n  }\n\n  .ctabox3:hover img {\n    content: url(\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/active-guarantee-white.svg?v=1723111489\");\n  }\n\n  .ctabox3 p{\n    font-size: 24px;\n    margin-top: 26px;\n  }\n\n  .ctabox3:hover p{\n    color: white;\n  }\n\n  @media only screen and (max-width: 431px) {\n    .ctabox3 h3 {\n      font-size: 15px;\n    }\n  }\n</style>\n\n<a href=\"https://ae1ef9-c0.myshopify.com/pages/activate-guarantee\" target=\"_blank\">\n  <div class=\"ctabox3\">\n    <img\n      src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/active-guarantee-blue.svg?v=1723111490\"\n      alt=\"\"\n    />\n    <p>Activate Guarantee</p>\n  </div>\n</a>",
-            "width": "25%",
-            "block_custom_class": "",
-            "animations": "inherit"
+            "icon": "patent",
+            "title": "Patented & Manufactured Inhouse",
+            "description": "",
+            "link": ""
           }
         },
-        "liquid_rf3bCb": {
-          "type": "liquid",
+        "usp_item_maintenance": {
+          "type": "usp_item",
           "settings": {
-            "custom_liquid": "<style>\n  .ctabox4 {\n    padding: 20px;\n    border: 1.5px solid #858585;\n    border-radius: 10px;\n    text-align: -webkit-center;\n    position: relative; /* Ensure the image is positioned relative to its parent */\n  }\n\n  .ctabox4:hover {\n    background-image: url(\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/CTA_4fb3526a-6955-49dd-aed6-f6607544c1b3.png?v=1721886594\");\n    background-position: center;\n    background-repeat: no-repeat;\n    background-size: cover;\n    padding-top: 20px;\n    padding-bottom: 20px;\n    border-radius: 10px;\n    text-align: -webkit-center;\n  }\n\n  .ctabox4 img {\n    transition: opacity 0.3s ease; /* Smooth transition for image change */\n  }\n\n  .ctabox4:hover img {\n    content: url(\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/track-order-white.svg?v=1723111490\");\n  }\n\n  .ctabox4 p{\n    font-size: 24px;\n    margin-top: 26px;\n  }\n\n  .ctabox4:hover p{\n    color: white;\n  }\n\n  @media only screen and (max-width: 431px) {\n    .ctabox4 h3 {\n      font-size: 16px;\n    }\n  }\n</style>\n\n<a href=\"https://scale-o.ithinklogistics.co.in/\"_blank\">\n  <div class=\"ctabox4\">\n    <img\n      src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/ssfsfsf.svg?v=1722323518\"\n      alt=\"\"\n    />\n    <p>Track Order</p>\n  </div>\n</a>",
-            "width": "25%",
-            "block_custom_class": "",
-            "animations": "inherit"
+            "icon": "maintenance",
+            "title": "Zero Maintenance Solution",
+            "description": "",
+            "link": ""
           }
         }
       },
       "block_order": [
-        "liquid_hGTWjK",
-        "liquid_nnWxRW",
-        "liquid_3jeg7M",
-        "liquid_rf3bCb"
+        "usp_item_hard_water",
+        "usp_item_houses",
+        "usp_item_patent",
+        "usp_item_maintenance"
       ],
-      "custom_css": [],
       "settings": {
-        "heading": "",
-        "heading_size": "h3",
-        "subheading": "",
-        "description": "",
+        "background_color": "#0c7fdf",
+        "use_gradient": false,
+        "gradient_end_color": "#2a6ab2",
+        "title_color": "#ffffff",
+        "title_size_desktop": 14,
+        "title_size_mobile": 12,
+        "title_font_weight": "600",
+        "show_description": false,
+        "description_color": "#e8f4ff",
+        "description_size": 12,
+        "icon_color": "#ffffff",
+        "icon_background": "#0c7fdf",
+        "icon_size": 26,
+        "icon_style": "plain",
+        "max_width": 0,
+        "padding_y": 16,
+        "padding_x": 24,
+        "item_gap": 20,
+        "border_radius": 0,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "show_dividers": true,
+        "divider_color": "#ffffff",
+        "mobile_layout": "grid",
+        "enable_mobile_auto_scroll": false,
+        "hide_desktop": false,
+        "hide_mobile": false,
+        "accessibility_label": "Scale-O product highlights"
+      }
+    },
+    "stats_trust_home": {
+      "type": "stats-trust",
+      "blocks": {
+        "stat_rating": {
+          "type": "stat",
+          "settings": {
+            "icon": "star",
+            "value": "4.2/5",
+            "label": "Average Rating",
+            "description": "",
+            "link": ""
+          }
+        },
+        "stat_customers": {
+          "type": "stat",
+          "settings": {
+            "icon": "users",
+            "value": "2 Lac+",
+            "label": "Customers",
+            "description": "",
+            "link": ""
+          }
+        },
+        "stat_homes": {
+          "type": "stat",
+          "settings": {
+            "icon": "home",
+            "value": "40,000+",
+            "label": "Homes Protected",
+            "description": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "stat_rating",
+        "stat_customers",
+        "stat_homes"
+      ],
+      "settings": {
+        "background_color": "#f5f7ff",
+        "use_gradient": true,
+        "gradient_end_color": "#eef6ff",
+        "accent_color": "#0c7fdf",
+        "value_color": "#1a2b4a",
+        "value_size_desktop": 28,
+        "value_size_mobile": 22,
+        "value_font_weight": "700",
+        "label_color": "#2a6ab2",
+        "label_size": 14,
+        "show_description": false,
+        "description_color": "#465568",
+        "description_size": 12,
+        "icon_color": "#0c7fdf",
+        "icon_background": "#ffffff",
+        "icon_size": 22,
+        "icon_style": "circle",
+        "max_width": 1200,
+        "padding_top": 24,
+        "padding_bottom": 24,
+        "padding_x": 24,
+        "stat_gap": 24,
+        "border_radius": 16,
+        "margin_top": 12,
+        "margin_bottom": 16,
+        "show_dividers": true,
+        "divider_color": "#0c7fdf",
+        "mobile_layout": "row",
+        "enable_entrance_animation": false,
+        "accessibility_label": "Customer statistics"
+      }
+    },
+    "how_it_works_home": {
+      "type": "how-it-works",
+      "blocks": {
+        "usp_1": {
+          "type": "usp_point",
+          "settings": {
+            "icon": "rupee",
+            "title": "Zero Operating Cost",
+            "description": "No recurring bills or operational charges."
+          }
+        },
+        "usp_2": {
+          "type": "usp_point",
+          "settings": {
+            "icon": "maintenance",
+            "title": "Zero Maintenance",
+            "description": "No servicing or break-down issues as no electro-mechanical parts."
+          }
+        },
+        "usp_3": {
+          "type": "usp_point",
+          "settings": {
+            "icon": "salt",
+            "title": "Zero Salt",
+            "description": "No salt recharges or refills."
+          }
+        },
+        "usp_4": {
+          "type": "usp_point",
+          "settings": {
+            "icon": "electricity",
+            "title": "Zero Electricity",
+            "description": "No electrical connection required."
+          }
+        },
+        "usp_5": {
+          "type": "usp_point",
+          "settings": {
+            "icon": "manpower",
+            "title": "Zero Manpower",
+            "description": "No plumber or technician needed throughout."
+          }
+        },
+        "usp_6": {
+          "type": "usp_point",
+          "settings": {
+            "icon": "water",
+            "title": "Zero Water Wastage",
+            "description": "No water wasted in drain, each drop saved."
+          }
+        },
+        "usp_7": {
+          "type": "usp_point",
+          "settings": {
+            "icon": "plumbing",
+            "title": "Zero Plumbing",
+            "description": "No plumbing connection required."
+          }
+        },
+        "install_1": {
+          "type": "install_step",
+          "settings": {
+            "step_number": "1",
+            "icon": "tank",
+            "image": "shopify://shop_images/how-it-works-install-2.png",
+            "title": "Open the Tank Lid",
+            "description": "Open the tank lid and place on side for installing the water softener."
+          }
+        },
+        "install_2": {
+          "type": "install_step",
+          "settings": {
+            "step_number": "2",
+            "icon": "install",
+            "image": "shopify://shop_images/how-it-works-install-3-updated.png",
+            "title": "Lower Scale-O Into the Tank",
+            "description": "Lower the softener in the tank using the rope such that it is fully submerged in water."
+          }
+        },
+        "install_3": {
+          "type": "install_step",
+          "settings": {
+            "step_number": "3",
+            "icon": "check",
+            "image": "shopify://shop_images/how-it-works-install-4.png",
+            "title": "Secure the Rope",
+            "description": "Ensure softener is few inches from bottom and then tie the rope to tank lid or nearby pipe."
+          }
+        },
+        "install_4": {
+          "type": "install_step",
+          "settings": {
+            "step_number": "4",
+            "icon": "home",
+            "image": "shopify://shop_images/how-it-works-install-5.png",
+            "title": "Start Using Scale-O",
+            "description": "Use water as usual in the bathroom, kitchen and laundry while Scale-O helps reduce hard-water scale buildup."
+          }
+        },
+        "exchange_1": {
+          "type": "exchange_step",
+          "settings": {
+            "step_number": "1",
+            "icon": "exchange",
+            "image": "shopify://shop_images/how-it-works-exchange-1.png",
+            "title": "Check the Correct Variant",
+            "description": "Check for the correct variant to replace based on order details or the installed product."
+          }
+        },
+        "exchange_2": {
+          "type": "exchange_step",
+          "settings": {
+            "step_number": "2",
+            "icon": "install",
+            "image": "shopify://shop_images/how-it-works-exchange-2.png",
+            "title": "Remove the Used Unit",
+            "description": "If the product is floating on the water surface or is empty with scaling on the outer casing, remove it using the rope."
+          }
+        },
+        "exchange_3": {
+          "type": "exchange_step",
+          "settings": {
+            "step_number": "3",
+            "icon": "check",
+            "image": "shopify://shop_images/how-it-works-exchange-3.png",
+            "title": "Dry Wipe and Dispose",
+            "description": "Dry wipe the used product and dispose it in a polythene bag with the rope as well."
+          }
+        },
+        "exchange_4": {
+          "type": "exchange_step",
+          "settings": {
+            "step_number": "4",
+            "icon": "exchange",
+            "image": "shopify://shop_images/how-it-works-exchange-4-updated.png",
+            "title": "Install the New Unit",
+            "description": "Install the new water softener as earlier and close the lid."
+          }
+        }
+      },
+      "block_order": [
+        "usp_1",
+        "usp_2",
+        "usp_3",
+        "usp_4",
+        "usp_5",
+        "usp_6",
+        "usp_7",
+        "install_1",
+        "install_2",
+        "install_3",
+        "install_4",
+        "exchange_1",
+        "exchange_2",
+        "exchange_3",
+        "exchange_4"
+      ],
+      "settings": {
+        "eyebrow": "SCALE-O USP",
+        "heading": "Our Zero Factor USP",
+        "description": "Checkout our Zero Hassles & Zero Worries Solution.",
         "header_alignment": "center",
-        "container": "container",
-        "color_scheme": "default",
-        "content_color_scheme": "default",
-        "enable_parallax": false,
-        "parallax_direction": "vertical",
-        "gap": 20,
-        "gap_mobile": 16,
-        "use_scroll_mobile": false,
-        "padding_top": 90,
-        "padding_bottom": 100,
-        "custom_class": "br"
+        "installation_diagram": "shopify://shop_images/scale-o-usp.png",
+        "diagram_alt": "Scale-O cartridge with perforated casing, food-grade softening media and reinforced filter bag",
+        "usp_panel_eyebrow": "",
+        "usp_panel_heading": "",
+        "installation_video_url": "",
+        "video_button_text": "Watch Installation Video",
+        "detail_eyebrow": "Product Guide",
+        "detail_heading": "How to Install & Exchange Scale-O Water Softeners",
+        "detail_description": "Follow 4 simple and easy steps to install and exchange the Scale-O water softeners.",
+        "install_tab_label": "How to Install",
+        "exchange_tab_label": "How to Exchange",
+        "tabs_alignment": "center",
+        "detail_card_gap": 16,
+        "detail_mobile_layout": "vertical",
+        "detail_card_min_width": 160,
+        "detail_card_min_height": 220,
+        "card_shadow_strength": 70,
+        "show_help_cta": false,
+        "help_heading": "Need Help With Installation?",
+        "help_button_text": "Talk to an Expert",
+        "help_button_link": "shopify://pages/consult-now",
+        "help_cta_max_width": 560,
+        "help_cta_alignment": "center",
+        "help_cta_background": "#eef6ff",
+        "help_cta_border_color": "#c5dffa",
+        "help_cta_heading_color": "#1a2b4a",
+        "background_color": "#ffffff",
+        "use_gradient": false,
+        "gradient_end_color": "#f5f7ff",
+        "card_background": "#ffffff",
+        "heading_color": "#1a2b4a",
+        "text_color": "#465568",
+        "accent_color": "#0c7fdf",
+        "step_number_color": "#0c7fdf",
+        "divider_color": "#d6e2fa",
+        "eyebrow_size": 16,
+        "heading_size_desktop": 45,
+        "heading_size_mobile": 26,
+        "description_size": 16,
+        "step_title_size": 17,
+        "step_description_size": 14,
+        "max_width": 1340,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "content_gap": 32,
+        "accessibility_label": "Watch and shop"
       }
     },
     "featured_collection_hJqRXq": {
-      "type": "featured-collection",
-      "custom_css": [
-        "#trust-bar {display: none !important;}",
-        ".ddreview-star {display: none;}",
-        ".m-button--secondary {background-color: #0c7fdf;}",
-        ".m\\:text-left {text-align: left;}",
-        ".m-product-card__title {padding-bottom: 20px; /* border-bottom: 1.5px solid #d6e2fa; */}",
-        ".m-button--secondary:hover {background: black;}",
-        "@media only screen and (max-width: 431px) {#template--15914742120550__featured_collection_hJqRXq {padding-bottom: 40px; }}"
-      ],
+      "type": "shop-by-products",
       "settings": {
+        "eyebrow": "PRODUCTS",
         "heading": "Shop by Products",
-        "heading_size": "h2",
-        "subheading": "PRODUCTS",
-        "description": "",
+        "description": "Choose the perfect Scale-O Water Softener for your house based on storage and family size.",
         "header_alignment": "center",
-        "color_scheme": "",
-        "container": "container-fluid",
         "collection": "water-softeners",
-        "enable_flashsale": false,
-        "show_countdown": false,
-        "product_to_show": 12,
-        "items_per_row": 4,
-        "item_gap": 30,
-        "pcard_layout": "",
-        "pcard_image_ratio": "3/4",
-        "show_vendor": false,
-        "hide_title": false,
-        "enable_slider": true,
-        "show_pagination": true,
-        "show_navigation": true,
-        "show_button_on_header": false,
-        "button_type": "link",
-        "button_text": "",
-        "button_style": "m-button--primary",
-        "button_size": "",
-        "infinite_load": false,
-        "max_page_load": 3,
-        "mobile_disable_slider": false,
-        "use_scroll_mobile": true,
-        "item_gap_mobile": 16,
-        "padding_top": 12,
-        "padding_bottom": 10,
-        "custom_class": "br",
-        "animations": "inherit"
+        "products_to_show": 8,
+        "display_mode": "carousel",
+        "show_badges": true,
+        "show_specifications": true,
+        "show_spec_icons": true,
+        "use_metafield_spec_colors": false,
+        "use_rupee_symbol": true,
+        "show_compare_at_price": true,
+        "show_corner_discount_badge": false,
+        "show_discount": true,
+        "show_ratings": false,
+        "show_shop_now_button": true,
+        "button_text": "Shop Now",
+        "show_view_all": true,
+        "view_all_text": "View all products",
+        "view_all_url": "shopify://collections/water-softeners",
+        "enable_image_hover": true,
+        "badge_best_seller_text": "Best Seller",
+        "badge_most_affordable_text": "Most Affordable",
+        "badge_popular_text": "Popular",
+        "badge_new_text": "New",
+        "max_width": 1340,
+        "desktop_columns": "4",
+        "tablet_columns": "2",
+        "mobile_columns": "1",
+        "card_gap": 20,
+        "card_gap_mobile": 12,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_x": 16,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "header_gap": 32,
+        "image_aspect_ratio": "1 / 1",
+        "image_padding": 8,
+        "card_radius": 16,
+        "eyebrow_size": 16,
+        "heading_size_desktop": 45,
+        "heading_size_mobile": 28,
+        "description_size": 16,
+        "title_size": 15,
+        "price_size": 19,
+        "spec_size": 11,
+        "button_text_size": 15,
+        "background_color": "#ffffff",
+        "accent_color": "#0c7fdf",
+        "eyebrow_color": "#0c7fdf",
+        "heading_color": "#1a2b4a",
+        "text_color": "#465568",
+        "title_color": "#1a2b4a",
+        "price_color": "#0c7fdf",
+        "compare_price_color": "#8a97ab",
+        "discount_color": "#22a06b",
+        "spec_background": "#eef6ff",
+        "spec_text_color": "#1a2b4a",
+        "spec_border_color": "#c5dffa",
+        "spec_icon_color": "#0c7fdf",
+        "card_background": "#ffffff",
+        "card_border_color": "#e8eef8",
+        "image_background": "#f5f7ff",
+        "button_background": "#0c7fdf",
+        "button_background_hover": "#0a6bc4",
+        "button_text_color": "#ffffff",
+        "badge_sale_background": "#1a2b4a",
+        "badge_sale_text": "#ffffff",
+        "badge_best_seller_background": "#22a06b",
+        "badge_best_seller_text_color": "#ffffff",
+        "badge_affordable_background": "#f5b800",
+        "badge_affordable_text_color": "#1a2b4a",
+        "badge_popular_background": "#0c7fdf",
+        "badge_popular_text_color": "#ffffff",
+        "badge_new_background": "#0c7fdf",
+        "badge_new_text_color": "#ffffff",
+        "accessibility_label": "Shop by products"
       }
     },
-    "icon_box_aXcwE8": {
-      "type": "icon-box",
+    "watch_and_shop_home": {
+      "type": "watch-and-shop",
       "blocks": {
-        "iconbox_33aVH9": {
-          "type": "iconbox",
+        "video_demo": {
+          "type": "watch_shop_video",
           "settings": {
-            "image": "shopify://shop_images/Frame_1360.png",
-            "image_by_url": "",
-            "title": "Residential 1",
-            "description": "<p>Bungalows & Houses</p>",
-            "link": "https://scale-o.com/pages/shop-by-purpose",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "m-button--link",
-            "button_size": ""
+            "video_type": "shopify",
+            "shopify_video": "shopify://files/videos/Scale-O Reel 4.mp4",
+            "video_url": "",
+            "product": "semi-water-softener-1000l-1500l-tanks",
+            "custom_title": "Scale-O Semi Water Softener",
+            "custom_price": "",
+            "video_title": "See Scale-O in Action",
+            "subtitle": "",
+            "badge": "PRODUCT DEMO",
+            "cta_text": "Shop Now",
+            "cta_url": "",
+            "show_product": false,
+            "show_product_image": true,
+            "show_product_price": false,
+            "show_cta": true,
+            "show_badge": false,
+            "show_video_title": true,
+            "show_play_button": true,
+            "show_controls": false,
+            "autoplay": true,
+            "muted": true,
+            "loop": true
           }
         },
-        "iconbox_fPiwnG": {
-          "type": "iconbox",
+        "video_install": {
+          "type": "watch_shop_video",
           "settings": {
-            "image": "shopify://shop_images/Frame_1360_eb196bb5-96f6-4c5f-9143-5e554a252261.png",
-            "image_by_url": "",
-            "title": "Residential 2",
-            "description": "<p>Societies & Apartments</p>",
-            "link": "https://scale-o.com/pages/shop-by-purpose",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "m-button--secondary",
-            "button_size": ""
+            "video_type": "shopify",
+            "shopify_video": "shopify://files/videos/Scale-O Reel 3.mp4",
+            "video_url": "",
+            "product": "semi-centi-combo-water-softener-2-tanks",
+            "custom_title": "Scale-O Semi Water Softener",
+            "custom_price": "",
+            "video_title": "How Easy Is Installation?",
+            "subtitle": "",
+            "badge": "INSTALLATION",
+            "cta_text": "Shop Now",
+            "cta_url": "",
+            "show_product": false,
+            "show_product_image": true,
+            "show_product_price": false,
+            "show_cta": true,
+            "show_badge": false,
+            "show_video_title": true,
+            "show_play_button": true,
+            "show_controls": false,
+            "autoplay": true,
+            "muted": true,
+            "loop": true
           }
         },
-        "iconbox_7yF6Bx": {
-          "type": "iconbox",
+        "video_how": {
+          "type": "watch_shop_video",
           "settings": {
-            "image": "shopify://shop_images/svsv.png",
-            "image_by_url": "",
-            "title": "Commercial",
-            "description": "<p>Offices, Corporates, Hotels & Hospitals</p>",
-            "link": "https://scale-o.com/pages/commercial",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "m-button--link",
-            "button_size": ""
+            "video_type": "shopify",
+            "shopify_video": "shopify://files/videos/scale-o-x-komal-s4-1_1FyBXXm5.mp4",
+            "video_url": "",
+            "product": "mini-centi-combo-water-softener-2-tanks",
+            "custom_title": "Scale-O Centi Water Softener",
+            "custom_price": "",
+            "video_title": "How Scale-O Works",
+            "subtitle": "",
+            "badge": "HOW IT WORKS",
+            "cta_text": "Shop Now",
+            "cta_url": "",
+            "show_product": false,
+            "show_product_image": true,
+            "show_product_price": false,
+            "show_cta": true,
+            "show_badge": false,
+            "show_video_title": true,
+            "show_play_button": true,
+            "show_controls": false,
+            "autoplay": true,
+            "muted": true,
+            "loop": true
           }
         },
-        "iconbox_fmRw3k": {
-          "type": "iconbox",
+        "video_customer": {
+          "type": "watch_shop_video",
           "settings": {
-            "image": "shopify://shop_images/Frame_1360_1d4e85ed-2f83-45c6-b166-52e9133bde60.png",
-            "image_by_url": "",
-            "title": "Institutional",
-            "description": "<p>Schools, Universities & Public Buildings</p>",
-            "link": "https://scale-o.com/pages/institutional",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "m-button--link",
-            "button_size": ""
-          }
-        },
-        "iconbox_CcbCbH": {
-          "type": "iconbox",
-          "settings": {
-            "image": "shopify://shop_images/safsdfs.png",
-            "image_by_url": "",
-            "title": "Industrial",
-            "description": "<p>Factories, Warehouses & Workshops</p>",
-            "link": "https://scale-o.com/pages/industrial",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "m-button--link",
-            "button_size": ""
-          }
-        },
-        "iconbox_iPM3zk": {
-          "type": "iconbox",
-          "settings": {
-            "image": "shopify://shop_images/svffsfs.png",
-            "image_by_url": "",
-            "title": "Agricultural",
-            "description": "<p>Farms, Tube-wells & Villages</p>",
-            "link": "https://scale-o.com/pages/agricultural",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "m-button--link",
-            "button_size": ""
-          }
-        },
-        "iconbox_cTwGcM": {
-          "type": "iconbox",
-          "settings": {
-            "image": "shopify://shop_images/Frame_1360_009f98a9-038b-46f7-9c58-ef95d3db05bf.png",
-            "image_by_url": "",
-            "title": "Custom",
-            "description": "<p>Construction & Government Projects</p>",
-            "link": "https://scale-o.com/pages/others-form",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "m-button--link",
-            "button_size": ""
+            "video_type": "shopify",
+            "shopify_video": "shopify://files/videos/Scale-O Reel 2 (1).mp4",
+            "video_url": "",
+            "product": "scale-o-giga",
+            "custom_title": "Scale-O Mini Water Softener",
+            "custom_price": "",
+            "video_title": "Why Customers Choose Scale-O",
+            "subtitle": "",
+            "badge": "CUSTOMER REVIEW",
+            "cta_text": "Shop Now",
+            "cta_url": "",
+            "show_product": false,
+            "show_product_image": true,
+            "show_product_price": false,
+            "show_cta": true,
+            "show_badge": false,
+            "show_video_title": true,
+            "show_play_button": true,
+            "show_controls": false,
+            "autoplay": true,
+            "muted": true,
+            "loop": true
           }
         }
       },
       "block_order": [
-        "iconbox_33aVH9",
-        "iconbox_fPiwnG",
-        "iconbox_7yF6Bx",
-        "iconbox_fmRw3k",
-        "iconbox_CcbCbH",
-        "iconbox_iPM3zk",
-        "iconbox_cTwGcM"
-      ],
-      "disabled": true,
-      "custom_css": [
-        ".m-section__subheading {color: #0c7fdf;}",
-        ".br {border-radius: 0px 0px 20px 20px;}"
+        "video_demo",
+        "video_install",
+        "video_how",
+        "video_customer"
       ],
       "settings": {
-        "heading": "Shop by Purpose",
-        "heading_size": "h3",
-        "subheading": "CATEGORIES",
-        "description": "",
+        "show_eyebrow": true,
+        "eyebrow": "Watch & Learn",
+        "heading": "Watch Scale-O in Action",
+        "show_description": true,
+        "description": "Watch real product demonstrations, installation guides and customer experiences.",
         "header_alignment": "center",
-        "container": "container",
-        "color_scheme": "default",
-        "item_per_row": 5,
-        "item_gap": 30,
-        "item_gap_mobile": 10,
-        "card_color_scheme": "default",
-        "card_style": "vertical",
-        "image_max_width": "",
-        "content_alignment": "center",
-        "hover_effect": "scaling-up",
-        "enable_slider": true,
-        "show_pagination": true,
-        "show_navigation": true,
-        "use_scroll_mobile": true,
-        "use_grid_column_mb": false,
-        "padding_top": 30,
-        "padding_bottom": 0,
-        "custom_class": "br",
-        "animations": "inherit"
-      }
-    },
-    "icon_box_Twp6KE": {
-      "type": "icon-box",
-      "blocks": {
-        "iconbox_ffPfm6": {
-          "type": "iconbox",
-          "settings": {
-            "image": "shopify://shop_images/Frame_1360.png",
-            "image_by_url": "",
-            "title": "Residential 1",
-            "description": "<p>Bungalows & Houses</p>",
-            "link": "https://scale-o.com/pages/shop-by-purpose",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "m-button--link",
-            "button_size": ""
-          }
-        },
-        "iconbox_G4KkJT": {
-          "type": "iconbox",
-          "settings": {
-            "image": "shopify://shop_images/Frame_1360_eb196bb5-96f6-4c5f-9143-5e554a252261.png",
-            "image_by_url": "",
-            "title": "Residential 2",
-            "description": "<p>Societies & Apartments</p>",
-            "link": "https://scale-o.com/pages/shop-by-purpose",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "m-button--link",
-            "button_size": ""
-          }
-        },
-        "iconbox_XxCKWU": {
-          "type": "iconbox",
-          "settings": {
-            "image": "shopify://shop_images/svsv.png",
-            "image_by_url": "",
-            "title": "Commercial",
-            "description": "<p>Offices, Corporates, Hotels & Hospitals</p>",
-            "link": "https://scale-o.com/pages/commercial",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "m-button--link",
-            "button_size": ""
-          }
-        },
-        "iconbox_pyFgLd": {
-          "type": "iconbox",
-          "settings": {
-            "image": "shopify://shop_images/Frame_1360_1d4e85ed-2f83-45c6-b166-52e9133bde60.png",
-            "image_by_url": "",
-            "title": "Institutional",
-            "description": "<p>Schools, Universities & Public Buildings</p>",
-            "link": "https://scale-o.com/pages/institutional",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "m-button--link",
-            "button_size": ""
-          }
-        },
-        "iconbox_8LJmwE": {
-          "type": "iconbox",
-          "settings": {
-            "image": "shopify://shop_images/safsdfs.png",
-            "image_by_url": "",
-            "title": "Industrial",
-            "description": "<p>Factories, Warehouses & Workshops</p>",
-            "link": "https://scale-o.com/pages/industrial",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "m-button--link",
-            "button_size": ""
-          }
-        },
-        "iconbox_qLQDyX": {
-          "type": "iconbox",
-          "settings": {
-            "image": "shopify://shop_images/Frame_1360_009f98a9-038b-46f7-9c58-ef95d3db05bf.png",
-            "image_by_url": "",
-            "title": "Custom",
-            "description": "<p>Construction & Government Projects</p>",
-            "link": "https://scale-o.com/pages/others-form",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "m-button--link",
-            "button_size": ""
-          }
-        },
-        "iconbox_qWbmnY": {
-          "type": "iconbox",
-          "settings": {
-            "image": "shopify://shop_images/svffsfs.png",
-            "image_by_url": "",
-            "title": "Agricultural",
-            "description": "<p>Farms, Tube-wells & Villages</p>",
-            "link": "https://scale-o.com/pages/agricultural",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "m-button--link",
-            "button_size": ""
-          }
-        }
-      },
-      "block_order": [
-        "iconbox_ffPfm6",
-        "iconbox_G4KkJT",
-        "iconbox_XxCKWU",
-        "iconbox_pyFgLd",
-        "iconbox_8LJmwE",
-        "iconbox_qLQDyX",
-        "iconbox_qWbmnY"
-      ],
-      "custom_css": [
-        ".m-section__subheading {color: #0c7fdf;}",
-        ".br {border-radius: 0px 0px 20px 20px;}"
-      ],
-      "settings": {
-        "heading": "Shop by Purpose",
-        "heading_size": "h3",
-        "subheading": "CATEGORIES",
-        "description": "",
-        "header_alignment": "center",
-        "container": "container",
-        "color_scheme": "default",
-        "item_per_row": 5,
-        "item_gap": 30,
-        "item_gap_mobile": 10,
-        "card_color_scheme": "default",
-        "card_style": "vertical",
-        "image_max_width": "",
-        "content_alignment": "center",
-        "hover_effect": "scaling-up",
-        "enable_slider": true,
-        "show_pagination": true,
-        "show_navigation": true,
-        "use_scroll_mobile": true,
-        "use_grid_column_mb": false,
-        "padding_top": 0,
-        "padding_bottom": 0,
-        "custom_class": "br",
-        "animations": "inherit"
-      }
-    },
-    "rich_text_eQc6cD": {
-      "type": "rich-text",
-      "blocks": {
-        "subheading_rRdiem": {
-          "type": "subheading",
-          "settings": {
-            "subheading": "PROBLEMS"
-          }
-        },
-        "heading_ntDM4U": {
-          "type": "heading",
-          "settings": {
-            "heading": "Hard Water & Scaling",
-            "heading_size": "h2"
-          }
-        }
-      },
-      "block_order": [
-        "subheading_rRdiem",
-        "heading_ntDM4U"
-      ],
-      "custom_css": [
-        ".m-richtext__subtitle {color: #0c7fdf;}"
-      ],
-      "settings": {
-        "container": "container",
-        "color_scheme": "",
-        "content_alignment": "center",
-        "padding_top": 48,
-        "padding_bottom": 40,
-        "custom_class": "",
-        "animations": "inherit"
-      }
-    },
-    "custom_content_9arDHN": {
-      "type": "custom-content",
-      "blocks": {
-        "liquid_EnHafP": {
-          "type": "liquid",
-          "settings": {
-            "custom_liquid": "<div>\n<a\n    data-fancybox=\"gallery1\"\n    href=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_1235.webp?v=1728388704\"\n  >\n    <img\n      src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_1235.webp?v=1728388704\"\n      alt=\"Thumbnail\" width=\"1420\" height=\"100\"\n    />\n  </a>\n</div>",
-            "width": "100%",
-            "block_custom_class": "",
-            "animations": "inherit"
-          }
-        }
-      },
-      "block_order": [
-        "liquid_EnHafP"
-      ],
-      "settings": {
-        "heading": "",
-        "heading_size": "h3",
-        "subheading": "",
-        "description": "",
-        "header_alignment": "center",
-        "container": "container-fluid",
-        "color_scheme": "",
-        "content_color_scheme": "",
-        "enable_parallax": false,
-        "parallax_direction": "vertical",
-        "gap": 30,
-        "gap_mobile": 16,
-        "use_scroll_mobile": false,
-        "padding_top": 0,
-        "padding_bottom": 100,
-        "custom_class": ""
-      }
-    },
-    "custom_content_yCRmH3": {
-      "type": "custom-content",
-      "blocks": {
-        "text_7KpE34": {
-          "type": "text",
-          "settings": {
-            "title": "Scale-O Water Softeners",
-            "subheading": "SOLUTION",
-            "text": "",
-            "width": "75%",
-            "alignment": "center",
-            "align_text": "center",
-            "text_size": "medium",
-            "text_color": "inherit",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "m-button--primary",
-            "button_size": "",
-            "block_custom_class": "",
-            "animations": "inherit"
-          }
-        },
-        "html_aHQf6p": {
-          "type": "html",
-          "settings": {
-            "code": "<center>Scale-O chemically alters the structure and forms a coating on Ca<sup style=\"color:#000;\">+2</sup> &amp; Mg<sup style=\"color:#000;\">+2</sup> ions present in hard water such that they do not react with negative ions like Cl<sup style=\"color:#000;\">-1</sup> or SO<sub>4</sub><sup style=\"color:#000;\">-2</sup> and prevents the formation insoluble salts or scale in common language.</center>",
-            "width": "75%",
-            "block_custom_class": "",
-            "animations": "inherit"
-          }
-        },
-        "image_UDqFem": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/buk.png",
-            "link": "",
-            "width": "83%",
-            "alignment": "center",
-            "block_custom_class": "",
-            "animations": "inherit"
-          }
-        }
-      },
-      "block_order": [
-        "text_7KpE34",
-        "html_aHQf6p",
-        "image_UDqFem"
-      ],
-      "settings": {
-        "heading": "",
-        "heading_size": "h3",
-        "subheading": "",
-        "description": "",
-        "header_alignment": "center",
-        "container": "container-fluid",
-        "color_scheme": "scheme-cee058e4-58e3-46aa-9af9-219dadc79066",
-        "content_color_scheme": "scheme-cee058e4-58e3-46aa-9af9-219dadc79066",
-        "enable_parallax": false,
-        "parallax_direction": "vertical",
-        "gap": 30,
-        "gap_mobile": 16,
-        "use_scroll_mobile": false,
-        "padding_top": 100,
-        "padding_bottom": 90,
-        "custom_class": ""
-      }
-    },
-    "rich_text_9UaYFN": {
-      "type": "rich-text",
-      "blocks": {
-        "subheading_JQDiX8": {
-          "type": "subheading",
-          "settings": {
-            "subheading": "TECHNOLOGY"
-          }
-        },
-        "heading_MpzanU": {
-          "type": "heading",
-          "settings": {
-            "heading": "Scale-O Video",
-            "heading_size": "h2"
-          }
-        }
-      },
-      "block_order": [
-        "subheading_JQDiX8",
-        "heading_MpzanU"
-      ],
-      "custom_css": [
-        ".m-richtext__subtitle {color: #0c7fdf;}"
-      ],
-      "settings": {
-        "container": "container",
-        "color_scheme": "",
-        "content_alignment": "center",
-        "padding_top": 72,
-        "padding_bottom": 40,
-        "custom_class": "",
-        "animations": "inherit"
-      }
-    },
-    "video_nTNUNr": {
-      "type": "video",
-      "custom_css": [
-        ".scale-o-video .container {border: 2px solid #0c7fdf; border-radius: 20px;}"
-      ],
-      "settings": {
-        "container": "container",
-        "color_scheme": "",
-        "video_type": "external",
-        "video_link": "https://vimeo.com/999469587",
-        "ratio": "16:9",
-        "image": "shopify://shop_images/scale-o-video.png",
-        "video_title": "",
-        "text_size": "medium",
-        "text_color": "inherit",
-        "play_style": "solid",
-        "play_size": "large",
-        "width": "",
-        "autoplay": false,
-        "loop": false,
-        "muted": false,
+        "max_width": 1200,
+        "desktop_cards": "4",
+        "tablet_cards": "2.5",
+        "mobile_cards": "1",
+        "card_ratio": "9 / 16",
+        "card_gap": 16,
+        "card_gap_mobile": 12,
+        "card_radius": 18,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_top_mobile": 28,
+        "padding_bottom_mobile": 28,
+        "padding_x": 20,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "header_gap": 32,
+        "autoplay": true,
+        "muted": true,
+        "loop": true,
         "show_controls": false,
-        "padding_top": 0,
-        "padding_bottom": 0,
-        "custom_class": "scale-o-video",
-        "animations": "inherit"
+        "pause_outside_viewport": true,
+        "enable_carousel": true,
+        "show_arrows": true,
+        "show_dots": true,
+        "enable_touch_swipe": true,
+        "overlay_style": "pill",
+        "product_image_size": 40,
+        "product_overlay_offset": 12,
+        "use_rupee_symbol": true,
+        "eyebrow_size": 16,
+        "heading_size_desktop": 45,
+        "heading_size_mobile": 26,
+        "description_size": 16,
+        "background_color": "#ffffff",
+        "heading_color": "#1a2b4a",
+        "text_color": "#465568",
+        "eyebrow_color": "#0c7fdf",
+        "accent_color": "#0c7fdf",
+        "arrow_background": "#0c7fdf",
+        "arrow_icon_color": "#ffffff",
+        "arrow_hover_background": "#0a6bc4",
+        "card_background": "#ffffff",
+        "card_border_color": "#e8eef8",
+        "product_card_background": "#ffffff",
+        "product_title_color": "#1a2b4a",
+        "price_color": "#0c7fdf",
+        "badge_background": "#0c7fdf",
+        "badge_text_color": "#ffffff",
+        "accessibility_label": "Watch and shop"
       }
     },
-    "icon_box_iaQiym": {
-      "type": "icon-box",
+    "hard_water_problems_home": {
+      "type": "hard-water-problems",
       "blocks": {
-        "iconbox_CJwKAy": {
-          "type": "iconbox",
+        "problem_hair": {
+          "type": "problem",
           "settings": {
-            "image": "shopify://shop_images/1_4.png",
-            "image_by_url": "",
-            "title": "",
-            "description": "",
-            "link": "",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "m-button--link",
-            "button_size": ""
+            "bento_size": "auto",
+            "icon": "hair",
+            "image": "shopify://shop_images/scale-o-problem-skin-updated.png",
+            "title": "Hair Fall & Balding",
+            "description": "Hard water can weaken hair and increase breakage over time.",
+            "cta_text": "",
+            "cta_url": ""
           }
         },
-        "iconbox_8pN8PL": {
-          "type": "iconbox",
+        "problem_skin": {
+          "type": "problem",
           "settings": {
-            "image": "shopify://shop_images/2_2.png",
-            "image_by_url": "",
-            "title": "",
-            "description": "",
-            "link": "",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "m-button--link",
-            "button_size": ""
+            "bento_size": "auto",
+            "icon": "skin",
+            "image": "shopify://shop_images/problem6_866ce26b-fcaf-4de3-a0c0-ab492dc039f3.png",
+            "title": "Dry & Itchy Skin",
+            "description": "Mineral residue can leave skin feeling dry and irritated.",
+            "cta_text": "",
+            "cta_url": ""
           }
         },
-        "iconbox_PzcinF": {
-          "type": "iconbox",
+        "problem_faucet": {
+          "type": "problem",
           "settings": {
-            "image": "shopify://shop_images/Frame_1245_e93ecbf9-ae2d-4b63-b58d-4efbfea26eb2.png",
-            "image_by_url": "",
-            "title": "",
-            "description": "",
-            "link": "",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "m-button--link",
-            "button_size": ""
+            "bento_size": "auto",
+            "icon": "faucet",
+            "image": "shopify://shop_images/problem1_c51a5fb5-77e1-4a06-af8f-9e7141427f68.png",
+            "title": "Scaling on Taps & Showers",
+            "description": "White scale buildup makes fixtures harder to clean.",
+            "cta_text": "",
+            "cta_url": ""
           }
         },
-        "iconbox_n6krQE": {
-          "type": "iconbox",
+        "problem_kidney": {
+          "type": "problem",
           "settings": {
-            "image": "shopify://shop_images/Frame_1246_5a593388-52c2-4d58-a5f7-a1d0ff02c013.png",
-            "image_by_url": "",
-            "title": "",
-            "description": "",
-            "link": "",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "m-button--link",
-            "button_size": ""
+            "bento_size": "auto",
+            "icon": "none",
+            "image": "shopify://shop_images/scale-o-problem-kidney.png",
+            "title": "Kidney Stones",
+            "description": "Hard water can contribute to mineral buildup that may impact urinary health.",
+            "cta_text": "",
+            "cta_url": ""
           }
         },
-        "iconbox_M6GUUt": {
-          "type": "iconbox",
+        "problem_water": {
+          "type": "problem",
           "settings": {
-            "image": "shopify://shop_images/Frame_1248_2e13f4a1-14e8-4b77-ae35-6a08a37038d3.png",
-            "image_by_url": "",
-            "title": "",
-            "description": "",
-            "link": "",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "m-button--link",
-            "button_size": ""
+            "bento_size": "auto",
+            "icon": "droplet",
+            "title": "Impure Water",
+            "description": "Hard water can look cloudy and affect everyday use.",
+            "cta_text": "",
+            "cta_url": ""
           }
         },
-        "iconbox_xit4pa": {
-          "type": "iconbox",
+        "problem_heater": {
+          "type": "problem",
           "settings": {
-            "image": "shopify://shop_images/Frame_1249_fcda097e-d75f-49d9-8b24-9a72c7eb5cc3.png",
-            "image_by_url": "",
-            "title": "",
-            "description": "",
-            "link": "",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "m-button--link",
-            "button_size": ""
+            "bento_size": "auto",
+            "icon": "heater",
+            "image": "shopify://shop_images/problem4_693680a3-5b30-473f-ad4d-8c67205d1d8f.png",
+            "title": "Damage inside Water Heaters",
+            "description": "Scale can reduce heater efficiency and lifespan.",
+            "cta_text": "",
+            "cta_url": ""
           }
         },
-        "iconbox_XmcqXP": {
-          "type": "iconbox",
+        "problem_stains": {
+          "type": "problem",
           "settings": {
-            "image": "shopify://shop_images/3_2.png",
-            "image_by_url": "",
-            "title": "",
-            "description": "",
-            "link": "",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "m-button--link",
-            "button_size": ""
+            "bento_size": "auto",
+            "icon": "floor",
+            "image": "shopify://shop_images/scale-o-problem-water.png",
+            "title": "White Stains on Floors & Utensils",
+            "description": "Hard-water minerals leave white marks on tiles, glass and surfaces.",
+            "cta_text": "",
+            "cta_url": ""
           }
         },
-        "iconbox_i9UMBA": {
-          "type": "iconbox",
+        "problem_pipe": {
+          "type": "problem",
           "settings": {
-            "image": "shopify://shop_images/Frame_1251_8ba320d1-78fe-4d6a-aed8-649668519003.png",
-            "image_by_url": "",
-            "title": "",
-            "description": "",
-            "link": "",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "m-button--link",
-            "button_size": ""
+            "bento_size": "auto",
+            "icon": "pipe",
+            "image": "shopify://shop_images/problem5.png",
+            "title": "Pipe Blockage & Reduced Waterflow",
+            "description": "Mineral deposits can build up inside plumbing and affect water flow.",
+            "cta_text": "",
+            "cta_url": ""
+          }
+        },
+        "problem_appliance": {
+          "type": "problem",
+          "settings": {
+            "bento_size": "auto",
+            "icon": "appliance",
+            "image": "shopify://shop_images/scale-o-problem-appliance.png",
+            "title": "Damage in Washing Machines",
+            "description": "Hard water can affect appliances and everyday cleaning.",
+            "cta_text": "",
+            "cta_url": ""
           }
         }
       },
       "block_order": [
-        "iconbox_CJwKAy",
-        "iconbox_8pN8PL",
-        "iconbox_PzcinF",
-        "iconbox_n6krQE",
-        "iconbox_M6GUUt",
-        "iconbox_xit4pa",
-        "iconbox_XmcqXP",
-        "iconbox_i9UMBA"
-      ],
-      "custom_css": [
-        ".m-icon-box__icon {border-radius: 15px;}",
-        ".gp .m\\:grid {row-gap: 1px;}"
+        "problem_hair",
+        "problem_skin",
+        "problem_faucet",
+        "problem_kidney",
+        "problem_water",
+        "problem_heater",
+        "problem_stains",
+        "problem_pipe",
+        "problem_appliance"
       ],
       "settings": {
-        "heading": "People & Property",
-        "heading_size": "h3",
-        "subheading": "ADVANTAGES",
-        "description": "",
+        "eyebrow": "THE PROBLEM",
+        "heading": "Hard Water & Scaling Problems",
+        "description": "Hard water causes problems with health and homes daily whether it is hair and skin or bathrooms and appliances.",
         "header_alignment": "center",
-        "container": "container",
-        "color_scheme": "default",
-        "item_per_row": 4,
-        "item_gap": 20,
-        "item_gap_mobile": 10,
-        "card_color_scheme": "default",
-        "card_style": "vertical",
-        "image_max_width": "",
-        "content_alignment": "center",
-        "hover_effect": "scaling-up",
-        "enable_slider": false,
-        "show_pagination": false,
-        "show_navigation": false,
-        "use_scroll_mobile": true,
-        "use_grid_column_mb": false,
-        "padding_top": 70,
-        "padding_bottom": 70,
-        "custom_class": "gp",
-        "animations": "inherit"
+        "visible_cards": 9,
+        "bento_row_height": 210,
+        "bento_min_height_mobile": 260,
+        "overlay_transition_ms": 450,
+        "show_card_description": false,
+        "max_width": 1200,
+        "card_gap": 12,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_x": 20,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "header_gap": 24,
+        "show_view_all": false,
+        "view_all_text": "View all problems",
+        "view_all_hide_text": "Show fewer problems",
+        "show_solution": false,
+        "solution_eyebrow": "THE SOLUTION",
+        "solution_heading": "There's a Better Way to Manage Hard Water",
+        "solution_description": "Scale-O is designed to help reduce scale-forming impact throughout your home's water system.",
+        "solution_button_text": "See How Scale-O Works",
+        "solution_button_url": "",
+        "eyebrow_size": 16,
+        "heading_size_desktop": 45,
+        "heading_size_mobile": 26,
+        "description_size": 16,
+        "problem_title_size": 20,
+        "card_description_size": 14,
+        "background_color": "#f7fbff",
+        "heading_color": "#1a2b4a",
+        "text_color": "#465568",
+        "accent_color": "#0c7fdf",
+        "accent_hover_color": "#0a6bc4",
+        "overlay_color": "#0c7fdf",
+        "card_border_color": "#e8eef8",
+        "card_radius": 16,
+        "shadow_strength": 50,
+        "accessibility_label": "Hard water problems"
       }
     },
-    "custom_content_hgEnhK": {
-      "type": "custom-content",
+    "scale_o_solution_home": {
+      "type": "scale-o-solution",
       "blocks": {
-        "image_epEW38": {
-          "type": "image",
+        "problem_scale": {
+          "type": "problem",
           "settings": {
-            "image": "shopify://shop_images/vg1.svg",
-            "link": "",
-            "width": "33%",
-            "alignment": "center",
-            "block_custom_class": "",
-            "animations": "inherit"
+            "icon_style": "theme",
+            "theme_icon": "floor",
+            "title": "Scale Buildup on Floors & Fittings",
+            "description": "",
+            "link": ""
           }
         },
-        "image_Vp8Qxc": {
-          "type": "image",
+        "problem_appliance": {
+          "type": "problem",
           "settings": {
-            "image": "shopify://shop_images/vg2.svg",
-            "link": "",
-            "width": "16%",
-            "alignment": "center",
-            "block_custom_class": "",
-            "animations": "inherit"
+            "icon_style": "theme",
+            "theme_icon": "appliance",
+            "title": "Water Heater & Washing Machine Damage",
+            "description": "",
+            "link": ""
           }
         },
-        "image_enFTpH": {
-          "type": "image",
+        "problem_fixtures": {
+          "type": "problem",
           "settings": {
-            "image": "shopify://shop_images/vg3.svg",
-            "link": "",
-            "width": "16%",
-            "alignment": "center",
-            "block_custom_class": "",
-            "animations": "inherit"
+            "icon_style": "theme",
+            "theme_icon": "glass",
+            "title": "White spots and stains on utensils and mirrors",
+            "description": "",
+            "link": ""
           }
         },
-        "image_QJymax": {
-          "type": "image",
+        "problem_pipes": {
+          "type": "problem",
           "settings": {
-            "image": "shopify://shop_images/vg4.svg",
-            "link": "",
-            "width": "16%",
-            "alignment": "center",
-            "block_custom_class": "",
-            "animations": "inherit"
+            "icon_style": "theme",
+            "theme_icon": "hair",
+            "title": "Hair, skin and gut problems",
+            "description": "",
+            "link": ""
           }
         },
-        "image_C3KFRL": {
-          "type": "image",
+        "benefit_electricity": {
+          "type": "benefit",
           "settings": {
-            "image": "shopify://shop_images/vgvgvg.svg",
-            "link": "",
-            "width": "16%",
-            "alignment": "center",
-            "block_custom_class": "",
-            "animations": "inherit"
+            "icon_style": "theme",
+            "theme_icon": "bathroom",
+            "short_label": "",
+            "title": "Protects bathrooms from scale damage",
+            "description": ""
+          }
+        },
+        "benefit_salt": {
+          "type": "benefit",
+          "settings": {
+            "icon_style": "theme",
+            "theme_icon": "appliance",
+            "short_label": "",
+            "title": "Efficient & Longer Life with Appliances",
+            "description": ""
+          }
+        },
+        "benefit_water": {
+          "type": "benefit",
+          "settings": {
+            "icon_style": "theme",
+            "theme_icon": "sparkle",
+            "short_label": "",
+            "title": "Clear and sparkling glasses and surfaces",
+            "description": ""
+          }
+        },
+        "benefit_maintenance": {
+          "type": "benefit",
+          "settings": {
+            "icon_style": "theme",
+            "theme_icon": "family",
+            "short_label": "",
+            "title": "Protection of Family Health",
+            "description": ""
           }
         }
       },
       "block_order": [
-        "image_epEW38",
-        "image_Vp8Qxc",
-        "image_enFTpH",
-        "image_QJymax",
-        "image_C3KFRL"
-      ],
-      "custom_css": [
-        "@media (min-width: 800px) {.m-custom-content__wrapper {justify-content: center; } #m-custom__block--image_epEW38 {width: 21%; }}",
-        "@media screen and (max-width: 795px) {.m-mixed-layout--mobile-scroll .m-mixed-layout__inner > * {flex: none; width: 50% !important; } #m-custom__block--image_epEW38 {width: 63% !important; }}"
+        "problem_scale",
+        "problem_appliance",
+        "problem_fixtures",
+        "problem_pipes",
+        "benefit_electricity",
+        "benefit_salt",
+        "benefit_water",
+        "benefit_maintenance"
       ],
       "settings": {
-        "heading": "Technology Comparison Matrix",
-        "heading_size": "h3",
-        "subheading": "COMPETITOR ANALYSIS",
-        "description": "",
+        "show_eyebrow": true,
+        "eyebrow": "The Solution",
+        "heading": "What Scale-O Solves for your Homes",
+        "show_description": true,
+        "description": "Converts hard water into soft water while protecting health and homes.",
         "header_alignment": "center",
-        "container": "container-fluid",
-        "color_scheme": "",
-        "content_color_scheme": "",
-        "enable_parallax": false,
-        "parallax_direction": "vertical",
-        "gap": 0,
-        "gap_mobile": 0,
-        "use_scroll_mobile": true,
-        "padding_top": 40,
-        "padding_bottom": 38,
-        "custom_class": ""
+        "problem_heading": "The Hard Water Problem",
+        "solution_label": "Scale-O 0 Factor",
+        "solution_description": "Scale-O uses Chelation Technology to coat Calcium & Magnesium ions and prevent scaling and convert hard into soft water.",
+        "benefits_heading": "The Soft Water Solution",
+        "show_connectors": false,
+        "product_image_alt": "Scale-O Centi salt-free softener converting hard water into soft water",
+        "product_image_width": 560,
+        "show_product_label": true,
+        "show_product_glow": true,
+        "show_cta": false,
+        "cta_text": "Explore How Scale-O Works",
+        "cta_url": "",
+        "max_width": 1200,
+        "column_gap": 28,
+        "icon_size": 40,
+        "card_radius": 16,
+        "shadow_strength": 45,
+        "enable_animations": true,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_top_mobile": 28,
+        "padding_bottom_mobile": 28,
+        "padding_x": 20,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "header_gap": 32,
+        "eyebrow_size": 16,
+        "heading_size_desktop": 45,
+        "heading_size_mobile": 26,
+        "description_size": 16,
+        "column_title_size": 18,
+        "card_title_size": 15,
+        "card_description_size": 13,
+        "solution_description_size": 15,
+        "background_color": "#f7fbff",
+        "heading_color": "#1a2b4a",
+        "text_color": "#465568",
+        "accent_color": "#0c7fdf",
+        "accent_hover_color": "#0a6bc4",
+        "card_background": "#ffffff",
+        "card_border_color": "#e8eef8",
+        "accessibility_label": "Scale-O water softeners solution"
       }
     },
-    "custom_content_HgFVDW": {
-      "type": "custom-content",
+    "before_after_home": {
+      "type": "scale-o-results-gallery",
       "blocks": {
-        "liquid_mHALk3": {
-          "type": "liquid",
+        "image_XcTgtY": {
+          "type": "result",
           "settings": {
-            "custom_liquid": "<div>\n  <a\n    data-fancybox=\"gallery3\"\n    href=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_1289.svg?v=1724392935\"\n  >\n    <img\n      src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_1289.svg?v=1724392935\"\n      alt=\"Thumbnail\"\n    />\n  </a>\n</div>",
-            "width": "100%",
-            "block_custom_class": "",
-            "animations": "inherit"
+            "enabled": true,
+            "pair_preset": "none",
+            "image": "shopify://shop_images/Frame_427319350_a3f5ce84-cccd-4c10-afb4-5012dd7363e2.png",
+            "image_url": "",
+            "label": "",
+            "title": ""
+          }
+        },
+        "image_YQUdfR": {
+          "type": "result",
+          "settings": {
+            "enabled": true,
+            "pair_preset": "none",
+            "image": "shopify://shop_images/Frame_427319359_c5d43ec2-7057-4665-aa3d-c482022779dc.png",
+            "image_url": "",
+            "label": "",
+            "title": ""
+          }
+        },
+        "image_LGgpbz": {
+          "type": "result",
+          "settings": {
+            "enabled": true,
+            "pair_preset": "none",
+            "image": "shopify://shop_images/Frame_427319361_2d71d9b1-e86a-40dc-a0de-668ae6861253.png",
+            "image_url": "",
+            "label": "",
+            "title": ""
+          }
+        },
+        "image_R7CM7g": {
+          "type": "result",
+          "settings": {
+            "enabled": true,
+            "pair_preset": "none",
+            "image": "shopify://shop_images/skin.png",
+            "image_url": "",
+            "label": "",
+            "title": ""
+          }
+        },
+        "image_6tGxQ7": {
+          "type": "result",
+          "settings": {
+            "enabled": true,
+            "pair_preset": "none",
+            "image": "shopify://shop_images/Frame_427319358_51f3533f-0692-46cd-919b-6080fde751c9.png",
+            "image_url": "",
+            "label": "",
+            "title": ""
+          }
+        },
+        "image_PQybz8": {
+          "type": "result",
+          "settings": {
+            "enabled": true,
+            "pair_preset": "none",
+            "image": "shopify://shop_images/Frame_427319360_654c21ff-b19f-4ad0-a1be-0d916ebe14ac.png",
+            "image_url": "",
+            "label": "",
+            "title": ""
+          }
+        },
+        "pair_fixtures": {
+          "type": "result",
+          "settings": {
+            "enabled": true,
+            "pair_preset": "card-fixtures",
+            "image_url": "",
+            "label": "",
+            "title": ""
+          }
+        },
+        "pair_pot": {
+          "type": "result",
+          "settings": {
+            "enabled": true,
+            "pair_preset": "card-utensils",
+            "image_url": "",
+            "label": "",
+            "title": ""
+          }
+        },
+        "pair_face": {
+          "type": "result",
+          "settings": {
+            "enabled": true,
+            "pair_preset": "card-face",
+            "image_url": "",
+            "label": "",
+            "title": ""
           }
         }
       },
       "block_order": [
-        "liquid_mHALk3"
+        "image_XcTgtY",
+        "image_YQUdfR",
+        "image_LGgpbz",
+        "image_R7CM7g",
+        "image_6tGxQ7",
+        "image_PQybz8",
+        "pair_fixtures",
+        "pair_pot",
+        "pair_face"
       ],
-      "disabled": true,
       "settings": {
-        "heading": "Technology Comparison Matrix",
-        "heading_size": "h3",
-        "subheading": "COMPETITOR ANALYSIS",
-        "description": "",
+        "show_eyebrow": true,
+        "eyebrow": "BEFORE & AFTER RESULTS",
+        "heading": "Checkout Before vs After Results with Scale-O",
+        "show_description": true,
+        "description": "Genuine differences and impact after installing our water softeners across houses.",
+        "description_highlight": "",
         "header_alignment": "center",
-        "container": "container-fluid",
-        "color_scheme": "",
-        "content_color_scheme": "",
-        "enable_parallax": false,
-        "parallax_direction": "vertical",
-        "gap": 0,
-        "gap_mobile": 0,
-        "use_scroll_mobile": true,
-        "padding_top": 40,
-        "padding_bottom": 38,
-        "custom_class": ""
+        "show_legend": true,
+        "before_label": "Before",
+        "after_label": "After",
+        "enable_marquee": true,
+        "marquee_speed": 42,
+        "card_width": 260,
+        "card_width_mobile": 220,
+        "image_height": 180,
+        "image_height_mobile": 150,
+        "max_width": 1200,
+        "card_spacing": 12,
+        "card_radius": 12,
+        "show_card_shadow": true,
+        "enable_animations": true,
+        "padding_top": 56,
+        "padding_bottom": 48,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 36,
+        "padding_x": 20,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "header_gap": 32,
+        "eyebrow_size": 13,
+        "heading_size_desktop": 40,
+        "heading_size_mobile": 26,
+        "description_size": 16,
+        "background_color": "#ffffff",
+        "card_background": "#ffffff",
+        "card_border_color": "#d7e4f2",
+        "heading_color": "#1a2b4a",
+        "text_color": "#465568",
+        "accent_color": "#0c7fdf",
+        "accent_hover_color": "#0a6bc4",
+        "accessibility_label": "Before and after results"
       }
     },
-    "rich_text_PwY3ay": {
-      "type": "rich-text",
+    "people_property_home": {
+      "type": "people-property-advantages",
       "blocks": {
-        "subheading_iVgtqm": {
-          "type": "subheading",
+        "cat_people": {
+          "type": "category",
           "settings": {
-            "subheading": "TESTIMONIALS"
+            "handle": "people",
+            "tab_label": "For People",
+            "heading": "For People",
+            "description": "Better water for everyday life.",
+            "image_alt": "Everyday home water experience",
+            "show_cta": false,
+            "cta_text": "Learn more",
+            "cta_url": ""
           }
         },
-        "heading_KCRbGz": {
-          "type": "heading",
+        "cat_property": {
+          "type": "category",
           "settings": {
-            "heading": "<h2>Quotes</h2>",
-            "heading_size": "h2"
+            "handle": "property",
+            "tab_label": "For Homes",
+            "heading": "For Homes",
+            "description": "Protect the fixtures and water-using systems around your home.",
+            "image_alt": "Home fixtures and water-using appliances",
+            "show_cta": false,
+            "cta_text": "Learn more",
+            "cta_url": ""
+          }
+        },
+        "people_shower": {
+          "type": "benefit",
+          "settings": {
+            "category": "people",
+            "image": "shopify://shop_images/scale-o-adv-people-3-updated.png",
+            "image_alt": "",
+            "short_label": "",
+            "title": "Healthier Hair & Scalp",
+            "description": "Help reduce dry, brittle hair caused by hard-water mineral buildup.",
+            "cta_text": "",
+            "link": ""
+          }
+        },
+        "people_laundry": {
+          "type": "benefit",
+          "settings": {
+            "category": "people",
+            "image": "shopify://shop_images/scale-o-adv-people-4.png",
+            "image_alt": "",
+            "short_label": "",
+            "title": "Better Water for Your Family",
+            "description": "Cleaner-feeling water for cooking, drinking and everyday meals at home.",
+            "cta_text": "",
+            "link": ""
+          }
+        },
+        "people_fixtures": {
+          "type": "benefit",
+          "settings": {
+            "category": "people",
+            "image": "shopify://shop_images/scale-o-adv-people-1-updated.png",
+            "image_alt": "",
+            "short_label": "",
+            "title": "Safe for Kids & Pets",
+            "description": "Gentler water for bathing children and caring for pets at home.",
+            "cta_text": "",
+            "link": ""
+          }
+        },
+        "people_everyday": {
+          "type": "benefit",
+          "settings": {
+            "category": "people",
+            "image": "shopify://shop_images/scale-o-adv-people-2.webp",
+            "image_alt": "",
+            "short_label": "",
+            "title": "Softer-Feeling Laundry",
+            "description": "Better water for everyday washing and household laundry.",
+            "cta_text": "",
+            "link": ""
+          }
+        },
+        "property_scale": {
+          "type": "benefit",
+          "settings": {
+            "category": "property",
+            "image": "shopify://shop_images/scale-o-adv-property-1.png",
+            "image_alt": "",
+            "short_label": "",
+            "title": "Helps Reduce Scale Buildup",
+            "description": "Helps manage mineral scale buildup on water-contact surfaces.",
+            "cta_text": "",
+            "link": ""
+          }
+        },
+        "property_appliances": {
+          "type": "benefit",
+          "settings": {
+            "category": "property",
+            "image": "shopify://shop_images/scale-o-adv-property-2.png",
+            "image_alt": "",
+            "short_label": "",
+            "title": "Protect Water-Using Appliances",
+            "description": "Helps reduce the impact of scale buildup in appliances that use water.",
+            "cta_text": "",
+            "link": ""
+          }
+        },
+        "property_maintenance": {
+          "type": "benefit",
+          "settings": {
+            "category": "property",
+            "image": "shopify://shop_images/scale-o-adv-property-3.png",
+            "image_alt": "",
+            "short_label": "",
+            "title": "Lower Maintenance Burden",
+            "description": "Less visible buildup can mean less frequent cleaning and maintenance.",
+            "cta_text": "",
+            "link": ""
+          }
+        },
+        "property_fixtures": {
+          "type": "benefit",
+          "settings": {
+            "category": "property",
+            "image": "shopify://shop_images/scale-o-adv-property-4.webp",
+            "image_alt": "",
+            "short_label": "",
+            "title": "Protect Everyday Fixtures",
+            "description": "Help keep taps, shower fittings and other water-contact fixtures looking cleaner.",
+            "cta_text": "",
+            "link": ""
           }
         }
       },
       "block_order": [
-        "subheading_iVgtqm",
-        "heading_KCRbGz"
+        "cat_people",
+        "cat_property",
+        "people_shower",
+        "people_laundry",
+        "people_fixtures",
+        "people_everyday",
+        "property_scale",
+        "property_appliances",
+        "property_maintenance",
+        "property_fixtures"
       ],
       "settings": {
-        "container": "container",
-        "color_scheme": "scheme-cee058e4-58e3-46aa-9af9-219dadc79066",
-        "content_alignment": "center",
-        "padding_top": 80,
-        "padding_bottom": 60,
-        "custom_class": "",
-        "animations": "inherit"
-      }
-    },
-    "custom_liquid_etEAdK": {
-      "type": "custom-liquid",
-      "settings": {
-        "custom_liquid": "<style>\n\n\n  .st-container{\n      width: 100%;\n      max-width: 1440px;\n      margin: 0 auto;\n      padding: 0 80px;\n  }\n  .slick-track {\n      display: flex;\n      gap: 20px;\n  }\n  .slick-list {\n      display: flex!important;\n  }\n  .st-slider2{\n      padding-top: 40px;\n  }\n  .st-slide {\n      background: white;\n      padding: 20px;\n      border-radius: 20px;\n      display: flex!important;\n      flex-direction: column;\n      justify-content: space-between;\n      gap: 30px;\n  }\n  .slick-slide{\n      height: auto!important;\n  }\n  .st-author-info{\n      display: flex;\n      align-items: center;\n      gap: 10px;\n  }\n  .st-content {\n      display: grid;\n      gap: 20px;\n  }\n  \n  /* Texts */\n  .st-content p{\n      /* font-family: Neue Montreal; */\n      font-size: 15px;\n      line-height: 26.4px;\n      color: #333333;\n      margin: 0;\n  }\n  .st-author-info span{\n      /* font-family: Neue Montreal; */\n      font-size: 16px;\n      line-height: 19.2px;\n      font-weight: 500;\n      color: #333333;\n  }\n  /* Navigations */\n  .slick-next{\n      right: -60px!important;\n      padding: 23px;\n      border-radius: 50%;\n      background: white;\n      transition: .4s all ease;\n  }\n  .slick-prev{\n      left: -60px!important;\n      padding: 23px;\n      border-radius: 50%;\n      background: white;\n      transition: .4s all ease;\n  }\n  .slick-prev:hover,.slick-next:hover{\n      transition: .4s all ease;\n      background: black;\n  }\n  .slick-prev:hover::before,\n  .slick-next:hover::before{\n      filter: brightness(0) invert(1);\n      transition: .4s all ease;\n  }\n  .slick-prev::before{\n      content: url('https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Group_1.svg?v=1722327196')!important;\n      display: flex;\n      width: 24px;\n      height: 24px;\n      transform: translate(-11px,-11px);\n      transition: .4s all ease;\n  }\n  .slick-next::before{\n      content: url('https://cdn.shopify.com/s/files/1/0592/6508/9638/files/cfsafa.svg?v=1722327196')!important;\n      display: flex;\n      width: 24px;\n      height: 24px;\n      transform: translate(-11px,-11px);\n      transition: .4s all ease;\n  }\n  \n  /* Responsive */\n  @media (min-width: 768px) and (max-width: 1024px){\n      .st-container{\n          padding: 0 40px;\n      }\n  }\n  @media (max-width: 767px){\n      .st-container{\n          padding: 0 20px;\n      }\n  }\n  </style>\n  \n  <div class=\"st-container\">\n      <div class=\"st-slider\">\n          <div class=\"st-slide\">\n              <div class=\"st-content\">\n                  <img alt=\"quote icon\" src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_40.svg?v=1722325727\" width=\"50px\" height=\"50px\">\n                  <p>\"Scale-O is a very innovative product. I'm very happy with the product, reason is it is very easy to install, no hassles. hard water is a big problem, we wanted a solution but not a salt based softener\"</p>\n              </div>\n              <div class=\"st-author-info\">\n                  <img alt=\"quote icon\" src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/OBJECTS.svg?v=1722326122\" width=\"45px\" height=\"45px\">\n                  <span>Mrs. Pragati Choksi</span>\n              </div>\n          </div>\n          <div class=\"st-slide\">\n              <div class=\"st-content\">\n                  <img alt=\"quote icon\" src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_40.svg?v=1722325727\" width=\"50px\" height=\"50px\">\n                  <p>\"We absolutely loved Scale-O. Very compact and easy to install design. We found it really effective and could avoid the hassle and cumbersome process of conventional plant installation.\"</p>\n              </div>\n              <div class=\"st-author-info\">\n                  <img alt=\"quote icon\" src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/dvefgsdef.svg?v=1722326122\" width=\"45px\" height=\"45px\">\n                  <span>Dr. Gaurav Khurana</span>\n              </div>\n          </div>\n          <div class=\"st-slide\">\n              <div class=\"st-content\">\n                  <img alt=\"quote icon\" src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_40.svg?v=1722325727\" width=\"50px\" height=\"50px\">\n                  <p>\"The product is really good, and just one day post installation we can see the change in quality of water. good work!\"</p>\n              </div>\n              <div class=\"st-author-info\">\n                  <img alt=\"quote icon\" src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/ddsgege.svg?v=1722326122\" width=\"45px\" height=\"45px\">\n                  <span>Ms. Avani Nathwani</span>\n              </div>\n          </div>\n          <div class=\"st-slide\">\n              <div class=\"st-content\">\n                  <img alt=\"quote icon\" src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_40.svg?v=1722325727\" width=\"50px\" height=\"50px\">\n                  <p>\"Good concept, as we are facing problems due to hard water. Easy installation and friendly customer service!\"</p>\n              </div>\n              <div class=\"st-author-info\">\n                  <img alt=\"quote icon\" src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/sfawff.svg?v=1722326122\" width=\"45px\" height=\"45px\">\n                  <span>Mrs. Prabha Harwani</span>\n              </div>\n          </div>\n          <div class=\"st-slide\">\n              <div class=\"st-content\">\n                  <img alt=\"quote icon\" src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_40.svg?v=1722325727\" width=\"50px\" height=\"50px\">\n                  <p>\"Scale-O is a very innovative product. I'm very happy with the product, reason is it is very easy to install, no hassles. hard water is a big problem, we wanted a solution but not a salt based softners\"</p>\n              </div>\n              <div class=\"st-author-info\">\n                  <img alt=\"quote icon\" src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/OBJECTS.svg?v=1722326122\" width=\"45px\" height=\"45px\">\n                  <span>Mrs. Pragati Choksi</span>\n              </div>\n          </div>\n          <div class=\"st-slide\">\n              <div class=\"st-content\">\n                  <img alt=\"quote icon\" src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_40.svg?v=1722325727\" width=\"50px\" height=\"50px\">\n                  <p>\"The product is really good, and just one day post installation we can see the change in quality of water. good work!\"</p>\n              </div>\n              <div class=\"st-author-info\">\n                  <img alt=\"quote icon\" src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/ddsgege.svg?v=1722326122\" width=\"45px\" height=\"45px\">\n                  <span>Ms. Avani Nathwani</span>\n              </div>\n          </div>\n          <div class=\"st-slide\">\n              <div class=\"st-content\">\n                  <img alt=\"quote icon\" src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/Frame_40.svg?v=1722325727\" width=\"50px\" height=\"50px\">\n                  <p>\"Good concept, as we are facing problems due to hard water. Easy installation and friendly customer service!\"</p>\n              </div>\n              <div class=\"st-author-info\">\n                  <img alt=\"quote icon\" src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/sfawff.svg?v=1722326122\" width=\"45px\" height=\"45px\">\n                  <span>Mrs. Prabha Harwani</span>\n              </div>\n          </div>\n      </div>\n  </div>        \n  </div>\n  \n  \n  <script>\n  $(document).ready(function(){\n  var $slider1 = $('.st-slider');\n  $slider1.slick({\n      slidesToShow: 4,\n      slidesToScroll: 1,\n      arrows: true,\n      autoplay: true,\n      autoplaySpeed: 1500,\n      responsive: [\n          {\n              breakpoint: 680,\n              settings: {\n                  slidesToShow: 1,\n                  slidesToScroll: 1,\n                  arrows: false \n              }\n          },\n          {\n              breakpoint: 768,\n              settings: {\n                  slidesToShow: 2,\n                  slidesToScroll: 1,\n                  arrows: false \n              }\n          },\n          {\n              breakpoint: 1140,\n              settings: {\n                  slidesToShow: 3,\n                  slidesToScroll: 1,\n                  arrows: false\n              }\n          }\n      ]\n  });\n  });\n  </script>",
-        "custom_class": ""
-      }
-    },
-    "custom_content_jPga7b": {
-      "type": "custom-content",
-      "blocks": {
-        "text_CimUQQ": {
-          "type": "text",
-          "settings": {
-            "title": "<h3>IP & Quality</h3>",
-            "subheading": "CERTIFICATES",
-            "text": "",
-            "width": "100%",
-            "alignment": "center",
-            "align_text": "center",
-            "text_size": "medium",
-            "text_color": "inherit",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "m-button--primary",
-            "button_size": "",
-            "block_custom_class": "hed",
-            "animations": "inherit"
-          }
-        },
-        "liquid_iCjf3H": {
-          "type": "liquid",
-          "settings": {
-            "custom_liquid": "<a\n  data-fancybox=\"gallery2\"\n  href=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/1_1fab6577-7a28-415e-9544-f0e2b240e5cc.jpg?v=1722329025\"\n>\n  <img\n    src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/1_1fab6577-7a28-415e-9544-f0e2b240e5cc.jpg?v=1722329025\"\n    alt=\"Thumbnail\" height=\"100\" width=\"356\" loading=\"lazy\"\n    \n  />\n</a>",
-            "width": "25%",
-            "block_custom_class": "i1",
-            "animations": "inherit"
-          }
-        },
-        "liquid_g3iNfW": {
-          "type": "liquid",
-          "settings": {
-            "custom_liquid": "<a\n  data-fancybox=\"gallery2\"\n  href=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/2.jpg?v=1722329026\"\n>\n  <img\n    src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/2.jpg?v=1722329026\"\n    alt=\"Thumbnail\" height=\"100\" width=\"356\" loading=\"lazy\"\n    \n  />\n</a>",
-            "width": "25%",
-            "block_custom_class": "i1",
-            "animations": "inherit"
-          }
-        },
-        "liquid_t7JWTm": {
-          "type": "liquid",
-          "settings": {
-            "custom_liquid": "<a\n  data-fancybox=\"gallery2\"\n  href=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/certifacate_430x.jpg?v=1724232526\"\n>\n  <img\n    src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/certifacate_430x.jpg?v=1724232526\"\n    alt=\"Thumbnail\" height=\"100\" width=\"356\" loading=\"lazy\"\n    \n  />\n</a>",
-            "width": "25%",
-            "block_custom_class": "i1",
-            "animations": "inherit"
-          }
-        },
-        "liquid_pfDUbE": {
-          "type": "liquid",
-          "settings": {
-            "custom_liquid": "<a\n  data-fancybox=\"gallery2\"\n  href=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/certificate-1.jpg?v=1723541003\"\n>\n  <img\n    src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/certificate-1.jpg?v=1723541003\"\n    alt=\"Thumbnail\" height=\"100\" width=\"356\" loading=\"lazy\"\n    \n  />\n</a>",
-            "width": "25%",
-            "block_custom_class": "i1",
-            "animations": "inherit"
-          }
-        },
-        "liquid_RpXbHD": {
-          "type": "liquid",
-          "settings": {
-            "custom_liquid": "<a\n  data-fancybox=\"gallery2\"\n  href=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/certificate-2_1.jpg?v=1723541047\"\n>\n  <img\n    src=\"https://cdn.shopify.com/s/files/1/0592/6508/9638/files/certificate-2_1.jpg?v=1723541047\"\n    alt=\"Thumbnail\" height=\"100\" width=\"356\" loading=\"lazy\"\n    \n  />\n</a>",
-            "width": "25%",
-            "block_custom_class": "i1",
-            "animations": "inherit"
-          }
-        }
-      },
-      "block_order": [
-        "text_CimUQQ",
-        "liquid_iCjf3H",
-        "liquid_g3iNfW",
-        "liquid_t7JWTm",
-        "liquid_pfDUbE",
-        "liquid_RpXbHD"
-      ],
-      "custom_css": [
-        ".cer {padding-right: 8%; padding-left: 8%;}",
-        ".i1 {width: 18%; margin-bottom: 50px;}",
-        ".hed {margin-top: 50px;}"
-      ],
-      "settings": {
-        "heading": "",
-        "heading_size": "h3",
-        "subheading": "",
-        "description": "",
+        "show_eyebrow": true,
+        "eyebrow": "WHY SCALE-O",
+        "heading": "Benefits with Scale-O",
+        "show_description": true,
+        "description": "Multiple benefits everyday after getting Scale-O for your home.",
         "header_alignment": "center",
-        "container": "container-fluid",
-        "color_scheme": "scheme-cee058e4-58e3-46aa-9af9-219dadc79066",
-        "content_color_scheme": "",
-        "enable_parallax": false,
-        "parallax_direction": "vertical",
-        "gap": 20,
-        "gap_mobile": 16,
-        "use_scroll_mobile": false,
-        "padding_top": 100,
-        "padding_bottom": 70,
-        "custom_class": "cer"
+        "layout_style": "grid",
+        "max_width": 1280,
+        "desktop_columns": "4",
+        "hero_aspect_ratio": "3  9",
+        "card_aspect_ratio": "16 / 9",
+        "card_gap": 14,
+        "card_radius": 18,
+        "shadow_strength": 30,
+        "show_category_icon": true,
+        "show_card_index": false,
+        "enable_animations": true,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_top_mobile": 28,
+        "padding_bottom_mobile": 28,
+        "padding_x": 20,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "header_gap": 28,
+        "eyebrow_size": 16,
+        "heading_size_desktop": 45,
+        "heading_size_mobile": 26,
+        "description_size": 16,
+        "category_title_size": 22,
+        "card_title_size": 17,
+        "card_description_size": 14,
+        "background_color": "#ffffff",
+        "panel_background": "#f3f6fa",
+        "heading_color": "#1a2b4a",
+        "text_color": "#465568",
+        "accent_color": "#0c7fdf",
+        "accent_hover_color": "#0a6bc4",
+        "card_background": "#ffffff",
+        "card_border_color": "#e8eef8",
+        "tab_active_background": "#0c7fdf",
+        "tab_active_text": "#ffffff",
+        "accessibility_label": "People and property advantages"
+      }
+    },
+    "tech_compare_home": {
+      "type": "scale-o-tech-compare",
+      "blocks": {
+        "tech_salt": {
+          "type": "technology",
+          "settings": {
+            "enabled": true,
+            "title": "Ion Exchange",
+            "category_label": "",
+            "description": "Traditional ion-exchange softening using salt and regeneration.",
+            "product": "",
+            "image": "shopify://shop_images/ChatGPT_Image_Aug_13_2026_11_48_51_AM.png",
+            "image_alt": "Conventional salt-based water softener",
+            "theme_icon": "bucket",
+            "show_icon": false,
+            "highlight": false,
+            "show_badge": false,
+            "badge_text": "",
+            "cta_text": "",
+            "cta_url": ""
+          }
+        },
+        "tech_em": {
+          "type": "technology",
+          "settings": {
+            "enabled": true,
+            "title": "Electro-Magnetism",
+            "category_label": "",
+            "description": "Electronic or electromagnetic technology designed to reduce scale formation.",
+            "product": "",
+            "image": "shopify://shop_images/content.png",
+            "image_alt": "Electromagnetic scale-control device",
+            "theme_icon": "pipe",
+            "show_icon": false,
+            "highlight": false,
+            "show_badge": false,
+            "badge_text": "",
+            "cta_text": "",
+            "cta_url": ""
+          }
+        },
+        "tech_media": {
+          "type": "technology",
+          "settings": {
+            "enabled": true,
+            "title": "Multi bed Filtration",
+            "category_label": "",
+            "description": "Media-based treatment systems using multiple filtration materials.",
+            "product": "",
+            "image": "shopify://shop_images/ChatGPT_Image_Aug_13_2026_11_53_34_AM.png",
+            "image_alt": "Multi-media water treatment system",
+            "theme_icon": "gear",
+            "show_icon": false,
+            "highlight": false,
+            "show_badge": false,
+            "badge_text": "",
+            "cta_text": "",
+            "cta_url": ""
+          }
+        },
+        "tech_scaleo": {
+          "type": "technology",
+          "settings": {
+            "enabled": true,
+            "title": "Advanced Chelation",
+            "category_label": "",
+            "description": "Salt-free scale protection designed for simple installation and zero operating requirements.",
+            "product": "",
+            "image": "shopify://shop_images/im2.png",
+            "image_alt": "Scale-O salt-free water softener",
+            "theme_icon": "droplet",
+            "show_icon": false,
+            "highlight": true,
+            "show_badge": true,
+            "badge_text": "SCALE-O",
+            "cta_text": "",
+            "cta_url": ""
+          }
+        },
+        "feat_salt": {
+          "type": "feature",
+          "settings": {
+            "enabled": true,
+            "title": "Salt Required",
+            "theme_icon": "bucket",
+            "value_1": "Yes",
+            "status_1": "negative",
+            "value_2": "No",
+            "status_2": "positive",
+            "value_3": "Depends",
+            "status_3": "neutral",
+            "value_4": "No",
+            "status_4": "not_required"
+          }
+        },
+        "feat_power": {
+          "type": "feature",
+          "settings": {
+            "enabled": true,
+            "title": "Electricity Required",
+            "theme_icon": "bolt",
+            "value_1": "Yes",
+            "status_1": "required",
+            "value_2": "Yes",
+            "status_2": "required",
+            "value_3": "Depends",
+            "status_3": "neutral",
+            "value_4": "No",
+            "status_4": "not_required"
+          }
+        },
+        "feat_waste": {
+          "type": "feature",
+          "settings": {
+            "enabled": true,
+            "title": "Water Wastage",
+            "theme_icon": "droplet",
+            "value_1": "Yes",
+            "status_1": "negative",
+            "value_2": "No",
+            "status_2": "positive",
+            "value_3": "Depends",
+            "status_3": "neutral",
+            "value_4": "No",
+            "status_4": "not_required"
+          }
+        },
+        "feat_plumbing": {
+          "type": "feature",
+          "settings": {
+            "enabled": true,
+            "title": "Plumbing Changes",
+            "theme_icon": "pipe",
+            "value_1": "Yes",
+            "status_1": "negative",
+            "value_2": "Yes",
+            "status_2": "negative",
+            "value_3": "Yes",
+            "status_3": "negative",
+            "value_4": "No",
+            "status_4": "not_required"
+          }
+        },
+        "feat_install": {
+          "type": "feature",
+          "settings": {
+            "enabled": true,
+            "title": "Installation Complexity",
+            "theme_icon": "wrench",
+            "value_1": "Complex",
+            "status_1": "high",
+            "value_2": "Moderate",
+            "status_2": "medium",
+            "value_3": "Professional",
+            "status_3": "high",
+            "value_4": "Simple",
+            "status_4": "positive"
+          }
+        },
+        "feat_maint": {
+          "type": "feature",
+          "settings": {
+            "enabled": true,
+            "title": "Regular Maintenance",
+            "theme_icon": "settings",
+            "value_1": "Ongoing",
+            "status_1": "high",
+            "value_2": "Low",
+            "status_2": "low",
+            "value_3": "Ongoing",
+            "status_3": "high",
+            "value_4": "Minimal",
+            "status_4": "positive"
+          }
+        },
+        "feat_cost": {
+          "type": "feature",
+          "settings": {
+            "enabled": true,
+            "title": "Operating Cost",
+            "theme_icon": "dollar",
+            "value_1": "Ongoing",
+            "status_1": "high",
+            "value_2": "Ongoing",
+            "status_2": "high",
+            "value_3": "Ongoing",
+            "status_3": "high",
+            "value_4": "Zero",
+            "status_4": "positive"
+          }
+        },
+        "feat_regen": {
+          "type": "feature",
+          "settings": {
+            "enabled": true,
+            "title": "Suitable for Whole-Home Scale Protection",
+            "theme_icon": "shield",
+            "value_1": "Yes",
+            "status_1": "positive",
+            "value_2": "Limited",
+            "status_2": "neutral",
+            "value_3": "Partial",
+            "status_3": "neutral",
+            "value_4": "Yes",
+            "status_4": "positive"
+          }
+        },
+        "comp_scaleo": {
+          "type": "competitor",
+          "settings": {
+            "enabled": true,
+            "title": "Scale-O",
+            "highlight": true,
+            "image": "shopify://shop_images/im2.png",
+            "image_alt": "Scale-O salt-free water softener"
+          }
+        },
+        "comp_others": {
+          "type": "competitor",
+          "settings": {
+            "enabled": true,
+            "title": "Core Competitors",
+            "highlight": false,
+            "image": "shopify://shop_images/competitor.png",
+            "image_alt": "Typical salt-based water softener competitor"
+          }
+        },
+        "crow_fit": {
+          "type": "competitor_row",
+          "settings": {
+            "enabled": true,
+            "title": "Fit For Your Home",
+            "theme_icon": "home",
+            "impact": "Wrong size can under or over soften, so scale control suffers.",
+            "value_1": "Sized to tank and daily use",
+            "status_1": "positive",
+            "value_2": "One size for all, no analysis",
+            "status_2": "negative",
+            "value_3": "",
+            "status_3": "neutral",
+            "value_4": "",
+            "status_4": "positive"
+          }
+        },
+        "crow_capacity": {
+          "type": "competitor_row",
+          "settings": {
+            "enabled": true,
+            "title": "Capacity Range",
+            "theme_icon": "layers",
+            "impact": "Extra units raise cost, or a smaller unit weakens results.",
+            "value_1": "500 L to 5000 L",
+            "status_1": "positive",
+            "value_2": "Mostly 1000 L to 1500 L",
+            "status_2": "negative",
+            "value_3": "",
+            "status_3": "neutral",
+            "value_4": "",
+            "status_4": "positive"
+          }
+        },
+        "crow_patent": {
+          "type": "competitor_row",
+          "settings": {
+            "enabled": true,
+            "title": "Patented",
+            "theme_icon": "patent",
+            "impact": "Marketing without the technical know-how.",
+            "value_1": "Patented design",
+            "status_1": "positive",
+            "value_2": "Reverse-engineered, no patents",
+            "status_2": "negative",
+            "value_3": "",
+            "status_3": "neutral",
+            "value_4": "",
+            "status_4": "positive"
+          }
+        },
+        "crow_india": {
+          "type": "competitor_row",
+          "settings": {
+            "enabled": true,
+            "title": "Indian Hard Water",
+            "theme_icon": "flask",
+            "impact": "Can fail in high hardness and TDS up to 3000 ppm.",
+            "value_1": "Built for Indian hardness and TDS",
+            "status_1": "positive",
+            "value_2": "Copied designs, no R&D",
+            "status_2": "negative",
+            "value_3": "",
+            "status_3": "neutral",
+            "value_4": "",
+            "status_4": "positive"
+          }
+        },
+        "crow_replace": {
+          "type": "competitor_row",
+          "settings": {
+            "enabled": true,
+            "title": "Honest Replacement",
+            "theme_icon": "calendar",
+            "impact": "Performance can drop before you notice, then stop working.",
+            "value_1": "Replace every 6 months",
+            "status_1": "positive",
+            "value_2": "Claims of 1 year that are not realistic",
+            "status_2": "negative",
+            "value_3": "",
+            "status_3": "neutral",
+            "value_4": "",
+            "status_4": "positive"
+          }
+        },
+        "crow_safety": {
+          "type": "competitor_row",
+          "settings": {
+            "enabled": true,
+            "title": "Safety Certified",
+            "theme_icon": "shield",
+            "impact": "Uncertified chemicals can harm hair and skin.",
+            "value_1": "Food-grade and RoHS",
+            "status_1": "positive",
+            "value_2": "Uncertified, not food-grade",
+            "status_2": "negative",
+            "value_3": "",
+            "status_3": "neutral",
+            "value_4": "",
+            "status_4": "positive"
+          }
+        },
+        "crow_mfg": {
+          "type": "competitor_row",
+          "settings": {
+            "enabled": true,
+            "title": "Direct Manufacturer",
+            "theme_icon": "factory",
+            "impact": "Quality, hygiene, and lots can vary.",
+            "value_1": "Made by us",
+            "status_1": "positive",
+            "value_2": "White-label, outsourced",
+            "status_2": "negative",
+            "value_3": "",
+            "status_3": "neutral",
+            "value_4": "",
+            "status_4": "positive"
+          }
+        },
+        "crow_focus": {
+          "type": "competitor_row",
+          "settings": {
+            "enabled": true,
+            "title": "Specialist Focus",
+            "theme_icon": "target",
+            "impact": "Not dedicated to this product or this problem.",
+            "value_1": "Water softeners only",
+            "status_1": "positive",
+            "value_2": "Also RO, tap cleaners, electronics",
+            "status_2": "negative",
+            "value_3": "",
+            "status_3": "neutral",
+            "value_4": "",
+            "status_4": "positive"
+          }
+        },
+        "crow_retain": {
+          "type": "competitor_row",
+          "settings": {
+            "enabled": true,
+            "title": "Long-Term Care",
+            "theme_icon": "users",
+            "impact": "Less care after the first purchase.",
+            "value_1": "Retainer and subscription",
+            "status_1": "positive",
+            "value_2": "One-time sale, no retention",
+            "status_2": "negative",
+            "value_3": "",
+            "status_3": "neutral",
+            "value_4": "",
+            "status_4": "positive"
+          }
+        },
+        "crow_price": {
+          "type": "competitor_row",
+          "settings": {
+            "enabled": true,
+            "title": "Long-Run Cost",
+            "theme_icon": "dollar",
+            "impact": "You spend more over time than on a subscription.",
+            "value_1": "Subscription keeps cost down",
+            "status_1": "positive",
+            "value_2": "Full price on every repurchase",
+            "status_2": "negative",
+            "value_3": "",
+            "status_3": "neutral",
+            "value_4": "",
+            "status_4": "positive"
+          }
+        }
+      },
+      "block_order": [
+        "tech_salt",
+        "tech_em",
+        "tech_media",
+        "tech_scaleo",
+        "feat_salt",
+        "feat_power",
+        "feat_waste",
+        "feat_plumbing",
+        "feat_install",
+        "feat_maint",
+        "feat_cost",
+        "feat_regen",
+        "comp_scaleo",
+        "comp_others",
+        "crow_fit",
+        "crow_capacity",
+        "crow_patent",
+        "crow_india",
+        "crow_replace",
+        "crow_safety",
+        "crow_mfg",
+        "crow_focus",
+        "crow_retain",
+        "crow_price"
+      ],
+      "settings": {
+        "show_tech": true,
+        "show_tech_eyebrow": true,
+        "tech_eyebrow": "TECHNOLOGY COMPARISON",
+        "tech_heading": "Advanced Chelation Technology v/s Others",
+        "show_tech_description": true,
+        "tech_description": "See how Scale-O compares with salt-based, electromagnetic and multi-media systems for household scale protection.",
+        "show_features": true,
+        "tech_criteria_heading": "Water Softener Type",
+        "show_tech_type_row": true,
+        "tech_type_row_title": "Technology",
+        "tech_type_value_1": "Salt Based Water Softener",
+        "tech_type_value_2": "Electro-magnetic Water Softener",
+        "tech_type_value_3": "Multi-media Water Softener",
+        "tech_type_value_4": "Scale-O Water Softener",
+        "show_recommended_badge": true,
+        "recommended_label": "Recommended",
+        "show_column_images": true,
+        "show_column_descriptions": false,
+        "show_card_icons": false,
+        "mobile_layout": "scroll",
+        "show_competitors": true,
+        "show_eyebrow": true,
+        "eyebrow": "COMPETITOR COMPARISON",
+        "heading": "Scale-O vs Competitors",
+        "show_description": true,
+        "description": "See how Scale-O edges over and dominates its core-competitors with similar offerings.",
+        "show_comp_legend": true,
+        "win_legend": "Scale-O Advantage",
+        "lose_legend": "Competitor Limitation",
+        "competitor_hint": "",
+        "impact_label": "Why It Matters",
+        "criteria_heading": "Criteria",
+        "competitor_note": "",
+        "header_alignment": "center",
+        "highlight_color": "#0c7fdf",
+        "highlight_background": "#e8f3fc",
+        "show_cta_banner": false,
+        "banner_icon": "shield",
+        "banner_heading": "Better water. Better life.",
+        "banner_text": "Scale-O delivers salt-free, maintenance-free protection that’s simple, efficient and built for modern homes.",
+        "cta_text": "Explore Scale-O Products",
+        "cta_url": "shopify://collections/water-softeners",
+        "max_width": 1200,
+        "image_aspect_ratio": "4 / 3",
+        "card_radius": 16,
+        "enable_animations": true,
+        "padding_top": 48,
+        "padding_bottom": 20,
+        "padding_top_mobile": 32,
+        "padding_bottom_mobile": 16,
+        "padding_x": 20,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "header_gap": 36,
+        "eyebrow_size": 13,
+        "heading_size_desktop": 38,
+        "heading_size_mobile": 28,
+        "description_size": 16,
+        "background_color": "#ffffff",
+        "matrix_background": "#eef6ff",
+        "card_background": "#ffffff",
+        "card_border_color": "#e4ecf6",
+        "heading_color": "#12345b",
+        "text_color": "#465568",
+        "accent_color": "#0c7fdf",
+        "accent_hover_color": "#0a6bc4",
+        "accessibility_label": "Competitor comparison"
+      }
+    },
+    "scale_o_video_home": {
+      "type": "scale-o-technology-video",
+      "settings": {
+        "show_eyebrow": true,
+        "eyebrow": "Video",
+        "heading": "Journey to Scale-O",
+        "show_description": true,
+        "description": "Our Founder's note on journey to Scale-O & Beyond.",
+        "header_alignment": "center",
+        "video_type": "external",
+        "video_url": "https://vimeo.com/999469587",
+        "thumbnail": "shopify://shop_images/THUMBNAIL.png",
+        "thumbnail_alt": "Scale-O product demonstration video",
+        "video_label": "Scale-O product demonstration",
+        "video_ratio": "16 / 9",
+        "video_radius": 20,
+        "play_button_size": "large",
+        "show_badge": true,
+        "badge_text": "Real Product Demo",
+        "play_label": "Play video",
+        "play_pulse": true,
+        "autoplay": false,
+        "muted": true,
+        "loop": false,
+        "show_controls": true,
+        "playsinline": true,
+        "open_in_modal": false,
+        "show_cta": true,
+        "cta_text": "Explore Scale-O Products",
+        "cta_url": "shopify://collections/water-softeners",
+        "show_trust": true,
+        "trust_text": "Trusted by thousands of happy homes across India.",
+        "max_width": 1200,
+        "padding_top": 16,
+        "padding_bottom": 36,
+        "padding_top_mobile": 12,
+        "padding_bottom_mobile": 28,
+        "padding_x": 20,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "header_gap": 28,
+        "eyebrow_size": 16,
+        "heading_size_desktop": 45,
+        "heading_size_mobile": 26,
+        "description_size": 16,
+        "background_color": "#f7fbff",
+        "heading_color": "#1a2b4a",
+        "text_color": "#465568",
+        "accent_color": "#0c7fdf",
+        "accent_hover_color": "#0a6bc4",
+        "card_border_color": "#e8eef8",
+        "accessibility_label": "Scale-O video"
+      }
+    },
+    "video_testimonials_home": {
+      "type": "scale-o-video-testimonials",
+      "blocks": {
+        "story_1": {
+          "type": "testimonial",
+          "settings": {
+            "enabled": true,
+            "highlight": false,
+            "image_asset": "scale-o-story-1.jpg",
+            "image_alt": "Mrs. Pragati Choksi sharing her Scale-O experience at home",
+            "title": "",
+            "show_description": true,
+            "description": "Scale-O is a very innovative product. I'm very happy with the product, reason is it is very easy to install, no hassles. hard water is a big problem, we wanted a solution but not a salt based softener",
+            "show_customer_info": true,
+            "customer_name": "Mrs. Pragati Choksi",
+            "city": "Mumbai",
+            "state": "Maharashtra",
+            "designation": "",
+            "show_product": false,
+            "product_name": "",
+            "show_rating": false,
+            "rating": 5,
+            "show_verified": false,
+            "verified_text": "VERIFIED CUSTOMER"
+          }
+        },
+        "story_2": {
+          "type": "testimonial",
+          "settings": {
+            "enabled": true,
+            "highlight": false,
+            "image_asset": "scale-o-story-2.jpg",
+            "image_alt": "Dr. Gaurav Khurana with Scale-O installed at home",
+            "title": "",
+            "show_description": true,
+            "description": "We absolutely loved Scale-O. Very compact and easy to install design. We found it really effective and could avoid the hassle and cumbersome process of conventional plant installation.",
+            "show_customer_info": true,
+            "customer_name": "Dr. Gaurav Khurana",
+            "city": "Delhi",
+            "state": "Delhi",
+            "designation": "",
+            "show_product": false,
+            "product_name": "",
+            "show_rating": false,
+            "rating": 5,
+            "show_verified": false,
+            "verified_text": "VERIFIED CUSTOMER"
+          }
+        },
+        "story_3": {
+          "type": "testimonial",
+          "settings": {
+            "enabled": true,
+            "highlight": false,
+            "image_asset": "scale-o-story-3.jpg",
+            "image_alt": "Ms. Avani Nathwani using softened water at home",
+            "title": "",
+            "show_description": true,
+            "description": "The product is really good, and just one day post installation we can see the change in quality of water. Good work!",
+            "show_customer_info": true,
+            "customer_name": "Ms. Avani Nathwani",
+            "city": "Pune",
+            "state": "Maharashtra",
+            "designation": "Homemaker",
+            "show_product": false,
+            "product_name": "",
+            "show_rating": false,
+            "rating": 5,
+            "show_verified": false,
+            "verified_text": "VERIFIED CUSTOMER"
+          }
+        },
+        "story_4": {
+          "type": "testimonial",
+          "settings": {
+            "enabled": true,
+            "highlight": false,
+            "image_asset": "scale-o-story-4.jpg",
+            "image_alt": "Mrs. Prabha Harwani sharing her Scale-O review",
+            "title": "",
+            "show_description": true,
+            "description": "Good concept, as we are facing problems due to hard water. Easy installation and friendly customer service!",
+            "show_customer_info": true,
+            "customer_name": "Mrs. Prabha Harwani",
+            "city": "Indore",
+            "state": "Madhya Pradesh",
+            "designation": "Homemaker",
+            "show_product": false,
+            "product_name": "",
+            "show_rating": false,
+            "rating": 5,
+            "show_verified": false,
+            "verified_text": "VERIFIED CUSTOMER"
+          }
+        },
+        "story_5": {
+          "type": "testimonial",
+          "settings": {
+            "enabled": true,
+            "highlight": false,
+            "image_asset": "scale-o-story-5.jpg",
+            "image_alt": "Mr. Vikram Desai showing cleaner bathroom fixtures after Scale-O",
+            "title": "",
+            "show_description": true,
+            "description": "After installing Scale-O, our bathroom fittings look cleaner and the white stains on taps have reduced noticeably. Installation was quick and the team guided us well.",
+            "show_customer_info": true,
+            "customer_name": "Mr. Vikram Desai",
+            "city": "Ahmedabad",
+            "state": "Gujarat",
+            "designation": "Homeowner",
+            "show_product": false,
+            "product_name": "",
+            "show_rating": false,
+            "rating": 5,
+            "show_verified": false,
+            "verified_text": "VERIFIED CUSTOMER"
+          }
+        },
+        "story_6": {
+          "type": "testimonial",
+          "settings": {
+            "enabled": true,
+            "highlight": false,
+            "image_asset": "scale-o-story-6.jpg",
+            "image_alt": "Mrs. Sneha Iyer at home after installing Scale-O",
+            "title": "",
+            "show_description": true,
+            "description": "We were tired of white stains on our floor tiles and cloudy water in the kitchen. Scale-O was simple to set up and we noticed a visible difference within the first week.",
+            "show_customer_info": true,
+            "customer_name": "Mrs. Sneha Iyer",
+            "city": "Bengaluru",
+            "state": "Karnataka",
+            "designation": "Homeowner",
+            "show_product": false,
+            "product_name": "",
+            "show_rating": false,
+            "rating": 5,
+            "show_verified": false,
+            "verified_text": "VERIFIED CUSTOMER"
+          }
+        },
+        "trust_1": {
+          "type": "trust",
+          "settings": {
+            "title": "Real Customers",
+            "text": "Stories from Scale-O customers.",
+            "icon": "people"
+          }
+        },
+        "trust_2": {
+          "type": "trust",
+          "settings": {
+            "title": "Homes across India",
+            "text": "Helping families enjoy better water every day.",
+            "icon": "home"
+          }
+        },
+        "trust_3": {
+          "type": "trust",
+          "settings": {
+            "title": "Nationwide",
+            "text": "Loved by customers in cities across India.",
+            "icon": "map"
+          }
+        },
+        "trust_4": {
+          "type": "trust",
+          "settings": {
+            "title": "Built on Quality",
+            "text": "Designed and manufactured in India.",
+            "icon": "quality"
+          }
+        }
+      },
+      "block_order": [
+        "story_1",
+        "story_2",
+        "story_3",
+        "story_4",
+        "story_5",
+        "story_6",
+        "trust_1",
+        "trust_2",
+        "trust_3",
+        "trust_4"
+      ],
+      "settings": {
+        "show_eyebrow": true,
+        "eyebrow": "Testimonials",
+        "heading": "Real Customers. Real Results.",
+        "show_description": true,
+        "description": "Hear directly from Scale-O customers about their experience with soft water, installation and everyday use.",
+        "header_alignment": "center",
+        "desktop_cards": 4,
+        "tablet_cards": 2,
+        "carousel_autoplay": true,
+        "autoplay_speed": 5000,
+        "pause_on_hover": true,
+        "show_arrows": true,
+        "show_dots": true,
+        "thumb_ratio": "16 / 9",
+        "show_customer_avatar": false,
+        "show_trust": false,
+        "show_footer": true,
+        "trust_statement": "Real experiences from Scale-O customers across India.",
+        "show_cta": true,
+        "cta_text": "See More Customer Stories",
+        "cta_url": "shopify://pages/customers",
+        "max_width": 1200,
+        "card_radius": 18,
+        "card_spacing": 18,
+        "show_card_shadow": true,
+        "enable_animations": true,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_top_mobile": 28,
+        "padding_bottom_mobile": 28,
+        "padding_x": 20,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "header_gap": 36,
+        "eyebrow_size": 13,
+        "heading_size_desktop": 36,
+        "heading_size_mobile": 26,
+        "description_size": 16,
+        "background_color": "#f5faff",
+        "card_background": "#ffffff",
+        "card_border_color": "#e4ecf6",
+        "heading_color": "#142b4a",
+        "text_color": "#465568",
+        "accent_color": "#0c7fdf",
+        "accent_hover_color": "#0a6bc4",
+        "accessibility_label": "Testimonials"
+      }
+    },
+    "certificates_home": {
+      "type": "scale-o-certificates",
+      "blocks": {
+        "cert_1": {
+          "type": "certificate",
+          "settings": {
+            "enabled": true,
+            "image": "shopify://shop_images/1_1fab6577-7a28-415e-9544-f0e2b240e5cc.jpg",
+            "image_url": "https://cdn.shopify.com/s/files/1/0592/6508/9638/files/1_1fab6577-7a28-415e-9544-f0e2b240e5cc.jpg?v=1722329025",
+            "image_alt": "",
+            "title": "Intellectual Property Certificate",
+            "description": "",
+            "icon": "none",
+            "button_text": "View Certificate",
+            "button_url": ""
+          }
+        },
+        "cert_2": {
+          "type": "certificate",
+          "settings": {
+            "enabled": true,
+            "image": "shopify://shop_images/2.jpg",
+            "image_url": "https://cdn.shopify.com/s/files/1/0592/6508/9638/files/2.jpg?v=1722329026",
+            "image_alt": "",
+            "title": "Trademark Registration Certificate",
+            "description": "",
+            "icon": "none",
+            "button_text": "View Certificate",
+            "button_url": ""
+          }
+        },
+        "cert_3": {
+          "type": "certificate",
+          "settings": {
+            "enabled": true,
+            "image_url": "https://cdn.shopify.com/s/files/1/0592/6508/9638/files/certifacate_430x.jpg?v=1724232526",
+            "image_alt": "",
+            "title": "Patent Certificate",
+            "description": "",
+            "icon": "none",
+            "button_text": "View Certificate",
+            "button_url": ""
+          }
+        },
+        "cert_4": {
+          "type": "certificate",
+          "settings": {
+            "enabled": true,
+            "image": "shopify://shop_images/certificate-1.jpg",
+            "image_url": "https://cdn.shopify.com/s/files/1/0592/6508/9638/files/certificate-1.jpg?v=1723541003",
+            "image_alt": "",
+            "title": "Water Quality Test Report",
+            "description": "",
+            "icon": "none",
+            "button_text": "View Certificate",
+            "button_url": ""
+          }
+        },
+        "cert_5": {
+          "type": "certificate",
+          "settings": {
+            "enabled": true,
+            "image": "shopify://shop_images/certificate-2_1.jpg",
+            "image_url": "https://cdn.shopify.com/s/files/1/0592/6508/9638/files/certificate-2_1.jpg?v=1723541047",
+            "image_alt": "",
+            "title": "Quality Assurance Certificate",
+            "description": "",
+            "icon": "none",
+            "button_text": "View Certificate",
+            "button_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "cert_1",
+        "cert_2",
+        "cert_3",
+        "cert_4",
+        "cert_5"
+      ],
+      "settings": {
+        "show_eyebrow": true,
+        "eyebrow": "CERTIFICATIONS & QUALITY",
+        "heading": "Certifications",
+        "show_description": true,
+        "description": "All Scale-O products are patented, certified and tested for highest safety which means zero risks.",
+        "header_alignment": "center",
+        "desktop_cards": 5,
+        "tablet_cards": 2,
+        "enable_carousel": true,
+        "show_arrows": true,
+        "show_dots": true,
+        "enable_lightbox": true,
+        "image_ratio": "4 / 3",
+        "show_trust": false,
+        "show_banner": false,
+        "banner_icon": "check-shield",
+        "banner_heading": "Certified technology you can trust.",
+        "banner_text": "Scale-O is supported by patents, lab tests and quality certifications.",
+        "show_cta": false,
+        "cta_text": "Explore Scale-O Technology",
+        "cta_url": "",
+        "max_width": 1360,
+        "card_radius": 16,
+        "card_spacing": 14,
+        "show_card_shadow": true,
+        "enable_animations": true,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_top_mobile": 28,
+        "padding_bottom_mobile": 28,
+        "padding_x": 20,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "header_gap": 36,
+        "eyebrow_size": 13,
+        "heading_size_desktop": 36,
+        "heading_size_mobile": 26,
+        "description_size": 16,
+        "background_color": "#f7fbff",
+        "card_background": "#ffffff",
+        "card_border_color": "#c5d3e4",
+        "banner_background": "#e8f3fc",
+        "heading_color": "#142b4a",
+        "text_color": "#465568",
+        "accent_color": "#0c7fdf",
+        "accent_hover_color": "#0a6bc4",
+        "accessibility_label": "Certifications and quality"
       }
     },
     "blog_posts_ryzFA7": {
       "type": "blog-posts",
       "settings": {
-        "heading": "Blog posts",
+        "heading": "Read Our Blog",
         "heading_size": "h2",
-        "subheading": "",
-        "description": "",
+        "subheading": "BLOG / INSIGHTS",
+        "description": "Helpful guides, insights and practical information about hard water, water softening and protecting your home.",
         "header_alignment": "center",
-        "container": "container-fluid",
+        "container": "container",
         "color_scheme": "",
         "blog": "articles",
-        "limit": 3,
+        "limit": 4,
         "column": 4,
-        "column_gap": 30,
-        "mobile_gap": 10,
+        "column_gap": 28,
+        "mobile_gap": 16,
         "article_image_aspect_ratio": "16/9",
         "article_align_content": "text-left",
-        "article_show_tags": true,
+        "article_show_tags": false,
         "article_show_date": true,
-        "article_show_excerpt": true,
+        "article_show_excerpt": false,
+        "excerpt_words": 18,
+        "title_lines": 3,
         "article_show_button": true,
+        "read_more_text": "Read article",
         "show_button_on_header": false,
         "button_link": "shopify://blogs/articles",
-        "button_text": "View More",
+        "button_text": "View All Articles",
         "button_style": "m-button--primary",
         "button_size": "m-button--small",
-        "use_scroll_mobile": true,
-        "padding_top": 0,
-        "padding_bottom": 0,
+        "use_scroll_mobile": false,
+        "max_width": 1200,
+        "card_radius": 16,
+        "show_card_shadow": true,
+        "padding_x": 20,
+        "header_gap": 40,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_top_mobile": 28,
+        "padding_bottom_mobile": 28,
+        "eyebrow_size": 13,
+        "heading_size_desktop": 36,
+        "heading_size_mobile": 26,
+        "description_size": 16,
+        "background_color": "#f7fbff",
+        "card_background": "#ffffff",
+        "card_border_color": "#e4ecf6",
+        "heading_color": "#142b4a",
+        "text_color": "#465568",
+        "accent_color": "#0c7fdf",
+        "accent_hover_color": "#0a6bc4",
         "custom_class": "",
         "animations": "inherit"
       }
     },
-    "brands_list_c7kdGA": {
-      "type": "brands-list",
+    "affiliations_home": {
+      "type": "scale-o-affiliations",
       "blocks": {
-        "image_AWWHiB": {
-          "type": "image",
+        "logo_1": {
+          "type": "logo",
           "settings": {
+            "enabled": true,
             "image": "shopify://shop_images/sp-1.png",
             "image_by_url": "",
-            "image_link": "",
-            "max_width": ""
+            "image_alt": "Department of Science & Technology",
+            "title": "Department of Science & Technology",
+            "description": "",
+            "link": ""
           }
         },
-        "image_Xm9DUy": {
-          "type": "image",
+        "logo_2": {
+          "type": "logo",
           "settings": {
+            "enabled": true,
             "image": "shopify://shop_images/sp-2.png",
             "image_by_url": "",
-            "image_link": "",
-            "max_width": ""
+            "image_alt": "Startup India",
+            "title": "Startup India",
+            "description": "",
+            "link": ""
           }
         },
-        "image_CHM8kn": {
-          "type": "image",
+        "logo_3": {
+          "type": "logo",
           "settings": {
+            "enabled": true,
             "image": "shopify://shop_images/Frame_1312.png",
             "image_by_url": "",
-            "image_link": "",
-            "max_width": ""
+            "image_alt": "MSME",
+            "title": "MSME",
+            "description": "",
+            "link": ""
           }
         },
-        "image_6meBbb": {
-          "type": "image",
+        "logo_4": {
+          "type": "logo",
           "settings": {
+            "enabled": true,
             "image": "shopify://shop_images/Frame_1310_6eed278e-7133-4307-bdf6-9a7dff5c9fed.png",
             "image_by_url": "",
-            "image_link": "",
-            "max_width": ""
+            "image_alt": "Ahmedabad Municipal Corporation",
+            "title": "Ahmedabad Municipal Corporation – AMC",
+            "description": "",
+            "link": ""
           }
         },
-        "image_6JeYGy": {
-          "type": "image",
+        "logo_5": {
+          "type": "logo",
           "settings": {
+            "enabled": true,
             "image": "shopify://shop_images/sp-3.png",
             "image_by_url": "",
-            "image_link": "",
-            "max_width": ""
+            "image_alt": "Government of Gujarat",
+            "title": "Government of Gujarat – GOG",
+            "description": "",
+            "link": ""
           }
         },
-        "image_JYfhcU": {
-          "type": "image",
+        "logo_6": {
+          "type": "logo",
           "settings": {
+            "enabled": true,
             "image": "shopify://shop_images/Frame_1313.png",
             "image_by_url": "",
-            "image_link": "",
-            "max_width": ""
+            "image_alt": "Ministry of Housing and Urban Affairs – MOHUA",
+            "title": "MOHUA",
+            "description": "",
+            "link": ""
           }
         }
       },
       "block_order": [
-        "image_AWWHiB",
-        "image_Xm9DUy",
-        "image_CHM8kn",
-        "image_6meBbb",
-        "image_6JeYGy",
-        "image_JYfhcU"
+        "logo_1",
+        "logo_2",
+        "logo_3",
+        "logo_4",
+        "logo_5",
+        "logo_6"
       ],
       "settings": {
-        "heading": "Supported By",
-        "heading_size": "h2",
-        "subheading": "AFFILIATION",
+        "eyebrow": "AFFILIATION",
+        "heading": "Our Associations",
+        "description": "Proudly supported by leading government bodies and organizations that share our vision.",
         "header_alignment": "center",
-        "container": "container-fluid",
-        "color_scheme": "scheme-cee058e4-58e3-46aa-9af9-219dadc79066",
-        "item_per_row": 5,
-        "column_gap": 16,
-        "row_gap": 30,
-        "column_gap_mobile": 10,
-        "row_gap_mobile": 10,
-        "enable_slider": true,
-        "show_nav": true,
-        "show_pagination": false,
-        "autorotate": true,
-        "autorotate_speed": 2,
-        "padding_top": 0,
-        "padding_bottom": 74,
-        "custom_class": "",
-        "animations": "inherit"
+        "max_width": 1200,
+        "desktop_gap": 16,
+        "mobile_gap": 12,
+        "card_radius": 14,
+        "card_height": 140,
+        "show_card_shadow": true,
+        "padding_x": 20,
+        "header_gap": 36,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_top_mobile": 28,
+        "padding_bottom_mobile": 28,
+        "eyebrow_size": 13,
+        "heading_size_desktop": 44,
+        "heading_size_mobile": 28,
+        "description_size": 15,
+        "background_color": "#f3faff",
+        "card_background": "#ffffff",
+        "card_border_color": "#dceaf5",
+        "heading_color": "#142b4a",
+        "text_color": "#465568",
+        "accent_color": "#0c7fdf"
       }
     },
     "icon_box_XWCp6B": {
-      "type": "icon-box",
+      "type": "scale-o-news-media",
       "blocks": {
         "iconbox_ttpLpX": {
-          "type": "iconbox",
+          "type": "item",
           "settings": {
-            "image": "shopify://shop_images/Rectangle_17858.jpg",
-            "image_by_url": "",
+            "enabled": true,
+            "publication": "Divya Bhaskar",
             "title": "Innovation Coverage",
-            "description": "<p>Divya Bhaskar</p>",
-            "link": "https://www.divyabhaskar.co.in/local/gujarat/ahmedabad/news/this-cheap-device-will-make-1-lakh-liters-of-water-salt-less-130302889.html",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "m-button--link",
-            "button_size": ""
+            "image_alt": "Divya Bhaskar",
+            "image_by_url": ""
           }
         },
         "iconbox_tP7dpC": {
-          "type": "iconbox",
+          "type": "item",
           "settings": {
-            "image": "shopify://shop_images/vvfsvasf.png",
-            "image_by_url": "",
+            "enabled": true,
+            "publication": "News 18",
             "title": "Founder with CM of Gujarat",
-            "description": "<p>News 18</p>",
-            "link": "https://gujarati.news18.com/news/ahmedabad/ahmedabad-student-make-device-for-pure-water-kp-1252526.html",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "m-button--link",
-            "button_size": ""
+            "image_alt": "News 18",
+            "image_by_url": ""
           }
         },
         "iconbox_FHqgJj": {
-          "type": "iconbox",
+          "type": "item",
           "settings": {
-            "image": "shopify://shop_images/Rectangle_17858.png",
-            "image_by_url": "",
+            "enabled": true,
+            "publication": "Ahmedabad Mirror",
             "title": "Business Coverage",
-            "description": "<p>Ahmedabad Mirror</p>",
-            "link": "https://x.com/kuldeep_2105/status/1798197609057919273?t=j-Qm6Q-rhyoeLGNkS2-FrQ&s=08",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "m-button--link",
-            "button_size": ""
+            "image_alt": "Ahmedabad Mirror",
+            "image_by_url": ""
           }
         },
         "iconbox_TnCkrp": {
-          "type": "iconbox",
+          "type": "item",
           "settings": {
-            "image": "shopify://shop_images/image.png",
-            "image_by_url": "",
+            "enabled": true,
+            "publication": "Book of Innovations, GOI",
             "title": "Innovation Showcase",
-            "description": "<p>Book of Innovations, GOI</p>",
-            "link": "https://drive.google.com/file/d/1aL92QXJ3c6KWcYwp1iX2MUM7mVn_ujJX/view?usp=sharing",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "m-button--link",
-            "button_size": ""
+            "image_alt": "",
+            "image_by_url": ""
           }
         },
         "iconbox_DEXn8i": {
-          "type": "iconbox",
+          "type": "item",
           "settings": {
-            "image": "shopify://shop_images/Rectangle_17856.png",
-            "image_by_url": "",
+            "enabled": true,
+            "publication": "ABP News",
             "title": "Product Footage",
-            "description": "<p>ABP TV</p>",
-            "link": "https://drive.google.com/file/d/1MBQKO1pXFFjj-QUsexCY2aHWe_LNqt8o/view?usp=sharing",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "m-button--link",
-            "button_size": ""
+            "image_alt": "ABP News",
+            "image_by_url": ""
           }
         },
         "iconbox_UfXtic": {
-          "type": "iconbox",
+          "type": "item",
           "settings": {
-            "image": "shopify://shop_images/Rectangle_17857_4d8df349-c855-4d7d-95b2-8f84c9bc0065.png",
-            "image_by_url": "",
+            "enabled": true,
+            "publication": "Zee Business",
             "title": "Founder’s Pitch",
-            "description": "<p>Zee Business OTT</p>",
-            "link": "https://www.youtube.com/watch?v=kWfxUZZRbRE",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "m-button--link",
-            "button_size": ""
+            "image_alt": "Zee Business",
+            "image_by_url": ""
           }
         }
       },
@@ -1386,30 +2568,333 @@
         "iconbox_UfXtic"
       ],
       "settings": {
-        "heading": "<h2>News & Media</h2>",
-        "heading_size": "h3",
-        "subheading": "RECOGNITIONS",
-        "description": "",
-        "header_alignment": "center",
-        "container": "container",
-        "color_scheme": "default",
-        "item_per_row": 4,
-        "item_gap": 30,
-        "item_gap_mobile": 10,
-        "card_color_scheme": "default",
-        "card_style": "vertical",
-        "image_max_width": "",
-        "content_alignment": "center",
-        "hover_effect": "scaling-up",
-        "enable_slider": true,
-        "show_pagination": false,
-        "show_navigation": true,
-        "use_scroll_mobile": true,
-        "use_grid_column_mb": false,
-        "padding_top": 70,
-        "padding_bottom": 70,
-        "custom_class": "br",
-        "animations": "inherit"
+        "eyebrow": "RECOGNITIONS",
+        "heading": "News & Media",
+        "description": "Features, recognitions and media coverage that highlight Scale-O's innovation, impact and journey.",
+        "enable_infinite_carousel": false,
+        "card_width": 208,
+        "card_height": 156,
+        "card_gap": 16,
+        "marquee_speed": 36,
+        "show_inquiry": false,
+        "show_inquiry_icon": true,
+        "inquiry_text": "Want to feature Scale-O in your publication? We work with media houses, digital platforms and industry publications.",
+        "inquiry_button_text": "Media & Press Inquiries",
+        "inquiry_button_link": "shopify://pages/consult-now",
+        "max_width": 1200,
+        "padding_x": 20,
+        "header_gap": 36,
+        "card_radius": 14,
+        "show_card_shadow": true,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_top_mobile": 28,
+        "padding_bottom_mobile": 28,
+        "eyebrow_size": 13,
+        "heading_size_desktop": 36,
+        "heading_size_mobile": 26,
+        "description_size": 15,
+        "background_color": "#f3faff",
+        "card_background": "#ffffff",
+        "card_border_color": "#dceaf5",
+        "heading_color": "#142b4a",
+        "text_color": "#465568",
+        "accent_color": "#0c7fdf",
+        "accent_hover_color": "#0a6bc4",
+        "accessibility_label": "News and media"
+      }
+    },
+    "faq_home": {
+      "type": "scale-o-faq",
+      "blocks": {
+        "faq_1": {
+          "type": "faq",
+          "settings": {
+            "enabled": true,
+            "product_scope": "any",
+            "question": "What is Scale-O and how does it work?",
+            "answer": "<p>Scale-O is a salt-free water softener for Indian homes with overhead tanks. Place the compact unit inside your tank. As water flows through the home, it conditions minerals and helps reduce hard-water scale on pipes, fittings and household appliances, without salt, electricity or plumbing changes.</p>",
+            "category": ""
+          }
+        },
+        "faq_2": {
+          "type": "faq",
+          "settings": {
+            "enabled": true,
+            "product_scope": "any",
+            "question": "Does Scale-O require electricity?",
+            "answer": "<p>No. Scale-O does not need electricity, wiring or a power connection. Once placed in the tank, it works as water flows through your home.</p>",
+            "category": ""
+          }
+        },
+        "faq_3": {
+          "type": "faq",
+          "settings": {
+            "enabled": true,
+            "product_scope": "any",
+            "question": "Does Scale-O use salt?",
+            "answer": "<p>No. Scale-O is a salt-free water softener. There are no salt bags to buy, store or refill, unlike salt-based water softeners.</p>",
+            "category": ""
+          }
+        },
+        "faq_4": {
+          "type": "faq",
+          "settings": {
+            "enabled": true,
+            "product_scope": "any",
+            "question": "Does Scale-O waste water?",
+            "answer": "<p>No. Scale-O does not require backwashing, regeneration or water discharge. You get conditioned water without the water wastage typical of many salt-based softeners.</p>",
+            "category": ""
+          }
+        },
+        "faq_5": {
+          "type": "faq",
+          "settings": {
+            "enabled": true,
+            "product_scope": "any",
+            "question": "How is Scale-O installed?",
+            "answer": "<p>Yes. Installation is simple and usually needs no plumber: choose the right model for your tank, open the overhead tank, place Scale-O inside, close the tank and use water as usual. No wiring or drain line is required.</p>",
+            "category": ""
+          }
+        },
+        "faq_6": {
+          "type": "faq",
+          "settings": {
+            "enabled": true,
+            "product_scope": "any",
+            "question": "Where should Scale-O be installed?",
+            "answer": "<p>Scale-O is designed for overhead and storage water tanks used in Indian homes, so conditioned water can reach bathrooms, kitchen, laundry and appliances.</p>",
+            "category": ""
+          }
+        },
+        "faq_7": {
+          "type": "faq",
+          "settings": {
+            "enabled": true,
+            "product_scope": "any",
+            "question": "Can Scale-O be installed in an existing water tank?",
+            "answer": "<p>Yes. Scale-O is placed inside an existing overhead tank. You do not need to replace the tank or install a separate treatment plant.</p>",
+            "category": ""
+          }
+        },
+        "faq_8": {
+          "type": "faq",
+          "settings": {
+            "enabled": true,
+            "product_scope": "any",
+            "question": "How does Scale-O help prevent hard-water scale?",
+            "answer": "<p>Scale-O is a salt-free conditioner that helps reduce visible hard-water scale buildup on pipes, taps, geysers and other household fittings as water flows through the home.</p>",
+            "category": ""
+          }
+        },
+        "faq_9": {
+          "type": "faq",
+          "settings": {
+            "enabled": true,
+            "product_scope": "any",
+            "question": "Does Scale-O require regular maintenance?",
+            "answer": "<p>Day-to-day use does not require salt refills, electricity or regular servicing. When it is time, the unit is replaced through a straightforward exchange process.</p>",
+            "category": ""
+          }
+        },
+        "faq_10": {
+          "type": "faq",
+          "settings": {
+            "enabled": true,
+            "product_scope": "any",
+            "question": "How long does a Scale-O unit last?",
+            "answer": "<p>Household units are typically exchanged on a regular cycle so protection stays consistent, often around every 6 months, depending on the product and usage. Check your product details and exchange policy for the recommended interval.</p>",
+            "category": ""
+          }
+        },
+        "faq_11": {
+          "type": "faq",
+          "settings": {
+            "enabled": true,
+            "product_scope": "any",
+            "question": "Which Scale-O model is right for my home?",
+            "answer": "<p>Match your overhead tank: Mini for 500L-750L, Semi for 1000L-1500L, Centi for 2000L-2500L. A 4 to 6 member family often uses Semi when the tank is about 1000L-1500L. If you are unsure, talk to a Scale-O expert.</p>",
+            "category": ""
+          }
+        },
+        "faq_12": {
+          "type": "faq",
+          "settings": {
+            "enabled": true,
+            "product_scope": "any",
+            "question": "Can Scale-O be used with geysers, washing machines and other appliances?",
+            "answer": "<p>Yes. Once installed in the overhead tank, Scale-O conditions the water that flows to bathrooms, kitchen, laundry and household appliances such as geysers and washing machines.</p>",
+            "category": ""
+          }
+        },
+        "faq_13": {
+          "type": "faq",
+          "settings": {
+            "enabled": true,
+            "product_scope": "any",
+            "question": "How do I choose the correct Scale-O size?",
+            "answer": "<p>Match the unit to your overhead tank capacity and how much water your household uses. Larger tanks or higher usage generally need a larger model. Use the product size guide or speak with our team if you need help choosing.</p>",
+            "category": ""
+          }
+        },
+        "faq_14": {
+          "type": "faq",
+          "settings": {
+            "enabled": true,
+            "product_scope": "any",
+            "question": "What is included with my Scale-O purchase?",
+            "answer": "<p>Your Scale-O unit is ready to place in the tank. Specific inclusions can vary by model. Check the product page for what ships with your chosen size.</p>",
+            "category": ""
+          }
+        },
+        "faq_15": {
+          "type": "faq",
+          "settings": {
+            "enabled": true,
+            "product_scope": "any",
+            "question": "How does the trial / guarantee work?",
+            "answer": "<p>Scale-O offers a 7-day risk-free trial so you can try it in your home with confidence. Guarantee activation is confirmed with your invoice as part of the purchase process. See the product page or talk to our team for current trial terms.</p>",
+            "category": ""
+          }
+        },
+        "faq_16": {
+          "type": "faq",
+          "settings": {
+            "enabled": true,
+            "product_scope": "any",
+            "question": "What is a salt-free water softener?",
+            "answer": "<p>A salt-free water softener conditions hard-water minerals instead of swapping them with salt. Scale-O sits in your overhead tank, needs no electricity or salt bags, and helps reduce scale on taps, geysers and tiles. It is not an ion-exchange salt plant. Compare <a href=\"/blogs/articles/salt-free-vs-salt-based-water-softeners\">salt-free vs salt-based water softeners</a>.</p>",
+            "category": ""
+          }
+        },
+        "faq_17": {
+          "type": "faq",
+          "settings": {
+            "enabled": true,
+            "product_scope": "any",
+            "question": "Does a water softener reduce hair fall from hard water?",
+            "answer": "<p>Hard water hair fall in India is often breakage from mineral film, not medical shedding. A salt-free water softener in the overhead tank can help hair feel less dry and brittle over time. Scale-O does not claim to stop balding or regrow hair. Read <a href=\"/blogs/articles/hard-water-hair-breakage-vs-shedding\">hard water hair fall: breakage vs shedding</a>.</p>",
+            "category": ""
+          }
+        },
+        "faq_18": {
+          "type": "faq",
+          "settings": {
+            "enabled": true,
+            "product_scope": "any",
+            "question": "Do I still need RO if I use a water softener?",
+            "answer": "<p>Yes. Keep RO for drinking if you already use it. A water softener for home treats the overhead tank supply for bathrooms, kitchen lines and appliances. Scale-O is not a drinking-water purifier. Use RO for potable water and Scale-O for whole-house scale protection.</p>",
+            "category": ""
+          }
+        },
+        "faq_19": {
+          "type": "faq",
+          "settings": {
+            "enabled": true,
+            "product_scope": "any",
+            "question": "Can I install a water softener in an overhead tank?",
+            "answer": "<p>Yes. Scale-O is a water softener for overhead tanks: open the lid, place the unit, close and use water as usual. No plumber, no drain, no electricity. It is for houses, villas and bungalows with a tank you can access. See the <a href=\"/blogs/articles/best-overhead-tank-water-softener-india\">overhead tank water softener</a> guide.</p>",
+            "category": ""
+          }
+        },
+        "faq_20": {
+          "type": "faq",
+          "settings": {
+            "enabled": true,
+            "product_scope": "any",
+            "question": "Which is better for Indian homes: salt-free or salt-based water softener?",
+            "answer": "<p>Salt-based softeners can drop hardness more, but need salt, drain and often a plumber. A salt-free water softener like Scale-O fits Indian overhead-tank homes: no salt, no electricity, DIY drop-in, and helps reduce scale. Read <a href=\"/blogs/articles/salt-free-vs-salt-based-water-softeners\">salt-free vs salt-based water softeners</a>.</p>",
+            "category": ""
+          }
+        },
+        "faq_21": {
+          "type": "faq",
+          "settings": {
+            "enabled": true,
+            "product_scope": "any",
+            "question": "Which Scale-O is right for a 4 to 6 member family?",
+            "answer": "<p>Most 4 to 6 member Indian homes with a 1000L-1500L overhead tank choose Scale-O Semi. Smaller 500L-750L tanks use Mini. Larger 2000L-2500L tanks use Centi. Shop by tank size in the <a href=\"/collections/water-softeners\">water softener for home</a> collection or see <a href=\"/pages/water-softener-plans\">water softener price and plans</a>.</p>",
+            "category": ""
+          }
+        },
+        "faq_22": {
+          "type": "faq",
+          "settings": {
+            "enabled": true,
+            "product_scope": "any",
+            "question": "Is Scale-O a water softener for apartments?",
+            "answer": "<p>Scale-O is built for houses, villas and bungalows with a private overhead tank. Typical apartments without tank access are not the right fit. If your independent floor has its own overhead tank, match Mini, Semi or Centi to tank litres. Ask on WhatsApp if you are unsure.</p>",
+            "category": ""
+          }
+        }
+      },
+      "block_order": [
+        "faq_1",
+        "faq_2",
+        "faq_3",
+        "faq_4",
+        "faq_5",
+        "faq_6",
+        "faq_7",
+        "faq_8",
+        "faq_9",
+        "faq_10",
+        "faq_11",
+        "faq_12",
+        "faq_13",
+        "faq_14",
+        "faq_15",
+        "faq_16",
+        "faq_17",
+        "faq_18",
+        "faq_19",
+        "faq_20",
+        "faq_21",
+        "faq_22"
+      ],
+      "settings": {
+        "eyebrow": "FAQ",
+        "heading": "Salt-Free Water Softener FAQ for Indian Homes",
+        "description": "<p>Common questions about salt-free water softeners for Indian homes: overhead tank installation, hard water and hair fall, RO vs water softener, and Scale-O sizing for houses and villas.</p>",
+        "filter_by_product": false,
+        "dynamic_product_copy": false,
+        "enable_faq_schema": true,
+        "show_cta": true,
+        "cta_button_text": "Chat on WhatsApp",
+        "whatsapp_number": "919909963300",
+        "whatsapp_message": "Hi Scale-O, I have a question about the salt-free water softener for my home.",
+        "layout": "two_columns",
+        "max_width": 1180,
+        "faq_column_width": 58,
+        "column_gap": 56,
+        "padding_x": 20,
+        "accordion_behavior": "single",
+        "open_first": true,
+        "animation_speed": 320,
+        "item_gap": 12,
+        "show_load_more": true,
+        "initial_count": 6,
+        "load_more_text": "Load more",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_top_mobile": 28,
+        "padding_bottom_mobile": 28,
+        "eyebrow_size": 13,
+        "heading_size_desktop": 28,
+        "heading_size_mobile": 22,
+        "description_size": 15,
+        "question_size": 16,
+        "answer_size": 15,
+        "background_color": "#f7fbff",
+        "heading_color": "#102a43",
+        "text_color": "#465568",
+        "accent_color": "#0c7fdf",
+        "accent_hover_color": "#0a6bc4",
+        "card_background": "#ffffff",
+        "border_color": "#dceaf5",
+        "border_radius": 14,
+        "show_card_shadow": true,
+        "accessibility_label": "Frequently asked questions"
       }
     },
     "custom_content_EwkEYn": {
@@ -1430,6 +2915,7 @@
       "block_order": [
         "image_eyY9e6"
       ],
+      "disabled": true,
       "settings": {
         "heading": "",
         "heading_size": "h3",
@@ -1451,7 +2937,6 @@
     },
     "553051375185654411": {
       "type": "apps",
-      "disabled": true,
       "settings": {
         "heading": "",
         "heading_size": "h3",
@@ -1478,82 +2963,29 @@
         "padding_bottom": 0,
         "custom_class": ""
       }
-    },
-    "collection_banner_eHRCAd": {
-      "type": "collection-banner",
-      "blocks": {
-        "slide_tDqfkJ": {
-          "type": "slide",
-          "settings": {
-            "desktop_banner": "shopify://shop_images/banner-3_8afb6499-7f5d-4998-b8be-7a4dc15ca6fe.jpg",
-            "mobile_banner": "shopify://shop_images/1_56b6adee-a1d2-4b37-8c86-80b8f503370e.jpg",
-            "heading": "<p>Indias best <br/>Selling purifier</p>",
-            "subtext": "Scale-O Centi Water Softener",
-            "subtext_2": "Starting at 4500*",
-            "info": "<p>10% instant bank discount</p>",
-            "btn_label": "Shop now",
-            "btn_link": "shopify://collections",
-            "specification_image_1": "shopify://shop_images/mini-centi-2_18d57853-eaa8-4a3c-be4f-7b8dd0ee6708.jpg",
-            "specification_heading_1": "specification 1",
-            "specification_content_1": "<p>specification content 1</p>",
-            "specification_image_2": "shopify://shop_images/mini-combo-1_92e9b3ef-462c-49fe-b657-8ad6dbfaba0f.jpg",
-            "specification_heading_2": "specification 2",
-            "specification_content_2": "<p>specification content 2</p>",
-            "specification_image_3": "shopify://shop_images/mini-centi-04_1.jpg",
-            "specification_heading_3": "specification 3",
-            "specification_content_3": "<p>specification content 3</p>"
-          }
-        },
-        "slide_mfhB8E": {
-          "type": "slide",
-          "settings": {
-            "desktop_banner": "shopify://shop_images/banner-4_06fefd66-f0b8-4ff1-bd88-f6816a0223d8.jpg",
-            "heading": "",
-            "subtext": "",
-            "subtext_2": "",
-            "info": "",
-            "btn_label": "",
-            "btn_link": "",
-            "specification_heading_1": "",
-            "specification_content_1": "",
-            "specification_heading_2": "",
-            "specification_content_2": "",
-            "specification_heading_3": "",
-            "specification_content_3": ""
-          }
-        }
-      },
-      "block_order": [
-        "slide_tDqfkJ",
-        "slide_mfhB8E"
-      ],
-      "disabled": true,
-      "settings": {}
     }
   },
   "order": [
     "1621243260e1af0c20",
-    "custom_content_PHMhVN",
+    "usp_strip_home",
+    "stats_trust_home",
+    "how_it_works_home",
     "featured_collection_hJqRXq",
-    "icon_box_aXcwE8",
-    "icon_box_Twp6KE",
-    "rich_text_eQc6cD",
-    "custom_content_9arDHN",
-    "custom_content_yCRmH3",
-    "rich_text_9UaYFN",
-    "video_nTNUNr",
-    "icon_box_iaQiym",
-    "custom_content_hgEnhK",
-    "custom_content_HgFVDW",
-    "rich_text_PwY3ay",
-    "custom_liquid_etEAdK",
-    "custom_content_jPga7b",
+    "watch_and_shop_home",
+    "hard_water_problems_home",
+    "scale_o_solution_home",
+    "before_after_home",
+    "people_property_home",
+    "tech_compare_home",
+    "scale_o_video_home",
+    "video_testimonials_home",
+    "certificates_home",
     "blog_posts_ryzFA7",
-    "brands_list_c7kdGA",
+    "affiliations_home",
     "icon_box_XWCp6B",
+    "faq_home",
     "custom_content_EwkEYn",
     "553051375185654411",
-    "211940625599402079",
-    "collection_banner_eHRCAd"
+    "211940625599402079"
   ]
 }

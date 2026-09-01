@@ -290,6 +290,7 @@
         "usp_1": {
           "type": "usp_point",
           "settings": {
+            "icon": "rupee",
             "title": "Zero Operating Cost",
             "description": "No recurring bills or operational charges."
           }
@@ -297,6 +298,7 @@
         "usp_2": {
           "type": "usp_point",
           "settings": {
+            "icon": "maintenance",
             "title": "Zero Maintenance",
             "description": "No servicing or break-down issues as no electro-mechanical parts."
           }
@@ -304,6 +306,7 @@
         "usp_3": {
           "type": "usp_point",
           "settings": {
+            "icon": "salt",
             "title": "Zero Salt",
             "description": "No salt recharges or refills."
           }
@@ -311,6 +314,7 @@
         "usp_4": {
           "type": "usp_point",
           "settings": {
+            "icon": "electricity",
             "title": "Zero Electricity",
             "description": "No electrical connection required."
           }
@@ -318,6 +322,7 @@
         "usp_5": {
           "type": "usp_point",
           "settings": {
+            "icon": "manpower",
             "title": "Zero Manpower",
             "description": "No plumber or technician needed throughout."
           }
@@ -325,6 +330,7 @@
         "usp_6": {
           "type": "usp_point",
           "settings": {
+            "icon": "water",
             "title": "Zero Water Wastage",
             "description": "No water wasted in drain, each drop saved."
           }
@@ -332,6 +338,7 @@
         "usp_7": {
           "type": "usp_point",
           "settings": {
+            "icon": "plumbing",
             "title": "Zero Plumbing",
             "description": "No plumbing connection required."
           }
@@ -439,8 +446,7 @@
         "heading": "Our Zero Factor USP",
         "description": "Checkout our Zero Hassles & Zero Worries Solution.",
         "header_alignment": "center",
-        "installation_diagram": "shopify://shop_images/ChatGPT_Image_Aug_12_2026_12_35_16_PM.png",
-        "diagram_alt": "Scale-O installation flow from overhead tank to home",
+        "diagram_alt": "Scale-O cartridge with perforated casing, food-grade softening media and reinforced filter bag",
         "usp_panel_eyebrow": "",
         "usp_panel_heading": "",
         "installation_video_url": "",
@@ -1022,7 +1028,7 @@
         "solution_description": "Scale-O uses Chelation Technology to coat Calcium & Magnesium ions and prevent scaling and convert hard into soft water.",
         "benefits_heading": "The Soft Water Solution",
         "show_connectors": false,
-        "product_image_alt": "Scale-O salt-free water softener converting hard water into scale-protected water",
+        "product_image_alt": "Scale-O Semi salt-free water softener converting hard water into soft water",
         "product_image_width": 560,
         "show_product_label": true,
         "show_product_glow": true,
@@ -1223,8 +1229,8 @@
           "type": "category",
           "settings": {
             "handle": "people",
-            "tab_label": "For Health",
-            "heading": "For Health",
+            "tab_label": "For People",
+            "heading": "For People",
             "description": "Better water for everyday life.",
             "image_alt": "Everyday home water experience",
             "show_cta": false,
@@ -1252,8 +1258,8 @@
             "image": "shopify://shop_images/scale-o-adv-people-3-updated.png",
             "image_alt": "",
             "short_label": "",
-            "title": "Better Shower Experience",
-            "description": "Help reduce visible hard-water scale around everyday bathroom fixtures.",
+            "title": "Healthier Hair & Scalp",
+            "description": "Help reduce dry, brittle hair caused by hard-water mineral buildup.",
             "cta_text": "",
             "link": ""
           }
@@ -1265,8 +1271,8 @@
             "image": "shopify://shop_images/scale-o-adv-people-4.png",
             "image_alt": "",
             "short_label": "",
-            "title": "Softer-Feeling Laundry",
-            "description": "Better water for everyday washing and household laundry.",
+            "title": "Better Water for Your Family",
+            "description": "Cleaner-feeling water for cooking, drinking and everyday meals at home.",
             "cta_text": "",
             "link": ""
           }
@@ -1278,8 +1284,8 @@
             "image": "shopify://shop_images/scale-o-adv-people-1-updated.png",
             "image_alt": "",
             "short_label": "",
-            "title": "Cleaner-Looking Fixtures",
-            "description": "Help reduce visible mineral deposits around taps and showers.",
+            "title": "Safe for Kids & Pets",
+            "description": "Gentler water for bathing children and caring for pets at home.",
             "cta_text": "",
             "link": ""
           }
@@ -1291,8 +1297,8 @@
             "image": "shopify://shop_images/scale-o-adv-people-2.webp",
             "image_alt": "",
             "short_label": "",
-            "title": "Better Everyday Water Experience",
-            "description": "A simple salt-free approach to managing hard-water scale throughout the home.",
+            "title": "Softer-Feeling Laundry",
+            "description": "Better water for everyday washing and household laundry.",
             "cta_text": "",
             "link": ""
           }

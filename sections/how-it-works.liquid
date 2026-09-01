@@ -127,32 +127,42 @@
   }
 
   #shopify-section-{{ section.id }} .scale-o-how-it-works__visual {
-    background: var(--hiw-card-bg);
-    border: 1px solid color-mix(in srgb, var(--hiw-divider) 35%, transparent);
-    border-radius: 18px;
-    padding: 20px;
-    box-shadow: var(--hiw-card-shadow);
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    box-shadow: none;
     display: flex;
     flex-direction: column;
-    height: 100%;
+    align-items: center;
+    justify-content: center;
+    height: auto;
   }
 
   #shopify-section-{{ section.id }} .scale-o-how-it-works__diagram-wrap {
     width: 100%;
-    flex: 1;
+    flex: none;
     display: flex;
     align-items: center;
     justify-content: center;
     min-height: 0;
+    background: transparent;
+    border: none;
+    box-shadow: none;
   }
 
   #shopify-section-{{ section.id }} .scale-o-how-it-works__diagram-img {
-    width: 100%;
+    width: auto;
+    max-width: 100%;
     height: auto;
-    max-height: 100%;
+    max-height: 480px;
     display: block;
-    border-radius: 12px;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
     object-fit: contain;
+    margin: 0 auto;
+    background: transparent;
   }
 
   #shopify-section-{{ section.id }} .scale-o-how-it-works__video-btn {
@@ -203,6 +213,20 @@
     margin-top: 1px;
   }
 
+  #shopify-section-{{ section.id }} .scale-o-how-it-works__step--usp .scale-o-how-it-works__step-icon {
+    flex-shrink: 0;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: color-mix(in srgb, var(--hiw-accent) 12%, white);
+    color: var(--hiw-step-num);
+    border: 1.5px solid color-mix(in srgb, var(--hiw-accent) 25%, transparent);
+    margin-top: 1px;
+  }
+
   #shopify-section-{{ section.id }} .scale-o-how-it-works__step:hover {
     box-shadow: var(--hiw-card-shadow-hover);
     border-color: color-mix(in srgb, var(--hiw-accent) 28%, transparent);
@@ -213,7 +237,11 @@
     display: flex;
     flex-direction: column;
     height: auto;
-    justify-content: flex-start;
+    justify-content: center;
+  }
+
+  #shopify-section-{{ section.id }} .scale-o-how-it-works__usp-panel .scale-o-how-it-works__steps--stack {
+    gap: 10px;
   }
 
   #shopify-section-{{ section.id }} .scale-o-how-it-works__usp-panel-header {
@@ -580,13 +608,35 @@
   @media (min-width: 992px) {
     #shopify-section-{{ section.id }} .scale-o-how-it-works__main {
       min-height: 0;
+      align-items: center;
+      grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+    }
+
+    #shopify-section-{{ section.id }} .scale-o-how-it-works__visual {
+      align-self: center;
+      padding: 0;
+    }
+
+    #shopify-section-{{ section.id }} .scale-o-how-it-works__diagram-img {
+      max-height: min(500px, 60vh);
+    }
+
+    #shopify-section-{{ section.id }} .scale-o-how-it-works__usp-panel {
+      height: auto;
+      min-height: 0;
+      justify-content: center;
     }
 
     #shopify-section-{{ section.id }} .scale-o-how-it-works__usp-panel .scale-o-how-it-works__steps--stack {
       flex: none;
       height: auto;
       justify-content: flex-start;
-      gap: 12px;
+      gap: 11px;
+      padding: 0;
+    }
+
+    #shopify-section-{{ section.id }} .scale-o-how-it-works__step--usp {
+      padding: 11px 14px 10px;
     }
   }
 
@@ -762,9 +812,9 @@
           {%- else -%}
             <img
               class="scale-o-how-it-works__diagram-img"
-              src="{{ 'how-it-works-step-2.jpg' | asset_url }}"
-              alt="{{ section.settings.diagram_alt | default: 'Scale-O installation in overhead tank' | escape }}"
-              width="1536"
+              src="{{ 'scale-o-zero-factor-diagram.jpg' | asset_url }}"
+              alt="{{ section.settings.diagram_alt | default: 'Scale-O cartridge with food-grade softening media' | escape }}"
+              width="840"
               height="1024"
               loading="lazy"
               decoding="async"
@@ -793,8 +843,33 @@
           {%- endif -%}
           <ul class="scale-o-how-it-works__steps scale-o-how-it-works__steps--stack" role="list">
             {%- for block in usp_blocks -%}
+              {%- liquid
+                assign usp_icon = block.settings.icon | default: 'auto'
+                if usp_icon == 'auto' or usp_icon == blank
+                  assign title_downcase = block.settings.title | downcase
+                  if title_downcase contains 'operating cost' or title_downcase contains 'cost'
+                    assign usp_icon = 'rupee'
+                  elsif title_downcase contains 'maintenance'
+                    assign usp_icon = 'maintenance'
+                  elsif title_downcase contains 'salt'
+                    assign usp_icon = 'salt'
+                  elsif title_downcase contains 'electric'
+                    assign usp_icon = 'electricity'
+                  elsif title_downcase contains 'manpower'
+                    assign usp_icon = 'manpower'
+                  elsif title_downcase contains 'wastage' or title_downcase contains 'water wastage'
+                    assign usp_icon = 'water'
+                  elsif title_downcase contains 'plumb'
+                    assign usp_icon = 'plumbing'
+                  else
+                    assign usp_icon = 'shield'
+                  endif
+                endif
+              -%}
               <li class="scale-o-how-it-works__step scale-o-how-it-works__step--usp" {{ block.shopify_attributes }}>
-                <span class="scale-o-how-it-works__step-num" aria-hidden="true">{{ forloop.index }}</span>
+                <span class="scale-o-how-it-works__step-icon" aria-hidden="true">
+                  {% render 'usp-strip-icon', icon: usp_icon, class: 'scale-o-how-it-works__svg' %}
+                </span>
                 <div class="scale-o-how-it-works__step-body">
                   {%- if block.settings.title != blank -%}
                     <h3 class="scale-o-how-it-works__step-title">{{ block.settings.title | escape }}</h3>
@@ -1042,6 +1117,25 @@
       "name": "USP Point",
       "limit": 8,
       "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "default": "auto",
+          "options": [
+            { "value": "auto", "label": "Auto (match title)" },
+            { "value": "rupee", "label": "Operating cost" },
+            { "value": "maintenance", "label": "Maintenance" },
+            { "value": "salt", "label": "Salt" },
+            { "value": "electricity", "label": "Electricity" },
+            { "value": "manpower", "label": "Manpower" },
+            { "value": "water", "label": "Water wastage" },
+            { "value": "plumbing", "label": "Plumbing" },
+            { "value": "shield", "label": "Shield" },
+            { "value": "droplet", "label": "Water drop" },
+            { "value": "house", "label": "Home" }
+          ]
+        },
         { "type": "text", "id": "title", "label": "Title", "default": "Zero Electricity" },
         { "type": "textarea", "id": "description", "label": "Short description", "default": "Operates without electricity." }
       ]

@@ -90,10 +90,10 @@
     {%- endif -%}
 
     {%- if is_grid_layout -%}
-      {%- comment -%} Flat grid with For Health / For Homes group labels {%- endcomment -%}
+      {%- comment -%} Flat grid with For People / For Homes group labels {%- endcomment -%}
       {%- if benefit_blocks.size > 0 -%}
         {%- liquid
-          assign health_label = 'For Health'
+          assign health_label = 'For People'
           assign homes_label = 'For Homes'
           for category in category_blocks
             if category.settings.handle == 'people'

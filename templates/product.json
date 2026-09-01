@@ -1406,8 +1406,8 @@
           "type": "category",
           "settings": {
             "handle": "people",
-            "tab_label": "For Health",
-            "heading": "For Health",
+            "tab_label": "For People",
+            "heading": "For People",
             "description": "Better water for everyday life.",
             "image_alt": "Everyday home water experience",
             "show_cta": false,
@@ -1432,10 +1432,11 @@
           "type": "benefit",
           "settings": {
             "category": "people",
+            "image": "shopify://shop_images/scale-o-adv-people-3-updated.png",
             "image_alt": "",
             "short_label": "",
-            "title": "Better Shower Experience",
-            "description": "Help reduce visible hard-water scale around everyday bathroom fixtures.",
+            "title": "Healthier Hair & Scalp",
+            "description": "Help reduce dry, brittle hair caused by hard-water mineral buildup.",
             "cta_text": "",
             "link": ""
           }
@@ -1444,10 +1445,11 @@
           "type": "benefit",
           "settings": {
             "category": "people",
+            "image": "shopify://shop_images/scale-o-adv-people-4.png",
             "image_alt": "",
             "short_label": "",
-            "title": "Softer-Feeling Laundry",
-            "description": "Better water for everyday washing and household laundry.",
+            "title": "Better Water for Your Family",
+            "description": "Cleaner-feeling water for cooking, drinking and everyday meals at home.",
             "cta_text": "",
             "link": ""
           }
@@ -1456,10 +1458,11 @@
           "type": "benefit",
           "settings": {
             "category": "people",
+            "image": "shopify://shop_images/scale-o-adv-people-1-updated.png",
             "image_alt": "",
             "short_label": "",
-            "title": "Cleaner-Looking Fixtures",
-            "description": "Help reduce visible mineral deposits around taps and showers.",
+            "title": "Safe for Kids & Pets",
+            "description": "Gentler water for bathing children and caring for pets at home.",
             "cta_text": "",
             "link": ""
           }
@@ -1468,10 +1471,11 @@
           "type": "benefit",
           "settings": {
             "category": "people",
+            "image": "shopify://shop_images/scale-o-adv-people-2.webp",
             "image_alt": "",
             "short_label": "",
-            "title": "Better Everyday Water Experience",
-            "description": "A simple salt-free approach to managing hard-water scale throughout the home.",
+            "title": "Softer-Feeling Laundry",
+            "description": "Better water for everyday washing and household laundry.",
             "cta_text": "",
             "link": ""
           }

@@ -1,7 +1,7 @@
 {%- comment -%}
   Scale-O collection hero — homepage-style auto slider.
   Each Theme Editor slide has its own image + left-side text.
-  Height, overlay, and panel size stay the same.
+  Height and panel size stay the same.
 {%- endcomment -%}
 
 {{ 'scale-o-collection-hero.css' | asset_url | stylesheet_tag }}
@@ -71,6 +71,22 @@
     padding-top: {{ section.settings.padding_top }}px;
     padding-left: {{ section.settings.padding_x }}px;
     padding-right: {{ section.settings.padding_x }}px;
+  }
+  @media screen and (min-width: 768px) {
+    #shopify-section-{{ section.id }} {
+      width: 100vw;
+      max-width: 100vw;
+      margin-left: calc(50% - 50vw);
+      margin-right: calc(50% - 50vw);
+    }
+    #shopify-section-{{ section.id }} .scale-o-collection-hero__inner {
+      padding-left: 0;
+      padding-right: 0;
+      max-width: 100%;
+    }
+    #shopify-section-{{ section.id }} .scale-o-collection-hero__panel {
+      border-radius: 0;
+    }
   }
 </style>
 
@@ -332,10 +348,10 @@
       { "value": "left", "label": "Left" },
       { "value": "center", "label": "Center" }
     ] },
-    { "type": "range", "id": "desktop_height", "label": "Hero height", "min": 280, "max": 680, "step": 10, "unit": "px", "default": 420, "info": "Keep this unless you want a taller or shorter banner." },
+    { "type": "range", "id": "desktop_height", "label": "Hero minimum height (desktop)", "min": 360, "max": 720, "step": 10, "unit": "px", "default": 520, "info": "Desktop uses a wide banner ratio so full images show. This sets the minimum height." },
     { "type": "range", "id": "mobile_height", "label": "Mobile height", "min": 280, "max": 560, "step": 10, "unit": "px", "default": 380 },
     { "type": "range", "id": "content_width", "label": "Content width", "min": 0, "max": 1600, "step": 20, "unit": "px", "default": 0, "info": "0 = full page width inside the side padding" },
-    { "type": "range", "id": "border_radius", "label": "Corner radius", "min": 0, "max": 28, "step": 2, "unit": "px", "default": 12 },
+    { "type": "range", "id": "border_radius", "label": "Corner radius", "min": 0, "max": 28, "step": 2, "unit": "px", "default": 0 },
     { "type": "header", "content": "Colors" },
     { "type": "color", "id": "background_color", "label": "Fallback color", "default": "#ffffff" },
     { "type": "color", "id": "heading_color", "label": "Heading color", "default": "#0b1b2e" },

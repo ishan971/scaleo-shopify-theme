@@ -341,6 +341,7 @@
           "settings": {
             "step_number": "1",
             "icon": "tank",
+            "image": "shopify://shop_images/how-it-works-install-2.png",
             "title": "Open the Tank Lid",
             "description": "Open the tank lid and place on side for installing the water softener."
           }
@@ -350,6 +351,7 @@
           "settings": {
             "step_number": "2",
             "icon": "install",
+            "image": "shopify://shop_images/how-it-works-install-3-updated.png",
             "title": "Lower Scale-O Into the Tank",
             "description": "Lower the softener in the tank using the rope such that it is fully submerged in water."
           }
@@ -359,6 +361,7 @@
           "settings": {
             "step_number": "3",
             "icon": "check",
+            "image": "shopify://shop_images/how-it-works-install-4.png",
             "title": "Secure the Rope",
             "description": "Ensure softener is few inches from bottom and then tie the rope to tank lid or nearby pipe."
           }
@@ -368,6 +371,7 @@
           "settings": {
             "step_number": "4",
             "icon": "home",
+            "image": "shopify://shop_images/how-it-works-install-5.png",
             "title": "Start Using Scale-O",
             "description": "Use water as usual in the bathroom, kitchen and laundry while Scale-O helps reduce hard-water scale buildup."
           }

@@ -16,7 +16,7 @@
           "type": "slide",
           "settings": {
             "enabled": true,
-            "image": "shopify://shop_images/main_hero-1.png",
+            "image": "shopify://shop_images/main-hero-1.png",
             "image_mobile": "shopify://shop_images/1st.png",
             "banner_preset": "family",
             "image_alt": "Scale-O salt-free water softener in overhead tank",
@@ -44,7 +44,7 @@
           "type": "slide",
           "settings": {
             "enabled": true,
-            "image": "shopify://shop_images/ChatGPT_Image_Aug_14_2026_02_34_40_PM.png",
+            "image": "shopify://shop_images/main_hero-2_fc07f6b8-77c1-4edb-be84-031f0cc76a45.png",
             "image_mobile": "shopify://shop_images/2nd.png",
             "banner_preset": "whole_house",
             "image_alt": "Scale-O whole-house protection",

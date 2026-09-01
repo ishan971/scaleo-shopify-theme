@@ -89,8 +89,12 @@
           assign fallback_file = 'scale-o-hero-highlights.jpg'
           if banner_preset == 'family'
             assign fallback_file = 'scale-o-hero-family.jpg'
+            assign mobile_fallback_file = 'scale-o-hero-mob-family.jpg'
           elsif banner_preset == 'whole_house'
             assign fallback_file = 'scale-o-hero-whole-house.jpg'
+            assign mobile_fallback_file = 'scale-o-hero-mob-whole-house.jpg'
+          else
+            assign mobile_fallback_file = 'scale-o-hero-mob-products.jpg'
           endif
           assign image_pos = block.settings.image_position | default: section.settings.image_position
           assign text_align = block.settings.text_alignment | default: section.settings.content_alignment
@@ -127,19 +131,20 @@
               else
                 assign hero_loading = 'lazy'
               endif
-              assign hero_sizes = '(max-width: 767px) 100vw, (max-width: 1199px) 50vw, 720px'
+              assign hero_sizes = '(max-width: 767px) 100vw, 100vw'
             -%}
             {%- if desktop_image != blank or mobile_image != blank -%}
-              {%- if mobile_image != blank and desktop_image != blank and mobile_image != desktop_image -%}
-                <picture>
-                  <source
-                    media="(max-width: 767px)"
-                    srcset="
-                      {{ mobile_image | image_url: width: 480 }} 480w,
-                      {{ mobile_image | image_url: width: 800 }} 800w
-                    "
-                    sizes="100vw"
-                  >
+              <picture>
+                <source
+                  media="(max-width: 767px)"
+                  srcset="
+                    {{ mobile_fallback_file | asset_img_url: '576x' }} 576w,
+                    {{ mobile_fallback_file | asset_img_url: '800x' }} 800w,
+                    {{ mobile_fallback_file | asset_img_url: '1200x' }} 1200w
+                  "
+                  sizes="100vw"
+                >
+                {%- if desktop_image != blank -%}
                   {%- if is_first -%}
                     {{
                       desktop_image
@@ -164,43 +169,37 @@
                         class: 'scale-o-hero__img'
                     }}
                   {%- endif -%}
-                </picture>
-              {%- else -%}
-                {%- assign hero_image = desktop_image | default: mobile_image -%}
-                {%- if is_first -%}
-                  {{
-                    hero_image
-                    | image_url: width: 1600
-                    | image_tag:
-                      loading: hero_loading,
-                      fetchpriority: 'high',
-                      widths: '400,800,1200,1600',
-                      sizes: hero_sizes,
-                      alt: alt_text,
-                      class: 'scale-o-hero__img'
-                  }}
                 {%- else -%}
-                  {{
-                    hero_image
-                    | image_url: width: 1600
-                    | image_tag:
-                      loading: hero_loading,
-                      widths: '400,800,1200,1600',
-                      sizes: hero_sizes,
-                      alt: alt_text,
-                      class: 'scale-o-hero__img'
-                  }}
+                  <img
+                    class="scale-o-hero__img"
+                    src="{{ fallback_file | asset_img_url: '1600x' }}"
+                    alt="{{ alt_text | escape }}"
+                    width="1600"
+                    height="667"
+                    {% if is_first %}loading="eager" fetchpriority="high"{% else %}loading="lazy"{% endif %}
+                  >
                 {%- endif -%}
-              {%- endif -%}
+              </picture>
             {%- else -%}
-              <img
-                class="scale-o-hero__img"
-                src="{{ fallback_file | asset_img_url: '800x' }}"
-                alt="{{ alt_text | escape }}"
-                width="800"
-                height="450"
-                {% if is_first %}loading="eager" fetchpriority="high"{% else %}loading="lazy"{% endif %}
-              >
+              <picture>
+                <source
+                  media="(max-width: 767px)"
+                  srcset="
+                    {{ mobile_fallback_file | asset_img_url: '576x' }} 576w,
+                    {{ mobile_fallback_file | asset_img_url: '800x' }} 800w,
+                    {{ mobile_fallback_file | asset_img_url: '1200x' }} 1200w
+                  "
+                  sizes="100vw"
+                >
+                <img
+                  class="scale-o-hero__img"
+                  src="{{ fallback_file | asset_img_url: '1600x' }}"
+                  alt="{{ alt_text | escape }}"
+                  width="1600"
+                  height="667"
+                  {% if is_first %}loading="eager" fetchpriority="high"{% else %}loading="lazy"{% endif %}
+                >
+              </picture>
             {%- endif -%}
             <span class="scale-o-hero__overlay{% if block.settings.show_overlay %} is-on{% endif %}" aria-hidden="true"></span>
           </div>

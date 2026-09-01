@@ -940,7 +940,7 @@
             "category_label": "",
             "description": "Salt-free scale protection designed for simple installation and zero operating requirements.",
             "product": "",
-            "image": "shopify://shop_images/ChatGPT_Image_Aug_13_2026_11_54_21_AM.png",
+            "image": "shopify://shop_images/im2.png",
             "image_alt": "Scale-O salt-free water softener",
             "theme_icon": "droplet",
             "show_icon": false,
@@ -1085,7 +1085,7 @@
             "enabled": true,
             "title": "Scale-O",
             "highlight": true,
-            "image": "shopify://shop_images/ChatGPT_Image_Aug_13_2026_11_54_21_AM.png",
+            "image": "shopify://shop_images/im2.png",
             "image_alt": "Scale-O salt-free water softener"
           }
         },
@@ -1692,7 +1692,6 @@
         "show_eyebrow": true,
         "eyebrow": "BEFORE & AFTER RESULTS",
         "heading": "Checkout Before vs After Results with Scale-O",
-        "heading_one_line": true,
         "show_description": true,
         "description": "Genuine differences and impact after installing our water softeners across houses.",
         "description_highlight": "",
@@ -2024,13 +2023,13 @@
     "custom_content_3kjdhd": {
       "type": "scale-o-faq",
       "blocks": {
-        "faq_2": {
+        "faq_any_1": {
           "type": "faq",
           "settings": {
             "enabled": true,
             "product_scope": "any",
-            "question": "Does Scale-O require electricity or plumbing?",
-            "answer": "<p>No. Scale-O is a salt-free water softener for overhead tanks that needs no electricity, wiring or plumber. Place the unit in your tank and use water as usual. Browse the full <a href=\"/collections/water-softeners\">water softener for home</a> range.</p>",
+            "question": "What is Scale-O and how does it work?",
+            "answer": "<p>Scale-O is a salt-free water softener for Indian homes with overhead tanks. Place the compact unit inside your tank. As water flows through the home, it conditions minerals and helps reduce hard-water scale on pipes, fittings and household appliances, without salt, electricity or plumbing changes.</p>",
             "category": ""
           }
         },
@@ -2061,6 +2060,26 @@
             "product_scope": "any",
             "question": "How does the Scale-O trial / guarantee work?",
             "answer": "<p>Scale-O offers a 7-day risk-free trial so you can try salt-free hard-water protection at home. Guarantee activation is confirmed with your invoice. Chat on WhatsApp from this page if you need help choosing a tank size.</p>",
+            "category": ""
+          }
+        },
+        "faq_any_5": {
+          "type": "faq",
+          "settings": {
+            "enabled": true,
+            "product_scope": "any",
+            "question": "Does a water softener reduce hair fall from hard water?",
+            "answer": "<p>Hard water hair fall in India is often breakage from mineral film, not medical shedding. A salt-free water softener in the overhead tank can help hair feel less dry. Scale-O does not claim to stop balding. See <a href=\"/blogs/articles/hard-water-hair-breakage-vs-shedding\">hard water hair fall guide</a>.</p>",
+            "category": ""
+          }
+        },
+        "faq_any_6": {
+          "type": "faq",
+          "settings": {
+            "enabled": true,
+            "product_scope": "any",
+            "question": "Can I install a water softener in an overhead tank without a plumber?",
+            "answer": "<p>Yes. Scale-O is a DIY water softener for overhead tanks: open the lid, place the unit inside, close and use water normally. No plumber, drain or electricity. Read the <a href=\"/blogs/articles/best-overhead-tank-water-softener-india\">overhead tank water softener</a> guide.</p>",
             "category": ""
           }
         },
@@ -2114,6 +2133,16 @@
             "category": "Mini"
           }
         },
+        "faq_mini_6": {
+          "type": "faq",
+          "settings": {
+            "enabled": true,
+            "product_scope": "mini",
+            "question": "Is Scale-O Mini enough for a 500 litre overhead tank?",
+            "answer": "<p>Yes. Scale-O Mini is a salt-free water softener for 500L-750L overhead tanks, common in 1-3 member homes. If your tank is closer to 1000L, choose <a href=\"/products/semi-water-softener-1000l-1500l-tanks\">Semi</a> instead.</p>",
+            "category": "Mini"
+          }
+        },
         "faq_semi_1": {
           "type": "faq",
           "settings": {
@@ -2161,6 +2190,16 @@
             "product_scope": "semi",
             "question": "Does Scale-O Semi need maintenance or salt refills?",
             "answer": "<p>No daily salt refill or power. Units are typically exchanged on a scheduled cycle so protection stays consistent. See product details and <a href=\"/pages/water-softener-plans\">water softener price and plans</a> for exchange options.</p>",
+            "category": "Semi"
+          }
+        },
+        "faq_semi_6": {
+          "type": "faq",
+          "settings": {
+            "enabled": true,
+            "product_scope": "semi",
+            "question": "Which water softener is right for a 4 to 6 member family?",
+            "answer": "<p>Most 4 to 6 member Indian homes with a 1000L-1500L overhead tank choose <a href=\"/products/semi-water-softener-1000l-1500l-tanks\">Scale-O Semi</a>. Smaller 500L-750L tanks use <a href=\"/products/mini-water-softener-500l-750l-tanks\">Mini</a>; 2000L+ tanks use <a href=\"/products/centi-water-softener-2000l-2500l-tanks\">Centi</a>.</p>",
             "category": "Semi"
           }
         },
@@ -2214,6 +2253,16 @@
             "category": "Centi"
           }
         },
+        "faq_centi_6": {
+          "type": "faq",
+          "settings": {
+            "enabled": true,
+            "product_scope": "centi",
+            "question": "Is Scale-O Centi right for a 2000 litre overhead tank?",
+            "answer": "<p>Yes. Scale-O Centi is built for 2000L-2500L overhead tanks in larger homes with higher daily use. For 1000L-1500L tanks, see <a href=\"/products/semi-water-softener-1000l-1500l-tanks\">Semi</a>.</p>",
+            "category": "Centi"
+          }
+        },
         "faq_combo_1": {
           "type": "faq",
           "settings": {
@@ -2252,65 +2301,6 @@
             "question": "Is a combo better than buying one large salt-based softener?",
             "answer": "<p>For homes with two overhead tanks, dedicated tank-level Scale-O units often fit Indian plumbing better than one bulky salt plant. See <a href=\"/pages/water-softener-plans\">plans and pricing</a> and <a href=\"/blogs/articles/best-overhead-tank-water-softener-india\">overhead tank softener</a> guidance.</p>",
             "category": "Combo"
-          }
-        },
-        "faq_any_1": {
-          "type": "faq",
-          "settings": {
-            "enabled": true,
-            "question": "What is Scale-O and how does it work?",
-            "answer": "<p>Scale-O is a salt-free water softener for Indian homes with overhead tanks. Place the compact unit inside your tank. As water flows through the home, it conditions minerals and helps reduce hard-water scale on pipes, fittings and household appliances, without salt, electricity or plumbing changes.</p>",
-            "category": ""
-          }
-        },
-        "faq_any_5": {
-          "type": "faq",
-          "settings": {
-            "enabled": true,
-            "product_scope": "any",
-            "question": "Does a water softener reduce hair fall from hard water?",
-            "answer": "<p>Hard water hair fall in India is often breakage from mineral film, not medical shedding. A salt-free water softener in the overhead tank can help hair feel less dry. Scale-O does not claim to stop balding. See <a href=\"/blogs/articles/hard-water-hair-breakage-vs-shedding\">hard water hair fall guide</a>.</p>",
-            "category": ""
-          }
-        },
-        "faq_any_6": {
-          "type": "faq",
-          "settings": {
-            "enabled": true,
-            "product_scope": "any",
-            "question": "Can I install a water softener in an overhead tank without a plumber?",
-            "answer": "<p>Yes. Scale-O is a DIY water softener for overhead tanks: open the lid, place the unit inside, close and use water normally. No plumber, drain or electricity. Read the <a href=\"/blogs/articles/best-overhead-tank-water-softener-india\">overhead tank water softener</a> guide.</p>",
-            "category": ""
-          }
-        },
-        "faq_mini_6": {
-          "type": "faq",
-          "settings": {
-            "enabled": true,
-            "product_scope": "mini",
-            "question": "Is Scale-O Mini enough for a 500 litre overhead tank?",
-            "answer": "<p>Yes. Scale-O Mini is a salt-free water softener for 500L-750L overhead tanks, common in 1-3 member homes. If your tank is closer to 1000L, choose <a href=\"/products/semi-water-softener-1000l-1500l-tanks\">Semi</a> instead.</p>",
-            "category": "Mini"
-          }
-        },
-        "faq_semi_6": {
-          "type": "faq",
-          "settings": {
-            "enabled": true,
-            "product_scope": "semi",
-            "question": "Which water softener is right for a 4 to 6 member family?",
-            "answer": "<p>Most 4 to 6 member Indian homes with a 1000L-1500L overhead tank choose <a href=\"/products/semi-water-softener-1000l-1500l-tanks\">Scale-O Semi</a>. Smaller 500L-750L tanks use <a href=\"/products/mini-water-softener-500l-750l-tanks\">Mini</a>; 2000L+ tanks use <a href=\"/products/centi-water-softener-2000l-2500l-tanks\">Centi</a>.</p>",
-            "category": "Semi"
-          }
-        },
-        "faq_centi_6": {
-          "type": "faq",
-          "settings": {
-            "enabled": true,
-            "product_scope": "centi",
-            "question": "Is Scale-O Centi right for a 2000 litre overhead tank?",
-            "answer": "<p>Yes. Scale-O Centi is built for 2000L-2500L overhead tanks in larger homes with higher daily use. For 1000L-1500L tanks, see <a href=\"/products/semi-water-softener-1000l-1500l-tanks\">Semi</a>.</p>",
-            "category": "Centi"
           }
         }
       },
@@ -2391,7 +2381,6 @@
     },
     "custom_content_BUnkYP": {
       "type": "custom-content",
-      "disabled": true,
       "blocks": {
         "image_MFUqW6": {
           "type": "image",
@@ -2408,6 +2397,7 @@
       "block_order": [
         "image_MFUqW6"
       ],
+      "disabled": true,
       "settings": {
         "heading": "",
         "heading_size": "h3",

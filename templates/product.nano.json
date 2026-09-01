@@ -636,16 +636,7 @@
         "show_legend": true,
         "before_label": "Before",
         "after_label": "After",
-        "show_proof": true,
-        "proof_1": "Hair & skin",
-        "proof_2": "Geysers & fittings",
-        "proof_3": "Whole-house from the tank",
         "enable_marquee": true,
-        "show_arrows": true,
-        "show_dots": true,
-        "enable_autoplay": true,
-        "desktop_columns": 3,
-        "tablet_columns": 3,
         "image_height": 250,
         "image_height_mobile": 180,
         "max_width": 1200,
@@ -811,7 +802,6 @@
     },
     "custom_content_BUnkYP": {
       "type": "custom-content",
-      "disabled": true,
       "blocks": {
         "image_MFUqW6": {
           "type": "image",
@@ -828,6 +818,7 @@
       "block_order": [
         "image_MFUqW6"
       ],
+      "disabled": true,
       "settings": {
         "heading": "",
         "heading_size": "h3",

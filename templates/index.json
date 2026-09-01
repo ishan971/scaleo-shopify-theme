@@ -103,8 +103,8 @@
         "hero_1"
       ],
       "settings": {
-        "height_mode": "large",
-        "desktop_height": 400,
+        "height_mode": "medium",
+        "desktop_height": 460,
         "mobile_height": 0,
         "image_max_desktop": 320,
         "image_max_mobile": 260,

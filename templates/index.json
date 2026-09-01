@@ -103,7 +103,7 @@
         "hero_1"
       ],
       "settings": {
-        "height_mode": "medium",
+        "height_mode": "auto",
         "desktop_height": 540,
         "mobile_height": 0,
         "image_max_desktop": 480,

@@ -7,26 +7,28 @@
   assign load_mode = loading | default: 'lazy'
   assign grid_style = grid_style | default: ''
   assign theme_asset = blank
-
-  case item.icon
-    when 'skin'
-      assign theme_asset = 'scale-o-problem-skin.jpg'
-    when 'droplet'
-      assign theme_asset = 'scale-o-problem-water.jpg'
-    when 'floor'
-      assign theme_asset = 'scale-o-problem-stains.jpg'
-    when 'appliance'
-      assign theme_asset = 'scale-o-problem-appliance.jpg'
-    when 'none'
-      if item.title contains 'Kidney'
-        assign theme_asset = 'scale-o-problem-kidney.jpg'
-      endif
-  endcase
-
   assign card_image = item.image
   assign card_mobile = item.image_mobile | default: item.image
+
+  if card_image == blank
+    case item.icon
+      when 'skin'
+        assign theme_asset = 'scale-o-problem-skin.jpg'
+      when 'droplet'
+        assign theme_asset = 'scale-o-problem-water.jpg'
+      when 'floor'
+        assign theme_asset = 'scale-o-problem-stains.jpg'
+      when 'appliance'
+        assign theme_asset = 'scale-o-problem-appliance.jpg'
+      when 'none'
+        if item.title contains 'Kidney'
+          assign theme_asset = 'scale-o-problem-kidney.jpg'
+        endif
+    endcase
+  endif
+
   assign use_theme_asset = false
-  if theme_asset != blank
+  if card_image == blank and theme_asset != blank
     assign use_theme_asset = true
   endif
 -%}

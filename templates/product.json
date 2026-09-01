@@ -1101,7 +1101,7 @@
             "enabled": true,
             "title": "Core Competitors",
             "highlight": false,
-            "image": "shopify://shop_images/ChatGPT_Image_Aug_13_2026_11_48_51_AM.png",
+            "image": "shopify://shop_images/competitor.png",
             "image_alt": "Typical salt-based water softener competitor"
           }
         },
@@ -1484,6 +1484,7 @@
           "type": "benefit",
           "settings": {
             "category": "property",
+            "image": "shopify://shop_images/scale-o-adv-property-1.png",
             "image_alt": "",
             "short_label": "",
             "title": "Helps Reduce Scale Buildup",
@@ -1496,6 +1497,7 @@
           "type": "benefit",
           "settings": {
             "category": "property",
+            "image": "shopify://shop_images/scale-o-adv-property-2.png",
             "image_alt": "",
             "short_label": "",
             "title": "Protect Water-Using Appliances",
@@ -1508,6 +1510,7 @@
           "type": "benefit",
           "settings": {
             "category": "property",
+            "image": "shopify://shop_images/scale-o-adv-property-3.png",
             "image_alt": "",
             "short_label": "",
             "title": "Lower Maintenance Burden",
@@ -1924,6 +1927,7 @@
         "padding_bottom_mobile": 40,
         "margin_top": 0,
         "margin_bottom": 0,
+        "eyebrow_size": 13,
         "background_color": "#f8fcff",
         "background_color_end": "#eef6ff",
         "card_background": "#ffffff",

@@ -106,7 +106,7 @@
         "height_mode": "medium",
         "desktop_height": 540,
         "mobile_height": 0,
-        "image_max_desktop": 600,
+        "image_max_desktop": 640,
         "image_max_mobile": 260,
         "content_alignment": "left",
         "image_position": "right",

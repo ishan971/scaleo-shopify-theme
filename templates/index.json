@@ -781,7 +781,7 @@
           "settings": {
             "bento_size": "auto",
             "icon": "faucet",
-            "image": "shopify://shop_images/problem1.png",
+            "image": "shopify://shop_images/problem1_c51a5fb5-77e1-4a06-af8f-9e7141427f68.png",
             "title": "Scaling on Taps & Showers",
             "description": "White scale buildup makes fixtures harder to clean.",
             "cta_text": "",
@@ -793,6 +793,7 @@
           "settings": {
             "bento_size": "auto",
             "icon": "none",
+            "image": "shopify://shop_images/scale-o-problem-kidney.png",
             "title": "Kidney Stones",
             "description": "Hard water can contribute to mineral buildup that may impact urinary health.",
             "cta_text": "",
@@ -815,7 +816,7 @@
           "settings": {
             "bento_size": "auto",
             "icon": "heater",
-            "image": "shopify://shop_images/problem4.png",
+            "image": "shopify://shop_images/problem4_693680a3-5b30-473f-ad4d-8c67205d1d8f.png",
             "title": "Damage inside Water Heaters",
             "description": "Scale can reduce heater efficiency and lifespan.",
             "cta_text": "",
@@ -827,6 +828,7 @@
           "settings": {
             "bento_size": "auto",
             "icon": "floor",
+            "image": "shopify://shop_images/scale-o-problem-water.png",
             "title": "White Stains on Floors & Utensils",
             "description": "Hard-water minerals leave white marks on tiles, glass and surfaces.",
             "cta_text": "",
@@ -850,6 +852,7 @@
           "settings": {
             "bento_size": "auto",
             "icon": "appliance",
+            "image": "shopify://shop_images/scale-o-problem-appliance.png",
             "title": "Damage in Washing Machines",
             "description": "Hard water can affect appliances and everyday cleaning.",
             "cta_text": "",

@@ -757,7 +757,7 @@
           "settings": {
             "bento_size": "auto",
             "icon": "hair",
-            "image": "shopify://shop_images/problem6.png",
+            "image": "shopify://shop_images/scale-o-problem-skin-updated.png",
             "title": "Hair Fall & Balding",
             "description": "Hard water can weaken hair and increase breakage over time.",
             "cta_text": "",
@@ -769,6 +769,7 @@
           "settings": {
             "bento_size": "auto",
             "icon": "skin",
+            "image": "shopify://shop_images/problem6_866ce26b-fcaf-4de3-a0c0-ab492dc039f3.png",
             "title": "Dry & Itchy Skin",
             "description": "Mineral residue can leave skin feeling dry and irritated.",
             "cta_text": "",

@@ -704,6 +704,7 @@
         "b1": {
           "type": "benefit",
           "settings": {
+            "image": "shopify://shop_images/scale-o-benefit-appliances.webp",
             "icon": "shield",
             "title": "Protects Appliances",
             "text": "Helps reduce scale buildup in geysers, washing machines, dishwashers, and pipelines."
@@ -712,6 +713,7 @@
         "b2": {
           "type": "benefit",
           "settings": {
+            "image": "shopify://shop_images/scale-o-benefit-bathroom.webp",
             "icon": "bathroom",
             "title": "Cleaner Bathrooms",
             "text": "Reduces white stains and scaling on taps, showers, and tiles."
@@ -720,6 +722,7 @@
         "b3": {
           "type": "benefit",
           "settings": {
+            "image": "shopify://shop_images/scale-o-benefit-water-flow.png",
             "icon": "droplet",
             "title": "Better Water Flow",
             "text": "Helps reduce mineral buildup inside plumbing systems for better water flow."
@@ -728,6 +731,7 @@
         "b4": {
           "type": "benefit",
           "settings": {
+            "image": "shopify://shop_images/scale-o-benefit-salt-free.png",
             "icon": "molecule",
             "title": "Salt-Free Technology",
             "text": "No salt refilling, electricity, or water wastage from regeneration cycles."
@@ -736,6 +740,7 @@
         "b5": {
           "type": "benefit",
           "settings": {
+            "image": "shopify://shop_images/scale-o-benefit-diy.png",
             "icon": "wrench",
             "title": "DIY Installation",
             "text": "Simply placed inside the overhead tank without plumber or technician."
@@ -744,6 +749,7 @@
         "b6": {
           "type": "benefit",
           "settings": {
+            "image": "shopify://shop_images/scale-o-benefit-whole-house-updated.png",
             "icon": "home",
             "title": "Whole House Protection",
             "text": "Supports hard water treatment for the entire house through the overhead tank system."

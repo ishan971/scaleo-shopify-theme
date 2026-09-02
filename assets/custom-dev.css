@@ -2419,8 +2419,15 @@
 }
 
 /* Price Block formatting — one-line highlight strip */
+.product-block-group--price {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
 .product-block-group--price .m-price {
-  display: block !important;
+  display: flex !important;
+  justify-content: center;
+  width: 100%;
   margin-top: 0 !important;
   margin-bottom: 4px !important;
 }
@@ -2435,6 +2442,7 @@
   display: inline-flex;
   flex-wrap: wrap;
   align-items: center;
+  justify-content: center;
   gap: 6px 10px;
   width: auto;
   max-width: 100%;
@@ -2502,10 +2510,12 @@
   color: inherit;
 }
 .product-price-strip__tax {
+  flex-basis: 100%;
   font-size: 11px;
   font-weight: 500;
   color: #465668;
   white-space: nowrap;
+  text-align: center;
 }
 .product-block-group--price .m-product-tax {
   display: none !important;
@@ -2513,23 +2523,32 @@
 
 @media screen and (max-width: 639px) {
   .product-price-strip {
-    gap: 5px 8px;
+    width: 100%;
+    justify-content: space-evenly;
+    gap: 6px 4px;
     padding: 0;
   }
   .product-price-strip__sale {
-    font-size: 20px;
+    font-size: 24px;
   }
-  .product-price-strip__compare {
+  .product-price-strip__mrp-label {
     font-size: 12px;
   }
+  .product-price-strip__compare {
+    font-size: 14px;
+  }
+  .product-price-strip__sep {
+    height: 18px;
+  }
   .product-price-strip__save {
-    font-size: 11px;
-    min-height: 24px;
-    padding: 3px 8px;
+    font-size: 12px;
+    min-height: 28px;
+    padding: 5px 12px;
   }
   .product-price-strip__tax {
     font-size: 10px;
-    width: 100%;
+    flex-basis: 100%;
+    text-align: center;
   }
 }
 

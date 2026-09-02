@@ -119,8 +119,8 @@
             "heading": "Shop",
             "container": "inherit",
             "stretch_width": false,
-            "collection": "",
-            "limit": 6,
+            "collection": "water-softeners",
+            "limit": 12,
             "columns": 2
           }
         }
@@ -156,7 +156,7 @@
         "uppercase_parent_level": false,
         "show_menu_column_divider": true,
         "search": "show_icon",
-        "show_account_icon": true,
+        "show_account_icon": false,
         "show_cart_icon": true,
         "show_wishlist_icon": false,
         "show_compare_icon": false,

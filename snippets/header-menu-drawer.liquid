@@ -17,6 +17,7 @@
           {% liquid
             assign title_handle = link.title | handleize
             assign has_mega_item = false
+            assign shop_products_only = false
           %}
           {% for block in section.blocks %}
             {% liquid
@@ -29,6 +30,9 @@
             {% if menu_title == title_handle %}
               {% liquid
                 assign has_mega_item = true
+                if block.type == 'product-list'
+                  assign shop_products_only = true
+                endif
               %}
               {% case block.type %}
                 {% when 'banner' %}
@@ -93,44 +97,26 @@
                       {% endif %}
                     {% endcapture %}
                 {% when 'product-list' %}
-                  {% assign collection = block.settings.collection %}
+                  {% liquid
+                    assign collection_handle = block.settings.collection
+                    if collection_handle == blank
+                      assign collection_handle = 'water-softeners'
+                    endif
+                  %}
+                  {% assign collection = collection_handle %}
                   {% if collection != blank %}
                     {% capture block_type %}
-                      {{ 'component-product-card.css' | asset_url | stylesheet_tag }}
-                      <div class="m-megamenu-mobile__products m-mixed-layout m-mixed-layout--mobile-scroll" style="--column-gap: 16px" data-id="{{ block.id }}">
-                        {%- assign collection = collections[block.settings.collection] -%}
-                        <div class="m-mixed-layout__inner">
+                      <div class="m-megamenu-mobile__product-names" data-id="{{ block.id }}">
+                        {%- assign collection = collections[collection_handle] -%}
+                        <ul class="m-submenu-mobile m-megamenu-mobile__product-list">
                           {% for product in collection.products limit: block.settings.limit %}
-                          {%- assign image_ratio = product.featured_image.aspect_ratio | default: '1/1' -%}
-                            <div class="m:column m:w-1/2">
-                              <div class="m-product-card m-product-card--style-1">
-                                <div class="m-product-card__media">
-                                  <a class="m-product-card__link m:block m:w-full" href="{{ product.url }}" aria-label="{{ product.title | default: forloop.index }}">
-                                    <div class="m-product-card__main-image">
-                                      {% render 'responsive-image',
-                                        image: product.featured_image,
-                                        aspect_ratio: image_ratio,
-                                        sizes: '400px'
-                                      %}
-                                    </div>
-                                  </a>
-                                </div>
-                                <div class="m-product-card__content m:text-left">
-                                  <div class="m-product-card__info">
-                                    <h3 class="m-product-card__title">
-                                      <a href="{{ product.url }}" class="m-product-card__name">
-                                        {{ product.title }}
-                                      </a>
-                                    </h3>
-                                    <div class="m-product-card__price">
-                                      {% render 'product-prices', product: product, is_product_card: true %}
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
+                            <li class="m-menu-mobile__item m-menu-mobile__item--no-submenu">
+                              <a href="{{ product.url }}" class="m-menu-mobile__link">
+                                <span>{{ product.title | escape }}</span>
+                              </a>
+                            </li>
                           {% endfor %}
-                        </div>
+                        </ul>
                       </div>
                     {% endcapture %}
                   {% endif %}
@@ -233,6 +219,7 @@
                     </svg>
                     <span>{{ link.title }}</span>
                   </button>
+                  {% unless shop_products_only %}
                   <ul class="m-submenu-mobile">
                     {% for child in link.links %}
                       <li class="m-menu-mobile__item" data-url="{{ link.url }}">
@@ -273,6 +260,7 @@
                       </li>
                     {% endfor %}
                   </ul>
+                  {% endunless %}
                   {% if has_mega_item == true and block_type != blank %}
                     <div class="m-megamenu-mobile__block">
                       {{ block_type }}
@@ -286,7 +274,6 @@
           {% endif %}
         {% endfor %}
       </ul>
-      {% render 'mega-menu-customer', section: section %}
     </div>
   </div>
 </div>

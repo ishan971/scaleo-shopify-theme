@@ -88,13 +88,32 @@
       {%- when 'breadcrumb' -%}
         {% render 'breadcrumb', container: 'container', justify: alignBreadcrumb, hide_current: true %}
             {%- when 'title' -%}
+        {%- liquid
+          assign title_main = product.title
+          assign title_suffix = blank
+          assign title_parts = product.title | split: '('
+          if title_parts.size > 1
+            assign title_main = title_parts[0] | strip
+            assign title_suffix = '(' | append: title_parts[1] | strip
+          endif
+        -%}
         <div class="product-block-group--title-container">
           <div class="product-block-group product-block-group--title">
             {% if is_featured == true %}
-              <h2 class="m-product-title">{{ product.title }}</h2>
+              <h2 class="m-product-title">
+                <span class="m-product-title__main">{{ title_main | escape }}</span>
+                {%- if title_suffix != blank -%}
+                  <span class="m-product-title__capacity">{{ title_suffix | escape }}</span>
+                {%- endif -%}
+              </h2>
               <div data-shop-id="{{shop.id}}" product-id="{{product.id }}" data-page="{{request.page_type}}" class="ddreview-star"></div>
             {% else %}
-              <h1 class="m-product-title">{{ product.title }}</h1>
+              <h1 class="m-product-title">
+                <span class="m-product-title__main">{{ title_main | escape }}</span>
+                {%- if title_suffix != blank -%}
+                  <span class="m-product-title__capacity">{{ title_suffix | escape }}</span>
+                {%- endif -%}
+              </h1>
               <div data-shop-id="{{shop.id}}" product-id="{{product.id }}" data-page="{{request.page_type}}" class="ddreview-star"></div>
             {% endif %}
             {% if section.settings.show_atwl and section.settings.layout != 'layout-7' %}

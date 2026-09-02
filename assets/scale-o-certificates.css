@@ -470,6 +470,20 @@
 }
 
 @media (max-width: 767px) {
+  .scale-o-cert__preview {
+    aspect-ratio: 3 / 4;
+    max-height: 240px;
+    padding: 2px 0 0;
+  }
+
+  .scale-o-cert__preview img,
+  .scale-o-cert__preview-fallback {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+  }
+
   .scale-o-cert__nav {
     position: absolute;
     top: 34%;

@@ -38,8 +38,9 @@
         <h2 class="scale-o-pdp-benefits__heading">{{ section.settings.heading | escape }}</h2>
       {%- endif -%}
       {%- if section.settings.description != blank or section.settings.description_highlight != blank -%}
+        {%- assign section_desc = section.settings.description | replace: '—', '' | replace: ' – ', ' ' | strip -%}
         <p class="scale-o-pdp-benefits__desc">
-          {{ section.settings.description | escape -}}
+          {{ section_desc | escape -}}
           {%- if section.settings.description_highlight != blank -%}
             {{- ' ' -}}{{ section.settings.description_highlight | escape }}
           {%- endif -%}
@@ -78,7 +79,6 @@
             endcase
           -%}
           <li class="scale-o-pdp-benefits__card" {{ block.shopify_attributes }}>
-            <span class="scale-o-pdp-benefits__index" aria-hidden="true">{{ index_label }}</span>
             <div class="scale-o-pdp-benefits__media">
               {%- if benefit_image != blank -%}
                 {{
@@ -106,7 +106,8 @@
             </div>
             <div class="scale-o-pdp-benefits__copy">
               <h3 class="scale-o-pdp-benefits__title">{{ block.settings.title | escape }}</h3>
-              <p class="scale-o-pdp-benefits__text">{{ block.settings.text | escape }}</p>
+              {%- assign benefit_text = block.settings.text | replace: '—', '' | replace: ' – ', ' ' | strip -%}
+              <p class="scale-o-pdp-benefits__text">{{ benefit_text | escape }}</p>
             </div>
           </li>
         {%- endif -%}

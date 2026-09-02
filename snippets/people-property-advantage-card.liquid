@@ -55,7 +55,8 @@
         <h4 class="scale-o-advantages__card-title">{{ block.settings.title | escape }}</h4>
       {%- endif -%}
       {%- if block.settings.description != blank -%}
-        <p class="scale-o-advantages__card-desc">{{ block.settings.description | escape }}</p>
+        {%- assign card_desc = block.settings.description | replace: '—', '' | replace: ' – ', ' ' | strip -%}
+        <p class="scale-o-advantages__card-desc">{{ card_desc | escape }}</p>
       {%- endif -%}
       {%- if block.settings.cta_text != blank -%}
         <span class="scale-o-advantages__card-cta">{{ block.settings.cta_text | escape }}</span>

@@ -8,11 +8,57 @@
   assign jm = shop.metafields.judgeme
   assign review_count = jm.all_reviews_count | default: 0
   assign review_score = jm.all_reviews_rating | default: 5
+  assign review_score_display = review_score | plus: 0 | round: 1
+
+  if product != blank
+    if product.metafields.reviews.rating.value.rating != blank
+      assign review_score = product.metafields.reviews.rating.value.rating
+    elsif product.metafields.reviews.rating.value != blank
+      assign review_score = product.metafields.reviews.rating.value
+    elsif product.metafields.ddreviews.content.average_star != blank
+      assign review_score = product.metafields.ddreviews.content.average_star
+    endif
+
+    if product.metafields.reviews.rating_count.value != blank
+      assign review_count = product.metafields.reviews.rating_count.value | plus: 0
+    elsif product.metafields.ddreviews.content.total != blank
+      assign review_count = product.metafields.ddreviews.content.total | plus: 0
+    endif
+  endif
+
+  assign review_score_display = review_score | plus: 0 | round: 1
   assign per_page = section.settings.cards_per_page | default: 3
 
+  assign happy_homes_count = 0
+  assign happy_homes_formatted = ''
+  if product != blank
+    assign product_handle = product.handle | downcase
+    if product_handle contains 'mini-combo'
+      assign happy_homes_count = 1000
+      assign happy_homes_formatted = '1,000'
+    elsif product_handle contains 'semi-combo'
+      assign happy_homes_count = 2000
+      assign happy_homes_formatted = '2,000'
+    elsif product_handle contains 'centi-combo'
+      assign happy_homes_count = 2000
+      assign happy_homes_formatted = '2,000'
+    elsif product_handle contains 'mini'
+      assign happy_homes_count = 8000
+      assign happy_homes_formatted = '8,000'
+    elsif product_handle contains 'semi'
+      assign happy_homes_count = 13000
+      assign happy_homes_formatted = '13,000'
+    elsif product_handle contains 'centi'
+      assign happy_homes_count = 18000
+      assign happy_homes_formatted = '18,000'
+    endif
+  endif
+
   assign heading_text = section.settings.heading
-  if section.settings.auto_heading_count and review_count > 0
-    assign heading_text = 'Loved by ' | append: review_count | append: '+ Happy Homes'
+  if happy_homes_formatted != blank
+    assign heading_text = 'Loved by ' | append: happy_homes_formatted | append: ' Happy Homes'
+  elsif section.settings.auto_heading_count and review_count > 0
+    assign heading_text = 'Loved by ' | append: review_count | append: ' Happy Homes'
   endif
 
   assign count_label = section.settings.reviews_count_label
@@ -81,7 +127,11 @@
 
       {%- if section.settings.show_rating_summary -%}
         <div class="scale-o-reviews__rating">
-          {% render 'scale-o-reviews-star', score: review_score, size: 'lg', section: section %}
+          {%- if review_score_display > 0 -%}
+            <p class="scale-o-reviews__avg">
+              <strong>{{ review_score_display }}</strong>/5 Avg rating
+            </p>
+          {%- endif -%}
           <p class="scale-o-reviews__count">
             <span>{{ count_label | escape }}</span>
             {%- if section.settings.show_verified_badge -%}

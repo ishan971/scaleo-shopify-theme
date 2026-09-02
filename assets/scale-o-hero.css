@@ -277,7 +277,10 @@
 }
 
 .scale-o-hero__trust-copy {
-  color: var(--soh-heading);
+  color: #1a2b4a;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.45;
 }
 
 .scale-o-hero__trust--rating .scale-o-hero__trust-copy,
@@ -514,10 +517,10 @@
   .scale-o-hero__trust-copy {
     display: block;
     max-width: 11.5em;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 600;
     line-height: 1.45;
-    color: var(--soh-heading);
+    color: #1a2b4a;
     text-shadow: 0 1px 10px rgba(255, 255, 255, 0.92);
   }
 

@@ -706,8 +706,18 @@
   }
 
   .cpk__footer-left {
-    align-items: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: baseline;
+    justify-content: center;
+    gap: 0.35em;
     text-align: center;
+    white-space: nowrap;
+  }
+
+  .cpk__footer-value,
+  .cpk__footer-label {
+    display: inline;
   }
 
   .cpk__footer-center {

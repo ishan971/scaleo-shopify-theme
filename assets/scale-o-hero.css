@@ -477,6 +477,10 @@
   }
 
   .scale-o-hero__description {
+    color: var(--soh-heading);
+    font-size: calc(var(--soh-desc-mobile) + 2px);
+    font-weight: 600;
+    line-height: 1.5;
     text-shadow: 0 1px 14px rgba(255, 255, 255, 0.92);
   }
 
@@ -510,10 +514,10 @@
   .scale-o-hero__trust-copy {
     display: block;
     max-width: 11.5em;
-    font-size: 11px;
-    font-weight: 500;
+    font-size: 13px;
+    font-weight: 600;
     line-height: 1.45;
-    color: var(--soh-text);
+    color: var(--soh-heading);
     text-shadow: 0 1px 10px rgba(255, 255, 255, 0.92);
   }
 

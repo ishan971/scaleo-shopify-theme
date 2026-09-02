@@ -1598,7 +1598,7 @@
           "settings": {
             "enabled": true,
             "pair_preset": "none",
-            "image": "shopify://shop_images/Frame_427319350_a3f5ce84-cccd-4c10-afb4-5012dd7363e2.png",
+            "image": "shopify://shop_images/before-after-3-upd.png",
             "image_url": "",
             "label": "",
             "title": ""
@@ -1609,7 +1609,7 @@
           "settings": {
             "enabled": true,
             "pair_preset": "none",
-            "image": "shopify://shop_images/Frame_427319359_c5d43ec2-7057-4665-aa3d-c482022779dc.png",
+            "image": "shopify://shop_images/before-after-4-upd.png",
             "image_url": "",
             "label": "",
             "title": ""
@@ -1620,18 +1620,7 @@
           "settings": {
             "enabled": true,
             "pair_preset": "none",
-            "image": "shopify://shop_images/Frame_427319361_2d71d9b1-e86a-40dc-a0de-668ae6861253.png",
-            "image_url": "",
-            "label": "",
-            "title": ""
-          }
-        },
-        "image_R7CM7g": {
-          "type": "result",
-          "settings": {
-            "enabled": true,
-            "pair_preset": "none",
-            "image": "shopify://shop_images/skin.png",
+            "image": "shopify://shop_images/before-after-5-new.png",
             "image_url": "",
             "label": "",
             "title": ""
@@ -1642,7 +1631,7 @@
           "settings": {
             "enabled": true,
             "pair_preset": "none",
-            "image": "shopify://shop_images/Frame_427319358_51f3533f-0692-46cd-919b-6080fde751c9.png",
+            "image": "shopify://shop_images/before-after-6.png",
             "image_url": "",
             "label": "",
             "title": ""
@@ -1653,7 +1642,7 @@
           "settings": {
             "enabled": true,
             "pair_preset": "none",
-            "image": "shopify://shop_images/Frame_427319360_654c21ff-b19f-4ad0-a1be-0d916ebe14ac.png",
+            "image": "shopify://shop_images/before-after-7.png",
             "image_url": "",
             "label": "",
             "title": ""
@@ -1664,6 +1653,7 @@
           "settings": {
             "enabled": true,
             "pair_preset": "card-fixtures",
+            "image": "shopify://shop_images/before-after-8-upd.png",
             "image_url": "",
             "label": "",
             "title": ""
@@ -1674,6 +1664,7 @@
           "settings": {
             "enabled": true,
             "pair_preset": "card-utensils",
+            "image": "shopify://shop_images/before-after-1.png",
             "image_url": "",
             "label": "",
             "title": ""
@@ -1684,6 +1675,7 @@
           "settings": {
             "enabled": true,
             "pair_preset": "card-face",
+            "image": "shopify://shop_images/before-after-2.png",
             "image_url": "",
             "label": "",
             "title": ""
@@ -1694,7 +1686,6 @@
         "image_XcTgtY",
         "image_YQUdfR",
         "image_LGgpbz",
-        "image_R7CM7g",
         "image_6tGxQ7",
         "image_PQybz8",
         "pair_fixtures",

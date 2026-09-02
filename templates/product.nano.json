@@ -377,8 +377,8 @@
           "type": "category",
           "settings": {
             "handle": "people",
-            "tab_label": "For People",
-            "heading": "For People",
+            "tab_label": "For Health",
+            "heading": "For Health",
             "description": "Better water for everyday life.",
             "image_alt": "Everyday home water experience",
             "show_cta": false,

@@ -58,21 +58,11 @@
   }
 
   function cardHtml(review) {
-    var thumb = review.image
-      ? '<span class="scale-o-reviews__card-thumb"><img src="' + esc(review.image) + '" alt="" width="40" height="40" loading="lazy" decoding="async"></span>'
-      : '<span class="scale-o-reviews__card-thumb scale-o-reviews__card-thumb--placeholder" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 7.5h11v8H4v-8Z" stroke="currentColor" stroke-width="1.6"/><circle cx="7" cy="17" r="1.6" fill="currentColor"/></svg></span>';
-
     return (
       '<article class="scale-o-reviews__card" data-sor-card>' +
-        '<span class="scale-o-reviews__quote" aria-hidden="true">' +
-          '<svg width="36" height="28" viewBox="0 0 36 28" fill="none">' +
-            '<path d="M0 28V16.8C0 10.08 2.24 5.04 6.72 1.68L10.08 5.6C8.4 7.28 7.28 8.96 6.72 10.64C6.16 12.32 5.88 14.56 5.88 17.36H10.08V28H0ZM22.32 28V16.8C22.32 10.08 24.56 5.04 29.04 1.68L32.4 5.6C30.72 7.28 29.6 8.96 29.04 10.64C28.48 12.32 28.2 14.56 28.2 17.36H32.4V28H22.32Z" fill="currentColor"/>' +
-          '</svg>' +
-        '</span>' +
         (review.title ? '<h3 class="scale-o-reviews__card-title">' + esc(review.title) + '</h3>' : '') +
         (review.body ? '<p class="scale-o-reviews__card-body">' + esc(review.body) + '</p>' : '') +
         '<div class="scale-o-reviews__card-foot">' +
-          thumb +
           '<div class="scale-o-reviews__card-meta">' +
             (review.author ? '<span class="scale-o-reviews__card-author">' + esc(review.author) + '</span>' : '') +
             '<span class="scale-o-reviews__verified">' +

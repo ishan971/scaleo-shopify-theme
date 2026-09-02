@@ -510,14 +510,7 @@
 }
 
 .scale-o-pdp-benefits__index {
-  position: absolute;
-  top: 14px;
-  right: 16px;
-  color: var(--spb-accent, #0c7fdf);
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  opacity: 0.45;
+  display: none;
 }
 
 .scale-o-pdp-benefits__media {

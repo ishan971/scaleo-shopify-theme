@@ -5,8 +5,11 @@
     assign class = class | append: ' m-logo--has-image'
   endif
 
-  assign logo_alt = section.settings.logo.alt | default: shop.name
+  assign logo_alt = header_settings.logo.alt | default: shop.name
   assign transparent_on_top = header_settings.transparent_on_top
+  if hide_transparent
+    assign transparent_on_top = false
+  endif
 
   assign default_logo = header_settings.logo
   assign logo_svg = header_settings.logo_svg
@@ -16,6 +19,9 @@
   if logo_svg != blank
     assign default_logo = logo_svg
   endif
+
+  assign display_logo_width = logo_width | default: header_settings.logo_max_width | default: 60
+  assign logo_img_width = display_logo_width | times: 2
 %}
 <div class="{{ class | strip_newlines }}">
   {% if default_logo != blank or logo_svg != blank or logo_transparent_svg != blank or logo_transparent != blank %}
@@ -28,11 +34,13 @@
           </div>
         {% else %}
           <div class="m-logo__image-default m-image">
-            {% if default_logo != blank %}
-              {{ section.settings.logo | image_url: width: section.settings.width | image_tag:
+            {% if header_settings.logo != blank %}
+              {{ header_settings.logo | image_url: width: logo_img_width | image_tag:
                 class: 'm:inline-block',
-                widths: '50, 100, 150, 200, 250, 300, 400, 500',
-                alt: logo_alt
+                widths: '60, 90, 120, 150',
+                width: display_logo_width,
+                alt: logo_alt,
+                loading: 'lazy'
               }}
             {% else %}
               <strong>{{ header_settings.logo_text | default: shop.name }}</strong>
@@ -43,7 +51,7 @@
         {% if transparent_on_top %}
           {% liquid
             if logo_transparent == blank
-              assign logo_transparent = default_logo
+              assign logo_transparent = header_settings.logo
               if logo_svg != blank and logo_transparent_svg == blank
                 assign logo_transparent_svg = logo_svg
               endif
@@ -57,14 +65,15 @@
               {% comment %} theme-check-enable RemoteAsset {% endcomment %}
             </div>
           {% else %}
-            {%- assign logo_height = section.settings.logo_max_width | divided_by: logo_transparent.aspect_ratio -%}
+            {%- assign logo_height = display_logo_width | divided_by: logo_transparent.aspect_ratio -%}
             <div class="m-logo__image-transparent m-image">
-              {{ logo_transparent | image_url: width: section.settings.width | image_tag:
+              {{ logo_transparent | image_url: width: logo_img_width | image_tag:
                 class: 'inline-block',
-                widths: '50, 100, 150, 200, 250, 300, 400, 500',
+                widths: '60, 90, 120, 150',
                 height: logo_height,
-                width: section.settings.logo_max_width,
-                alt: logo_alt
+                width: display_logo_width,
+                alt: logo_alt,
+                loading: 'lazy'
               }}
             </div>
           {% endif %}

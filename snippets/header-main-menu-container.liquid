@@ -102,74 +102,8 @@
                   {% endif %}
                 {% endcapture %}
             {% when 'product-list' %}
-              {% assign stretch_width = block.settings.stretch_width %}
-              {% assign collection = block.settings.collection %}
-              {% if collection != blank %}
-                {% capture block_type %}
-                  {{ 'component-product-card.css' | asset_url | stylesheet_tag }}
-                  <div class="m-mega-product-list" data-id="{{ block.id }}">
-                    {%- assign collection = collections[block.settings.collection] -%}
-                    <div class="m-mega-product-list__header">
-                      <h3 class="m-mega-product-list__heading">{{ collection.title }}</h3>
-                      {% if block.settings.limit > block.settings.columns %}
-                        <div id="m-slider-controls-{{ block.id }}" class="m-slider-controls m:flex m:items-center">
-                          <button class="m-slider-controls__button m-slider-controls__button-prev" aria-label="Previous">
-                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <path d="M12.5 15L7.5 10L12.5 5" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                          </button>
-                          <button class="m-slider-controls__button m-slider-controls__button-next" aria-label="Next">
-                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                          </button>
-                        </div>
-                      {% endif %}
-                    </div>
-                    <div class="m:grid swiper-container m-product-list-{{ block.id }}" data-column="{{ block.settings.columns }}" style="--column-gap: 20px">
-                      <div class="swiper-wrapper">
-                        {% for product in collection.products limit: block.settings.limit %}
-                          {%- assign image_ratio = product.featured_image.aspect_ratio | default: '1/1' -%}
-                          <div class="swiper-slide m:column">
-                            <div class="m-product-card m-product-card--style-1">
-                              <div class="m-product-card__media">
-                                <a class="m-product-card__link m:block m:w-full" href="{{ product.url }}" aria-label="{{ product.title | default: forloop.index }}">
-                                  <div class="m-product-card__main-image">
-                                    {%- if product.featured_image -%}
-                                      {% render 'responsive-image',
-                                        image: product.featured_image,
-                                        aspect_ratio: image_ratio,
-                                        sizes: '400px'
-                                      %}
-                                    {%- else -%}
-                                      {{ 'product-1' | placeholder_svg_tag: 'm-placeholder-svg m:w-full m:h-full m:object-cover' }}
-                                    {%- endif -%}
-                                  </div>
-                                </a>
-                              </div>
-                              <div class="m-product-card__content m:text-left">
-                                <div class="m-product-card__info">
-                                  <h3 class="m-product-card__title">
-                                    <a href="{{ product.url }}" class="m-product-card__name">
-                                      {{ product.title }}
-                                    </a>
-                                  </h3>
-                                  <div class="m-product-card__price">
-                                    {% render 'product-prices', product: product, is_product_card: true %}
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        {% endfor %}
-                      </div>
-                    </div>
-                  </div>
-                {% endcapture %}
-              {% else %}
-                {%- capture block_type -%}
-                {%- endcapture -%}
-              {% endif %}
+              {%- comment -%} Desktop: nav columns only — product carousel hidden; mobile drawer uses its own product list. {%- endcomment -%}
+              {%- capture block_type -%}{%- endcapture -%}
             {% when 'collection-list' %}
               {% liquid
                 assign stretch_width = true

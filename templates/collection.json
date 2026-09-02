@@ -106,11 +106,11 @@
             "enabled": true,
             "banner_preset": "family",
             "alt": "Scale-O Zero Factor USP salt-free water softener",
-            "eyebrow": "ZERO FACTOR USP",
-            "heading_line_1": "Our Zero Factor",
-            "heading_line_2": "Advantage",
+            "eyebrow": "",
+            "heading_line_1": "Save Your Health & Homes",
+            "heading_line_2": "from Hard Water",
             "show_heading_underline": false,
-            "description": "Zero operating cost, zero electricity, zero salt, zero water wastage, zero maintenance and zero manpower — Scale-O simplifies hard-water protection.",
+            "description": "Scale-O Water Softeners for Whole House Protection",
             "text_alignment": "left",
             "show_cta": false,
             "cta_label": "Shop Water Softeners",
@@ -126,11 +126,11 @@
             "enabled": true,
             "banner_preset": "highlights",
             "alt": "Scale-O Mini Semi Centi product highlights",
-            "eyebrow": "PRODUCT HIGHLIGHTS",
-            "heading_line_1": "Mini, Semi & Centi",
-            "heading_line_2": "Built for Every Home",
+            "eyebrow": "",
+            "heading_line_1": "Get the perfect Scale-O fit",
+            "heading_line_2": "for your House Tanks",
             "show_heading_underline": false,
-            "description": "Choose by overhead tank size from 500L to 2500L. Salt-free, no electricity, simple overhead-tank install for Indian hard water.",
+            "description": "Choose the right variant based on storage and family size",
             "text_alignment": "left",
             "show_cta": false,
             "cta_label": "Shop Water Softeners",
@@ -142,8 +142,8 @@
         }
       },
       "block_order": [
-        "slide_zero_factor",
-        "slide_highlights"
+        "slide_highlights",
+        "slide_zero_factor"
       ],
       "settings": {
         "enable_autoplay": true,

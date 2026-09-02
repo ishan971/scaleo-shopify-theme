@@ -967,8 +967,8 @@
             "status_1": "negative",
             "value_2": "No",
             "status_2": "positive",
-            "value_3": "Depends",
-            "status_3": "neutral",
+            "value_3": "No",
+            "status_3": "not_required",
             "value_4": "No",
             "status_4": "not_required"
           }
@@ -983,8 +983,8 @@
             "status_1": "required",
             "value_2": "Yes",
             "status_2": "required",
-            "value_3": "Depends",
-            "status_3": "neutral",
+            "value_3": "No",
+            "status_3": "not_required",
             "value_4": "No",
             "status_4": "not_required"
           }
@@ -999,8 +999,8 @@
             "status_1": "negative",
             "value_2": "No",
             "status_2": "positive",
-            "value_3": "Depends",
-            "status_3": "neutral",
+            "value_3": "Yes",
+            "status_3": "negative",
             "value_4": "No",
             "status_4": "not_required"
           }
@@ -1406,8 +1406,8 @@
           "type": "category",
           "settings": {
             "handle": "people",
-            "tab_label": "For People",
-            "heading": "For People",
+            "tab_label": "For Health",
+            "heading": "For Health",
             "description": "Better water for everyday life.",
             "image_alt": "Everyday home water experience",
             "show_cta": false,

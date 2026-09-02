@@ -1552,8 +1552,17 @@
     min-width: 0;
   }
   .product-plan-buy-buttons .m-add-to-cart,
-  .product-plan-buy-buttons .m-product-dynamic-checkout {
-    flex: 1 1 calc(50% - 5px) !important;
+  .product-plan-buy-buttons .m-product-dynamic-checkout,
+  .product-plan-buy-buttons .m-product-dynamic-checkout.show-add-to-cart {
+    flex: 1 1 0 !important;
+    width: calc(50% - 5px) !important;
+    min-width: 0 !important;
+    max-width: calc(50% - 5px) !important;
+    box-sizing: border-box;
+  }
+
+  .product-plan-buy-buttons .shopify-payment-button {
+    width: 100% !important;
   }
 }
 .product-trust-points__text {

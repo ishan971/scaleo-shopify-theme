@@ -183,7 +183,7 @@
                 </div>
               </div>
 
-              <div class="cpk__pipeline-wrap" style="--cpk-count: {{ stage_count }};">
+              <div class="cpk__pipeline-wrap{% if stage_count == 1 %} cpk__pipeline-wrap--single{% endif %}" style="--cpk-count: {{ stage_count }};">
                 <div class="cpk__pipeline">
                   <span class="cpk__track-line" aria-hidden="true"></span>
                   {%- for i in (1..stage_count) -%}

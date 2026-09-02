@@ -320,9 +320,32 @@
   margin-top: 0;
 }
 
+.cpk__pipeline-wrap--single {
+  display: flex;
+  justify-content: center;
+  overflow-x: visible;
+}
+
+.cpk__pipeline-wrap--single .cpk__pipeline {
+  width: auto;
+  max-width: 96px;
+  margin: 0 auto;
+  grid-template-columns: minmax(0, 96px);
+}
+
+.cpk__pipeline-wrap--single .cpk__stage {
+  max-width: 96px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.cpk__pipeline-wrap--single .cpk__track-line {
+  display: none;
+}
+
 .cpk__benefits {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   align-items: stretch;
   background: #eaf4ff;
   border: 1px solid rgba(12, 127, 223, 0.12);
@@ -341,8 +364,12 @@
   padding: 8px 6px;
 }
 
-.cpk__benefit:not(:last-child) {
+.cpk__benefit:nth-child(odd) {
   border-right: 1px solid rgba(12, 127, 223, 0.2);
+}
+
+.cpk__benefit:nth-child(-n + 2) {
+  border-bottom: 1px solid rgba(12, 127, 223, 0.2);
 }
 
 .cpk__benefit-icon {
@@ -363,13 +390,13 @@
 
 .cpk__benefit-text {
   display: block;
-  font-size: 8.5px;
-  line-height: 1.15;
+  font-size: 9px;
+  line-height: 1.2;
   font-weight: 700;
   color: #334155;
   min-width: 0;
   text-align: center;
-  white-space: nowrap;
+  white-space: normal;
   letter-spacing: -0.01em;
 }
 
@@ -592,6 +619,16 @@
     max-width: none;
   }
 
+  .cpk__pipeline-wrap--single .cpk__pipeline {
+    max-width: 88px;
+    grid-template-columns: minmax(0, 88px);
+  }
+
+  .cpk__pipeline-wrap--single .cpk__stage {
+    max-width: 88px;
+    width: 88px;
+  }
+
   .cpk__stage-body {
     min-height: 56px;
     padding: 0;
@@ -656,10 +693,8 @@
   }
 
   .cpk__benefits {
-    overflow-x: auto;
-    scrollbar-width: none;
-    -webkit-overflow-scrolling: touch;
-    grid-template-columns: repeat(4, minmax(112px, 1fr));
+    overflow: visible;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .cpk__benefits::-webkit-scrollbar {
@@ -667,12 +702,13 @@
   }
 
   .cpk__benefit {
-    padding: 7px 4px;
-    gap: 3px;
+    padding: 8px 6px;
+    gap: 4px;
   }
 
   .cpk__benefit-text {
-    font-size: 7.5px;
+    font-size: 9px;
+    line-height: 1.2;
   }
 
   .cpk__benefit-icon {

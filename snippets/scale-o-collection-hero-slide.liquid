@@ -14,12 +14,16 @@
   endif
 
   assign fallback_file = 'scale-o-collection-hero-1.jpg'
+  assign mobile_fallback_file = 'scale-o-collection-hero-mob-highlights.jpg'
   if banner_preset == 'highlights'
     assign fallback_file = 'scale-o-hero-highlights.jpg'
+    assign mobile_fallback_file = 'scale-o-collection-hero-mob-highlights.jpg'
   elsif banner_preset == 'family'
     assign fallback_file = 'scale-o-collection-hero-2.jpg'
+    assign mobile_fallback_file = 'scale-o-collection-hero-mob-zero-factor.jpg'
   elsif banner_preset == 'whole_house'
     assign fallback_file = 'scale-o-collection-hero-3.jpg'
+    assign mobile_fallback_file = 'scale-o-collection-hero-mob-highlights.jpg'
   endif
 
   assign hero_alt = alt | default: line2
@@ -36,33 +40,36 @@
   {% unless is_active %}aria-hidden="true"{% endunless %}
 >
   <div class="scale-o-collection-hero__bg is-active" data-soch-bg>
-    {%- if image != blank -%}
-      {%- if mobile_image != blank -%}
-        <picture>
-          <source media="(max-width: 767px)" srcset="{{ mobile_image | image_url: width: 1000 }}">
-          {%- if is_first -%}
-            {{ image | image_url: width: 1800 | image_tag: loading: 'eager', fetchpriority: 'high', widths: '800, 1200, 1600, 1800', alt: hero_alt }}
-          {%- else -%}
-            {{ image | image_url: width: 1800 | image_tag: loading: 'lazy', widths: '800, 1200, 1600, 1800', alt: hero_alt }}
-          {%- endif -%}
-        </picture>
-      {%- else -%}
-        {%- if is_first -%}
-          {{ image | image_url: width: 1800 | image_tag: loading: 'eager', fetchpriority: 'high', widths: '800, 1200, 1600, 1800', alt: hero_alt }}
-        {%- else -%}
-          {{ image | image_url: width: 1800 | image_tag: loading: 'lazy', widths: '800, 1200, 1600, 1800', alt: hero_alt }}
-        {%- endif -%}
-      {%- endif -%}
-    {%- else -%}
-      <img
-        src="{{ fallback_file | asset_url }}"
-        alt="{{ hero_alt | escape }}"
-        width="1920"
-        height="1080"
-        {% if is_first %}loading="eager" fetchpriority="high"{% else %}loading="lazy"{% endif %}
+    <picture>
+      <source
+        media="(max-width: 767px)"
+        srcset="
+          {{ mobile_fallback_file | asset_img_url: '576x' }} 576w,
+          {{ mobile_fallback_file | asset_img_url: '800x' }} 800w,
+          {{ mobile_fallback_file | asset_img_url: '1200x' }} 1200w
+        "
+        sizes="100vw"
       >
-    {%- endif -%}
+      {%- if image != blank -%}
+        {%- if is_first -%}
+          {{ image | image_url: width: 1800 | image_tag: loading: 'eager', fetchpriority: 'high', widths: '800, 1200, 1600, 1800', alt: hero_alt, class: 'scale-o-collection-hero__img' }}
+        {%- else -%}
+          {{ image | image_url: width: 1800 | image_tag: loading: 'lazy', widths: '800, 1200, 1600, 1800', alt: hero_alt, class: 'scale-o-collection-hero__img' }}
+        {%- endif -%}
+      {%- else -%}
+        <img
+          class="scale-o-collection-hero__img"
+          src="{{ fallback_file | asset_img_url: '1600x' }}"
+          alt="{{ hero_alt | escape }}"
+          width="1600"
+          height="667"
+          {% if is_first %}loading="eager" fetchpriority="high"{% else %}loading="lazy"{% endif %}
+        >
+      {%- endif -%}
+    </picture>
   </div>
+
+  <span class="scale-o-collection-hero__overlay" aria-hidden="true"></span>
 
   <div class="{{ copy_class }}">
     {%- if eyebrow != blank -%}

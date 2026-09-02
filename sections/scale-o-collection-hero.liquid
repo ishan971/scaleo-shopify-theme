@@ -61,16 +61,31 @@
     --soch-trust-count: {{ trust_count | at_least: 1 }};
     padding-bottom: {{ section.settings.padding_bottom }}px;
   }
-  @media screen and (max-width: 767px) {
-    #shopify-section-{{ section.id }} .scale-o-collection-hero {
-      --soch-pad-y: {{ section.settings.padding_top_mobile }}px;
-      padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
-    }
-  }
   #shopify-section-{{ section.id }} .scale-o-collection-hero__inner {
     padding-top: {{ section.settings.padding_top }}px;
     padding-left: {{ section.settings.padding_x }}px;
     padding-right: {{ section.settings.padding_x }}px;
+  }
+  @media screen and (max-width: 767px) {
+    #shopify-section-{{ section.id }} {
+      width: 100vw;
+      max-width: 100vw;
+      margin-left: calc(50% - 50vw);
+      margin-right: calc(50% - 50vw);
+    }
+    #shopify-section-{{ section.id }} .scale-o-collection-hero {
+      --soch-radius: 0px;
+      padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+    }
+    #shopify-section-{{ section.id }} .scale-o-collection-hero__inner {
+      padding-top: 0;
+      padding-left: 0;
+      padding-right: 0;
+      max-width: 100%;
+    }
+    #shopify-section-{{ section.id }} .scale-o-collection-hero__panel {
+      border-radius: 0;
+    }
   }
   @media screen and (min-width: 768px) {
     #shopify-section-{{ section.id }} {

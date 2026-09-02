@@ -1,5 +1,6 @@
 .scale-o-collection-hero-section {
   margin: 0;
+  overflow-x: hidden;
 }
 
 @media screen and (min-width: 768px) {
@@ -120,6 +121,8 @@
 }
 
 .scale-o-collection-hero__bg picture {
+  position: absolute;
+  inset: 0;
   display: block;
   width: 100%;
   height: 100%;
@@ -313,6 +316,10 @@
   background: #eef5fb;
 }
 
+.scale-o-collection-hero__overlay {
+  display: none;
+}
+
 .scale-o-collection-hero__trust {
   margin-top: 12px;
 }
@@ -439,37 +446,93 @@
 }
 
 @media screen and (max-width: 767px) {
+  .scale-o-collection-hero-section {
+    width: 100vw;
+    max-width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+  }
+
   .scale-o-collection-hero__inner {
-    padding-left: 16px;
-    padding-right: 16px;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    max-width: 100%;
   }
 
   .scale-o-collection-hero__panel {
-    min-height: 0;
+    aspect-ratio: 9 / 16;
+    min-height: min(92svh, 680px);
     max-height: none;
     height: auto;
-    min-height: var(--soch-media-mobile, 420px);
+    width: 100%;
+    border-radius: 0;
+  }
+
+  .scale-o-collection-hero__slide {
+    align-items: flex-start;
+  }
+
+  .scale-o-collection-hero__bg img,
+  .scale-o-collection-hero__bg .scale-o-collection-hero__placeholder {
+    object-fit: cover;
+    object-position: center top;
+  }
+
+  .scale-o-collection-hero__overlay {
+    display: block;
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background: linear-gradient(
+      to bottom,
+      var(--soch-bg, #ffffff) 0%,
+      color-mix(in srgb, var(--soch-bg, #ffffff) 96%, transparent) 12%,
+      color-mix(in srgb, var(--soch-bg, #ffffff) 82%, transparent) 28%,
+      color-mix(in srgb, var(--soch-bg, #ffffff) 52%, transparent) 46%,
+      color-mix(in srgb, var(--soch-bg, #ffffff) 18%, transparent) 64%,
+      transparent 80%
+    );
   }
 
   .scale-o-collection-hero__copy {
     width: 100%;
-    padding: 24px 18px 28px;
+    max-width: 100%;
+    padding: 24px 20px 72px;
+    align-self: flex-start;
   }
 
   .scale-o-collection-hero__eyebrow {
     white-space: normal;
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(6px);
   }
 
   .scale-o-collection-hero__heading {
     font-size: 30px;
+    text-shadow: 0 1px 20px rgba(255, 255, 255, 0.95), 0 0 2px rgba(255, 255, 255, 0.8);
+  }
+
+  .scale-o-collection-hero__text {
+    text-shadow: 0 1px 14px rgba(255, 255, 255, 0.92);
   }
 
   .scale-o-collection-hero__cta {
     width: auto;
   }
 
+  .scale-o-collection-hero__dots {
+    left: 0;
+    right: 0;
+    justify-content: center;
+    bottom: 14px;
+  }
+
   .scale-o-collection-hero__trust {
     margin-top: 10px;
+    padding-left: 16px;
+    padding-right: 16px;
   }
 
   .scale-o-collection-hero__trust-list {

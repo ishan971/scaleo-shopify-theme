@@ -78,6 +78,7 @@
   margin: 0;
   padding: 0;
   list-style: none;
+  align-items: stretch;
 }
 
 .scale-o-before-after__pair {
@@ -91,6 +92,7 @@
   background: #fff;
   border: 1.5px solid #c5d0e0;
   box-shadow: 0 10px 28px rgba(18, 40, 72, 0.14);
+  height: 100%;
 }
 
 .scale-o-before-after__pair-label {
@@ -125,10 +127,11 @@
   padding: 0;
   overflow: hidden;
   border-radius: 14px;
-  aspect-ratio: 1 / 1;
-  min-height: 140px;
+  /* Fixed height — forces all images to same size regardless of source dimensions */
+  height: 150px;
   background: #eef2f7;
   box-sizing: border-box;
+  flex-shrink: 0;
 }
 
 .scale-o-before-after__pair-shot img,
@@ -462,15 +465,17 @@
   .scale-o-before-after__pairs {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 20px;
+    align-items: stretch;
   }
 
   .scale-o-before-after__pair {
     padding: 18px;
     gap: 14px;
+    height: 100%;
   }
 
   .scale-o-before-after__pair-shot {
-    min-height: 180px;
+    height: 180px;
   }
 
   .scale-o-before-after__pair-label {
@@ -532,14 +537,16 @@
   .scale-o-before-after__pairs {
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 20px;
+    align-items: stretch;
   }
 
   .scale-o-before-after__pair {
     padding: 18px;
+    height: 100%;
   }
 
   .scale-o-before-after__pair-shot {
-    min-height: 160px;
+    height: 200px;
   }
 
   .scale-o-before-after__pair-media {

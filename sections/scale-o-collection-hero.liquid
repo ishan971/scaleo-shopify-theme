@@ -159,7 +159,7 @@
           {%- render 'scale-o-collection-hero-slide',
             is_first: false,
             is_active: false,
-            eyebrow: 'SCALE-O 0 FACTOR',
+            eyebrow: '',
             line1: 'Zero Salt. Zero Power.',
             line2: 'Zero Hassle.',
             show_underline: false,
@@ -177,7 +177,7 @@
           {%- render 'scale-o-collection-hero-slide',
             is_first: false,
             is_active: false,
-            eyebrow: 'PRODUCT HIGHLIGHTS',
+            eyebrow: '',
             line1: 'Smart Water Softening.',
             line2: 'Without Salt or Electricity.',
             show_underline: false,
@@ -203,7 +203,10 @@
               endif
               assign slide_image = block.settings.image
               assign slide_mobile = block.settings.mobile_image | default: block.settings.image_mobile
-              assign slide_eyebrow = block.settings.eyebrow | default: section.settings.eyebrow
+              assign slide_eyebrow = block.settings.eyebrow
+              if slide_eyebrow == nil
+                assign slide_eyebrow = section.settings.eyebrow
+              endif
               assign slide_line1 = block.settings.heading_line_1
               if slide_line1 == blank
                 assign slide_line1 = section.settings.heading_line_1
@@ -344,7 +347,7 @@
 
     { "type": "header", "content": "Fallback content" },
     { "type": "paragraph", "content": "Used only if no Hero slide blocks are added." },
-    { "type": "text", "id": "eyebrow", "label": "Tag", "default": "WHOLE HOUSE WATER SOLUTION" },
+    { "type": "text", "id": "eyebrow", "label": "Tag" },
     { "type": "text", "id": "heading_line_1", "label": "Heading line 1", "default": "Scale-O" },
     { "type": "text", "id": "heading_line_2", "label": "Heading line 2", "default": "Water Softeners" },
     { "type": "checkbox", "id": "show_heading_underline", "label": "Show line under heading", "default": false },
@@ -410,7 +413,7 @@
         { "type": "text", "id": "alt", "label": "Image alt text" },
 
         { "type": "header", "content": "Left-side text" },
-        { "type": "text", "id": "eyebrow", "label": "Tag", "default": "WHOLE HOUSE WATER SOLUTION" },
+        { "type": "text", "id": "eyebrow", "label": "Tag" },
         { "type": "text", "id": "heading_line_1", "label": "Heading line 1", "default": "Scale-O" },
         { "type": "text", "id": "heading_line_2", "label": "Heading line 2", "default": "Water Softeners" },
         { "type": "checkbox", "id": "show_heading_underline", "label": "Show line under heading", "default": false },
@@ -468,8 +471,8 @@
       "name": "Scale-O collection hero",
       "blocks": [
         { "type": "slide" },
-        { "type": "slide", "settings": { "banner_preset": "family", "eyebrow": "SCALE-O 0 FACTOR", "heading_line_1": "Zero Salt. Zero Power.", "heading_line_2": "Zero Hassle.", "description": "No salt, no electricity, no plumber, no maintenance. Drop Scale-O in your overhead tank and protect the whole house." } },
-        { "type": "slide", "settings": { "banner_preset": "highlights", "eyebrow": "PRODUCT HIGHLIGHTS", "heading_line_1": "Mini, Semi & Centi", "heading_line_2": "Built for Every Home", "description": "Choose by overhead tank size from 500L to 2500L. Salt-free, no electricity, simple overhead-tank install for Indian hard water." } },
+        { "type": "slide", "settings": { "banner_preset": "family", "eyebrow": "", "heading_line_1": "Zero Salt. Zero Power.", "heading_line_2": "Zero Hassle.", "description": "No salt, no electricity, no plumber, no maintenance. Drop Scale-O in your overhead tank and protect the whole house." } },
+        { "type": "slide", "settings": { "banner_preset": "highlights", "eyebrow": "", "heading_line_1": "Mini, Semi & Centi", "heading_line_2": "Built for Every Home", "description": "Choose by overhead tank size from 500L to 2500L. Salt-free, no electricity, simple overhead-tank install for Indian hard water." } },
         { "type": "trust_item", "settings": { "icon": "star", "value": "4.8/5", "label": "Overall Customer Rating", "description": "Rated by our customers" } },
         { "type": "trust_item", "settings": { "icon": "users", "value": "1000+", "label": "Happy Customers", "description": "Homes choosing Scale-O" } },
         { "type": "trust_item", "settings": { "icon": "shield", "value": "7-Day", "label": "Risk-Free Trial", "description": "Try Scale-O with confidence" } }

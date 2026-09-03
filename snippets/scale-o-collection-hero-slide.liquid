@@ -17,13 +17,13 @@
   assign mobile_fallback_file = 'scale-o-collection-hero-mob-highlights.jpg'
   if banner_preset == 'highlights'
     assign fallback_file = 'scale-o-hero-highlights.jpg'
-    assign mobile_fallback_file = 'scale-o-collection-hero-mob-highlights.jpg'
+    assign mobile_fallback_file = 'scale-o-collection-hero-mob-zero-factor.jpg'
   elsif banner_preset == 'family'
     assign fallback_file = 'scale-o-collection-hero-2.jpg'
-    assign mobile_fallback_file = 'scale-o-collection-hero-mob-zero-factor.jpg'
+    assign mobile_fallback_file = 'scale-o-collection-hero-mob-highlights.jpg'
   elsif banner_preset == 'whole_house'
     assign fallback_file = 'scale-o-collection-hero-3.jpg'
-    assign mobile_fallback_file = 'scale-o-collection-hero-mob-highlights.jpg'
+    assign mobile_fallback_file = 'scale-o-collection-hero-mob-zero-factor.jpg'
   endif
 
   assign hero_alt = alt | default: line2
@@ -41,15 +41,27 @@
 >
   <div class="scale-o-collection-hero__bg is-active" data-soch-bg>
     <picture>
-      <source
-        media="(max-width: 767px)"
-        srcset="
-          {{ mobile_fallback_file | asset_img_url: '576x' }} 576w,
-          {{ mobile_fallback_file | asset_img_url: '800x' }} 800w,
-          {{ mobile_fallback_file | asset_img_url: '1200x' }} 1200w
-        "
-        sizes="100vw"
-      >
+      {%- if mobile_image != blank -%}
+        <source
+          media="(max-width: 767px)"
+          srcset="
+            {{ mobile_image | image_url: width: 576 }} 576w,
+            {{ mobile_image | image_url: width: 800 }} 800w,
+            {{ mobile_image | image_url: width: 1200 }} 1200w
+          "
+          sizes="100vw"
+        >
+      {%- else -%}
+        <source
+          media="(max-width: 767px)"
+          srcset="
+            {{ mobile_fallback_file | asset_img_url: '576x' }} 576w,
+            {{ mobile_fallback_file | asset_img_url: '800x' }} 800w,
+            {{ mobile_fallback_file | asset_img_url: '1200x' }} 1200w
+          "
+          sizes="100vw"
+        >
+      {%- endif -%}
       {%- if image != blank -%}
         {%- if is_first -%}
           {{ image | image_url: width: 1800 | image_tag: loading: 'eager', fetchpriority: 'high', widths: '800, 1200, 1600, 1800', alt: hero_alt, class: 'scale-o-collection-hero__img' }}

@@ -1675,7 +1675,7 @@
           "settings": {
             "enabled": true,
             "pair_preset": "card-face",
-            "image": "shopify://shop_images/before-after-2.png",
+            "image": "shopify://shop_images/b1.png",
             "image_url": "",
             "label": "",
             "title": ""

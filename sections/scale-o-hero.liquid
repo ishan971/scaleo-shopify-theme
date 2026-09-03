@@ -135,15 +135,27 @@
             -%}
             {%- if desktop_image != blank or mobile_image != blank -%}
               <picture>
-                <source
-                  media="(max-width: 767px)"
-                  srcset="
-                    {{ mobile_fallback_file | asset_img_url: '576x' }} 576w,
-                    {{ mobile_fallback_file | asset_img_url: '800x' }} 800w,
-                    {{ mobile_fallback_file | asset_img_url: '1200x' }} 1200w
-                  "
-                  sizes="100vw"
-                >
+                {%- if block.settings.image_mobile != blank -%}
+                  <source
+                    media="(max-width: 767px)"
+                    srcset="
+                      {{ block.settings.image_mobile | image_url: width: 576 }} 576w,
+                      {{ block.settings.image_mobile | image_url: width: 800 }} 800w,
+                      {{ block.settings.image_mobile | image_url: width: 1200 }} 1200w
+                    "
+                    sizes="100vw"
+                  >
+                {%- else -%}
+                  <source
+                    media="(max-width: 767px)"
+                    srcset="
+                      {{ mobile_fallback_file | asset_img_url: '576x' }} 576w,
+                      {{ mobile_fallback_file | asset_img_url: '800x' }} 800w,
+                      {{ mobile_fallback_file | asset_img_url: '1200x' }} 1200w
+                    "
+                    sizes="100vw"
+                  >
+                {%- endif -%}
                 {%- if desktop_image != blank -%}
                   {%- if is_first -%}
                     {{

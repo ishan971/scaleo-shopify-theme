@@ -342,11 +342,22 @@
           assign badge_down = badge_label | downcase
           assign show_plan_badge = false
 
-          if value contains '1 Year' or value contains '1-Year' or value contains '1year'
-            assign badge_label = 'Best Seller'
+          assign card_title = value
+          assign value_down = value | downcase
+
+          if value_down contains 'trial' or value_down contains '6 month' or value_down contains '6-month'
+            assign badge_label = 'TRIAL'
+            assign show_plan_badge = true
+            assign card_title = '6 Month Plan'
+          elsif value contains '1 Year' or value contains '1-Year' or value contains '1year'
+            assign badge_label = 'BEST SELLER'
             assign show_plan_badge = true
           elsif badge_down contains 'best seller' or badge_down contains 'bestseller'
+            assign badge_label = 'BEST SELLER'
             assign show_plan_badge = true
+          else
+            assign show_plan_badge = false
+            assign badge_label = ''
           endif
         -%}
         <input type="radio"
@@ -363,7 +374,7 @@
             </span>
           {% endif %}
 
-          <span class="variant-card-title">{{ value }}</span>
+          <span class="variant-card-title">{{ card_title }}</span>
 
           <span class="variant-card-price-wrapper">
             <span class="variant-card-price">₹{% render 'scale-o-inr-amount', amount: variant.price %} /-</span>

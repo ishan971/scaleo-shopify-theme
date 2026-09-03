@@ -1074,7 +1074,7 @@
           "settings": {
             "enabled": true,
             "pair_preset": "none",
-            "image": "shopify://shop_images/before-after-3-upd.png",
+            "image": "shopify://shop_images/b2.png",
             "image_url": "",
             "label": "",
             "title": ""
@@ -1085,7 +1085,7 @@
           "settings": {
             "enabled": true,
             "pair_preset": "none",
-            "image": "shopify://shop_images/before-after-4-upd.png",
+            "image": "shopify://shop_images/b3.png",
             "image_url": "",
             "label": "",
             "title": ""
@@ -1096,7 +1096,7 @@
           "settings": {
             "enabled": true,
             "pair_preset": "none",
-            "image": "shopify://shop_images/before-after-5-new.png",
+            "image": "shopify://shop_images/b4.png",
             "image_url": "",
             "label": "",
             "title": ""
@@ -1107,7 +1107,7 @@
           "settings": {
             "enabled": true,
             "pair_preset": "none",
-            "image": "shopify://shop_images/before-after-6.png",
+            "image": "shopify://shop_images/b5.png",
             "image_url": "",
             "label": "",
             "title": ""
@@ -1118,7 +1118,7 @@
           "settings": {
             "enabled": true,
             "pair_preset": "none",
-            "image": "shopify://shop_images/before-after-7.png",
+            "image": "shopify://shop_images/b6.png",
             "image_url": "",
             "label": "",
             "title": ""
@@ -1129,7 +1129,7 @@
           "settings": {
             "enabled": true,
             "pair_preset": "card-fixtures",
-            "image": "shopify://shop_images/before-after-8-upd.png",
+            "image": "shopify://shop_images/b7.png",
             "image_url": "",
             "label": "",
             "title": ""
@@ -1140,7 +1140,7 @@
           "settings": {
             "enabled": true,
             "pair_preset": "card-utensils",
-            "image": "shopify://shop_images/before-after-1.png",
+            "image": "shopify://shop_images/b9.png",
             "image_url": "",
             "label": "",
             "title": ""
@@ -1151,7 +1151,7 @@
           "settings": {
             "enabled": true,
             "pair_preset": "card-face",
-            "image": "shopify://shop_images/before-after-2.png",
+            "image": "shopify://shop_images/b1.png",
             "image_url": "",
             "label": "",
             "title": ""

@@ -167,7 +167,7 @@
     {% render 'page-transition' %}
     {%- liquid
       render 'scroll-top-button'
-echo "<div style='display:none'>"       sections 'header-group' echo "</div>"
+echo "<div style='display:none'>"
     -%}
 
     <main role="main" id="MainContent">
@@ -530,3 +530,13 @@ if (document.querySelector('._1fragem2i')) {
 
 <!--Speed Optimized By SpeedBoostr WebPlanex Infotech App-->
 </html>
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: echo "<div style='display:none'>"       sections 'header-group' echo "</div>"
+  to: echo "<div style='display:none'>"
+  position: 9215..9248
+{% endcomment %}

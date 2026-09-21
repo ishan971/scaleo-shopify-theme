@@ -112,5 +112,5 @@ After save, check:
 
 ## Related
 
-- SEO titles + descriptions: `docs/scale-o-six-product-metas.md`  
-- Full site SEO plan: `docs/scale-o-seo-keyword-meta-plan.md`
+- SEO titles + descriptions: `docs/August/scale-o-six-product-metas.md`  
+- Full site SEO plan: `docs/August/scale-o-seo-keyword-meta-plan.md`

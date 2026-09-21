@@ -160,7 +160,7 @@ Google Search Console → **Enhancements** / **Experience** reports for Product,
 - Keep FAQ text visible on the page if FAQ schema is used
 - Use real reviews only
 - Fill HQ street + PIN in theme settings (already set)
-- Publish Blog 5 from `docs/scale-o-blog-5-hard-water-geyser-washing-machine.md`
+- Publish Blog 5 from `docs/August/Blog/scale-o-blog-5-hard-water-geyser-washing-machine.md`
 
 **Don’t**
 

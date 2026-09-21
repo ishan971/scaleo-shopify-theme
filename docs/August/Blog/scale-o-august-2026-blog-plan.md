@@ -8,7 +8,7 @@
 
 This file is the working brief for writers and Shopify Admin. It does not require theme code.
 
-Related master file: `docs/scale-o-seo-keyword-meta-plan.md` (one primary keyword = one URL).
+Related master file: `docs/August/scale-o-seo-keyword-meta-plan.md` (one primary keyword = one URL).
 
 ---
 
@@ -27,17 +27,19 @@ Blog 2 updates an **existing** post. Blogs 3 to 6 are new URLs.
 **How keywords work in Shopify**  
 There is no Primary / Secondary keyword field. Google ignores `<meta name="keywords">`. Place keywords in:
 
-| Place | Primary | Secondary |
-|---|---|---|
-| SEO title (50 to 60 chars) | Front of title | Optional 1 term |
-| Meta description (145 to 160) | Once | 1 to 2 terms + benefit |
-| H1 | Once | No |
-| First 100 words | Once | 1 to 2 |
-| H2 / H3 | One H2 uses primary or close variant | Rest |
-| FAQ questions | Question variants | Yes |
-| Image ALT | Topic + India / tank where true | Light |
-| URL handle | Primary or close variant | No stuffing |
-| Internal links | Exact or close anchor | Related terms |
+
+| Place                         | Primary                              | Secondary              |
+| ----------------------------- | ------------------------------------ | ---------------------- |
+| SEO title (50 to 60 chars)    | Front of title                       | Optional 1 term        |
+| Meta description (145 to 160) | Once                                 | 1 to 2 terms + benefit |
+| H1                            | Once                                 | No                     |
+| First 100 words               | Once                                 | 1 to 2                 |
+| H2 / H3                       | One H2 uses primary or close variant | Rest                   |
+| FAQ questions                 | Question variants                    | Yes                    |
+| Image ALT                     | Topic + India / tank where true      | Light                  |
+| URL handle                    | Primary or close variant             | No stuffing            |
+| Internal links                | Exact or close anchor                | Related terms          |
+
 
 **Ranking rule:** one primary keyword = one URL. Two posts must not share the same primary.
 
@@ -49,23 +51,27 @@ India buyers type problem queries first, then commercial queries.
 
 Scale-O can win **Medium / Low-Med** terms faster than *water softener* or *bathroom water softener* (KENT owns shower units). Scale-O is whole-house **tank-level**.
 
-| Cluster | Why it ranks for Scale-O | Post |
-|---|---|---|
-| Hair fall / breakage | Highest problem intent; homepage already talks hair fall | Blog 1 (done) |
-| Salt-free vs salt-based | High conversion; existing URL already ranks for this cluster | Blog 2 (update, do not recreate) |
-| Test hardness at home | HowTo + AEO; easy featured-snippet shape | Blog 3 |
-| Overhead tank buyer | Unique fit vs KENT shower units | Blog 4 |
-| Geyser / washing machine | Appliance money pain; PDP benefit language | Blog 5 |
-| Bangalore borewell | City + borewell hair fall; supports city page | Blog 6 |
+
+| Cluster                  | Why it ranks for Scale-O                                     | Post                             |
+| ------------------------ | ------------------------------------------------------------ | -------------------------------- |
+| Hair fall / breakage     | Highest problem intent; homepage already talks hair fall     | Blog 1 (done)                    |
+| Salt-free vs salt-based  | High conversion; existing URL already ranks for this cluster | Blog 2 (update, do not recreate) |
+| Test hardness at home    | HowTo + AEO; easy featured-snippet shape                     | Blog 3                           |
+| Overhead tank buyer      | Unique fit vs KENT shower units                              | Blog 4                           |
+| Geyser / washing machine | Appliance money pain; PDP benefit language                   | Blog 5                           |
+| Bangalore borewell       | City + borewell hair fall; supports city page                | Blog 6                           |
+
 
 Do **not** give any blog these primaries (already owned by other URLs):
 
-| Keyword | Owned by |
-|---|---|
-| salt-free water softener | Homepage `/` |
-| water softener for home | `/collections/water-softeners` |
-| water softener price | `/pages/water-softener-plans` |
+
+| Keyword                          | Owned by                                                   |
+| -------------------------------- | ---------------------------------------------------------- |
+| salt-free water softener         | Homepage `/`                                               |
+| water softener for home          | `/collections/water-softeners`                             |
+| water softener price             | `/pages/water-softener-plans`                              |
 | best water softener in bangalore | Bangalore city page (blog 6 uses it as **secondary** only) |
+
 
 ---
 
@@ -73,14 +79,16 @@ Do **not** give any blog these primaries (already owned by other URLs):
 
 Cadence: one post every 4 to 5 days. Blog 1 is done. Do not skip Blog 2 (update is faster than writing new).
 
-| # | Publish date | Status | Type | URL |
-|---|---|---|---|---|
-| 1 | **21 Aug 2026 (today)** | **Done / publishing** | New | `/blogs/articles/hard-water-hair-breakage-vs-shedding` |
-| 2 | 25 Aug 2026 | To do | **Update existing** | `/blogs/articles/salt-free-vs-salt-based-water-softeners` |
-| 3 | 29 Aug 2026 | To do | New | `/blogs/articles/how-to-test-hard-water-at-home` |
-| 4 | 3 Sep 2026 | To do | New | `/blogs/articles/best-overhead-tank-water-softener-india` |
-| 5 | 8 Sep 2026 | To do | New or merge | `/blogs/articles/hard-water-geyser-washing-machine-damage` |
-| 6 | 12 Sep 2026 | To do | New | `/blogs/articles/bangalore-borewell-water-hair-fall` |
+
+| #   | Publish date            | Status                | Type                | URL                                                        |
+| --- | ----------------------- | --------------------- | ------------------- | ---------------------------------------------------------- |
+| 1   | **21 Aug 2026 (today)** | **Done / publishing** | New                 | `/blogs/articles/hard-water-hair-breakage-vs-shedding`     |
+| 2   | 25 Aug 2026             | To do                 | **Update existing** | `/blogs/articles/salt-free-vs-salt-based-water-softeners`  |
+| 3   | 29 Aug 2026             | To do                 | New                 | `/blogs/articles/how-to-test-hard-water-at-home`           |
+| 4   | 3 Sep 2026              | To do                 | New                 | `/blogs/articles/best-overhead-tank-water-softener-india`  |
+| 5   | 8 Sep 2026              | To do                 | New or merge        | `/blogs/articles/hard-water-geyser-washing-machine-damage` |
+| 6   | 12 Sep 2026             | To do                 | New                 | `/blogs/articles/bangalore-borewell-water-hair-fall`       |
+
 
 Same-day Admin after each publish: Search engine listing filled, 1 featured image, 3 internal product links, GSC **Request indexing**.
 
@@ -88,14 +96,16 @@ Same-day Admin after each publish: Search engine listing filled, 1 featured imag
 
 ## 4. Master keyword map (all 6)
 
-| Post | Primary keyword | Secondary keywords (use these, not extras) | Intent | Est. India band |
-|---|---|---|---|---|
-| 1 | hard water hair fall | hair fall due to hard water; hard water hair breakage; does water softener reduce hair fall; hard water hair fall India | Problem | High |
-| 2 | salt-free vs salt-based water softener | water softener without salt; salt based water softener disadvantages; chelation water softener; overhead tank salt-free | Compare | Low-Med |
-| 3 | how to test hard water at home | hard water test at home; boiling test hard water; TDS vs hardness; how to check hard water | HowTo | Medium |
-| 4 | water softener for overhead tank | overhead tank water softener; best overhead tank water softener; Mini vs Semi vs Centi; water softener for 1000 litre tank | Commercial | Low-Med |
-| 5 | hard water damage to geyser | water softener for geyser; washing machine hard water; geyser scale; limescale in water heater | Problem / commercial | Low-Med |
-| 6 | Bangalore borewell hair fall | borewell water hair fall Bangalore; Whitefield hard water; best water softener in Bangalore (secondary only) | Local + problem | Low-Med |
+
+| Post | Primary keyword                        | Secondary keywords (use these, not extras)                                                                                 | Intent               | Est. India band |
+| ---- | -------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- | -------------------- | --------------- |
+| 1    | hard water hair fall                   | hair fall due to hard water; hard water hair breakage; does water softener reduce hair fall; hard water hair fall India    | Problem              | High            |
+| 2    | salt-free vs salt-based water softener | water softener without salt; salt based water softener disadvantages; chelation water softener; overhead tank salt-free    | Compare              | Low-Med         |
+| 3    | how to test hard water at home         | hard water test at home; boiling test hard water; TDS vs hardness; how to check hard water                                 | HowTo                | Medium          |
+| 4    | water softener for overhead tank       | overhead tank water softener; best overhead tank water softener; Mini vs Semi vs Centi; water softener for 1000 litre tank | Commercial           | Low-Med         |
+| 5    | hard water damage to geyser            | water softener for geyser; washing machine hard water; geyser scale; limescale in water heater                             | Problem / commercial | Low-Med         |
+| 6    | Bangalore borewell hair fall           | borewell water hair fall Bangalore; Whitefield hard water; best water softener in Bangalore (secondary only)               | Local + problem      | Low-Med         |
+
 
 **Keyword density:** write for humans. Put the primary in H1, first paragraph, one H2, one FAQ, and the meta title. Repeat secondaries in H2s and FAQs. Do not stuff.
 
@@ -103,13 +113,15 @@ Same-day Admin after each publish: Search engine listing filled, 1 featured imag
 
 ## 5. Product URLs (use these only)
 
-| Link | URL |
-|---|---|
-| Shop | `/collections/water-softeners` |
-| Mini (500L to 750L) | `/products/mini-water-softener-500l-750l-tanks` |
-| Semi (1000L to 1500L) | `/products/semi-water-softener-1000l-1500l-tanks` |
+
+| Link                   | URL                                                |
+| ---------------------- | -------------------------------------------------- |
+| Shop                   | `/collections/water-softeners`                     |
+| Mini (500L to 750L)    | `/products/mini-water-softener-500l-750l-tanks`    |
+| Semi (1000L to 1500L)  | `/products/semi-water-softener-1000l-1500l-tanks`  |
 | Centi (2000L to 2500L) | `/products/centi-water-softener-2000l-2500l-tanks` |
-| Blog index | `/blogs/articles` |
+| Blog index             | `/blogs/articles`                                  |
+
 
 Anchor text should match the post’s cluster (example: Blog 1 links “salt-free water softener for overhead tanks”, not “click here”).
 
@@ -132,13 +144,15 @@ Customer-facing copy: no em dashes.
 
 These already live. Do **not** write a second article on the same primary.
 
-| Existing URL | Do this |
-|---|---|
-| `/blogs/articles/salt-free-vs-salt-based-water-softeners` | **Blog 2:** rewrite title, meta, H2s, first 200 words. Keep URL. |
-| `/blogs/articles/how-hard-water-reduces-the-lifespan-of-your-home-appliances-and-how-to-prevent-it` | **Blog 5:** if the new slug would duplicate, merge geyser/washing-machine sections into this URL and 301 the unused slug. Else publish Blog 5 and add a “read next” link both ways. |
-| `/blogs/articles/7-major-benefits-of-using-a-water-softener` | Leave. Add one internal link to Blog 1 (hair) and Blog 5 (appliances). |
-| `/blogs/articles/hard-water-in-india-throughout-the-years` | Leave. Link out to Blog 3 (test) and Blog 4 (tank). |
-| `/blogs/articles/how-hard-water-damages-your-home-a-complete-guide-to-scaling-limescale-and-pipe-degradation` | Leave. Blog 5 goes deeper on geyser/washer only. |
+
+| Existing URL                                                                                                  | Do this                                                                                                                                                                             |
+| ------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `/blogs/articles/salt-free-vs-salt-based-water-softeners`                                                     | **Blog 2:** rewrite title, meta, H2s, first 200 words. Keep URL.                                                                                                                    |
+| `/blogs/articles/how-hard-water-reduces-the-lifespan-of-your-home-appliances-and-how-to-prevent-it`           | **Blog 5:** if the new slug would duplicate, merge geyser/washing-machine sections into this URL and 301 the unused slug. Else publish Blog 5 and add a “read next” link both ways. |
+| `/blogs/articles/7-major-benefits-of-using-a-water-softener`                                                  | Leave. Add one internal link to Blog 1 (hair) and Blog 5 (appliances).                                                                                                              |
+| `/blogs/articles/hard-water-in-india-throughout-the-years`                                                    | Leave. Link out to Blog 3 (test) and Blog 4 (tank).                                                                                                                                 |
+| `/blogs/articles/how-hard-water-damages-your-home-a-complete-guide-to-scaling-limescale-and-pipe-degradation` | Leave. Blog 5 goes deeper on geyser/washer only.                                                                                                                                    |
+
 
 ---
 
@@ -150,13 +164,15 @@ Published / publishing on **21 Aug 2026**. This post **owns** the hair-fall clus
 
 ### Keywords
 
-| Role | Keyword | Where it must appear |
-|---|---|---|
-| **Primary** | hard water hair fall | SEO title, H1, first 100 words, 1 H2, 1 FAQ, 1 image ALT |
-| Secondary | hair fall due to hard water | Meta description, 1 H2 or FAQ |
-| Secondary | hard water hair breakage | H2 breakage vs shedding |
-| Secondary | does water softener reduce hair fall | FAQ + honest answer |
-| Secondary | hard water hair fall India | Title / intro (India, borewell, tank homes) |
+
+| Role        | Keyword                              | Where it must appear                                     |
+| ----------- | ------------------------------------ | -------------------------------------------------------- |
+| **Primary** | hard water hair fall                 | SEO title, H1, first 100 words, 1 H2, 1 FAQ, 1 image ALT |
+| Secondary   | hair fall due to hard water          | Meta description, 1 H2 or FAQ                            |
+| Secondary   | hard water hair breakage             | H2 breakage vs shedding                                  |
+| Secondary   | does water softener reduce hair fall | FAQ + honest answer                                      |
+| Secondary   | hard water hair fall India           | Title / intro (India, borewell, tank homes)              |
+
 
 ### SEO fields (paste in Admin if not already)
 
@@ -205,13 +221,15 @@ Current title is brand-heavy (*Why Scale-O's Chelation Technology Works Better*)
 
 ### Keywords
 
-| Role | Keyword |
-|---|---|
-| **Primary** | salt-free vs salt-based water softener |
-| Secondary | water softener without salt |
-| Secondary | salt based water softener disadvantages |
-| Secondary | chelation water softener |
-| Secondary | overhead tank salt-free |
+
+| Role        | Keyword                                 |
+| ----------- | --------------------------------------- |
+| **Primary** | salt-free vs salt-based water softener  |
+| Secondary   | water softener without salt             |
+| Secondary   | salt based water softener disadvantages |
+| Secondary   | chelation water softener                |
+| Secondary   | overhead tank salt-free                 |
+
 
 ### SEO fields
 
@@ -253,13 +271,15 @@ New URL. HowTo intent. Good for People Also Ask.
 
 ### Keywords
 
-| Role | Keyword |
-|---|---|
+
+| Role        | Keyword                        |
+| ----------- | ------------------------------ |
 | **Primary** | how to test hard water at home |
-| Secondary | hard water test at home |
-| Secondary | boiling test hard water |
-| Secondary | TDS vs hardness |
-| Secondary | how to check hard water |
+| Secondary   | hard water test at home        |
+| Secondary   | boiling test hard water        |
+| Secondary   | TDS vs hardness                |
+| Secondary   | how to check hard water        |
+
 
 ### SEO fields
 
@@ -302,13 +322,15 @@ Collection page already uses *water softener for home*. This post owns **water s
 
 ### Keywords
 
-| Role | Keyword |
-|---|---|
-| **Primary** | water softener for overhead tank |
-| Secondary | overhead tank water softener |
-| Secondary | best overhead tank water softener |
-| Secondary | Mini vs Semi vs Centi |
-| Secondary | water softener for 1000 litre tank |
+
+| Role        | Keyword                            |
+| ----------- | ---------------------------------- |
+| **Primary** | water softener for overhead tank   |
+| Secondary   | overhead tank water softener       |
+| Secondary   | best overhead tank water softener  |
+| Secondary   | Mini vs Semi vs Centi              |
+| Secondary   | water softener for 1000 litre tank |
+
 
 Use 500L / 1500L / 2000L in H3s, not as a second primary on this URL.
 
@@ -345,13 +367,15 @@ Use 500L / 1500L / 2000L in H3s, not as a second primary on this URL.
 
 ### Keywords
 
-| Role | Keyword |
-|---|---|
+
+| Role        | Keyword                     |
+| ----------- | --------------------------- |
 | **Primary** | hard water damage to geyser |
-| Secondary | water softener for geyser |
-| Secondary | washing machine hard water |
-| Secondary | geyser scale |
-| Secondary | limescale in water heater |
+| Secondary   | water softener for geyser   |
+| Secondary   | washing machine hard water  |
+| Secondary   | geyser scale                |
+| Secondary   | limescale in water heater   |
+
 
 ### SEO fields
 
@@ -394,13 +418,15 @@ Supports the Bangalore city page. **Primary is local + problem**, not *best wate
 
 ### Keywords
 
-| Role | Keyword |
-|---|---|
-| **Primary** | Bangalore borewell hair fall |
-| Secondary | borewell water hair fall Bangalore |
-| Secondary | Whitefield hard water |
-| Secondary | best water softener in Bangalore (secondary, 1 mention + link to city page) |
-| Secondary | hard water hair fall (link to Blog 1, do not retarget) |
+
+| Role        | Keyword                                                                     |
+| ----------- | --------------------------------------------------------------------------- |
+| **Primary** | Bangalore borewell hair fall                                                |
+| Secondary   | borewell water hair fall Bangalore                                          |
+| Secondary   | Whitefield hard water                                                       |
+| Secondary   | best water softener in Bangalore (secondary, 1 mention + link to city page) |
+| Secondary   | hard water hair fall (link to Blog 1, do not retarget)                      |
+
 
 ### SEO fields
 
@@ -486,15 +512,17 @@ Request indexing. Share Blog 1 and Blog 6 on brand Instagram / WhatsApp with the
 
 **Measure in GSC after 14 to 28 days**
 
-| Query | Should land on |
-|---|---|
-| hard water hair fall | Blog 1 |
-| hair fall due to hard water | Blog 1 |
-| salt-free vs salt-based | Blog 2 |
-| how to test hard water at home | Blog 3 |
+
+| Query                            | Should land on                                                                                            |
+| -------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| hard water hair fall             | Blog 1                                                                                                    |
+| hair fall due to hard water      | Blog 1                                                                                                    |
+| salt-free vs salt-based          | Blog 2                                                                                                    |
+| how to test hard water at home   | Blog 3                                                                                                    |
 | water softener for overhead tank | Blog 4 or collection (if collection wins, add more tank copy to Blog 4, do not change collection primary) |
-| geyser scale / hard water geyser | Blog 5 |
-| Bangalore borewell hair fall | Blog 6 |
+| geyser scale / hard water geyser | Blog 5                                                                                                    |
+| Bangalore borewell hair fall     | Blog 6                                                                                                    |
+
 
 If Blog 1 gets impressions but CTR is low, rewrite **only** the meta title/description. Do not change the URL.
 
@@ -502,29 +530,31 @@ If Blog 1 gets impressions but CTR is low, rewrite **only** the meta title/descr
 
 ## 11. Length and format (all new posts)
 
-| Item | Target |
-|---|---|
-| Words | 1,400 to 2,400 |
-| H1 | 1 |
-| H2s | 6 to 8 |
-| FAQ | 4 to 6 questions |
-| Featured image | 1 (16:9) |
-| In-body images | 0 to 2, only if they add a diagram |
-| CTA | Shop by tank size, once after the solution section, once at end |
-| Tone | Direct, India D2C, Scale-O navy/blue UI already handles design |
+
+| Item           | Target                                                          |
+| -------------- | --------------------------------------------------------------- |
+| Words          | 1,400 to 2,400                                                  |
+| H1             | 1                                                               |
+| H2s            | 6 to 8                                                          |
+| FAQ            | 4 to 6 questions                                                |
+| Featured image | 1 (16:9)                                                        |
+| In-body images | 0 to 2, only if they add a diagram                              |
+| CTA            | Shop by tank size, once after the solution section, once at end |
+| Tone           | Direct, India D2C, Scale-O navy/blue UI already handles design  |
+
 
 ---
 
 ## 12. Done when
 
 - [x] Blog 1 live with primary **hard water hair fall** (21 Aug 2026)
-- [ ] Blog 1: GSC inspect + home/collection links
-- [ ] Blog 2 existing URL updated (not a new slug)
-- [ ] Blog 3 published
-- [ ] Blog 4 published
-- [ ] Blog 5 published **or** merged into the existing appliance post
-- [ ] Blog 6 published and linked from Bangalore city page
-- [ ] No two posts share the same primary keyword
-- [ ] Blog index description is not the coupon homepage text
+- [x] Blog 1: GSC inspect + home/collection links
+- [x] Blog 2 existing URL updated (not a new slug)
+- [x] Blog 3 published
+- [x] Blog 4 published
+- [x] Blog 5 published **or** merged into the existing appliance post
+- [x] Blog 6 published and linked from Bangalore city page
+- [x] No two posts share the same primary keyword
+- [x] Blog index description is not the coupon homepage text
 
 **Next writing job:** Blog 2 on **25 Aug** (update the live salt-free vs salt-based post). Say when you want the full paste-ready HTML for that URL.

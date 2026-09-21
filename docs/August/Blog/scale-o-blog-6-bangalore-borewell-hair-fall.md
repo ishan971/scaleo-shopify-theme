@@ -399,7 +399,7 @@
 - [ ] GSC → Request indexing
 - [ ] Link from Bangalore city page body to this post
 - [ ] Link from Blog 1 to this post (Bengaluru city mention)
-- [ ] Update `docs/scale-o-august-2026-blog-plan.md` Blog 6 checkbox when live
+- [ ] Update `docs/August/Blog/scale-o-august-2026-blog-plan.md` Blog 6 checkbox when live
 
 ---
 

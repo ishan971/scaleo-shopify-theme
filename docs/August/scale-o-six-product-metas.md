@@ -281,4 +281,4 @@ Theme code already prints these fields. No developer change is required for meta
 
 **Not in this file:** Nano / Ultra / Mega / Giga, Blog 2, collection H1. Those are other tickets.
 
-**Related:** `docs/scale-o-seo-keyword-meta-plan.md` (full site map) and `docs/scale-o-august-2026-blog-plan.md` (blogs).
+**Related:** `docs/August/scale-o-seo-keyword-meta-plan.md` (full site map) and `docs/August/Blog/scale-o-august-2026-blog-plan.md` (blogs).

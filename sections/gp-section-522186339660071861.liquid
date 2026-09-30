@@ -149,23 +149,32 @@
   .form-group input,
   .form-group select {
     padding: 15px;
-    border: none;
+    border: 1px solid #c9d6e8;
     font-size: 18px;
     width: 100%;
     font-weight: 500;
     border-radius: 10px;
     background: white;
     color: gray;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
   }
   .gps textarea {
     padding: 15px !important;
-    border: none;
+    border: 1px solid #c9d6e8 !important;
     font-size: 18px;
     width: 100%;
     font-weight: 500;
     border-radius: 10px;
     background: white;
     color: gray;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  .form-group input:focus,
+  .form-group select:focus,
+  .gps textarea:focus {
+    outline: none;
+    border-color: #0c7fdf !important;
+    box-shadow: 0 0 0 3px rgba(12, 127, 223, 0.15);
   }
 
   .form-group input::placeholder {
@@ -190,6 +199,19 @@
     color: red;
     font-size: 14px;
   }
+  .form-success {
+    margin-bottom: 20px;
+    padding: 14px 18px;
+    border-radius: 10px;
+    background: #e8f5e9;
+    color: #1b5e20;
+    font-size: 16px;
+    font-weight: 500;
+  }
+  .form-errors {
+    display: block;
+    margin-bottom: 20px;
+  }
 
   @media (max-width: 767px) {
     .form-group2 {
@@ -213,12 +235,14 @@
 </style>
 
 <div class="form-container">
-  <form
-    id="secondForm"
-    action="https://formspree.io/f/mdknzoje"
-    method="post"
-    class="form-main"
-  >
+  {% form 'contact', id: 'secondForm', class: 'form-main' %}
+    {% if form.posted_successfully? %}
+      <div class="form-success">Thank you! Our team will contact you soon.</div>
+    {% endif %}
+    {% if form.errors %}
+      <div class="error form-errors">{{ form.errors | default_errors }}</div>
+    {% endif %}
+    <input type="hidden" name="contact[Form]" value="Connect Page" />
     <div class="form-inputs">
       <div class="form-left-con">
         <div class="form-group">
@@ -226,7 +250,7 @@
           <input
             type="text"
             id="name"
-            name="name"
+            name="contact[Name]"
             placeholder="Enter your name"
           />
           <span id="error_name" class="error"></span>
@@ -234,9 +258,9 @@
         <div class="form-group">
           <label for="contact">Phone No.<span class="required">*</span></label>
           <input
-            type="number"
+            type="tel"
             id="contact"
-            name="contact"
+            name="contact[Phone]"
             placeholder="+91 | XXXXX XXXXX"
           />
           <span id="error_contact" class="error"></span>
@@ -246,7 +270,7 @@
           <input
             type="email"
             id="email"
-            name="Email"
+            name="contact[email]"
             placeholder="Enter your email"
           />
           <span id="error_email" class="error"></span>
@@ -254,10 +278,9 @@
         <div class="form-group">
           <label for="query">Message<span class="required">*</span></label>
           <textarea
-            style="border-width: 0"
             class="ta"
             id="requirement"
-            name="Message"
+            name="contact[body]"
             rows="5"
             cols="63"
             placeholder="Write your message.."
@@ -267,10 +290,25 @@
       </div>
     </div>
     <button type="submit" class="submit-btn">Submit</button>
-  </form>
+  {% endform %}
 </div>
 
 <script>
+  (function () {
+    var form = document.getElementById("secondForm");
+    console.log("[Connect Form] Loaded. Submits to:", form && form.action);
+    if (
+      window.location.search.indexOf("contact_posted=true") !== -1 ||
+      document.querySelector("#secondForm .form-success")
+    ) {
+      console.log("[Connect Form] SUCCESS: Shopify accepted the submission and sent the email.");
+    }
+    var errorBox = document.querySelector("#secondForm .form-errors");
+    if (errorBox) {
+      console.error("[Connect Form] Shopify returned an error:", errorBox.textContent.trim());
+    }
+  })();
+
   document
     .getElementById("secondForm")
     .addEventListener("submit", function (event) {
@@ -321,7 +359,13 @@
       }
 
       if (isValid) {
+        console.log(
+          "[Connect Form] Validation passed. Sending to Shopify:",
+          Object.fromEntries(new FormData(this))
+        );
         this.submit();
+      } else {
+        console.warn("[Connect Form] Validation failed. Form not submitted.");
       }
     });
 </script>

@@ -1436,7 +1436,7 @@
       "settings": {
         "eyebrow": "FAQ",
         "heading": "Frequently Asked Questions",
-        "description": "Everything you need to know about Scale-O, installation, maintenance and protecting your home from hard-water scale.",
+        "description": "<p>Everything you need to know about Scale-O, installation, maintenance and protecting your home from hard-water scale.</p>",
         "show_cta": true,
         "show_cta_icon": true,
         "cta_heading": "Still have questions?",
@@ -1709,15 +1709,8 @@
     },
     "968209871838256835": {
       "type": "scale-o-reviews",
-      "blocks": {
-        "judge_me_reviews_review_widget_3M3mge": {
-          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "settings": {}
-        }
-      },
-      "block_order": [
-        "judge_me_reviews_review_widget_3M3mge"
-      ],
+      "blocks": {},
+      "block_order": [],
       "settings": {
         "show_eyebrow": true,
         "eyebrow": "REVIEWS",

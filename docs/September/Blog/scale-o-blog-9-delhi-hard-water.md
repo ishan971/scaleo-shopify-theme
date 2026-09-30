@@ -21,40 +21,54 @@
 
 ---
 
+
+
 ## E-E-A-T checklist
 
-| Signal | Delivery |
-|---|---|
-| **Experience** | NCR tank homes, Gurgaon/Noida/Faridabad notes, mixed DJB + bore + tanker supply |
-| **Expertise** | Problem vs city-page commercial split; hardness vs TDS; tank insert limits |
-| **Authoritativeness** | CGWB link; USGS; city page; sibling problem blogs; PDPs; plans |
-| **Trustworthiness** | Ranges not fake exact TDS for every colony; before/after honesty |
+
+| Signal                | Delivery                                                                        |
+| --------------------- | ------------------------------------------------------------------------------- |
+| **Experience**        | NCR tank homes, Gurgaon/Noida/Faridabad notes, mixed DJB + bore + tanker supply |
+| **Expertise**         | Problem vs city-page commercial split; hardness vs TDS; tank insert limits      |
+| **Authoritativeness** | CGWB link; USGS; city page; sibling problem blogs; PDPs; plans                  |
+| **Trustworthiness**   | Ranges not fake exact TDS for every colony; before/after honesty                |
+
 
 ---
 
+
+
 ## 1. Shopify Admin fields
 
-| Field | Paste this |
-|---|---|
-| **Title (H1)** | Delhi Hard Water: What NCR Homes Actually Deal With |
-| **SEO page title** | Delhi Hard Water in NCR Homes \| Scale-O Guide |
+
+| Field               | Paste this                                                                                                                                    |
+| ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Title (H1)**      | Delhi Hard Water: What NCR Homes Actually Deal With                                                                                           |
+| **SEO page title**  | Delhi Hard Water in NCR Homes | Scale-O Guide                                                                                                 |
 | **SEO description** | Delhi hard water in NCR tank homes: borewell and mixed supply, stains, geysers and hair film. What a salt-free overhead tank softener can do. |
-| **Handle** | `delhi-hard-water` |
-| **Template** | Default blog post |
-| **Excerpt** | Delhi hard water for NCR overhead tank homes: symptoms, Gurgaon notes, before/after, why Scale-O, and Mini/Semi/Centi next steps. |
-| **Image ALT** | Delhi hard water in an NCR overhead tank home bathroom |
+| **Handle**          | `delhi-hard-water`                                                                                                                            |
+| **Template**        | Default blog post                                                                                                                             |
+| **Excerpt**         | Delhi hard water for NCR overhead tank homes: symptoms, Gurgaon notes, before/after, why Scale-O, and Mini/Semi/Centi next steps.             |
+| **Image ALT**       | Delhi hard water in an NCR overhead tank home bathroom                                                                                        |
+
 
 **Tags:** `Delhi hard water`, `Gurgaon hard water`, `NCR`, `Scale-O`
 
 ---
 
+
+
 ## 2. Banner image prompts (copyable)
+
+
 
 ### Banner Prompt 1
 
 ```
 Photorealistic 16:9 Delhi NCR independent-house bathroom with chalky white hard water stains on chrome tap and tiles, soft daylight through a curtain, urban India home interior, muted blue-grey palette, documentary realism, no people, no text, no logos, 1600x900
 ```
+
+
 
 ### Banner Prompt 2
 
@@ -66,11 +80,15 @@ Photorealistic 16:9 terrace overhead water tank on an NCR house roof with hazy d
 
 ---
 
+
+
 ## 3. How to publish
 
 Publish **22 Sep 2026**. Handle `delhi-hard-water`. Paste HTML below. GSC index. Link from `/pages/best-water-softener-delhi` body to this problem post. City page keeps the commercial “best water softener in Delhi” primary.
 
 ---
+
+
 
 ## 4. Article HTML (paste in body)
 
@@ -352,7 +370,11 @@ Publish **22 Sep 2026**. Handle `delhi-hard-water`. Paste HTML below. GSC index.
 <p>Test your tank-fed water, clean one bathroom’s crust, then size Mini, Semi, or Centi on the <a href="/collections/water-softeners">collection</a> or <a href="/pages/water-softener-plans">plans page</a>. For local commercial next steps and the “best water softener in Delhi” query, open the <a href="/pages/best-water-softener-delhi">Delhi city page</a>. If you still want chemistry clarity before you pay, read <a href="/blogs/articles/does-salt-free-water-softener-work">does salt-free work</a> and <a href="/blogs/articles/salt-free-vs-salt-based-water-softeners">salt-free vs salt-based</a>, then come back and treat the tank that actually feeds your NCR bathrooms.</p>
 ```
 
+
+
 ---
+
+
 
 ## 5. After publish
 
@@ -366,8 +388,11 @@ Publish **22 Sep 2026**. Handle `delhi-hard-water`. Paste HTML below. GSC index.
 
 ---
 
+
+
 ## 6. Do not change
 
 - Handle; city page keeps “best water softener in Delhi”
 - No copy-paste of Bangalore post
 - No em dashes; no ion-exchange claims; soap lather usually unchanged; private tanks only; no medical claims
+

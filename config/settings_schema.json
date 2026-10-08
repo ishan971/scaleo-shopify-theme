@@ -2966,5 +2966,58 @@
         "default": false
       }
     ]
+  },
+  {
+    "name": "Plan card badges",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "Badges shown on the plan cards (6 Month, 1 Year, etc.) on all product pages."
+      },
+      {
+        "type": "header",
+        "content": "6 Month plan"
+      },
+      {
+        "type": "checkbox",
+        "id": "plan_badge_6m_show",
+        "label": "Show badge on 6 Month plan",
+        "default": false
+      },
+      {
+        "type": "text",
+        "id": "plan_badge_6m_text",
+        "label": "Badge text",
+        "default": "TRIAL"
+      },
+      {
+        "type": "color",
+        "id": "plan_badge_6m_color",
+        "label": "Badge color",
+        "info": "Leave empty to use the default badge color"
+      },
+      {
+        "type": "header",
+        "content": "1 Year plan"
+      },
+      {
+        "type": "checkbox",
+        "id": "plan_badge_1y_show",
+        "label": "Show badge on 1 Year plan",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "plan_badge_1y_text",
+        "label": "Badge text",
+        "default": "BEST SELLER"
+      },
+      {
+        "type": "color",
+        "id": "plan_badge_1y_color",
+        "label": "Badge color",
+        "info": "Leave empty to use the default badge color"
+      }
+    ]
   }
 ]

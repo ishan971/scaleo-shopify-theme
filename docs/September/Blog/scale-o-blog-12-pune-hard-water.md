@@ -77,7 +77,7 @@ Publish **25 Sep 2026**. Handle `pune-hard-water`. Paste HTML below. GSC index. 
 ```html
 <p><strong>Short answer:</strong> Pune hard water is a common complaint in independent houses, bungalows, and many builder floors that store municipal, tanker, or Pune borewell water in overhead tanks. White stains, slower geysers, stiff laundry, and coated hair after showers show up when calcium and magnesium behave like scale on fixtures. A practical house-level response is to confirm hardness, clean old crust once, then condition the tank water. Scale-O is a salt-free chelation insert for private tanks. It does not ion-exchange hardness out, does not replace kitchen RO, and soap lather usually stays similar. For the commercial “best” query, use the city page <a href="/pages/best-water-softener-in-pune">best water softener in Pune</a>.</p>
 
-<p>This long guide covers Pune hard water for tank homes: supply mix, suburb notes, before and after expectations, benefits, why Scale-O, Mini/Semi/Centi commercials, and FAQs. It is not a copy of Delhi or Bengaluru posts. Hair depth lives on <a href="/blogs/articles/hard-water-hair-breakage-vs-shedding">hard water hair breakage vs shedding</a>. Test first with <a href="/blogs/articles/how-to-test-hard-water-at-home">how to test hard water at home</a>. National borewell buying: <a href="/blogs/articles/water-softener-for-borewell">water softener for borewell</a>. Honest salt-free limits: <a href="/blogs/articles/does-salt-free-water-softener-work">does a salt-free water softener work</a>.</p>
+<p>This long guide covers Pune hard water for tank homes: supply mix, suburb notes, before and after expectations, benefits, why Scale-O, Mini/Semi/Centi commercials, and FAQs. Hair depth lives on <a href="/blogs/articles/hard-water-hair-breakage-vs-shedding">hard water hair breakage vs shedding</a>. Test first with <a href="/blogs/articles/how-to-test-hard-water-at-home">how to test hard water at home</a>. National borewell buying: <a href="/blogs/articles/water-softener-for-borewell">water softener for borewell</a>. Honest salt-free limits: <a href="/blogs/articles/does-salt-free-water-softener-work">does a salt-free water softener work</a>.</p>
 
 <p><strong>Who this is for:</strong> Pune homes with private overhead tank access and clear scale symptoms. <strong>Who this is not for:</strong> Flats with no tank access, or buyers who only need kitchen drinking purification with no house-scale issues.</p>
 
@@ -109,7 +109,7 @@ Publish **25 Sep 2026**. Handle `pune-hard-water`. Paste HTML below. GSC index. 
 <p>Photograph one tap and one tile edge on day zero after a deep clean. Repeat at week two and week six. Families argue less when photos settle the before-and-after debate.</p>
 
 <h2>Suburbs with Tank Homes: Hinjewadi, Wakad, Baner, Kharadi</h2>
-<p><strong>Hinjewadi:</strong> Many independent houses and bungalows near the IT park belt keep overhead tanks because municipal timing and pressure vary. Pune hard water complaints here often pair morning borewell fills with tanker weeks. Size Scale-O to tank litres, not to office campus folklore.</p>
+<p><strong>Hinjewadi:</strong> Many independent houses and bungalows near the IT park belt keep overhead tanks because municipal timing and pressure vary. Pune hard water complaints here often pair morning borewell fills with tanker weeks. Size Scale-O to your actual tank capacity in litres.</p>
 <p><strong>Wakad:</strong> Builder floors and row houses with private terrace tanks are common. Film on chrome and stiff towels show up quickly when tanks turn over hard. Dual tanks need treatment in each active tank.</p>
 <p><strong>Baner:</strong> Villa and bungalow pockets often run larger 1500L to 2500L stores. Undersizing a Mini into a Centi-band tank is the most common commercial mistake. Measure litres before you pay.</p>
 <p><strong>Kharadi:</strong> Mixed municipal and borewell stories are frequent in tank homes near the eastern IT corridor. Retest when the source pattern changes. Do not assume one neighbour’s TDS equals yours.</p>
@@ -229,7 +229,6 @@ Publish **25 Sep 2026**. Handle `pune-hard-water`. Paste HTML below. GSC index. 
 <li>Confirm private tank access and safe roof entry</li>
 <li>Write tank litres near the pump switch</li>
 <li>Count active overhead tanks</li>
-<li>Note iron or sediment clues; lab if needed</li>
 <li>Open the matching Mini, Semi, or Centi PDP</li>
 <li>Compare plan options on the <a href="/pages/water-softener-plans">plans page</a></li>
 <li>Install in daylight, not night ladder work</li>
@@ -247,7 +246,7 @@ Publish **25 Sep 2026**. Handle `pune-hard-water`. Paste HTML below. GSC index. 
 <li>How much extra detergent you pour every month</li>
 <li>Whether a salt plant’s salt, drain, plumber, and electricity fit your terrace</li>
 </ul>
-<p>Think in three buckets. Reactive spend. Salt-plant operating cost. Scale-O product plus plan. Put your own numbers in. Fake “Pune average savings” posts do not know your geyser brand or your tanker bill.</p>
+<p>Think in three buckets. Reactive spend. Salt-plant operating cost. Scale-O product plus plan. Use your own household numbers for each, because every home’s geyser, appliances and tanker use are different.</p>
 <p>If reactive spend is already high and your terrace cannot host a salt plant, a sized Scale-O is often the cleaner commercial move. If you need ion-exchange hardness removal and can host the plant, buy that honestly.</p>
 
 <h2>Pune Hard Water vs Other City Posts</h2>
@@ -257,7 +256,6 @@ Publish **25 Sep 2026**. Handle `pune-hard-water`. Paste HTML below. GSC index. 
 <li><strong>Bengaluru hair + borewell:</strong> <a href="/blogs/articles/bangalore-borewell-water-hair-fall">Bangalore borewell hair fall</a></li>
 <li><strong>National borewell buy:</strong> <a href="/blogs/articles/water-softener-for-borewell">water softener for borewell</a></li>
 </ul>
-<p>This URL stays the Pune hard water problem guide. Do not paste Delhi examples into Pune pages. Keep suburbs and supply notes local.</p>
 
 <h2>Step-by-Step: From Pune Complaint to Scale-O Order</h2>
 <ol>

@@ -332,9 +332,12 @@
 }
 
 .so-footer__copy {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px 16px;
   padding: 10px 0 12px;
   border-top: 1px solid var(--so-ft-line);
-  text-align: center;
 }
 
 .so-footer__copy p {
@@ -342,6 +345,26 @@
   color: var(--so-ft-muted);
   font-size: 12px;
   line-height: 1.4;
+}
+
+.so-footer__copy .so-footer__credit a {
+  color: #ff6b1a;
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.so-footer__copy .so-footer__credit a:hover,
+.so-footer__copy .so-footer__credit a:focus-visible {
+  color: #ff8a3d;
+  text-decoration: underline;
+}
+
+@media (max-width: 767px) {
+  .so-footer__copy {
+    flex-direction: column;
+    text-align: center;
+  }
 }
 
 @media (max-width: 1100px) {

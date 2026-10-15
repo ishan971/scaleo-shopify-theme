@@ -1,0 +1,40 @@
+---
+description: Scale-O blog paste-pack rules (keyword placement, length, claims, checks). Use when writing or editing any blog in docs/**/Blog/.
+globs: docs/**/Blog/**
+alwaysApply: true
+---
+
+# Scale-O Blog Paste Packs
+
+Format: copy the latest paste pack in `docs/October/Blog/` (Shopify fields, 2 banner prompts, how to publish, article HTML, after publish, do not change).
+
+## Primary keyword placement (exact phrase, not only variants)
+
+| Place | Required |
+|---|---|
+| SEO title | Exact, at the front |
+| Meta description | Exact, at the front (145 to 160 chars) |
+| H1 | Exact or very close |
+| First 100 words | Exact once |
+| H2s | Exact in **at least 2** (one body H2 + FAQ H2) |
+| Body paragraphs | Exact **3 to 4 times** spread across sections (e.g. buying/compare section, Why Scale-O, Next Step) |
+| FAQ | One H3 question using it |
+| Image ALT + excerpt | Exact |
+
+Target: **6 to 8 primary mentions in the body** for a 3,000-word post. Read naturally, never stuff.
+
+Secondary keywords: each one in at least one H2/H3 or FAQ question, plus once in body text.
+
+## Content rules
+
+- Body **3,000+ words**. Must include: before vs after table, benefits, Why Scale-O, Mini/Semi/Centi table, plans page and `/pages/book-trial` links.
+- Scale-O = salt-free chelation tank insert, minimum 6-month life. Never claim it removes hardness, softens water, lowers TDS or strip readings, removes iron, purifies drinking water, cleans existing scale, or treats medical conditions.
+- No em dashes. No invented prices (label any cost range "indicative").
+- Link only live posts (check `https://scale-o.com/blogs/articles.atom`) or posts published earlier in the calendar. Never link rejected topics.
+
+## Before finishing, run and report
+
+1. Body word count (strip HTML) is 3,000+
+2. Em dash count is 0
+3. Exact primary keyword count in body is 6 to 8, and it is in the meta description
+4. SEO title 45 to 60 chars, meta 145 to 160 chars

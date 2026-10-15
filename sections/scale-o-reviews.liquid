@@ -29,6 +29,11 @@
   assign review_score_display = review_score | plus: 0 | round: 1
   assign per_page = section.settings.cards_per_page | default: 3
 
+  assign show_write_review = false
+  if product != blank and section.settings.show_write_review
+    assign show_write_review = true
+  endif
+
   assign happy_homes_count = 0
   assign happy_homes_formatted = ''
   if product != blank
@@ -105,6 +110,7 @@
 </style>
 
 <section
+  id="reviews"
   class="scale-o-reviews"
   data-scale-o-reviews
   data-per-page="{{ per_page }}"
@@ -145,6 +151,21 @@
             {%- endif -%}
           </p>
         </div>
+      {%- endif -%}
+
+      {%- if show_write_review -%}
+        <button
+          type="button"
+          class="scale-o-reviews__write-btn"
+          data-sor-write-open
+          aria-haspopup="dialog"
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M4 20h4L18.5 9.5a2.12 2.12 0 0 0-4-4L4 16v4Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="m13.5 6.5 4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          {{ section.settings.write_review_label | default: 'Write a review' | escape }}
+        </button>
       {%- endif -%}
     </header>
 
@@ -191,6 +212,21 @@
       {% render 'scale-o-judgeme-carousel' %}
     </div>
   </div>
+
+  {%- if show_write_review -%}
+    {%- comment -%} Off-screen Judge.me widget; its "Write a review" link opens Judge.me's own popup {%- endcomment -%}
+    <div class="scale-o-reviews__jm-widget" data-sor-jm-widget aria-hidden="true">
+      <div
+        class="jdgm-widget jdgm-review-widget"
+        data-product-title="{{ product.title | escape }}"
+        data-id="{{ product.id }}"
+        data-from-snippet="false"
+        data-auto-install="false"
+      >
+        {{ product.metafields.judgeme.widget }}
+      </div>
+    </div>
+  {%- endif -%}
 </section>
 
 <script src="{{ 'scale-o-reviews.js' | asset_url }}" defer="defer"></script>
@@ -211,6 +247,8 @@
     { "type": "checkbox", "id": "show_rating_summary", "label": "Show star rating row", "default": true },
     { "type": "text", "id": "reviews_count_label", "label": "Review count label", "default": "from [count] reviews", "info": "Use [count] for live review total." },
     { "type": "checkbox", "id": "show_verified_badge", "label": "Show verified badge", "default": true },
+    { "type": "checkbox", "id": "show_write_review", "label": "Show \"Write a review\" button", "default": true, "info": "Product pages only. Opens the Judge.me review form for the current product." },
+    { "type": "text", "id": "write_review_label", "label": "Write a review button text", "default": "Write a review" },
 
     { "type": "header", "content": "Carousel" },
     { "type": "range", "id": "cards_per_page", "label": "Cards per page (desktop)", "min": 1, "max": 3, "step": 1, "default": 3 },

@@ -4,6 +4,7 @@
 
 .scale-o-reviews {
   width: 100%;
+  scroll-margin-top: 90px;
   background: linear-gradient(180deg, var(--sor-bg) 0%, var(--sor-bg-end) 100%);
   font-family: var(--font-stack-header);
   font-style: var(--font-style-header);
@@ -117,6 +118,39 @@
   gap: 5px;
   color: #14b8a6;
   font-weight: 600;
+}
+
+/* Write a review button */
+.scale-o-reviews__write-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 18px;
+  min-height: 46px;
+  padding: 0 24px;
+  border: 1.5px solid var(--sor-accent);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--sor-accent);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(12, 127, 223, 0.12);
+  transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.scale-o-reviews__write-btn:hover {
+  background: var(--sor-accent);
+  color: #fff;
+  box-shadow: 0 10px 24px rgba(12, 127, 223, 0.24);
+  transform: translateY(-1px);
+}
+
+.scale-o-reviews__write-btn:focus-visible {
+  outline: 2px solid var(--sor-accent);
+  outline-offset: 3px;
 }
 
 /* Slider */
@@ -368,13 +402,55 @@
   }
 }
 
+/* Off-screen Judge.me widget (moved to <body> by JS); only its popup is shown */
+.scale-o-reviews__jm-widget {
+  position: absolute;
+  top: 0;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.scale-o-reviews__write-btn.is-loading {
+  pointer-events: none;
+  opacity: 0.75;
+}
+
+.scale-o-reviews__write-btn.is-loading svg {
+  display: none;
+}
+
+.scale-o-reviews__write-btn.is-loading::before {
+  content: "";
+  width: 16px;
+  height: 16px;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: sor-spin 0.8s linear infinite;
+}
+
+@keyframes sor-spin {
+  to { transform: rotate(360deg); }
+}
+
+@media (max-width: 767px) {
+  .scale-o-reviews__write-btn {
+    width: 100%;
+    max-width: 320px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .scale-o-reviews__track:empty::before {
+  .scale-o-reviews__track:empty::before,
+  .scale-o-reviews__write-btn.is-loading::before {
     animation: none;
   }
 
   .scale-o-reviews__nav,
-  .scale-o-reviews__dot {
+  .scale-o-reviews__dot,
+  .scale-o-reviews__write-btn {
     transition: none;
   }
 }

@@ -208,8 +208,123 @@
     }, POLL);
   }
 
+  var FORM_WAIT = 10000;
+
+  var FAST_POLL = 100;
+
+  function judgemeCoreReady() {
+    var j = window.jdgm;
+    return !!(j && j._doneSetup && j.$ && j.loadScript && j.widgetPath && j.CDN_HOST);
+  }
+
+  // Judge.me only fetches its form scripts once its own link scrolls into view or
+  // is clicked; our widget is off-screen, so request the same files ourselves.
+  // jdgm.loadScript / loadCSS de-duplicate by URL.
+  function preloadJudgemeForm() {
+    if (!judgemeCoreReady()) return false;
+    var j = window.jdgm;
+    j.loadScript(j.CDN_HOST + 'widget/write_review_modal.js');
+    j.loadScript(j.CDN_HOST + 'widget/form.js');
+    j.loadCSS(j.widgetPath('form.css'));
+    return true;
+  }
+
+  // The link gets its own click handler once Judge.me's write-review modal is set up.
+  function linkReady(link) {
+    var $ = window.jdgm && window.jdgm.$;
+    if (!link || !$ || !$._data) return false;
+    var events = $._data(link, 'events');
+    return !!(events && events.click && events.click.length);
+  }
+
+  function initWriteReview(root) {
+    if (root.dataset.scaleOWriteInit === 'true') return;
+
+    var openBtn = root.querySelector('[data-sor-write-open]');
+    var holder = root.querySelector('[data-sor-jm-widget]');
+    if (!openBtn || !holder) return;
+
+    root.dataset.scaleOWriteInit = 'true';
+
+    // Judge.me's popup is position: fixed; keep it clear of transformed section wrappers.
+    document.body.appendChild(holder);
+
+    var widget = holder.querySelector('.jdgm-review-widget');
+    var preloaded = false;
+    var preloadTimer = null;
+    var clickTimer = null;
+
+    function getLink() {
+      return widget ? widget.querySelector('.jdgm-write-rev-link') : null;
+    }
+
+    function preload() {
+      if (preloaded) return;
+      if (preloadJudgemeForm()) {
+        preloaded = true;
+        window.clearInterval(preloadTimer);
+        return;
+      }
+      if (preloadTimer) return;
+      preloadTimer = window.setInterval(function () {
+        if (preloadJudgemeForm()) {
+          preloaded = true;
+          window.clearInterval(preloadTimer);
+        }
+      }, 300);
+    }
+
+    function setLoading(on) {
+      openBtn.classList.toggle('is-loading', on);
+      openBtn.setAttribute('aria-busy', on ? 'true' : 'false');
+    }
+
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        if (entries.some(function (e) { return e.isIntersecting; })) {
+          io.disconnect();
+          preload();
+        }
+      }, { rootMargin: '800px 0px' });
+      io.observe(root);
+    } else {
+      preload();
+    }
+
+    ['pointerenter', 'touchstart', 'focus'].forEach(function (evt) {
+      openBtn.addEventListener(evt, preload, { once: true, passive: true });
+    });
+
+    openBtn.addEventListener('click', function () {
+      if (openBtn.classList.contains('is-loading')) return;
+
+      var link = getLink();
+      if (linkReady(link)) {
+        link.click();
+        return;
+      }
+
+      preload();
+      setLoading(true);
+      var waited = 0;
+      window.clearInterval(clickTimer);
+      clickTimer = window.setInterval(function () {
+        waited += FAST_POLL;
+        var l = getLink();
+        if (linkReady(l) || waited >= FORM_WAIT) {
+          window.clearInterval(clickTimer);
+          setLoading(false);
+          if (l) l.click();
+        }
+      }, FAST_POLL);
+    });
+  }
+
   function init() {
-    document.querySelectorAll(ROOT_SEL).forEach(initSlider);
+    document.querySelectorAll(ROOT_SEL).forEach(function (root) {
+      initSlider(root);
+      initWriteReview(root);
+    });
   }
 
   if (document.readyState === 'loading') {
@@ -219,4 +334,12 @@
   }
 
   document.addEventListener('shopify:section:load', init);
+
+  // Lazy images above the section shift it after the browser's initial #reviews jump.
+  if (window.location.hash === '#reviews') {
+    window.addEventListener('load', function () {
+      var target = document.getElementById('reviews');
+      if (target) target.scrollIntoView({ block: 'start' });
+    });
+  }
 })();

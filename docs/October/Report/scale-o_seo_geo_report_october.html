@@ -1,0 +1,1483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scale-O | SEO &amp; GEO Report · October 2026</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+    :root {
+      --ink: #0B1B2E;
+      --ink-soft: #2A3F55;
+      --ink-muted: #5B6B7C;
+      --surface: #F3F8FD;
+      --surface-2: #E7F1FB;
+      --border: #C9DBEE;
+      --accent: #0C7FDF;
+      --accent-mid: #0A6BC4;
+      --accent-deep: #1A2B4A;
+      --accent-soft: rgba(12, 127, 223, 0.10);
+      --white: #FFFFFF;
+      --page-pad: 44px;
+      --page-h: 297mm;
+      --page-w: 210mm;
+      --green: #15803D;
+      --green-bg: #ECFDF5;
+      --amber: #B45309;
+      --amber-bg: #FFFBEB;
+      --amber-pale: #F0F7FF;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    body {
+      font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+      font-size: 10pt;
+      line-height: 1.55;
+      color: var(--ink);
+      background: #D6E4F2;
+    }
+
+    @page { size: A4; margin: 0; }
+
+    .page {
+      width: var(--page-w);
+      height: var(--page-h);
+      margin: 0 auto 20px;
+      background: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page.cover {
+      background:
+        radial-gradient(ellipse 90% 70% at 108% -8%, rgba(12, 127, 223, 0.22) 0%, transparent 58%),
+        radial-gradient(ellipse 75% 55% at -10% 108%, rgba(10, 107, 196, 0.16) 0%, transparent 55%),
+        radial-gradient(ellipse 50% 40% at 40% 40%, rgba(247, 251, 255, 0.9) 0%, transparent 70%),
+        linear-gradient(165deg, #F7FBFF 0%, #FFFFFF 42%, #EAF3FC 78%, #F3F8FD 100%);
+    }
+    .page.cover::before {
+      content: "";
+      position: absolute;
+      top: -70px; right: -50px;
+      width: 300px; height: 300px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(12, 127, 223, 0.14) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .page.cover::after {
+      content: "";
+      position: absolute;
+      bottom: 50px; left: -50px;
+      width: 240px; height: 240px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(26, 43, 74, 0.10) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .page-inner {
+      padding: var(--page-pad);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      overflow: hidden;
+    }
+    .page-inner > * { flex-shrink: 0; }
+    .page-inner.fill-page { justify-content: space-between; }
+    .page-inner.compact { padding: 34px 40px 40px; }
+
+    @media print {
+      body { background: white; margin: 0; }
+      .page { margin: 0; box-shadow: none; page-break-after: always; break-after: page; }
+      .page:last-child { page-break-after: auto; break-after: auto; }
+    }
+
+    .page-number {
+      position: absolute;
+      bottom: 20px;
+      right: var(--page-pad);
+      font-size: 8pt;
+      color: var(--ink-muted);
+    }
+
+    .hero-accent-bar {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 6px;
+      background: linear-gradient(90deg, var(--accent-deep) 0%, var(--accent) 55%, #3BA0F0 100%);
+    }
+
+    .doc-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
+    .doc-header.compact { margin-bottom: 12px; }
+    .brand-lockup { display: flex; align-items: center; gap: 12px; }
+    .brand-mark { width: 46px; height: 46px; flex-shrink: 0; display: block; object-fit: contain; }
+    .brand-name {
+      font-family: "Outfit", sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      line-height: 1.15;
+      color: var(--accent);
+    }
+    .brand-name span {
+      display: block;
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-size: 7.5px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      margin-top: 3px;
+    }
+    .doc-meta { text-align: right; font-size: 8pt; color: var(--ink-muted); line-height: 1.65; }
+    .doc-meta strong { color: var(--ink); font-weight: 600; }
+
+    .hero {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 8px 0 24px;
+      position: relative;
+      z-index: 1;
+    }
+    .page.cover .doc-header { position: relative; z-index: 1; }
+    .eyebrow {
+      font-size: 8pt;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
+    .hero h1 {
+      font-family: "Outfit", sans-serif;
+      font-size: 27pt;
+      font-weight: 700;
+      line-height: 1.12;
+      margin-bottom: 16px;
+      max-width: 96%;
+    }
+    .hero h1 em { font-style: normal; color: var(--accent); }
+    .hero-lead { font-size: 10.5pt; line-height: 1.65; color: var(--ink-soft); max-width: 540px; margin-bottom: 24px; }
+    .hero-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag {
+      display: inline-flex;
+      padding: 6px 12px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      font-size: 7.5pt;
+      font-weight: 500;
+      color: var(--ink-soft);
+    }
+    .tag.accent { background: var(--accent-soft); border-color: rgba(12, 127, 223, 0.28); color: var(--accent-mid); }
+    .cover-brand-sub { font-size: 9pt; color: var(--ink-muted); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 10px; }
+    .cover-logo-wrap { width: 88px; height: 88px; margin-bottom: 18px; }
+    .cover-logo-wrap img { width: 100%; height: 100%; object-fit: contain; display: block; }
+
+    .section-label {
+      font-size: 7.5pt;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .section-title { font-family: "Outfit", sans-serif; font-size: 18pt; font-weight: 700; line-height: 1.18; margin-bottom: 8px; }
+    .section-title.sm { font-size: 15pt; }
+    .section-intro { font-size: 9pt; color: var(--ink-soft); line-height: 1.5; margin-bottom: 12px; }
+
+    .exec-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 12px; }
+    .exec-card {
+      border: 1px solid #B7D4F0;
+      border-radius: 10px;
+      padding: 11px;
+      background: linear-gradient(180deg, #EAF4FD 0%, #FFFFFF 42%);
+      position: relative;
+      overflow: hidden;
+    }
+    .exec-card::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent), #3BA0F0);
+    }
+    .exec-card h4 {
+      font-size: 7pt;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid #D2E5F6;
+      color: var(--accent-mid);
+    }
+    .exec-card ul { list-style: none; }
+    .exec-card li {
+      font-size: 7pt;
+      margin-bottom: 5px;
+      color: var(--ink-soft);
+      line-height: 1.4;
+      padding-left: 11px;
+      position: relative;
+    }
+    .exec-card li:last-child { margin-bottom: 0; }
+    .exec-card li::before {
+      content: "";
+      position: absolute;
+      left: 0; top: 5px;
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    table.data-table { width: 100%; border-collapse: collapse; font-size: 7.5pt; margin-bottom: 10px; }
+    table.data-table th {
+      background: var(--accent-deep);
+      color: #fff;
+      padding: 7px 8px;
+      text-align: left;
+      font-size: 6.5pt;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    table.data-table td {
+      padding: 5.5px 8px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      color: var(--ink-soft);
+      line-height: 1.35;
+    }
+    table.data-table tr:nth-child(even) td { background: var(--surface); }
+    table.data-table td strong { color: var(--ink); }
+    .data-table tr.group-row td {
+      background: var(--accent-soft);
+      font-weight: 700;
+      color: var(--accent-mid);
+      font-size: 6.5pt;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 7px 8px;
+    }
+    .data-table td.num, .data-table th.num { text-align: center; }
+
+    .badge {
+      display: inline-block;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 6.5pt;
+      font-weight: 600;
+      background: var(--green-bg);
+      color: var(--green);
+      white-space: nowrap;
+    }
+    .badge.plan { background: #EFF6FF; color: var(--accent-mid); }
+    .badge.live { background: #DBEAFE; color: #1D4ED8; }
+    .badge.warn { background: var(--amber-bg); color: var(--amber); }
+
+    .alert { border-radius: 8px; padding: 9px 12px; font-size: 8pt; line-height: 1.5; margin-bottom: 10px; }
+    .alert-green { background: var(--green-bg); border-left: 3px solid var(--green); color: #0E4A24; }
+    .alert-blue { background: #EEF6FF; border-left: 3px solid var(--accent); color: #0B3A66; }
+    .alert-amber { background: var(--amber-bg); border-left: 3px solid var(--amber); color: #78350F; }
+    .alert strong { font-weight: 700; display: block; margin-bottom: 2px; }
+
+    .rec-box {
+      background: var(--amber-pale);
+      border: 1px solid rgba(12, 127, 223, 0.22);
+      border-radius: 8px;
+      padding: 10px 12px;
+      font-size: 7.8pt;
+      color: var(--ink-soft);
+      line-height: 1.5;
+      margin-bottom: 10px;
+    }
+    .rec-box strong {
+      color: var(--accent-mid);
+      font-size: 6.5pt;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    .term-grid, .pillars-row, .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 10px; }
+    .term-card, .pillar-card {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 11px;
+      background: var(--surface);
+    }
+    .term-card h4 { font-size: 8pt; font-weight: 700; color: var(--accent-mid); margin-bottom: 4px; }
+    .pillar-card h4 { font-size: 8pt; font-weight: 700; margin-bottom: 4px; color: var(--ink); }
+    .term-card p, .pillar-card p { font-size: 7.2pt; color: var(--ink-soft); line-height: 1.45; }
+    .pillar-card .letter {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 20px; height: 20px;
+      border-radius: 6px;
+      background: var(--accent);
+      color: #fff;
+      font-family: "Outfit", sans-serif;
+      font-size: 9pt;
+      font-weight: 700;
+      margin-right: 6px;
+      vertical-align: middle;
+    }
+
+    .kpi-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 12px; }
+    .kpi-box {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 8px;
+      text-align: center;
+      background: var(--surface);
+    }
+    .kpi-value { font-family: "Outfit", sans-serif; font-size: 13pt; font-weight: 700; color: var(--accent); line-height: 1; margin-bottom: 4px; }
+    .kpi-label { font-size: 6.5pt; color: var(--ink-muted); font-weight: 500; line-height: 1.3; }
+
+    .check-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 6px 14px; margin-bottom: 12px; }
+    .check-list li { font-size: 8pt; color: var(--ink-soft); padding-left: 16px; position: relative; line-height: 1.4; }
+    .check-list li::before { content: "✓"; position: absolute; left: 0; color: var(--accent); font-weight: 700; font-size: 8pt; }
+
+    .compare-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 12px; }
+    .compare-card { border: 1px solid var(--border); border-radius: 10px; padding: 12px; background: var(--surface); }
+    .compare-card.now { background: linear-gradient(180deg, #EAF4FD 0%, #FFFFFF 60%); border-color: #B7D4F0; }
+    .compare-card h4 {
+      font-size: 7pt;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      margin-bottom: 8px;
+    }
+    .compare-card.now h4 { color: var(--accent-mid); }
+    .compare-card ul { list-style: none; }
+    .compare-card li { font-size: 7.4pt; color: var(--ink-soft); line-height: 1.4; margin-bottom: 4px; padding-left: 11px; position: relative; }
+    .compare-card li::before { content: "•"; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+
+    .cluster-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 10px; }
+    .cluster-card { border: 1px solid var(--border); border-radius: 8px; padding: 11px 12px; background: var(--surface); }
+    .cluster-card h4 { font-size: 8pt; font-weight: 700; color: var(--ink); margin-bottom: 4px; }
+    .cluster-card p { font-size: 7pt; color: var(--ink-soft); line-height: 1.4; }
+    .cluster-card .kw { display: block; margin-top: 6px; font-size: 6.5pt; font-weight: 600; color: var(--accent-mid); }
+
+    .link-map { border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; background: var(--surface); margin-bottom: 10px; }
+    .link-row { display: grid; grid-template-columns: 150px 1fr; gap: 10px; padding: 6px 0; border-bottom: 1px dashed var(--border); font-size: 7.4pt; }
+    .link-row:last-child { border-bottom: none; }
+    .link-row .from { font-weight: 700; color: var(--accent-deep); }
+    .link-row .to { color: var(--ink-soft); }
+    .link-row .to span {
+      display: inline-block;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 1px 8px;
+      margin: 0 4px 3px 0;
+      font-size: 6.8pt;
+    }
+
+    .quote-card {
+      border-left: 3px solid var(--accent);
+      background: #fff;
+      border-radius: 0 8px 8px 0;
+      padding: 10px 12px;
+      font-size: 7.6pt;
+      color: var(--ink-soft);
+      line-height: 1.5;
+      margin-bottom: 10px;
+      box-shadow: 0 0 0 1px var(--border) inset;
+    }
+    .quote-card .q-label { font-size: 6.5pt; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent-mid); margin-bottom: 4px; display: block; }
+
+    .proof-wrap { border: 1px solid var(--border); border-radius: 10px; overflow: hidden; background: var(--surface); margin-bottom: 10px; position: relative; }
+    .proof-wrap img { display: block; width: 100%; height: auto; max-height: 200mm; object-fit: contain; object-position: top center; background: #fff; }
+    .proof-caption { padding: 8px 10px; font-size: 7pt; color: var(--ink-soft); line-height: 1.4; border-top: 1px solid var(--border); background: #fff; }
+    .proof-placeholder {
+      display: none;
+      height: 150mm;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 6px;
+      text-align: center;
+      color: var(--ink-muted);
+      font-size: 8.5pt;
+      background: repeating-linear-gradient(45deg, #F3F8FD, #F3F8FD 12px, #EAF3FC 12px, #EAF3FC 24px);
+    }
+    .proof-placeholder strong { color: var(--accent-deep); font-size: 10pt; }
+    .proof-placeholder code { font-size: 8pt; background: #fff; border: 1px solid var(--border); border-radius: 4px; padding: 1px 6px; }
+    .proof-wrap.missing img { display: none; }
+    .proof-wrap.missing .proof-placeholder { display: flex; }
+
+    .steps-box { border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px; background: var(--surface); margin-bottom: 10px; }
+    .steps-box ol { margin: 0; padding-left: 16px; }
+    .steps-box li { font-size: 7.5pt; color: var(--ink-soft); line-height: 1.45; margin-bottom: 4px; }
+    .steps-box li:last-child { margin-bottom: 0; }
+    code {
+      font-size: 7pt;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      padding: 0 4px;
+    }
+
+    .footer-note { font-size: 7pt; color: var(--ink-muted); line-height: 1.4; margin-top: 6px; }
+
+    .thanks-page { justify-content: space-between; }
+    .thanks-hero { flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 28px 0 20px; }
+    .thanks-hero .thanks-label { font-size: 9pt; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; }
+    .thanks-hero h1 { font-family: "Outfit", sans-serif; font-size: 42pt; font-weight: 700; line-height: 1.05; margin-bottom: 16px; max-width: 92%; }
+    .thanks-hero h1 em { font-style: normal; color: var(--accent); }
+    .thanks-hero .thanks-lead { font-size: 11pt; line-height: 1.55; color: var(--ink-soft); max-width: 460px; }
+    .cta-box { background: #100C0A; color: #fff; border-radius: 12px; padding: 22px 26px; text-align: center; margin-top: 8px; }
+    .cta-box h3 { font-family: "Outfit", sans-serif; font-size: 16pt; font-weight: 600; margin-bottom: 8px; line-height: 1.2; }
+    .cta-box p { font-size: 8.5pt; color: rgba(255,255,255,0.72); margin-bottom: 14px; line-height: 1.5; }
+    .cta-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 14px 18px; font-size: 8.5pt; }
+    .cta-links a { color: #FF5C28; text-decoration: none; font-weight: 600; }
+    .pp-mark { width: 46px; height: 46px; flex-shrink: 0; display: block; }
+  </style>
+</head>
+<body>
+
+
+
+<!-- PAGE 1: COVER -->
+<div class="page cover">
+  <div class="page-inner fill-page">
+    <header class="doc-header">
+      <div class="brand-lockup">
+        <img class="brand-mark" src="scale-o-logo.png" alt="Scale-O" width="46" height="46">
+        <div class="brand-name">
+          Scale-O
+          <span>SEO &amp; GEO Report &middot; October 2026</span>
+        </div>
+      </div>
+      <div class="doc-meta">
+        <strong>Website</strong><br>
+        scale-o.com<br><br>
+        <strong>Brand</strong><br>
+        Scale-O<br><br>
+        <strong>Document</strong> &middot; Confidential<br>
+        <strong>Date</strong> 30 October 2026
+      </div>
+    </header>
+    <section class="hero">
+      <p class="cover-brand-sub">www.scale-o.com</p>
+      <div class="cover-logo-wrap">
+        <img src="scale-o-logo.png" alt="Scale-O">
+      </div>
+      <p class="eyebrow">Month 3 &middot; Content Engine &middot; India Tank Homes</p>
+      <h1>12 new articles built to win <em>search</em> &amp; <em>AI answers</em>.</h1>
+      <p class="hero-lead">
+        What we delivered for Scale-O in October: fresh keyword research, 12 blog topics mapped to real India demand,
+        an E-E-A-T writing framework, and 12 long-form articles with complete on-page SEO. All 12 are live on scale-o.com.
+      </p>
+      <div class="hero-tags">
+        <span class="tag accent">Keyword research</span>
+        <span class="tag accent">12 live blogs</span>
+        <span class="tag accent">On-page SEO</span>
+        <span class="tag accent">E-E-A-T framework</span>
+        <span class="tag accent">GEO &amp; AI readiness</span>
+      </div>
+    </section>
+  </div>
+  <div class="hero-accent-bar"></div>
+</div>
+
+<!-- PAGE 2: EXEC SUMMARY -->
+<div class="page">
+  <div class="page-inner compact">
+    <header class="doc-header compact">
+      <div class="brand-lockup">
+        <img class="brand-mark" src="scale-o-logo.png" alt="Scale-O" width="46" height="46">
+        <div class="brand-name">Scale-O</div>
+      </div>
+      <div class="doc-meta"><strong>Executive summary</strong> &middot; October</div>
+    </header>
+    <p class="section-label">Overview</p>
+    <h2 class="section-title sm">October at a glance.</h2>
+    <p class="section-intro">
+      September scaled the content engine. October kept the same quality bar and opened new clusters: winter geyser and solar,
+      bathing compare, hardness levels, side effects, softener lifespan, dandruff, and three new city problem blogs
+      (Hyderabad, Jaipur, Chennai). Client rejected two draft topics mid-month; both were replaced before publish.
+    </p>
+    <div class="kpi-row">
+      <div class="kpi-box"><div class="kpi-value">12</div><div class="kpi-label">New blog URLs<br>published</div></div>
+      <div class="kpi-box"><div class="kpi-value">12</div><div class="kpi-label">Unique primary<br>keywords</div></div>
+      <div class="kpi-box"><div class="kpi-value">3k+</div><div class="kpi-label">Words per post<br>(client brief)</div></div>
+      <div class="kpi-box"><div class="kpi-value">2</div><div class="kpi-label">Client topic<br>swaps handled</div></div>
+    </div>
+    <div class="exec-grid">
+      <div class="exec-card">
+        <h4>Research</h4>
+        <ul>
+          <li>India autocomplete + SERP checks</li>
+          <li>One primary = one URL lock</li>
+          <li>Rejected Diwali checklist + polyphosphate</li>
+          <li>Cannibalization vs Aug/Sep live posts</li>
+        </ul>
+      </div>
+      <div class="exec-card">
+        <h4>Content</h4>
+        <ul>
+          <li>12 paste packs in docs/October/Blog</li>
+          <li>Benefits, before/after, Why Scale-O</li>
+          <li>Mini / Semi / Centi + plans + trial</li>
+          <li>No em dashes; honest product claims</li>
+        </ul>
+      </div>
+      <div class="exec-card">
+        <h4>SEO &amp; GEO</h4>
+        <ul>
+          <li>Primary in title, H1, intro, H2s, FAQ</li>
+          <li>Answer-first short answers</li>
+          <li>Google AI Overview cites Scale-O (O8)</li>
+          <li>BlogPosting / FAQ schema via theme</li>
+        </ul>
+      </div>
+    </div>
+    <div class="alert alert-green">
+      <strong>Client review outcome (6 Oct)</strong>
+      O4 Diwali cleaning checklist and O6 polyphosphate vs Scale-O were rejected. Replaced with water hardness levels and hard water vs soft water for bathing. Both shipped in the October calendar.
+    </div>
+  </div>
+  <span class="page-number">02</span>
+</div>
+
+<!-- PAGE 3: BUILDS ON SEPT -->
+<div class="page">
+  <div class="page-inner compact">
+    <header class="doc-header compact">
+      <div class="brand-lockup">
+        <img class="brand-mark" src="scale-o-logo.png" alt="Scale-O" width="46" height="46">
+        <div class="brand-name">Scale-O</div>
+      </div>
+      <div class="doc-meta"><strong>Strategy</strong> &middot; Month on month</div>
+    </header>
+    <p class="section-label">Context</p>
+    <h2 class="section-title sm">How October builds on September.</h2>
+    <p class="section-intro">October did not rewrite September work. It added winter, bathing, buyer-objection and new-city clusters on top of locked Aug/Sep URLs.</p>
+    <div class="compare-row">
+      <div class="compare-card">
+        <h4>September 2026 (scale)</h4>
+        <ul>
+          <li>12 blogs: stains, vs RO, shower filter, no electricity, borewell, EM vs Scale-O, laundry, install, Delhi / Ahmedabad / magnetic / Pune</li>
+          <li>Long-form brief from Blog 5 onward</li>
+          <li>City problem blogs feeding city pages</li>
+        </ul>
+      </div>
+      <div class="compare-card now">
+        <h4>October 2026 (expand)</h4>
+        <ul>
+          <li>12 blogs: shower clean, whole house, geyser descaling, hardness levels, solar heater, bathing compare, side effects, lifespan, dandruff, Hyderabad / Jaipur / Chennai</li>
+          <li>All 12 posts at 3,000+ words</li>
+          <li>TN / Rajasthan / Hyd city expansion</li>
+        </ul>
+      </div>
+    </div>
+    <table class="data-table">
+      <thead><tr><th>Metric</th><th class="num">Sep</th><th class="num">Oct</th><th class="num">Running*</th></tr></thead>
+      <tbody>
+        <tr><td><strong>New blog primary keywords locked</strong></td><td class="num">12</td><td class="num">12</td><td class="num"><strong>31+</strong></td></tr>
+        <tr><td><strong>Long-form 3,000+ word posts</strong></td><td class="num">8+</td><td class="num">12</td><td class="num"><strong>20+</strong></td></tr>
+        <tr><td><strong>City hard-water problem blogs</strong></td><td class="num">3</td><td class="num">3</td><td class="num"><strong>6</strong></td></tr>
+      </tbody>
+    </table>
+    <p class="footer-note">*Running totals include August evergreen + September + October blog primaries (approximate programme count).</p>
+    <div class="rec-box"><strong>Client brief applied to every October post</strong>Benefits, before vs after, Mini / Semi / Centi commercials, plans page + 6-month trial, Why Scale-O, honest limits (no soft-water / medical / overnight crust claims).</div>
+  </div>
+  <span class="page-number">03</span>
+</div>
+
+<!-- PAGE 4: BLOG TITLE + KEYWORD LIST -->
+<div class="page">
+  <div class="page-inner compact">
+    <header class="doc-header compact">
+      <div class="brand-lockup">
+        <img class="brand-mark" src="scale-o-logo.png" alt="Scale-O" width="46" height="46">
+        <div class="brand-name">Scale-O</div>
+      </div>
+      <div class="doc-meta"><strong>SEO Work</strong> &middot; Blog &amp; keyword list</div>
+    </header>
+    <p class="section-label">Area 01</p>
+    <h2 class="section-title sm">October blog titles &amp; primary keywords.</h2>
+    <p class="section-intro">Full list of the 12 posts shipped in October: publish date, H1 title, primary keyword and live handle. One primary per URL.</p>
+    <table class="data-table" style="font-size:6.4pt;">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Date</th>
+          <th>Blog title (H1)</th>
+          <th>Primary keyword</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>O1</td><td>8 Oct</td><td><strong>How to Clean a Shower Head Clogged by Hard Water</strong></td><td>how to clean shower head</td><td><span class="badge live">Live</span></td></tr>
+        <tr><td>O2</td><td>9 Oct</td><td><strong>Whole House Water Softener for Independent Houses in India</strong></td><td>whole house water softener</td><td><span class="badge live">Live</span></td></tr>
+        <tr><td>O3</td><td>12 Oct</td><td><strong>Geyser Descaling: How to Remove Scale Before Winter</strong></td><td>geyser descaling</td><td><span class="badge live">Live</span></td></tr>
+        <tr><td>O4</td><td>13 Oct</td><td><strong>Water Hardness Levels: What Your PPM or TDS Number Means</strong></td><td>water hardness level</td><td><span class="badge live">Live</span></td></tr>
+        <tr><td>O5</td><td>14 Oct</td><td><strong>Water Softener for Solar Water Heaters on Hard Water</strong></td><td>water softener for solar water heater</td><td><span class="badge live">Live</span></td></tr>
+        <tr><td>O6</td><td>15 Oct</td><td><strong>Hard Water vs Soft Water for Bathing: Hair, Skin and Daily Use</strong></td><td>hard water vs soft water for bathing</td><td><span class="badge live">Live</span></td></tr>
+        <tr><td>O7</td><td>16 Oct</td><td><strong>Water Softener Side Effects: What Is True and What Is Myth</strong></td><td>water softener side effects</td><td><span class="badge live">Live</span></td></tr>
+        <tr><td>O8</td><td>19 Oct</td><td><strong>How Long Does a Water Softener Last in Indian Homes?</strong></td><td>how long does a water softener last</td><td><span class="badge live">Live</span></td></tr>
+        <tr><td>O9</td><td>20 Oct</td><td><strong>Hard Water Dandruff: Why Your Scalp Itches More in Winter</strong></td><td>hard water dandruff</td><td><span class="badge live">Live</span></td></tr>
+        <tr><td>O10</td><td>21 Oct</td><td><strong>Hyderabad Hard Water: Borewell Homes and Villa Communities</strong></td><td>Hyderabad hard water</td><td><span class="badge live">Live</span></td></tr>
+        <tr><td>O11</td><td>22 Oct</td><td><strong>Jaipur Hard Water: Rajasthan Tank Homes and Borewell Supply</strong></td><td>Jaipur hard water</td><td><span class="badge live">Live</span></td></tr>
+        <tr><td>O12</td><td>23–26 Oct</td><td><strong>Chennai Hard Water: Borewell, Salinity and Scale in Tank Homes</strong></td><td>Chennai hard water</td><td><span class="badge live">Live</span></td></tr>
+      </tbody>
+    </table>
+    <div class="cluster-row">
+      <div class="cluster-card"><h4>Seasonal / winter</h4><p>Shower clean, geyser descaling, solar heater, dandruff for Diwali-to-winter searches.</p><span class="kw">O1 · O3 · O5 · O9</span></div>
+      <div class="cluster-card"><h4>Commercial / objection</h4><p>Whole house, hardness levels, bathing, side effects, lifespan.</p><span class="kw">O2 · O4 · O6 · O7 · O8</span></div>
+      <div class="cluster-card"><h4>City expansion</h4><p>Hyderabad, Jaipur, Chennai problem blogs after Delhi / Ahmedabad / Pune.</p><span class="kw">O10 · O11 · O12</span></div>
+    </div>
+  </div>
+  <span class="page-number">04</span>
+</div>
+
+<!-- PAGE 5: URL HANDLES -->
+<div class="page">
+  <div class="page-inner compact">
+    <header class="doc-header compact">
+      <div class="brand-lockup">
+        <img class="brand-mark" src="scale-o-logo.png" alt="Scale-O" width="46" height="46">
+        <div class="brand-name">Scale-O</div>
+      </div>
+      <div class="doc-meta"><strong>SEO Work</strong> &middot; URLs</div>
+    </header>
+    <p class="section-label">Area 01</p>
+    <h2 class="section-title sm">Live URL handles (October).</h2>
+    <p class="section-intro">Exact Shopify handles used. Verified present on scale-o.com/blogs/articles.atom.</p>
+    <table class="data-table" style="font-size:6.8pt;">
+      <thead><tr><th>#</th><th>Handle</th><th>Full path</th></tr></thead>
+      <tbody>
+        <tr><td>O1</td><td><code>how-to-clean-shower-head</code></td><td>/blogs/articles/how-to-clean-shower-head</td></tr>
+        <tr><td>O2</td><td><code>whole-house-water-softener-india</code></td><td>/blogs/articles/whole-house-water-softener-india</td></tr>
+        <tr><td>O3</td><td><code>geyser-descaling</code></td><td>/blogs/articles/geyser-descaling</td></tr>
+        <tr><td>O4</td><td><code>water-hardness-levels</code></td><td>/blogs/articles/water-hardness-levels</td></tr>
+        <tr><td>O5</td><td><code>water-softener-for-solar-water-heater</code></td><td>/blogs/articles/water-softener-for-solar-water-heater</td></tr>
+        <tr><td>O6</td><td><code>hard-water-vs-soft-water-for-bathing</code></td><td>/blogs/articles/hard-water-vs-soft-water-for-bathing</td></tr>
+        <tr><td>O7</td><td><code>water-softener-side-effects</code></td><td>/blogs/articles/water-softener-side-effects</td></tr>
+        <tr><td>O8</td><td><code>how-long-does-a-water-softener-last</code></td><td>/blogs/articles/how-long-does-a-water-softener-last</td></tr>
+        <tr><td>O9</td><td><code>hard-water-dandruff</code></td><td>/blogs/articles/hard-water-dandruff</td></tr>
+        <tr><td>O10</td><td><code>hyderabad-hard-water</code></td><td>/blogs/articles/hyderabad-hard-water</td></tr>
+        <tr><td>O11</td><td><code>jaipur-hard-water</code></td><td>/blogs/articles/jaipur-hard-water</td></tr>
+        <tr><td>O12</td><td><code>chennai-hard-water</code></td><td>/blogs/articles/chennai-hard-water</td></tr>
+      </tbody>
+    </table>
+    <div class="alert alert-amber">
+      <strong>Client swaps reflected in handles</strong>
+      Rejected handles never published: <code>diwali-cleaning-checklist</code>, <code>polyphosphate-water-softener-vs-scale-o</code>. Final O4 / O6 handles above are the live ones.
+    </div>
+  </div>
+  <span class="page-number">05</span>
+</div>
+
+<!-- PAGE 6: KEYWORD MAP -->
+<div class="page">
+  <div class="page-inner compact">
+    <header class="doc-header compact">
+      <div class="brand-lockup">
+        <img class="brand-mark" src="scale-o-logo.png" alt="Scale-O" width="46" height="46">
+        <div class="brand-name">Scale-O</div>
+      </div>
+      <div class="doc-meta"><strong>SEO Work</strong> &middot; Keyword map</div>
+    </header>
+    <p class="section-label">Area 01</p>
+    <h2 class="section-title sm">12 keywords mapped: intent &amp; value.</h2>
+    <p class="section-intro">Primary keywords only. Secondaries live in H2s and FAQs (next pages). Volume bands are India estimates from autocomplete depth, not invented Keyword Planner numbers.</p>
+    <table class="data-table" style="font-size:6.4pt;">
+      <thead><tr><th>#</th><th>Primary keyword</th><th>Intent</th><th>Band</th><th>Biz value</th></tr></thead>
+      <tbody>
+        <tr class="group-row"><td colspan="5">Seasonal / how-to</td></tr>
+        <tr><td>O1</td><td><strong>how to clean shower head</strong></td><td>HowTo</td><td>Med</td><td>High</td></tr>
+        <tr><td>O3</td><td><strong>geyser descaling</strong></td><td>HowTo</td><td>Low–Med</td><td>High</td></tr>
+        <tr class="group-row"><td colspan="5">Commercial</td></tr>
+        <tr><td>O2</td><td><strong>whole house water softener</strong></td><td>Commercial</td><td>Low–Med</td><td>Very high</td></tr>
+        <tr><td>O5</td><td><strong>water softener for solar water heater</strong></td><td>Commercial</td><td>Low</td><td>Very high</td></tr>
+        <tr class="group-row"><td colspan="5">Buyer education / objection</td></tr>
+        <tr><td>O4</td><td><strong>water hardness level</strong></td><td>Guide</td><td>Med</td><td>High</td></tr>
+        <tr><td>O6</td><td><strong>hard water vs soft water for bathing</strong></td><td>Compare</td><td>Med</td><td>High</td></tr>
+        <tr><td>O7</td><td><strong>water softener side effects</strong></td><td>Objection</td><td>Med</td><td>High</td></tr>
+        <tr><td>O8</td><td><strong>how long does a water softener last</strong></td><td>Objection</td><td>Low–Med</td><td>High</td></tr>
+        <tr><td>O9</td><td><strong>hard water dandruff</strong></td><td>Problem</td><td>Low–Med</td><td>Med–High</td></tr>
+        <tr class="group-row"><td colspan="5">City problem blogs</td></tr>
+        <tr><td>O10</td><td><strong>Hyderabad hard water</strong></td><td>Local</td><td>Low–Med</td><td>High</td></tr>
+        <tr><td>O11</td><td><strong>Jaipur hard water</strong></td><td>Local</td><td>Low–Med</td><td>High</td></tr>
+        <tr><td>O12</td><td><strong>Chennai hard water</strong></td><td>Local</td><td>Low–Med</td><td>High</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <span class="page-number">06</span>
+</div>
+
+<!-- PAGE 7: SECONDARIES -->
+<div class="page">
+  <div class="page-inner compact">
+    <header class="doc-header compact">
+      <div class="brand-lockup">
+        <img class="brand-mark" src="scale-o-logo.png" alt="Scale-O" width="46" height="46">
+        <div class="brand-name">Scale-O</div>
+      </div>
+      <div class="doc-meta"><strong>SEO Work</strong> &middot; Secondary keywords</div>
+    </header>
+    <p class="section-label">Area 01</p>
+    <h2 class="section-title sm">Secondary keywords used per post.</h2>
+    <p class="section-intro">Each secondary appears in at least one H2/H3 or FAQ plus body copy. Primaries stay unique across the site.</p>
+    <table class="data-table" style="font-size:6.1pt;">
+      <thead><tr><th>#</th><th>Primary</th><th>Secondaries used</th></tr></thead>
+      <tbody>
+        <tr><td>O1</td><td>how to clean shower head</td><td>how to clean shower head holes; shower head clogged with mineral deposits; how to clean shower heads from hard water</td></tr>
+        <tr><td>O2</td><td>whole house water softener</td><td>whole house water softener India; water softener for independent house; villa; bungalow; house tank; Sintex tank</td></tr>
+        <tr><td>O3</td><td>geyser descaling</td><td>how to descale geyser at home; geyser scale remover; geyser descaling cost; anti scale geyser</td></tr>
+        <tr><td>O4</td><td>water hardness level</td><td>hard water ppm range; water hardness levels chart; borewell water hardness level; TDS level for hard water; for bathing</td></tr>
+        <tr><td>O5</td><td>water softener for solar water heater</td><td>solar water heater for hard water India; solar water heater descaling; best solar water heater for hard water</td></tr>
+        <tr><td>O6</td><td>hard water vs soft water for bathing</td><td>for hair; for skin; which is better; soft water benefits for skin and hair</td></tr>
+        <tr><td>O7</td><td>water softener side effects</td><td>water softener disadvantages; side effects long term; disadvantages of soft water; health issues</td></tr>
+        <tr><td>O8</td><td>how long does a water softener last</td><td>how many years; how long do salt free last; maintenance cost India; maintenance</td></tr>
+        <tr><td>O9</td><td>hard water dandruff</td><td>itchy scalp; dry scalp; hard water se dandruff hota hai (FAQ); dandruff shampoo (FAQ)</td></tr>
+        <tr><td>O10</td><td>Hyderabad hard water</td><td>Hyderabad hard water reddit; does Hyderabad have; Hyderabad borewell water</td></tr>
+        <tr><td>O11</td><td>Jaipur hard water</td><td>does Jaipur have; Jaipur water hard or soft; Rajasthan hard water</td></tr>
+        <tr><td>O12</td><td>Chennai hard water</td><td>Chennai hard water reddit; does Chennai have; Chennai borewell water</td></tr>
+      </tbody>
+    </table>
+    <div class="rec-box"><strong>Rejected keywords (not used as Oct primaries)</strong>Diwali cleaning checklist · polyphosphate / Siliphos vs Scale-O · softener vs conditioner · softener price India as blog · tank-litre blogs (PDP owned)</div>
+  </div>
+  <span class="page-number">07</span>
+</div>
+
+<!-- PAGE 8: SEO TITLES -->
+<div class="page">
+  <div class="page-inner compact">
+    <header class="doc-header compact">
+      <div class="brand-lockup">
+        <img class="brand-mark" src="scale-o-logo.png" alt="Scale-O" width="46" height="46">
+        <div class="brand-name">Scale-O</div>
+      </div>
+      <div class="doc-meta"><strong>SEO Work</strong> &middot; On-page titles</div>
+    </header>
+    <p class="section-label">Area 02</p>
+    <h2 class="section-title sm">On-page SEO: title &amp; meta for all 12.</h2>
+    <p class="section-intro">Primary at the front of every SEO title. Titles 45–60 characters where possible; metas 145–160. Sourced from October paste packs.</p>
+    <table class="data-table" style="font-size:6.2pt;">
+      <thead><tr><th>#</th><th>SEO title</th><th class="num">Title</th><th class="num">Meta</th><th></th></tr></thead>
+      <tbody>
+        <tr><td>O1</td><td>How to Clean Shower Head Holes Blocked by Hard Water</td><td class="num">52</td><td class="num">159</td><td><span class="badge">Done</span></td></tr>
+        <tr><td>O2</td><td>Whole House Water Softener for Indian Homes | Scale-O</td><td class="num">53</td><td class="num">156</td><td><span class="badge">Done</span></td></tr>
+        <tr><td>O3</td><td>Geyser Descaling at Home: Steps, Cost and Prevention</td><td class="num">52</td><td class="num">159</td><td><span class="badge">Done</span></td></tr>
+        <tr><td>O4</td><td>Water Hardness Levels Chart: PPM and TDS Explained</td><td class="num">50</td><td class="num">156</td><td><span class="badge">Done</span></td></tr>
+        <tr><td>O5</td><td>Water Softener for Solar Water Heater | India Guide</td><td class="num">51</td><td class="num">157</td><td><span class="badge">Done</span></td></tr>
+        <tr><td>O6</td><td>Hard Water vs Soft Water for Bathing: Hair and Skin</td><td class="num">51</td><td class="num">153</td><td><span class="badge">Done</span></td></tr>
+        <tr><td>O7</td><td>Water Softener Side Effects: Facts for Indian Homes</td><td class="num">51</td><td class="num">159</td><td><span class="badge">Done</span></td></tr>
+        <tr><td>O8</td><td>How Long Does a Water Softener Last? India Guide</td><td class="num">48</td><td class="num">160</td><td><span class="badge">Done</span></td></tr>
+        <tr><td>O9</td><td>Hard Water Dandruff and Itchy Scalp: What Helps</td><td class="num">47</td><td class="num">156</td><td><span class="badge">Done</span></td></tr>
+        <tr><td>O10</td><td>Hyderabad Hard Water for Tank Homes | Scale-O Guide</td><td class="num">51</td><td class="num">157</td><td><span class="badge">Done</span></td></tr>
+        <tr><td>O11</td><td>Jaipur Hard Water Guide for Tank Homes | Scale-O</td><td class="num">48</td><td class="num">156</td><td><span class="badge">Done</span></td></tr>
+        <tr><td>O12</td><td>Chennai Hard Water in Borewell Homes | Scale-O Guide</td><td class="num">51</td><td class="num">156</td><td><span class="badge">Done</span></td></tr>
+      </tbody>
+    </table>
+    <p class="section-label" style="margin-top:4px;">Example meta (O6)</p>
+    <div class="quote-card"><span class="q-label">hard water vs soft water for bathing · 153 characters</span>Hard water vs soft water for bathing: what changes for hair, skin and scalp, salt-softened vs conditioned tank water, and what Scale-O can and cannot do.</div>
+  </div>
+  <span class="page-number">08</span>
+</div>
+
+<!-- PAGE 9: PLACEMENT + CANNIBALIZATION -->
+<div class="page">
+  <div class="page-inner compact">
+    <header class="doc-header compact">
+      <div class="brand-lockup">
+        <img class="brand-mark" src="scale-o-logo.png" alt="Scale-O" width="46" height="46">
+        <div class="brand-name">Scale-O</div>
+      </div>
+      <div class="doc-meta"><strong>SEO Work</strong> &middot; Placement &amp; locks</div>
+    </header>
+    <p class="section-label">Area 02</p>
+    <h2 class="section-title sm">Where each keyword is placed.</h2>
+    <table class="data-table" style="font-size:7pt;">
+      <thead><tr><th>Placement</th><th>Primary</th><th>Secondaries</th><th></th></tr></thead>
+      <tbody>
+        <tr><td><strong>SEO title</strong></td><td>Exact at the front</td><td>Optional</td><td><span class="badge">12/12</span></td></tr>
+        <tr><td><strong>Meta description</strong></td><td>Exact at the front</td><td>1–2 terms</td><td><span class="badge">12/12</span></td></tr>
+        <tr><td><strong>H1</strong></td><td>Exact or very close</td><td>No</td><td><span class="badge">12/12</span></td></tr>
+        <tr><td><strong>First 100 words</strong></td><td>Once in Short answer</td><td>Yes</td><td><span class="badge">12/12</span></td></tr>
+        <tr><td><strong>H2s</strong></td><td>≥2 incl. FAQ H2</td><td>H2/H3</td><td><span class="badge">12/12</span></td></tr>
+        <tr><td><strong>Body</strong></td><td>6–8 exact mentions</td><td>Natural</td><td><span class="badge">12/12</span></td></tr>
+        <tr><td><strong>FAQ H3</strong></td><td>One question</td><td>Yes</td><td><span class="badge">12/12</span></td></tr>
+        <tr><td><strong>Excerpt + image ALT</strong></td><td>Exact</td><td>Light</td><td><span class="badge">12/12</span></td></tr>
+      </tbody>
+    </table>
+    <p class="section-label" style="margin-top:6px;">No clash with Aug / Sep owners</p>
+    <table class="data-table" style="font-size:6.5pt;">
+      <thead><tr><th>Already owned</th><th>Owner</th><th>October rule</th></tr></thead>
+      <tbody>
+        <tr><td>how to remove hard water stains</td><td>Sep S1</td><td>O1 owns shower head clean only</td></tr>
+        <tr><td>hard water damage to geyser</td><td>Aug</td><td>O3 owns descaling how-to / cost</td></tr>
+        <tr><td>hard water vs soft for bathing as medical</td><td>—</td><td>O6 owns bathing compare; no medical claims</td></tr>
+        <tr><td>best water softener in Hyd / Jaipur / Chennai</td><td>City pages (future)</td><td>Blogs own “[city] hard water” only</td></tr>
+        <tr><td>does salt free water softener work</td><td>Live</td><td>Not retargeted in Oct</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <span class="page-number">09</span>
+</div>
+
+<!-- PAGE 10: QUALITY -->
+<div class="page">
+  <div class="page-inner compact">
+    <header class="doc-header compact">
+      <div class="brand-lockup">
+        <img class="brand-mark" src="scale-o-logo.png" alt="Scale-O" width="46" height="46">
+        <div class="brand-name">Scale-O</div>
+      </div>
+      <div class="doc-meta"><strong>SEO Work</strong> &middot; Content quality</div>
+    </header>
+    <p class="section-label">Area 03</p>
+    <h2 class="section-title sm">Every October blog built to one standard.</h2>
+    <div class="steps-box">
+      <ol>
+        <li><strong>Short answer</strong> in the first paragraph (Google / AI quote zone).</li>
+        <li><strong>Problem explained</strong> for Indian overhead-tank homes.</li>
+        <li><strong>Before vs after table</strong> in HTML.</li>
+        <li><strong>Benefits + Why Scale-O</strong> with honest limits.</li>
+        <li><strong>Mini / Semi / Centi</strong> + plans + 6-month trial CTAs.</li>
+        <li><strong>FAQ</strong> in real question language; no em dashes.</li>
+      </ol>
+    </div>
+    <table class="data-table" style="font-size:6.4pt;">
+      <thead><tr><th>#</th><th>Blog</th><th class="num">Words</th><th class="num">H2</th><th class="num">FAQs</th><th class="num">PDP</th><th class="num">Blog links</th></tr></thead>
+      <tbody>
+        <tr><td>O1</td><td>Clean shower head</td><td class="num">3,753</td><td class="num">18</td><td class="num">12</td><td class="num">9</td><td class="num">13</td></tr>
+        <tr><td>O2</td><td>Whole house softener</td><td class="num">3,516</td><td class="num">18</td><td class="num">9</td><td class="num">9</td><td class="num">12</td></tr>
+        <tr><td>O3</td><td>Geyser descaling</td><td class="num">3,385</td><td class="num">19</td><td class="num">8</td><td class="num">9</td><td class="num">11</td></tr>
+        <tr><td>O4</td><td>Water hardness levels</td><td class="num">3,161</td><td class="num">17</td><td class="num">10</td><td class="num">9</td><td class="num">18</td></tr>
+        <tr><td>O5</td><td>Solar water heater</td><td class="num">3,224</td><td class="num">15</td><td class="num">12</td><td class="num">9</td><td class="num">13</td></tr>
+        <tr><td>O6</td><td>Hard vs soft bathing</td><td class="num">3,210</td><td class="num">16</td><td class="num">14</td><td class="num">9</td><td class="num">16</td></tr>
+        <tr><td>O7</td><td>Side effects</td><td class="num">3,090</td><td class="num">14</td><td class="num">8</td><td class="num">9</td><td class="num">22</td></tr>
+        <tr><td>O8</td><td>How long softener lasts</td><td class="num">3,044</td><td class="num">13</td><td class="num">8</td><td class="num">9</td><td class="num">16</td></tr>
+        <tr><td>O9</td><td>Hard water dandruff</td><td class="num">3,015</td><td class="num">14</td><td class="num">8</td><td class="num">9</td><td class="num">16</td></tr>
+        <tr><td>O10</td><td>Hyderabad hard water</td><td class="num">3,007</td><td class="num">14</td><td class="num">8</td><td class="num">9</td><td class="num">25</td></tr>
+        <tr><td>O11</td><td>Jaipur hard water</td><td class="num">3,007</td><td class="num">13</td><td class="num">8</td><td class="num">9</td><td class="num">24</td></tr>
+        <tr><td>O12</td><td>Chennai hard water</td><td class="num">3,006</td><td class="num">14</td><td class="num">8</td><td class="num">9</td><td class="num">25</td></tr>
+      </tbody>
+    </table>
+    <p class="footer-note">Word counts = article body HTML with tags stripped. All 12 posts clear the 3,000-word client brief.</p>
+  </div>
+  <span class="page-number">10</span>
+</div>
+
+<!-- PAGE 11: E-E-A-T + LINKS -->
+<div class="page">
+  <div class="page-inner compact">
+    <header class="doc-header compact">
+      <div class="brand-lockup">
+        <img class="brand-mark" src="scale-o-logo.png" alt="Scale-O" width="46" height="46">
+        <div class="brand-name">Scale-O</div>
+      </div>
+      <div class="doc-meta"><strong>SEO &amp; GEO</strong> &middot; Trust &amp; links</div>
+    </header>
+    <p class="section-label">Area 03</p>
+    <h2 class="section-title sm">E-E-A-T + internal linking.</h2>
+    <div class="pillars-row">
+      <div class="pillar-card"><h4><span class="letter">E</span>Experience</h4><p>Indian tank homes: Diwali showers, winter geysers, terrace solar, Hyd/Jaipur/Chennai borewell notes, bathing honesty.</p></div>
+      <div class="pillar-card"><h4><span class="letter">E</span>Expertise</h4><p>Hardness bands, descaling steps, salt vs salt-free limits, scalp film vs medical dandruff, salinity vs hardness in Chennai.</p></div>
+    </div>
+    <div class="pillars-row">
+      <div class="pillar-card"><h4><span class="letter">A</span>Authority</h4><p>USGS hardness links, live Aug/Sep siblings, PDPs, plans, trial, city page handoffs where they exist.</p></div>
+      <div class="pillar-card"><h4><span class="letter">T</span>Trust</h4><p>No soft-water feel promises for Scale-O; no medical cures; no overnight crust dissolve; bleach+acid and stone safety called out.</p></div>
+    </div>
+    <div class="link-map">
+      <div class="link-row"><div class="from">O1 Shower</div><div class="to"><span>S1 stains</span><span>O3 geyser</span><span>Collection</span></div></div>
+      <div class="link-row"><div class="from">O2 Whole house</div><div class="to"><span>Blog 2 salt types</span><span>Install</span><span>Mini/Semi/Centi</span></div></div>
+      <div class="link-row"><div class="from">O3 Geyser</div><div class="to"><span>Aug geyser damage</span><span>O5 solar</span><span>Plans</span></div></div>
+      <div class="link-row"><div class="from">O4 Hardness</div><div class="to"><span>How to test</span><span>Scaling vs TDS</span><span>PDPs</span></div></div>
+      <div class="link-row"><div class="from">O6 Bathing</div><div class="to"><span>Hair fall</span><span>Skin</span><span>O9 dandruff</span></div></div>
+      <div class="link-row"><div class="from">O10–O12 Cities</div><div class="to"><span>O2 whole house</span><span>Sibling cities</span><span>Trial</span></div></div>
+    </div>
+    <div class="kpi-row">
+      <div class="kpi-box"><div class="kpi-value">108+</div><div class="kpi-label">Product / PDP<br>link placements</div></div>
+      <div class="kpi-box"><div class="kpi-value">210+</div><div class="kpi-label">Blog-to-blog<br>link placements</div></div>
+      <div class="kpi-box"><div class="kpi-value">12/12</div><div class="kpi-label">Plans + trial<br>CTA present</div></div>
+      <div class="kpi-box"><div class="kpi-value">12/12</div><div class="kpi-label">E-E-A-T checklist<br>on every post</div></div>
+    </div>
+  </div>
+  <span class="page-number">11</span>
+</div>
+
+<!-- PAGE 12: GEO -->
+<div class="page">
+  <div class="page-inner compact">
+    <header class="doc-header compact">
+      <div class="brand-lockup">
+        <img class="brand-mark" src="scale-o-logo.png" alt="Scale-O" width="46" height="46">
+        <div class="brand-name">Scale-O</div>
+      </div>
+      <div class="doc-meta"><strong>GEO</strong> &middot; AI readiness</div>
+    </header>
+    <p class="section-label">Area 04</p>
+    <h2 class="section-title sm">GEO: written so AI engines can quote Scale-O.</h2>
+    <p class="section-intro">Same GEO layer as September, applied to all 12 October posts.</p>
+    <table class="data-table" style="font-size:7pt;">
+      <thead><tr><th>GEO element</th><th>What we did</th><th></th></tr></thead>
+      <tbody>
+        <tr><td><strong>Answer-first opening</strong></td><td>Bold Short answer on every post</td><td><span class="badge">12/12</span></td></tr>
+        <tr><td><strong>Question-style FAQs</strong></td><td>100+ FAQ H3s in natural ask language</td><td><span class="badge">12/12</span></td></tr>
+        <tr><td><strong>HTML comparison tables</strong></td><td>Before/after and type tables AI can parse</td><td><span class="badge">12/12</span></td></tr>
+        <tr><td><strong>Consistent brand facts</strong></td><td>Salt-free chelation, 6-month life, Mini/Semi/Centi, no soft strip claim</td><td><span class="badge">12/12</span></td></tr>
+        <tr><td><strong>Cited sources</strong></td><td>USGS hardness where relevant; honest city mineral notes</td><td><span class="badge">Done</span></td></tr>
+        <tr><td><strong>BlogPosting + FAQ schema</strong></td><td>Theme templates from earlier months</td><td><span class="badge">12/12</span></td></tr>
+      </tbody>
+    </table>
+    <div class="quote-card"><span class="q-label">O8 · short answer extract</span>How long a water softener lasts depends on type: salt plants keep hardware for years while salt, service and resin continue; Scale-O units have a minimum life of 6 months each, then exchange. Magnets may last as objects without a clear tank-level result.</div>
+    <div class="two-col">
+      <div class="term-card"><h4>Why honesty helps GEO</h4><p>Stating limits (does not soften like salt, not a drinking filter) makes pages safer for AI to cite than overclaiming competitors.</p></div>
+      <div class="term-card"><h4>Client review loop</h4><p>O4 and O6 topic swaps applied before paste packs shipped; rejected Diwali checklist and polyphosphate never published.</p></div>
+    </div>
+    <div class="alert alert-green">
+      <strong>Live proof next page</strong>
+      Google AI Overview already cites Scale-O by name for overhead-tank inserts (6-month life) and lists the O8 India lifespan guide as a source card.
+    </div>
+  </div>
+  <span class="page-number">12</span>
+</div>
+
+<!-- PAGE 13: GEO PROOF — GOOGLE AI OVERVIEW -->
+<div class="page">
+  <div class="page-inner compact">
+    <header class="doc-header compact">
+      <div class="brand-lockup">
+        <img class="brand-mark" src="scale-o-logo.png" alt="Scale-O" width="46" height="46">
+        <div class="brand-name">Scale-O</div>
+      </div>
+      <div class="doc-meta"><strong>GEO proof</strong> &middot; AI Overview</div>
+    </header>
+    <p class="section-label">Proof</p>
+    <h2 class="section-title sm">Google AI Overview cites Scale-O.</h2>
+    <p class="section-intro">
+      Search query matches the O8 short answer. Google’s AI Overview names <strong>Scale-O</strong> for compact / overhead tank inserts (6-month cycle) and shows our India lifespan guide as a source card.
+      &nbsp;·&nbsp; <a href="https://scale-o.com/blogs/articles/how-long-does-a-water-softener-last" style="color:var(--accent-mid);font-weight:600;">how-long-does-a-water-softener-last</a>
+    </p>
+    <table class="data-table" style="font-size:7pt;">
+      <thead>
+        <tr>
+          <th>What Google shows</th>
+          <th>Scale-O signal</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Query / answer line</strong></td><td>“How long a water softener lasts depends on type”</td></tr>
+        <tr><td><strong>Named in AI bullets</strong></td><td>Compact / overhead tank inserts · <strong>Scale-O</strong> · 6-month replacement</td></tr>
+        <tr><td><strong>Also cited</strong></td><td>Magnetic / electronic conditioners (Scale-O source chip)</td></tr>
+        <tr><td><strong>Source card</strong></td><td>“How Long Does a Water Softener Last? India Guide · Scale-O”</td></tr>
+        <tr><td><strong>Published</strong></td><td>O8 · 19 Oct 2026 · already in AI Overview</td></tr>
+      </tbody>
+    </table>
+    <div class="proof-wrap avoid-break">
+      <img src="gsc-ai-overview-softener-lifespan.png" alt="Google AI Overview cites Scale-O for overhead tank inserts 6-month life and lists How Long Does a Water Softener Last India Guide as a source">
+      <div class="proof-caption">
+        <strong>Google Search · AI Overview</strong> · Query aligned to O8 short answer · Scale-O named in the answer + source panel (red boxes on screenshot).
+      </div>
+    </div>
+  </div>
+  <span class="page-number">13</span>
+</div>
+
+<!-- PAGE 14: RANKING PROOF INTRO + TOP LIST -->
+<div class="page">
+  <div class="page-inner compact">
+    <header class="doc-header compact">
+      <div class="brand-lockup">
+        <img class="brand-mark" src="scale-o-logo.png" alt="Scale-O" width="46" height="46">
+        <div class="brand-name">Scale-O</div>
+      </div>
+      <div class="doc-meta"><strong>Proof</strong> &middot; Search ranking</div>
+    </header>
+    <p class="section-label">Proof</p>
+    <h2 class="section-title sm">Blogs are working: trending up in search.</h2>
+    <p class="section-intro">
+      Screenshots below are from the live Search Console style <strong>Trending up</strong> report for scale-o.com (Clicks).
+      October articles are already picking up clicks from a previous baseline of zero, and older Aug/Sep guides plus city pages keep climbing.
+      In practice: the longer a strong blog stays live and indexed, the easier it becomes for Google to trust it and push it toward the top of results.
+    </p>
+    <div class="alert alert-green">
+      <strong>What this proves</strong>
+      New October posts (hardness levels, geyser descaling, whole house, shower head, bathing, solar, dandruff, lifespan) moved from 0 clicks into real growth.
+      Older assets (magnetic softener, laundry, install, Pune, TDS/hardness evergreen, Mini PDP, Ahmedabad / Bangalore / Delhi pages, reviews) also trend up.
+      Content compounds: publish quality guides, keep them live, and rankings get easier over time.
+    </div>
+    <table class="data-table" style="font-size:6.4pt;">
+      <thead>
+        <tr>
+          <th>Page (examples from proof)</th>
+          <th>Built</th>
+          <th class="num">Clicks change</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>water-hardness-levels</strong></td><td><span class="badge live">October</span></td><td class="num">+87 (was 0)</td></tr>
+        <tr><td><strong>geyser-descaling</strong></td><td><span class="badge live">October</span></td><td class="num">+40 (was 0)</td></tr>
+        <tr><td><strong>whole-house-water-softener-india</strong></td><td><span class="badge live">October</span></td><td class="num">+26 (was 0)</td></tr>
+        <tr><td><strong>how-to-clean-shower-head</strong></td><td><span class="badge live">October</span></td><td class="num">+18 (was 0)</td></tr>
+        <tr><td><strong>hard-water-vs-soft-water-for-bathing</strong></td><td><span class="badge live">October</span></td><td class="num">+7 (was 0)</td></tr>
+        <tr><td><strong>magnetic-water-softener</strong></td><td>September</td><td class="num">+11 (was 0)</td></tr>
+        <tr><td><strong>how-to-install-water-softener-overhead-tank</strong></td><td>September</td><td class="num">+4 (↑100%)</td></tr>
+        <tr><td><strong>pune-hard-water</strong></td><td>September</td><td class="num">+5 (was 0)</td></tr>
+        <tr><td><strong>Mini PDP (500L)</strong></td><td>Product</td><td class="num">+26 (↑137%)</td></tr>
+        <tr><td><strong>Ahmedabad city page</strong></td><td>City page</td><td class="num">+11 (↑69%)</td></tr>
+      </tbody>
+    </table>
+    <div class="rec-box">
+      <strong>Client takeaway (English)</strong>
+      Fresh blogs start from zero and begin earning clicks once Google indexes them. Older blogs and city pages that have been live longer often move up faster and hold stronger positions.
+      That is why we keep publishing every month and protect each URL with unique keywords: the library gets stronger, not noisier.
+    </div>
+  </div>
+  <span class="page-number">14</span>
+</div>
+
+<!-- PAGE 15: PROOF SCREENSHOT 1 -->
+<div class="page">
+  <div class="page-inner compact">
+    <header class="doc-header compact">
+      <div class="brand-lockup">
+        <img class="brand-mark" src="scale-o-logo.png" alt="Scale-O" width="46" height="46">
+        <div class="brand-name">Scale-O</div>
+      </div>
+      <div class="doc-meta"><strong>Proof</strong> &middot; Trending up · Part 1</div>
+    </header>
+    <p class="section-label">Proof</p>
+    <h2 class="section-title sm">Trending up: October blogs leading clicks.</h2>
+    <p class="section-intro">Screenshot 1 of 3 · Trending up · Clicks. Top movers include water hardness levels (+87), geyser descaling (+40), whole house (+26), Mini PDP (+26), shower head (+18).</p>
+    <div class="proof-wrap avoid-break">
+      <img src="gsc-trending-up-1.png" alt="Trending up clicks: water hardness levels +87, geyser descaling +40, whole house +26, Mini +26, shower head +18">
+      <div class="proof-caption">
+        <strong>Search performance · Trending up</strong> · scale-o.com · Clicks growth (screenshot provided for this report).
+      </div>
+    </div>
+  </div>
+  <span class="page-number">15</span>
+</div>
+
+<!-- PAGE 16: PROOF SCREENSHOT 2 -->
+<div class="page">
+  <div class="page-inner compact">
+    <header class="doc-header compact">
+      <div class="brand-lockup">
+        <img class="brand-mark" src="scale-o-logo.png" alt="Scale-O" width="46" height="46">
+        <div class="brand-name">Scale-O</div>
+      </div>
+      <div class="doc-meta"><strong>Proof</strong> &middot; Trending up · Part 2</div>
+    </header>
+    <p class="section-label">Proof</p>
+    <h2 class="section-title sm">Same list: blogs + city pages still rising.</h2>
+    <p class="section-intro">Screenshot 2 of 3. Continues the trending list: magnetic softener, Ahmedabad page, reviews, bathing compare, Bangalore page, plus the October leaders above.</p>
+    <div class="proof-wrap avoid-break">
+      <img src="gsc-trending-up-2.png" alt="Trending up clicks continued: magnetic softener, Ahmedabad, reviews, bathing, Bangalore and October leaders">
+      <div class="proof-caption">
+        <strong>Search performance · Trending up</strong> · Older September / city URLs appear alongside new October posts.
+      </div>
+    </div>
+  </div>
+  <span class="page-number">16</span>
+</div>
+
+<!-- PAGE 17: PROOF SCREENSHOT 3 -->
+<div class="page">
+  <div class="page-inner compact">
+    <header class="doc-header compact">
+      <div class="brand-lockup">
+        <img class="brand-mark" src="scale-o-logo.png" alt="Scale-O" width="46" height="46">
+        <div class="brand-name">Scale-O</div>
+      </div>
+      <div class="doc-meta"><strong>Proof</strong> &middot; Trending up · Part 3</div>
+    </header>
+    <p class="section-label">Proof</p>
+    <h2 class="section-title sm">Older guides keep earning: solar, Pune, install, laundry.</h2>
+    <p class="section-intro">Screenshot 3 of 3. Shows more growth for solar heater, Pune hard water, Centi PDP, scaling/TDS evergreen, dandruff, install guide, Delhi page, laundry, chelation, and softener lifespan.</p>
+    <div class="proof-wrap avoid-break">
+      <img src="gsc-trending-up-3.png" alt="Trending up clicks: solar heater, Pune, Centi, TDS/hardness, dandruff, install, Delhi, laundry, chelation, lifespan">
+      <div class="proof-caption">
+        <strong>Search performance · Trending up</strong> · Mix of October posts and older Aug/Sep blogs still moving up.
+      </div>
+    </div>
+    <div class="alert alert-blue" style="margin-top:8px;">
+      <strong>Why older blogs often rank more easily</strong>
+      Google has more time to crawl, understand, and trust a page that has been live for weeks or months. Fresh posts start at zero and climb after indexing.
+      Keeping every month’s blogs unique (one primary = one URL) means new posts do not fight old ones, so the whole library can rise together.
+    </div>
+  </div>
+  <span class="page-number">17</span>
+</div>
+
+<!-- PAGE 18: TOP BLOG CASE STUDY -->
+<div class="page">
+  <div class="page-inner compact">
+    <header class="doc-header compact">
+      <div class="brand-lockup">
+        <img class="brand-mark" src="scale-o-logo.png" alt="Scale-O" width="46" height="46">
+        <div class="brand-name">Scale-O</div>
+      </div>
+      <div class="doc-meta"><strong>Proof</strong> &middot; Top October blog</div>
+    </header>
+    <p class="section-label">Case study</p>
+    <h2 class="section-title sm">Most ranked October blog: water hardness levels.</h2>
+    <p class="section-intro">
+      Live URL:
+      <a href="https://scale-o.com/blogs/articles/water-hardness-levels" style="color:var(--accent-mid);font-weight:600;">scale-o.com/blogs/articles/water-hardness-levels</a>
+      &nbsp;·&nbsp; Primary: <strong>water hardness level</strong> &nbsp;·&nbsp; Published mid-October (O4).
+      Google Search Console compare: <strong>Last 28 days vs previous 28 days</strong>.
+    </p>
+    <div class="kpi-row">
+      <div class="kpi-box"><div class="kpi-value">87</div><div class="kpi-label">Clicks<br>(was 0)</div></div>
+      <div class="kpi-box"><div class="kpi-value">10.3k</div><div class="kpi-label">Impressions<br>(was 0)</div></div>
+      <div class="kpi-box"><div class="kpi-value">0.8%</div><div class="kpi-label">Average CTR<br>(was 0%)</div></div>
+      <div class="kpi-box"><div class="kpi-value">5.2</div><div class="kpi-label">Avg. position<br>(was 0)</div></div>
+    </div>
+    <table class="data-table" style="font-size:7pt;">
+      <thead>
+        <tr>
+          <th>Metric</th>
+          <th class="num">Last 28 days</th>
+          <th class="num">Previous 28 days</th>
+          <th class="num">Change</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Total clicks</strong></td><td class="num">87</td><td class="num">0</td><td class="num"><strong>+87</strong></td></tr>
+        <tr><td><strong>Total impressions</strong></td><td class="num">10,300</td><td class="num">0</td><td class="num"><strong>+10.3k</strong></td></tr>
+        <tr><td><strong>Average CTR</strong></td><td class="num">0.8%</td><td class="num">0%</td><td class="num"><strong>+0.8 pts</strong></td></tr>
+        <tr><td><strong>Average position</strong></td><td class="num">5.2</td><td class="num">—</td><td class="num"><strong>Page-one band</strong></td></tr>
+      </tbody>
+    </table>
+    <div class="alert alert-green">
+      <strong>Why this blog leads October</strong>
+      From zero visibility to 10.3k impressions and 87 clicks in one compare window, with average position 5.2.
+      That is strong proof the hardness-levels guide is ranking for real India queries and earning traffic fast after publish.
+    </div>
+    <div class="proof-wrap avoid-break">
+      <img src="gsc-hardness-levels-chart.png" alt="GSC performance chart for water-hardness-levels: 87 clicks, 10.3k impressions, CTR 0.8%, position 5.2">
+      <div class="proof-caption">
+        <strong>Google Search Console</strong> · Page filter: /blogs/articles/water-hardness-levels · Last 28 days vs previous period.
+      </div>
+    </div>
+  </div>
+  <span class="page-number">18</span>
+</div>
+
+<!-- PAGE 19: QUERIES TABLE + SCREENSHOTS -->
+<div class="page">
+  <div class="page-inner compact">
+    <header class="doc-header compact">
+      <div class="brand-lockup">
+        <img class="brand-mark" src="scale-o-logo.png" alt="Scale-O" width="46" height="46">
+        <div class="brand-name">Scale-O</div>
+      </div>
+      <div class="doc-meta"><strong>Proof</strong> &middot; Queries for top blog</div>
+    </header>
+    <p class="section-label">Case study</p>
+    <h2 class="section-title sm">Queries ranking this blog (from GSC).</h2>
+    <p class="section-intro">
+      Top queries driving the hardness-levels article. Previous period was 0 clicks / 0 impressions on each row — all growth is new.
+    </p>
+    <table class="data-table" style="font-size:6.5pt;">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Search query</th>
+          <th class="num">Clicks</th>
+          <th class="num">Prev.</th>
+          <th class="num">Impr.</th>
+          <th class="num">Prev.</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td><strong>drinking water hardness limit in ppm</strong></td><td class="num">3</td><td class="num">0</td><td class="num">30</td><td class="num">0</td></tr>
+        <tr><td>2</td><td><strong>drinking water hardness limit</strong></td><td class="num">1</td><td class="num">0</td><td class="num">119</td><td class="num">0</td></tr>
+        <tr><td>3</td><td><strong>hardness of drinking water standard in ppm</strong></td><td class="num">1</td><td class="num">0</td><td class="num">65</td><td class="num">0</td></tr>
+        <tr><td>4</td><td><strong>hard water tds level</strong></td><td class="num">1</td><td class="num">0</td><td class="num">53</td><td class="num">0</td></tr>
+        <tr><td>5</td><td><strong>drinking water hardness range</strong></td><td class="num">1</td><td class="num">0</td><td class="num">27</td><td class="num">0</td></tr>
+        <tr><td>6</td><td><strong>ppm chart for water</strong></td><td class="num">1</td><td class="num">0</td><td class="num">14</td><td class="num">0</td></tr>
+        <tr><td>7</td><td><strong>500 ppm water hardness</strong></td><td class="num">1</td><td class="num">0</td><td class="num">8</td><td class="num">0</td></tr>
+        <tr><td>8</td><td><strong>normal water hardness level</strong></td><td class="num">1</td><td class="num">0</td><td class="num">8</td><td class="num">0</td></tr>
+        <tr><td>9</td><td><strong>128 ppm water</strong></td><td class="num">1</td><td class="num">0</td><td class="num">4</td><td class="num">0</td></tr>
+        <tr><td>10</td><td><strong>water hardness 500 ppm</strong></td><td class="num">1</td><td class="num">0</td><td class="num">4</td><td class="num">0</td></tr>
+      </tbody>
+    </table>
+    <div class="term-grid">
+      <div class="term-card">
+        <h4>Highest impressions in this list</h4>
+        <p><strong>drinking water hardness limit</strong> — 119 impressions (from 0). Strong visibility for a drinking/ppm related query on the O4 guide.</p>
+      </div>
+      <div class="term-card">
+        <h4>Highest clicks in this list</h4>
+        <p><strong>drinking water hardness limit in ppm</strong> — 3 clicks (from 0). Exact ppm / limit language matches the chart angle of the post.</p>
+      </div>
+    </div>
+    <div class="proof-wrap avoid-break" style="margin-top:6px;">
+      <img src="gsc-hardness-levels-queries-1.png" alt="GSC top queries for water-hardness-levels: drinking water hardness limit queries">
+      <img src="gsc-hardness-levels-queries-2.png" alt="GSC queries continued: hard water tds level, hardness range, ppm chart" style="border-top:1px solid #C9DBEE;">
+      <img src="gsc-hardness-levels-queries-3.png" alt="GSC queries continued: 500 ppm, normal hardness level, 128 ppm" style="border-top:1px solid #C9DBEE;">
+      <div class="proof-caption">
+        <strong>Google Search Console · Queries</strong> · Filtered to the water-hardness-levels URL · Last 28 days vs previous period.
+      </div>
+    </div>
+  </div>
+  <span class="page-number">19</span>
+</div>
+
+<!-- PAGE 20: GEYSER DESCALING CASE STUDY (COMPACT) -->
+<div class="page">
+  <div class="page-inner compact">
+    <header class="doc-header compact">
+      <div class="brand-lockup">
+        <img class="brand-mark" src="scale-o-logo.png" alt="Scale-O" width="46" height="46">
+        <div class="brand-name">Scale-O</div>
+      </div>
+      <div class="doc-meta"><strong>Proof</strong> &middot; Geyser blog</div>
+    </header>
+    <p class="section-label">Case study</p>
+    <h2 class="section-title sm">Also ranking: geyser descaling.</h2>
+    <p class="section-intro">
+      <a href="https://scale-o.com/blogs/articles/geyser-descaling" style="color:var(--accent-mid);font-weight:600;">scale-o.com/blogs/articles/geyser-descaling</a>
+      &nbsp;·&nbsp; Primary: <strong>geyser descaling</strong> &nbsp;·&nbsp; O3 &nbsp;·&nbsp; Last 28 days vs previous (GSC).
+    </p>
+    <table class="data-table" style="font-size:7pt;">
+      <thead>
+        <tr>
+          <th>Metric</th>
+          <th class="num">Last 28 days</th>
+          <th class="num">Previous</th>
+          <th class="num">Change</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Clicks</strong></td><td class="num">40</td><td class="num">0</td><td class="num"><strong>+40</strong></td></tr>
+        <tr><td><strong>Impressions</strong></td><td class="num">1,870</td><td class="num">0</td><td class="num"><strong>+1.87k</strong></td></tr>
+        <tr><td><strong>Avg. CTR</strong></td><td class="num">2.1%</td><td class="num">0%</td><td class="num"><strong>+2.1 pts</strong></td></tr>
+        <tr><td><strong>Avg. position</strong></td><td class="num">5.2</td><td class="num">—</td><td class="num"><strong>Page-one band</strong></td></tr>
+      </tbody>
+    </table>
+    <p class="section-label" style="margin-top:2px;">Top queries (small table)</p>
+    <table class="data-table" style="font-size:6.5pt;">
+      <thead>
+        <tr>
+          <th>Query</th>
+          <th class="num">Clicks</th>
+          <th class="num">Impr.</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>geyser descaling</strong></td><td class="num">2</td><td class="num">59</td></tr>
+        <tr><td><strong>descaling geyser</strong></td><td class="num">2</td><td class="num">25</td></tr>
+        <tr><td><strong>descaling of geyser</strong></td><td class="num">1</td><td class="num">29</td></tr>
+        <tr><td><strong>geyser scale remover</strong></td><td class="num">1</td><td class="num">20</td></tr>
+        <tr><td><strong>geyser descaling kit</strong></td><td class="num">1</td><td class="num">7</td></tr>
+        <tr><td><strong>geyser deep cleaning</strong></td><td class="num">1</td><td class="num">2</td></tr>
+        <tr><td><strong>how to descale geyser</strong></td><td class="num">0</td><td class="num">22</td></tr>
+        <tr><td><strong>गीजर की सफाई कैसे करें</strong></td><td class="num">0</td><td class="num">24</td></tr>
+        <tr><td><strong>geyser ki safai kaise karen</strong></td><td class="num">0</td><td class="num">21</td></tr>
+        <tr><td><strong>geyser descaling powder</strong></td><td class="num">0</td><td class="num">13</td></tr>
+      </tbody>
+    </table>
+    <div class="proof-wrap avoid-break">
+      <img src="gsc-geyser-descaling-chart.png" alt="GSC chart for geyser-descaling: 40 clicks, 1.87k impressions, CTR 2.1%, position 5.2">
+      <div class="proof-caption">
+        <strong>Google Search Console</strong> · Page: /blogs/articles/geyser-descaling · Also ranks for Hindi / Hinglish “geyser cleaning” queries.
+      </div>
+    </div>
+  </div>
+  <span class="page-number">20</span>
+</div>
+
+<!-- PAGE 21: WHOLE-HOUSE SOFTENER CASE STUDY (COMPACT) -->
+<div class="page">
+  <div class="page-inner compact">
+    <header class="doc-header compact">
+      <div class="brand-lockup">
+        <img class="brand-mark" src="scale-o-logo.png" alt="Scale-O" width="46" height="46">
+        <div class="brand-name">Scale-O</div>
+      </div>
+      <div class="doc-meta"><strong>Proof</strong> &middot; Whole-house blog</div>
+    </header>
+    <p class="section-label">Case study</p>
+    <h2 class="section-title sm">Also ranking: whole house softener India.</h2>
+    <p class="section-intro">
+      <a href="https://scale-o.com/blogs/articles/whole-house-water-softener-india" style="color:var(--accent-mid);font-weight:600;">scale-o.com/blogs/articles/whole-house-water-softener-india</a>
+      &nbsp;·&nbsp; Primary: <strong>whole house water softener india</strong> &nbsp;·&nbsp; O2 &nbsp;·&nbsp; Last 28 days vs previous (GSC).
+    </p>
+    <table class="data-table" style="font-size:7pt;">
+      <thead>
+        <tr>
+          <th>Metric</th>
+          <th class="num">Last 28 days</th>
+          <th class="num">Previous</th>
+          <th class="num">Change</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Clicks</strong></td><td class="num">26</td><td class="num">0</td><td class="num"><strong>+26</strong></td></tr>
+        <tr><td><strong>Impressions</strong></td><td class="num">1,320</td><td class="num">0</td><td class="num"><strong>+1.32k</strong></td></tr>
+        <tr><td><strong>Avg. CTR</strong></td><td class="num">2%</td><td class="num">0%</td><td class="num"><strong>+2 pts</strong></td></tr>
+        <tr><td><strong>Avg. position</strong></td><td class="num">5.5</td><td class="num">—</td><td class="num"><strong>Page-one band</strong></td></tr>
+      </tbody>
+    </table>
+    <p class="section-label" style="margin-top:2px;">Top queries (small table)</p>
+    <table class="data-table" style="font-size:6.5pt;">
+      <thead>
+        <tr>
+          <th>Query</th>
+          <th class="num">Clicks</th>
+          <th class="num">Impr.</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>water softener for bungalow</strong></td><td class="num">0</td><td class="num">11</td></tr>
+        <tr><td><strong>water softener for sintex tank</strong></td><td class="num">0</td><td class="num">11</td></tr>
+        <tr><td><strong>how to choose an affordable whole house water softener…</strong></td><td class="num">0</td><td class="num">10</td></tr>
+        <tr><td><strong>whole house water softener india</strong></td><td class="num">0</td><td class="num">7</td></tr>
+        <tr><td><strong>whole house water softener for bathroom</strong></td><td class="num">0</td><td class="num">7</td></tr>
+        <tr><td><strong>water softener for villa</strong></td><td class="num">0</td><td class="num">6</td></tr>
+        <tr><td><strong>water softener for sintex</strong></td><td class="num">0</td><td class="num">5</td></tr>
+        <tr><td><strong>whole house water softener</strong></td><td class="num">0</td><td class="num">5</td></tr>
+        <tr><td><strong>independent house</strong></td><td class="num">0</td><td class="num">4</td></tr>
+        <tr><td><strong>overhead tank</strong></td><td class="num">0</td><td class="num">3</td></tr>
+      </tbody>
+    </table>
+    <div class="proof-wrap avoid-break">
+      <img src="gsc-whole-house-softener-chart.png" alt="GSC chart for whole-house-water-softener-india: 26 clicks, 1.32k impressions, CTR 2%, position 5.5">
+      <div class="proof-caption">
+        <strong>Google Search Console</strong> · Page: /blogs/articles/whole-house-water-softener-india · India-specific queries (bungalow, Sintex tank, villa).
+      </div>
+    </div>
+  </div>
+  <span class="page-number">21</span>
+</div>
+
+<!-- PAGE 22: LIVE VERIFY -->
+<div class="page">
+  <div class="page-inner compact">
+    <header class="doc-header compact">
+      <div class="brand-lockup">
+        <img class="brand-mark" src="scale-o-logo.png" alt="Scale-O" width="46" height="46">
+        <div class="brand-name">Scale-O</div>
+      </div>
+      <div class="doc-meta"><strong>Proof</strong> &middot; Live verification</div>
+    </header>
+    <p class="section-label">Proof</p>
+    <h2 class="section-title sm">Live-site verification (late Oct 2026).</h2>
+    <p class="section-intro">Checked against scale-o.com/blogs/articles.atom and October paste packs in the repo.</p>
+    <table class="data-table" style="font-size:7pt;">
+      <thead><tr><th>Check</th><th>Result</th><th></th></tr></thead>
+      <tbody>
+        <tr><td><strong>Blog URL loads</strong></td><td>All 12 October handles present in the live atom feed</td><td><span class="badge">12/12</span></td></tr>
+        <tr><td><strong>Unique primary keywords</strong></td><td>No overlap with Aug/Sep locked primaries</td><td><span class="badge">12/12</span></td></tr>
+        <tr><td><strong>3,000+ word bodies</strong></td><td>All paste-pack bodies clear 3,000 words</td><td><span class="badge">12/12</span></td></tr>
+        <tr><td><strong>Commercial block</strong></td><td>Mini / Semi / Centi + plans + trial on every post</td><td><span class="badge">12/12</span></td></tr>
+        <tr><td><strong>E-E-A-T checklist</strong></td><td>Experience / Expertise / Authority / Trust block on every post</td><td><span class="badge">12/12</span></td></tr>
+        <tr><td><strong>Rejected topics unpublished</strong></td><td>Diwali checklist + polyphosphate URLs not live</td><td><span class="badge">Pass</span></td></tr>
+        <tr><td><strong>Google AI Overview cite</strong></td><td>O8 lifespan guide named in AI answer + source card (page 13)</td><td><span class="badge">Live</span></td></tr>
+        <tr><td><strong>Ranking proof screenshots</strong></td><td>Trending-up clicks attached (pages 14–17)</td><td><span class="badge">Done</span></td></tr>
+        <tr><td><strong>Top blog case studies</strong></td><td>hardness (87) + geyser (40) + whole-house (26)</td><td><span class="badge">Done</span></td></tr>
+      </tbody>
+    </table>
+    <div class="rec-box"><strong>Indexing habit</strong>Request indexing in GSC the same day each post goes live so new blogs can leave the “Previously: 0” stage faster.</div>
+  </div>
+  <span class="page-number">22</span>
+</div>
+
+<!-- PAGE 23: DELIVERABLES -->
+<div class="page">
+  <div class="page-inner compact">
+    <header class="doc-header compact">
+      <div class="brand-lockup">
+        <img class="brand-mark" src="scale-o-logo.png" alt="Scale-O" width="46" height="46">
+        <div class="brand-name">Scale-O</div>
+      </div>
+      <div class="doc-meta"><strong>Close</strong> &middot; Deliverables</div>
+    </header>
+    <p class="section-label">Summary</p>
+    <h2 class="section-title sm">What we delivered in October.</h2>
+    <p class="section-intro">Verified against the October keyword plan, topic list, 12 paste packs, the live atom feed, and ranking screenshots.</p>
+    <ul class="check-list">
+      <li>October keyword research + plan doc</li>
+      <li>Topic list with client approvals / swaps</li>
+      <li>12 unique primary keywords locked</li>
+      <li>Secondary keyword sets per post</li>
+      <li>12 blog titles + handles + SEO titles / metas</li>
+      <li>12 long-form paste packs (3,000+ words)</li>
+      <li>Benefits, before/after, Why Scale-O on all</li>
+      <li>Mini / Semi / Centi + plans + trial on all</li>
+      <li>E-E-A-T checklist in every pack</li>
+      <li>GEO answer-first + FAQ structure</li>
+      <li>Google AI Overview cite: O8 lifespan guide (Scale-O named + source card)</li>
+      <li>Internal links to live siblings only</li>
+      <li>No clash with Aug/Sep primaries</li>
+      <li>Rejected Diwali + polyphosphate not published</li>
+      <li>Search ranking proof screenshots (trending up)</li>
+      <li>Top blog case study: water-hardness-levels (87 clicks / 10.3k)</li>
+      <li>Geyser descaling case study (40 clicks / 1.87k + query table)</li>
+      <li>Whole-house softener India case study (26 clicks / 1.32k + query table)</li>
+      <li>This A4 SEO &amp; GEO report</li>
+    </ul>
+    <div class="exec-grid">
+      <div class="exec-card"><h4>Repo paths</h4><ul>
+        <li>docs/October/Blog/…</li>
+        <li>docs/October/Report/…</li>
+        <li>Keyword plan + topic list</li>
+      </ul></div>
+      <div class="exec-card"><h4>Live site</h4><ul>
+        <li>scale-o.com/blogs/articles/…</li>
+        <li>12 Oct handles live</li>
+        <li>Collection + plans + trial</li>
+      </ul></div>
+      <div class="exec-card"><h4>Next</h4><ul>
+        <li>November calendar approved</li>
+        <li>N1–N4 paste packs started</li>
+        <li>Continue N5–N12</li>
+      </ul></div>
+    </div>
+    <p class="footer-note">Document: Scale-O SEO &amp; GEO Report &middot; October 2026 &middot; Confidential</p>
+  </div>
+  <span class="page-number">23</span>
+</div>
+
+<!-- PAGE 24: THANKS -->
+<div class="page">
+  <div class="page-inner fill-page thanks-page">
+    <header class="doc-header">
+      <div class="brand-lockup">
+        <img class="brand-mark" src="scale-o-logo.png" alt="Scale-O" width="46" height="46">
+        <div class="brand-name">Scale-O</div>
+      </div>
+      <div class="doc-meta"><strong>Scale-O</strong> &middot; October 2026</div>
+    </header>
+    <div class="thanks-hero">
+      <p class="thanks-label">Thank you</p>
+      <h1>October shipped.<br><em>November is next.</em></h1>
+      <p class="thanks-lead">
+        Twelve researched keywords, twelve live long-form guides, Google AI Overview already citing Scale-O by name,
+        and hardness-levels, geyser-descaling, and whole-house softener India in the page-one band. Ready for November.
+      </p>
+    </div>
+    <div class="cta-box">
+      <h3>Questions on this report?</h3>
+      <p>We can walk through any keyword, title, live URL or ranking screenshot on a short call.</p>
+      <div class="cta-links">
+        <a href="https://scale-o.com">scale-o.com</a>
+        <a href="https://scale-o.com/blogs/articles">Articles</a>
+        <a href="https://scale-o.com/pages/water-softener-plans">Plans</a>
+      </div>
+    </div>
+    <div class="hero-accent-bar"></div>
+  </div>
+  <span class="page-number">24</span>
+</div>
+
+</body>
+</html>
